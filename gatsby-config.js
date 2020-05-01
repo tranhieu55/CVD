@@ -1,10 +1,22 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env`,
+})
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "cdwebsite", // required
+        defaultLang: "en-us", // optional, but recommended
+        accessToken: `${process.env.API_KEY}`, // optional
+        path: "/preview", // optional, default: /preview
+        previews: true, // optional, default: false
+        sharpKeys: [
+          /image|photo|picture/, // (default)
+          "profilepic",
+        ],
+      },
+    },
+  ],
 }
