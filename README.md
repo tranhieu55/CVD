@@ -14,7 +14,7 @@
 
 ### Preview site
 - You can now do `npm install`
-- And then `npm run dev`
+- And then `npm run start`
 - Preview your site
 
 ### Support
