@@ -4,7 +4,7 @@ import BigText from "../components/slices/BigText"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
-      switch (s.slice_type) {
+      switch (s.type) {
         // These are the API IDs of the slices
         case "text":
           return (
@@ -12,7 +12,7 @@ const SliceZone = props => {
               im a text for testing
             </h1>
           )
-        case "team":
+        case "big_text":
           return (
             <>
               <BigText key={s.id} input={s} />

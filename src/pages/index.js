@@ -6,7 +6,7 @@ import SEO from "../components/utilities/SEO"
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
   const title = prismic.allHomepages.edges[0].node.page_title[0].text
-  console.log(data)
+  console.log("index", data)
   return (
     <>
       <SEO props={data} />
@@ -34,6 +34,15 @@ export const pageQuery = graphql`
             meta_title
             meta_description
             keywords
+            body {
+              ... on PRISMIC_HomepageBodyBig_text {
+                type
+                label
+                primary {
+                  text
+                }
+              }
+            }
           }
         }
       }
