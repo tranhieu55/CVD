@@ -1,1 +1,72 @@
 /*font imports animation library*/
+
+@font-face {
+  font-family: "Calibre Black";
+  src: url("../assets/fonts/CalibreBlack.woff");
+}
+@font-face {
+  font-family: "Calibre Black Italic";
+  src: url("../assets/fonts/CalibreBlackItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Bold";
+  src: url("../assets/fonts/CalibreBold.woff");
+}
+@font-face {
+  font-family: "Calibre Bold Italic";
+  src: url("../assets/fonts/CalibreBoldItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Light";
+  src: url("../assets/fonts/CalibreLight.woff");
+}
+@font-face {
+  font-family: "Calibre Light Italic";
+  src: url("../assets/fonts/CalibreLightItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Medium";
+  src: url("../assets/fonts/CalibreMedium.woff");
+}
+@font-face {
+  font-family: "Calibre Medium";
+  src: url("../assets/fonts/CalibreMediumItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Regular";
+  src: url("../assets/fonts/CalibreRegular.woff");
+}
+@font-face {
+  font-family: "Calibre Regular Italic";
+  src: url("../assets/fonts/CalibreRegularItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Semibold";
+  src: url("../assets/fonts/CalibreSemibold.woff");
+}
+@font-face {
+  font-family: "Calibre Semibold Italic";
+  src: url("../assets/fonts/CalibreSemiboldItalic.woff");
+}
+@font-face {
+  font-family: "Calibre Thin";
+  src: url("../assets/fonts/CalibreThin.woff");
+}
+@font-face {
+  font-family: "Calibre Thin Italic";
+  src: url("../assets/fonts/CalibreThinItalic.woff");
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Calibre Bold";
+}
+body {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  font-family: "Calibre Regular";
+  margin: 0;
+}
