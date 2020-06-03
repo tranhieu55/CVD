@@ -59,7 +59,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: "Calibre Bold";
 }
 body {
@@ -69,4 +70,7 @@ a {
   text-decoration: none;
   font-family: "Calibre Regular";
   margin: 0;
+}
+p {
+  font-family: "Calibre Regular";
 }

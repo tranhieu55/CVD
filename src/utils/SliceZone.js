@@ -1,5 +1,6 @@
 import React from "react"
 import BigText from "../components/slices/BigText"
+import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -16,6 +17,12 @@ const SliceZone = props => {
           return (
             <>
               <BigText key={s.id} input={s} />
+            </>
+          )
+        case "platform_trio":
+          return (
+            <>
+              <PlatformTrio key={s.id} input={s} />
             </>
           )
         default:
