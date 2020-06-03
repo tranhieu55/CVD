@@ -3,7 +3,7 @@ import SliceZone from "../utils/SliceZone"
 import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import Layout from "../components/Layout"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -123,6 +123,19 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyPlatform_trio {
+                type
+                primary {
+                  title
+                  content
+                }
+                #repeatable fields
+                fields {
+                  platform
+                  logo
+                  description
+                }
+              }
               ... on PRISMIC_HomepageBodyBig_text {
                 type
                 label
