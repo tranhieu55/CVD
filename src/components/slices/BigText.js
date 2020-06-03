@@ -21,6 +21,8 @@ BigText.propTypes = {
 const SubHeading = styled.h2`
   text-align: center;
   font-size: 3rem;
+  max-width: 1258px;
+
   width: 75%;
   margin: auto;
   height: auto;

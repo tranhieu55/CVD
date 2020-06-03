@@ -135,9 +135,17 @@ export const pageQuery = graphql`
                   description
                 }
               }
+              ... on PRISMIC_HomepageBodyClient_logos {
+                type
+                fields {
+                  logo
+                }
+                primary {
+                  title
+                }
+              }
               ... on PRISMIC_HomepageBodyBig_text {
                 type
-                label
                 primary {
                   text
                 }

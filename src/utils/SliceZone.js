@@ -1,7 +1,7 @@
 import React from "react"
 import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
-
+import ClientLogos from "../components/slices/Homepage/ClientLogos"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -23,6 +23,12 @@ const SliceZone = props => {
           return (
             <>
               <PlatformTrio key={s.id} input={s} />
+            </>
+          )
+        case "client_logos":
+          return (
+            <>
+              <ClientLogos key={s.id} input={s} />
             </>
           )
         default:
