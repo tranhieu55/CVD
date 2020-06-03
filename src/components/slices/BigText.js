@@ -6,9 +6,9 @@ const BigText = ({ input }) => {
   const heading = input.primary.text[0].text
 
   return (
-    <>
+    <Container>
       <SubHeading>{heading}</SubHeading>
-    </>
+    </Container>
   )
 }
 
@@ -25,4 +25,7 @@ const SubHeading = styled.h2`
   margin: auto;
   height: auto;
   padding: 150px 0;
+`
+const Container = styled.div`
+  margin-top: 150px;
 `
