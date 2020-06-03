@@ -11,7 +11,7 @@ const PlatformTrio = ({ input }) => {
 
   console.log(platforms)
   return (
-    <>
+    <Container>
       <Title>{title}</Title>
       <Content className="content">{RichText.render(content)}</Content>
 
@@ -38,7 +38,7 @@ const PlatformTrio = ({ input }) => {
           )
         })}
       </Platforms>
-    </>
+    </Container>
   )
 }
 
@@ -48,6 +48,20 @@ PlatformTrio.propTypes = {
   input: PropTypes.object.isRequired,
 }
 
+const Container = styled.div`
+  background: #f8f8f8;
+  :before {
+    background: inherit;
+    content: "";
+    transform-origin: 100%;
+    z-index: -1;
+    height: 250px;
+    width: 100%;
+    transform: skewY(1.5deg);
+    position: relative;
+    display: block;
+  }
+`
 const Title = styled.h2`
   height: 144px;
   max-width: 959px;

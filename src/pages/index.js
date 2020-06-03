@@ -54,19 +54,18 @@ const Container = styled.div`
   grid-template-rows: 100%;
   margin: auto;
   background-color: black;
-  /* :after {
+  :after {
     background: inherit;
-    bottom: 0;
     content: "";
     display: block;
-    height: 50%;
+    height: 32.5%;
     left: 0;
     position: absolute;
     right: 0;
-    transform: skewY(-2.5deg);
+    transform: skewY(-1.5deg);
     transform-origin: 100%;
     z-index: -1;
-  } */
+  }
 `
 const ContainerLeft = styled.div`
   grid-column: 1;
