@@ -8,7 +8,6 @@ import styled from "styled-components"
 // import MobileHeader from "./MobileHeader"
 
 export default ({ children }) => {
-  console.log(children)
   return (
     <>
       <Body id="layout-container" style={{ background: "white", zIndex: 1 }}>
