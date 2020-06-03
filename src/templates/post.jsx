@@ -1,12 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-const Post = ({ data: { post } }) => {
-  const { data } = post
+const Post = ({ data }) => {
+  console.log(data.prismic.post)
+  let title = data.prismic.post.title[0].text
+  let content = data.prismic.post.content[0].text
+
   return (
     <React.Fragment>
-      <h1>{data.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.content }} />
+      <h1>{title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </React.Fragment>
   )
 }
@@ -15,14 +18,14 @@ export default Post
 
 export const pageQuery = graphql`
   query PostBySlug($uid: String!) {
-    prismic{
-     post(uid: $uid, lang: "en-gb") {
+    prismic {
+      post(uid: $uid, lang: "en-gb") {
         title
         content
         _meta {
-            uid
+          uid
         }
-        }
+      }
     }
   }
 `
