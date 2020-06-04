@@ -4,6 +4,7 @@ import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import Layout from "../components/Layout"
 import { Link, graphql } from "gatsby"
+import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -58,7 +59,7 @@ const Container = styled.div`
     background: inherit;
     content: "";
     display: block;
-    height: 32.5%;
+    height: 800px;
     left: 0;
     position: absolute;
     right: 0;
@@ -148,6 +149,19 @@ export const pageQuery = graphql`
                 type
                 primary {
                   text
+                }
+              }
+              ... on PRISMIC_HomepageBodyWhat_we_do {
+                type
+                primary {
+                  title
+                }
+                fields {
+                  service
+                  content
+                  to_service {
+                    _linkType
+                  }
                 }
               }
             }
