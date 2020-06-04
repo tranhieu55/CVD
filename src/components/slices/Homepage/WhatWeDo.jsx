@@ -45,8 +45,43 @@ export default function WhatWeDo(props) {
           })}
         </Left>
         <Right>
-          <Content>{RichText.render(content)}</Content>
-          <Button yellowWhite content={"Learn more"} />
+          <UpperContent>
+            <Content>{RichText.render(content)}</Content>
+            <Button yellowWhite content={"Learn more"} />
+          </UpperContent>
+          <div>
+            <div class="blob">
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+              <div class="blob__chunk"></div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="10"
+                    result="blur"
+                  />
+                  <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo"
+                  />
+                  <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+              </defs>
+            </svg>
+          </div>
         </Right>
       </Container>
     </Skew>
@@ -68,6 +103,11 @@ const Skew = styled.div`
     position: relative;
     display: block;
   }
+`
+const UpperContent = styled.div`
+  position: relative;
+  display: block;
+  z-index: 22;
 `
 const Container = styled.div`
   z-index: 3;
