@@ -1,0 +1,121 @@
+import React, { useState, useEffect } from "react"
+import styled from "styled-components"
+import { RichText } from "prismic-reactjs"
+import { Link } from "gatsby"
+import Button from "../../bits/Button"
+export default function WhatWeDo(props) {
+  console.log(props)
+
+  const { input } = props
+  const { fields } = input
+  const defaultService = JSON.stringify(fields[0].service[0].text)
+  const defaultContent = fields[0].content
+  const heading = input.primary.title[0].text
+  console.log(props)
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(`You clicked imes`)
+    }, 3000)
+  })
+
+  // Declare a new state variable, which we'll call "count"
+  const [service, setService] = useState(defaultService)
+  const [content, setContent] = useState(defaultContent)
+
+  function updateSelected(i) {
+    setService(fields[i].service[0].text)
+    setContent(fields[i].content)
+  }
+
+  return (
+    <Skew>
+      <Container>
+        <Left>
+          <Title>{heading}</Title>
+          <p>{service}</p>
+          {fields.map((service, i) => {
+            let title = service.service[0].text
+            return (
+              <>
+                <Service key={i} onClick={() => updateSelected(i)}>
+                  {title}
+                </Service>
+              </>
+            )
+          })}
+        </Left>
+        <Right>
+          <Content>{RichText.render(content)}</Content>
+          <Button yellowWhite content={"Learn more"} />
+        </Right>
+      </Container>
+    </Skew>
+  )
+}
+
+const Skew = styled.div`
+  margin-top: 200px;
+  background-color: #101010;
+  display: block;
+  :before {
+    background: inherit;
+    content: "";
+    transform-origin: 100%;
+    z-index: 1;
+    height: 250px;
+    width: 100%;
+    transform: skewY(3.5deg);
+    position: relative;
+    display: block;
+  }
+`
+const Container = styled.div`
+  z-index: 3;
+  top: -200px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
+`
+
+const Title = styled.h2`
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 62px;
+`
+
+const Left = styled.div`
+  display: block;
+  grid-column: 1;
+  margin: auto;
+  width: 60%;
+`
+
+const Service = styled.h4`
+  opacity: 0.6;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+`
+
+const Right = styled.div`
+  display: block;
+  grid-column: 2;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
+  display: block;
+  margin: auto;
+`
+const Content = styled.div`
+  width: 523px;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 34px;
+`

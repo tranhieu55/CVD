@@ -2,6 +2,7 @@ import React from "react"
 import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
+import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -29,6 +30,12 @@ const SliceZone = props => {
           return (
             <>
               <ClientLogos key={s.id} input={s} />
+            </>
+          )
+        case "what_we_do":
+          return (
+            <>
+              <WhatWeDo key={s.id} input={s} />
             </>
           )
         default:
