@@ -3,6 +3,8 @@ import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
+import BigImage from "../components/slices/BigImage"
+
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -36,6 +38,12 @@ const SliceZone = props => {
           return (
             <>
               <WhatWeDo key={s.id} input={s} />
+            </>
+          )
+        case "big_image":
+          return (
+            <>
+              <BigImage key={s.id} input={s} />
             </>
           )
         default:
