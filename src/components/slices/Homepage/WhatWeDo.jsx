@@ -34,7 +34,7 @@ export default function WhatWeDo(props) {
           <Title>{heading}</Title>
           <p>{service}</p>
           {fields.map((service, i) => {
-            let title = service.service[0].text
+            const title = service.service[0].text
             return (
               <>
                 <Service key={i} onClick={() => updateSelected(i)}>

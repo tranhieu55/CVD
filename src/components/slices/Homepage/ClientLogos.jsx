@@ -11,7 +11,7 @@ const BigText = ({ input }) => {
       <Heading>{heading}</Heading>
       <Clients>
         {clients.map((client, i) => {
-          let logo = client.logo.url
+          const logo = client.logo.url
           return <ClientLogo src={logo} key={i} />
         })}
       </Clients>

@@ -15,9 +15,9 @@ const PlatformTrio = ({ input }) => {
 
       <Platforms>
         {platforms.map((platform, i) => {
-          let name = platform.platform[0].text
-          let desc = platform.description
-          let logo = platform.logo.url
+          const name = platform.platform[0].text
+          const desc = platform.description
+          const logo = platform.logo.url
           return (
             <Platform key={i}>
               <Inner>
