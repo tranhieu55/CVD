@@ -26,18 +26,6 @@ export const pageQuery = graphql`
   query ServiceBySlug($uid: String!) {
     prismic {
       service(uid: $uid, lang: "en-gb") {
-        page_title
-        _meta {
-          uid
-          id
-          firstPublicationDate
-          tags
-          type
-        }
-        meta_description
-        meta_title
-        page_description
-        keywords
         body {
           ... on PRISMIC_ServiceBodyBig_image {
             type
@@ -45,8 +33,46 @@ export const pageQuery = graphql`
             primary {
               big_image
             }
+            fields {
+              contentLarge
+            }
+          }
+          ... on PRISMIC_ServiceBodyHalf_width_text {
+            type
+            label
+            primary {
+              text_left
+              text_right
+              title_left
+              title_right
+            }
+          }
+          ... on PRISMIC_ServiceBodyImage_with_side_text {
+            type
+            label
+            primary {
+              image
+              text
+              title
+            }
+          }
+          ... on PRISMIC_ServiceBodyText_with_bullet_list {
+            type
+            label
+            fields {
+              bullet_list_left
+              bullet_list_middle
+              bullet_list_right
+              content
+              title
+            }
           }
         }
+        page_title
+        page_description
+        meta_title
+        meta_description
+        keywords
       }
     }
   }

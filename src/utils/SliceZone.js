@@ -4,6 +4,11 @@ import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
 import BigImage from "../components/slices/BigImage"
+import {
+  TextWithBulletList,
+  HalfWidthText,
+  ImageWithSideText,
+} from "../components/slices/Service"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -44,6 +49,24 @@ const SliceZone = props => {
           return (
             <>
               <BigImage key={s.id} input={s} />
+            </>
+          )
+        case "text_with_bullet_list":
+          return (
+            <>
+              <TextWithBulletList key={s.id} input={s} />
+            </>
+          )
+        case "half_width_text":
+          return (
+            <>
+              <HalfWidthText key={s.id} input={s} />
+            </>
+          )
+        case "image_with_side_text":
+          return (
+            <>
+              <ImageWithSideText key={s.id} input={s} />
             </>
           )
         default:
