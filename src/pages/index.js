@@ -24,7 +24,7 @@ const Index = ({ data: { prismic } }) => {
               </ButtonText>
             </Button>
             <Button>
-              <ButtonText to="">View video</ButtonText>
+              <ButtonText to="">View projects</ButtonText>
             </Button>
           </ButtonContainer>
         </ContainerLeft>
@@ -82,7 +82,7 @@ const Button = styled.div`
   padding: 15px 30px;
   border-radius: 4px;
   border: solid 1px;
-  border-color: ${props => (props.yellow ? "#FECF09" : "white")};
+  border-color: #FECF09 !important;
   position: relative;
   margin-right: 10px;
 `
@@ -161,6 +161,21 @@ export const pageQuery = graphql`
                   content
                   to_service {
                     _linkType
+                  }
+                }
+              }
+              ... on PRISMIC_HomepageBodyProject_tilesq {
+                type  
+                primary {
+                  number_of_projects_to_show
+                }
+                fields {
+                  project {
+                    ... on PRISMIC_Project {
+                      project_title
+                      platform
+                      project_list_image
+                    }
                   }
                 }
               }

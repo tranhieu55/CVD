@@ -10,7 +10,7 @@ import styled from "styled-components"
 export default ({ children }) => {
   return (
     <>
-      <Body id="layout-container" style={{ background: "white", zIndex: 1 }}>
+      <Body id="layout-container" style={{ zIndex: 1 }}>
         {children}
       </Body>
     </>

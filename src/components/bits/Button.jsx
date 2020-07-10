@@ -14,7 +14,7 @@ export default function Button(props) {
 }
 
 const ButtonText = styled(Link)`
-  color: ${props => (props.yellow ? "#000000" : "yellow")};
+  color: ${props => (props.yellow ? "#000000" : "#FECF09")};
   color: ${props => (props.white ? "white" : "")};
   position: relative;
   font-weight: 600;
