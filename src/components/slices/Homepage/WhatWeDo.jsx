@@ -10,6 +10,8 @@ export default function WhatWeDo(props) {
   const { fields } = input
   const defaultService = JSON.stringify(fields[0].service[0].text)
   const defaultContent = fields[0].content
+  const defaultIndicator = 0
+
   const heading = input.primary.title[0].text
   console.log(props)
   useEffect(() => {
@@ -21,10 +23,14 @@ export default function WhatWeDo(props) {
   // Declare a new state variable, which we'll call "count"
   const [service, setService] = useState(defaultService)
   const [content, setContent] = useState(defaultContent)
+  const [indicator, setindicator] = useState(defaultIndicator)
+
 
   function updateSelected(i) {
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
+    setindicator(i)
+    console.log(i)
   }
 
   return (
@@ -32,12 +38,11 @@ export default function WhatWeDo(props) {
       <Container>
         <Left>
           <Title>{heading}</Title>
-          <p>{service}</p>
           {fields.map((service, i) => {
             let title = service.service[0].text
             return (
               <>
-                <Service key={i} onClick={() => updateSelected(i)}>
+                <Service key={i} onClick={() => updateSelected(i)} indicator={i == indicator}>
                   {title}
                 </Service>
               </>
@@ -139,6 +144,12 @@ const Service = styled.h4`
   font-weight: 500;
   letter-spacing: -0.5px;
   cursor: pointer;
+  :hover{
+    color: white;
+    opacity: 1;
+  }
+  opacity: ${props => props.indicator ? 1 : .6};
+
 `
 
 const Right = styled.div`

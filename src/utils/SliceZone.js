@@ -3,6 +3,7 @@ import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
+import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -38,6 +39,13 @@ const SliceZone = props => {
               <WhatWeDo key={s.id} input={s} />
             </>
           )
+
+        case "project_tilesq":
+          return (
+            <>
+              <ProjectTiles key={s.id} input={s} />
+            </>
+          )
         default:
           return (
             <>
@@ -48,7 +56,7 @@ const SliceZone = props => {
       }
     })
     //return the slice
-    return <div>{slice}</div>
+    return slice
   } else return false
 }
 
