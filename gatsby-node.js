@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const postTemplate = path.resolve("src/templates/post.jsx")
-  const serviceTemplate = path.resolve("src/templates/service.jsx")
+  const serviceTemplate = path.resolve("src/templates/service/service.jsx")
 
   posts.data.prismic.allPosts.edges.forEach(edge => {
     createPage({

@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
-import SEO from "../components/utilities/SEO"
-import SliceZone from "../utils/SliceZone"
-import Layout from "../components/Layout"
-import { PageTypeHeading } from "../components/bits"
-// import PageTypeHeading
+import SEO from "../../components/utilities/SEO"
+import SliceZone from "../../utils/SliceZone"
+import Layout from "../../components/Layout"
+import { PageTypeHeading, Spacer } from "../../components/bits"
+import "./service.css"
 
 const Service = ({ data: { prismic } }) => {
   console.log("prismic", prismic)
@@ -14,7 +14,6 @@ const Service = ({ data: { prismic } }) => {
   const title = data.page_title[0].text
   const content = data.page_description
   const pageType = data.page_type[0].text
-  console.log("pageType", pageType)
 
   return (
     <Layout>
@@ -24,11 +23,12 @@ const Service = ({ data: { prismic } }) => {
           <Container>
             <PageTypeHeading props={pageType}></PageTypeHeading>
             <ContainerTitle>
-              <h1>{title}</h1>
-              <div>{RichText.render(content)}</div>
+              <Title>{title}</Title>
+              <PageDescription>{RichText.render(content)}</PageDescription>
             </ContainerTitle>
           </Container>
         </ContainerFluid>
+        <Spacer props={"6rem"}></Spacer>
         <Container>
           <SliceZone allSlices={data.body} />
         </Container>
@@ -58,7 +58,22 @@ const ContainerTitle = styled.div`
   padding: 0 0 5rem 6.5rem;
   font-size: 1rem;
   max-width: 770px;
-  margin-bottom: 6rem;
+`
+
+const Title = styled.h1`
+  color: #101010;
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 3.5rem;
+  margin-bottom: 0;
+`
+
+const PageDescription = styled.div`
+  color: #222222;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  line-height: 1.75rem;
 `
 
 export default Service
