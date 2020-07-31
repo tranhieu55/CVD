@@ -15,17 +15,11 @@ const TextWithBulletList = props => {
   return (
     <Container context={props.context}>
       <Title>{title}</Title>
-      <Content className="content">{RichText.render(content)}</Content>
+      <Content>{RichText.render(content)}</Content>
       <BulletsRow>
-        <BulletsCol className="content">
-          {RichText.render(bulletsLeft)}
-        </BulletsCol>
-        <BulletsCol className="content">
-          {RichText.render(bulletsMiddle)}
-        </BulletsCol>
-        <BulletsCol className="content">
-          {RichText.render(bulletsRight)}
-        </BulletsCol>
+        <BulletsCol>{RichText.render(bulletsLeft)}</BulletsCol>
+        <BulletsCol>{RichText.render(bulletsMiddle)}</BulletsCol>
+        <BulletsCol>{RichText.render(bulletsRight)}</BulletsCol>
       </BulletsRow>
       <Divider marginTop={"5rem"} marginBottom={"4.625rem"}></Divider>
     </Container>
@@ -50,7 +44,7 @@ const Title = styled.h2`
   color: #101010;
   font-family: "Calibre Semibold";
   margin: auto;
-  font-size; 2rem;
+  font-size: 2rem;
   line-height: 2rem;
   letter-spacing: -0.5px;
 `

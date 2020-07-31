@@ -16,11 +16,11 @@ const HalfWidthText = props => {
       <TextRow>
         <TextCol>
           <Title>{titleLeft}</Title>
-          <Text className="content">{RichText.render(textLeft)}</Text>
+          <Text>{RichText.render(textLeft)}</Text>
         </TextCol>
         <TextCol>
           <Title>{titleRight}</Title>
-          <Text className="content">{RichText.render(textRight)}</Text>
+          <Text>{RichText.render(textRight)}</Text>
         </TextCol>
       </TextRow>
       <Spacer marginBottom="5rem"></Spacer>
@@ -58,6 +58,7 @@ const TextCol = styled.div`
 const Title = styled.h2`
   color: #101010;
   margin: auto;
+  font-family: "Calibre Semibold";
   font-size: 2rem;
   line-height: 2rem;
   letter-spacing: -0.5px;
