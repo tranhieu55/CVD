@@ -1,11 +1,11 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 import { Divider } from "../../bits"
 
-const TextWithBulletList = ({ input }) => {
-  const fields = input.fields[0]
+const TextWithBulletList = props => {
+  const fields = props.input.fields[0]
   const title = fields.title[0].text
   const content = fields.content
   const bulletsLeft = fields.bullet_list_left
@@ -13,7 +13,7 @@ const TextWithBulletList = ({ input }) => {
   const bulletsRight = fields.bullet_list_right
 
   return (
-    <Container>
+    <Container context={props.context}>
       <Title>{title}</Title>
       <Content className="content">{RichText.render(content)}</Content>
       <BulletsRow>
@@ -38,7 +38,14 @@ TextWithBulletList.propTypes = {
   input: PropTypes.object.isRequired,
 }
 
-const Container = styled.div``
+const Container = styled.div`
+  ${props =>
+    props.context &&
+    css`
+      padding: 0 3rem;
+    `}
+`
+
 const Title = styled.h2`
   color: #101010;
   font-family: "Calibre Semibold";
@@ -66,4 +73,5 @@ const BulletsCol = styled.div`
   height: auto;
   font-size: 1.25rem;
   line-height: 2rem;
+  padding: 0 1rem;
 `
