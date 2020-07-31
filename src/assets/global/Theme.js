@@ -6,5 +6,6 @@ export const theme = {
   DarkGrey: "#6D7278",
   LightGrey: "#f1f1f1",
   Black: "#1e1e1e",
-  PageMargin: "10%"
-};
+  PageMargin: "10%",
+  PageMarginMobile: "5%",
+}
