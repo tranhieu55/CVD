@@ -3,7 +3,7 @@ const path = require("path")
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const pages = await graphql(`
+  const posts = await graphql(`
     {
       prismic {
         allPosts {
@@ -20,12 +20,40 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const template = path.resolve("src/templates/post.jsx")
+  const services = await graphql(`
+    {
+      prismic {
+        allServices {
+          edges {
+            node {
+              page_title
+              _meta {
+                uid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
-  pages.data.prismic.allPosts.edges.forEach(edge => {
+  const postTemplate = path.resolve("src/templates/post.jsx")
+  const serviceTemplate = path.resolve("src/templates/service/service.jsx")
+
+  posts.data.prismic.allPosts.edges.forEach(edge => {
     createPage({
-      path: `/${edge.node._meta.uid}`,
-      component: template,
+      path: `/post/${edge.node._meta.uid}`,
+      component: postTemplate,
+      context: {
+        uid: edge.node._meta.uid,
+      },
+    })
+  })
+
+  services.data.prismic.allServices.edges.forEach(edge => {
+    createPage({
+      path: `/services/${edge.node._meta.uid}`,
+      component: serviceTemplate,
       context: {
         uid: edge.node._meta.uid,
       },

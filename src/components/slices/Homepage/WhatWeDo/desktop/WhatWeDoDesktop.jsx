@@ -43,7 +43,7 @@ export default function WhatWeDoDesktop(props) {
         <Left>
           <Title>{heading}</Title>
           {fields.map((service, i) => {
-            let title = service.service[0].text
+            const title = service.service[0].text
             return (
               <>
                 <Service key={i} onClick={() => updateSelected(i)} indicator={i == indicator}>

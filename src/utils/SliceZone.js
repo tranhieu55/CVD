@@ -3,6 +3,13 @@ import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
+import BigImage from "../components/slices/BigImage"
+import {
+  TextWithBulletList,
+  HalfWidthText,
+  ImageWithSideText,
+} from "../components/slices/Service"
+
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 import CTA from "../components/slices/CTA"
 const SliceZone = props => {
@@ -40,7 +47,46 @@ const SliceZone = props => {
               <WhatWeDo key={s.id} input={s} />
             </>
           )
-
+        case "big_image":
+          return (
+            <>
+              <BigImage
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
+            </>
+          )
+        case "text_with_bullet_list":
+          return (
+            <>
+              <TextWithBulletList
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
+            </>
+          )
+        case "half_width_text":
+          return (
+            <>
+              <HalfWidthText
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
+            </>
+          )
+        case "image_with_side_text":
+          return (
+            <>
+              <ImageWithSideText
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
+            </>
+          )
         case "project_tilesq":
           return (
             <>

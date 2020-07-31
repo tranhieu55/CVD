@@ -69,8 +69,8 @@ body {
   margin: 0;
 }
 
-#layout-container{
-  background-color:#f8f8f8;
+#layout-container {
+  background-color: #f8f8f8;
 }
 
 a {
@@ -78,7 +78,8 @@ a {
   font-family: "Calibre Regular";
   margin: 0;
 }
-p {
+p,
+li {
   font-family: "Calibre Regular";
 }
 
