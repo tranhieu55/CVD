@@ -49,25 +49,41 @@ const SliceZone = props => {
         case "big_image":
           return (
             <>
-              <BigImage key={s.id} input={s} />
+              <BigImage
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
             </>
           )
         case "text_with_bullet_list":
           return (
             <>
-              <TextWithBulletList key={s.id} input={s} />
+              <TextWithBulletList
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
             </>
           )
         case "half_width_text":
           return (
             <>
-              <HalfWidthText key={s.id} input={s} />
+              <HalfWidthText
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
             </>
           )
         case "image_with_side_text":
           return (
             <>
-              <ImageWithSideText key={s.id} input={s} />
+              <ImageWithSideText
+                key={s.id}
+                input={s}
+                context={props.context ? props.context : null}
+              />
             </>
           )
         case "project_tilesq":

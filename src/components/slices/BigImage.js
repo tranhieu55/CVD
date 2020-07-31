@@ -3,13 +3,13 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Spacer } from "./../bits"
 
-const BigImage = ({ input }) => {
-  const src = input.primary.big_image.url
+const BigImage = props => {
+  const src = props.input.primary.big_image.url
 
   return (
-    <Container>
+    <Container context={props.context}>
       <ImageContainer src={src}></ImageContainer>
-      <Spacer props="5rem"></Spacer>
+      <Spacer marginBottom="5rem"></Spacer>
     </Container>
   )
 }
@@ -19,6 +19,7 @@ export default BigImage
 BigImage.propTypes = {
   input: PropTypes.object.isRequired,
 }
+
 const Container = styled.div`
   width: 100%;
   max-width: 2478px;
