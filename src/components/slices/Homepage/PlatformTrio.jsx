@@ -88,10 +88,6 @@ const Platform = styled.div`
   box-sizing: border-box;
   height: 408px;
   width: 400px;
-  border: 1px solid #f8f8f8;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 4px 4px 24px 0 rgba(0, 0, 0, 0.08);
   margin: 25px;
   position: relative;
   display: flex;

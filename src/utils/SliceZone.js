@@ -10,6 +10,7 @@ import {
   ImageWithSideText,
 } from "../components/slices/Service"
 
+import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -69,6 +70,12 @@ const SliceZone = props => {
               <ImageWithSideText key={s.id} input={s} />
             </>
           )
+        case "project_tilesq":
+          return (
+            <>
+              <ProjectTiles key={s.id} input={s} />
+            </>
+          )
         default:
           return (
             <>
@@ -79,7 +86,7 @@ const SliceZone = props => {
       }
     })
     //return the slice
-    return <div>{slice}</div>
+    return slice
   } else return false
 }
 

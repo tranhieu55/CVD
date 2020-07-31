@@ -68,6 +68,11 @@ h4 {
 body {
   margin: 0;
 }
+
+#layout-container{
+  background-color:#f8f8f8;
+}
+
 a {
   text-decoration: none;
   font-family: "Calibre Regular";
@@ -84,8 +89,8 @@ p {
   --color-primary-dark: black;
 }
 .blob {
-  -webkit-filter: url("#goo") blur(2px);
-  filter: url("#goo") blur(2px);
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
   position: absolute;
   top: 50%;
   left: 50%;
