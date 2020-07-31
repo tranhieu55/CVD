@@ -4,10 +4,26 @@ import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 
 const HalfWidthText = ({ input }) => {
-  console.log(`HalfWidthText input`, input)
-  // const fields = input.fields[0]
+  const fields = input.primary
+  const titleLeft = fields.title_left[0].text
+  const titleRight = fields.title_right[0].text
+  const textLeft = fields.text_left
+  const textRight = fields.text_right
 
-  return <Container>{/* <Title>{title}</Title> */}</Container>
+  return (
+    <Container>
+      <TextRow>
+        <TextCol>
+          <Title>{titleLeft}</Title>
+          <Text className="content">{RichText.render(textLeft)}</Text>
+        </TextCol>
+        <TextCol>
+          <Title>{titleRight}</Title>
+          <Text className="content">{RichText.render(textRight)}</Text>
+        </TextCol>
+      </TextRow>
+    </Container>
+  )
 }
 
 export default HalfWidthText
@@ -17,21 +33,22 @@ HalfWidthText.propTypes = {
 }
 
 const Container = styled.div``
-const Title = styled.h2`
-  color: #101010;
-  margin: auto;
-`
 
 const TextRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: auto;
-  border: 2px solid red;
 `
 
 const TextCol = styled.div`
   flex-basis: 50%;
   height: auto;
-  border: 1px solid blue;
 `
+
+const Title = styled.h2`
+  color: #101010;
+  margin: auto;
+`
+
+const Text = styled.div``
