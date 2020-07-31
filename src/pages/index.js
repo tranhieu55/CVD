@@ -4,7 +4,6 @@ import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import Layout from "../components/Layout"
 import { Link, graphql } from "gatsby"
-import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -82,7 +81,7 @@ const Button = styled.div`
   padding: 15px 30px;
   border-radius: 4px;
   border: solid 1px;
-  border-color: #FECF09 !important;
+  border-color: #fecf09 !important;
   position: relative;
   margin-right: 10px;
 `
@@ -165,7 +164,7 @@ export const pageQuery = graphql`
                 }
               }
               ... on PRISMIC_HomepageBodyProject_tilesq {
-                type  
+                type
                 primary {
                   number_of_projects_to_show
                 }
