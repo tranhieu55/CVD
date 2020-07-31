@@ -52,6 +52,7 @@ const ContainerContent = styled.div`
   height: auto;
   max-width: 450px;
   margin-left: auto;
+  padding-right: 2rem;
 `
 
 const Title = styled.h2`

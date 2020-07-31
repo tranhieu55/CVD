@@ -35,11 +35,10 @@ HalfWidthText.propTypes = {
 }
 
 const Container = styled.div`
-  width: 100%;
   ${props =>
     props.context === "service" &&
     css`
-      padding: 0 2rem;
+      padding: 0 3rem;
     `}
 `
 
