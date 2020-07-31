@@ -22,6 +22,7 @@ const Service = ({ data: { prismic } }) => {
         <ContainerFluid>
           <Container>
             <PageTypeHeading props={pageType}></PageTypeHeading>
+            <Spacer marginBottom={"1.5rem"}></Spacer>
             <ContainerTitle>
               <Title>{title}</Title>
               <PageDescription>{RichText.render(content)}</PageDescription>
@@ -48,13 +49,13 @@ const ContainerFluid = styled.div`
 `
 
 const Container = styled.div`
-  width: 100%;
   max-width: 1600px;
+  padding: 0 180px;
   margin: 0 auto;
 `
 
 const ContainerTitle = styled.div`
-  padding: 0 0 5rem 6.5rem;
+  padding: 0 0 6rem 6.5rem;
   font-size: 1rem;
   max-width: 770px;
 `
@@ -65,7 +66,7 @@ const Title = styled.h1`
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 3.5rem;
-  margin-bottom: 0;
+  margin: 0;
 `
 
 const PageDescription = styled.div`
@@ -109,6 +110,7 @@ export const pageQuery = graphql`
               image
               text
               title
+              image_align_right
             }
           }
           ... on PRISMIC_ServiceBodyText_with_bullet_list {
