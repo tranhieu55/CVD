@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import WhatWeDoDesktop from "./desktop/WhatWeDoDesktop"
 import WhatWeDoMobile from "./mobile/WhatWeDoMobile"
+import { theme } from "../../../../assets/global/Theme"
 
 export default function WhatWeDo(props) {
   console.log(props)
@@ -25,7 +26,6 @@ export default function WhatWeDo(props) {
   const [content, setContent] = useState(defaultContent)
   const [indicator, setindicator] = useState(defaultIndicator)
 
-
   function updateSelected(i) {
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
@@ -35,15 +35,15 @@ export default function WhatWeDo(props) {
 
   return (
     <Skew>
-      <WhatWeDoDesktop props={props}/>
-      <WhatWeDoMobile props={props}/>
+      <WhatWeDoDesktop props={props} />
+      <WhatWeDoMobile props={props} />
     </Skew>
   )
 }
 
 const Skew = styled.div`
   margin-top: 200px;
-  background-color: #101010;
+  background-color: ${theme.Black};
   display: block;
   :before {
     background: inherit;
