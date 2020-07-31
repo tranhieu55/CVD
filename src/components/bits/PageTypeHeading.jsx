@@ -3,7 +3,6 @@ import styled from "styled-components"
 import Layout from "../Layout"
 
 export default function PageTypeHeading(props) {
-  console.log(props)
   return (
     <Layout>
       <Container>

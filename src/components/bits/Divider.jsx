@@ -1,22 +1,25 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 // accepts any valid css value for margin top and bottom including units, and includes a divider line
 
 export default function Spacer(props) {
-  console.log(props)
   return (
-    <div
-      style={{
-        marginTop: props.marginTop,
-        marginBottom: props.marginBottom,
-        width: `100%`,
-      }}
-    >
+    <Container props={props}>
       <Line></Line>
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  width: 100%;
+  ${props =>
+    props &&
+    css`
+      margin-top: ${props.props.marginTop};
+      margin-bottom: ${props.props.marginBottom};
+    `}
+`
 
 const Line = styled.div`
   height: 1px;

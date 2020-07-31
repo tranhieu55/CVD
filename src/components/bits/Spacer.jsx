@@ -1,9 +1,16 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 // accepts any valid css margin bottom value, including units
 
 export default function Spacer(props) {
-  console.log(props)
-  return <div style={{ marginBottom: `${props.marginBottom}` }}></div>
+  return <Space marginBottom={props.marginBottom}></Space>
 }
+
+const Space = styled.div`
+  ${props =>
+    props.marginBottom &&
+    css`
+      margin-bottom: ${props.marginBottom};
+    `}
+`
