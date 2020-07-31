@@ -2,7 +2,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
-import { Divider } from "../../bits"
+import { Divider, Spacer } from "../../bits"
 
 const TextWithBulletList = props => {
   const fields = props.input.fields[0]
@@ -16,6 +16,7 @@ const TextWithBulletList = props => {
     <Container context={props.context}>
       <Title>{title}</Title>
       <Content>{RichText.render(content)}</Content>
+      <Spacer marginBottom={"2.5rem"}></Spacer>
       <BulletsRow>
         <BulletsCol>{RichText.render(bulletsLeft)}</BulletsCol>
         <BulletsCol>{RichText.render(bulletsMiddle)}</BulletsCol>

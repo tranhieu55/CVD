@@ -53,7 +53,7 @@ const ContainerImage = styled.div`
 `
 
 const Img = styled.img`
-  width: 93.75%;
+  width: 85%;
 `
 
 const ContainerContent = styled.div`
