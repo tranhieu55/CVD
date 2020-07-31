@@ -11,7 +11,6 @@ const TextWithBulletList = ({ input }) => {
   const bulletsLeft = fields.bullet_list_left
   const bulletsMiddle = fields.bullet_list_middle
   const bulletsRight = fields.bullet_list_right
-  const divider = { marginTop: `5rem`, marginBottom: `4.625rem` }
 
   return (
     <Container>
@@ -28,7 +27,7 @@ const TextWithBulletList = ({ input }) => {
           {RichText.render(bulletsRight)}
         </BulletsCol>
       </BulletsRow>
-      <Divider props={divider}></Divider>
+      <Divider marginTop={"5rem"} marginBottom={"4.625rem"}></Divider>
     </Container>
   )
 }

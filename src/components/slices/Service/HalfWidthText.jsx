@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
+import { Spacer } from "../../bits"
 
 const HalfWidthText = ({ input }) => {
   const fields = input.primary
@@ -22,6 +23,7 @@ const HalfWidthText = ({ input }) => {
           <Text className="content">{RichText.render(textRight)}</Text>
         </TextCol>
       </TextRow>
+      <Spacer marginBottom="5rem"></Spacer>
     </Container>
   )
 }

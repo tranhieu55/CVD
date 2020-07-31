@@ -28,9 +28,9 @@ const Service = ({ data: { prismic } }) => {
             </ContainerTitle>
           </Container>
         </ContainerFluid>
-        <Spacer props={"6rem"}></Spacer>
+        <Spacer marginBottom={"6rem"}></Spacer>
         <Container>
-          <SliceZone allSlices={data.body} />
+          <SliceZone allSlices={data.body} context={"service"} />
         </Container>
       </ThisPage>
     </Layout>

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import { Spacer } from "./../bits"
 
 const BigImage = ({ input }) => {
   const src = input.primary.big_image.url
@@ -8,6 +9,7 @@ const BigImage = ({ input }) => {
   return (
     <Container>
       <ImageContainer src={src}></ImageContainer>
+      <Spacer props="5rem"></Spacer>
     </Container>
   )
 }

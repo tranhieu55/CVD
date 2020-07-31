@@ -5,13 +5,11 @@ import styled from "styled-components"
 
 export default function Spacer(props) {
   console.log(props)
-  const marginTop = props.props.marginTop
-  const marginBottom = props.props.marginBottom
   return (
     <div
       style={{
-        marginTop: marginTop,
-        marginBottom: marginBottom,
+        marginTop: props.marginTop,
+        marginBottom: props.marginBottom,
         width: `100%`,
       }}
     >
