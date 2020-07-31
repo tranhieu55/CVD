@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import SEO from "../../components/utilities/SEO"
@@ -19,17 +19,20 @@ const Service = ({ data: { prismic } }) => {
     <Layout>
       <SEO props={data} />
       <ThisPage>
-        <ContainerFluid>
+        <ContainerFluid background={"#f8f8f8"}>
           <Container>
             <PageTypeHeading props={pageType}></PageTypeHeading>
-            <Spacer marginBottom={"1.5rem"}></Spacer>
+            <Spacer
+              marginBottom={"1.5rem"}
+              marginBottomMobile={"0.75rem"}
+            ></Spacer>
             <ContainerTitle>
               <Title>{title}</Title>
               <PageDescription>{RichText.render(content)}</PageDescription>
             </ContainerTitle>
           </Container>
         </ContainerFluid>
-        <Spacer marginBottom={"6rem"}></Spacer>
+        <Spacer marginBottom={"6rem"} marginBottomMobile={"1.25rem"}></Spacer>
         <Container>
           <SliceZone allSlices={data.body} context={"service"} />
         </Container>
@@ -45,19 +48,30 @@ const ThisPage = styled.div`
 const ContainerFluid = styled.div`
   width: 100%;
   background-color: #f8f8f8;
-  position: relative;
 `
 
 const Container = styled.div`
   max-width: 1600px;
+  width: 100%;
   padding: 0 180px;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
+  ${props =>
+    props.background &&
+    css`
+      background-color: props.background;
+    `}
 `
 
 const ContainerTitle = styled.div`
   padding: 0 0 6rem 6.5rem;
   font-size: 1rem;
   max-width: 770px;
+  @media screen and (max-width: 768px) {
+    padding: 0 0 1.25rem 0;
+  }
 `
 
 const Title = styled.h1`
@@ -67,6 +81,10 @@ const Title = styled.h1`
   letter-spacing: -1px;
   line-height: 3.5rem;
   margin: 0;
+  @media screen and (max-width: 768px) {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 `
 
 const PageDescription = styled.div`

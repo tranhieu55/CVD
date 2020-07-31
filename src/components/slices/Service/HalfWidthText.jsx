@@ -18,12 +18,13 @@ const HalfWidthText = props => {
           <Title>{titleLeft}</Title>
           <Text>{RichText.render(textLeft)}</Text>
         </TextCol>
+        <Spacer marginBottom={"0rem"} marginBottomMobile={"1.5rem"}></Spacer>
         <TextCol>
           <Title>{titleRight}</Title>
           <Text>{RichText.render(textRight)}</Text>
         </TextCol>
       </TextRow>
-      <Spacer marginBottom="6rem"></Spacer>
+      <Spacer marginBottom={"6rem"} marginBottomMobile={"1.5rem"}></Spacer>
     </Container>
   )
 }
@@ -39,6 +40,9 @@ const Container = styled.div`
     props.context === "service" &&
     css`
       padding: 0 3rem;
+      @media screen and (max-width: 768px) {
+        padding: 0;
+      }
     `}
 `
 
@@ -46,12 +50,20 @@ const TextRow = styled.div`
   display: flex;
   flex-direction: row;
   height: auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+  }
 `
 
 const TextCol = styled.div`
   flex-basis: 50%;
   height: auto;
   padding: 0 1rem;
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
+    padding: 0;
+  }
 `
 
 const Title = styled.h2`
