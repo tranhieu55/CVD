@@ -2,7 +2,7 @@ import React from "react"
 import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
-import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
+import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
 import BigImage from "../components/slices/BigImage"
 import {
   TextWithBulletList,
@@ -11,6 +11,7 @@ import {
 } from "../components/slices/Service"
 
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
+import CTA from "../components/slices/CTA"
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map(s => {
@@ -90,6 +91,12 @@ const SliceZone = props => {
           return (
             <>
               <ProjectTiles key={s.id} input={s} />
+            </>
+          )
+        case "cta":
+          return (
+            <>
+              <CTA key={s.id} input={s} />
             </>
           )
         default:

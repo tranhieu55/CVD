@@ -55,6 +55,10 @@ const Container = styled.div`
     position: relative;
     display: block;
   }
+  @media (max-width: 769px) {
+    display: none;
+    /* hidden for mobile version */
+  }
 `
 const Title = styled.h2`
   height: 144px;

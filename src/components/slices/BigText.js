@@ -22,12 +22,19 @@ const SubHeading = styled.h2`
   text-align: center;
   font-size: 3rem;
   max-width: 1258px;
-
   width: 75%;
   margin: auto;
   height: auto;
   padding: 150px 0;
+  @media (max-width: 769px) {
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+  }
 `
 const Container = styled.div`
-  margin-top: 150px;
+  padding-top: 150px;
+  @media (max-width: 769px) {
+    padding-top: 0;
+  }
 `
