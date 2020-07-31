@@ -52,6 +52,9 @@ const Projects = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `
 
 const Project = styled.div`
@@ -65,6 +68,11 @@ const Project = styled.div`
   max-width: 48%;
   position: relative;
   margin: 1%;
+  @media (max-width: 768px) {
+    width : 95%;
+    display: block;
+    max-width: initial;
+  } 
 `
 
 const InnerProject = styled.div`
@@ -80,7 +88,6 @@ const Platform = styled.h5`
   bottom: 55px;
   left: 40px;
   font-size: 18px;
-
   font-family: "Calibre Bold";
 
 `

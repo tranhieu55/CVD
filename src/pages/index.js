@@ -4,7 +4,6 @@ import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import Layout from "../components/Layout"
 import { Link, graphql } from "gatsby"
-import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
