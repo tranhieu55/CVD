@@ -164,6 +164,14 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyCta {
+                type
+                label
+                primary {
+                  title
+                  subtitle
+                }
+              }
               ... on PRISMIC_HomepageBodyPlatform_trio {
                 type
                 primary {

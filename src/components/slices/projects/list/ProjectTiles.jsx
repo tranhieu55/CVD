@@ -75,7 +75,7 @@ const Project = styled.div`
     width: 100%;
     display: block;
     max-width: initial;
-    height: 300px;
+    height: 250px;
     max-width: 100%;
   }
 `
