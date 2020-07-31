@@ -9,7 +9,7 @@ const BigImage = props => {
   return (
     <Container context={props.context}>
       <ImageContainer src={src}></ImageContainer>
-      <Spacer marginBottom="5rem"></Spacer>
+      <Spacer marginBottom="5rem" marginBottomMobile="1.25rem"></Spacer>
     </Container>
   )
 }

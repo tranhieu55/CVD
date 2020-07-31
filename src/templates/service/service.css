@@ -9,3 +9,9 @@ p:last-child {
 ul {
 	margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+	ul {
+		padding: 0 1rem;
+	}
+}

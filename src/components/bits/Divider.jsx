@@ -18,6 +18,10 @@ const Container = styled.div`
     css`
       margin-top: ${props.props.marginTop};
       margin-bottom: ${props.props.marginBottom};
+      @media screen and (max-width: 768px) {
+        margin-top: ${props.props.marginTopMobile};
+        margin-bottom: ${props.props.marginBottomMobile};
+      }
     `}
 `
 

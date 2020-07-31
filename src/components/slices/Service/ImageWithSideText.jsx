@@ -17,12 +17,13 @@ const ImageWithSideText = props => {
         <ContainerImage alignImageRight={alignImageRight}>
           <Img src={image}></Img>
         </ContainerImage>
+        <Spacer marginBottom={"0"} marginBottomMobile={"1rem"}></Spacer>
         <ContainerContent alignImageRight={alignImageRight}>
           <Title>{title}</Title>
           <Content>{RichText.render(content)}</Content>
         </ContainerContent>
       </Container>
-      <Spacer marginBottom={"6rem"}></Spacer>
+      <Spacer marginBottom={"6rem"} marginBottomMobile={"1.5rem"}></Spacer>
     </React.Fragment>
   )
 }
@@ -39,6 +40,10 @@ const Container = styled.div`
   align-items: center;
   height: auto;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: unset;
+  }
 `
 
 const ContainerImage = styled.div`
@@ -49,11 +54,18 @@ const ContainerImage = styled.div`
     css`
       order: 1;
       text-align: right;
+      @media screen and (max-width: 768px) {
+        order: 0;
+        text-align: center;
+      }
     `}
 `
 
 const Img = styled.img`
   width: 85%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const ContainerContent = styled.div`
@@ -62,6 +74,12 @@ const ContainerContent = styled.div`
   max-width: 450px;
   margin-left: auto;
   padding-right: 2rem;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    margin: 0;
+    flex-basis: 100%;
+    max-width: unset;
+  }
   ${props =>
     props.alignImageRight &&
     css`
@@ -69,6 +87,11 @@ const ContainerContent = styled.div`
       margin-left: 0;
       padding-right: 0;
       padding-left: 5rem;
+      @media screen and (max-width: 768px) {
+        padding: 0;
+        margin: 0;
+        flex-basis: 100%;
+      }
     `}
 `
 

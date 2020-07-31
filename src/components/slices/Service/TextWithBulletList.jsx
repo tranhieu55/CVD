@@ -16,13 +16,18 @@ const TextWithBulletList = props => {
     <Container context={props.context}>
       <Title>{title}</Title>
       <Content>{RichText.render(content)}</Content>
-      <Spacer marginBottom={"2.5rem"}></Spacer>
+      <Spacer marginBottom={"2.5rem"} marginBottomMobile={"1rem"}></Spacer>
       <BulletsRow>
         <BulletsCol>{RichText.render(bulletsLeft)}</BulletsCol>
         <BulletsCol>{RichText.render(bulletsMiddle)}</BulletsCol>
         <BulletsCol>{RichText.render(bulletsRight)}</BulletsCol>
       </BulletsRow>
-      <Divider marginTop={"5rem"} marginBottom={"4.625rem"}></Divider>
+      <Divider
+        marginTop={"5rem"}
+        marginBottom={"4.625rem"}
+        marginTopMobile={"1.75rem"}
+        marginBottomMobile={"1.5rem"}
+      ></Divider>
     </Container>
   )
 }
@@ -38,6 +43,9 @@ const Container = styled.div`
     props.context &&
     css`
       padding: 0 3rem;
+      @media screen and (max-width: 768px) {
+        padding: 0;
+      }
     `}
 `
 
@@ -60,7 +68,9 @@ const BulletsRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const BulletsCol = styled.div`
@@ -69,4 +79,8 @@ const BulletsCol = styled.div`
   font-size: 1.25rem;
   line-height: 2rem;
   padding: 0 1rem;
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
+    padding: 0;
+  }
 `
