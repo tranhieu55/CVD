@@ -109,6 +109,7 @@ export const pageQuery = graphql`
               image
               text
               title
+              image_align_right
             }
           }
           ... on PRISMIC_ServiceBodyText_with_bullet_list {
