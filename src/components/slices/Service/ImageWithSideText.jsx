@@ -3,13 +3,23 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 
-const ImageWithSideText = ({ input }) => {
-  console.log("ImageWithSideText input", input)
-  // const title = input.primary.title[0].text
+const ImageWithSideText = props => {
+  console.log(props)
+  const fields = props.input.primary
+  const title = fields.title[0].text
+  const content = fields.text
+  const image = fields.image.url
+  console.log(title, content, image)
+
   return (
     <Container>
-      {/* <Title>{title}</Title> */}
-      {/* <Content className="content">{RichText.render(content)}</Content> */}
+      <ContainerImage>
+        <Img src={image}></Img>
+      </ContainerImage>
+      <ContainerContent>
+        <Title>{title}</Title>
+        <Content>{RichText.render(content)}</Content>
+      </ContainerContent>
     </Container>
   )
 }
@@ -21,37 +31,40 @@ ImageWithSideText.propTypes = {
 }
 
 const Container = styled.div`
-  background: #f8f8f8;
-  :before {
-    background: inherit;
-    content: "";
-    transform-origin: 100%;
-    z-index: -1;
-    height: 250px;
-    width: 100%;
-    transform: skewY(1.5deg);
-    position: relative;
-    display: block;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  width: 100%;
 `
+
+const ContainerImage = styled.div`
+  flex-basis: 50%;
+  height: auto;
+`
+
+const Img = styled.img`
+  width: 93.75%;
+`
+
+const ContainerContent = styled.div`
+  flex-basis: 50%;
+  height: auto;
+  max-width: 450px;
+  margin-left: auto;
+`
+
 const Title = styled.h2`
-  height: 144px;
-  max-width: 959px;
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: -0.5px;
   color: #101010;
-  font-size: 80px;
-  font-weight: bold;
-  letter-spacing: -2px;
-  line-height: 72px;
-  text-align: center;
-  margin: auto;
+  font-family: "Calibre Semibold";
+  margin: 0;
 `
 
 const Content = styled.div`
-  margin: auto;
-  max-width: 928px;
-  color: #222222;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 30px;
-  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #222;
 `
