@@ -23,7 +23,7 @@ const HalfWidthText = props => {
           <Text>{RichText.render(textRight)}</Text>
         </TextCol>
       </TextRow>
-      <Spacer marginBottom="5rem"></Spacer>
+      <Spacer marginBottom="6rem"></Spacer>
     </Container>
   )
 }
