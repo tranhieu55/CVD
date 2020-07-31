@@ -51,6 +51,7 @@ const ContainerFluid = styled.div`
 const Container = styled.div`
   max-width: 1600px;
   padding: 0 180px;
+  margin: 0 auto;
 `
 
 const ContainerTitle = styled.div`
