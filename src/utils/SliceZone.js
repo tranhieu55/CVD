@@ -2,7 +2,7 @@ import React from "react"
 import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
-import WhatWeDo from "../components/slices/Homepage/WhatWeDo"
+import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 const SliceZone = props => {
   if (props.allSlices) {

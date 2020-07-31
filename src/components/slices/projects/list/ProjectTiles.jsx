@@ -1,37 +1,30 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import {theme} from '../../../../assets/global/Theme'
-
+import { theme } from "../../../../assets/global/Theme"
 
 const ProjectTiles = ({ input }) => {
-
   const projects = input.fields
   console.log(projects)
 
   return (
     <Container>
       <Projects>
- 
-      {projects.map((singleProject, i) => {
-      
-        const project = singleProject.project
-        const title = project.project_title[0].text
-        const platform = project.platform
-        const image_url = project.project_list_image.url
+        {projects.map((singleProject, i) => {
+          const project = singleProject.project
+          const title = project.project_title[0].text
+          const platform = project.platform
+          const image_url = project.project_list_image.url
 
-        return ( 
-          <Project image={image_url} key={i}>
-            <InnerProject>
-              <Platform>{platform}</Platform>
-            <ProjectTitle>{title}</ProjectTitle>
-
-            </InnerProject>
-
-          </Project>
-        )
-      })}
-
+          return (
+            <Project image={image_url} key={i}>
+              <InnerProject>
+                <Platform>{platform}</Platform>
+                <ProjectTitle>{title}</ProjectTitle>
+              </InnerProject>
+            </Project>
+          )
+        })}
       </Projects>
     </Container>
   )
@@ -45,26 +38,46 @@ ProjectTiles.propTypes = {
 
 const Container = styled.div`
   margin-bottom: 125px;
-  margin: 0 ${theme.PageMargin} ;
+  margin: 0 ${theme.PageMargin};
+  @media (max-width: 768px) {
+    margin: 0 ${theme.PageMarginMobile};
+  }
 `
 const Projects = styled.div`
   margin-top: 1%;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `
 
 const Project = styled.div`
-  background-image: linear-gradient( rgba(0,0,0,0.05), rgba(0, 0, 0, 0.2) ), ${props => (props.image ? "url("+props.image+")" : "none")};
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2)),
+    ${props => (props.image ? "url(" + props.image + ")" : "none")};
   height: 538px;
   background-position: center;
   width: 95%;
   background-repeat: no-repeat;
-  border-bottom: solid 5px ${theme.PrimaryColor} ;
+  :hover {
+    border-bottom: solid 5px ${theme.PrimaryColor};
+    cursor: pointer;
+  }
+  border-bottom: solid 5px transparent;
+
   background-size: cover;
   max-width: 48%;
   position: relative;
   margin: 1%;
+  @media (max-width: 768px) {
+    margin: 0;
+    width: 100%;
+    display: block;
+    max-width: initial;
+    height: 300px;
+    max-width: 100%;
+  }
 `
 
 const InnerProject = styled.div`
@@ -75,14 +88,12 @@ const InnerProject = styled.div`
 `
 
 const Platform = styled.h5`
-  color: ${theme.PrimaryColor} ;
+  color: ${theme.PrimaryColor};
   position: absolute;
   bottom: 55px;
   left: 40px;
   font-size: 18px;
-
   font-family: "Calibre Bold";
-
 `
 
 const ProjectTitle = styled.h4`

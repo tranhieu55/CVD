@@ -41,6 +41,10 @@ const Clients = styled.div`
   max-width: 1171px;
   margin-top: 100px;
   position: relative;
+  @media (max-width: 769px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 `
 
 const Container = styled.div`

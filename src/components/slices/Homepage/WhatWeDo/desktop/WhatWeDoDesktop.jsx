@@ -2,17 +2,22 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
-import Button from "../../bits/Button"
-export default function WhatWeDo(props) {
-  console.log(props)
+import Button from "../../../../bits/Button"
 
-  const { input } = props
-  const { fields } = input
+
+export default function WhatWeDoDesktop(props) {
+
+  const { fields } = props.props.input
+  const { input } = props.props
+
+  console.log(fields)
+
   const defaultService = JSON.stringify(fields[0].service[0].text)
   const defaultContent = fields[0].content
   const defaultIndicator = 0
 
   const heading = input.primary.title[0].text
+
   console.log(props)
   useEffect(() => {
     setTimeout(() => {
@@ -34,8 +39,7 @@ export default function WhatWeDo(props) {
   }
 
   return (
-    <Skew>
-      <Container>
+      <ContainerDesktop>
         <Left>
           <Title>{heading}</Title>
           {fields.map((service, i) => {
@@ -54,7 +58,7 @@ export default function WhatWeDo(props) {
             <Content>{RichText.render(content)}</Content>
             <Button yellowWhite content={"Learn more"} />
           </UpperContent>
-          <div>
+          <Blob>
             <div class="blob">
               <div class="blob__chunk"></div>
               <div class="blob__chunk"></div>
@@ -86,40 +90,26 @@ export default function WhatWeDo(props) {
                 </filter>
               </defs>
             </svg>
-          </div>
+          </Blob>
         </Right>
-      </Container>
-    </Skew>
+      </ContainerDesktop>
   )
 }
 
-const Skew = styled.div`
-  margin-top: 200px;
-  background-color: #101010;
-  display: block;
-  :before {
-    background: inherit;
-    content: "";
-    transform-origin: 100%;
-    z-index: 1;
-    height: 250px;
-    width: 100%;
-    transform: skewY(3.5deg);
-    position: relative;
-    display: block;
-  }
-`
 const UpperContent = styled.div`
   position: relative;
   display: block;
   z-index: 22;
 `
-const Container = styled.div`
+const ContainerDesktop = styled.div`
   z-index: 3;
   top: -200px;
   position: relative;
   display: grid;
   grid-template-columns: 50% 50%;
+  @media (max-width: 768px) {
+    display:none;
+  }
 `
 
 const Title = styled.h2`
@@ -162,6 +152,13 @@ const Right = styled.div`
   position: relative;
   display: block;
   margin: auto;
+
+`
+
+const Blob = styled.div`
+  @media (max-width: 768px) {
+    display:none;
+  }
 `
 const Content = styled.div`
   width: 523px;
