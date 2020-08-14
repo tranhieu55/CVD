@@ -20,6 +20,9 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 6px;
+  }
 `
 
 const Text = styled.div`
@@ -38,4 +41,8 @@ const Underline = styled.div`
   background-color: #fecf09;
   margin-right: 1.5rem;
   margin-bottom: 4px;
+  @media screen and (max-width: 768px) {
+    width: 32px;
+    margin-right: 1rem;
+  }
 `
