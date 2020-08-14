@@ -7,7 +7,6 @@ import SliceZone from "../../utils/SliceZone"
 import Layout from "../../components/Layout"
 import { PageTypeHeading, Spacer } from "../../components/bits"
 import "./service.css"
-// force commit
 
 const Service = ({ data: { prismic } }) => {
   console.log("prismic", prismic)
