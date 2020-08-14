@@ -57,6 +57,11 @@
   src: url("../assets/fonts/CalibreThinItalic.woff");
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3 {

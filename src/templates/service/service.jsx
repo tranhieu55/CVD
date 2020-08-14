@@ -43,21 +43,24 @@ const Service = ({ data: { prismic } }) => {
 
 const ThisPage = styled.div`
   background-color: #fff;
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `
 
 const ContainerFluid = styled.div`
   width: 100%;
   background-color: #f8f8f8;
+  @media screen and (max-width: 768px) {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
 `
 
 const Container = styled.div`
-  max-width: 1600px;
+  max-width: 1240px;
   width: 100%;
-  padding: 0 180px;
   margin: 0 auto;
-  @media screen and (max-width: 768px) {
-    padding: 0 1rem;
-  }
   ${props =>
     props.background &&
     css`
@@ -70,7 +73,7 @@ const ContainerTitle = styled.div`
   font-size: 1rem;
   max-width: 770px;
   @media screen and (max-width: 768px) {
-    padding: 0 0 1.25rem 0;
+    padding: 0 1rem 1.25rem 1rem;
   }
 `
 
