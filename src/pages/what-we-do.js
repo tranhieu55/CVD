@@ -324,6 +324,7 @@ const WhatWeDo = ({ data }) => {
         <div className="container study">
           {data.allPrismicWhatWeDo.edges.map((edge, index = 1) => (
             <div
+              key={index}
               className={` ${index % 2 === 0 ? "" : "cl-order"} ${
                 index === 4 ? "box-study-5" : "box-study"
               }`}
