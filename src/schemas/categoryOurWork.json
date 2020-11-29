@@ -1,0 +1,23 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "CategoryId"
+      }
+    },
+    "category_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Category_Name"
+      }
+    },
+    "oder_in_menu" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Oder_In_Menu"
+      }
+    }
+  }
+}

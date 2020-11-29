@@ -1,7 +1,35 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
 
-const SEO = ({ props }) => {
+const SEO = ({ title }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allPrismicHomepage {
+        edges {
+          node {
+            data {
+              page_title {
+                text
+              }
+              meta_title {
+                text
+              }
+              meta_description {
+                text
+              }
+              keywords {
+                text
+              }
+              featured_image {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
   const defaultTitle =
     "Magento Developers - Magento Development Melbourne & Sydney"
   const defaultDescription =
@@ -10,20 +38,22 @@ const SEO = ({ props }) => {
   const defaultImage = false
   const defaultUrl = "www.convertdigital.com.au"
 
-  let title = props.meta_title[0].text
-  let keywords = props.keywords[0].text
-  let description = props.meta_description[0].text
+  const dataSeo = data.allPrismicHomepage.edges[0].node
 
-  props.meta_description[0].text
-    ? (description = props.meta_description[0].text)
+  let metaTitle = dataSeo.data.meta_title[0].text
+  let keywords = dataSeo.data.keywords[0].text
+  let description = dataSeo.data.meta_description[0].text
+
+  dataSeo.data.meta_description[0].text
+    ? (description = dataSeo.data.meta_description[0].text)
     : (description = defaultDescription)
   let image = ""
-  if (props.featured_image) {
-    image = props.featured_image.url
+  if (dataSeo.data.featured_image) {
+    image = dataSeo.data.featured_image.url
   }
   return (
     <>
-      <Helmet title={title}>
+      <Helmet title={title ? `${title} | ${metaTitle}` : `${metaTitle}`}>
         <meta name="description" content={description} />
         <meta name="image" content={image} />
         <meta name="keywords" content={keywords} />

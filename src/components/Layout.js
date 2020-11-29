@@ -1,22 +1,196 @@
-import "./Layout.css"
 import React from "react"
-import styled from "styled-components"
-// import Footer from "./required/Footer"
-// import MainHeader from "./Header"
-// import MobileHeader from "./MobileHeader"
+import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
+import Header from "./Header"
+import Footer from "./Footer"
+import { theme } from "../assets/global/Theme"
+import Banner from "./Banner/Banner"
+import CalibreRegular from "../assets/fonts/CalibreRegular.woff"
+import CalibreRegularItalic from "../assets/fonts/CalibreRegularItalic.woff"
+import CalibreThin from "../assets/fonts/CalibreThin.woff"
+import CalibreThinItalic from "../assets/fonts/CalibreThinItalic.woff"
+import CalibreLight from "../assets/fonts/CalibreLight.woff"
+import CalibreLightItalic from "../assets/fonts/CalibreLightItalic.woff"
+import CalibreMedium from "../assets/fonts/CalibreMedium.woff"
+import CalibreMediumItalic from "../assets/fonts/CalibreMediumItalic.woff"
+import CalibreSemibold from "../assets/fonts/CalibreSemibold.woff"
+import CalibreSemiboldItalic from "../assets/fonts/CalibreSemiboldItalic.woff"
+import CalibreBlack from "../assets/fonts/CalibreBlack.woff"
+import CalibreBlackItalic from "../assets/fonts/CalibreBlackItalic.woff"
+import CalibreBold from "../assets/fonts/CalibreBold.woff"
+import CalibreBoldItalic from "../assets/fonts/CalibreBoldItalic.woff"
+import FontAwesome5ProRegular from "../assets/fonts/FontAwesome5Pro-Regular.woff"
+import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regular.woff"
+import "bootstrap/dist/css/bootstrap.min.css"
 
-// import MobileHeader from "./MobileHeader"
+const GlobalStyle = createGlobalStyle`
+   @font-face {
+    font-family: 'Calibre Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Calibre Regular'), url(${CalibreRegular}) format('woff');
+}
+@font-face {
+font-family: 'Calibre Regular Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Regular Italic'), url(${CalibreRegularItalic}) format('woff');
+}
 
-export default ({ children }) => {
+@font-face {
+font-family: 'Calibre Thin';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Thin'), url(${CalibreThin}) format('woff');
+}
+
+@font-face {
+font-family: 'Calibre Thin Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Thin Italic'), url(${CalibreThinItalic}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Light';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Light'), url(${CalibreLight}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Light Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Light Italic'), url(${CalibreLightItalic}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Medium';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Medium'), url(${CalibreMedium}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Medium Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Medium Italic'), url(${CalibreMediumItalic}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Semibold';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Semibold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Semibold Italic'), url(${CalibreSemiboldItalic}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Bold'), url(${CalibreBold}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Bold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Bold Italic'), url(${CalibreBoldItalic}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Black';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Black'), url(${CalibreBlack}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Calibre Black Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Calibre Black Italic'), url(${CalibreBlackItalic}) format('woff');
+}
+@font-face {
+font-family: 'Font Awesome 5 Pro Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Font Awesome 5 Pro Regular'), url(${FontAwesome5ProRegular}) format('woff');
+}
+@font-face {
+font-family: 'Font Awesome 5 Brands Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Font Awesome 5 Brands Regular'), url(${FontAwesome5BrandsRegular}) format('woff');
+}
+*,*::after, *::before { 
+  box-sizing : border-box;
+}
+`
+const Layout = ({
+  location,
+  children,
+  nameProject,
+  logoProject,
+  nameCategoryOfWorkItem,
+  descriptionOfWorkItem,
+  backgroundWorkItemSrc,
+  backgroundWorkItemAlt,
+}) => {
+  const listCategoryOurWork = useStaticQuery(graphql`
+    query QueryAllCategoryOurWork {
+      allPrismicCategoryOurwork(sort: { fields: data___oder_in_menu }) {
+        nodes {
+          data {
+            category_name {
+              text
+            }
+          }
+          uid
+        }
+      }
+    }
+  `)
+
   return (
-    <>
-      <Body id="layout-container" style={{ zIndex: 1 }}>
+    <div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header location={location} />
+        <Banner
+          location={location}
+          listCategoryOurWork={listCategoryOurWork}
+          nameProject={nameProject}
+          logoProject={logoProject}
+          nameCategoryOfWorkItem={nameCategoryOfWorkItem}
+          descriptionOfWorkItem={descriptionOfWorkItem}
+          backgroundWorkItemSrc={backgroundWorkItemSrc}
+          backgroundWorkItemAlt={backgroundWorkItemAlt}
+        />
         {children}
-      </Body>
-    </>
+        <Footer />
+      </ThemeProvider>
+    </div>
   )
 }
 
-const Body = styled.div`
-  position: relative;
-`
+export default Layout

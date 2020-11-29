@@ -1,18 +1,84 @@
+
 const path = require("path")
-
-exports.createPages = async ({ graphql, actions }) => {
+module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const OurWorkItems = path.resolve("./src/templates/OurWorkItems.js")
+  const OurWorkDetail = path.resolve("./src/templates/OurWorkDetail.js")
 
-  const posts = await graphql(`
-    {
-      prismic {
-        allPosts {
-          edges {
-            node {
-              _meta {
-                uid
+  const res = await graphql(`
+    query {
+      allPrismicCategoryOurwork {
+        nodes {
+          uid
+        }
+      }
+
+      allPrismicOurworkItem {
+        nodes {
+          uid
+          data {
+            ourworkitem_name {
+              text
+            }
+            ourworkitem_logo {
+              url
+              dimensions {
+                height
+                width
               }
-              title
+            }
+            ourworkitem_image {
+              alt
+              url
+            }
+            name_category_of_ourworkitem
+            relationship_to_categoryourwork {
+              uid
+            }
+            background_description {
+              text
+            }
+            background_image {
+              alt
+              url
+            }
+            quote_author {
+              text
+            }
+            quote_description {
+              text
+            }
+            solution_description {
+              text
+            }
+            solution_image {
+              url
+              alt
+            }
+            solution_lists {
+              solution_lists_item {
+                text
+              }
+            }
+            ourworkitem_description {
+              text
+            }
+            features_description {
+              text
+            }
+            list_background_images {
+              list_background_images_item {
+                url
+                alt
+              }
+            }
+            statistical_ourwork_item {
+              description__statistical {
+                text
+              }
+              title_number_statistical {
+                text
+              }
             }
           }
         }
@@ -20,42 +86,22 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const services = await graphql(`
-    {
-      prismic {
-        allServices {
-          edges {
-            node {
-              page_title
-              _meta {
-                uid
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const postTemplate = path.resolve("src/templates/post.jsx")
-  const serviceTemplate = path.resolve("src/templates/service/service.jsx")
-
-  posts.data.prismic.allPosts.edges.forEach(edge => {
+  res.data.allPrismicCategoryOurwork.nodes.forEach(node => {
     createPage({
-      path: `/post/${edge.node._meta.uid}`,
-      component: postTemplate,
+      component: OurWorkItems,
+      path: `/projects/${node.uid}`,
       context: {
-        uid: edge.node._meta.uid,
+        slug: node.uid,
       },
     })
   })
-
-  services.data.prismic.allServices.edges.forEach(edge => {
+  res.data.allPrismicOurworkItem.nodes.forEach(node => {
     createPage({
-      path: `/services/${edge.node._meta.uid}`,
-      component: serviceTemplate,
+      component: OurWorkDetail,
+      path: `/projects/${node.data.relationship_to_categoryourwork.uid}/${node.uid}`,
       context: {
-        uid: edge.node._meta.uid,
+        slug: node.uid,
+        dataLayout: node,
       },
     })
   })

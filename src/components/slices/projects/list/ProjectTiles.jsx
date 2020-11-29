@@ -5,8 +5,6 @@ import { theme } from "../../../../assets/global/Theme"
 
 const ProjectTiles = ({ input }) => {
   const projects = input.fields
-  console.log(projects)
-
   return (
     <Container>
       <Projects>
