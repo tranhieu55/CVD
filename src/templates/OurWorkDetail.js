@@ -20,7 +20,12 @@ const Background = styled.div`
     font-size: 20px;
     color: #222222;
     line-height: 28px;
-    margin-bottom: ${({ mabt }) => `${mabt}px`};
+  }
+  .text-style-bottom {
+    font-family: "Calibre Regular";
+    font-size: 20px;
+    color: #222222;
+    line-height: 28px;
   }
   .map-solution {
     display: flex;
@@ -102,11 +107,17 @@ const Background = styled.div`
     margin-top: 96px;
     padding-left: 9%;
   }
-  @media (min-width: 1340px) {
+  @media (min-width: 1200px) {
     padding-left: 9%;
     padding-right: 30%;
+    .text-style-bottom {
+      padding-bottom: 60px;
+    }
   }
   @media (min-width: 1600px) {
+    .text-style-bottom {
+      padding-bottom: 0px;
+    }
     .map-solution {
       div {
         h4 {
@@ -181,6 +192,9 @@ const Other = styled.div`
       }
     }
   }
+  @media (max-width: 1200px) {
+    max-width: 1024px;
+  }
   @media (max-width: 600px) {
     margin-top: 70px;
     overflow-x: scroll;
@@ -188,15 +202,10 @@ const Other = styled.div`
     margin-bottom: 32px;
     .title-other {
       height: 32px;
-      margin-left: -32px;
+      margin-left: 36px;
       margin-top: 20px;
       margin-bottom: 29px;
-      -webkit-letter-spacing: -0.5px;
-      -moz-letter-spacing: -0.5px;
-      -ms-letter-spacing: -0.5px;
       letter-spacing: -0.5px;
-      display: flex;
-      justify-content: center;
     }
     .row {
       display: none;
@@ -843,7 +852,7 @@ const OurWorkDetail = props => {
             features
           </P>
           {dataOurWorkItem.features_description.length > 0 ? (
-            <h4 className="text-style" mb="90">
+            <h4 className="text-style-bottom">
               {dataOurWorkItem.features_description.map(item => item.text)}
             </h4>
           ) : (
