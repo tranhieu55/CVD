@@ -10,6 +10,12 @@ const BannerStyle = styled.div`
   color: white;
   display: flex;
   align-items: center;
+  .Shadow {
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    position: absolute;
+  }
   .title-banner {
     position: absolute;
     width: 70vw;
@@ -39,27 +45,31 @@ const BannerStyle = styled.div`
   .box-button {
     margin-top: 40px;
   }
-  
 
   /* Reponsive */
   /* Extra small devices (phones, 600px and down) */
   @media (max-width: 992px) {
-    .title-banner{
+    .title-banner {
       width: 100vw;
       padding: 320px 60px 250px;
-      img{
+      img {
         margin-top: 20px;
       }
-      .text-banner{
-        h1{
+      .text-banner {
+        h1 {
           padding-top: 54px;
         }
       }
     }
-
   }
   @media only screen and (max-width: 600px) {
     height: 400px;
+    .Shadow {
+      height: 100%;
+      width: 100%;
+      opacity: 0.4;
+      position: absolute;
+    }
     h1 {
       padding-top: 40px;
       font-size: 36px;
@@ -76,13 +86,14 @@ const BannerStyle = styled.div`
       height: 400px;
       .img-fluid {
         height: 100% !important;
+        object-fit: cover;
       }
     }
     .title-banner {
       padding-left: 24px;
       padding-top: 446px;
       padding-right: 0px;
-      img{
+      img {
         margin-top: 12px;
       }
       p {
@@ -90,7 +101,6 @@ const BannerStyle = styled.div`
         font-family: "Calibre Semibold";
         margin-bottom: 0px;
         line-height: 20px;
-
       }
       h1 {
         font-size: 32px;
@@ -102,7 +112,7 @@ const BannerStyle = styled.div`
       }
     }
   }
- 
+
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 601px) {
     h1 {
@@ -124,7 +134,7 @@ const BannerStyle = styled.div`
     .title-banner {
       padding: 5%;
       width: 100%;
-      img{
+      img {
         margin-top: 16px;
       }
     }
@@ -148,7 +158,6 @@ const BannerStyle = styled.div`
     height: 664px;
     .image-banner {
       height: 664px;
-      opacity: 0.4;
       .img-fluid {
         height: 100%;
       }
@@ -162,7 +171,7 @@ const BannerStyle = styled.div`
       margin-left: 17%;
       margin-top: 7%;
       padding: 0%;
-      img{
+      img {
         margin-top: 13px;
       }
       p {
@@ -195,10 +204,11 @@ const BannerStyle = styled.div`
       height: 248px;
       margin-left: 286px;
     }
-    .image-banner{
+    .image-banner {
       max-height: 796.8px;
-      .img-fluid{
+      .img-fluid {
         max-height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -221,8 +231,9 @@ function BannerCaseStudy({
           alt={backgroundWorkItemAlt}
         ></img>
       </div>
+      <div className="Shadow"></div>
       <div className="title-banner">
-        <div style={{height:'19px'}}>
+        <div style={{ height: "19px" }}>
           <p style={{ color: "#fecf09" }}>{nameCategoryOfWorkItem}</p>
         </div>
 

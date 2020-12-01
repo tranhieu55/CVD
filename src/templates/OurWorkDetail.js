@@ -35,7 +35,7 @@ const Background = styled.div`
     width: 100%;
     padding-right: 73px;
     div {
-      width: 50%;
+      width: 49%;
       color: #101010;
       line-height: 20px;
       h4 {
@@ -53,7 +53,7 @@ const Background = styled.div`
     position: relative;
     line-height: 22px;
     height: 16px;
-    max-width: 101px;
+    max-width: 150px;
     font-size: 14px;
     margin-bottom: 26px;
     font-weight: 600;
@@ -72,20 +72,29 @@ const Background = styled.div`
   @media (max-width: 1024px) {
     margin-left: 90px;
     padding-bottom: ${({ pdbt }) => `${pdbt}px`};
+    .map-solution {
+      div {
+        padding-top: 10px;
+      }
+    }
   }
 
   @media only screen and (max-width: 600px) {
     margin-top: ${({ mt }) => `${mt}px`};
     margin-left: 0px;
     padding-bottom: 0px;
+    .map-solution {
+      margin-bottom: 33px;
+    }
     p {
-      letter-spacing: 0px;
+      letter-spacing: 1px;
     }
     .solution-right {
       width: 46.5% !important;
+      height: 32px;
     }
     #solution-down {
-      margin-top: 11px;
+      margin-top: 21px;
     }
     p {
       margin-left: 3rem;
@@ -113,6 +122,11 @@ const Background = styled.div`
     .text-style-bottom {
       padding-bottom: 60px;
     }
+    .map-solution {
+      div {
+        padding-top: 5px;
+      }
+    }
   }
   @media (min-width: 1600px) {
     .text-style-bottom {
@@ -120,6 +134,7 @@ const Background = styled.div`
     }
     .map-solution {
       div {
+        padding-top: 0px;
         h4 {
           margin-top: 0px;
           line-height: 31px;
@@ -142,7 +157,15 @@ const Other = styled.div`
   margin-top: 85px;
   margin-bottom: 96px;
   .text-title {
-    margin-bottom: 8px;
+    margin-bottom: -4px;
+  }
+  .Shadow {
+    position: absolute;
+    bottom: 0px;
+    height: 210px;
+    width: 100%;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
   .row {
     display: flex;
@@ -150,10 +173,16 @@ const Other = styled.div`
     width: 100%;
     margin-right: 0px;
     margin-left: 0px;
-    .list-image-other {
-      width: 49%;
-      height: 433px;
-      position: relative;
+  }
+  .list-image-other {
+    width: 49%;
+    height: 433px;
+    position: relative;
+    .Shadow-destop {
+      height: 100%;
+      width: 100%;
+      opacity: 0.8;
+      position: absolute;
     }
   }
   .col-md-6 {
@@ -181,25 +210,57 @@ const Other = styled.div`
   .tech-slideshow {
     display: none;
   }
-  @media (max-width: 1024px) {
-    margin: 55px auto 86px;
+  @media (min-width: 768px) {
+    max-width: 620px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 900px;
     .row {
-      padding: 16px;
       .list-image-other {
+        max-height: 320px;
         .title-img-blog {
           left: 20px;
         }
       }
     }
   }
-  @media (max-width: 1200px) {
+
+  @media (min-width: 1200px) {
     max-width: 1024px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1151px;
+  }
+  @media (min-width: 1600px) {
+    max-width: 1240px;
+    .row {
+      .list-image-other {
+        max-height: 433px;
+        .title-img-blog {
+          left: 42px;
+        }
+      }
+    }
+  }
+  @media (min-width: 1800px) {
+    max-width: 1380px;
   }
   @media (max-width: 600px) {
     margin-top: 70px;
     overflow-x: scroll;
     padding-left: 16px;
     margin-bottom: 32px;
+    .Shadow-mobile {
+      height: 240px;
+      width: 100% !important;
+      opacity: 0.8;
+    }
+    .Shadow {
+      height: 100px;
+      width: 100%;
+      opacity: 0.3;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    }
     .title-other {
       height: 32px;
       margin-left: 36px;
@@ -253,11 +314,15 @@ const Other = styled.div`
       }
     }
   }
+  @media (max-width: 768px) {
+    max-width: 620px;
+  }
+
   .title-img-blog {
     position: absolute;
     z-index: 2;
     bottom: 33px;
-    left: 40px;
+    left: 42px;
     cursor: pointer;
     /* color:red; */
     span {
@@ -286,7 +351,6 @@ const Study = styled.div`
   .list-image-background {
     display: flex;
     height: 780px;
-    max-width: 1240px;
     background-color: #f5f5f5;
     margin-top: 96px;
     .three-image {
@@ -372,6 +436,9 @@ const Study = styled.div`
     .list-image-background .three-image .image-background {
       height: 410px;
     }
+    .text-aliquam {
+      padding-top: 60px;
+    }
   }
   @media (max-width: 320px) {
     .list-image-background {
@@ -425,10 +492,9 @@ const Study = styled.div`
       text-align: center;
     }
     .type-aliquam-h5 {
-      letter-spacing: 1.5px;
-      text-indent: -13.5px;
-      font-size: 15px;
-      line-height: 20px;
+      letter-spacing: 0px;
+      font-size: 18px;
+      line-height: 24px;
     }
     .text-aliquam {
       margin-top: 40px;
@@ -752,11 +818,7 @@ const OurWorkDetail = props => {
                         ? "solution-right"
                         : ""
                     }
-                    id={
-                      `${index}` === "2" || `${index}` === "3"
-                        ? "solution-down"
-                        : ""
-                    }
+                    id={`${index}` === "3" ? "solution-down" : ""}
                   >
                     <H4 fontWeight={theme.fonts.bold}>
                       {item.solution_lists_item.map(item => item.text)}
@@ -886,6 +948,7 @@ const OurWorkDetail = props => {
                   objectFit="cover"
                   h="500"
                 />
+                <div className="Shadow"></div>
               </DivIMG>
               <div className="title-img-blog">
                 <div className="text-title">
@@ -914,8 +977,8 @@ const OurWorkDetail = props => {
                   src={item.data.ourworkitem_image.url}
                   objectFit="cover"
                   h="206"
-                  oct="0.8"
                 />
+                <div className="Shadow"></div>
               </DivIMG>
               <div className="title-img-blog">
                 <div className="text-title">
