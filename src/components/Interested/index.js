@@ -14,9 +14,8 @@ const InterestedStyle = styled.div`
   .button-header {
     .get-in-touch {
       height: 20px;
-      width: 99px;
       color: #ffffff;
-      font-family: "Calibre Semibold";
+      /* font-family: 'Calibre Semibold'; */
       font-size: 20px;
       font-weight: 600;
       letter-spacing: 0;
@@ -147,8 +146,7 @@ const InterestedStyle = styled.div`
     }
   }
 `
-
-export default function Interested() {
+export default function Interested(props) {
   return (
     <InterestedStyle>
       <div className="boxInterested">
@@ -160,16 +158,14 @@ export default function Interested() {
         </P>
         <div className="">
           <ButtonCustom
-            className="my-btn-back my-btn button-header"
+            className="my-btn-back  my-btn button-header"
             bgColor={theme.colors.black}
             textColor={theme.colors.white}
             variant="primary"
             fz="20"
-            fw="600"
-            pd1="15"
-            pd2="30.5"
+            pd1="16"
+            pd2="31.5"
             lineh="24"
-            wspace="nowrap"
           >
             <span></span>
             <span></span>
