@@ -72,11 +72,6 @@ const Background = styled.div`
   @media (max-width: 1024px) {
     margin-left: 90px;
     padding-bottom: ${({ pdbt }) => `${pdbt}px`};
-    .map-solution {
-      div {
-        padding-top: 10px;
-      }
-    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -457,6 +452,9 @@ const Study = styled.div`
     margin-top: 24px;
     margin-bottom: -70px;
     padding-bottom: 20px;
+    .text-aliquam {
+      padding-top: 0px;
+    }
     .list-image-background {
       height: 236px;
       max-width: 570px;
@@ -568,6 +566,9 @@ const Study = styled.div`
         margin-top: 40px;
       }
     }
+    .text-aliquam {
+      padding-top: 50px;
+    }
   }
   @media (min-width: 1200px) {
     max-width: 1024px;
@@ -587,6 +588,7 @@ const Study = styled.div`
     }
     .text-aliquam {
       margin-top: 96px;
+      padding-top: 0px;
     }
   }
 
@@ -883,7 +885,7 @@ const OurWorkDetail = props => {
         >
           {dataOurWorkItem.quote_description.length > 0 ? (
             <h1 className="type-aliquam" style={{ fontWeight: "bold" }}>
-              "{dataOurWorkItem.quote_description.map(item => item.text)}"
+              “{dataOurWorkItem.quote_description.map(item => item.text)}”
             </h1>
           ) : (
             ""

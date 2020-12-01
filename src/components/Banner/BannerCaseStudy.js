@@ -30,6 +30,7 @@ const BannerStyle = styled.div`
     max-width: 100%;
     height: 100vh;
     width: 100vw;
+    object-fit: cover;
   }
   h1 {
     padding-top: 80px;
@@ -126,6 +127,7 @@ const BannerStyle = styled.div`
     height: 615px;
     .img-fluid {
       height: 615px;
+      object-fit: cover;
     }
     h1 {
       padding-top: 0px;
