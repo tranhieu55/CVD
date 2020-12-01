@@ -50,6 +50,13 @@ const BannerStyle = styled.div`
   /* Reponsive */
   /* Extra small devices (phones, 600px and down) */
   @media (max-width: 992px) {
+    max-height: 400px;
+    .image-banner {
+      max-height: 400px;
+      .img-fluid {
+        height: 400px;
+      }
+    }
     .title-banner {
       width: 100vw;
       padding: 320px 60px 250px;
@@ -124,24 +131,25 @@ const BannerStyle = styled.div`
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    height: 615px;
+    height: 346px;
     .img-fluid {
-      height: 615px;
       object-fit: cover;
+      height: 346px;
     }
     h1 {
       padding-top: 0px;
       font-size: 50px;
     }
     .title-banner {
-      padding: 5%;
-      width: 100%;
+      margin: 43px 80px 0px;
+      padding: 0px;
+      width: 70%;
       img {
         margin-top: 16px;
       }
     }
     .text-banner {
-      margin-top: 80px;
+      margin-top: 0px;
     }
   }
 
@@ -153,6 +161,17 @@ const BannerStyle = styled.div`
     h1 {
       font-weight: 600;
       font-size: 64px;
+    }
+  }
+  @media (min-width: 1024px) {
+    height: 446px;
+    .img-fluid {
+      height: 446px;
+    }
+    .title-banner {
+      margin: 57px 40px 0px;
+      padding: 0px;
+      padding-top: 0px;
     }
   }
   /* Extra large devices (large laptops and desktops, 1200px and up) */

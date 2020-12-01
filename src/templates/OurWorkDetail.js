@@ -72,6 +72,11 @@ const Background = styled.div`
   @media (max-width: 1024px) {
     margin-left: 90px;
     padding-bottom: ${({ pdbt }) => `${pdbt}px`};
+    .map-solution {
+      div {
+        padding-top: 10px;
+      }
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -80,6 +85,9 @@ const Background = styled.div`
     padding-bottom: 0px;
     .map-solution {
       margin-bottom: 33px;
+      div {
+        padding-top: 0px;
+      }
     }
     p {
       letter-spacing: 1px;
@@ -103,6 +111,14 @@ const Background = styled.div`
       padding-right: 0px;
     }
   }
+  @media (max-width: 320px) {
+    .map-solution {
+      div {
+        padding-top: 10px;
+      }
+    }
+  }
+
   @media (min-width: 768px) {
     margin-top: 56px;
     margin-left: 29px;
@@ -206,7 +222,14 @@ const Other = styled.div`
     display: none;
   }
   @media (min-width: 768px) {
-    max-width: 620px;
+    max-width: 585px;
+    .title-img-blog {
+      .text-title2 {
+        h3 {
+          font-size: 30px;
+        }
+      }
+    }
   }
   @media (min-width: 1024px) {
     max-width: 900px;
@@ -215,6 +238,9 @@ const Other = styled.div`
         max-height: 320px;
         .title-img-blog {
           left: 20px;
+          h3 {
+            font-size: 36px;
+          }
         }
       }
     }
@@ -222,6 +248,14 @@ const Other = styled.div`
 
   @media (min-width: 1200px) {
     max-width: 1024px;
+    .row {
+      .list-image-other {
+        max-height: 433px;
+        .title-img-blog {
+          left: 42px;
+        }
+      }
+    }
   }
   @media (min-width: 1400px) {
     max-width: 1151px;
@@ -239,6 +273,11 @@ const Other = styled.div`
   }
   @media (min-width: 1800px) {
     max-width: 1380px;
+  }
+  @media (max-width: 320px) {
+    .title-other {
+      margin-left: 25px !important;
+    }
   }
   @media (max-width: 600px) {
     margin-top: 70px;
@@ -310,7 +349,17 @@ const Other = styled.div`
     }
   }
   @media (max-width: 768px) {
-    max-width: 620px;
+    max-width: 585px;
+    margin-bottom: 34px;
+    .row {
+      height: 340px;
+      .list-image-other {
+        height: 340px;
+      }
+    }
+    .title-img-blog {
+      left: 25px !important;
+    }
   }
 
   .title-img-blog {
@@ -537,7 +586,7 @@ const Study = styled.div`
     .wrap-header {
       width: 100vw;
     }
-    max-width: 620px;
+    max-width: 585px;
     .plus {
       margin-left: 0px;
       margin-right: 0px;
@@ -884,7 +933,10 @@ const OurWorkDetail = props => {
           data-sal-duration="1000"
         >
           {dataOurWorkItem.quote_description.length > 0 ? (
-            <h1 className="type-aliquam" style={{ fontWeight: "bold" }}>
+            <h1
+              className="type-aliquam"
+              style={{ fontWeight: "bold", fontFamily: "Calibre Semibold" }}
+            >
               “{dataOurWorkItem.quote_description.map(item => item.text)}”
             </h1>
           ) : (
