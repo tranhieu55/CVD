@@ -425,8 +425,8 @@ export default function Footer() {
                 <Content>
                   <span>Sydney</span>
                   <p>
-                    Suite 112 / 59 Marlborough St Surry Hills NSW 2010 AUS (02)
-                    8005 6812
+                    Suite 112 / 59 Marlborough St Surry Hills NSW 2010 AUS{" "}
+                    <br /> (02) 8005 6812
                   </p>
                 </Content>
               </div>
