@@ -144,7 +144,7 @@ const Study = styled.div`
     }
     .study {
       margin-top: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 25px;
     }
     .box-img {
       padding-left: 16px !important;
@@ -182,6 +182,11 @@ const Study = styled.div`
       padding-right: 15px;
       padding-left: 15px;
     }
+    .box-study-5 {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
     h2 {
       font-size: 22px;
     }
@@ -190,6 +195,10 @@ const Study = styled.div`
     }
     .icon-leadmore {
       font-size: 16px;
+    }
+    .box-img {
+      width: 100%;
+      height: 100%;
     }
     .cl174 {
       width: 100px;

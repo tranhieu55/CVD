@@ -58,7 +58,7 @@ const BannerStyle = styled.div`
       }
     }
     .title-banner {
-      width: 100vw;
+      width: 95vw;
       padding: 320px 60px 250px;
       img {
         margin-top: 20px;
