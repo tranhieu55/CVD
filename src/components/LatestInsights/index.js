@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import Card from "../Card"
-import H2 from "../H2"
-import P from "../Typography"
+import H2 from "../../components/bits/H2"
+import P from "../../components/bits/Typography"
 
 const LatestInsightsStyle = styled.div`
   h2 {

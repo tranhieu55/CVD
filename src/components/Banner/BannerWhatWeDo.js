@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { graphql, useStaticQuery } from "gatsby"
-import P from "../Typography"
+import P from "../../components/bits/Typography"
 import { theme } from "../../utils/theme"
 
 const WraperBannerWhatWeDo = styled.div`

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import ImgIntagram from "../../images/img-intagram.jpg"
 import ImgIntagram1 from "../../images/img-intagram-1.jpg"
 import IMG from "../Image"
-import H4 from "../H4"
+import H4 from "../../components/bits/H4"
 
 const CardStyle = styled.div`
   .box-content {

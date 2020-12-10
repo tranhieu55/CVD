@@ -2,8 +2,8 @@ import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
-import H2 from "../H2"
-import P from "../Typography"
+import H2 from "../../components/bits/H2"
+import P from "../../components/bits/Typography"
 
 const WraperBannerProjects = styled.div`
   /* height: 50vh; */

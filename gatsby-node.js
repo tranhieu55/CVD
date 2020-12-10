@@ -1,4 +1,3 @@
-
 const path = require("path")
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -56,9 +55,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
               alt
             }
             solution_lists {
-              solution_lists_item {
-                text
-              }
+              solution_lists_item
             }
             ourworkitem_description {
               text

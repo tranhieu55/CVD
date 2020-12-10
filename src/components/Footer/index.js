@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
 const FooterStyle = styled.div`
@@ -381,6 +381,50 @@ const Content = styled.div`
 `
 
 export default function Footer() {
+  const FooterData = useStaticQuery(graphql`
+    query FooterQuery {
+      allPrismicFooter {
+        nodes {
+          data {
+            body {
+              slice_type
+              primary {
+                order
+                address_title {
+                  text
+                }
+                title {
+                  text
+                }
+              }
+              items {
+                address_detail {
+                  text
+                }
+                address_title {
+                  text
+                }
+                order
+                phone {
+                  text
+                }
+                slug_sub_title {
+                  text
+                }
+                sub_title {
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const OurWorkData = FooterData.allPrismicFooter.nodes[0].data.body[0]
+  const AddressData = FooterData.allPrismicFooter.nodes[0].data.body[1]
+
   return (
     <FooterStyle className="container-fulid">
       <div>
@@ -399,37 +443,30 @@ export default function Footer() {
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                <Link to="/what-we-do">What we do</Link>
-                <Link to="/partners">Partners</Link>
-                <Link to="/blog">Blog</Link>
-                <Link to="/about">About</Link>
-                <Link to="#">Careers</Link>
-                <Link to="#">Get in touch</Link>
+                {OurWorkData.items.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={`/${item.slug_sub_title.map(item => item.text)}`}
+                  >
+                    {item.sub_title.map(item => item.text)}
+                  </Link>
+                ))}
               </ListLink>
             </div>
             <div className="w-112 order-4"></div>
             <div className="content-digital order-5">
-              <div className="text-3 ">
-                <Content>
-                  <span>Melbourne</span>
-                  <p>
-                    Level 2, 58-62 Rupert St <br />
-                    Collingwood VIC 3066 <br />
-                    Australia <br />
-                    (03) 90703463 <br />
-                  </p>
-                </Content>
-              </div>
-              <div className="w-64"></div>
-              <div className="text-3">
-                <Content>
-                  <span>Sydney</span>
-                  <p>
-                    Suite 112 / 59 Marlborough St Surry Hills NSW 2010 AUS{" "}
-                    <br /> (02) 8005 6812
-                  </p>
-                </Content>
-              </div>
+              {AddressData.items.map((item, index) => (
+                <div key={index} className="text-3">
+                  <Content>
+                    <span>{item.address_title.map(item => item.text)}</span>
+                    <p>
+                      {item.address_detail.map(item => item.text)}
+                      <br />
+                      <span>{item.phone.map(item => item.text)}</span>
+                    </p>
+                  </Content>
+                </div>
+              ))}
             </div>
           </div>
           <div className="style-icon">

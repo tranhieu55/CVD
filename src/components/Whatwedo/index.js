@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
-import P from "../Typography"
+import P from "../../components/bits/Typography"
 
 const WhatwedoStyle = styled.div`
   padding: 150px 0px;

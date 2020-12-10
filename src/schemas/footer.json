@@ -1,0 +1,99 @@
+{
+    "Main" : {
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "labels" : {
+            "ourwork_footer" : [ ],
+            "address" : [ ]
+          },
+          "choices" : {
+            "ourwork_footer" : {
+              "type" : "Slice",
+              "fieldset" : "Ourwork_Footer",
+              "description" : "Created to contain section ourwork",
+              "icon" : "apps",
+              "display" : "list",
+              "non-repeat" : {
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Title"
+                  }
+                },
+                "order" : {
+                  "type" : "Number",
+                  "config" : {
+                    "label" : "order"
+                  }
+                }
+              },
+              "repeat" : {
+                "sub_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Sub_Title"
+                  }
+                },
+                "slug_sub_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "slug_sub_title"
+                  }
+                }
+              }
+            },
+            "address" : {
+              "type" : "Slice",
+              "fieldset" : "Address",
+              "description" : "Creatd to contain section address",
+              "icon" : "add_location",
+              "display" : "list",
+              "non-repeat" : {
+                "address_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Section_title"
+                  }
+                }
+              },
+              "repeat" : {
+                "address_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Address_title"
+                  }
+                },
+                "address_detail" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Address_detail"
+                  }
+                },
+                "phone" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Phone"
+                  }
+                },
+                "order" : {
+                  "type" : "Number",
+                  "config" : {
+                    "label" : "Order"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -14,6 +14,8 @@ module.exports = {
           ourWorkItem_FLAG: require("./src/schemas/ourWorkItem.json"),
           whatWeDoBanner_FLAG: require("./src/schemas/whatWeDoBanner.json"),
           whatWeDo_FLAG: require("./src/schemas/whatWeDo.json"),
+          menu_FLAG: require("./src/schemas/menu.json"),
+          footer_FLAG: require("./src/schemas/footer.json"),
         },
         imageImgixParams: {
           auto: "compress,format",

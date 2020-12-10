@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
-import H2 from "../H2"
-import P from "../Typography"
+import H2 from "../../components/bits/H2"
+import P from "../../components/bits/Typography"
 
 const InterestedStyle = styled.div`
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);

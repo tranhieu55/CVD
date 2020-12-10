@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import H2 from "../H2"
-import H3 from "../H3"
-import P from "../Typography"
+import H2 from "../../components/bits/H2"
+import H3 from "../../components/bits/H3"
+import P from "../../components/bits/Typography"
 
 const BoxService = styled.div`
   .container {

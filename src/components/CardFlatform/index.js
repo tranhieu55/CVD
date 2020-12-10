@@ -3,7 +3,7 @@ import Image02 from "../../images/magentocopy.png"
 import Image03 from "../../images/bigo2.png"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
-import P from "../Typography"
+import P from "../../components/bits/Typography"
 
 export default function CardFlatform() {
   return (

@@ -1,12 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, Link } from "gatsby"
-import P from "../components/Typography"
+import P from "../components/bits/Typography"
 import { theme } from "../utils/theme"
 import Interested from "../components/Interested"
 import IMG from "../components/Image"
 import Layout from "../components/Layout"
-import H4 from "../components/H4"
+import H4 from "../components/bits/H4"
 import SEO from "../components/utilities/SEO"
 
 const Background = styled.div`
@@ -767,6 +767,7 @@ const OurWorkDetail = props => {
   let slugCurrent = props.pageContext.slug
   let allProjects = props.data
 
+  console.log("data : ", { dataOurWorkItem })
   let removeProjectInPageCurrent = allProjects.allPrismicOurworkItem.nodes.filter(
     node => node.uid !== slugCurrent
   )
@@ -872,7 +873,7 @@ const OurWorkDetail = props => {
                     id={`${index}` === "3" ? "solution-down" : ""}
                   >
                     <H4 fontWeight={theme.fonts.bold}>
-                      {item.solution_lists_item.map(item => item.text)}
+                      {item.solution_lists_item}
                     </H4>
                   </div>
                 ))}
