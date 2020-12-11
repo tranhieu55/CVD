@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 const FooterStyle = styled.div`
@@ -380,50 +380,13 @@ const Content = styled.div`
   }
 `
 
-export default function Footer() {
-  const FooterData = useStaticQuery(graphql`
-    query FooterQuery {
-      allPrismicFooter {
-        nodes {
-          data {
-            body {
-              slice_type
-              primary {
-                order
-                address_title {
-                  text
-                }
-                title {
-                  text
-                }
-              }
-              items {
-                address_detail {
-                  text
-                }
-                address_title {
-                  text
-                }
-                order
-                phone {
-                  text
-                }
-                slug_sub_title {
-                  text
-                }
-                sub_title {
-                  text
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const OurWorkData = FooterData.allPrismicFooter.nodes[0].data.body[0]
-  const AddressData = FooterData.allPrismicFooter.nodes[0].data.body[1]
+export default function Footer({ dataFooter }) {
+  const dataOurWorkFooter = dataFooter.body.filter(
+    item => item.type === "ourwork_footer"
+  )
+  const dataAddressFooter = dataFooter.body.filter(
+    item => item.type === "address"
+  )
 
   return (
     <FooterStyle className="container-fulid">
@@ -443,7 +406,7 @@ export default function Footer() {
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                {OurWorkData.items.map((item, index) => (
+                {dataOurWorkFooter[0].fields.map((item, index) => (
                   <Link
                     key={index}
                     to={`/${item.slug_sub_title.map(item => item.text)}`}
@@ -455,7 +418,7 @@ export default function Footer() {
             </div>
             <div className="w-112 order-4"></div>
             <div className="content-digital order-5">
-              {AddressData.items.map((item, index) => (
+              {dataAddressFooter[0].fields.map((item, index) => (
                 <div key={index} className="text-3">
                   <Content>
                     <span>{item.address_title.map(item => item.text)}</span>

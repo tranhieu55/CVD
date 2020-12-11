@@ -5,7 +5,7 @@ import WhatWeDoMobile from "./mobile/WhatWeDoMobile"
 import { theme } from "../../../../assets/global/Theme"
 
 export default function WhatWeDo(props) {
-  console.log(props)
+
 
   const { input } = props
   const { fields } = input
@@ -14,7 +14,7 @@ export default function WhatWeDo(props) {
   const defaultIndicator = 0
 
   const heading = input.primary.title[0].text
-  console.log(props)
+
   useEffect(() => {
     setTimeout(() => {
       console.log(`You clicked imes`)
@@ -30,7 +30,7 @@ export default function WhatWeDo(props) {
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)
-    console.log(i)
+
   }
 
   return (

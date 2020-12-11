@@ -10,7 +10,7 @@ export default function WhatWeDoMobile(props) {
   const { fields } = props.props.input
   const { input } = props.props
 
-  console.log(fields)
+
 
   const defaultService = JSON.stringify(fields[0].service[0].text)
   const defaultContent = fields[0].content
@@ -18,7 +18,7 @@ export default function WhatWeDoMobile(props) {
 
   const heading = input.primary.title[0].text
 
-  console.log(props)
+
   useEffect(() => {
     setTimeout(() => {
       console.log(`You clicked imes`)
@@ -35,7 +35,7 @@ export default function WhatWeDoMobile(props) {
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)
-    console.log(i)
+
   }
 
   return (
@@ -44,11 +44,11 @@ export default function WhatWeDoMobile(props) {
           {fields.map((service, i) => {
             let title = service.service[0].text
             return (
-              <>
-                <Service key={i} onClick={() => updateSelected(i)} indicator={i == indicator}>
+              <React.Fragment key={i}>
+                <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
                   {title}
                 </Service>
-              </>
+              </React.Fragment>
             )
           })}
       </Container>

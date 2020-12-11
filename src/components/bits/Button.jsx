@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 export default function Button(props) {
-  console.log(props)
   return (
     <Container black={props.yellowBlack}>
       <ButtonText yellow={props.yellowBlack} white={props.yellowWhite} to="">

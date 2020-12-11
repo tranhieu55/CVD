@@ -185,20 +185,19 @@ const WraperBannerWhatWeDo = styled.div`
 
 const BannerWhatWeDo = () => {
   const data = useStaticQuery(graphql`
-    query QueryBannerWhatWeDo {
-      allPrismicWhatWeDoBanner {
-        edges {
-          node {
-            data {
-              what_we_do_banner {
-                text
-              }
+    query queryBannerWhatWeDo {
+      prismic {
+        allWhatwedo_pages {
+          edges {
+            node {
+              banner_text
             }
           }
         }
       }
     }
   `)
+
   return (
     <WraperBannerWhatWeDo
       className="contrainer-fluid"
@@ -225,9 +224,7 @@ const BannerWhatWeDo = () => {
               lineh="36"
               lett="-0.5"
             >
-              {data.allPrismicWhatWeDoBanner.edges.map((edge, index) =>
-                edge.node.data.what_we_do_banner.map(item => item.text)
-              )}
+              {data.prismic.allWhatwedo_pages.edges[0].node.banner_text[0].text}
             </P>
           </div>
         </div>

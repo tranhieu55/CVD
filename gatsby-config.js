@@ -5,31 +5,19 @@ require("dotenv").config({
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-source-prismic`,
+      resolve: "gatsby-source-prismic-graphql",
       options: {
-        repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
-        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-        schemas: {
-          categoryOurWork_FLAG: require("./src/schemas/categoryOurWork.json"),
-          ourWorkItem_FLAG: require("./src/schemas/ourWorkItem.json"),
-          whatWeDoBanner_FLAG: require("./src/schemas/whatWeDoBanner.json"),
-          whatWeDo_FLAG: require("./src/schemas/whatWeDo.json"),
-          menu_FLAG: require("./src/schemas/menu.json"),
-          footer_FLAG: require("./src/schemas/footer.json"),
-        },
-        imageImgixParams: {
-          auto: "compress,format",
-          fit: "max",
-          q: 50,
-        },
-        imagePlaceholderImgixParams: {
-          w: 100,
-          blur: 15,
-          q: 50,
-        },
+        repositoryName: "cdwebsite", // required
+        defaultLang: "en-us", // optional, but recommended
+        accessToken: `${process.env.API_KEY}`, // optional
+        path: "/preview", // optional, default: /preview
+        previews: true, // optional, default: false
+        sharpKeys: [
+          /image|photo|picture/, // (default)
+          "profilepic",
+        ],
       },
     },
-
     // add sass
     // created by tuanva 26/11/2020
     `gatsby-plugin-sass`,

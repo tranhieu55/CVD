@@ -156,29 +156,65 @@ const Layout = ({
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
 }) => {
-  const listCategoryOurWork = useStaticQuery(graphql`
-    query QueryAllCategoryOurWork {
-      allPrismicCategoryOurwork(sort: { fields: data___oder_in_menu }) {
-        nodes {
-          data {
-            category_name {
-              text
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      prismic {
+        allFooters {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_FooterBodyOurwork_footer {
+                  type
+                  label
+                  fields {
+                    slug_sub_title
+                    sub_title
+                  }
+                  primary {
+                    title
+                  }
+                }
+                ... on PRISMIC_FooterBodyAddress {
+                  type
+                  label
+                  fields {
+                    address_detail
+                    address_title
+                    phone
+                    order
+                  }
+                  primary {
+                    address_title
+                  }
+                }
+              }
             }
           }
-          uid
+        }
+        allMenus(sortBy: date_created_ASC) {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+              menu_title
+            }
+          }
         }
       }
     }
   `)
 
+  const dataHeader = data.prismic.allMenus.edges
+  const dataFooter = data.prismic.allFooters.edges[0].node
+
   return (
     <div>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header location={location} />
+        <Header location={location} dataHeader={dataHeader} />
         <Banner
           location={location}
-          listCategoryOurWork={listCategoryOurWork}
           nameProject={nameProject}
           logoProject={logoProject}
           nameCategoryOfWorkItem={nameCategoryOfWorkItem}
@@ -187,7 +223,7 @@ const Layout = ({
           backgroundWorkItemAlt={backgroundWorkItemAlt}
         />
         {children}
-        <Footer />
+        <Footer dataFooter={dataFooter} />
       </ThemeProvider>
     </div>
   )

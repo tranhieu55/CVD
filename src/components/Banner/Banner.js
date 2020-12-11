@@ -1,6 +1,5 @@
 import React from "react"
 import BannerCaseStudy from "./BannerCaseStudy"
-import BannerHome from "./BannerHome"
 import BannerProjects from "./BannerProjects"
 import BannerWhatWeDo from "./BannerWhatWeDo"
 
@@ -14,10 +13,11 @@ function Banner({
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
 }) {
-
   switch (location) {
+    // case "/":
+    //   return <BannerHome />
     case "/":
-      return <BannerHome />
+      return ""
     case "/projects":
       return <BannerProjects listCategoryOurWork={listCategoryOurWork} />
 

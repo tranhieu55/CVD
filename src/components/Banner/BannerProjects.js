@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
@@ -182,7 +182,23 @@ const CategoryItem = styled.li`
     }
   }
 `
-const BannerProjects = ({ listCategoryOurWork }) => {
+const BannerProjects = () => {
+  const dataAllCategoryOurwork = useStaticQuery(graphql`
+    query queryAllCategoryOurwork {
+      prismic {
+        allCategory_ourworks {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+              category_name
+            }
+          }
+        }
+      }
+    }
+  `)
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
@@ -199,17 +215,15 @@ const BannerProjects = ({ listCategoryOurWork }) => {
         </H2>
         <div className="row">
           <ListCategory className="col-md-10">
-            {listCategoryOurWork.allPrismicCategoryOurwork.nodes.map(
-              (node, index) => (
+            {dataAllCategoryOurwork.prismic.allCategory_ourworks.edges.map(
+              (edge, index) => (
                 <CategoryItem key={index}>
                   <Link
-                    to={`${
-                      node.uid === "all" ? "/projects" : `/projects/${node.uid}`
-                    }`}
+                    to={`${edge.node._meta.uid === "all" ? "/projects" : ""}`}
                     activeClassName="active"
                   >
                     {" "}
-                    {node.data.category_name.map(item => item.text)}{" "}
+                    {edge.node.category_name.map(item => item.text)}{" "}
                   </Link>
                 </CategoryItem>
               )

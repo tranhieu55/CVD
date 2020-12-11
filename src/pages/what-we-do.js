@@ -303,35 +303,38 @@ const Study = styled.div`
 `
 
 export const query = graphql`
-  query {
-    allPrismicWhatWeDo(sort: { fields: data___date_created }) {
-      edges {
-        node {
-          data {
-            what_we_do_description {
-              text
-            }
-            what_we_do_image {
-              url
-            }
-            what_we_do_title {
-              text
+  query queryWhatWeDoPage {
+    prismic {
+      allWhatwedo_pages {
+        edges {
+          node {
+            meta_title
+            meta_description
+            keywords
+            body {
+              ... on PRISMIC_Whatwedo_pageBodyWhat_we_do_item {
+                fields {
+                  item_title
+                  item_image
+                  item_description
+                }
+              }
             }
           }
         }
       }
-      totalCount
     }
   }
 `
 const WhatWeDo = ({ data }) => {
-  let totalCount = data.allPrismicWhatWeDo.totalCount
+  const pageData = data.prismic.allWhatwedo_pages.edges[0].node.body[0].fields
+  const dataSEO = data.prismic.allWhatwedo_pages.edges[0].node
   return (
     <Layout location="/we-do">
-      <SEO title="What We Do" />
+      <SEO props={dataSEO} />
       <Study>
         <div className="container study">
-          {data.allPrismicWhatWeDo.edges.map((edge, index = 1) => (
+          {pageData.map((item, index = 1) => (
             <div
               key={index}
               className={` ${index % 2 === 0 ? "" : "cl-order"} ${
@@ -345,8 +348,8 @@ const WhatWeDo = ({ data }) => {
               <div className="box-img img-fluid">
                 <IMG
                   objectFit="cover"
-                  src={edge.node.data.what_we_do_image.url}
-                  alt={edge.node.data.what_we_do_image.alt}
+                  src={item.item_image.url}
+                  alt={item.item_image.alt}
                 />
               </div>
               <div className="cl174"></div>
@@ -355,7 +358,7 @@ const WhatWeDo = ({ data }) => {
                   <span className="my-border-study"></span>
                   <span className="txt-study">
                     {" "}
-                    {index + 1}/{totalCount}
+                    {index + 1}/{pageData.length}
                   </span>
                 </div>
                 <H2
@@ -366,7 +369,7 @@ const WhatWeDo = ({ data }) => {
                   fz="32"
                   fontFamily="Calibre Semibold"
                 >
-                  {edge.node.data.what_we_do_title.map(item => item.text)}
+                  {item.item_title.map(x => x.text)}
                 </H2>
                 <P
                   lineh="28"
@@ -374,7 +377,7 @@ const WhatWeDo = ({ data }) => {
                   fontFamily="Calibre Regular"
                   fontSise="20"
                 >
-                  {edge.node.data.what_we_do_description.map(item => item.text)}
+                  {item.item_description.map(x => x.text)}
                 </P>
                 <div className="icon-leadmore">
                   <span className="learn-more-title">Learn more</span>

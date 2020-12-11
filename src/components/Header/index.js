@@ -1,4 +1,3 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
@@ -14,6 +13,8 @@ import { theme } from "../../utils/theme"
 import P from "../../components/bits/Typography"
 import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
+import { Link } from "gatsby"
+
 const WrapperHeader = styled.div`
   * {
     box-sizing: border-box;
@@ -476,22 +477,8 @@ const WrapperHeader = styled.div`
     }
   }
 `
-function Header({ location }) {
-  const menuListstt = useStaticQuery(graphql`
-    query QueruMenuLists {
-      allPrismicMenu(sort: { fields: data___date_created }) {
-        nodes {
-          data {
-            menu_title {
-              text
-            }
-          }
-          uid
-        }
-      }
-    }
-  `)
 
+const Header = ({ location, dataHeader }) => {
   const titleServices = [
     { title: "Web Development Strategy", slug: "" },
     { title: "UX & Design", slug: "" },
@@ -580,7 +567,7 @@ function Header({ location }) {
           className={scroll && "header-scroll"}
         >
           <Nav className="mr-auto menu-list">
-            {menuListstt.allPrismicMenu.nodes.map((item, index) => (
+            {dataHeader.map((item, index) => (
               <li
                 className={`menu-list_item ${
                   location === "/" ||
@@ -589,11 +576,17 @@ function Header({ location }) {
                   location === "/proposal"
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
-                } ${item.uid === "services" ? "dropdown_services" : ""}`}
+                } ${
+                  item.node._meta.uid === "services" ? "dropdown_services" : ""
+                }`}
                 key={index}
               >
                 <Link
-                  to={item.uid === "services" ? "" : `/${item.uid}`}
+                  to={
+                    item.node._meta.uid === "services"
+                      ? ""
+                      : `/${item.node._meta.uid}`
+                  }
                   activeClassName="active"
                   className={
                     scroll
@@ -606,9 +599,9 @@ function Header({ location }) {
                       : "menu-list_item_text-black"
                   }
                 >
-                  {item.data.menu_title.map(item => item.text)}
+                  {item.node.menu_title[0].text}
                 </Link>
-                {item.uid === "services" ? (
+                {item.node._meta.uid === "services" ? (
                   <ul className="menu-area_services">
                     <div className="menu-item_services">
                       {" "}

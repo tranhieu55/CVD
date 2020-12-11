@@ -741,35 +741,38 @@ const DivIMG = styled.div`
 `
 
 export const query = graphql`
-  query {
-    allPrismicOurworkItem {
-      nodes {
-        data {
-          ourworkitem_name {
-            text
-          }
-          name_category_of_ourworkitem
-          ourworkitem_image {
-            alt
-            url
-          }
-          relationship_to_categoryourwork {
-            uid
+  query queryAllOurwork {
+    prismic {
+      allOurwork_items {
+        edges {
+          node {
+            ourworkitem_name
+            name_category_of_ourworkitem
+            ourworkitem_image
+            relationship_to_categoryourwork {
+              ... on PRISMIC_Category_ourwork {
+                _meta {
+                  uid
+                }
+              }
+            }
+            _meta {
+              uid
+            }
           }
         }
-        uid
       }
     }
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props.pageContext.dataLayout.data
-  let slugCurrent = props.pageContext.slug
-  let allProjects = props.data
+  let dataOurWorkItem = props.pathContext.dataLayout.node
 
-  console.log("data : ", { dataOurWorkItem })
-  let removeProjectInPageCurrent = allProjects.allPrismicOurworkItem.nodes.filter(
-    node => node.uid !== slugCurrent
+  let slugCurrent = props.pathContext.slug
+  let allProjects = props.data.prismic.allOurwork_items.edges
+
+  let removeProjectInPageCurrent = allProjects.filter(
+    item => item.node._meta.uid !== slugCurrent
   )
 
   let arrRandom = []
@@ -793,7 +796,7 @@ const OurWorkDetail = props => {
       backgroundWorkItemSrc={dataOurWorkItem.ourworkitem_image.url}
       backgroundWorkItemAlt={dataOurWorkItem.ourworkitem_image.alt}
     >
-      <SEO title="Case Study" />
+      <SEO props={dataOurWorkItem} />
       <Study>
         <Background
           hb="205"
@@ -893,7 +896,7 @@ const OurWorkDetail = props => {
           </div>
         </Background>
 
-        {dataOurWorkItem.statistical_ourwork_item.length > 0 ? (
+        {dataOurWorkItem.statistical_ourwork_item.length > 1 ? (
           <div className="plus">
             {dataOurWorkItem.statistical_ourwork_item.map((item, index) => (
               <div key={index}>
@@ -995,11 +998,11 @@ const OurWorkDetail = props => {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${item.data.relationship_to_categoryourwork.uid}/${item.uid}`}
+                to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
               >
                 <IMG
-                  alt={item.data.ourworkitem_image.alt}
-                  src={item.data.ourworkitem_image.url}
+                  alt={item.node.ourworkitem_image.alt}
+                  src={item.node.ourworkitem_image.url}
                   objectFit="cover"
                   h="500"
                 />
@@ -1007,10 +1010,10 @@ const OurWorkDetail = props => {
               </DivIMG>
               <div className="title-img-blog">
                 <div className="text-title">
-                  <span>{item.data.name_category_of_ourworkitem}</span>
+                  <span>{item.node.name_category_of_ourworkitem}</span>
                 </div>
                 <div className="text-title2">
-                  <h3>{item.data.ourworkitem_name.map(item => item.text)}</h3>
+                  <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
                 </div>
               </div>
             </div>
@@ -1025,11 +1028,11 @@ const OurWorkDetail = props => {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${item.data.relationship_to_categoryourwork.uid}/${item.uid}`}
+                to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
               >
                 <IMG
-                  alt={item.data.ourworkitem_image.alt}
-                  src={item.data.ourworkitem_image.url}
+                  alt={item.node.ourworkitem_image.alt}
+                  src={item.node.ourworkitem_image.url}
                   objectFit="cover"
                   h="206"
                 />
@@ -1037,10 +1040,10 @@ const OurWorkDetail = props => {
               </DivIMG>
               <div className="title-img-blog">
                 <div className="text-title">
-                  <span>{item.data.name_category_of_ourworkitem}</span>
+                  <span>{item.node.name_category_of_ourworkitem}</span>
                 </div>
                 <div className="text-title2">
-                  <h3>{item.data.ourworkitem_name.map(item => item.text)}</h3>
+                  <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
                 </div>
               </div>
             </div>

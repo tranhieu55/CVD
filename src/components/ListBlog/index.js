@@ -128,35 +128,37 @@ const DivIMG = styled.div`
 
 export default function ListBlog() {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      allPrismicOurworkItem(sort: { fields: data___date_created }, limit: 4) {
-        nodes {
-          data {
-            name_category_of_ourworkitem
-            ourworkitem_image {
-              alt
-              url
-            }
-            ourworkitem_name {
-              text
-            }
-            relationship_to_categoryourwork {
-              uid
+    query queryListOurwork {
+      prismic {
+        allOurwork_items {
+          edges {
+            node {
+              name_category_of_ourworkitem
+              ourworkitem_image
+              ourworkitem_name
+              _meta {
+                uid
+              }
+              relationship_to_categoryourwork {
+                ... on PRISMIC_Category_ourwork {
+                  _meta {
+                    uid
+                  }
+                }
+              }
             }
           }
-          uid
         }
       }
     }
   `)
-
   return (
     <ListBlogStyle className="container-fluid">
       <div className="row">
-        {data.allPrismicOurworkItem.nodes.map((node, index) => (
+        {data.prismic.allOurwork_items.edges.map((edge, index) => (
           <div
             className={`${
-              data.allPrismicOurworkItem.nodes.length === 3
+              data.prismic.allOurwork_items.edges.length === 3
                 ? "col-md-4"
                 : "col-md-6"
             }`}
@@ -164,18 +166,18 @@ export default function ListBlog() {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${node.data.relationship_to_categoryourwork.uid}/${node.uid}`}
+              to={`/projects/${edge.node.relationship_to_categoryourwork._meta.uid}/${edge.node._meta.uid}`}
             >
               <IMG
-                alt={node.data.ourworkitem_image.alt || "default"}
-                src={node.data.ourworkitem_image.url}
+                alt={edge.node.ourworkitem_image.alt || "image ourwork_item"}
+                src={edge.node.ourworkitem_image.url}
                 objectFit="cover"
                 h="500"
               />
             </DivIMG>
             <div className="title-img-blog">
-              <span>{node.data.name_category_of_ourworkitem}</span>
-              <h3>{node.data.ourworkitem_name.map(item => item.text)}</h3>
+              <span>{edge.node.name_category_of_ourworkitem}</span>
+              <h3>{edge.node.ourworkitem_name.map(item => item.text)}</h3>
             </div>
           </div>
         ))}

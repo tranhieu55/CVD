@@ -10,48 +10,50 @@ import {
   ImageWithSideText,
 } from "../components/slices/Service"
 
+import { Directions } from "../components/slices/Contact"
+
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 import CTA from "../components/slices/CTA"
 const SliceZone = props => {
   if (props.allSlices) {
-    const slice = props.allSlices.map(s => {
+    const slice = props.allSlices.map((s, index) => {
       switch (s.type) {
         // These are the API IDs of the slices
         case "text":
           return (
-            <h1 key={s.id} input={s}>
+            <h1 key={index} input={s}>
               im a text for testing
             </h1>
           )
         case "big_text":
           return (
             <>
-              <BigText key={s.id} input={s} />
+              <BigText key={index} input={s} />
             </>
           )
         case "platform_trio":
           return (
             <>
-              <PlatformTrio key={s.id} input={s} />
+              <PlatformTrio key={index} input={s} />
             </>
           )
         case "client_logos":
           return (
             <>
-              <ClientLogos key={s.id} input={s} />
+              <ClientLogos key={index} input={s} />
             </>
           )
         case "what_we_do":
           return (
             <>
-              <WhatWeDo key={s.id} input={s} />
+              <WhatWeDo key={index} input={s} />
             </>
           )
         case "big_image":
           return (
             <>
               <BigImage
-                key={s.id}
+                key={index}
                 input={s}
                 context={props.context ? props.context : null}
               />
@@ -61,7 +63,7 @@ const SliceZone = props => {
           return (
             <>
               <TextWithBulletList
-                key={s.id}
+                key={index}
                 input={s}
                 context={props.context ? props.context : null}
               />
@@ -71,7 +73,7 @@ const SliceZone = props => {
           return (
             <>
               <HalfWidthText
-                key={s.id}
+                key={index}
                 input={s}
                 context={props.context ? props.context : null}
               />
@@ -81,7 +83,7 @@ const SliceZone = props => {
           return (
             <>
               <ImageWithSideText
-                key={s.id}
+                key={index}
                 input={s}
                 context={props.context ? props.context : null}
               />
@@ -90,13 +92,19 @@ const SliceZone = props => {
         case "project_tilesq":
           return (
             <>
-              <ProjectTiles key={s.id} input={s} />
+              <ProjectTiles key={index} input={s} />
             </>
           )
         case "cta":
           return (
             <>
-              <CTA key={s.id} input={s} />
+              <CTA key={index} input={s} />
+            </>
+          )
+        case "directions":
+          return (
+            <>
+              <Directions key={index} input={s} />
             </>
           )
         default:

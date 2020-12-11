@@ -10,7 +10,7 @@ export default function WhatWeDoDesktop(props) {
   const { fields } = props.props.input
   const { input } = props.props
 
-  console.log(fields)
+
 
   const defaultService = JSON.stringify(fields[0].service[0].text)
   const defaultContent = fields[0].content
@@ -18,7 +18,7 @@ export default function WhatWeDoDesktop(props) {
 
   const heading = input.primary.title[0].text
 
-  console.log(props)
+
   useEffect(() => {
     setTimeout(() => {
       console.log(`You clicked imes`)
@@ -35,7 +35,6 @@ export default function WhatWeDoDesktop(props) {
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)
-    console.log(i)
   }
 
   return (
@@ -45,11 +44,11 @@ export default function WhatWeDoDesktop(props) {
           {fields.map((service, i) => {
             const title = service.service[0].text
             return (
-              <>
-                <Service key={i} onClick={() => updateSelected(i)} indicator={i == indicator}>
+              <React.Fragment key={i}>
+                <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
                   {title}
                 </Service>
-              </>
+              </React.Fragment>
             )
           })}
         </Left>
@@ -59,17 +58,17 @@ export default function WhatWeDoDesktop(props) {
             <Button yellowWhite content={"Learn more"} />
           </UpperContent>
           <Blob>
-            <div class="blob">
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
-              <div class="blob__chunk"></div>
+            <div className="blob">
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
+              <div className="blob__chunk"></div>
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
