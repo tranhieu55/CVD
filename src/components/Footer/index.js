@@ -6,6 +6,9 @@ const FooterStyle = styled.div`
   background-color: #222222;
   font-family: "Calibre Medium";
   font-size: 20px;
+  .iphone-X {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
   .footer {
     max-width: 1260px;
   }
@@ -77,8 +80,8 @@ const FooterStyle = styled.div`
     .text-3 {
       width: 135px !important;
     }
-    .w-64 {
-      width: 15px !important;
+    .editText {
+     margin-right: 15px !important;
     }
   }
   @media only screen and (max-width: 600px) {
@@ -112,8 +115,8 @@ const FooterStyle = styled.div`
     .image-converdigital {
       margin: auto;
     }
-    .w-64 {
-      width: 28px;
+    .editText {
+     margin-right: 30px !important;
     }
     .text-3 {
       width: 155px;
@@ -160,13 +163,14 @@ const FooterStyle = styled.div`
     }
     .content-digital {
       margin-top: 30px;
+      margin-right:100px;
     }
     .style-icon {
       padding-top: 30px !important;
     }
 
-    .w-64 {
-      width: 145px;
+    .editText {
+     margin-right: 64px !important;
     }
     .footer {
       padding-top: 40px !important;
@@ -175,6 +179,9 @@ const FooterStyle = styled.div`
 
     .none-pd {
       padding-top: 0;
+    }
+    .content-digital {
+      margin-right:100px;
     }
   }
 
@@ -211,17 +218,20 @@ const FooterStyle = styled.div`
       display: block;
       width: 30px;
     }
-    .w-64 {
-      width: 64px;
+    
+    .editText {
+     margin-right: 64px !important;
     }
     .image-converdigital {
       margin: 0;
+      margin-right:0px;
     }
     .text-2 {
       margin-top: 0px;
     }
     .content-digital {
       margin-top: 0px;
+      margin-right:0px;
     }
     .text-3 p {
       font-size: 18px;
@@ -390,7 +400,7 @@ export default function Footer({ dataFooter }) {
 
   return (
     <FooterStyle className="container-fulid">
-      <div>
+      <div className='iphone-X'>
         <div className="container footer">
           <div className="row">
             <div className="image-converdigital order-1">
@@ -419,7 +429,7 @@ export default function Footer({ dataFooter }) {
             <div className="w-112 order-4"></div>
             <div className="content-digital order-5">
               {dataAddressFooter[0].fields.map((item, index) => (
-                <div key={index} className="text-3">
+                <div key={index} className={index === 0 ? 'text-3 editText' : 'text-3'}>
                   <Content>
                     <span>{item.address_title.map(item => item.text)}</span>
                     <p>
