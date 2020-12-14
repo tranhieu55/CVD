@@ -167,6 +167,9 @@ const Other = styled.div`
   margin-right: auto;
   margin-top: 85px;
   margin-bottom: 96px;
+  .title-other {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
   .text-title {
     margin-bottom: -4px;
   }
@@ -821,8 +824,8 @@ const OurWorkDetail = props => {
               {dataOurWorkItem.background_description.map(item => item.text)}
             </h4>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </Background>
 
         {/* List ảnh background */}
@@ -882,8 +885,8 @@ const OurWorkDetail = props => {
                 ))}
               </>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </div>
           <div>
             {dataOurWorkItem.solution_description.length > 0 ? (
@@ -891,8 +894,8 @@ const OurWorkDetail = props => {
                 {dataOurWorkItem.solution_description.map(item => item.text)}
               </h4>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </div>
         </Background>
 
@@ -906,8 +909,8 @@ const OurWorkDetail = props => {
             ))}
           </div>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         {dataOurWorkItem.solution_image ? (
           <div
@@ -926,8 +929,8 @@ const OurWorkDetail = props => {
             </div>
           </div>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         <div
           className="text-aliquam"
@@ -944,15 +947,15 @@ const OurWorkDetail = props => {
               “{dataOurWorkItem.quote_description.map(item => item.text)}”
             </h1>
           ) : (
-            ""
-          )}
+              ""
+            )}
           {dataOurWorkItem.quote_author.length > 0 ? (
             <h5 className="type-aliquam-h5">
               {dataOurWorkItem.quote_author.map(item => item.text)}
             </h5>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
         <Background
           pdbt="60"
@@ -976,8 +979,8 @@ const OurWorkDetail = props => {
               {dataOurWorkItem.features_description.map(item => item.text)}
             </h4>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </Background>
       </Study>
       <Other

@@ -266,15 +266,15 @@ function BannerCaseStudy({
             h={logoProject.dimensions.height}
           />
         ) : (
-          <h4
-            data-sal="slide-up"
-            data-sal-delay="2000"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
-            {nameProject}
-          </h4>
-        )}
+            <h4
+              data-sal="slide-up"
+              data-sal-delay="2000"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              {nameProject}
+            </h4>
+          )}
 
         <div className="text-banner">
           <h1

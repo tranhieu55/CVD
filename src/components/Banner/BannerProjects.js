@@ -6,7 +6,6 @@ import H2 from "../../components/bits/H2"
 import P from "../../components/bits/Typography"
 
 const WraperBannerProjects = styled.div`
-  /* height: 50vh; */
   background-color: ${theme.colors.lightGray};
   @media only screen and (max-width: 600px) {
     h2 {

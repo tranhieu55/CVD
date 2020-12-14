@@ -28,6 +28,7 @@ const WraperBannerWhatWeDo = styled.div`
   }
   .wrapper {
     max-width: 1240px !important;
+   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   .my-border-txt {

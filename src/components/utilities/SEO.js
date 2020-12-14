@@ -30,6 +30,7 @@ const SEO = ({ props, location }) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'></meta>
       </Helmet>
     </>
   )

@@ -22,6 +22,8 @@ import CalibreBoldItalic from "../assets/fonts/CalibreBoldItalic.woff"
 import FontAwesome5ProRegular from "../assets/fonts/FontAwesome5Pro-Regular.woff"
 import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regular.woff"
 import "bootstrap/dist/css/bootstrap.min.css"
+import styled from "styled-components"
+
 
 const GlobalStyle = createGlobalStyle`
    @font-face {
@@ -207,9 +209,14 @@ const Layout = ({
 
   const dataHeader = data.prismic.allMenus.edges
   const dataFooter = data.prismic.allFooters.edges[0].node
+  const BoxLayout = styled.div`
+  .test {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  `
 
   return (
-    <div>
+    <BoxLayout>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header location={location} dataHeader={dataHeader} />
@@ -225,7 +232,7 @@ const Layout = ({
         {children}
         <Footer dataFooter={dataFooter} />
       </ThemeProvider>
-    </div>
+    </BoxLayout>
   )
 }
 
