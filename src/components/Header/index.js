@@ -40,6 +40,7 @@ const WrapperHeader = styled.div`
     border: 0px;
     margin-left: 4px;
     margin-right: 16px;
+    border-radius: 0px;
     span {
       width: 20px;
       height: 21px;
