@@ -163,7 +163,7 @@ const FooterStyle = styled.div`
     }
     .content-digital {
       margin-top: 30px;
-      margin-right:100px;
+      margin-right:80px;
     }
     .style-icon {
       padding-top: 30px !important;
@@ -179,9 +179,6 @@ const FooterStyle = styled.div`
 
     .none-pd {
       padding-top: 0;
-    }
-    .content-digital {
-      margin-right:100px;
     }
   }
 

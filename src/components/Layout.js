@@ -210,9 +210,6 @@ const Layout = ({
   const dataHeader = data.prismic.allMenus.edges
   const dataFooter = data.prismic.allFooters.edges[0].node
   const BoxLayout = styled.div`
-  .test {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
   `
 
   return (
