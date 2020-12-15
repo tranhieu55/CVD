@@ -53,6 +53,9 @@ const FooterStyle = styled.div`
     letter-spacing: 0;
     line-height: 24px;
   }
+  .changes-text {
+      font-size:18px !important;
+    }
   .text-3 p {
     font-family: "Calibre Medium";
     opacity: 0.7;
@@ -130,6 +133,7 @@ const FooterStyle = styled.div`
       font-size: 18px !important;
       padding-bottom: 0px;
     }
+    
     .convert-2020 {
       font-size: 16px !important;
     }
@@ -432,7 +436,7 @@ export default function Footer({ dataFooter }) {
                     <p>
                       {item.address_detail.map(item => item.text)}
                       <br />
-                      <span>{item.phone.map(item => item.text)}</span>
+                      <span className='changes-text'>{item.phone.map(item => item.text)}</span>
                     </p>
                   </Content>
                 </div>
