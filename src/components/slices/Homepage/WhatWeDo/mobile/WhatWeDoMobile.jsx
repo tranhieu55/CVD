@@ -45,7 +45,7 @@ export default function WhatWeDoMobile(props) {
             let title = service.service[0].text
             return (
               <React.Fragment key={i}>
-                <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
+                <Service  onClick={() => updateSelected(i)} indicator={i === indicator}>
                   {title}
                 </Service>
               </React.Fragment>
