@@ -19,7 +19,7 @@ const Index = ({ data: { prismic } }) => {
           <ButtonContainer>
             <Button yellow="true">
               <ButtonText yellow="true" to="">
-                Get in touch hihi
+                Get in touch
               </ButtonText>
             </Button>
             <Button>
