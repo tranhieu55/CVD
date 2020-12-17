@@ -477,6 +477,14 @@ const WrapperHeader = styled.div`
       transform: translateY(-100%);
     }
   }
+  .navbar-collapse {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .header-scroll {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
 `
 
 const Header = ({ location, dataHeader }) => {
@@ -507,33 +515,35 @@ const Header = ({ location, dataHeader }) => {
     <WrapperHeader>
       <Navbar
         expand="lg"
-        className={`wraper-header ${scroll
-          ? "fixedTop "
-          : `${location === "/" ||
-            location === "/contact" ||
-            location === "/case-study" ||
-            location === "/proposal"
-            ? "nav-bar_1024px_down_home"
-            : "nav-bar_1024px_down"
-          }`
-          }`}
+        className={`wraper-header ${
+          scroll
+            ? "fixedTop "
+            : `${
+                location === "/" ||
+                location === "/contact" ||
+                location === "/case-study" ||
+                location === "/proposal"
+                  ? "nav-bar_1024px_down_home"
+                  : "nav-bar_1024px_down"
+              }`
+        }`}
       >
         <div className="logo-header">
           <Navbar.Brand as={Link} to="/">
             {scroll ? (
               <IMG src={logoLight} />
             ) : (
-                <IMG
-                  src={
-                    location === "/" ||
-                      location === "/contact" ||
-                      location === "/case-study" ||
-                      location === "/proposal"
-                      ? logoLight
-                      : logoBlack
-                  }
-                />
-              )}
+              <IMG
+                src={
+                  location === "/" ||
+                  location === "/contact" ||
+                  location === "/case-study" ||
+                  location === "/proposal"
+                    ? logoLight
+                    : logoBlack
+                }
+              />
+            )}
           </Navbar.Brand>
         </div>
         <div style={{ display: "flex", height: "16px" }}>
@@ -545,8 +555,8 @@ const Header = ({ location, dataHeader }) => {
                   location === "/contact" ||
                   location === "/case-study" ||
                   location === "/proposal"
-                  ? "menu-nav-white"
-                  : "menu-nav"
+                ? "menu-nav-white"
+                : "menu-nav"
             }
           >
             Menu
@@ -557,8 +567,8 @@ const Header = ({ location, dataHeader }) => {
             ) : location === "/we-do" || location === "/projects" ? (
               <img className="image-buger" src={logoBugerBlack} alt="logo" />
             ) : (
-                  <img className="image-buger" src={logoBuger} alt="logo" />
-                )}
+              <img className="image-buger" src={logoBuger} alt="logo" />
+            )}
           </Navbar.Toggle>
         </div>
         <Navbar.Collapse
@@ -568,14 +578,16 @@ const Header = ({ location, dataHeader }) => {
           <Nav className="mr-auto menu-list">
             {dataHeader.map((item, index) => (
               <li
-                className={`menu-list_item ${location === "/" ||
+                className={`menu-list_item ${
+                  location === "/" ||
                   location === "/contact" ||
                   location === "/case-study" ||
                   location === "/proposal"
-                  ? "menu-list_item_white"
-                  : "menu-list_item_gold"
-                  } ${item.node._meta.uid === "services" ? "dropdown_services" : ""
-                  }`}
+                    ? "menu-list_item_white"
+                    : "menu-list_item_gold"
+                } ${
+                  item.node._meta.uid === "services" ? "dropdown_services" : ""
+                }`}
                 key={index}
               >
                 <Link
@@ -592,8 +604,8 @@ const Header = ({ location, dataHeader }) => {
                         location === "/contact" ||
                         location === "/case-study" ||
                         location === "/proposal"
-                        ? "menu-list_item_text-white"
-                        : "menu-list_item_text-black"
+                      ? "menu-list_item_text-white"
+                      : "menu-list_item_text-black"
                   }
                 >
                   {item.node.menu_title[0].text}
@@ -732,8 +744,8 @@ const Header = ({ location, dataHeader }) => {
                     </div>
                   </ul>
                 ) : (
-                    ""
-                  )}
+                  ""
+                )}
               </li>
             ))}
           </Nav>
@@ -754,35 +766,35 @@ const Header = ({ location, dataHeader }) => {
                 <h2 className="get-in-touch">Get in touch</h2>
               </ButtonCustom>
             ) : (
-                <ButtonCustom
-                  className="button-header"
-                  bgColor={
-                    location === "/" ||
-                      location === "/contact" ||
-                      location === "/case-study" ||
-                      location === "/proposal"
-                      ? theme.colors.secondaryColor
-                      : theme.colors.lightGray
-                  }
-                  textColor={
-                    location === "/" ||
-                      location === "/contact" ||
-                      location === "/case-study" ||
-                      location === "/proposal"
-                      ? theme.colors.white
-                      : theme.colors.secondaryColor
-                  }
-                  pd1="9"
-                  pd2="19.5"
-                  lineh="22"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <h2 className="get-in-touch">Get in touch</h2>
-                </ButtonCustom>
-              )}
+              <ButtonCustom
+                className="button-header"
+                bgColor={
+                  location === "/" ||
+                  location === "/contact" ||
+                  location === "/case-study" ||
+                  location === "/proposal"
+                    ? theme.colors.secondaryColor
+                    : theme.colors.lightGray
+                }
+                textColor={
+                  location === "/" ||
+                  location === "/contact" ||
+                  location === "/case-study" ||
+                  location === "/proposal"
+                    ? theme.colors.white
+                    : theme.colors.secondaryColor
+                }
+                pd1="9"
+                pd2="19.5"
+                lineh="22"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <h2 className="get-in-touch">Get in touch</h2>
+              </ButtonCustom>
+            )}
           </Form>
         </Navbar.Collapse>
       </Navbar>
