@@ -14,7 +14,8 @@ const Study = styled.div`
     margin-bottom: 115px;
   }
   .iphone-X {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   .box-study-5 {
     display: flex;
@@ -337,12 +338,13 @@ const WhatWeDo = ({ data }) => {
       <SEO props={dataSEO} />
       <Study>
         <div className="container study">
-          <div className='iphone-X'>
+          <div className="iphone-X">
             {pageData.map((item, index = 1) => (
               <div
                 key={index}
-                className={` ${index % 2 === 0 ? "" : "cl-order"} ${index === 4 ? "box-study-5" : "box-study"
-                  }`}
+                className={` ${index % 2 === 0 ? "" : "cl-order"} ${
+                  index === 4 ? "box-study-5" : "box-study"
+                }`}
                 data-sal="zoom-in"
                 data-sal-delay="2000"
                 data-sal-easing="ease"

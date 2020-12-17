@@ -19,7 +19,7 @@ const Index = ({ data: { prismic } }) => {
           <ButtonContainer>
             <Button yellow="true">
               <ButtonText yellow="true" to="">
-                Get in touch
+                Get in touch hihi
               </ButtonText>
             </Button>
             <Button>
@@ -31,7 +31,7 @@ const Index = ({ data: { prismic } }) => {
           <IPhone src={featured_image} />
         </ContainerRight>
       </Container>
-      {/* slize zone below */}
+
       <SliceZone allSlices={data.body} />
     </Layout>
   )

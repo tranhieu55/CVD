@@ -24,7 +24,6 @@ import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regula
 import "bootstrap/dist/css/bootstrap.min.css"
 import styled from "styled-components"
 
-
 const GlobalStyle = createGlobalStyle`
    @font-face {
     font-family: 'Calibre Regular';
@@ -209,8 +208,7 @@ const Layout = ({
 
   const dataHeader = data.prismic.allMenus.edges
   const dataFooter = data.prismic.allFooters.edges[0].node
-  const BoxLayout = styled.div`
-  `
+  const BoxLayout = styled.div``
 
   return (
     <BoxLayout>
