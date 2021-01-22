@@ -6,14 +6,16 @@ import SEO from "../components/utilities/SEO"
 import { graphql } from "gatsby"
 
 const Projects = ({ data: { prismic } }) => {
-  const data = prismic.allProjects.edges[0].node
-  return (
-    <Layout location="/projects">
-      <SEO props={data} />
-      <ListBlog />
-      <Interested />
-    </Layout>
-  )
+    const data = prismic.allProjects.edges[0].node
+
+    // console.log(dataItem);
+    return (
+        <Layout location="/projects">
+            <SEO props={data} />
+            <ListBlog />
+            <Interested />
+        </Layout>
+    )
 }
 
 export default Projects
@@ -30,6 +32,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
+  }
   }
 `

@@ -46,6 +46,7 @@ const WraperBannerWhatWeDo = styled.div`
       margin-right: 16px !important;
     }
     .wrapper {
+      margin-bottom: 16px;
       padding-right: 16px !important;
       padding-left: 16px !important;
     }
@@ -73,6 +74,9 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
+    .wrapper {
+      margin-bottom: 30px;
+    }
     .row {
       margin: 0 !important;
     }
@@ -94,6 +98,9 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
+    .wrapper {
+      margin-bottom: 30px;
+    }
     .my-border {
       width: 45px;
     }
@@ -112,6 +119,9 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
+    .wrapper {
+      margin-bottom: 30px;
+    }
     .my-border {
       width: 60px;
       height: 2px;
@@ -135,6 +145,9 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
+    .wrapper {
+      margin-bottom: 96px;
+    }
     .offset-1 {
       margin-left: 103px !important;
     }

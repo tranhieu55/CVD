@@ -72,6 +72,7 @@ const BannerStyle = styled.div`
   }
   @media only screen and (max-width: 600px) {
     height: 400px;
+    margin-bottom:24px;
     .Shadow {
       height: 100%;
       width: 100%;
@@ -123,6 +124,7 @@ const BannerStyle = styled.div`
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 601px) {
+    margin-bottom:30px;
     h1 {
       padding-top: 0px;
       font-size: 36px;
@@ -131,7 +133,8 @@ const BannerStyle = styled.div`
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    height: 346px;
+    /* height: 346px; */
+    margin-bottom:50px;
     .img-fluid {
       object-fit: cover;
       height: 346px;
@@ -165,6 +168,7 @@ const BannerStyle = styled.div`
   }
   @media (min-width: 1024px) {
     height: 446px;
+    margin-bottom:50px;
     .img-fluid {
       height: 446px;
     }
@@ -177,6 +181,7 @@ const BannerStyle = styled.div`
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     height: 664px;
+    margin-bottom:96px;
     .image-banner {
       height: 664px;
       .img-fluid {

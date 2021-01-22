@@ -31,7 +31,6 @@ const Index = ({ data: { prismic } }) => {
           <IPhone src={featured_image} />
         </ContainerRight>
       </Container>
-
       <SliceZone allSlices={data.body} />
     </Layout>
   )

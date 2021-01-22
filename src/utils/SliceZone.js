@@ -14,7 +14,65 @@ import { Directions } from "../components/slices/Contact"
 
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 import CTA from "../components/slices/CTA"
-const SliceZone = props => {
+import TextBackground from "../components/OurWoorkDetails/TextBackground"
+import ImageSlider from "../components/OurWoorkDetails/ImageSlider"
+import TextSolution from "../components/OurWoorkDetails/TextSolution"
+import ContentPercent from "../components/OurWoorkDetails/ContentPercent"
+import ListSlider from "../components/OurWoorkDetails/ListSlider"
+import TextQoute from "../components/OurWoorkDetails/TextQoute"
+const SliceZone = (props) => {
+  console.log('data props', props.data)
+  if (props.data) {
+    const data = props.data.body.map((s, index) => {
+      console.log('input :', { s })
+      switch (s.type) {
+        case "background_project":
+          return (
+            <>
+              <TextBackground key={index} input={s} />
+            </>
+          )
+        case "list_image":
+          return (
+            <>
+              <ImageSlider key={index} input={s} />
+            </>
+          )
+        case "solution_project":
+          return (
+            <>
+              <TextSolution key={index} input={s} />
+            </>
+          )
+        case "statistical_ourwork_item_":
+          return (
+            <>
+              <ContentPercent key={index} input={s} />
+            </>
+          )
+        case "slider_image":
+          return (
+            <>
+              <ListSlider key={index} input={s} />
+            </>
+          )
+        case "text_quote":
+          return (
+            <>
+              <TextQoute key={index} input={s} />
+            </>
+          )
+        default:
+          return (
+            <>
+            </>
+          )
+      }
+
+
+    })
+    return data
+  }
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type) {
@@ -118,7 +176,9 @@ const SliceZone = props => {
     })
     //return the slice
     return slice
-  } else return false
+  } else {
+    return false
+  }
 }
 
 export default SliceZone

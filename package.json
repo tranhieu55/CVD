@@ -27,14 +27,16 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-slick": "^0.27.14",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1"
-  },
-  "resolutions": {
-    "gatsby-source-graphql-universal": "3.3.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
     "prettier": "2.0.5"
+  },
+  "resolutions": {
+    "gatsby-source-graphql-universal": "3.3.0"
   },
   "repository": {
     "type": "git",
