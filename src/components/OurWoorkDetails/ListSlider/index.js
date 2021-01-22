@@ -1,30 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function ListSlider(dataOurWorkItem) {
+export default function ListSlider(props) {
+  // const data = props.input.fields.map((item, key) => console.log(item.slider_image.alt))
   return (
     <>
-      {/* {
-                dataOurWorkItem.dataOurWorkItem.solution_image ? (
-                    <Slider
-                        className="image-koko"
-                        data-sal="slide-down"
-                        data-sal-delay="5000"
-                        data-sal-easing="ease"
-                        data-sal-duration="1000"
-                    >
-                        <div>
-                            <img
-                                alt=""
-                                src={dataOurWorkItem.dataOurWorkItem.solution_image.url}
-                                alt={dataOurWorkItem.dataOurWorkItem.solution_image.alt}
-                            ></img>
-                        </div>
-                    </Slider>
-                ) : (
-                        ""
-                    )
-            } */}
+      {
+        props.input.fields.map((item, key) => (
+          <Slider
+            className="image-koko"
+            data-sal="slide-down"
+            data-sal-delay="5000"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+          >
+            <div key={key}>
+              <img
+                alt=""
+                src={item.slider_image.url}
+                alt={item.slider_image.alt}
+              ></img>
+            </div>
+          </Slider>
+        ))
+      }
     </>
   )
 }
