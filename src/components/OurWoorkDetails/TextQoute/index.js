@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function TextQoute(props) {
+  // console.log(props)
   return (
     <Qoute
       className="text-aliquam"
@@ -14,10 +15,10 @@ export default function TextQoute(props) {
         className="type-aliquam"
         style={{ fontWeight: "bold", fontFamily: "Calibre Semibold" }}
       >
-        {props.input.fields.map(item => (item.content_quote).map(x => x.text))}
+        {props.input.primary.title_quote[0].text}
       </h1>
       <h5 className="type-aliquam-h5">
-        {props.input.fields.map(item => (item.outher).map(x => x.text))}
+        {props.input.primary.text_quote_description[0].text}
       </h5>
 
     </Qoute>

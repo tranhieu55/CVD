@@ -5,6 +5,7 @@ import P from '../../bits/Typography'
 import { theme } from "../../../utils/theme"
 
 export default function TextSolution(props) {
+  // console.log(props)
   return (
     <Solution
       hb="264"
@@ -21,7 +22,7 @@ export default function TextSolution(props) {
         coLor={theme.colors.gray1}
         mrb_rem="2"
       >
-        {props.input.primary.title_solution[0].text}
+        {props.input.primary.title[0].text}
       </P>
       <div className="map-solution">
         <>
@@ -44,7 +45,7 @@ export default function TextSolution(props) {
       </div>
       <div>
         <h4 className="text-style">
-          {props.input.primary.solution_short_description[0].text}
+          {props.input.primary.text_description[0].text}
         </h4>
       </div>
     </Solution>

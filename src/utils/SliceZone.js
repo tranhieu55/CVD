@@ -20,13 +20,14 @@ import TextSolution from "../components/OurWoorkDetails/TextSolution"
 import ContentPercent from "../components/OurWoorkDetails/ContentPercent"
 import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
+import Image46 from "../components/OurWoorkDetails/Image_4_6"
 const SliceZone = (props) => {
-  console.log('data props', props.data)
+  console.log('data props', props)
   if (props.data) {
-    const data = props.data.body.map((s, index) => {
+    const data = props.data.map((s, index) => {
       console.log('input :', { s })
       switch (s.type) {
-        case "background_project":
+        case "ourworkitem_description":
           return (
             <>
               <TextBackground key={index} input={s} />
@@ -38,7 +39,7 @@ const SliceZone = (props) => {
               <ImageSlider key={index} input={s} />
             </>
           )
-        case "solution_project":
+        case "title_solution":
           return (
             <>
               <TextSolution key={index} input={s} />
@@ -60,6 +61,12 @@ const SliceZone = (props) => {
           return (
             <>
               <TextQoute key={index} input={s} />
+            </>
+          )
+        case "image4_6":
+          return (
+            <>
+              <Image46 key={index} input={s} />
             </>
           )
         default:

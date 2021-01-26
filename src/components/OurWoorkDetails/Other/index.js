@@ -4,78 +4,78 @@ import IMG from '../../Image'
 import { Link } from "gatsby"
 
 export default function Other(arrResult, slugCurrent) {
-    return (
-        <Container
-            data-sal="slide-up"
-            data-sal-delay="5000"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-        >
-            <div className="title-other">
-                <h1 className="text-other">Other case studies</h1>
+  return (
+    <Container
+      data-sal="slide-up"
+      data-sal-delay="5000"
+      data-sal-easing="ease"
+      data-sal-duration="1000"
+    >
+      <div className="title-other">
+        <h1 className="text-other">Other case studies</h1>
+      </div>
+      <div className="row">
+        {arrResult.arrResult.map((item, index) => (
+          <div
+            className="list-image-other"
+            key={index}
+            tabIndex={slugCurrent}
+          >
+            <DivIMG
+              as={Link}
+              to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
+            >
+              <IMG
+                alt={item.node.ourworkitem_image.alt}
+                src={item.node.ourworkitem_image.url}
+                objectFit="cover"
+                h="500"
+              />
+              <div className="Shadow"></div>
+            </DivIMG>
+            <div className="title-img-blog">
+              <div className="text-title">
+                <span>{item.node.name_category_of_ourworkitem}</span>
+              </div>
+              <div className="text-title2">
+                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
+              </div>
             </div>
-            <div className="row">
-                {arrResult.arrResult.map((item, index) => (
-                    <div
-                        className="list-image-other"
-                        key={index}
-                        tabIndex={slugCurrent}
-                    >
-                        <DivIMG
-                            as={Link}
-                            to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
-                        >
-                            <IMG
-                                alt={item.node.ourworkitem_image.alt}
-                                src={item.node.ourworkitem_image.url}
-                                objectFit="cover"
-                                h="500"
-                            />
-                            <div className="Shadow"></div>
-                        </DivIMG>
-                        <div className="title-img-blog">
-                            <div className="text-title">
-                                <span>{item.node.name_category_of_ourworkitem}</span>
-                            </div>
-                            <div className="text-title2">
-                                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+          </div>
+        ))}
+      </div>
+      <div className="tech-slideshow">
+        {arrResult.arrResult.map((item, index) => (
+          <div
+            className={`${index}` === "1" ? "right" : ""}
+            key={index}
+            tabIndex={slugCurrent}
+          >
+            <DivIMG
+              as={Link}
+              to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
+            >
+              <IMG
+                alt={item.node.ourworkitem_image.alt}
+                src={item.node.ourworkitem_image.url}
+                objectFit="cover"
+                h="206"
+              />
+              <div className="Shadow"></div>
+            </DivIMG>
+            <div className="title-img-blog">
+              <div className="text-title">
+                <span>{item.node.name_category_of_ourworkitem}</span>
+              </div>
+              <div className="text-title2">
+                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
+              </div>
             </div>
-            <div className="tech-slideshow">
-                {arrResult.arrResult.map((item, index) => (
-                    <div
-                        className={`${index}` === "1" ? "right" : ""}
-                        key={index}
-                        tabIndex={slugCurrent}
-                    >
-                        <DivIMG
-                            as={Link}
-                            to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
-                        >
-                            <IMG
-                                alt={item.node.ourworkitem_image.alt}
-                                src={item.node.ourworkitem_image.url}
-                                objectFit="cover"
-                                h="206"
-                            />
-                            <div className="Shadow"></div>
-                        </DivIMG>
-                        <div className="title-img-blog">
-                            <div className="text-title">
-                                <span>{item.node.name_category_of_ourworkitem}</span>
-                            </div>
-                            <div className="text-title2">
-                                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </Container>
-    )
+          </div>
+        ))}
+      </div>
+    </Container>
+  )
 }
 const Container = styled.div`
   max-width: 1240px;

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function ImageSlider(props) {
-  // let data = props.input.fields.map((item) => (item.image_item))
   return (
     <Image
       className="list-image-background"

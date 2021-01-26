@@ -47,102 +47,109 @@ const Study = styled.div`
 `
 
 
+// đây là lấy ra 1 cái
 export const query = graphql`
-  query queryAllOurwork {
+  query getOurkItemBySlug ($slug: String!) {
     prismic {
-      allOurwork_items {
-        edges {
-          node {
-            ourworkitem_name
-            name_category_of_ourworkitem
-            ourworkitem_image
-            relationship_to_categoryourwork {
-              ... on PRISMIC_Category_ourwork {
-                _meta {
-                  uid
-                }
+    allOurwork_items {
+      edges {
+        node {
+          ourworkitem_logo
+          ourworkitem_name
+          ourworkitem_image
+          ourworkitem_description
+          _meta {
+            uid
+          }
+          relationship_to_categoryourwork {
+            ... on PRISMIC_Category_ourwork {
+              _meta {
+                uid
               }
-            }
-            _meta {
-              uid
             }
           }
         }
       }
-      allProject_items {
-      edges {
-        node {
-          body {
-            ... on PRISMIC_Project_itemBodyBackground_project {
-              type
-              label
-              fields {
-                image_background
-              }
-              primary {
-                solution_short_description
-                title_background
-              }
-            }
-            ... on PRISMIC_Project_itemBodySolution_project {
-              type
-              label
-              fields {
-                title_the_solution
-              }
-              primary {
-                solution_short_description
-                title_solution
-              }
-            }
-            ... on PRISMIC_Project_itemBodyStatistical_ourwork_item_ {
-              type
-              fields {
-                description_of_statistical
-                number_of_statistical
-              }
-              label
-            }
-            ... on PRISMIC_Project_itemBodyList_image {
-              type
-              label
-              fields {
-                image_item
-                vi_tri
-              }
-            }
-            ... on PRISMIC_Project_itemBodySlider_image {
-              type
-              label
-              fields {
-                slider_image
-              }
-            }
-            ... on PRISMIC_Project_itemBodyText_quote {
-              type
-              label
-              fields {
-                content_quote
-                outher
-              }
-            }
+    } 
+    ourwork_item(uid: $slug, lang: "en-gb") {
+      ourworkitem_image
+      ourworkitem_description
+      ourworkitem_logo
+      ourworkitem_name
+      body {
+        ... on PRISMIC_Ourwork_itemBodyOurworkitem_description {
+          type
+          label
+          primary {
+            text_description
+            title
           }
-          logo_project
-          name_project_item
-          short_description
-          ten_cate
         }
+        ... on PRISMIC_Ourwork_itemBodyText_quote {
+          type
+          label
+          primary {
+            text_quote_description
+            title_quote
+          }
+        }
+        ... on PRISMIC_Ourwork_itemBodyTitle_solution {
+          type
+          label
+          fields {
+            title_the_solution
+          }
+          primary {
+            text_description
+            title
+          }
+        }
+        ... on PRISMIC_Ourwork_itemBodyList_image {
+          type
+          label
+          fields {
+            image_item
+            location
+            order
+            width_image
+          }
+        }
+        ... on PRISMIC_Ourwork_itemBodySlider_image {
+          type
+          label
+          fields {
+            slider_image
+          }
+        }
+        ... on PRISMIC_Ourwork_itemBodyStatistical_ourwork_item_ {
+          type
+          label
+          fields {
+            description_of_statistical
+            number_of_statistical
+          }
+        }
+      }
+      relationship_to_categoryourwork {
+        ... on PRISMIC_Category_ourwork {
+          _meta {
+            uid
+          }
+        }
+      }
+      _meta {
+        uid
       }
     }
   }
 }
 `
 const OurWorkDetail = props => {
-  // console.log(props);
-  let dataOurWorkItem = props.pathContext.dataLayout.node
-
+  // console.log("Data response ,", props.data);
+  let dataOurWorkItem = props.data.prismic.ourwork_item
   let slugCurrent = props.pathContext.slug
   let allProjects = props.data.prismic.allOurwork_items.edges
+  console.log({ 'alo': props })
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item.node._meta.uid !== slugCurrent
@@ -156,32 +163,23 @@ const OurWorkDetail = props => {
 
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
-  const dataItem = props.data.prismic.allProject_items.edges[0].node
-  // console.log(dataItem)
+  const dataItem = props.data.prismic.ourwork_item.body
+  console.log(dataItem)
+  console.log(allProjects)
   return (
     <Layout
       location="/case-study"
       // pass to banner project
-      nameProject={dataOurWorkItem.ourworkitem_name.map(item => item.text)}
+      nameProject={dataOurWorkItem.ourworkitem_description[0].text}
       logoProject={dataOurWorkItem.ourworkitem_logo}
-      nameCategoryOfWorkItem={dataOurWorkItem.name_category_of_ourworkitem}
-      descriptionOfWorkItem={dataOurWorkItem.ourworkitem_description.map(
-        item => item.text
-      )}
+      nameCategoryOfWorkItem={dataOurWorkItem.relationship_to_categoryourwork._meta.uid}
+      descriptionOfWorkItem={dataOurWorkItem.relationship_to_categoryourwork.text}
       backgroundWorkItemSrc={dataOurWorkItem.ourworkitem_image.url}
       backgroundWorkItemAlt={dataOurWorkItem.ourworkitem_image.alt}
     >
       <SEO props={dataOurWorkItem} />
       <Study>
-        {/* <TextBackground dataOurWorkItem={dataOurWorkItem} />
-        <ImageSlider dataOurWorkItem={dataOurWorkItem} />
-        <TextSolution dataOurWorkItem={dataOurWorkItem} />
-        <ContentPercent dataOurWorkItem={dataOurWorkItem} />
-        <ListSlider dataOurWorkItem={dataOurWorkItem} />
-        <TextQoute dataOurWorkItem={dataOurWorkItem} />
-        <TextBackground dataOurWorkItem={dataOurWorkItem} /> */}
         <SliceZone data={dataItem} />
-        {/* <SimpleSlider /> */}
       </Study>
       <Other arrResult={arrResult} slugCurrent={slugCurrent} />
       <Interested />

@@ -5,6 +5,7 @@ import { theme } from "../../../utils/theme"
 
 export default function TextBackground(props) {
   const data = props.input.primary
+  console.log(props)
   return (
     <Background
       hb="205"
@@ -22,10 +23,10 @@ export default function TextBackground(props) {
         mrb_rem="2"
         fontSise="14"
       >
-        {data.title_background.map((item) => item.text)}
+        {data.title[0].text}
       </P>
       <h4 className="text-style">
-        {data.solution_short_description.map((item) => item.text)}
+        {data.text_description[0].text}
       </h4>
     </Background>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function ListSlider(props) {
-  // const data = props.input.fields.map((item, key) => console.log(item.slider_image.alt))
   return (
     <>
       {

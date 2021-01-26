@@ -247,6 +247,7 @@ function BannerCaseStudy({
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
 }) {
+  console.log(nameProject)
   return (
     <BannerStyle className="container-study">
       <div className="image-banner">
@@ -288,7 +289,7 @@ function BannerCaseStudy({
             data-sal-easing="ease"
             data-sal-duration="1000"
           >
-            {descriptionOfWorkItem}
+            {nameProject}
           </h1>
         </div>
       </div>

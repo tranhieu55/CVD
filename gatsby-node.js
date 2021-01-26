@@ -4,51 +4,29 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const OurWorkDetail = path.resolve("./src/templates/OurWorkDetail.js")
 
   const res = await graphql(`
-    query indexQuery {
-      prismic {
-        allOurwork_items {
-          edges {
-            node {
-              meta_description
-              meta_title
-              keywords
-              _meta {
-                uid
-              }
-              background_description
-              background_image
-              features_description
-              list_background_images {
-                list_background_images_item
-              }
-              name_category_of_ourworkitem
-              ourworkitem_description
-              ourworkitem_image
-              ourworkitem_logo
-              ourworkitem_name
-              quote_author
-              quote_description
-              relationship_to_categoryourwork {
-                ... on PRISMIC_Category_ourwork {
-                  _meta {
-                    uid
-                  }
+  query IndexQuery {
+    prismic {
+      allOurwork_items {
+        edges {
+          node {
+            ourworkitem_name
+            name_category_of_ourworkitem
+            ourworkitem_image
+            relationship_to_categoryourwork {
+              ... on PRISMIC_Category_ourwork {
+                _meta {
+                  uid
                 }
               }
-              solution_description
-              solution_image
-              solution_lists {
-                solution_lists_item
-              }
-              statistical_ourwork_item {
-                description__statistical
-                title_number_statistical
-              }
+            }
+            _meta {
+              uid
             }
           }
         }
       }
     }
+  }
   `)
 
   res.data.prismic.allOurwork_items.edges.forEach(edge => {
