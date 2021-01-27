@@ -149,17 +149,22 @@ const Background = styled.div`
     }
   }
   @media (min-width: 768px) {
-    margin-left: 81px;
+    margin-left: 49px;
     margin-bottom: 30px;
     p{
       &::before {
-        width: 64px;
+        width: 2rem;
       }
     }
   }
   @media (min-width: 1024px) {
     padding-left: 9%;
     margin-left: 29px;
+    p{
+      &::before {
+        width: 64px;
+      }
+    }
   }
   @media (min-width: 1200px) {
     margin-bottom: 96px;

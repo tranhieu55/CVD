@@ -87,15 +87,14 @@ const Percent = styled.div`
   }
   @media (min-width: 1200px) {
       display: flex;
-      margin:auto;
       margin-bottom: 96px;
       div {
         width: 30%;
       }
   }
   @media (min-width: 1600px) {
-        margin:auto;
-        margin-bottom: 96px;
+        max-width: 986px;
+        margin: 0 auto 96px;
         display: flex;
         div {
             width: 270px;

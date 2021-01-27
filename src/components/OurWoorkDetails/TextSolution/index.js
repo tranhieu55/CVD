@@ -170,10 +170,10 @@ const Solution = styled.div`
   }
   @media (min-width: 768px) {
     margin-bottom: 50px;
-    margin-left: 81px;
+    margin-left: 49px;
     p{
       &::before {
-        width: 64px;
+        width: 2rem;
       }
     }
   }
@@ -181,6 +181,11 @@ const Solution = styled.div`
     margin-bottom: 50px;
     margin-left: 29px;
     padding-left: 9%;
+    p{
+      &::before {
+        width: 64px;
+      }
+    }
   }
   @media (min-width: 1200px) {
     margin-bottom: 96px;
