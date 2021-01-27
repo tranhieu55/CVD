@@ -12,7 +12,7 @@ export default function ImageSlider(props) {
     >
       <div className="three-image">
         {props.input.fields.map((item, index) => (
-          <div className="image-background" key={index}>
+          <div className={props.input.fields.length > 2 ? "image-background": 'image-background-two' } key={index}>
             <img
               src={item.image_item.url}
               alt={item.image_item.alt}
@@ -36,10 +36,23 @@ const Image = styled.div`
       .image-background {
         height: 533px;
         max-width: 284px;
+        img{
+          height: 100%;
+          width: 100%
+        }
       }
+      .image-background-two{
+        height: 533px;
+        width: 47% ;
+        img{
+          height: 100%;
+          width: 100%
+        }
+      }
+      
     }
   @media (max-width: 992px) {
-    .three-image .image-background {
+    .three-image .image-background .image-background-two {
       height: 410px;
     }
   }
@@ -48,6 +61,9 @@ const Image = styled.div`
         max-width: 275px !important;
         margin-left: 0px !important;
         .image-background {
+          margin-left: 16.48px !important;
+        }
+        .image-background-two{
           margin-left: 16.48px !important;
         }
       }
@@ -71,8 +87,20 @@ const Image = styled.div`
             height: 100%;
           }
         }
+        .image-background-two{
+          height: 171px;
+          margin-top: 0px;
+          width: 83.8px;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
       }
     .image-background {
+      margin-top: 24px;
+    }
+    .image-background-two{
       margin-top: 24px;
     }
   }
@@ -80,7 +108,7 @@ const Image = styled.div`
       margin-bottom: 28px;
       height: 580px;
       .three-image {
-        margin-top: 80px;
+        margin-top: 22px;
       }
       .image-background {
         img {
