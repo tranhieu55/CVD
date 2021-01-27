@@ -9,31 +9,34 @@ const SEO = ({ props, location }) => {
   const defaultkeywords = "Convert Digital, website development, shopify plus"
   const defaultImage = false
   const defaultUrl = "www.convertdigital.com.au"
-  console.log(props)
 
-  // let title = props._meta.uid
-  // let keywords = props.keywords[0].text
-  // let description = props.meta_description[0].text
+  console.log("DATA SEO PROPS :", props)
 
-  // props.meta_description[0].text
-  // ? (description = props.meta_description[0].text)
-  // : (description = defaultDescription)
+  let title = props.meta_title ? props.meta_title[0].text : defaultTitle
+
+  let keywords = props.keywords ? props.keywords[0].text : defaultkeywords
+
+  let description = props.meta_description
+    ? props.meta_description[0].text
+    : defaultDescription
+
   let image = ""
   if (props.featured_image) {
     image = props.featured_image.url
   }
   return (
     <>
-      <Helmet
-      // title={location === "/" ? title : `Convert Digital | ${title}`}
-      >
-        {/* <meta name="description" content={description} /> */}
+      <Helmet title={title}>
+        <meta name="description" content={description} />
         <meta name="image" content={image} />
-        {/* <meta name="keywords" content={keywords} /> */}
-        {/* <meta property="og:title" content={title} /> */}
-        {/* <meta property="og:description" content={description} /> */}
+        <meta name="keywords" content={keywords} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
-        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'></meta>
+        <meta
+          name="viewport"
+          content="initial-scale=1, viewport-fit=cover"
+        ></meta>
       </Helmet>
     </>
   )

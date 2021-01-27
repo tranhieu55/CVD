@@ -10,6 +10,7 @@ const Index = ({ data: { prismic } }) => {
   const title = data.page_title[0].text
   const featured_image = data.featured_image.url
 
+  console.log("data home page : ", { data })
   return (
     <Layout location="/">
       <SEO props={data} location="/" />
