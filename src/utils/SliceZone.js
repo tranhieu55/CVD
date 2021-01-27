@@ -20,7 +20,7 @@ import TextSolution from "../components/OurWoorkDetails/TextSolution"
 import ContentPercent from "../components/OurWoorkDetails/ContentPercent"
 import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
-import Image46 from "../components/OurWoorkDetails/Image_4_6"
+
 const SliceZone = (props) => {
   console.log('data props', props)
   if (props.data) {
@@ -61,12 +61,6 @@ const SliceZone = (props) => {
           return (
             <>
               <TextQoute key={index} input={s} />
-            </>
-          )
-        case "image4_6":
-          return (
-            <>
-              <Image46 key={index} input={s} />
             </>
           )
         default:

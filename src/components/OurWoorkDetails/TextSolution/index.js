@@ -161,13 +161,25 @@ const Solution = styled.div`
   }
   @media (min-width: 600px) {
     margin-bottom: 30px;
+    margin-left: 49px;
+    p{
+      &::before {
+        width: 2rem;
+      }
+    }
   }
   @media (min-width: 768px) {
     margin-bottom: 50px;
-    margin-left: 29px;
+    margin-left: 81px;
+    p{
+      &::before {
+        width: 64px;
+      }
+    }
   }
   @media (min-width: 1024px) {
     margin-bottom: 50px;
+    margin-left: 29px;
     padding-left: 9%;
   }
   @media (min-width: 1200px) {
