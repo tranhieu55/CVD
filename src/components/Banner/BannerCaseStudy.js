@@ -243,7 +243,6 @@ function BannerCaseStudy({
   nameProject,
   logoProject,
   nameCategoryOfWorkItem,
-  descriptionOfWorkItem,
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
 }) {
@@ -263,25 +262,11 @@ function BannerCaseStudy({
         <div style={{ height: "19px" }}>
           <p style={{ color: "#fecf09" }}>{nameCategoryOfWorkItem}</p>
         </div>
-
-        {/* logo project hoặc text  */}
-        {logoProject ? (
-          <IMG
-            src={logoProject.url}
-            w={logoProject.dimensions.width}
-            h={logoProject.dimensions.height}
-          />
-        ) : (
-            <h4
-              data-sal="slide-up"
-              data-sal-delay="2000"
-              data-sal-easing="ease"
-              data-sal-duration="1000"
-            >
-              {nameProject}
-            </h4>
-          )}
-
+        <IMG
+          src={logoProject.url}
+          w={logoProject.dimensions.width}
+          h={logoProject.dimensions.height}
+        />
         <div className="text-banner">
           <h1
             data-sal="slide-up"

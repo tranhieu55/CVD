@@ -198,6 +198,7 @@ const BannerProjects = () => {
       }
     }
   `)
+  console.log(dataAllCategoryOurwork)
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">

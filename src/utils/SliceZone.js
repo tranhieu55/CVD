@@ -20,9 +20,28 @@ import TextSolution from "../components/OurWoorkDetails/TextSolution"
 import ContentPercent from "../components/OurWoorkDetails/ContentPercent"
 import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
+import Cardwhatwedo from "../components/Whatwedo"
 
 const SliceZone = (props) => {
   console.log('data props', props)
+
+  if (props.pageData) {
+    console.log(props.pageData)
+    const fake = props.pageData.fields
+    console.log("hieeus ", fake)
+    switch (props.pageData.type) {
+      case "what_we_do_item":
+        return (
+          <Cardwhatwedo input={props.pageData.fields} />
+        )
+      default:
+        return (
+          <>
+          </>
+        )
+    }
+  }
+
   if (props.data) {
     const data = props.data.map((s, index) => {
       console.log('input :', { s })

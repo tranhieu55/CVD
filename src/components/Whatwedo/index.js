@@ -5,65 +5,66 @@ import P from '../bits/Typography'
 import IMG from '../Image'
 
 export default function Cardwhatwedo(pageData) {
-    return (
-        <Study>
-            <div className="container study">
-                <div className="iphone-X">
-                    {pageData.pageData.map((item, index = 1) => (
-                        <div
-                            key={index}
-                            className={` ${index % 2 === 0 ? "" : "cl-order"} ${index === 4 ? "box-study-5" : "box-study"
-                                }`}
-                            data-sal="zoom-in"
-                            data-sal-delay="2000"
-                            data-sal-easing="ease"
-                            data-sal-duration="1000"
-                        >
-                            <div className="box-img img-fluid">
-                                <IMG
-                                    objectFit="cover"
-                                    src={item.item_image.url}
-                                    alt={item.item_image.alt}
-                                />
-                            </div>
-                            <div className="cl174"></div>
-                            <div className=" box-content-study">
-                                <div className="box-tag-study">
-                                    <span className="my-border-study"></span>
-                                    <span className="txt-study">
-                                        {" "}
-                                        {index + 1}/{pageData.pageData.length}
-                                    </span>
-                                </div>
-                                <H2
-                                    mrb="6"
-                                    lineh="32"
-                                    col="#101010"
-                                    letsp="-0.5"
-                                    fz="32"
-                                    fontFamily="Calibre Semibold"
-                                >
-                                    {item.item_title.map(x => x.text)}
-                                </H2>
-                                <P
-                                    lineh="28"
-                                    coLor="#222222"
-                                    fontFamily="Calibre Regular"
-                                    fontSise="20"
-                                >
-                                    {item.item_description.map(x => x.text)}
-                                </P>
-                                <div className="icon-leadmore">
-                                    <span className="learn-more-title">Learn more</span>
-                                </div>
-                            </div>
-                            <div className="cl80"></div>
-                        </div>
-                    ))}
+  console.log(pageData)
+  return (
+    <Study>
+      <div className="container study">
+        <div className="iphone-X">
+          {pageData.input.map((item, index = 1) => (
+            <div
+              key={index}
+              className={` ${index % 2 === 0 ? "" : "cl-order"} ${index === 4 ? "box-study-5" : "box-study"
+                }`}
+              data-sal="zoom-in"
+              data-sal-delay="2000"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              <div className="box-img img-fluid">
+                <IMG
+                  objectFit="cover"
+                  src={item.item_image.url}
+                  alt={item.item_image.alt}
+                />
+              </div>
+              <div className="cl174"></div>
+              <div className=" box-content-study">
+                <div className="box-tag-study">
+                  <span className="my-border-study"></span>
+                  <span className="txt-study">
+                    {" "}
+                    {index + 1}/{pageData.input.length}
+                  </span>
                 </div>
+                <H2
+                  mrb="6"
+                  lineh="32"
+                  col="#101010"
+                  letsp="-0.5"
+                  fz="32"
+                  fontFamily="Calibre Semibold"
+                >
+                  {item.item_title.map(x => x.text)}
+                </H2>
+                <P
+                  lineh="28"
+                  coLor="#222222"
+                  fontFamily="Calibre Regular"
+                  fontSise="20"
+                >
+                  {item.item_description.map(x => x.text)}
+                </P>
+                <div className="icon-leadmore">
+                  <span className="learn-more-title">Learn more</span>
+                </div>
+              </div>
+              <div className="cl80"></div>
             </div>
-        </Study>
-    )
+          ))}
+        </div>
+      </div>
+    </Study>
+  )
 }
 const Study = styled.div`
   .study {

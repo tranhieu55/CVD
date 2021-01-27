@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function TextQoute(props) {
-  // console.log(props)
+  console.log({ hieu: props })
   return (
     <Qoute
       className="text-aliquam"
@@ -18,7 +18,7 @@ export default function TextQoute(props) {
         {props.input.primary.title_quote[0].text}
       </h1>
       <h5 className="type-aliquam-h5">
-        {props.input.primary.text_quote_description[0].text}
+        {props.input.primary.author_of_quote[0].text}
       </h5>
 
     </Qoute>

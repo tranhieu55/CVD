@@ -72,10 +72,10 @@ export const query = graphql`
       }
     } 
     ourwork_item(uid: $slug, lang: "en-gb") {
+      ourworkitem_name
+      ourworkitem_logo
       ourworkitem_image
       ourworkitem_description
-      ourworkitem_logo
-      ourworkitem_name
       body {
         ... on PRISMIC_Ourwork_itemBodyOurworkitem_description {
           type
@@ -89,19 +89,19 @@ export const query = graphql`
           type
           label
           primary {
-            text_quote_description
+            author_of_quote
             title_quote
           }
         }
         ... on PRISMIC_Ourwork_itemBodyTitle_solution {
           type
-          label
-          fields {
-            title_the_solution
-          }
           primary {
             text_description
             title
+          }
+          label
+          fields {
+            title_the_solution
           }
         }
         ... on PRISMIC_Ourwork_itemBodyList_image {
@@ -115,11 +115,11 @@ export const query = graphql`
           }
         }
         ... on PRISMIC_Ourwork_itemBodySlider_image {
-          type
           label
           fields {
             slider_image
           }
+          type
         }
         ... on PRISMIC_Ourwork_itemBodyStatistical_ourwork_item_ {
           type
@@ -130,15 +130,15 @@ export const query = graphql`
           }
         }
       }
+      name_category_of_ourworkitem
       relationship_to_categoryourwork {
         ... on PRISMIC_Category_ourwork {
+          category_name
+          oder_in_menu
           _meta {
             uid
           }
         }
-      }
-      _meta {
-        uid
       }
     }
   }
@@ -147,6 +147,7 @@ export const query = graphql`
 const OurWorkDetail = props => {
   // console.log("Data response ,", props.data);
   let dataOurWorkItem = props.data.prismic.ourwork_item
+  let dataOurWorkItem1 = props.pathContext.dataLayout.node.name_category_of_ourworkitem
   let slugCurrent = props.pathContext.slug
   let allProjects = props.data.prismic.allOurwork_items.edges
   console.log({ 'alo': props })
@@ -172,7 +173,7 @@ const OurWorkDetail = props => {
       // pass to banner project
       nameProject={dataOurWorkItem.ourworkitem_description[0].text}
       logoProject={dataOurWorkItem.ourworkitem_logo}
-      nameCategoryOfWorkItem={dataOurWorkItem.relationship_to_categoryourwork._meta.uid}
+      nameCategoryOfWorkItem={dataOurWorkItem1}
       descriptionOfWorkItem={dataOurWorkItem.relationship_to_categoryourwork.text}
       backgroundWorkItemSrc={dataOurWorkItem.ourworkitem_image.url}
       backgroundWorkItemAlt={dataOurWorkItem.ourworkitem_image.alt}
