@@ -49,7 +49,7 @@ const BannerStyle = styled.div`
 
   /* Reponsive */
   /* Extra small devices (phones, 600px and down) */
-  @media (max-width: 992px) {
+  @media (max-width: 1023px) {
     max-height: 400px;
     .image-banner {
       max-height: 400px;
@@ -246,7 +246,6 @@ function BannerCaseStudy({
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
 }) {
-  console.log(nameProject)
   return (
     <BannerStyle className="container-study">
       <div className="image-banner">

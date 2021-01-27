@@ -33,7 +33,6 @@ export const query = graphql`
 }
 `
 const WhatWeDo = ({ data }) => {
-  console.log(data)
   const pageData = data.prismic.allWhatwedo_pages.edges[0].node.body[0]
   const dataSEO = data.prismic.allWhatwedo_pages.edges[0].node
   return (

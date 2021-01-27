@@ -198,7 +198,6 @@ const BannerProjects = () => {
       }
     }
   `)
-  console.log(dataAllCategoryOurwork)
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
@@ -219,7 +218,10 @@ const BannerProjects = () => {
               (edge, index) => (
                 <CategoryItem key={index}>
                   <Link
-                    to={`${edge.node._meta.uid === "all" ? "/projects" : ""}`}
+                    to={`${edge.node._meta.uid === "all"
+                        ? "/projects"
+                        : `/projects/${edge.node._meta.uid}`
+                      }`}
                     activeClassName="active"
                   >
                     {" "}

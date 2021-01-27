@@ -23,12 +23,7 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 
 const SliceZone = (props) => {
-  console.log('data props', props)
-
   if (props.pageData) {
-    console.log(props.pageData)
-    const fake = props.pageData.fields
-    console.log("hieeus ", fake)
     switch (props.pageData.type) {
       case "what_we_do_item":
         return (
@@ -44,7 +39,6 @@ const SliceZone = (props) => {
 
   if (props.data) {
     const data = props.data.map((s, index) => {
-      console.log('input :', { s })
       switch (s.type) {
         case "ourworkitem_description":
           return (

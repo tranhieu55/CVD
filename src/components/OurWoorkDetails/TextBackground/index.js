@@ -5,7 +5,6 @@ import { theme } from "../../../utils/theme"
 
 export default function TextBackground(props) {
   const data = props.input.primary
-  console.log(props)
   return (
     <Background
       hb="205"
