@@ -45,9 +45,6 @@ const Study = styled.div`
     max-width: 1380px;
   }
 `
-
-
-// đây là lấy ra 1 cái
 export const query = graphql`
   query getOurkItemBySlug ($slug: String!) {
     prismic {
@@ -129,6 +126,14 @@ export const query = graphql`
             number_of_statistical
           }
         }
+        ... on PRISMIC_Ourwork_itemBodyOne_image {
+          type
+          label
+          primary {
+            fullScreen
+            image
+          }
+        }
       }
       name_category_of_ourworkitem
       relationship_to_categoryourwork {
@@ -145,32 +150,23 @@ export const query = graphql`
 }
 `
 const OurWorkDetail = props => {
-  // console.log("Data response ,", props.data);
   let dataOurWorkItem = props.data.prismic.ourwork_item
   let dataOurWorkItem1 = props.pathContext.dataLayout.node.name_category_of_ourworkitem
   let slugCurrent = props.pathContext.slug
   let allProjects = props.data.prismic.allOurwork_items.edges
-  console.log({ 'alo': props })
-
   let removeProjectInPageCurrent = allProjects.filter(
     item => item.node._meta.uid !== slugCurrent
   )
-
   let arrRandom = []
   while (arrRandom.length < 2) {
     let r = Math.floor(Math.random() * removeProjectInPageCurrent.length)
     if (arrRandom.indexOf(r) === -1) arrRandom.push(r)
   }
-
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
-
   const dataItem = props.data.prismic.ourwork_item.body
-  console.log(dataItem)
-  console.log(allProjects)
   return (
     <Layout
       location="/case-study"
-      // pass to banner project
       nameProject={dataOurWorkItem.ourworkitem_description[0].text}
       logoProject={dataOurWorkItem.ourworkitem_logo}
       nameCategoryOfWorkItem={dataOurWorkItem1}

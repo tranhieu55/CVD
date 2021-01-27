@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function TextQoute(props) {
-  console.log({ hieu: props })
   return (
     <Qoute
       className="text-aliquam"

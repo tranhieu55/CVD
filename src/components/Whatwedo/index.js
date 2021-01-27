@@ -5,7 +5,6 @@ import P from '../bits/Typography'
 import IMG from '../Image'
 
 export default function Cardwhatwedo(pageData) {
-  console.log(pageData)
   return (
     <Study>
       <div className="container study">
@@ -13,7 +12,7 @@ export default function Cardwhatwedo(pageData) {
           {pageData.input.map((item, index = 1) => (
             <div
               key={index}
-              className={` ${index % 2 === 0 ? "" : "cl-order"} ${index === 4 ? "box-study-5" : "box-study"
+              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_content === 'Right' ? "box-study-5" : "box-study"
                 }`}
               data-sal="zoom-in"
               data-sal-delay="2000"

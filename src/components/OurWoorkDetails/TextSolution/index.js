@@ -5,7 +5,6 @@ import P from '../../bits/Typography'
 import { theme } from "../../../utils/theme"
 
 export default function TextSolution(props) {
-  // console.log(props)
   return (
     <Solution
       hb="264"
