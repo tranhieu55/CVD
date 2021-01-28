@@ -185,6 +185,7 @@ const Container = styled.div`
     .row {
       .list-image-other {
         max-height: 433px;
+        max-width: 604px;
         .title-img-blog {
           left: 42px;
         }

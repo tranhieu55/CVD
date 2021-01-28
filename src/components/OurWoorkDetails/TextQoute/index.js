@@ -50,7 +50,7 @@ const Qoute = styled.div`
     margin-bottom: 50px;
   }
   @media (min-width: 1200px) {
-    margin-bottom:96px;
+    margin-bottom:116px;
     padding-top: 0px;
   }
   @media (min-width: 1600px) {

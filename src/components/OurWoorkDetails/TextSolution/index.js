@@ -186,8 +186,7 @@ const Solution = styled.div`
       }
     }
   }
-  @media (min-width: 1200px) {
-    margin-bottom: 96px;
+  @media (min-width: 1200px) {    
     padding-left: 9%;
     padding-right: 30%;
     .text-style-bottom {
@@ -200,6 +199,7 @@ const Solution = styled.div`
     }
   }
   @media (min-width: 1600px) {
+    margin-bottom: 106px;
     .text-style-bottom {
       padding-bottom: 0px;
     }
@@ -212,7 +212,6 @@ const Solution = styled.div`
         }
       }
     }
-    /* margin-top: 96px; */
     margin-left: 49px;
     max-width: 789px;
     height: ${({ hb }) => `${hb}px`};
