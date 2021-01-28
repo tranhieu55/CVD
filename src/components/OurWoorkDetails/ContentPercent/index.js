@@ -32,6 +32,7 @@ const Percent = styled.div`
         color: #101010;
         font-weight: 600;
         margin-bottom: 0px;
+        margin-top: 13px;
       }
       h5 {
         text-align: center;

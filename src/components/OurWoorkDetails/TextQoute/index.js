@@ -45,7 +45,7 @@ const Qoute = styled.div`
     }
   }
   @media (min-width: 600px) {
-    margin-bottom:30px;
+    margin-bottom:56px;
   }
   @media (min-width: 768px) {
     margin-bottom: 50px;
@@ -58,6 +58,7 @@ const Qoute = styled.div`
       max-width: 804px;
       max-height: 110px;
       margin-left: 221px;
+      margin-bottom: 116px;
       h1 {
         font-family: "Calibre Semibold";
         font-size: 32px;

@@ -171,6 +171,7 @@ const Container = styled.div`
     .row {
       .list-image-other {
         max-height: 433px;
+        max-width: 494px;
         .title-img-blog {
           left: 42px;
         }
@@ -179,12 +180,23 @@ const Container = styled.div`
   }
   @media (min-width: 1400px) {
     max-width: 1151px;
+    max-width: 557px;
+    .row {
+      .list-image-other {
+        max-height: 433px;
+        max-width: 494px;
+        .title-img-blog {
+          left: 42px;
+        }
+      }
+    }
   }
   @media (min-width: 1600px) {
     max-width: 1240px;
     .row {
       .list-image-other {
         max-height: 433px;
+        max-width: 604px;
         .title-img-blog {
           left: 42px;
         }
@@ -193,6 +205,15 @@ const Container = styled.div`
   }
   @media (min-width: 1800px) {
     max-width: 1380px;
+    .row {
+      .list-image-other {
+        max-height: 433px;
+        max-width: 674px;
+        .title-img-blog {
+          left: 42px;
+        }
+      }
+    }
   }
   @media (max-width: 320px) {
     .title-other {

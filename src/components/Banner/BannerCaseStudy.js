@@ -54,7 +54,7 @@ const BannerStyle = styled.div`
     .image-banner {
       max-height: 400px;
       .img-fluid {
-        height: 400px;
+        max-height: 400px;
       }
     }
     .title-banner {
