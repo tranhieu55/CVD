@@ -218,7 +218,7 @@ const InterestedStyle = styled.div`
       margin-bottom: 28px;
     }
     .boxInterested {
-      padding-top: 173px;
+      padding-top: 187px;
       padding-bottom: 108px;
     }
   }

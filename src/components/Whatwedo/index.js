@@ -12,8 +12,11 @@ export default function Cardwhatwedo(pageData) {
           {pageData.input.map((item, index = 1) => (
             <div
               key={index}
-              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Left' ? "box-study-5" : "box-study"
-                }`}
+              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Right' ? "box-study-5" : "box-study"
+                }
+                ${item.location_content === 'Right' ? "box-study-5" : "box-study"
+                }
+                `}
               data-sal="zoom-in"
               data-sal-delay="2000"
               data-sal-easing="ease"
@@ -326,7 +329,7 @@ const Study = styled.div`
       margin-bottom: 40px;
     }
     .box-study-5 {
-      margin-bottom: 115px;
+      margin-bottom: 96px;
     }
   }
   @media only screen and (min-width: 1366px) {
