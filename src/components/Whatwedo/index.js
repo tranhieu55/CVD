@@ -204,7 +204,7 @@ const Study = styled.div`
     }
     .box-study-5 {
       flex-direction: column;
-      margin-bottom: 0px;
+      margin-bottom: 30px;
     }
     .study {
       /* margin-top: 16px; */
