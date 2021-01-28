@@ -12,7 +12,7 @@ export default function Cardwhatwedo(pageData) {
           {pageData.input.map((item, index = 1) => (
             <div
               key={index}
-              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_content === 'Right' ? "box-study-5" : "box-study"
+              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Left' ? "box-study-5" : "box-study"
                 }`}
               data-sal="zoom-in"
               data-sal-delay="2000"
