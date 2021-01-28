@@ -90,7 +90,6 @@ const Slider = styled.div`
                 height: 100%;
                 width: 100%;
                 padding: 37px 19px;
-                object-fit: cover;
               }
             }
           }

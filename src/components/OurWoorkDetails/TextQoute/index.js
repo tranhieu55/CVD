@@ -26,7 +26,7 @@ export default function TextQoute(props) {
 const Qoute = styled.div`
     text-align: center;
   @media only screen and (max-width: 600px) {
-      margin-bottom:30px;
+      margin-bottom: 56px;
     .type-aliquam {
       max-width: 570px;
       color: #222222;
