@@ -125,7 +125,7 @@ const Slider = styled.div`
         img {
           height: 669px;
           width: 100%;
-          padding: 107px 137px !important;
+          padding: 117px 137px !important;
         }
       }
     }
