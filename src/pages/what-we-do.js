@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Interested from "../components/Interested"
 import SEO from "../components/utilities/SEO"
-import Cardwhatwedo from "../components/Whatwedo"
 import SliceZone from "../utils/SliceZone"
 
 export const query = graphql`
@@ -21,6 +20,8 @@ export const query = graphql`
                 item_title
                 item_image
                 item_description
+                location_content
+                location_image
               }
               type
             }
@@ -32,7 +33,6 @@ export const query = graphql`
 }
 `
 const WhatWeDo = ({ data }) => {
-  console.log(data)
   const pageData = data.prismic.allWhatwedo_pages.edges[0].node.body[0]
   const dataSEO = data.prismic.allWhatwedo_pages.edges[0].node
   return (

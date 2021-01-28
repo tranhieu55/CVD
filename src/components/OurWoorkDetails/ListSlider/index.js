@@ -11,30 +11,30 @@ export default function ListSlider(props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
-};
+  };
   return (
     <>
-    <Slider
-            className="image-koko"
-            data-sal="slide-down"
-            data-sal-delay="5000"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
+      <Slider
+        className="image-koko"
+        data-sal="slide-down"
+        data-sal-delay="5000"
+        data-sal-easing="ease"
+        data-sal-duration="1000"
+      >
         <Sliders {...settings}>
           {
             props.input.fields.map((item, key) => (
-                  <div key={key} className='image-sliders'>
-                    <img
-                      alt=""
-                      src={item.slider_image.url}
-                      alt={item.slider_image.alt}
-                    ></img>
-                  </div>
+              <div key={key} className='image-sliders'>
+                <img
+                  alt=""
+                  src={item.slider_image.url}
+                  alt={item.slider_image.alt}
+                ></img>
+              </div>
             ))
           }
         </Sliders>
-    </Slider>
+      </Slider>
     </>
   )
 }
@@ -126,7 +126,7 @@ const Slider = styled.div`
         img {
           height: 669px;
           width: 100%;
-          padding: 117px 137px !important;
+          padding: 107px 137px !important;
         }
       }
     }

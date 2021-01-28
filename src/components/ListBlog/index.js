@@ -157,11 +157,10 @@ export default function ListBlog() {
       <div className="row">
         {data.prismic.allOurwork_items.edges.map((edge, index) => (
           <div
-            className={`${
-              data.prismic.allOurwork_items.edges.length === 3
-                ? "col-md-4"
-                : "col-md-6"
-            }`}
+            className={`${data.prismic.allOurwork_items.edges.length === 3
+              ? "col-md-4"
+              : "col-md-6"
+              }`}
             key={index}
           >
             <DivIMG
