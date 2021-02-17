@@ -23,11 +23,11 @@ export default function Other(arrResult, slugCurrent) {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
+              to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
             >
               <IMG
-                alt={item.node.ourworkitem_image.alt}
-                src={item.node.ourworkitem_image.url}
+                alt={item.node.project_header_image.alt}
+                src={item.node.project_header_image.url}
                 objectFit="cover"
                 h="500"
               />
@@ -35,10 +35,10 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
             <div className="title-img-blog">
               <div className="text-title">
-                <span>{item.node.name_category_of_ourworkitem}</span>
+                <span>{item.node.name_category_of_project}</span>
               </div>
               <div className="text-title2">
-                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
+                <h3>{item.node.project_name.map(item => item.text)}</h3>
               </div>
             </div>
           </div>
@@ -53,11 +53,11 @@ export default function Other(arrResult, slugCurrent) {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
+              to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
             >
               <IMG
-                alt={item.node.ourworkitem_image.alt}
-                src={item.node.ourworkitem_image.url}
+                alt={item.node.project_header_image.alt}
+                src={item.node.project_header_image.url}
                 objectFit="cover"
                 h="206"
               />
@@ -65,10 +65,10 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
             <div className="title-img-blog">
               <div className="text-title">
-                <span>{item.node.name_category_of_ourworkitem}</span>
+                <span>{item.node.name_category_of_project}</span>
               </div>
               <div className="text-title2">
-                <h3>{item.node.ourworkitem_name.map(item => item.text)}</h3>
+                <h3>{item.node.project_name.map(item => item.text)}</h3>
               </div>
             </div>
           </div>

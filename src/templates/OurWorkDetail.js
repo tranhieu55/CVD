@@ -51,15 +51,15 @@ export const query = graphql`
       allOurwork_items {
         edges {
           node {
-            ourworkitem_logo
-            ourworkitem_name
-            ourworkitem_image
-            ourworkitem_description
-            name_category_of_ourworkitem
+            project_logo
+            project_name
+            project_header_image
+            project_description
+            name_category_of_project
             _meta {
               uid
             }
-            relationship_to_categoryourwork {
+            relationship_to_project_category {
               ... on PRISMIC_Category_ourwork {
                 _meta {
                   uid
@@ -70,11 +70,11 @@ export const query = graphql`
         }
       }
       ourwork_item(uid: $slug, lang: "en-gb") {
-        ourworkitem_name
-        ourworkitem_logo
-        ourworkitem_image
-        ourworkitem_description
-        name_category_of_ourworkitem
+        project_name
+        project_logo
+        project_header_image
+        project_description
+        name_category_of_project
         body {
           ... on PRISMIC_Ourwork_itemBodyOurworkitem_description {
             type
@@ -129,7 +129,7 @@ export const query = graphql`
             }
           }
         }
-        relationship_to_categoryourwork {
+        relationship_to_project_category {
           ... on PRISMIC_Category_ourwork {
             category_name
             oder_in_menu
@@ -167,22 +167,22 @@ const OurWorkDetail = props => {
   }
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
-  const dataItem = props.data.prismic.ourwork_item.body
+  const data = props.data.prismic.ourwork_item
   return (
     <Layout
       location="/case-study"
-      nameProject={dataOurWorkItem.ourworkitem_description[0].text}
-      logoProject={dataOurWorkItem.ourworkitem_logo}
+      nameProject={dataOurWorkItem.project_description[0].text}
+      logoProject={dataOurWorkItem.project_logo}
       nameCategoryOfWorkItem={nameCategory}
       descriptionOfWorkItem={
-        dataOurWorkItem.relationship_to_categoryourwork.text
+        dataOurWorkItem.relationship_to_project_category.text
       }
-      backgroundWorkItemSrc={dataOurWorkItem.ourworkitem_image.url}
-      backgroundWorkItemAlt={dataOurWorkItem.ourworkitem_image.alt}
+      backgroundWorkItemSrc={dataOurWorkItem.project_header_image.url}
+      backgroundWorkItemAlt={dataOurWorkItem.project_header_image.alt}
     >
       <SEO props={dataOurWorkItem} />
       <Study>
-        <SliceZone data={dataItem} />
+        <SliceZone allSlices={data.body} />
       </Study>
       <Other arrResult={arrResult} slugCurrent={nameCategory} />
       <Interested />
