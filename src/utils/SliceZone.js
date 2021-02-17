@@ -36,57 +36,6 @@ const SliceZone = (props) => {
         )
     }
   }
-
-  if (props.data) {
-    const data = props.data.map((s, index) => {
-      switch (s.type) {
-        case "ourworkitem_description":
-          return (
-            <>
-              <TextBackground key={index} input={s} />
-            </>
-          )
-        case "list_image":
-          return (
-            <>
-              <ImageSlider key={index} input={s} />
-            </>
-          )
-        case "title_solution":
-          return (
-            <>
-              <TextSolution key={index} input={s} />
-            </>
-          )
-        case "statistical_ourwork_item_":
-          return (
-            <>
-              <ContentPercent key={index} input={s} />
-            </>
-          )
-        case "slider_image":
-          return (
-            <>
-              <ListSlider key={index} input={s} />
-            </>
-          )
-        case "text_quote":
-          return (
-            <>
-              <TextQoute key={index} input={s} />
-            </>
-          )
-        default:
-          return (
-            <>
-            </>
-          )
-      }
-
-
-    })
-    return data
-  }
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type) {
@@ -178,6 +127,46 @@ const SliceZone = (props) => {
             <>
               <Directions key={index} input={s} />
             </>
+          )
+        case "ourworkitem_description":
+          return (
+            <>
+              <TextBackground key={index} input={s} />
+            </>
+          )
+        case "list_image":
+          return (
+            <>
+              <ImageSlider key={index} input={s} />
+            </>
+          )
+        case "title_solution":
+          return (
+            <>
+              <TextSolution key={index} input={s} />
+            </>
+          )
+        case "statistical_ourwork_item_":
+          return (
+            <>
+              <ContentPercent key={index} input={s} />
+            </>
+          )
+        case "slider_image":
+          return (
+            <>
+              <ListSlider key={index} input={s} />
+            </>
+          )
+        case "text_quote":
+          return (
+            <>
+              <TextQoute key={index} input={s} />
+            </>
+          )
+        case "what_we_do_item":
+          return (
+            <Cardwhatwedo key={index} input={s} />
           )
         default:
           return (

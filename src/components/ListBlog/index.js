@@ -133,13 +133,13 @@ export default function ListBlog() {
         allOurwork_items {
           edges {
             node {
-              name_category_of_ourworkitem
-              ourworkitem_image
-              ourworkitem_name
+              name_category_of_project
+              project_header_image
+              project_name
               _meta {
                 uid
               }
-              relationship_to_categoryourwork {
+              relationship_to_project_category {
                 ... on PRISMIC_Category_ourwork {
                   _meta {
                     uid
@@ -165,18 +165,18 @@ export default function ListBlog() {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${edge.node.relationship_to_categoryourwork._meta.uid}/${edge.node._meta.uid}`}
+              to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
             >
               <IMG
-                alt={edge.node.ourworkitem_image.alt || "image ourwork_item"}
-                src={edge.node.ourworkitem_image.url}
+                alt={edge.node.project_header_image.alt || "image ourwork_item"}
+                src={edge.node.project_header_image.url}
                 objectFit="cover"
                 h="500"
               />
             </DivIMG>
             <div className="title-img-blog">
-              <span>{edge.node.name_category_of_ourworkitem}</span>
-              <h3>{edge.node.ourworkitem_name.map(item => item.text)}</h3>
+              <span>{edge.node.name_category_of_project}</span>
+              <h3>{edge.node.project_name.map(item => item.text)}</h3>
             </div>
           </div>
         ))}

@@ -9,10 +9,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
         allOurwork_items {
           edges {
             node {
-              ourworkitem_name
-              name_category_of_ourworkitem
-              ourworkitem_image
-              relationship_to_categoryourwork {
+              project_name
+              name_category_of_project
+              project_header_image
+              relationship_to_project_category {
                 ... on PRISMIC_Category_ourwork {
                   _meta {
                     uid
@@ -32,7 +32,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   res.data.prismic.allOurwork_items.edges.forEach(edge => {
     createPage({
       component: OurWorkDetail,
-      path: `/projects/${edge.node.relationship_to_categoryourwork._meta.uid}/${edge.node._meta.uid}`,
+      path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
       context: {
         slug: edge.node._meta.uid,
         dataLayout: edge,
@@ -42,10 +42,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
   res.data.prismic.allOurwork_items.edges.forEach(edge => {
     createPage({
       component: OurWorkItems,
-      path: `/projects/${edge.node.relationship_to_categoryourwork._meta.uid}`,
+      path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,
       context: {
         // slug: edge.node.relationship_to_categoryourwork._meta.uid,
-        slug: edge.node.name_category_of_ourworkitem,
+        slug: edge.node.name_category_of_project,
         dataLayout: edge,
       },
     })

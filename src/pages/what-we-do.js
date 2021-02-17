@@ -32,13 +32,13 @@ export const query = graphql`
   }
 }
 `
-const WhatWeDo = ({ data }) => {
-  const pageData = data.prismic.allWhatwedo_pages.edges[0].node.body[0]
-  const dataSEO = data.prismic.allWhatwedo_pages.edges[0].node
+const WhatWeDo = (props) => {
+  const data = props.data.prismic.allWhatwedo_pages.edges[0].node
+  const dataSEO = props.data.prismic.allWhatwedo_pages.edges[0].node
   return (
     <Layout location="/we-do">
       <SEO props={dataSEO} />
-      <SliceZone pageData={pageData} />
+      <SliceZone allSlices={data.body} />
       <Interested />
     </Layout>
   )

@@ -110,14 +110,14 @@ export const query = graphql`
   query ProjectByCate($slug: String!) {
     prismic {
       allOurwork_items(
-        where: { name_category_of_ourworkitem_fulltext: $slug }
+        where: { name_category_of_project: $slug }
       ) {
         edges {
           node {
-            ourworkitem_name
-            ourworkitem_image
-            name_category_of_ourworkitem
-            relationship_to_categoryourwork {
+            project_name
+            project_header_image
+            name_category_of_project
+            relationship_to_project_category {
               ... on PRISMIC_Category_ourwork {
                 _meta {
                   uid

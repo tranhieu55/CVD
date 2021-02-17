@@ -4,12 +4,12 @@ import H2 from '../bits/H2'
 import P from '../bits/Typography'
 import IMG from '../Image'
 
-export default function Cardwhatwedo(pageData) {
+export default function Cardwhatwedo(props) {
   return (
     <Study>
       <div className="container study">
         <div className="iphone-X">
-          {pageData.input.map((item, index = 1) => (
+          {props.input.fields.map((item, index = 1) => (
             <div
               key={index}
               className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Right' ? "box-study-5" : "box-study"
@@ -35,7 +35,7 @@ export default function Cardwhatwedo(pageData) {
                   <span className="my-border-study"></span>
                   <span className="txt-study">
                     {" "}
-                    {index + 1}/{pageData.input.length}
+                    {index + 1}/{props.input.length}
                   </span>
                 </div>
                 <H2
