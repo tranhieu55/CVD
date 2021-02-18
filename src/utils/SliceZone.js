@@ -23,9 +23,11 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 
 const SliceZone = (props) => {
+
+  console.log('slice zone : ', {props});
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
-      switch (s.type) {
+      switch (s.type || s.__typename) {
         // These are the API IDs of the slices
         case "text":
           return (
@@ -151,9 +153,13 @@ const SliceZone = (props) => {
               <TextQoute key={index} input={s} />
             </>
           )
-        case "what_we_do_item":
+        // case "what_we_do_item":
+        //   return (
+        //     <Cardwhatwedo key={index} input={s} />
+        //   )
+        case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
-            <Cardwhatwedo key={index} input={s} />
+            <Cardwhatwedo key={index} input={s} index={index}/>
           )
         default:
           return (

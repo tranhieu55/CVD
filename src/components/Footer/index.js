@@ -6,12 +6,6 @@ const FooterStyle = styled.div`
   background-color: #222222;
   font-family: "Calibre Medium";
   font-size: 20px;
-  .iphone-X {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-  .footer {
-    max-width: 1260px;
-  }
   .row {
     margin: 0;
   }
@@ -33,15 +27,6 @@ const FooterStyle = styled.div`
   }
   .w-145 {
     width: 145px;
-  }
-  .text-2 {
-    width: 164px;
-    color: #ffffff;
-    font-family: "Calibre Medium";
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 24px;
   }
   .text-3 {
     width: 216px;
@@ -88,12 +73,6 @@ const FooterStyle = styled.div`
     }
   }
   @media only screen and (max-width: 600px) {
-    .footer {
-      padding-top: 48px !important;
-      padding-left: 16px;
-      padding-right: 16px;
-      padding-bottom: 31px !important;
-    }
     .img {
       display: block;
       margin: auto;
@@ -104,19 +83,11 @@ const FooterStyle = styled.div`
     p {
       margin: 0;
     }
-    .text-2 {
-      padding-top: 26px;
-      font-size: 18px;
-      line-height: 26px;
-    }
     .style-icon {
       padding-top: 28px !important;
     }
     .w-141 {
       width: 600px;
-    }
-    .image-converdigital {
-      margin: auto;
     }
     .editText {
      margin-right: 30px !important;
@@ -156,9 +127,6 @@ const FooterStyle = styled.div`
     .w-112 {
       display: none;
     }
-    .image-converdigital {
-      margin: auto;
-    }
     .order-3 {
       order: 5;
     }
@@ -176,20 +144,12 @@ const FooterStyle = styled.div`
     .editText {
      margin-right: 64px !important;
     }
-    .footer {
-      padding-top: 40px !important;
-      padding-bottom: 30px !important;
-    }
-
     .none-pd {
       padding-top: 0;
     }
   }
 
   @media only screen and (min-width: 768px) {
-    .text-2 {
-      margin-top: 30px;
-    }
     .w-141 {
       width: 800px;
     }
@@ -205,10 +165,6 @@ const FooterStyle = styled.div`
     .none-pd {
       padding-top: 0;
     }
-    .footer {
-      padding-top: 40px !important;
-      padding-bottom: 30px !important;
-    }
   }
 
   @media only screen and (min-width: 992px) {
@@ -222,13 +178,6 @@ const FooterStyle = styled.div`
     
     .editText {
      margin-right: 64px !important;
-    }
-    .image-converdigital {
-      margin: 0;
-      margin-right:0px;
-    }
-    .text-2 {
-      margin-top: 0px;
     }
     .content-digital {
       margin-top: 0px;
@@ -249,10 +198,6 @@ const FooterStyle = styled.div`
     .order-5 {
       order: 5;
     }
-    .footer {
-      padding-top: 108px !important;
-      padding-bottom: 76px !important;
-    }
     .style-icon {
       padding-top: 72px !important;
     }
@@ -269,12 +214,6 @@ const FooterStyle = styled.div`
     .w-112 {
       display: block;
       width: 112px;
-    }
-    .image-converdigital {
-      margin: 0;
-    }
-    .text-2 {
-      margin-top: 0px;
     }
     .content-digital {
       margin-top: 0px;
@@ -365,6 +304,75 @@ const Boxicon = styled.div`
     flex-direction: column;
   }
 `
+const IphoneX = styled.div`
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+`
+const Container = styled.div`
+  max-width: 1260px;
+  @media only screen and (max-width: 600px) {
+    padding-top: 48px !important;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 31px !important;
+  }
+  @media only screen and (max-width: 600px) {
+    padding-top: 40px !important;
+    padding-bottom: 30px !important;
+  }
+  @media only screen and (min-width: 768px) {
+    padding-top: 40px !important;
+    padding-bottom: 30px !important;
+  }
+  @media only screen and (min-width: 992px) {
+    padding-top: 108px !important;
+    padding-bottom: 76px !important;
+  }
+`
+const ListIcon = styled.div``
+const Order = styled.div``
+const Row = styled.div``
+const BoxImage = styled.div`
+@media only screen and (max-width: 600px) {
+  margin: auto;
+}
+@media only screen and (min-width: 600px) {
+    margin: auto;
+}
+@media only screen and (min-width: 992px) {
+  margin: 0;
+  margin-right:0px;
+}
+@media only screen and (min-width: 1300px) {
+    margin: 0;
+  }
+`
+const BoxOrder = styled.div``
+const BoxTextOrder = styled.div`
+  width: 164px;
+  color: #ffffff;
+  font-family: "Calibre Medium";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+  @media only screen and (max-width: 600px) {
+    padding-top: 26px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 30px;
+  }
+  @media only screen and (min-width: 992px) {
+    margin-top: 0px;
+  }
+  @media only screen and (min-width: 1300px) {
+    margin-top: 0px;
+  }
+    
+`
+const BoxContentDigital = styled.div``
+const ListContent = styled.div``
 const ListLink = styled.div`
   display: flex;
   flex-direction: column;
@@ -401,18 +409,18 @@ export default function Footer({ dataFooter }) {
 
   return (
     <FooterStyle className="container-fulid">
-      <div className='iphone-X'>
-        <div className="container footer">
-          <div className="row">
-            <div className="image-converdigital order-1">
+      <IphoneX>
+        <Container className="container">
+          <Row className="row">
+            <BoxImage className="order-1">
               <img
                 alt="image"
                 className="img"
                 src="https://www.convertdigital.com.au/wp-content/uploads/2017/01/convertdigital-logo@2x.png"
               />
-            </div>
-            <div className="w-141 order-2"></div>
-            <div className="text-2 order-3">
+            </BoxImage>
+            <BoxOrder className="w-141 order-2"></BoxOrder>
+            <BoxTextOrder className="order-3">
               <ListLink>
                 <Link className="none-pd" to="/projects">
                   Our work
@@ -426,11 +434,11 @@ export default function Footer({ dataFooter }) {
                   </Link>
                 ))}
               </ListLink>
-            </div>
-            <div className="w-112 order-4"></div>
-            <div className="content-digital order-5">
+            </BoxTextOrder>
+            <BoxOrder className="w-112 order-4"></BoxOrder>
+            <BoxContentDigital className="content-digital order-5">
               {dataAddressFooter[0].fields.map((item, index) => (
-                <div key={index} className={index === 0 ? 'text-3 editText' : 'text-3'}>
+                <ListContent key={index} className={index === 0 ? 'text-3 editText' : 'text-3'}>
                   <Content>
                     <span>{item.address_title.map(item => item.text)}</span>
                     <p>
@@ -439,26 +447,28 @@ export default function Footer({ dataFooter }) {
                       <span className='changes-text'>{item.phone.map(item => item.text)}</span>
                     </p>
                   </Content>
-                </div>
+                </ListContent>
               ))}
-            </div>
-          </div>
-          <div className="style-icon">
+            </BoxContentDigital>
+          </Row>
+          <ListIcon className="style-icon">
             <Boxicon className="row">
-              <div className=" order-1">
+              <Order className=" order-1">
                 <span className="convert-2020">© 2019 Convert Digital. </span>
-              </div>
-              <div className=" order-2">
+              </Order>
+              <Order className=" order-2">
                 <Icon>
                   <span className="icon icon-fb" />
                   <span className="icon icon-instagram" />
                   <span className="icon icon-linkedin" />
                 </Icon>
-              </div>
+              </Order>
             </Boxicon>
-          </div>
-        </div>
-      </div>
+          </ListIcon>
+        </Container>
+      </IphoneX>
     </FooterStyle>
   )
 }
+
+

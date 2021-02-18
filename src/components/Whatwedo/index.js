@@ -5,16 +5,17 @@ import P from '../bits/Typography'
 import IMG from '../Image'
 
 export default function Cardwhatwedo(props) {
+  console.log('index', props.index + 1); // in ra được stt
+  console.log('data we do item : ', props.input.primary);
   return (
     <Study>
       <Container className="container">
         <IphoneX>
-          {props.input.fields.map((item, index = 1) => (
+          {
             <BoxStudy
-              key={index}
-              className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Right' ? "box-study-5" : "box-study"
+              className={` ${props.input.primary.location_image === 'Left' ? "" : "cl-order"} ${props.input.primary.location_image === 'Right' ? "box-study-5" : "box-study"
                 }
-                ${item.location_content === 'Right' ? "box-study-5" : "box-study"
+                ${props.input.primary.location_content === 'Right' ? "box-study-5" : "box-study"
                 }
                 `}
               data-sal="zoom-in"
@@ -25,8 +26,8 @@ export default function Cardwhatwedo(props) {
               <BoxImage className="box-img img-fluid">
                 <IMG
                   objectFit="cover"
-                  src={item.item_image.url}
-                  alt={item.item_image.alt}
+                  src={props.input.primary.what_we_do_image.url}
+                  alt={props.input.primary.what_we_do_image.alt}
                 />
               </BoxImage>
               <BoxDivStudy className="cl174"></BoxDivStudy>
@@ -35,7 +36,7 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {index + 1}/{props.input.fields.length}
+                    {1}/{props.index + 1}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2
@@ -46,7 +47,7 @@ export default function Cardwhatwedo(props) {
                   fz="32"
                   fontFamily="Calibre Semibold"
                 >
-                  {item.item_title.map(x => x.text)}
+                  {props.input.primary.what_we_do_title[0].text}
                 </H2>
                 <P
                   lineh="28"
@@ -54,7 +55,7 @@ export default function Cardwhatwedo(props) {
                   fontFamily="Calibre Regular"
                   fontSise="20"
                 >
-                  {item.item_description.map(x => x.text)}
+                  {props.input.primary.what_we_do_description[0].text}
                 </P>
                 <BoxIconStudy className="icon-leadmore">
                   <SpanStudy className="learn-more-title">Learn more</SpanStudy>
@@ -62,7 +63,7 @@ export default function Cardwhatwedo(props) {
               </BoxContentStudy>
               <BoxDivStudy className="cl80"></BoxDivStudy>
             </BoxStudy>
-          ))}
+          }
         </IphoneX>
       </Container>
     </Study>

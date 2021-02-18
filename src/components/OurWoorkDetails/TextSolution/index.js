@@ -26,7 +26,7 @@ export default function TextSolution(props) {
       <MapSolution>
         <>
           {props.input.fields.map((item, index) => (
-            <div
+            <SolutionText
               key={index}
               className={
                 `${index}` === "1" || `${index}` === "3"
@@ -38,15 +38,15 @@ export default function TextSolution(props) {
               <H4 fontWeight={theme.fonts.bold}>
                 {item.title_the_solution[0].text}
               </H4>
-            </div>
+            </SolutionText>
           ))}
         </>
       </MapSolution>
-      <div>
-        <h4 className="text-style">
+      <Text>
+        <Content>
           {props.input.primary.text_description[0].text}
-        </h4>
-      </div>
+        </Content>
+      </Text>
     </Solution>
   )
 }
@@ -54,12 +54,6 @@ const Solution = styled.div`
   margin-left: 49px;
   P {
     font-family: "Calibre Semibold";
-  }
-  .text-style {
-    font-family: "Calibre Regular";
-    font-size: 20px;
-    color: #222222;
-    line-height: 28px;
   }
   .text-style-bottom {
     font-family: "Calibre Regular";
@@ -216,4 +210,16 @@ const MapSolution = styled.div`
         }
       }
   }
+`
+
+const SolutionText = styled.div`
+
+`
+const Text = styled.div`
+`
+const Content = styled.h4`
+  font-family: "Calibre Regular";
+  font-size: 20px;
+  color: #222222;
+  line-height: 28px;
 `
