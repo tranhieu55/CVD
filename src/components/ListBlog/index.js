@@ -17,28 +17,6 @@ const ListBlogStyle = styled.div`
     object-fit: cover;
     position: relative;
   }
-  .title-img-blog {
-    position: absolute;
-    z-index: 2;
-    bottom: 5rem;
-    left: 6rem;
-    cursor: pointer;
-    /* color:red; */
-    span {
-      font-weight: bold;
-      color: gold;
-    }
-    h3 {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-    }
-  }
-  .my-btn {
-    margin: 40px auto;
-  }
   .btn-studies {
     background-color: transparent;
     color: black;
@@ -47,61 +25,7 @@ const ListBlogStyle = styled.div`
     background-color: gold;
     color: white;
   }
-  /* reponsive */
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) {
-    .title-img-blog {
-      bottom: 10px;
-      left: 40px;
-      h3 {
-        font-size: 28px;
-      }
-    }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-    .title-img-blog {
-      bottom: 20px;
-      left: 60px;
-      h3 {
-        font-size: 30px;
-      }
-    }
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    .title-img-blog {
-      bottom: 10px;
-      left: 40px;
-      h3 {
-        font-size: 30px;
-      }
-    }
-  }
-
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .title-img-blog {
-      bottom: 50px;
-      left: 80px;
-      h3 {
-        font-size: 36px;
-      }
-    }
-  }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-    .title-img-blog {
-      bottom: 3rem;
-      left: 40px;
-      h3 {
-        font-size: 36px;
-      }
-    }
-  }
+  
 `
 const DivIMG = styled.div`
   overflow: hidden;
@@ -124,6 +48,67 @@ const DivIMG = styled.div`
       width: 100%;
     }
   }
+`
+const Rows = styled.div`
+`
+const Colum = styled.div`
+`
+const TitleImageBlog = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: 5rem;
+  left: 6rem;
+  cursor: pointer;
+  /* color:red; */
+  @media only screen and (max-width: 600px){
+    bottom: 10px;
+    left: 40px;
+  }
+  @media only screen and (min-width: 600px){
+    bottom: 20px;
+    left: 60px;
+  }
+  @media only screen and (min-width: 768px){
+    bottom: 10px;
+    left: 40px;
+  }
+  @media only screen and (min-width: 992px){
+    bottom: 50px;
+    left: 80px;
+  }
+  @media only screen and (min-width: 1200px){
+    bottom: 3rem;
+    left: 40px;
+  }
+`
+const Span = styled.span`
+  font-weight: bold;
+  color: gold;
+`
+const H3 = styled.h3`
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  @media only screen and (max-width: 600px){
+    font-size: 28px;
+  }
+  @media only screen and (min-width: 600px){
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 768px){
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 992px){
+    font-size: 36px;
+  }
+  @media only screen and (min-width: 1200px){
+    font-size: 36px;
+  }
+`
+const MyBtn = styled.div`
+  margin: 40px auto;
 `
 
 export default function ListBlog() {
@@ -154,9 +139,9 @@ export default function ListBlog() {
   `)
   return (
     <ListBlogStyle className="container-fluid">
-      <div className="row">
+      <Rows className="row">
         {data.prismic.allOurwork_items.edges.map((edge, index) => (
-          <div
+          <Colum
             className={`${data.prismic.allOurwork_items.edges.length === 3
               ? "col-md-4"
               : "col-md-6"
@@ -174,13 +159,13 @@ export default function ListBlog() {
                 h="500"
               />
             </DivIMG>
-            <div className="title-img-blog">
-              <span>{edge.node.name_category_of_project}</span>
-              <h3>{edge.node.project_name.map(item => item.text)}</h3>
-            </div>
-          </div>
+            <TitleImageBlog>
+              <Span>{edge.node.name_category_of_project}</Span>
+              <H3>{edge.node.project_name.map(item => item.text)}</H3>
+            </TitleImageBlog>
+          </Colum>
         ))}
-        <div className="my-btn">
+        <MyBtn>
           <ButtonCustom
             wt="212"
             ht="48"
@@ -190,8 +175,8 @@ export default function ListBlog() {
           >
             Load more case studies
           </ButtonCustom>
-        </div>
-      </div>
+        </MyBtn>
+      </Rows>
     </ListBlogStyle>
   )
 }
