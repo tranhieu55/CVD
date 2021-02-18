@@ -23,19 +23,6 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 
 const SliceZone = (props) => {
-  if (props.pageData) {
-    switch (props.pageData.type) {
-      case "what_we_do_item":
-        return (
-          <Cardwhatwedo input={props.pageData.fields} />
-        )
-      default:
-        return (
-          <>
-          </>
-        )
-    }
-  }
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type) {

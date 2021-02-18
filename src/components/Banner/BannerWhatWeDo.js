@@ -14,11 +14,7 @@ const WraperBannerWhatWeDo = styled.div`
     background-color: #fecf09;
     margin-right: 24px;
   }
-  .box-tag {
-    margin-top: 158px;
-    display: flex;
-    align-items: center;
-  }
+  
   span {
     color: #999999;
     display: block;
@@ -26,11 +22,7 @@ const WraperBannerWhatWeDo = styled.div`
     font-weight: 600;
     text-transform: uppercase;
   }
-  .wrapper {
-    max-width: 1240px !important;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
+  
 
   .my-border-txt {
     letter-spacing: 1px;
@@ -44,11 +36,6 @@ const WraperBannerWhatWeDo = styled.div`
     .my-border {
       width: 32px !important;
       margin-right: 16px !important;
-    }
-    .wrapper {
-      margin-bottom: 16px;
-      padding-right: 16px !important;
-      padding-left: 16px !important;
     }
     span {
       font-size: 12px !important;
@@ -74,9 +61,6 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-    .wrapper {
-      margin-bottom: 30px;
-    }
     .row {
       margin: 0 !important;
     }
@@ -98,9 +82,6 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    .wrapper {
-      margin-bottom: 30px;
-    }
     .my-border {
       width: 45px;
     }
@@ -119,9 +100,6 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    .wrapper {
-      margin-bottom: 30px;
-    }
     .my-border {
       width: 60px;
       height: 2px;
@@ -145,9 +123,6 @@ const WraperBannerWhatWeDo = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-    .wrapper {
-      margin-bottom: 96px;
-    }
     .offset-1 {
       margin-left: 103px !important;
     }
@@ -197,6 +172,62 @@ const WraperBannerWhatWeDo = styled.div`
     }
   }
 `
+const Container = styled.div`
+  max-width: 1240px !important;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  env(safe-area-inset-bottom) env(safe-area-inset-left);
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 16px;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+  @media only screen and (min-width: 600px) {
+    margin-bottom: 30px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    margin-bottom: 30px;
+  }
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 96px;
+  }
+
+`
+const Row = styled.div`
+`
+const Col = styled.div``
+const BoxTag = styled.div`
+  margin-top: 158px;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 600px) {
+    
+  }
+  @media only screen and (min-width: 600px) {
+    
+  }
+  @media only screen and (min-width: 768px) {
+    
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    
+  }
+  @media only screen and (min-width: 1200px) {
+   
+  }
+
+
+`
+const SpanBorder = styled.span``
+const SpanText = styled.span``
+
+
 
 const BannerWhatWeDo = () => {
   const data = useStaticQuery(graphql`
@@ -221,15 +252,15 @@ const BannerWhatWeDo = () => {
       data-sal-easing="ease"
       data-sal-duration="1000"
     >
-      <div className="container wrapper">
-        <div className="row">
-          <div className="col-md ">
-            <div className="box-tag">
-              <span className="my-border"></span>
-              <span className="my-border-txt">What We Do</span>
-            </div>
-          </div>
-          <div className="col-md-10 offset-1">
+      <Container className="container">
+        <Row className="row">
+          <Col className="col-md">
+            <BoxTag className="box-tag">
+              <SpanBorder className="my-border"></SpanBorder>
+              <SpanText className="my-border-txt">What We Do</SpanText>
+            </BoxTag>
+          </Col>
+          <Col className="col-md-10 offset-1">
             <P
               coLor="#111111"
               fontFamily="Calibre Semibold"
@@ -241,9 +272,9 @@ const BannerWhatWeDo = () => {
             >
               {data.prismic.allWhatwedo_pages.edges[0].node.banner_text[0].text}
             </P>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </WraperBannerWhatWeDo>
   )
 }

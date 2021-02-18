@@ -7,10 +7,10 @@ import IMG from '../Image'
 export default function Cardwhatwedo(props) {
   return (
     <Study>
-      <div className="container study">
-        <div className="iphone-X">
+      <Container className="container">
+        <IphoneX>
           {props.input.fields.map((item, index = 1) => (
-            <div
+            <BoxStudy
               key={index}
               className={` ${item.location_image === 'Left' ? "" : "cl-order"} ${item.location_image === 'Right' ? "box-study-5" : "box-study"
                 }
@@ -22,22 +22,22 @@ export default function Cardwhatwedo(props) {
               data-sal-easing="ease"
               data-sal-duration="1000"
             >
-              <div className="box-img img-fluid">
+              <BoxImage className="box-img img-fluid">
                 <IMG
                   objectFit="cover"
                   src={item.item_image.url}
                   alt={item.item_image.alt}
                 />
-              </div>
-              <div className="cl174"></div>
-              <div className=" box-content-study">
-                <div className="box-tag-study">
-                  <span className="my-border-study"></span>
-                  <span className="txt-study">
+              </BoxImage>
+              <BoxDivStudy className="cl174"></BoxDivStudy>
+              <BoxContentStudy className=" box-content-study">
+                <BoxTagStudy className="box-tag-study">
+                  <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
+                  <SpanTextStudy className="txt-study">
                     {" "}
-                    {index + 1}/{props.input.length}
-                  </span>
-                </div>
+                    {index + 1}/{props.input.fields.length}
+                  </SpanTextStudy>
+                </BoxTagStudy>
                 <H2
                   mrb="6"
                   lineh="32"
@@ -56,27 +56,110 @@ export default function Cardwhatwedo(props) {
                 >
                   {item.item_description.map(x => x.text)}
                 </P>
-                <div className="icon-leadmore">
-                  <span className="learn-more-title">Learn more</span>
-                </div>
-              </div>
-              <div className="cl80"></div>
-            </div>
+                <BoxIconStudy className="icon-leadmore">
+                  <SpanStudy className="learn-more-title">Learn more</SpanStudy>
+                </BoxIconStudy>
+              </BoxContentStudy>
+              <BoxDivStudy className="cl80"></BoxDivStudy>
+            </BoxStudy>
           ))}
-        </div>
-      </div>
+        </IphoneX>
+      </Container>
     </Study>
   )
 }
-const Study = styled.div`
-  .study {
-    /* margin-top: 96px; */
+const Container = styled.div`
     margin-bottom: 115px;
+    max-width: 1240px !important;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 25px;
   }
-  .iphone-X {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  @media only screen and (min-width: 600px) {
+    margin-bottom: 32px;
   }
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+  @media only screen and (min-width: 992px) {
+    margin-bottom: 40px; 
+  }
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 40px; 
+  }
+`
+const IphoneX = styled.div`
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  env(safe-area-inset-bottom) env(safe-area-inset-left);  
+`
+const BoxStudy = styled.div`
+`
+const BoxImage = styled.div`
+`
+const BoxContentStudy = styled.div`
+  width: 446px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0 17px;
+  }
+`
+const BoxTagStudy = styled.div`
+    display: flex;
+    align-items: center;
+    color: #999999;
+    font-size: 14px;
+    height: 16px;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 10px;
+    }
+    @media only screen and (min-width: 1366px) {
+      margin-bottom: 12px;
+    }
+`
+const SpanBorderStudy = styled.span`
+    width: 64px;
+    height: 2px;
+    background-color: gold;
+    margin-right: 16px;
+    margin-bottom: 4px;
+`
+const SpanTextStudy = styled.span`
+    font-family: "Calibre Semibold";
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 1px;
+    color: #999999;
+    letter-spacing: 1px;
+`
+const BoxIconStudy = styled.div`
+  font-size: 20px;
+  font-family: "Calibre Medium";
+  font-weight: 500;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  svg {
+    margin-left: 7px;
+    margin-bottom: -2px;
+  }
+  @media only screen and (max-width: 600px) {
+    height: 20px;
+    font-size: 20px;
+    margin-top: 14px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: 992px) {
+      font-size: 20px;
+  }
+`
+const SpanStudy = styled.span``
+const BoxDivStudy = styled.div``
+const Study = styled.div`
   .box-study-5 {
     display: flex;
     align-items: center;
@@ -85,50 +168,15 @@ const Study = styled.div`
   h2 {
     font-weight: 600;
   }
-  .study {
-    max-width: 1240px !important;
-  }
-  .card-wedo {
-    display: flex;
-  }
-  .my-border-study {
-    width: 64px;
-    height: 2px;
-    background-color: gold;
-    margin-right: 16px;
-    margin-bottom: 4px;
-  }
-  .box-tag-study {
-    display: flex;
-    align-items: center;
-    color: #999999;
-    font-size: 14px;
-    height: 16px;
-  }
   .box-study {
     display: flex;
     align-items: center;
     margin-bottom: 96px;
   }
-  .box-content-study {
-    width: 446px;
-  }
   .cl-order {
     flex-direction: row-reverse;
   }
-  .icon-leadmore {
-    font-size: 20px;
-    font-family: "Calibre Medium";
-    font-weight: 500;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    svg {
-      margin-left: 7px;
-      margin-bottom: -2px;
-    }
-  }
+  
   .icon-leadmore span {
     color: #101010;
     line-height: 2px;
@@ -139,12 +187,7 @@ const Study = styled.div`
     transform: translateX(15px);
     animation: mymove 0.8s infinite;
   }
-  .box-img {
-    width: 540px;
-    height: 540px;
-    transition: 0.6s;
-    overflow: hidden;
-  }
+  
   .box-img:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
       rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -163,14 +206,7 @@ const Study = styled.div`
   .cl80 {
     width: 80px;
   }
-  .txt-study {
-    font-family: "Calibre Semibold";
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 1px;
-    color: #999999;
-    letter-spacing: 1px;
-  }
+  
 
   @keyframes mymove {
     0% {
@@ -189,9 +225,6 @@ const Study = styled.div`
       flex-direction: column;
       margin-bottom: 30px;
     }
-    .box-tag-study {
-      margin-bottom: 10px;
-    }
     .icon-leadmore span {
       line-height: 26px;
     }
@@ -205,10 +238,6 @@ const Study = styled.div`
     .box-study-5 {
       flex-direction: column;
       margin-bottom: 30px;
-    }
-    .study {
-      /* margin-top: 16px; */
-      margin-bottom: 25px;
     }
     .box-img {
       padding-left: 16px !important;
@@ -230,16 +259,6 @@ const Study = styled.div`
     p {
       font-size: 20px;
     }
-    .icon-leadmore {
-      height: 20px;
-      font-size: 20px;
-      margin-top: 14px;
-    }
-
-    .box-content-study {
-      width: 100%;
-      padding: 0 17px;
-    }
   }
   @media only screen and (min-width: 600px) {
     .box-study {
@@ -257,9 +276,6 @@ const Study = styled.div`
     p {
       font-size: 16px;
     }
-    .icon-leadmore {
-      font-size: 16px;
-    }
     .box-img {
       width: 100%;
       height: 100%;
@@ -271,7 +287,6 @@ const Study = styled.div`
       display: none;
     }
     .study {
-      /* margin-top: 30px; */
       margin-bottom: 32px;
     }
     .box-study-5 {
@@ -285,13 +300,6 @@ const Study = styled.div`
     p {
       font-size: 16px;
     }
-    .icon-leadmore {
-      font-size: 16px;
-    }
-    .study {
-      /* margin-top: 30px; */
-      margin-bottom: 40px;
-    }
     .box-study-5 {
       margin-bottom: 40px;
     }
@@ -303,18 +311,11 @@ const Study = styled.div`
     p {
       font-size: 20px;
     }
-    .icon-leadmore {
-      font-size: 20px;
-    }
     .cl174 {
       width: 150px;
     }
     .cl80 {
       width: 20px;
-    }
-    .study {
-      /* margin-top: 30px; */
-      margin-bottom: 40px;
     }
     .box-study-5 {
       margin-bottom: 48px;
@@ -323,10 +324,6 @@ const Study = styled.div`
   @media only screen and (min-width: 1200px) {
     .cl174 {
       width: 130px;
-    }
-    .study {
-      /* margin-top: 96px; */
-      margin-bottom: 40px;
     }
     .box-study-5 {
       margin-bottom: 96px;
@@ -348,9 +345,7 @@ const Study = styled.div`
     width: 540px;
     height: 540px;
   }
-  .box-tag-study {
-    margin-bottom: 12px;
-  }
+  
 
   span.learn-more-title {
     display: flex;
