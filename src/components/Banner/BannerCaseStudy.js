@@ -137,7 +137,6 @@ const BannerStyle = styled.div`
     margin-bottom:50px;
     .img-fluid {
       object-fit: cover;
-      height: 346px;
     }
     h1 {
       padding-top: 0px;

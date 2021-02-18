@@ -17,7 +17,28 @@ const ListBlogStyle = styled.div`
     object-fit: cover;
     position: relative;
   }
-  .title-img-blog {
+  .btn-studies {
+    background-color: transparent;
+    color: black;
+  }
+  .btn-studies:hover {
+    background-color: gold;
+    color: white;
+  }
+  /* reponsive */
+  /* Extra small devices (phones, 600px and down) */
+ 
+`
+const DivIMG = styled.div`
+  overflow: hidden;
+`
+const RowItem = styled.div`
+  margin-top: 15px;
+`
+const Item = styled.div`
+
+`
+const TitleImageBlock = styled.div`
     position: absolute;
     z-index: 2;
     bottom: 5rem;
@@ -35,76 +56,52 @@ const ListBlogStyle = styled.div`
       margin: 0;
       padding: 0;
     }
-  }
-  .my-btn {
-    margin: 40px auto;
-  }
-  .btn-studies {
-    background-color: transparent;
-    color: black;
-  }
-  .btn-studies:hover {
-    background-color: gold;
-    color: white;
-  }
-  /* reponsive */
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) {
-    .title-img-blog {
+    @media only screen and (max-width: 600px) {
       bottom: 10px;
       left: 40px;
       h3 {
         font-size: 28px;
       }
-    }
   }
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-    .title-img-blog {
       bottom: 20px;
       left: 60px;
       h3 {
         font-size: 30px;
       }
-    }
   }
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    .title-img-blog {
       bottom: 10px;
       left: 40px;
       h3 {
         font-size: 30px;
       }
-    }
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    .title-img-blog {
       bottom: 50px;
       left: 80px;
       h3 {
         font-size: 36px;
       }
-    }
   }
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-    .title-img-blog {
       bottom: 3rem;
       left: 40px;
       h3 {
         font-size: 36px;
       }
-    }
   }
 `
-const DivIMG = styled.div`
-  overflow: hidden;
+const MyButton = styled.div`
+  margin: 40px auto;
 `
 export const query = graphql`
   query ProjectByCate($slug: String!) {
@@ -139,9 +136,9 @@ function OurWorkItems(props) {
     // <h1>Trang ourwork item</h1>
     <Layout location="/projects">
       <ListBlogStyle className="container-fluid">
-        <div className="row">
+        <RowItem>
           {props.data.prismic.allOurwork_items.edges.map((edge, index) => (
-            <div
+            <Item
               className={`${props.data.prismic.allOurwork_items.edges.length === 3
                 ? "col-md-4"
                 : "col-md-6"
@@ -159,13 +156,13 @@ function OurWorkItems(props) {
                   h="500"
                 />
               </DivIMG>
-              <div className="title-img-blog">
+              <TitleImageBlock>
                 <span>{edge.node.name_category_of_ourworkitem}</span>
                 <h3>{edge.node.ourworkitem_name.map(item => item.text)}</h3>
-              </div>
-            </div>
+              </TitleImageBlock>
+            </Item>
           ))}
-          <div className="my-btn">
+          <MyButton>
             <ButtonCustom
               wt="212"
               ht="48"
@@ -175,8 +172,8 @@ function OurWorkItems(props) {
             >
               Load more case studies
             </ButtonCustom>
-          </div>
-        </div>
+          </MyButton>
+        </RowItem>
       </ListBlogStyle>
       {/* <Interested /> */}
     </Layout>

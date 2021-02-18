@@ -15,7 +15,6 @@ export default function ListSlider(props) {
   return (
     <>
       <Slider
-        className="image-koko"
         data-sal="slide-down"
         data-sal-delay="5000"
         data-sal-easing="ease"
@@ -24,13 +23,13 @@ export default function ListSlider(props) {
         <Sliders {...settings}>
           {
             props.input.fields.map((item, key) => (
-              <div key={key} className='image-sliders'>
-                <img
+              <ImageSlider key={key}>
+                <Images
                   alt=""
                   src={item.slider_image.url}
                   alt={item.slider_image.alt}
-                ></img>
-              </div>
+                ></Images>
+              </ImageSlider>
             ))
           }
         </Sliders>
@@ -58,15 +57,6 @@ const Slider = styled.div`
             height: 100%;
             div{
               height: 100%;
-              .image-sliders{
-                height: 100%;
-                img{
-                  height: 100%;
-                  width: 100%;
-                  padding: 37px 19px;
-                  object-fit: cover;
-                }
-              }
             }
           }
         }
@@ -84,14 +74,6 @@ const Slider = styled.div`
           height: 100%;
           div{
             height: 100%;
-            .image-sliders{
-              height: 100%;
-              img{
-                height: 100%;
-                width: 100%;
-                padding: 37px 19px;
-              }
-            }
           }
         }
       }
@@ -99,9 +81,6 @@ const Slider = styled.div`
     }
     @media (min-width: 768px) {
         margin-bottom: 50px;
-        img{
-          padding: 47px 39px !important;
-        }
     }
     @media (min-width: 1024px) {
         margin-bottom: 50px;
@@ -109,24 +88,49 @@ const Slider = styled.div`
     }
      @media (min-width: 1200px) {
         margin-bottom: 96px;
-        img{
-          padding: 67px 49px !important;
-        }
     }
      @media (min-width: 1600px) {
       height: 898px;
       background-color: #f5f5f5;
-      .image-sliders{
-        height: 649px;
-      }
       div {
         margin: 0 auto;
         height: 100%;
-        img {
-          height: 669px;
-          width: 100%;
-          padding: 117px 137px !important;
-        }
       }
     }
+`
+const ImageSlider = styled.div`
+  @media only screen and (max-width: 600px){
+    height: 100%;
+  }
+  @media (min-width: 601px){
+    height: 100%;
+  }
+  @media (min-width: 1600px){
+    height: 649px;
+  }
+`
+const Images = styled.img`
+  object-fit: cover;
+  @media only screen and (max-width: 600px){
+    height: 100%;
+    width: 100%;
+    padding: 37px 19px;
+    object-fit: cover;
+  }
+  @media (min-width: 601px){
+    height: 100%;
+    width: 100%;
+    padding: 37px 19px;
+  }
+  @media (min-width: 768px){
+    padding: 47px 39px !important;
+  }
+  @media (min-width: 1200px){
+    padding: 67px 49px !important;
+  }
+  @media (min-width: 1600px){
+    height: 100%;
+    width: 100%;
+    padding: 117px 137px !important;
+  }
 `
