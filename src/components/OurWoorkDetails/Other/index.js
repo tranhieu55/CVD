@@ -34,10 +34,10 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
             <TitleImageblock>
               <TextTitleUp>
-                <TitleBlock>{item.node.name_category_of_ourworkitem}</TitleBlock>
+                <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
               </TextTitleUp>
               <TextTitleDown>
-                <TextBlock>{item.node.ourworkitem_name.map(item => item.text)}</TextBlock>
+                <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
               </TextTitleDown>
             </TitleImageblock>
           </ListImageOther>
@@ -64,10 +64,10 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
             <TitleImageblock>
               <TextTitleUp>
-                <TitleBlock>{item.node.name_category_of_ourworkitem}</TitleBlock>
+                <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
               </TextTitleUp>
               <TextTitleDown>
-                <TextBlock>{item.node.ourworkitem_name.map(item => item.text)}</TextBlock>
+                <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
               </TextTitleDown>
             </TitleImageblock>
           </Slide>
@@ -77,11 +77,11 @@ export default function Other(arrResult, slugCurrent) {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${item.node.relationship_to_categoryourwork._meta.uid}/${item.node._meta.uid}`}
-              >
+                to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
+                >
                 <IMG
-                  alt={item.node.ourworkitem_image.alt}
-                  src={item.node.ourworkitem_image.url}
+                  alt={item.node.project_header_image.alt}
+                  src={item.node.project_header_image.url}
                   objectFit="cover"
                   h="206"
                 />
@@ -89,10 +89,10 @@ export default function Other(arrResult, slugCurrent) {
               </DivIMG>
               <TitleImageblock>
                 <TextTitleUp>
-                  <TitleBlock>{item.node.name_category_of_ourworkitem}</TitleBlock>
+                  <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
                 </TextTitleUp>
                 <TextTitleDown>
-                  <TextBlock>{item.node.ourworkitem_name.map(item => item.text)}</TextBlock>
+                  <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
                 </TextTitleDown>
               </TitleImageblock>
           </Slides>

@@ -23,7 +23,7 @@ export default function TextSolution(props) {
       >
         {props.input.primary.title[0].text}
       </P>
-      <div className="map-solution">
+      <MapSolution>
         <>
           {props.input.fields.map((item, index) => (
             <div
@@ -41,7 +41,7 @@ export default function TextSolution(props) {
             </div>
           ))}
         </>
-      </div>
+      </MapSolution>
       <div>
         <h4 className="text-style">
           {props.input.primary.text_description[0].text}
@@ -67,27 +67,6 @@ const Solution = styled.div`
     color: #222222;
     line-height: 28px;
   }
-  .map-solution {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 23px;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-right: 73px;
-    div {
-      width: 49%;
-      color: #101010;
-      line-height: 20px;
-      h4 {
-        font-weight: 500;
-        font-size: 20px;
-        margin-top: 2px;
-        margin-bottom: 0px;
-        color: #101010;
-        line-height: 20px;
-      }
-    }
-  }
 
   p {
     position: relative;
@@ -112,23 +91,12 @@ const Solution = styled.div`
   @media (max-width: 1024px) {
     margin-left: 90px;
     padding-bottom: ${({ pdbt }) => `${pdbt}px`};
-    .map-solution {
-      div {
-        padding-top: 10px;
-      }
-    }
   }
 
   @media only screen and (max-width: 600px) {
     margin-left: 0px;
     padding-bottom: 0px;
     margin-bottom: 30px;
-    .map-solution {
-      margin-bottom: 33px;
-      div {
-        padding-top: 0px;
-      }
-    }
     p {
       letter-spacing: 1px;
     }
@@ -147,17 +115,9 @@ const Solution = styled.div`
         width: 2rem;
       }
     }
-    .map-solution {
-      padding-right: 0px;
-    }
+    
   }
-  @media (max-width: 320px) {
-    .map-solution {
-      div {
-        padding-top: 10px;
-      }
-    }
-  }
+  
   @media (min-width: 600px) {
     margin-bottom: 30px;
     margin-left: 49px;
@@ -192,30 +152,68 @@ const Solution = styled.div`
     .text-style-bottom {
       padding-bottom: 60px;
     }
-    .map-solution {
-      div {
-        padding-top: 5px;
-      }
-    }
   }
   @media (min-width: 1600px) {
     margin-bottom: 106px;
     .text-style-bottom {
       padding-bottom: 0px;
     }
-    .map-solution {
-      div {
+    margin-left: 49px;
+    max-width: 789px;
+    height: ${({ hb }) => `${hb}px`};
+    padding-left: 80px;
+    padding-right: 0%;
+  }
+`
+const MapSolution = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 23px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-right: 73px;
+  div {
+      width: 49%;
+      color: #101010;
+      line-height: 20px;
+      h4 {
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 2px;
+        margin-bottom: 0px;
+        color: #101010;
+        line-height: 20px;
+      }
+    }
+  @media only screen and (max-width: 600px){
+    margin-bottom: 33px;
+    padding-right: 0px;
+    div {
+        padding-top: 0px;
+      }
+  }
+  @media (max-width: 1024px){
+    div {
+        padding-top: 10px;
+      }
+  }
+  @media (max-width: 320px) {
+    div {
+        padding-top: 10px;
+      }
+  }
+  @media (min-width: 1200px){
+    div {
+        padding-top: 5px;
+      }
+  }
+  @media (min-width: 1600px){
+    div {
         padding-top: 0px;
         h4 {
           margin-top: 0px;
           line-height: 31px;
         }
       }
-    }
-    margin-left: 49px;
-    max-width: 789px;
-    height: ${({ hb }) => `${hb}px`};
-    padding-left: 80px;
-    padding-right: 0%;
   }
 `
