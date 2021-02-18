@@ -98,17 +98,6 @@ const WrapperHeader = styled.div`
     padding-right: 40px;
     padding-top: 0px;
     padding-bottom: 0px;
-    .get-in-touch {
-      height: 18px;
-      font-family: "Calibre Semibold";
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0;
-      line-height: 22px;
-      text-align: center;
-      white-space: nowrap;
-      margin-bottom: 0px;
-    }
   }
   .menu-list {
     list-style: none;
@@ -134,13 +123,6 @@ const WrapperHeader = styled.div`
         &.menu-list_item_text-black {
           color: #0e0e0e;
         }
-      }
-      .menu-item_services {
-        margin-left: 70px;
-        margin-right: 160px;
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-between;
       }
       ul.menu-area_services {
         position: fixed;
@@ -487,7 +469,32 @@ const MenuColor = styled.div`
   height: 16px;
 `
 const CardDescription = styled.div`
-  
+
+`
+const MenuItemServices = styled.div`
+  margin-left: 70px;
+  margin-right: 160px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const MenuText = styled.div`
+`
+const Li = styled.li`
+`
+const Ul = styled.ul`
+`
+const GetInTouch = styled.h2`
+  height: 18px;
+  font-family: "Calibre Semibold";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 0px;
 `
 
 const Header = ({ location, dataHeader }) => {
@@ -550,7 +557,7 @@ const Header = ({ location, dataHeader }) => {
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          <div
+          <MenuText
             className={
               scroll
                 ? "menu-nav-white"
@@ -563,7 +570,7 @@ const Header = ({ location, dataHeader }) => {
             }
           >
             Menu
-          </div>
+          </MenuText>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             {scroll ? (
               <img className="image-buger" src={logoBuger} alt="logo" />
@@ -580,7 +587,7 @@ const Header = ({ location, dataHeader }) => {
         >
           <Nav className="mr-auto menu-list">
             {dataHeader.map((item, index) => (
-              <li
+              <Li
                 className={`menu-list_item ${
                   location === "/" ||
                   location === "/contact" ||
@@ -614,11 +621,11 @@ const Header = ({ location, dataHeader }) => {
                   {item.node.menu_title[0].text}
                 </Link>
                 {item.node._meta.uid === "services" ? (
-                  <ul className="menu-area_services">
-                    <div className="menu-item_services">
+                  <Ul className="menu-area_services">
+                    <MenuItemServices>
                       {" "}
                       {/* SERVICES */}
-                      <ul className="list-services">
+                      <Ul className="list-services">
                         <P
                           uppercase={true}
                           fontSise="16"
@@ -629,13 +636,13 @@ const Header = ({ location, dataHeader }) => {
                           services
                         </P>
                         {[...titleServices].map((item, index) => (
-                          <li className="list-services_Item" key={index}>
+                          <Li className="list-services_Item" key={index}>
                             <Link to={item.slug}>{item.title}</Link>
-                          </li>
+                          </Li>
                         ))}
-                      </ul>
+                      </Ul>
                       {/* PLATFORMS */}
-                      <ul className="list-platforms">
+                      <Ul className="list-platforms">
                         <P
                           uppercase={true}
                           fontSise="16"
@@ -645,7 +652,7 @@ const Header = ({ location, dataHeader }) => {
                         >
                           platforms
                         </P>
-                        <li className="list-platforms_Card">
+                        <Li className="list-platforms_Card">
                           <IMG
                             alt="abc"
                             src={logoMagento}
@@ -670,9 +677,9 @@ const Header = ({ location, dataHeader }) => {
                               The world's #1 eCommerce platform.
                             </P>
                           </CardDescription>
-                        </li>
+                        </Li>
 
-                        <li className="list-platforms_Card">
+                        <Li className="list-platforms_Card">
                           <IMG
                             alt="abc"
                             src={logoShopify}
@@ -697,9 +704,9 @@ const Header = ({ location, dataHeader }) => {
                               The world's #1 eCommerce platform.
                             </P>
                           </CardDescription>
-                        </li>
+                        </Li>
 
-                        <li className="list-platforms_Card">
+                        <Li className="list-platforms_Card">
                           <IMG
                             alt="abc"
                             src={logoBigcommerece}
@@ -724,10 +731,10 @@ const Header = ({ location, dataHeader }) => {
                               The world's #1 eCommerce platform.
                             </P>
                           </CardDescription>
-                        </li>
-                      </ul>
+                        </Li>
+                      </Ul>
                       {/* LAUNCHES */}
-                      <ul className="launches">
+                      <Ul className="launches">
                         <P
                           uppercase={true}
                           fontSise="16"
@@ -743,13 +750,13 @@ const Header = ({ location, dataHeader }) => {
                           objectFit="cover"
                           heightPercent="60"
                         ></IMG>
-                      </ul>
-                    </div>
-                  </ul>
+                      </Ul>
+                    </MenuItemServices>
+                  </Ul>
                 ) : (
                   ""
                 )}
-              </li>
+              </Li>
             ))}
           </Nav>
           <Form inline>
@@ -766,7 +773,7 @@ const Header = ({ location, dataHeader }) => {
                 <span></span>
                 <span></span>
                 <span></span>
-                <h2 className="get-in-touch">Get in touch</h2>
+                <GetInTouch>Get in touch</GetInTouch>
               </ButtonCustom>
             ) : (
               <ButtonCustom
@@ -795,7 +802,7 @@ const Header = ({ location, dataHeader }) => {
                 <span></span>
                 <span></span>
                 <span></span>
-                <h2 className="get-in-touch">Get in touch</h2>
+                <GetInTouch>Get in touch</GetInTouch>
               </ButtonCustom>
             )}
           </Form>
