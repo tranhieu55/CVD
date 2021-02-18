@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
-import H2 from "../../components/bits/H2"
 import P from "../../components/bits/Typography"
 
 const InterestedStyle = styled.div`
@@ -34,13 +33,6 @@ const InterestedStyle = styled.div`
     /* font-size: 24px; */
     letter-spacing: 0px;
     margin-bottom: 32px;
-  }
-  .boxInterested {
-    padding-top: 162px;
-    padding-bottom: 108px;
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
   }
   .box-btn {
     position: relative;
@@ -79,10 +71,6 @@ const InterestedStyle = styled.div`
       margin-bottom: 11px;
       font-size: 20px;
       line-height: 24px;
-    }
-    .boxInterested {
-      padding-top: 73px;
-      padding-bottom: 48px;
     }
   }
   .button-header {
@@ -217,23 +205,37 @@ const InterestedStyle = styled.div`
       color: #ffffff;
       margin-bottom: 28px;
     }
-    .boxInterested {
-      padding-top: 187px;
-      padding-bottom: 108px;
-    }
   }
 `
+const BoxInterested = styled.div`
+  padding-top: 162px;
+  padding-bottom: 108px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  @media only screen and (max-width: 600px) {
+    padding-top: 73px;
+    padding-bottom: 48px;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding-top: 187px;
+    padding-bottom: 108px;
+  }
+`
+const Span = styled.span``
+const BoxBtn = styled.div``
+const H2 = styled.h2``
 export default function Interested(props) {
   return (
     <InterestedStyle>
-      <div className="boxInterested">
+      <BoxInterested>
         <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
           Interested in working with us?
         </H2>
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">
           Send us a message and we'll get back to you as soon as possible
         </P>
-        <div className="">
+        <BoxBtn>
           <ButtonCustom
             className="my-btn-back  my-btn button-header"
             bgColor={theme.colors.black}
@@ -244,14 +246,14 @@ export default function Interested(props) {
             pd2="31.5"
             lineh="24"
           >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <h2 className="get-in-touch">Get in touch</h2>
+            <Span></Span>
+            <Span></Span>
+            <Span></Span>
+            <Span></Span>
+            <H2 className="get-in-touch">Get in touch</H2>
           </ButtonCustom>
-        </div>
-      </div>
+        </BoxBtn>
+      </BoxInterested>
     </InterestedStyle>
   )
 }
