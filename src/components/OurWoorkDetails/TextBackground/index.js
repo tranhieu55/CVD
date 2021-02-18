@@ -24,9 +24,9 @@ export default function TextBackground(props) {
       >
         {data.title[0].text}
       </P>
-      <h4 className="text-style">
+      <TextStyle>
         {data.text_description[0].text}
-      </h4>
+      </TextStyle>
     </Background>
   )
 }
@@ -36,10 +36,7 @@ const Background = styled.div`
     font-family: "Calibre Semibold";
   }
   .text-style {
-    font-family: "Calibre Regular";
-    font-size: 20px;
-    color: #222222;
-    line-height: 28px;
+    
   }
   .text-style-bottom {
     font-family: "Calibre Regular";
@@ -197,4 +194,10 @@ const Background = styled.div`
     padding-left: 80px;
     padding-right: 0%;
   }
+`
+const TextStyle = styled.h4`
+  font-family: "Calibre Regular";
+  font-size: 20px;
+  color: #222222;
+  line-height: 28px;
 `
