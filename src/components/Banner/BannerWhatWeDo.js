@@ -7,14 +7,7 @@ import { theme } from "../../utils/theme"
 
 const WraperBannerWhatWeDo = styled.div`
   width: 100%;
-  background-color: ${theme.colors.lightGray};
-  .my-border {
-    width: 80px;
-    height: 2px;
-    background-color: #fecf09;
-    margin-right: 24px;
-  }
-  
+  background-color: ${theme.colors.lightGray};  
   span {
     color: #999999;
     display: block;
@@ -22,21 +15,8 @@ const WraperBannerWhatWeDo = styled.div`
     font-weight: 600;
     text-transform: uppercase;
   }
-  
-
-  .my-border-txt {
-    letter-spacing: 1px;
-    line-height: 16px;
-    font-family: "Calibre Semibold";
-  }
-  .my-border {
-    margin-bottom: 4px;
-  }
   @media only screen and (max-width: 600px) {
-    .my-border {
-      width: 32px !important;
-      margin-right: 16px !important;
-    }
+    
     span {
       font-size: 12px !important;
     }
@@ -50,22 +30,15 @@ const WraperBannerWhatWeDo = styled.div`
     .offset-1 {
       margin-left: 0 !important;
     }
-    .box-tag {
-      margin-top: 85px !important;
-    }
+    
     .col-md-10 {
       padding-right: 16px;
       padding-left: 16px;
     }
   }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     .row {
       margin: 0 !important;
-    }
-    .my-border {
-      width: 32px;
     }
     p {
       font-size: 24px;
@@ -75,40 +48,18 @@ const WraperBannerWhatWeDo = styled.div`
     .offset-1 {
       margin-left: 0 !important;
     }
-    .box-tag {
-      margin-top: 100px;
-    }
   }
-
-  /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    .my-border {
-      width: 45px;
-    }
     p {
       font-size: 24px;
       margin-top: 24px;
       padding-bottom: 30px;
     }
-    .box-tag {
-      margin-top: 100px;
-    }
     .offset-1 {
       margin-left: 70px !important;
     }
   }
-
-  /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    .my-border {
-      width: 60px;
-      height: 2px;
-      background-color: gold;
-      margin-right: 24px;
-    }
-    .box-tag {
-      margin-top: 158px;
-    }
     span {
       font-size: 14px;
     }
@@ -120,8 +71,6 @@ const WraperBannerWhatWeDo = styled.div`
       margin-left: 84px !important;
     }
   }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     .offset-1 {
       margin-left: 103px !important;
@@ -149,17 +98,6 @@ const WraperBannerWhatWeDo = styled.div`
         margin-right: -15px !important;
         margin-left: -15px !important;
       }
-    }
-    .my-border {
-      width: 80px;
-      height: 2px;
-      background-color: gold;
-      margin-right: 24px;
-    }
-    .box-tag {
-      margin-top: 165px;
-      display: flex;
-      align-items: center;
     }
     span {
       color: #999999;
@@ -197,37 +135,64 @@ const Container = styled.div`
   }
 
 `
-const Row = styled.div`
-`
+const Row = styled.div``
 const Col = styled.div``
 const BoxTag = styled.div`
   margin-top: 158px;
   display: flex;
   align-items: center;
   @media only screen and (max-width: 600px) {
-    
+    margin-top: 85px !important;
   }
   @media only screen and (min-width: 600px) {
-    
+    margin-top: 100px;
   }
   @media only screen and (min-width: 768px) {
-    
+    margin-top: 100px;
   }
-
-  /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    
+    margin-top: 158px;
   }
   @media only screen and (min-width: 1200px) {
-   
+    margin-top: 165px;
+    display: flex;
+    align-items: center;
   }
-
-
 `
-const SpanBorder = styled.span``
-const SpanText = styled.span``
-
-
+const SpanBorder = styled.span`
+  width: 80px;
+  height: 2px;
+  background-color: #fecf09;
+  margin-right: 24px;
+  margin-bottom: 4px;
+  @media only screen and (max-width: 600px) {
+    width: 32px !important;
+    margin-right: 16px !important;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 32px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 45px;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 60px;
+    height: 2px;
+    background-color: gold;
+    margin-right: 24px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 80px;
+    height: 2px;
+    background-color: gold;
+    margin-right: 24px;
+  }
+`
+const SpanText = styled.span`
+  letter-spacing: 1px;
+  line-height: 16px;
+  font-family: "Calibre Semibold";
+`
 
 const BannerWhatWeDo = () => {
   const data = useStaticQuery(graphql`
@@ -255,9 +220,9 @@ const BannerWhatWeDo = () => {
       <Container className="container">
         <Row className="row">
           <Col className="col-md">
-            <BoxTag className="box-tag">
-              <SpanBorder className="my-border"></SpanBorder>
-              <SpanText className="my-border-txt">What We Do</SpanText>
+            <BoxTag>
+              <SpanBorder></SpanBorder>
+              <SpanText>What We Do</SpanText>
             </BoxTag>
           </Col>
           <Col className="col-md-10 offset-1">
