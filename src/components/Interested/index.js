@@ -6,7 +6,7 @@ import H2 from "../../components/bits/H2"
 import P from "../../components/bits/Typography"
 
 const InterestedStyle = styled.div`
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0px 19%, 102% 12px, 100% 100%, 0% 100%);
   background-color: #101010;
   width: 100%;
   color: white;
@@ -218,7 +218,7 @@ const InterestedStyle = styled.div`
       margin-bottom: 28px;
     }
     .boxInterested {
-      padding-top: 173px;
+      padding-top: 187px;
       padding-bottom: 108px;
     }
   }
