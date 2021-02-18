@@ -98,15 +98,6 @@ const WrapperHeader = styled.div`
     padding-right: 40px;
     padding-top: 0px;
     padding-bottom: 0px;
-    .logo-header {
-      width: 172px;
-      height: 32px;
-      .navbar-brand {
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-right: 0px;
-      }
-    }
     .get-in-touch {
       height: 18px;
       font-family: "Calibre Semibold";
@@ -216,9 +207,6 @@ const WrapperHeader = styled.div`
         padding-left: 16px;
         padding-bottom: 16px;
       }
-      .logo-header {
-        padding-left: 16px;
-      }
     }
     .navbar-collapse {
       div {
@@ -264,11 +252,6 @@ const WrapperHeader = styled.div`
     .navbar-nav {
       margin: 0px;
     }
-    .wraper-header {
-      .logo-header {
-        width: 187px;
-      }
-    }
     .menu-list li.menu-list_item {
       height: 25px;
       margin-top: 15px;
@@ -287,10 +270,6 @@ const WrapperHeader = styled.div`
       .form-inline {
         padding-left: 16px;
         padding-bottom: 16px;
-      }
-      .logo-header {
-        padding-left: 16px;
-        height: 34px;
       }
     }
     .form-inline {
@@ -388,15 +367,6 @@ const WrapperHeader = styled.div`
       padding-right: 40px;
       padding-top: 0px;
       padding-bottom: 0px;
-      .logo-header {
-        max-width: 172px;
-        max-height: 32px;
-        .navbar-brand {
-          padding-top: 0px;
-          padding-bottom: 0px;
-          margin-right: 0px;
-        }
-      }
     }
   }
 
@@ -486,6 +456,39 @@ const WrapperHeader = styled.div`
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 `
+const LogoHeader = styled.div`
+  width: 172px;
+  height: 32px;
+  .navbar-brand {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0px;
+  }
+  @media (max-width: 600px){
+    padding-left: 16px;
+  }
+  @media (max-width: 992px){
+    width: 187px;
+    padding-left: 16px;
+    height: 34px;
+  }
+  @media only screen and (min-width: 1600px){
+    max-width: 172px;
+    max-height: 32px;
+    .navbar-brand {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-right: 0px;
+    }
+  }
+`
+const MenuColor = styled.div`
+  display: flex;
+  height: 16px;
+`
+const CardDescription = styled.div`
+  
+`
 
 const Header = ({ location, dataHeader }) => {
   const titleServices = [
@@ -528,7 +531,7 @@ const Header = ({ location, dataHeader }) => {
               }`
         }`}
       >
-        <div className="logo-header">
+        <LogoHeader>
           <Navbar.Brand as={Link} to="/">
             {scroll ? (
               <IMG src={logoLight} />
@@ -545,8 +548,8 @@ const Header = ({ location, dataHeader }) => {
               />
             )}
           </Navbar.Brand>
-        </div>
-        <div style={{ display: "flex", height: "16px" }}>
+        </LogoHeader>
+        <MenuColor>
           <div
             className={
               scroll
@@ -570,7 +573,7 @@ const Header = ({ location, dataHeader }) => {
               <img className="image-buger" src={logoBuger} alt="logo" />
             )}
           </Navbar.Toggle>
-        </div>
+        </MenuColor>
         <Navbar.Collapse
           id="basic-navbar-nav"
           className={scroll && "header-scroll"}
@@ -651,7 +654,7 @@ const Header = ({ location, dataHeader }) => {
                             objectFit="contain"
                             mr="12"
                           ></IMG>
-                          <div className="card_description">
+                          <CardDescription>
                             <P
                               fontSise="15"
                               coLor={theme.colors.black}
@@ -666,7 +669,7 @@ const Header = ({ location, dataHeader }) => {
                             >
                               The world's #1 eCommerce platform.
                             </P>
-                          </div>
+                          </CardDescription>
                         </li>
 
                         <li className="list-platforms_Card">
@@ -678,7 +681,7 @@ const Header = ({ location, dataHeader }) => {
                             objectFit="contain"
                             mr="12"
                           ></IMG>
-                          <div className="card_description">
+                          <CardDescription>
                             <P
                               fontSise="15"
                               coLor={theme.colors.black}
@@ -693,7 +696,7 @@ const Header = ({ location, dataHeader }) => {
                             >
                               The world's #1 eCommerce platform.
                             </P>
-                          </div>
+                          </CardDescription>
                         </li>
 
                         <li className="list-platforms_Card">
@@ -705,7 +708,7 @@ const Header = ({ location, dataHeader }) => {
                             objectFit="contain"
                             mr="12"
                           ></IMG>
-                          <div className="card_description">
+                          <CardDescription>
                             <P
                               fontSise="15"
                               coLor={theme.colors.black}
@@ -720,7 +723,7 @@ const Header = ({ location, dataHeader }) => {
                             >
                               The world's #1 eCommerce platform.
                             </P>
-                          </div>
+                          </CardDescription>
                         </li>
                       </ul>
                       {/* LAUNCHES */}
