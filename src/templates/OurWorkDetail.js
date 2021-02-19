@@ -175,9 +175,6 @@ const OurWorkDetail = props => {
 
   const data = props.data.prismic.projects
 
-  console.log("====================================")
-  console.log("data slicezone : ", data.body)
-  console.log("====================================")
   return (
     <Layout
       location="/case-study"
