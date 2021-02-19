@@ -5,8 +5,6 @@ import P from '../bits/Typography'
 import IMG from '../Image'
 
 export default function Cardwhatwedo(props) {
-  console.log('index', props.index + 1); // in ra được stt
-  console.log('data we do item : ', props.input.primary);
   return (
     <Study>
       <Container className="container">
@@ -36,7 +34,7 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {1}/{props.index + 1}
+                    {props.index +1}/{props.index + 1}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2
