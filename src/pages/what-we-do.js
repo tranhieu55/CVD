@@ -31,6 +31,8 @@ export const query = graphql`
 `
 const WhatWeDo = (props) => {
   const data = props.data.prismic.allWhatwedo_pages.edges[0].node
+
+  
   const dataSEO = props.data.prismic.allWhatwedo_pages.edges[0].node
   return (
     <Layout location="/we-do">

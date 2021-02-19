@@ -27,7 +27,6 @@ const ListBlogStyle = styled.div`
   }
   /* reponsive */
   /* Extra small devices (phones, 600px and down) */
- 
 `
 const DivIMG = styled.div`
   overflow: hidden;
@@ -35,69 +34,67 @@ const DivIMG = styled.div`
 const RowItem = styled.div`
   margin-top: 15px;
 `
-const Item = styled.div`
-
-`
+const Item = styled.div``
 const TitleImageBlock = styled.div`
-    position: absolute;
-    z-index: 2;
-    bottom: 5rem;
-    left: 6rem;
-    cursor: pointer;
-    /* color:red; */
-    span {
-      font-weight: bold;
-      color: gold;
-    }
+  position: absolute;
+  z-index: 2;
+  bottom: 5rem;
+  left: 6rem;
+  cursor: pointer;
+  /* color:red; */
+  span {
+    font-weight: bold;
+    color: gold;
+  }
+  h3 {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  @media only screen and (max-width: 600px) {
+    bottom: 10px;
+    left: 40px;
     h3 {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
+      font-size: 28px;
     }
-    @media only screen and (max-width: 600px) {
-      bottom: 10px;
-      left: 40px;
-      h3 {
-        font-size: 28px;
-      }
   }
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-      bottom: 20px;
-      left: 60px;
-      h3 {
-        font-size: 30px;
-      }
+    bottom: 20px;
+    left: 60px;
+    h3 {
+      font-size: 30px;
+    }
   }
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-      bottom: 10px;
-      left: 40px;
-      h3 {
-        font-size: 30px;
-      }
+    bottom: 10px;
+    left: 40px;
+    h3 {
+      font-size: 30px;
+    }
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-      bottom: 50px;
-      left: 80px;
-      h3 {
-        font-size: 36px;
-      }
+    bottom: 50px;
+    left: 80px;
+    h3 {
+      font-size: 36px;
+    }
   }
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-      bottom: 3rem;
-      left: 40px;
-      h3 {
-        font-size: 36px;
-      }
+    bottom: 3rem;
+    left: 40px;
+    h3 {
+      font-size: 36px;
+    }
   }
 `
 const MyButton = styled.div`
@@ -106,9 +103,7 @@ const MyButton = styled.div`
 export const query = graphql`
   query ProjectByCate($slug: String!) {
     prismic {
-      allOurwork_items(
-        where: { name_category_of_project: $slug }
-      ) {
+      allProjectss(where: { name_category_of_project: $slug }) {
         edges {
           node {
             project_name
@@ -133,16 +128,16 @@ export const query = graphql`
 
 function OurWorkItems(props) {
   return (
-    // <h1>Trang ourwork item</h1>
     <Layout location="/projects">
       <ListBlogStyle className="container-fluid">
         <RowItem>
-          {props.data.prismic.allOurwork_items.edges.map((edge, index) => (
+          {props.data.prismic.allProjectss.edges.map((edge, index) => (
             <Item
-              className={`${props.data.prismic.allOurwork_items.edges.length === 3
-                ? "col-md-4"
-                : "col-md-6"
-                }`}
+              className={`${
+                props.data.prismic.allProjectss.edges.length === 3
+                  ? "col-md-4"
+                  : "col-md-6"
+              }`}
               key={index}
             >
               <DivIMG
@@ -150,7 +145,7 @@ function OurWorkItems(props) {
                 to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
               >
                 <IMG
-                  alt={edge.node.project_header_image.alt || "image ourwork_item"}
+                  alt={edge.node.project_header_image.alt || "image of project"}
                   src={edge.node.project_header_image.url}
                   objectFit="cover"
                   h="500"
@@ -158,7 +153,7 @@ function OurWorkItems(props) {
               </DivIMG>
               <TitleImageBlock>
                 <span>{edge.node.name_category_of_project}</span>
-                <h3>{edge.node.project_name.map(item => item.text)}</h3>
+                <h3>{edge.node.project_name[0].text}</h3>
               </TitleImageBlock>
             </Item>
           ))}

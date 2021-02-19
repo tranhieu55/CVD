@@ -25,7 +25,6 @@ const ListBlogStyle = styled.div`
     background-color: gold;
     color: white;
   }
-  
 `
 const DivIMG = styled.div`
   overflow: hidden;
@@ -49,10 +48,8 @@ const DivIMG = styled.div`
     }
   }
 `
-const Rows = styled.div`
-`
-const Colum = styled.div`
-`
+const Rows = styled.div``
+const Colum = styled.div``
 const TitleImageBlog = styled.div`
   position: absolute;
   z-index: 2;
@@ -60,23 +57,23 @@ const TitleImageBlog = styled.div`
   left: 6rem;
   cursor: pointer;
   /* color:red; */
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 600px) {
     bottom: 10px;
     left: 40px;
   }
-  @media only screen and (min-width: 600px){
+  @media only screen and (min-width: 600px) {
     bottom: 20px;
     left: 60px;
   }
-  @media only screen and (min-width: 768px){
+  @media only screen and (min-width: 768px) {
     bottom: 10px;
     left: 40px;
   }
-  @media only screen and (min-width: 992px){
+  @media only screen and (min-width: 992px) {
     bottom: 50px;
     left: 80px;
   }
-  @media only screen and (min-width: 1200px){
+  @media only screen and (min-width: 1200px) {
     bottom: 3rem;
     left: 40px;
   }
@@ -91,19 +88,19 @@ const H3 = styled.h3`
   font-weight: bold;
   margin: 0;
   padding: 0;
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 600px) {
     font-size: 28px;
   }
-  @media only screen and (min-width: 600px){
+  @media only screen and (min-width: 600px) {
     font-size: 30px;
   }
-  @media only screen and (min-width: 768px){
+  @media only screen and (min-width: 768px) {
     font-size: 30px;
   }
-  @media only screen and (min-width: 992px){
+  @media only screen and (min-width: 992px) {
     font-size: 36px;
   }
-  @media only screen and (min-width: 1200px){
+  @media only screen and (min-width: 1200px) {
     font-size: 36px;
   }
 `
@@ -115,7 +112,7 @@ export default function ListBlog() {
   const data = useStaticQuery(graphql`
     query queryListOurwork {
       prismic {
-        allOurwork_items {
+        allProjectss {
           edges {
             node {
               name_category_of_project
@@ -140,12 +137,13 @@ export default function ListBlog() {
   return (
     <ListBlogStyle className="container-fluid">
       <Rows className="row">
-        {data.prismic.allOurwork_items.edges.map((edge, index) => (
+        {data.prismic.allProjectss.edges.map((edge, index) => (
           <Colum
-            className={`${data.prismic.allOurwork_items.edges.length === 3
-              ? "col-md-4"
-              : "col-md-6"
-              }`}
+            className={`${
+              data.prismic.allProjectss.edges.length === 3
+                ? "col-md-4"
+                : "col-md-6"
+            }`}
             key={index}
           >
             <DivIMG

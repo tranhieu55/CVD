@@ -6,7 +6,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const res = await graphql(`
     query IndexQuery {
       prismic {
-        allOurwork_items {
+        allProjectss {
           edges {
             node {
               project_name
@@ -29,7 +29,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  res.data.prismic.allOurwork_items.edges.forEach(edge => {
+  res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkDetail,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
@@ -39,7 +39,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  res.data.prismic.allOurwork_items.edges.forEach(edge => {
+  res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkItems,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,

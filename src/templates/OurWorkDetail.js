@@ -48,7 +48,7 @@ const Study = styled.div`
 export const query = graphql`
   query getOurkItemBySlug($slug: String!) {
     prismic {
-      allOurwork_items {
+      allProjectss {
         edges {
           node {
             project_logo
@@ -69,14 +69,15 @@ export const query = graphql`
           }
         }
       }
-      ourwork_item(uid: $slug, lang: "en-gb") {
+
+      projects(uid: $slug, lang: "en-gb") {
         project_name
         project_logo
         project_header_image
         project_description
         name_category_of_project
         body {
-          ... on PRISMIC_Ourwork_itemBodyOurworkitem_description {
+          ... on PRISMIC_ProjectsBodyOurworkitem_description {
             type
             label
             primary {
@@ -84,7 +85,7 @@ export const query = graphql`
               title
             }
           }
-          ... on PRISMIC_Ourwork_itemBodyText_quote {
+          ... on PRISMIC_ProjectsBodyText_quote {
             type
             label
             primary {
@@ -92,7 +93,7 @@ export const query = graphql`
               title_quote
             }
           }
-          ... on PRISMIC_Ourwork_itemBodyTitle_solution {
+          ... on PRISMIC_ProjectsBodyTitle_solution {
             type
             primary {
               text_description
@@ -103,7 +104,7 @@ export const query = graphql`
               title_the_solution
             }
           }
-          ... on PRISMIC_Ourwork_itemBodyList_image {
+          ... on PRISMIC_ProjectsBodyList_image {
             type
             label
             fields {
@@ -113,20 +114,28 @@ export const query = graphql`
               width_image
             }
           }
-          ... on PRISMIC_Ourwork_itemBodySlider_image {
+          ... on PRISMIC_ProjectsBodySlider_image {
             label
             fields {
               slider_image
             }
             type
           }
-          ... on PRISMIC_Ourwork_itemBodyStatistical_ourwork_item_ {
+          ... on PRISMIC_ProjectsBodyStatistical_ourwork_item_ {
             type
             label
             fields {
               description_of_statistical
               number_of_statistical
             }
+          }
+          ... on PRISMIC_ProjectsBodyOne_image {
+            primary {
+              image
+              fullScreen
+            }
+            label
+            type
           }
         }
         relationship_to_project_category {
@@ -144,16 +153,14 @@ export const query = graphql`
       }
     }
   }
-    
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props.data.prismic.ourwork_item
+  let dataOurWorkItem = props.data.prismic.projects
   let nameCategory = props.pathContext.dataLayout.node.name_category_of_project
 
   let slugCurrent = props.pathContext.slug
 
-  let allProjects = props.data.prismic.allOurwork_items.edges
-
+  let allProjects = props.data.prismic.allProjectss.edges
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item.node._meta.uid !== slugCurrent
@@ -166,7 +173,11 @@ const OurWorkDetail = props => {
   }
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
-  const data = props.data.prismic.ourwork_item
+  const data = props.data.prismic.projects
+
+  console.log("====================================")
+  console.log("data slicezone : ", data.body)
+  console.log("====================================")
   return (
     <Layout
       location="/case-study"
