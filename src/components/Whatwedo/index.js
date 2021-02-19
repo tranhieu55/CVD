@@ -34,7 +34,7 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {props.index +1}/{props.index + 1}
+                    {props.index +1}/{props.input.total}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2

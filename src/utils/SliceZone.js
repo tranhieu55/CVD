@@ -151,13 +151,9 @@ const SliceZone = (props) => {
               <TextQoute key={index} input={s} />
             </>
           )
-        // case "what_we_do_item":
-        //   return (
-        //     <Cardwhatwedo key={index} input={s} />
-        //   )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
-            <Cardwhatwedo key={index} input={s} index={index}/>
+            <Cardwhatwedo key={index} input={{ ...s , total:props.allSlices.length}} index={index}/>
           )
         default:
           return (
