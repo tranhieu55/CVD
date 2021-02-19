@@ -148,8 +148,7 @@ export const query = graphql`
 `
 const OurWorkDetail = props => {
   let dataOurWorkItem = props.data.prismic.ourwork_item
-  let nameCategory = props.pathContext.dataLayout.node.name_category_of_ourworkitem
-
+  let nameCategory = props.pathContext.dataLayout.node.name_category_of_project
 
   let slugCurrent = props.pathContext.slug
 

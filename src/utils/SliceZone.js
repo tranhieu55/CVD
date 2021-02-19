@@ -23,8 +23,6 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 
 const SliceZone = (props) => {
-
-  console.log('slice zone : ', {props});
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
