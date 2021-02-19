@@ -21,8 +21,10 @@ import ContentPercent from "../components/OurWoorkDetails/ContentPercent"
 import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
+import OneImage from "../components/OurWoorkDetails/OneImage"
 
 const SliceZone = (props) => {
+  console.log(props)
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
@@ -121,6 +123,10 @@ const SliceZone = (props) => {
               <TextBackground key={index} input={s} />
             </>
           )
+        case "one_image": 
+            return (
+              <OneImage key={index} input={s}/>
+            )
         case "list_image":
           return (
             <>
