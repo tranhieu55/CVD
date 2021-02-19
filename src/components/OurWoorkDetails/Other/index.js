@@ -307,7 +307,6 @@ const TextTitleUp = styled.div`
   margin-bottom: -4px;
 `
 const TextTitleDown = styled.div`
-  margin-top: 16px;
   @media (max-width: 600px){
     margin-top: 0px;
   }
@@ -316,7 +315,6 @@ const TitleBlock = styled.span`
   font-weight: bold;
   color: gold;
   text-shadow: 1px 1px #000;
-  font-size: 26px;
   @media (max-width: 600px){
     font-size: 14px;
   }

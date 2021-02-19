@@ -62,12 +62,12 @@ const InterestedStyle = styled.div`
     clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
     h2 {
       font-size: 32px;
-      max-width: 250px;
+      max-width: 260px;
       margin: auto;
       line-height: 33px;
     }
     p {
-      padding: 5px 24px;
+      padding: 10px 24px;
       margin-bottom: 11px;
       font-size: 20px;
       line-height: 24px;
