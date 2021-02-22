@@ -145,7 +145,7 @@ function OurWorkItems(props) {
                 to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
               >
                 <IMG
-                  alt={edge.node.project_header_image.alt || "image of project"}
+                  alt={edge.node.project_header_image.alt}
                   src={edge.node.project_header_image.url}
                   objectFit="cover"
                   h="500"

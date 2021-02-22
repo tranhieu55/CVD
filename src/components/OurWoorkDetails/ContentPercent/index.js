@@ -6,7 +6,7 @@ export default function ContentPercent(props) {
     <>
       <Percent className="plus">
         {props.input.fields.map((item, index) => (
-          <Content>
+          <Content key={index}>
             <TiTle>{item.number_of_statistical[0].text}</TiTle>
             <TextPercent>{item.description_of_statistical[0].text}</TextPercent>
           </Content>

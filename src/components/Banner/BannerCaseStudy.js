@@ -249,7 +249,6 @@ function BannerCaseStudy({
     <BannerStyle className="container-study">
       <IamgeBanner>
         <Image
-          alt="a"
           className="img-fluid"
           src={backgroundWorkItemSrc}
           alt={backgroundWorkItemAlt}

@@ -24,7 +24,6 @@ import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
 
 const SliceZone = (props) => {
-  console.log(props)
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
