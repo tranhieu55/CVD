@@ -67,7 +67,7 @@ const Percent = styled.div`
     margin-right: 128px;
     height: 86px;
     @media only screen and (max-width: 600px) {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: block !important;
       text-align: center;
       margin-left: 37px;

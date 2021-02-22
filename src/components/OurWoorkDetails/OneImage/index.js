@@ -108,7 +108,7 @@ const Images = styled.img`
   @media only screen and (max-width: 600px){
     height: 100%;
     width: 100%;
-    padding: 37px 19px;
+    padding: 37px 25px;
     object-fit: cover;
   }
   @media (min-width: 601px){

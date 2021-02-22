@@ -54,6 +54,7 @@ const TypeAliquam = styled.h1`
     letter-spacing: 0;
     line-height: 28px;
     text-align: center;
+    margin-bottom: 5px;
   }
   @media (min-width: 1600px){
     font-family: "Calibre Semibold";
@@ -67,6 +68,7 @@ const TypeAliquam = styled.h1`
   }
 `
 const TypeAliquams = styled.h5`
+  color: #262626;
   @media only screen and (max-width: 600px){
     letter-spacing: 0px;
     font-size: 18px;

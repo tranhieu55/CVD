@@ -15,7 +15,7 @@ const Study = styled.div`
     margin-left: 16px;
     margin-right: 16px;
     margin-bottom: -70px;
-    padding-bottom: 20px;
+    padding-bottom: 4px;
   }
   @media (min-width: 601px) {
     .wrap-header {

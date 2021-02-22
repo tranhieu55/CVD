@@ -90,7 +90,7 @@ const Solution = styled.div`
   @media only screen and (max-width: 600px) {
     margin-left: 0px;
     padding-bottom: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 54px;
     p {
       letter-spacing: 1px;
     }
@@ -167,7 +167,7 @@ const MapSolution = styled.div`
   width: 100%;
   padding-right: 73px;
   div {
-      width: 49%;
+      width: 50%;
       color: #101010;
       line-height: 20px;
       h4 {
@@ -179,19 +179,19 @@ const MapSolution = styled.div`
         line-height: 20px;
       }
     }
-  @media only screen and (max-width: 600px){
-    margin-bottom: 33px;
-    padding-right: 0px;
-    div {
-        padding-top: 0px;
-      }
-  }
-  @media (max-width: 1024px){
+    @media (max-width: 320px) {
     div {
         padding-top: 10px;
       }
   }
-  @media (max-width: 320px) {
+  @media only screen and (max-width: 600px){
+    margin-bottom: 33px;
+    padding-right: 0px;
+    div {
+        padding-top: 0px !important;
+      }
+  }
+  @media (max-width: 1024px){
     div {
         padding-top: 10px;
       }

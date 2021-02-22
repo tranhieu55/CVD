@@ -5,7 +5,7 @@ import ButtonCustom from "../ButtonCustom"
 import P from "../../components/bits/Typography"
 
 const InterestedStyle = styled.div`
-  clip-path: polygon(0px 19%, 102% 12px, 100% 100%, 0% 100%);
+  clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
   background-color: #101010;
   width: 100%;
   color: white;
@@ -28,6 +28,7 @@ const InterestedStyle = styled.div`
     margin-bottom: 0px;
     max-width: 500px;
     margin: auto;
+    font-family: 'Calibre Bold';
   }
   p {
     /* font-size: 24px; */
@@ -65,10 +66,11 @@ const InterestedStyle = styled.div`
       max-width: 260px;
       margin: auto;
       line-height: 33px;
+      font-family: 'Calibre Bold';
     }
     p {
       padding: 10px 24px;
-      margin-bottom: 11px;
+      margin-bottom: 2px;
       font-size: 20px;
       line-height: 24px;
     }
@@ -157,6 +159,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 320px;
       margin: auto;
+      font-family: 'Calibre Bold';
     }
     p {
       font-size: 20px;
@@ -169,6 +172,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 325px;
       margin: auto;
+      font-family: 'Calibre Bold';
     }
     p {
       margin-top: 20px;
@@ -182,6 +186,7 @@ const InterestedStyle = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
+      font-family: 'Calibre Bold';
     }
     p {
       font-size: 24px;
@@ -198,6 +203,7 @@ const InterestedStyle = styled.div`
       color: #ffffff;
       font-weight: bold;
       line-height: 54px;
+      font-family: 'Calibre Bold';
     }
     p {
       font-size: 24px;
@@ -208,7 +214,7 @@ const InterestedStyle = styled.div`
   }
 `
 const BoxInterested = styled.div`
-  padding-top: 162px;
+  padding-top: 175px;
   padding-bottom: 108px;
   max-width: 700px;
   margin: auto;
@@ -219,6 +225,10 @@ const BoxInterested = styled.div`
   }
   @media only screen and (min-width: 1200px) {
     padding-top: 187px;
+    padding-bottom: 108px;
+  }
+  @media (min-width: 1600px){
+    padding-top: 175px;
     padding-bottom: 108px;
   }
 `
