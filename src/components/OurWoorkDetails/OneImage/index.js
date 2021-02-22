@@ -105,7 +105,6 @@ const ImageSlider = styled.div`
   }
 `
 const Images = styled.img`
-  object-fit: cover;
   @media only screen and (max-width: 600px){
     height: 100%;
     width: 100%;
@@ -115,13 +114,22 @@ const Images = styled.img`
   @media (min-width: 601px){
     height: 100%;
     width: 100%;
-    padding: 37px 19px;
+    padding: 37px 25px;
   }
   @media (min-width: 768px){
-    padding: 47px 39px !important;
+    padding: 47px 61px !important;
+  }
+  @media (min-width: 992px){
+    padding: 11px 112px !important; 
+  }
+  @media (min-width: 1024px){
+    padding: 58px 25px !important;
   }
   @media (min-width: 1200px){
-    padding: 67px 49px !important;
+    padding: 67px 126px !important;
+  }
+  @media (min-width: 1400px){
+    padding: 26px 131px !important;
   }
   @media (min-width: 1600px){
     height: 100%;

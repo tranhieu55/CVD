@@ -123,6 +123,9 @@ const Container = styled.div`
   @media (min-width: 768px) {
     max-width: 585px;
   }
+  @media (min-width: 992px) {
+    max-width: 780px;
+  }
   @media (min-width: 1024px) {
     max-width: 900px;
   }
@@ -230,6 +233,9 @@ const RowOther = styled.div`
   @media (max-width: 768px){
     height: 340px;
   }
+  @media (max-width: 991px){
+    height: 340px;
+  }
 `
 const ListImageOther = styled.div`
   width: 49%;
@@ -255,6 +261,9 @@ const ListImageOther = styled.div`
     max-width: 674px;
   }
   @media (max-width: 768px){
+    height: 340px;
+  }
+  @media (max-width: 991px){
     height: 340px;
   }
 `

@@ -113,16 +113,19 @@ const Images = styled.img`
   @media only screen and (max-width: 600px){
     height: 100%;
     width: 100%;
-    padding: 37px 19px;
+    padding: 37px 25px;
     object-fit: cover;
   }
   @media (min-width: 601px){
     height: 100%;
     width: 100%;
-    padding: 37px 19px;
+    padding: 37px 25px;
   }
   @media (min-width: 768px){
-    padding: 47px 39px !important;
+    padding: 47px 61px !important;
+  }
+  @media (min-width: 992px){
+    padding: 11px 112px !important; 
   }
   @media (min-width: 1200px){
     padding: 67px 49px !important;

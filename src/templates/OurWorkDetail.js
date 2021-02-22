@@ -11,9 +11,6 @@ const Study = styled.div`
   max-width: 1240px;
   margin: 0 auto;
   border-bottom: 1px solid #e4e4e4;
-  @media (max-width: 992px) {
-    max-width: 780px;
-  }
   @media only screen and (max-width: 600px) {
     margin-left: 16px;
     margin-right: 16px;
@@ -25,6 +22,9 @@ const Study = styled.div`
       width: 100vw;
     }
     max-width: 585px;
+  }
+  @media (min-width: 992px) {
+    max-width: 780px;
   }
   @media (min-width: 1024px) {
     max-width: 900px;

@@ -42,10 +42,13 @@ const Image = styled.div`
   }
   @media (min-width: 601px) {
       margin-bottom: 28px;
-      height: 580px;
+      height: 420px;
   }
   @media (min-width: 768px) {
       margin-bottom: 50px;
+  }
+  @media (min-width: 992px){
+    height: 580px;
   }
   @media (min-width: 1200px) {
      margin-bottom: 96px; 
@@ -72,7 +75,10 @@ const ThreeImage = styled.div`
     margin-right: 20px;
   }
   @media (min-width: 601px){
-    margin-top: 68px;
+    margin-top: 38px;
+  }
+  @media (min-width: 992px){
+    margin-top: 68px
   }
   @media (min-width: 1024px){
     margin-top: 40px;
@@ -95,6 +101,12 @@ const ImageBackground = styled.div`
     height: 171px;
     margin-top: 0px;
     width: 83.8px;
+  }
+  @media (min-width: 601px){
+    height: 420px;
+  }
+  @media (min-width: 992px){
+    height: 533px;
   }
   @media (min-width: 1600px){
     height: 569px;

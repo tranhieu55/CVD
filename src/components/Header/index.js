@@ -230,7 +230,7 @@ const WrapperHeader = styled.div`
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 991px) {
     .navbar-nav {
       margin: 0px;
     }
@@ -301,7 +301,11 @@ const WrapperHeader = styled.div`
       margin-top: 20px;
     }
   }
-
+  @media (min-width: 992px) and (max-width: 1023px){
+    .menu-nav-white {
+      display: none;
+    }
+  }
   @media only screen and (min-width: 1024px) {
     .wraper-header {
       width: 100vw;

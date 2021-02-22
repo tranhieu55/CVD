@@ -155,7 +155,7 @@ const TitleBanner = styled.div`
       }
   }
   @media (min-width: 1024px){
-    margin: 57px 40px 0px;
+    margin: 57px 78px 0px;
     padding: 0px;
     padding-top: 0px;
   }
@@ -198,6 +198,9 @@ const P = styled.p`
 const TextBanner = styled.div`
   @media only screen and (min-width: 768px){
     margin-top: 0px;
+  }
+  @media (min-width: 1024px){
+    margin-top: 49px;
   }
   @media (min-width: 1200px){
     width: 606px;
