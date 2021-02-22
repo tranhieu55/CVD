@@ -136,8 +136,6 @@ const Container = styled.div`
   }
   @media (min-width: 1400px) {
     max-width: 1151px;
-    max-width: 557px;
-   
   }
   @media (min-width: 1600px) {
     max-width: 1240px;
@@ -246,7 +244,7 @@ const ListImageOther = styled.div`
   }
   @media (min-width: 1200px){
     max-height: 433px;
-    max-width: 494px;
+    max-width: 564px;
   }
   @media (min-width: 1400px){
     max-height: 433px;
