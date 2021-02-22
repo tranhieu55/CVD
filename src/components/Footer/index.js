@@ -315,7 +315,7 @@ const Container = styled.div`
     padding-right: 16px;
     padding-bottom: 31px !important;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     padding-top: 40px !important;
     padding-bottom: 30px !important;
   }
