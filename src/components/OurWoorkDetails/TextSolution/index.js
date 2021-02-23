@@ -165,7 +165,7 @@ const MapSolution = styled.div`
   margin-bottom: 23px;
   flex-wrap: wrap;
   width: 100%;
-  padding-right: 73px;
+  padding-right: 79px;
   div {
       width: 50%;
       color: #101010;
