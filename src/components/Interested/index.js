@@ -67,6 +67,7 @@ const InterestedStyle = styled.div`
       margin: auto;
       line-height: 33px;
       font-family: 'Calibre Bold';
+      letter-spacing: 0.5px;
     }
     p {
       padding: 5px 24px;
@@ -204,6 +205,7 @@ const InterestedStyle = styled.div`
       font-weight: bold;
       line-height: 54px;
       font-family: 'Calibre Bold';
+      letter-spacing: -1px;
     }
     p {
       font-size: 24px;
