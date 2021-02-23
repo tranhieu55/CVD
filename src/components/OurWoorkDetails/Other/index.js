@@ -311,7 +311,10 @@ const TitleImageblock = styled.div`
   }
 `
 const TextTitleUp = styled.div`
-  margin-bottom: -4px;
+  margin-bottom: -6px;
+  @media (max-width: 600px){
+    margin-bottom: -7px;
+  }
 `
 const TextTitleDown = styled.div`
   @media (max-width: 600px){

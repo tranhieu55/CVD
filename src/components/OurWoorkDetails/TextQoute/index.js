@@ -23,6 +23,7 @@ const Qoute = styled.div`
     text-align: center;
   @media only screen and (max-width: 600px) {
       margin-bottom: 56px;
+      margin-top: 45px;
   }
   @media (min-width: 600px) {
     margin-bottom:56px;
@@ -63,7 +64,7 @@ const TypeAliquam = styled.h1`
     letter-spacing: 0;
     line-height: 38px;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 600 !important;
   }
 `

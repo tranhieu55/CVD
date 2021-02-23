@@ -69,8 +69,8 @@ const InterestedStyle = styled.div`
       font-family: 'Calibre Bold';
     }
     p {
-      padding: 10px 24px;
-      margin-bottom: 2px;
+      padding: 5px 24px;
+      margin-bottom: 10px;
       font-size: 20px;
       line-height: 24px;
     }
@@ -220,7 +220,7 @@ const BoxInterested = styled.div`
   margin: auto;
   text-align: center;
   @media only screen and (max-width: 600px) {
-    padding-top: 73px;
+    padding-top: 69px;
     padding-bottom: 48px;
   }
   @media only screen and (min-width: 1200px) {
