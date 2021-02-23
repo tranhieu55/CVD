@@ -60,12 +60,14 @@ const TypeAliquam = styled.h1`
   @media (min-width: 1600px){
     font-family: "Calibre Semibold";
     font-size: 32px;
-    color: #222222;
-    letter-spacing: 0;
-    line-height: 38px;
+    color: rgb(34, 34, 34);
+    letter-spacing: 0px;
+    line-height: 37px;
     text-align: center;
     margin-bottom: 8px;
     font-weight: 600 !important;
+    padding-top: 5px;
+    padding-left: 6px;
   }
 `
 const TypeAliquams = styled.h5`
@@ -74,6 +76,10 @@ const TypeAliquams = styled.h5`
     letter-spacing: 0px;
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Calibre Regular';
+    padding-top: 2px;
+    margin-bottom: -2px;
+    padding-right: 15px;
   }
   @media (min-width: 1600px){
     font-family: "Calibre Regular";
