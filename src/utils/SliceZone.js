@@ -12,7 +12,7 @@ import {
 
 import { Directions } from "../components/slices/Contact"
 
-import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
+import ProjectTiles from "../components/ListBlog"
 import CTA from "../components/slices/CTA"
 import TextBackground from "../components/OurWoorkDetails/TextBackground"
 import ImageSlider from "../components/OurWoorkDetails/ImageSlider"
@@ -22,6 +22,7 @@ import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
+import Instagram from '../components/Instagram'
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -156,6 +157,12 @@ const SliceZone = (props) => {
               <TextQoute key={index} input={s} />
             </>
           )
+        case "":
+          return (
+            <>
+              <Instagram key={index} input={s} />
+            </>
+          )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo key={index} input={{ ...s , total:props.allSlices.length}} index={index}/>
@@ -163,8 +170,6 @@ const SliceZone = (props) => {
         default:
           return (
             <>
-              <h1>I'm not sure what i am:( </h1>
-              <p>Unsupported slice detected.</p>
             </>
           )
       }

@@ -44,16 +44,18 @@ PlatformTrio.propTypes = {
 
 const Container = styled.div`
   background: #f8f8f8;
+  height: 973px;
   :before {
     background: inherit;
     content: "";
     transform-origin: 100%;
     z-index: -1;
-    height: 250px;
+    height: 163px;
     width: 100%;
     transform: skewY(1.5deg);
     position: relative;
     display: block;
+    top: -79px;
   }
   @media (max-width: 769px) {
     display: none;
@@ -70,48 +72,70 @@ const Title = styled.h2`
   line-height: 72px;
   text-align: center;
   margin: auto;
+  font-family: Calibre Bold;
+  position: relative;
+  top: -79px;
 `
 
 const Content = styled.div`
   margin: auto;
   max-width: 928px;
+  height: 120px;
   color: #222222;
   font-size: 24px;
   letter-spacing: 0;
   line-height: 30px;
   text-align: center;
+  font-family: Calibre Regular;
+  position: relative;
+  top: -59px;
 `
 
 const Platforms = styled.div`
   display: flex;
-  margin: auto;
-  justify-content: center;
+  margin:0 auto;
+  justify-content: space-between;
   position: relative;
+  max-width: 1240px;
+  height: 299px;
 `
 const Platform = styled.div`
   box-sizing: border-box;
-  height: 408px;
-  width: 400px;
-  margin: 25px;
+  height: 100%;
+  max-width: 306px;
   position: relative;
   display: flex;
 `
 const Inner = styled.div`
-  width: 80%;
-  margin: auto;
+  width: 100%;
 `
 
 const PlatformLogo = styled.img`
   height: auto;
   display: block;
-  width: 250px;
+  max-width: 218px;
+  height: 60px;
 `
 const PlatformTitle = styled.h4``
 
 const PlatformDesc = styled.div`
+height: 112px;
+width: 306px;
+color: #222222;
+font-family: Calibre Regular;
+font-size: 20px;
+letter-spacing: 0;
+line-height: 28px;
+margin-top: 30px;
+margin-bottom: 49px;
+p{
+  margin-bottom: 0px;
+  height: 112px;
+  width: 306px;
   color: #222222;
+  font-family: Calibre Regular;
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28px;
-  margin: auto;
+}
 `

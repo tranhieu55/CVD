@@ -1,13 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import IMG from "../Image"
 import ButtonCustom from "../ButtonCustom"
 
 const ListBlogStyle = styled.div`
-  .row {
-    margin-top: 15px;
-  }
+  margin-top: 10px;
+  margin-left: 32px;
+  margin-right: 32px;
   .col-md-6 {
     margin-top: 30px;
     /* height: 500px; */
@@ -112,7 +112,7 @@ export default function ListBlog() {
   const data = useStaticQuery(graphql`
     query queryListOurwork {
       prismic {
-        allProjectss {
+        allProjectss(sortBy: meta_firstPublicationDate_DESC) {
           edges {
             node {
               name_category_of_project
@@ -128,16 +128,28 @@ export default function ListBlog() {
                   }
                 }
               }
+              _meta {
+                lastPublicationDate
+              }
             }
           }
         }
       }
     }
   `)
+  const [limit, setLimit] = useState(4)
+  const [orinal , setOrinal] = useState(0);
+  function setMap () {
+   setLimit(limit + 4);
+   setOrinal(orinal + 4);
+  }
+  console.log(limit);
+  console.log(orinal);
+  console.log(data.prismic.allProjectss.edges)
   return (
-    <ListBlogStyle className="container-fluid">
+    <ListBlogStyle >
       <Rows className="row">
-        {data.prismic.allProjectss.edges.map((edge, index) => (
+        {data.prismic.allProjectss.edges.slice(orinal,limit).map((edge, index) => (
           <Colum
             className={`${
               data.prismic.allProjectss.edges.length === 3
@@ -170,6 +182,8 @@ export default function ListBlog() {
             fz="18"
             lineh="48"
             className="btn-studies"
+            id='loadMore'
+            onClick={() => setMap()}
           >
             Load more case studies
           </ButtonCustom>
@@ -178,3 +192,5 @@ export default function ListBlog() {
     </ListBlogStyle>
   )
 }
+
+

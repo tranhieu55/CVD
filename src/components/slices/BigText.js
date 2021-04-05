@@ -20,12 +20,15 @@ BigText.propTypes = {
 
 const SubHeading = styled.h2`
   text-align: center;
-  font-size: 3rem;
+  font-size: 48px;
   max-width: 1258px;
-  width: 75%;
   margin: auto;
   height: auto;
-  padding: 150px 0;
+  padding-top: 134px;
+  padding-bottom: 140px;
+  font-family: Calibre Semibold;
+  line-height: 52px;
+  color: #101010;
   @media (max-width: 769px) {
     text-align: center;
     font-size: 2rem;
@@ -33,7 +36,6 @@ const SubHeading = styled.h2`
   }
 `
 const Container = styled.div`
-  padding-top: 150px;
   @media (max-width: 769px) {
     padding-top: 0;
   }

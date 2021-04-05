@@ -42,9 +42,9 @@ export default function WhatWeDo(props) {
 }
 
 const Skew = styled.div`
-  margin-top: 200px;
   background-color: ${theme.Black};
   display: block;
+  height: 808px;
   :before {
     background: inherit;
     content: "";

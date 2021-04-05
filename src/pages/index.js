@@ -8,27 +8,27 @@ import { Link } from "gatsby"
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
   const title = data.page_title[0].text
-  const featured_image = data.featured_image.url
+  const background_image = data.background_image.url
+  console.log(data.body)
   return (
     <Layout location="/">
       <SEO props={data} location="/" />
       <Container>
-        <ContainerLeft>
-          <Title>{title}</Title>
-          <ButtonContainer>
-            <Button yellow="true">
-              <ButtonText yellow="true" to="">
-                Get in touch
-              </ButtonText>
-            </Button>
-            <Button>
-              <ButtonText to="">View projects</ButtonText>
-            </Button>
-          </ButtonContainer>
-        </ContainerLeft>
-        <ContainerRight>
-          <IPhone src={featured_image} />
-        </ContainerRight>
+      <ImageBanner src={background_image}></ImageBanner>
+        <TextBanner>
+          <Title>{data.page_title[0].text}</Title>
+        {data.body[0].fields.map((item, index)=>{
+          return(
+            <ButtonBanner key={index} 
+              background={item.color_background_button}
+              border = {item.color_border_button}
+              textColor = {item.color_text_button}
+            >
+            {item.text_button[0].text}
+          </ButtonBanner>
+          )
+        })}
+        </TextBanner>
       </Container>
       <SliceZone allSlices={data.body} />
     </Layout>
@@ -40,9 +40,14 @@ export default Index
 //styles
 
 const Title = styled.h1`
-  font-size: 6rem;
-  color: white;
-  line-height: 1;
+height: 275px;
+width: 659px;
+color: #FFFFFF;
+font-family: Calibre Bold;
+font-size: 104px;
+font-weight: bold;
+letter-spacing: -0.5px;
+line-height: 88px;
   @media (max-width: 769px) {
     font-size: 3rem;
     margin: 0;
@@ -50,102 +55,38 @@ const Title = styled.h1`
 `
 
 const Container = styled.div`
-  display: grid;
-  height: 75vh;
+  height: 798px;
   width: 100%;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 100%;
-  margin: auto;
-  background-color: black;
-  :after {
-    background: inherit;
-    content: "";
-    display: block;
-    height: 785px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform: skewY(-1.5deg);
-    transform-origin: 100%;
-    z-index: -1;
+ position: realative;
   }
   @media (max-width: 769px) {
     display: block;
     height: auto;
-
-    :after {
-      background: inherit;
-      content: "";
-      display: block;
-      height: 15px;
-      left: 0;
-      position: relative;
-      right: 0;
-      transform: skewY(-1.5deg);
-      transform-origin: 100%;
-      z-index: -1;
-    }
   }
 `
-const ContainerLeft = styled.div`
-  grid-column: 1;
-  width: 75%;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: 100px;
-  padding-top: 150px;
-  @media (max-width: 769px) {
-    width: 90%;
-    margin: auto;
-  }
+const ImageBanner = styled.img`
+  height: 100%;
+  width: 100%;
+  z-index: 0; 
 `
 
-const Button = styled.div`
-  background: ${props => (props.yellow ? "#FECF09" : "black")};
-  color: ${props => (props.yellow ? "#000000" : "black")};
-  padding: 15px 30px;
-  border-radius: 4px;
-  border: solid 1px;
-  border-color: #fecf09 !important;
-  position: relative;
-  margin-right: 10px;
-`
 
-const ButtonText = styled(Link)`
-  color: ${props => (props.yellow ? "#000000" : "white")};
-  position: relative;
-  font-weight: 600;
-  top: 2px;
+const ButtonBanner = styled.button`
+  margin-right: 24px;
+  height: 48px;
+  width: 148px;
+  background: ${props => props.background ? props.background : 'transparent' };
+  border: 3px solid ${props => props.border};
+  color: ${props => props.textColor};
+  border-radius : 3px;
 `
-
-const ButtonContainer = styled.div`
-  display: inline-flex;
-`
-
-const ContainerRight = styled.div`
-  grid-column: 2;
-  width: 75%;
-  margin: auto;
-  margin-left: 20%;
-  @media (max-width: 769px) {
-    width: 90%;
-    margin: auto;
-    height: 250px;
-  }
-`
-const IPhone = styled.img`
-  height: 80%;
-  top: 75px;
-  position: relative;
-  @media (max-width: 769px) {
-    width: 100%;
-    height: 80%;
-    top: 68px;
-    position: relative;
-    max-height: 200px;
-    object-fit: cover;
-    object-position: top;
-  }
+const TextBanner = styled.div`
+height: 355px;
+width: 659px;
+position: absolute;
+top: 225px;
+padding-left: 167px;
+z-index: 1;
 `
 
 export const pageQuery = graphql`
@@ -155,7 +96,7 @@ export const pageQuery = graphql`
         edges {
           node {
             page_title
-            featured_image
+            background_image
             #seo
             meta_title
             meta_description
@@ -210,13 +151,13 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              ... on PRISMIC_HomepageBodyProject_tilesq {
+              ... on PRISMIC_HomepageBodyProject_tilesq  {
                 type
                 primary {
                   number_of_projects_to_show
                 }
                 fields {
-                  project {
+                  project_item {
                     ... on PRISMIC_Project {
                       project_title
                       platform
@@ -224,6 +165,17 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+              }
+              ... on PRISMIC_HomepageBodyCta_button {
+                fields {
+                  color_background_button
+                  color_border_button
+                  color_text_button
+                  display_button
+                  text_button
+                }
+                label
+                type
               }
             }
           }
