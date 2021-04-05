@@ -23,6 +23,7 @@ import FontAwesome5ProRegular from "../assets/fonts/FontAwesome5Pro-Regular.woff
 import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regular.woff"
 import "bootstrap/dist/css/bootstrap.min.css"
 import styled from "styled-components"
+import Interested from "../components/Interested"
 
 const GlobalStyle = createGlobalStyle`
    @font-face {
@@ -161,37 +162,69 @@ const Layout = ({
     query MyQuery {
       prismic {
         allFooters {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_FooterBodyOurwork_footer {
-                  type
-                  label
-                  fields {
-                    slug_sub_title
-                    sub_title
-                  }
-                  primary {
-                    title
+      edges {
+        node {
+          background_color_of_footer_bottom
+          body {
+            ... on PRISMIC_FooterBodyOurwork_footer {
+              type
+              label
+              fields {
+                slug_sub_title
+                sub_title
+                link_to_another_page {
+                  ... on PRISMIC__ExternalLink {
+                    target
+                    _linkType
+                    url
                   }
                 }
-                ... on PRISMIC_FooterBodyAddress {
-                  type
-                  label
-                  fields {
-                    address_detail
-                    address_title
-                    phone
-                    order
-                  }
-                  primary {
-                    address_title
+              }
+              primary {
+                title
+              }
+            }
+            ... on PRISMIC_FooterBodyAddress {
+              type
+              label
+              fields {
+                address_detail
+                city                
+                phone_office
+              }
+              primary {
+                address_title
+              }
+            }
+            ... on PRISMIC_FooterBodyCta {
+              type
+              label
+              primary {
+                background_color_cta_block
+                display_block
+                subtitle
+                title
+              }
+            }
+            ... on PRISMIC_FooterBodyLists_icon_footer {
+              type
+              label
+              fields {
+                icon_item
+                link_to_social_network {
+                  ... on PRISMIC__ExternalLink {
+                    target
+                    _linkType
+                    url
                   }
                 }
               }
             }
           }
+          logo_footer
         }
+      }
+    }
         allMenus(sortBy: date_created_ASC) {
           edges {
             node {
@@ -202,19 +235,51 @@ const Layout = ({
             }
           }
         }
+        allHeaders {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_HeaderBodyMenu_items {
+                  label
+                  type
+                  fields {
+                    slug_menu_item
+                    title_menu_item
+                  }
+                }
+                ... on PRISMIC_HeaderBodyCta_buton {
+                  type
+                  label
+                  primary {
+                    display_desktop_or_mobile
+                    text_button
+                  }
+                }
+                ... on PRISMIC_HeaderBodySocial_icon_header {
+                  type
+                  label
+                  fields {
+                    social_icon_item
+                  }
+                }
+              }
+              website_logo
+            }
+          }
+        }
       }
     }
   `)
 
   const dataHeader = data.prismic.allMenus.edges
-  const dataFooter = data.prismic.allFooters.edges[0].node
+  const dataFooter = data.prismic.allFooters
+  const dataMenuHeader = data.prismic.allHeaders
   const BoxLayout = styled.div``
-
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header location={location} dataHeader={dataHeader} />
+        <Header location={location} dataHeader={dataHeader} dataMenuHeader={dataMenuHeader} />
         <Banner
           location={location}
           nameProject={nameProject}
@@ -225,6 +290,7 @@ const Layout = ({
           backgroundWorkItemAlt={backgroundWorkItemAlt}
         />
         {children}
+        <Interested dataFooter={dataFooter}/>
         <Footer dataFooter={dataFooter} />
       </ThemeProvider>
     </BoxLayout>

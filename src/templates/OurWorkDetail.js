@@ -192,7 +192,6 @@ const OurWorkDetail = props => {
         <SliceZone allSlices={data.body} />
       </Study>
       <Other arrResult={arrResult} slugCurrent={nameCategory} />
-      <Interested />
     </Layout>
   )
 }

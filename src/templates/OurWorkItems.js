@@ -170,7 +170,6 @@ function OurWorkItems(props) {
           </MyButton>
         </RowItem>
       </ListBlogStyle>
-      {/* <Interested /> */}
     </Layout>
   )
 }

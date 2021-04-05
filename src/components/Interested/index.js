@@ -6,7 +6,7 @@ import P from "../../components/bits/Typography"
 
 const InterestedStyle = styled.div`
   clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
-  background-color: #101010;
+  background-color: ${({dataBGR}) => dataBGR};
   width: 100%;
   color: white;
   margin: -2px auto;
@@ -237,15 +237,20 @@ const BoxInterested = styled.div`
 const Span = styled.span``
 const BoxBtn = styled.div``
 const H2 = styled.h2``
-export default function Interested(props) {
+export default function Interested({dataFooter}) {
+  console.log('hieutt',dataFooter.edges[0])
+    const dataBGR = dataFooter.edges[0].node.body[0].primary.background_color_cta_block
+    const dataInterested =  dataFooter.edges[0].node.body[0].primary.subtitle[0].text
+    const dataInterestedTitle =  dataFooter.edges[0].node.body[0].primary.title[0].text
+    console.log('dữ liệu' , dataFooter.edges[0].node.body[0])
   return (
-    <InterestedStyle>
+    <InterestedStyle dataBGR={dataBGR}>
       <BoxInterested>
         <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
-          Interested in working with us?
+          {dataInterestedTitle}
         </H2>
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">
-          Send us a message and we'll get back to you as soon as possible
+          {dataInterested}
         </P>
         <BoxBtn>
           <ButtonCustom

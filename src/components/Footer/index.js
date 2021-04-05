@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const FooterStyle = styled.div`
-  background-color: #222222;
+  background-color: ${({dataBGR}) => dataBGR};
   font-family: "Calibre Medium";
   font-size: 20px;
   .row {
@@ -232,55 +232,19 @@ const FooterStyle = styled.div`
 
 const Icon = styled.div`
   text-align: right;
-  a {
-    color: white;
-    opacity: 0.7;
-  }
-  svg {
+  cursor: pointer;
+  img {
+    width:21px;
+    height: 20px;
     margin-right: 24px;
-    cursor: pointer;
-    font-size: 28px;
     &:hover {
       transition: all 1s ease;
       color: gold;
     }
   }
-  .icon-last {
-    margin-right: 0px;
-  }
   @media only screen and (max-width: 600px) {
     text-align: left;
     margin-bottom: 10px;
-  }
-
-  // Thêm icon fb, instagram, linkedin
-  span.icon {
-    cursor: pointer;
-    &::after {
-      font-family: "Font Awesome 5 Brands Regular";
-      font-size: 24px;
-      width: 21px;
-      height: 24px;
-      opacity: 0.7;
-      color: #ffffff;
-      line-height: 24px;
-    }
-  }
-  span.icon.icon-fb {
-    &::after {
-      content: "\f082";
-    }
-  }
-  span.icon.icon-instagram {
-    margin: 0 24px;
-    &::after {
-      content: "\f16d";
-    }
-  }
-  span.icon.icon-linkedin {
-    &::after {
-      content: "\f08c";
-    }
   }
 `
 const Boxicon = styled.div`
@@ -400,23 +364,40 @@ const Content = styled.div`
 `
 
 export default function Footer({ dataFooter }) {
-  const dataOurWorkFooter = dataFooter.body.filter(
-    item => item.type === "ourwork_footer"
-  )
-  const dataAddressFooter = dataFooter.body.filter(
-    item => item.type === "address"
-  )
+  console.log('Đây là dữ liệu footer' , dataFooter)
+  // đây là background footer
+  const dataBGR = dataFooter.edges[0].node.background_color_of_footer_bottom
+  // đây là logoFooter ( alt và url)
+  const dataLogo = dataFooter.edges[0].node.logo_footer.url
+  const dataLogoAlt = dataFooter.edges[0].node.logo_footer.alt
+  // dữ liệu order1 map()
+  const dataLinkPages = dataFooter.edges[0].node.body[1].fields
+  // dữ liệu addres map()
+  const dataAddress = dataFooter.edges[0].node.body[2].fields
+  // dữ liệu data image icon
+  const dataImg = dataFooter.edges[0].node.body[3].fields
+
+
+
+
+
+  // const dataOurWorkFooter = dataFooter.body.filter(
+  //   item => item.type === "ourwork_footer"
+  // )
+  // const dataAddressFooter = dataFooter.body.filter(
+  //   item => item.type === "address"
+  // )
 
   return (
-    <FooterStyle className="container-fulid">
+    <FooterStyle dataBGR={dataBGR} className="container-fulid">
       <IphoneX>
         <Container className="container">
           <Row className="row">
             <BoxImage className="order-1">
               <img
-                alt="image"
+                alt={dataLogoAlt}
                 className="img"
-                src="https://www.convertdigital.com.au/wp-content/uploads/2017/01/convertdigital-logo@2x.png"
+                src={dataLogo}
               />
             </BoxImage>
             <BoxOrder className="w-141 order-2"></BoxOrder>
@@ -425,26 +406,28 @@ export default function Footer({ dataFooter }) {
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                {dataOurWorkFooter[0].fields.map((item, index) => (
+                {dataLinkPages.map((item, index) => (
                   <Link
                     key={index}
-                    to={`/${item.slug_sub_title.map(item => item.text)}`}
+                    to={`/${item.slug_sub_title[0].text}`}
                   >
-                    {item.sub_title.map(item => item.text)}
+                    {item.sub_title[0].text}
                   </Link>
                 ))}
               </ListLink>
             </BoxTextOrder>
             <BoxOrder className="w-112 order-4"></BoxOrder>
             <BoxContentDigital className="content-digital order-5">
-              {dataAddressFooter[0].fields.map((item, index) => (
-                <ListContent key={index} className={index === 0 ? 'text-3 editText' : 'text-3'}>
+              {dataAddress.map((item, index) => (
+                <ListContent key={index}
+                className={ index === 0 ? 'text-3 editText' : 'text-3'}
+                >
                   <Content>
-                    <span>{item.address_title.map(item => item.text)}</span>
+                    <span>{item.city[0].text}</span>
                     <p>
-                      {item.address_detail.map(item => item.text)}
+                      {item.address_detail[0]?.text}
                       <br />
-                      <span className='changes-text'>{item.phone.map(item => item.text)}</span>
+                      <span className='changes-text'>{item.phone_office[0].text}</span>
                     </p>
                   </Content>
                 </ListContent>
@@ -454,13 +437,19 @@ export default function Footer({ dataFooter }) {
           <ListIcon className="style-icon">
             <Boxicon className="row">
               <Order className=" order-1">
-                <span className="convert-2020">© 2019 Convert Digital. </span>
+                <span className="convert-2020">© {new Date().getFullYear()} Convert Digital. </span>
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  <span className="icon icon-fb" />
+                  {/* <span className="icon icon-fb" />
                   <span className="icon icon-instagram" />
-                  <span className="icon icon-linkedin" />
+                  <span className="icon icon-linkedin" /> */}
+                  { dataImg.map((item,key) => (
+                    <React.Fragment key={key}>
+                      <img className={key === 0 ? "icon icon-fb" :''} src={item.icon_item.url} alt={item.icon_item.alt} /> 
+                    </React.Fragment>
+                  ))
+                  }
                 </Icon>
               </Order>
             </Boxicon>

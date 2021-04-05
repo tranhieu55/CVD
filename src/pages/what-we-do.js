@@ -38,7 +38,6 @@ const WhatWeDo = (props) => {
     <Layout location="/we-do">
       <SEO props={dataSEO} />
       <SliceZone allSlices={data.body} />
-      <Interested />
     </Layout>
   )
 }

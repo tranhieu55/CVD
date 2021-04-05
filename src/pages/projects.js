@@ -11,7 +11,6 @@ const Projects = ({ data: { prismic } }) => {
     <Layout location="/projects">
       <SEO props={data} />
       <ListBlog />
-      <Interested />
     </Layout>
   )
 }

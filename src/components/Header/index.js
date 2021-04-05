@@ -441,6 +441,31 @@ const WrapperHeader = styled.div`
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
+  .dropdown_services:hover {
+    .menu-area_services{
+      max-height:100%!important;
+      top:7%!important;
+    }
+  }
+  .show {
+    position: fixed;
+    top: 0!important;
+    height: 100vh;
+    z-index: 1000;
+    width: 400px;
+    max-width: 100%;
+    background-color: #191F3F!important;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    left: 0%;
+    transition: all 0.4s;
+  }
+  .icon-close {
+    position: absolute;
+    top: 3%;
+    right: 16px;
+  }
 `
 const LogoHeader = styled.div`
   width: 172px;
@@ -501,7 +526,22 @@ const GetInTouch = styled.h2`
   margin-bottom: 0px;
 `
 
-const Header = ({ location, dataHeader }) => {
+
+
+const Header = ({ location, dataHeader, dataMenuHeader}) => {
+  
+  console.log("data",dataMenuHeader)
+  const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
+  
+  const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
+
+  // dữ liệu button header(button GET in touch)
+  const isShow = dataMenuHeader.edges[0].node.body[1].primary.display_desktop_or_mobile
+  const dataButton = dataMenuHeader.edges[0].node.body[1].primary.text_button[0].text
+  // dữ liệu button header(button phone)
+  const isShowButtonPhone = dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
+  const dataButtonPhone = dataMenuHeader.edges[0].node.body[2].primary.text_button[0].text
+
   const titleServices = [
     { title: "Web Development Strategy", slug: "" },
     { title: "UX & Design", slug: "" },
@@ -524,7 +564,6 @@ const Header = ({ location, dataHeader }) => {
       !!window && window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
   return (
     <WrapperHeader>
       <Navbar
@@ -587,10 +626,13 @@ const Header = ({ location, dataHeader }) => {
         </MenuColor>
         <Navbar.Collapse
           id="basic-navbar-nav"
-          className={scroll && "header-scroll"}
+          className={`${scroll && "header-scroll"} `}
         >
+          <Navbar.Toggle>
+            <button className="icon-close">Icon</button>
+          </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
-            {dataHeader.map((item, index) => (
+            {dataMenu.map((item, index) => (
               <Li
                 className={`menu-list_item ${
                   location === "/" ||
@@ -600,15 +642,15 @@ const Header = ({ location, dataHeader }) => {
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${
-                  item.node._meta.uid === "services" ? "dropdown_services" : ""
+                  item.slug_menu_item[0].text === "services" ? "dropdown_services" : ""
                 }`}
                 key={index}
               >
                 <Link
                   to={
-                    item.node._meta.uid === "services"
+                    item.slug_menu_item[0].text === "services"
                       ? ""
-                      : `/${item.node._meta.uid}`
+                      : `/${item.slug_menu_item[0].text}`
                   }
                   activeClassName="active"
                   className={
@@ -622,9 +664,9 @@ const Header = ({ location, dataHeader }) => {
                       : "menu-list_item_text-black"
                   }
                 >
-                  {item.node.menu_title[0].text}
+                  {item.title_menu_item[0].text}
                 </Link>
-                {item.node._meta.uid === "services" ? (
+                {item.slug_menu_item[0].text === "services" ? (
                   <Ul className="menu-area_services">
                     <MenuItemServices>
                       {" "}
@@ -808,7 +850,11 @@ const Header = ({ location, dataHeader }) => {
                 <span></span>
                 <GetInTouch>Get in touch</GetInTouch>
               </ButtonCustom>
+              
             )}
+            {/* <div>
+              hello word
+            </div> */}
           </Form>
         </Navbar.Collapse>
       </Navbar>
@@ -817,3 +863,42 @@ const Header = ({ location, dataHeader }) => {
 }
 
 export default Header
+
+export const query = graphql`
+    query QueryHearder {
+    prismic {
+      allHeaders {
+        edges {
+          node {
+            body {
+              ... on PRISMIC_HeaderBodyMenu_items {
+                label
+                type
+                fields {
+                  slug_menu_item
+                  title_menu_item
+                }
+              }
+              ... on PRISMIC_HeaderBodyCta_buton {
+                type
+                label
+                primary {
+                  display_desktop_or_mobile
+                  text_button
+                }
+              }
+              ... on PRISMIC_HeaderBodySocial_icon_header {
+                type
+                label
+                fields {
+                  social_icon_item
+                }
+              }
+            }
+            website_logo
+          }
+        }
+      }
+    }
+  }
+`
