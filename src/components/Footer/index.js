@@ -40,6 +40,13 @@ const FooterStyle = styled.div`
   }
   .changes-text {
       font-size:18px !important;
+      a {
+        color: white;
+        opacity: 0.7;
+      &:hover {
+        text-decoration:none;
+      }
+      }
     }
   .text-3 p {
     font-family: "Calibre Medium";
@@ -241,6 +248,7 @@ const Icon = styled.div`
       transition: all 1s ease;
       color: gold;
     }
+    opacity: 0.7;
   }
   @media only screen and (max-width: 600px) {
     text-align: left;
@@ -427,7 +435,8 @@ export default function Footer({ dataFooter }) {
                     <p>
                       {item.address_detail[0]?.text}
                       <br />
-                      <span className='changes-text'>{item.phone_office[0].text}</span>
+                      <span className='changes-text'>
+                      <a href={`tel: ${item.phone_office[0].text}`}>{item.phone_office[0].text}</a></span>
                     </p>
                   </Content>
                 </ListContent>
@@ -446,7 +455,7 @@ export default function Footer({ dataFooter }) {
                   <span className="icon icon-linkedin" /> */}
                   { dataImg.map((item,key) => (
                     <React.Fragment key={key}>
-                      <img className={key === 0 ? "icon icon-fb" :''} src={item.icon_item.url} alt={item.icon_item.alt} /> 
+                      <img className={key === 0 ? "icon-fb" :''} src={item.icon_item.url} alt={item.icon_item.alt} /> 
                     </React.Fragment>
                   ))
                   }
