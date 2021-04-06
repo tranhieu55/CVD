@@ -14,4 +14,5 @@ export const colors = {
   lightGray: "#f8f9fa",
   gray1: "#999999",
   gray2: "#b2b2b2",
+  transparent: "transparent"
 }

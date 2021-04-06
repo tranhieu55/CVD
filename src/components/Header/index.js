@@ -182,6 +182,15 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 600px) {
+    .my-form {
+      margin-top:50px;
+    }
+    .menu-list {
+      width: 100%;
+    }
+    .menu-list li.menu-list_item {
+      padding: 3px 0px !important;
+    }
     .wraper-header {
       padding-left: 0px;
       padding-right: 0px;
@@ -189,6 +198,10 @@ const WrapperHeader = styled.div`
         padding-left: 16px;
         padding-bottom: 16px;
       }
+    }
+    .menu-list_item_text-white {
+      font-size:32px!important;
+      line-height:56px!important;
     }
     .navbar-collapse {
       div {
@@ -235,8 +248,8 @@ const WrapperHeader = styled.div`
       margin: 0px;
     }
     .menu-list li.menu-list_item {
-      height: 25px;
-      margin-top: 15px;
+      height: 36px;
+      margin-top: 20px;
     }
     .menu-list li.menu-list_item a.menu-list_item_text-black {
       text-align: left;
@@ -460,11 +473,12 @@ const WrapperHeader = styled.div`
     overflow-y: auto;
     left: 0%;
     transition: all 0.4s;
+    padding:48px;
   }
   .icon-close {
     position: absolute;
-    top: 3%;
-    right: 16px;
+    top: 26px;
+    right: 26px;
   }
 `
 const LogoHeader = styled.div`
@@ -517,7 +531,7 @@ const Ul = styled.ul`
 const GetInTouch = styled.h2`
   height: 18px;
   font-family: "Calibre Semibold";
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 22px;
@@ -525,12 +539,28 @@ const GetInTouch = styled.h2`
   white-space: nowrap;
   margin-bottom: 0px;
 `
+const Icon = styled.div`
+  display:flex;
+  color:white;
+  width:32px;
+  height:32px;
+  margin-bottom:70px!important;
+  img {
+    margin-right:25px;
+  }
+  @media (max-width: 600px) {
+    display:${({isShowCTA}) => isShowCTA === "mobile" && isShowCTA === "both" ? "block" : "none"}
+  }
+  @media (min-width: 1200px) {
+    display:${({isShowCTA}) => isShowCTA === "desktop" && isShowCTA === "both" ? "block" : "none"}
+  }
+`
 
 
 
 const Header = ({ location, dataHeader, dataMenuHeader}) => {
   
-  console.log("data",dataMenuHeader)
+  console.log("du lieu header",dataMenuHeader)
   const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
   
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
@@ -541,7 +571,13 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
   // dữ liệu button header(button phone)
   const isShowButtonPhone = dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
   const dataButtonPhone = dataMenuHeader.edges[0].node.body[2].primary.text_button[0].text
+  
+  //dulieu icon
+  const dataIcon = dataMenuHeader.edges[0].node.body[3].fields
+  
 
+  const isShowCTA = dataMenuHeader.edges[0].node.body.map(item => item.primary)
+  console.log(isShowCTA)
   const titleServices = [
     { title: "Web Development Strategy", slug: "" },
     { title: "UX & Design", slug: "" },
@@ -629,7 +665,7 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
           className={`${scroll && "header-scroll"} `}
         >
           <Navbar.Toggle>
-            <button className="icon-close">Icon</button>
+            <img src="../../images/iconclose.png" className="icon-close"/>
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
             {dataMenu.map((item, index) => (
@@ -805,13 +841,13 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
               </Li>
             ))}
           </Nav>
-          <Form inline>
+          <Form className="my-form">
             {scroll ? (
               <ButtonCustom
                 className="button-header"
                 bgColor={theme.colors.secondaryColor}
                 textColor={theme.colors.white}
-                pd1="9"
+                pd1="12"
                 pd2="19.5"
                 lineh="22"
               >
@@ -819,42 +855,81 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
                 <span></span>
                 <span></span>
                 <span></span>
-                <GetInTouch>Get in touch</GetInTouch>
+                <GetInTouch>{dataButton}</GetInTouch>
               </ButtonCustom>
             ) : (
-              <ButtonCustom
-                className="button-header"
-                bgColor={
-                  location === "/" ||
-                  location === "/contact" ||
-                  location === "/case-study" ||
-                  location === "/proposal"
-                    ? theme.colors.secondaryColor
-                    : theme.colors.lightGray
-                }
-                textColor={
-                  location === "/" ||
-                  location === "/contact" ||
-                  location === "/case-study" ||
-                  location === "/proposal"
-                    ? theme.colors.white
-                    : theme.colors.secondaryColor
-                }
-                pd1="9"
-                pd2="19.5"
-                lineh="22"
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <GetInTouch>Get in touch</GetInTouch>
-              </ButtonCustom>
+              <>
+              <div>
+                <Icon isShow={isShowCTA}>
+                  {dataIcon.map((item,index) => (
+                    <img src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
+                  ))
+                  }
+                </Icon>
+                
+                <ButtonCustom isShow={isShowCTA}
+                  className="button-header"
+                  w="100"
+                  bgColor={
+                    location === "/" ||
+                    location === "/contact" ||
+                    location === "/case-study" ||
+                    location === "/proposal"
+                      ? theme.colors.transparent
+                      : theme.colors.lightGray
+                  }
+                  textColor={
+                    location === "/" ||
+                    location === "/contact" ||
+                    location === "/case-study" ||
+                    location === "/proposal"
+                      ? theme.colors.white
+                      : theme.colors.secondaryColor
+                  }
+                  pd1="12"
+                  pd2="19.5"
+                  lineh="22"
+                  mb="17"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <GetInTouch>{dataButton}</GetInTouch>
+                </ButtonCustom>
+                  <ButtonCustom isShow={isShowCTA}
+                  className="button-header"
+                  w="100"
+                  bgColor={
+                    location === "/" ||
+                    location === "/contact" ||
+                    location === "/case-study" ||
+                    location === "/proposal"
+                      ? theme.colors.transparent
+                      : theme.colors.lightGray
+                  }
+                  textColor={
+                    location === "/" ||
+                    location === "/contact" ||
+                    location === "/case-study" ||
+                    location === "/proposal"
+                      ? theme.colors.white
+                      : theme.colors.secondaryColor
+                  }
+                  pd1="12"
+                  pd2="19.5"
+                  lineh="22"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <GetInTouch>{dataButtonPhone}</GetInTouch>
+                </ButtonCustom>
+              </div>
+              </>
               
             )}
-            {/* <div>
-              hello word
-            </div> */}
           </Form>
         </Navbar.Collapse>
       </Navbar>

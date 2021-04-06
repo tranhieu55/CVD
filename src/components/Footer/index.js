@@ -41,6 +41,7 @@ const FooterStyle = styled.div`
   .changes-text {
       font-size:18px !important;
       a {
+        font-weight:500;
         color: white;
         opacity: 0.7;
       &:hover {
@@ -104,7 +105,7 @@ const FooterStyle = styled.div`
     }
     .text-3 p {
       font-size: 16px !important;
-      letter-spacing: -0.1px;
+      letter-spacing: 0px;
       line-height: 23px;
     }
     .text-3 span {
@@ -237,7 +238,7 @@ const FooterStyle = styled.div`
   }
 `
 
-const Icon = styled.div`
+export const Icon = styled.div`
   text-align: right;
   cursor: pointer;
   img {
@@ -387,15 +388,6 @@ export default function Footer({ dataFooter }) {
 
 
 
-
-
-  // const dataOurWorkFooter = dataFooter.body.filter(
-  //   item => item.type === "ourwork_footer"
-  // )
-  // const dataAddressFooter = dataFooter.body.filter(
-  //   item => item.type === "address"
-  // )
-
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
       <IphoneX>
@@ -450,12 +442,11 @@ export default function Footer({ dataFooter }) {
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  {/* <span className="icon icon-fb" />
-                  <span className="icon icon-instagram" />
-                  <span className="icon icon-linkedin" /> */}
-                  { dataImg.map((item,key) => (
-                    <React.Fragment key={key}>
-                      <img className={key === 0 ? "icon-fb" :''} src={item.icon_item.url} alt={item.icon_item.alt} /> 
+                  {dataImg.map((item,key) => (
+                    <React.Fragment>
+                      <a target={item.link_to_social_network?.target} href={item.link_to_social_network?.url}>
+                        <img src={item.icon_item.url} alt={item.icon_item.alt} />
+                      </a>
                     </React.Fragment>
                   ))
                   }

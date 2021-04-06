@@ -14,6 +14,7 @@ const ButtonCustom = styled.button`
   padding-top: 0px;
   padding-bottom: 0px;
   width: ${({ wt }) => `${wt}px`};
+  width: ${({ w }) => `${w}%`};
   height: ${({ ht }) => `${ht}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
   margin-right: ${({ mr }) => `${mr}px`};
@@ -27,6 +28,12 @@ const ButtonCustom = styled.button`
   position: relative;
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
+  @media (max-width: 600px) {
+    display:${({isShowCTA}) => isShowCTA === "mobile" && isShowCTA === "both" ? "block" : "none"}
+  }
+  @media (min-width: 1200px) {
+    display:${({isShowCTA}) => isShowCTA === "desktop" && isShowCTA === "both" ? "block" : "none"}
+  }
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;
