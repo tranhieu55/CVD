@@ -225,16 +225,6 @@ const Layout = ({
         }
       }
     }
-        allMenus(sortBy: date_created_ASC) {
-          edges {
-            node {
-              _meta {
-                uid
-              }
-              menu_title
-            }
-          }
-        }
         allHeaders {
           edges {
             node {
@@ -270,8 +260,6 @@ const Layout = ({
       }
     }
   `)
-
-  const dataHeader = data.prismic.allMenus.edges
   const dataFooter = data.prismic.allFooters
   const dataMenuHeader = data.prismic.allHeaders
   const BoxLayout = styled.div``
@@ -279,7 +267,7 @@ const Layout = ({
     <BoxLayout>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header location={location} dataHeader={dataHeader} dataMenuHeader={dataMenuHeader} />
+        <Header location={location} dataMenuHeader={dataMenuHeader} />
         <Banner
           location={location}
           nameProject={nameProject}

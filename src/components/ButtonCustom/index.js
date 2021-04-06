@@ -29,10 +29,10 @@ const ButtonCustom = styled.button`
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
   @media (max-width: 600px) {
-    display:${({isShowCTA}) => isShowCTA === "mobile" && isShowCTA === "both" ? "block" : "none"}
+    display:${({isShow}) => (isShow === "mobile" || isShow === "both") ? "block" : "none"}
   }
   @media (min-width: 1200px) {
-    display:${({isShowCTA}) => isShowCTA === "desktop" && isShowCTA === "both" ? "block" : "none"}
+    display:${({isShow}) => (isShow === "desktop" || isShow === "both") ? "block" : "none"}
   }
   :hover {
     transition: all 0.6s ease;

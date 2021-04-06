@@ -548,10 +548,10 @@ const Icon = styled.div`
   img {
     margin-right:25px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 991px) {
     display:${({isShowCTA}) => isShowCTA === "mobile" && isShowCTA === "both" ? "block" : "none"}
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 992px) {
     display:${({isShowCTA}) => isShowCTA === "desktop" && isShowCTA === "both" ? "block" : "none"}
   }
 `
@@ -576,8 +576,8 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
   const dataIcon = dataMenuHeader.edges[0].node.body[3].fields
   
 
-  const isShowCTA = dataMenuHeader.edges[0].node.body.map(item => item.primary)
-  console.log(isShowCTA)
+  const isShowCTA = dataMenuHeader.edges[0].node.body.filter(x => x.type === 'cta_buton');
+  // console.log(isShowCTA)
   const titleServices = [
     { title: "Web Development Strategy", slug: "" },
     { title: "UX & Design", slug: "" },
@@ -600,6 +600,8 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
       !!window && window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
+   console.log('isShow : ', isShowCTA);
   return (
     <WrapperHeader>
       <Navbar
@@ -867,7 +869,10 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
                   }
                 </Icon>
                 
-                <ButtonCustom isShow={isShowCTA}
+                {
+                  isShowCTA.map((item, index) => {
+                    return (
+                      <ButtonCustom key={index} isShow={isShowCTA} isShow={item.primary.display_desktop_or_mobile}  // both , mobile. desktop
                   className="button-header"
                   w="100"
                   bgColor={
@@ -886,36 +891,7 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
                       ? theme.colors.white
                       : theme.colors.secondaryColor
                   }
-                  pd1="12"
-                  pd2="19.5"
-                  lineh="22"
-                  mb="17"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <GetInTouch>{dataButton}</GetInTouch>
-                </ButtonCustom>
-                  <ButtonCustom isShow={isShowCTA}
-                  className="button-header"
-                  w="100"
-                  bgColor={
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal"
-                      ? theme.colors.transparent
-                      : theme.colors.lightGray
-                  }
-                  textColor={
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal"
-                      ? theme.colors.white
-                      : theme.colors.secondaryColor
-                  }
+
                   pd1="12"
                   pd2="19.5"
                   lineh="22"
@@ -924,8 +900,10 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
                   <span></span>
                   <span></span>
                   <span></span>
-                  <GetInTouch>{dataButtonPhone}</GetInTouch>
-                </ButtonCustom>
+                  <GetInTouch>{item.primary.text_button[0].text}</GetInTouch>
+                </ButtonCustom>)
+                  })
+                }
               </div>
               </>
               
