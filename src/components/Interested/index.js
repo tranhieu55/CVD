@@ -255,13 +255,15 @@ export default function Interested({dataFooter}) {
         <BoxBtn>
           <ButtonCustom
             className="my-btn-back  my-btn button-header"
-            bgColor={theme.colors.black}
+            bgColor={theme.colors.transparent}
             textColor={theme.colors.white}
             variant="primary"
             fz="20"
             pd1="16"
             pd2="31.5"
             lineh="24"
+            Block={true}
+            margin="auto"
           >
             <Span></Span>
             <Span></Span>

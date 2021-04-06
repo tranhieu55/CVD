@@ -5,7 +5,7 @@ const ButtonCustom = styled.button`
   font-family: "Calibre Semibold";
   border: 2px solid #fecf09;
   border-radius: 3px;
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: ${({ bgColor }) => bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
   font-weight: ${({ fw }) => `${fw}`};
   outline: none;
@@ -17,6 +17,7 @@ const ButtonCustom = styled.button`
   width: ${({ w }) => `${w}%`};
   height: ${({ ht }) => `${ht}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
+  margin: ${({ margin }) => `${margin}`};
   margin-right: ${({ mr }) => `${mr}px`};
   margin-top: ${({ mt }) => `${mt}px`};
   padding-left: ${({ pdl }) => `${pdl}px`};
@@ -28,11 +29,11 @@ const ButtonCustom = styled.button`
   position: relative;
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
-  @media (max-width: 600px) {
-    display:${({isShow}) => (isShow === "mobile" || isShow === "both") ? "block" : "none"}
+  @media (max-width: 992px) {
+    display:${({isShow,Block}) => (isShow === "mobile" || isShow === "both" || Block ) ? "block" : "none"}
   }
-  @media (min-width: 1200px) {
-    display:${({isShow}) => (isShow === "desktop" || isShow === "both") ? "block" : "none"}
+  @media (min-width: 992px) {
+    display:${({isShow,Block}) => (isShow === "both" || isShow === "desktop" || Block ) ? "block" : "none"}
   }
   :hover {
     transition: all 0.6s ease;

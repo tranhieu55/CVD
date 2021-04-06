@@ -183,6 +183,7 @@ export default function ListBlog() {
             lineh="48"
             className="btn-studies"
             id='loadMore'
+            Block={true}
             onClick={() => setMap()}
           >
             Load more case studies

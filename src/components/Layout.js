@@ -226,37 +226,47 @@ const Layout = ({
       }
     }
         allHeaders {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_HeaderBodyMenu_items {
-                  label
-                  type
-                  fields {
-                    slug_menu_item
-                    title_menu_item
-                  }
-                }
-                ... on PRISMIC_HeaderBodyCta_buton {
-                  type
-                  label
-                  primary {
-                    display_desktop_or_mobile
-                    text_button
-                  }
-                }
-                ... on PRISMIC_HeaderBodySocial_icon_header {
-                  type
-                  label
-                  fields {
-                    social_icon_item
-                  }
-                }
+      edges {
+        node {
+          website_logo
+          body {
+            ... on PRISMIC_HeaderBodyMenu_items {
+              type
+              label
+              fields {
+                slug_menu_item
+                title_menu_item
               }
-              website_logo
+            }
+            ... on PRISMIC_HeaderBodyCta_buton {
+              type
+              label
+              primary {
+                background_color_button
+                border_button_color
+                button_text_color
+                display_desktop_or_mobile
+                text_button
+              }
+            }
+            ... on PRISMIC_HeaderBodySocial_icon_header {
+              type
+              label
+              fields {
+                link_to_social_network {
+                  ... on PRISMIC__ExternalLink {
+                    _linkType
+                    target
+                    url
+                  }
+                }
+                social_icon_item
+              }
             }
           }
         }
+      }
+    }
       }
     }
   `)

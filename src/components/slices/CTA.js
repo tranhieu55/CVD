@@ -257,6 +257,7 @@ export default function Interested(props) {
             pd1="16"
             pd2="31.5"
             lineh="24"
+            Block={true}
           >
             <Span></Span>
             <Span></Span>

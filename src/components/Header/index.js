@@ -7,6 +7,8 @@ import logoBigcommerece from "../../images/logo_Bigcommerece.png"
 import bannerServices from "../../images/banner_Services.jpg"
 import logoBuger from "../../images/burger-menu@2x-1.png"
 import logoBugerBlack from "../../images/burger-menu@2x.png"
+import logoIconClose from "../../images/iconclose.png"
+import logoIconPhone from "../../images/phone-black@2x.png"
 import IMG from "../Image"
 import { Form, Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -27,7 +29,7 @@ const WrapperHeader = styled.div`
     outline: none;
   }
   .fixedTop {
-    background-color: #101010 !important;
+    background-color: #252940 !important;
   }
   a:hover {
     text-decoration: none;
@@ -112,7 +114,6 @@ const WrapperHeader = styled.div`
         color: #ffffff;
         text-decoration: none;
         height: 16px;
-        width: 54px;
         font-size: 16px;
         letter-spacing: 0;
         line-height: 22px;
@@ -181,9 +182,16 @@ const WrapperHeader = styled.div`
       }
     }
   }
+  .edit-img {
+    width:18px;
+    height: 18px;
+  }
   @media (max-width: 600px) {
     .my-form {
       margin-top:50px;
+    }
+    .mb17 {
+      margin-bottom:17px!important;
     }
     .menu-list {
       width: 100%;
@@ -247,9 +255,13 @@ const WrapperHeader = styled.div`
     .navbar-nav {
       margin: 0px;
     }
+    .my-form {
+      margin-top:50px;
+    }
     .menu-list li.menu-list_item {
       height: 36px;
       margin-top: 20px;
+      padding: 3px 0px !important
     }
     .menu-list li.menu-list_item a.menu-list_item_text-black {
       text-align: left;
@@ -312,6 +324,13 @@ const WrapperHeader = styled.div`
     #basic-navbar-nav .header-scroll {
       background: #101010;
       margin-top: 20px;
+    }
+    .mb17 {
+      margin-bottom:25px;
+    }
+    .menu-list_item_text-white {
+      font-size: 32px!important;
+      line-height: 56px!important;
     }
   }
   @media (min-width: 992px) and (max-width: 1023px){
@@ -479,6 +498,8 @@ const WrapperHeader = styled.div`
     position: absolute;
     top: 26px;
     right: 26px;
+    width: 20px;
+    height: 20px;
   }
 `
 const LogoHeader = styled.div`
@@ -548,17 +569,17 @@ const Icon = styled.div`
   img {
     margin-right:25px;
   }
-  @media (max-width: 991px) {
-    display:${({isShowCTA}) => isShowCTA === "mobile" && isShowCTA === "both" ? "block" : "none"}
+  @media (max-width: 992px) {
+    display: flex;
   }
   @media (min-width: 992px) {
-    display:${({isShowCTA}) => isShowCTA === "desktop" && isShowCTA === "both" ? "block" : "none"}
+    display:none;
   }
 `
 
 
 
-const Header = ({ location, dataHeader, dataMenuHeader}) => {
+const Header = ({ location, dataMenuHeader}) => {
   
   console.log("du lieu header",dataMenuHeader)
   const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
@@ -577,7 +598,7 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
   
 
   const isShowCTA = dataMenuHeader.edges[0].node.body.filter(x => x.type === 'cta_buton');
-  // console.log(isShowCTA)
+  console.log(dataIcon)
   const titleServices = [
     { title: "Web Development Strategy", slug: "" },
     { title: "UX & Design", slug: "" },
@@ -594,6 +615,7 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
       setScroll(false)
     }
   }
+
   useEffect(() => {
     !!window && window.addEventListener("scroll", handleScroll)
     return () => {
@@ -601,7 +623,6 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
     }
   }, [])
 
-   console.log('isShow : ', isShowCTA);
   return (
     <WrapperHeader>
       <Navbar
@@ -667,7 +688,7 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
           className={`${scroll && "header-scroll"} `}
         >
           <Navbar.Toggle>
-            <img src="../../images/iconclose.png" className="icon-close"/>
+            <img src={logoIconClose} className="icon-close"/>
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
             {dataMenu.map((item, index) => (
@@ -844,70 +865,52 @@ const Header = ({ location, dataHeader, dataMenuHeader}) => {
             ))}
           </Nav>
           <Form className="my-form">
-            {scroll ? (
-              <ButtonCustom
-                className="button-header"
-                bgColor={theme.colors.secondaryColor}
-                textColor={theme.colors.white}
-                pd1="12"
-                pd2="19.5"
-                lineh="22"
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <GetInTouch>{dataButton}</GetInTouch>
-              </ButtonCustom>
-            ) : (
               <>
-              <div>
-                <Icon isShow={isShowCTA}>
+                <Icon>
                   {dataIcon.map((item,index) => (
-                    <img src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
+                      <img src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
                   ))
                   }
                 </Icon>
-                
                 {
                   isShowCTA.map((item, index) => {
+                    console.log("lấy dữ liệu ra check nhé" , item)
                     return (
-                      <ButtonCustom key={index} isShow={isShowCTA} isShow={item.primary.display_desktop_or_mobile}  // both , mobile. desktop
-                  className="button-header"
-                  w="100"
-                  bgColor={
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal"
-                      ? theme.colors.transparent
-                      : theme.colors.lightGray
-                  }
-                  textColor={
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal"
-                      ? theme.colors.white
-                      : theme.colors.secondaryColor
-                  }
-
-                  pd1="12"
-                  pd2="19.5"
-                  lineh="22"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <GetInTouch>{item.primary.text_button[0].text}</GetInTouch>
-                </ButtonCustom>)
+                      <ButtonCustom key={index} 
+                        isShow={item.primary.display_desktop_or_mobile}  // both , mobile. desktop
+                        className={index === 0 ? "mb17 button-header" : "button-header"}
+                        w="100"
+                        bgColor={
+                          item.primary.background_color_button
+                          // location === "/" ||
+                          // location === "/contact" ||
+                          // location === "/case-study" ||
+                          // location === "/proposal"
+                          //   ? theme.colors.transparent
+                          //   : theme.colors.lightGray
+                        }
+                        textColor={
+                          // location === "/" ||
+                          // location === "/contact" ||
+                          // location === "/case-study" ||
+                          // location === "/proposal"
+                          //   ? theme.colors.white
+                          //   : theme.colors.secondaryColor
+                          item.primary.button_text_color
+                        }
+                        pd1="12"
+                        pd2="19.5"
+                        lineh="22"
+                      >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <GetInTouch>{index === 1 ? <img className="edit-img" src={logoIconPhone}/> :""} {item.primary.text_button[0].text}</GetInTouch>
+                      </ButtonCustom>)
                   })
                 }
-              </div>
               </>
-              
-            )}
           </Form>
         </Navbar.Collapse>
       </Navbar>

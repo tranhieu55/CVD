@@ -164,6 +164,7 @@ function OurWorkItems(props) {
               fz="18"
               lineh="48"
               className="btn-studies"
+              Block={true}
             >
               Load more case studies
             </ButtonCustom>
