@@ -6,7 +6,7 @@ import SEO from "../components/utilities/SEO"
 import { graphql } from "gatsby"
 
 const Projects = ({ data: { prismic } }) => {
-  const data = prismic.allProjects.edges[0].node
+  const data = prismic.allProjectss.edges[0].node
   return (
     <Layout location="/projects">
       <SEO props={data} />
@@ -20,7 +20,7 @@ export default Projects
 export const pageQuery = graphql`
   query indexQuery {
     prismic {
-      allProjects {
+      allProjectss {
         edges {
           node {
             keywords

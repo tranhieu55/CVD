@@ -269,6 +269,22 @@ const WrapperHeader = styled.div`
     .menu-list li.menu-list_item a {
       text-align: left;
     }
+    .menu-list li.menu-list_item span {
+      font-family: "Calibre Semibold";
+      display: block;
+      font-weight: 600;
+      color: #ffffff;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      height: 16px;
+      font-size: 16px;
+      -webkit-letter-spacing: 0;
+      -moz-letter-spacing: 0;
+      -ms-letter-spacing: 0;
+      letter-spacing: 0;
+      line-height: 22px;
+      text-align: center;
+    }
     .wraper-header {
       padding-left: 0px;
       padding-right: 0px;
@@ -708,26 +724,28 @@ const Header = ({ location, dataMenuHeader}) => {
                 }`}
                 key={index}
               >
-                <Link
+              {item.slug_menu_item[0].text === "services" ?
+                <span className="menu-list_item_text-white">{item.title_menu_item[0].text}</span>
+                : <Link
                   to={
-                    item.slug_menu_item[0].text === "services"
-                      ? ""
-                      : `/${item.slug_menu_item[0].text}`
+                    `/${item.slug_menu_item[0].text}`
                   }
                   activeClassName="active"
                   className={
                     scroll
-                      ? "menu-list_item_text-white"
+                      ? "menu-list_item_text-white hellohieutt"
                       : location === "/" ||
                         location === "/contact" ||
                         location === "/case-study" ||
                         location === "/proposal"
-                      ? "menu-list_item_text-white"
+                      ? "menu-list_item_text-white hellohieutt"
                       : "menu-list_item_text-black"
                   }
                 >
                   {item.title_menu_item[0].text}
                 </Link>
+              }
+                
                 {item.slug_menu_item[0].text === "services" ? (
                   <Ul className="menu-area_services">
                     <MenuItemServices>
