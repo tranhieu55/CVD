@@ -231,7 +231,7 @@ const WrapperHeader = styled.div`
     .menu-nav-white {
       height: 11px;
       width: 32px;
-      color: #f8f9fa;
+      color: white;
       font-family: "Calibre Semibold";
       font-size: 14px;
       font-weight: 600;
@@ -299,7 +299,7 @@ const WrapperHeader = styled.div`
     .menu-nav-white {
       height: 11px;
       width: 32px;
-      color: #f8f9fa;
+      color: white;
       font-family: "Calibre Semibold";
       font-size: 14px;
       font-weight: 600;
@@ -559,6 +559,9 @@ const GetInTouch = styled.h2`
   text-align: center;
   white-space: nowrap;
   margin-bottom: 0px;
+  @media (min-width: 992px) {
+    font-size: 18px;
+  }
 `
 const Icon = styled.div`
   display:flex;
@@ -874,7 +877,6 @@ const Header = ({ location, dataMenuHeader}) => {
                 </Icon>
                 {
                   isShowCTA.map((item, index) => {
-                    console.log("lấy dữ liệu ra check nhé" , item)
                     return (
                       <ButtonCustom key={index} 
                         isShow={item.primary.display_desktop_or_mobile}  // both , mobile. desktop
