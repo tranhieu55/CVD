@@ -179,22 +179,29 @@ export const pageQuery = graphql`
                   }
                 }
               }
-             
-
-            ... on PRISMIC_HomepageBodyProject_tilesq {
-              primary {
-                number_of_projects_to_show
-              }
-              fields {
-                project_item {
-                  ... on PRISMIC_Projects {
-                    name_category_of_project
-                    project_name
-                    project_header_image
+              ... on PRISMIC_HomepageBodyProject_tilesq {
+                type
+                label
+                fields {
+                  project_item {
+                    ... on PRISMIC_Projects {
+                      name_category_of_project
+                      project_name
+                      _meta {
+                        uid
+                      }
+                      relationship_to_project_category {
+                        ... on PRISMIC_Category_ourwork {
+                          _meta {
+                            uid
+                          }
+                        }
+                      }
+                      project_header_image
+                    }
                   }
                 }
               }
-            }
 
               ... on PRISMIC_HomepageBodyCta_button {
                 fields {

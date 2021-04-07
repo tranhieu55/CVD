@@ -1,10 +1,6 @@
 import React, { querySelector, querySelectorAll, useState} from "react"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import IMG from "../../../Image"
-import ButtonCustom from "../../../ButtonCustom"
-import OwlCarousel from 'react-horizontal-scrolling-menu';
-import DragScroll from '../DragScroll'
 
 
 
@@ -79,6 +75,7 @@ const HappyClients = styled.div`
     height: 822px;
     background-color: #F8F8F8;
     position: relative;
+    margin-top: 96px;
 `
 
 const Title = styled.h1`
@@ -184,7 +181,6 @@ const Opaci = styled.div`
 `
 
 const Buttons = styled.div`
-    position : absolute;
     :after{
         height: 24px;
         width: 28px;
