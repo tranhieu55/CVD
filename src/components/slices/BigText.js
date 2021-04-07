@@ -34,6 +34,16 @@ const SubHeading = styled.h2`
     font-size: 2rem;
     width: 90%;
   }
+  @media(max-width: 600px){
+    padding-top: 30px;
+    padding-bottom: 56px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 29px;
+    text-align: center;
+    width: 327px;
+  }
 `
 const Container = styled.div`
   @media (max-width: 769px) {

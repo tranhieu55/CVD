@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 import Button from "../../../../bits/Button"
+import {Collapse} from 'reactstrap';
 
 
 export default function WhatWeDoMobile(props) {
@@ -32,12 +33,22 @@ export default function WhatWeDoMobile(props) {
 
 
   function updateSelected(i) {
+    console.log(i);
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)
-
+    if(isOpen === i) {
+      setIsOpen(null);
+    } else {
+      setIsOpen(i)
+    }
   }
+  const [isOpen, setIsOpen] = useState(null);
+  const [status, setStatus] = useState('Closed');
+  const onExited = () => setStatus('Closed');
 
+console.log({fields});
+  
   return (
       <Container>
           <Title>{heading}</Title>
@@ -45,9 +56,15 @@ export default function WhatWeDoMobile(props) {
             let title = service.service[0].text
             return (
               <React.Fragment key={i}>
-                <Service  onClick={() => updateSelected(i)} indicator={i === indicator}>
+                <Service className={`accordion-title ${isOpen === i ? "open" : ""}`} onClick={() => updateSelected(i)} indicator={i === indicator}>
                   {title}
                 </Service>
+                <Collapse isOpen={isOpen === i} onExited={onExited}>
+                    <UpperContent>  
+                      <Content>{RichText.render(content)}</Content>
+                      <LearnMore>Learn more</LearnMore>
+                    </UpperContent>
+                  </Collapse>
               </React.Fragment>
             )
           })}
@@ -62,33 +79,109 @@ const UpperContent = styled.div`
 `
 const Container = styled.div`
   z-index: 3;
-  top: -200px;
   position: relative;
   display: block;
   @media (min-width: 769px) {
     display:none;
   }
+  margin-left: 32px;
+  height: 496px;
+  width: 311px;
 `
 
 const Title = styled.h2`
   color: #ffffff;
-  font-size: 64px;
+  font-size: 32px;
   font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 62px;
+  letter-spacing: -0.5px;
+  line-height: 30px;
+  height: 30px;
+  width: 148px;
+  font-family: Calibre Bold;
 `
 
 const Service = styled.h4`
-  opacity: 0.6;
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  cursor: pointer;
-  :hover{
-    color: white;
-    opacity: 1;
+  @media(max-width: 600px){
+    height: 22px;
+    opacity: 0.6;
+    color: #FFFFFF;
+    font-family: Calibre;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: 26px;
+    margin-bottom: 16px;
+    :hover{
+      color: white;
+      opacity: 1;
+    }
+    opacity: ${props => props.indicator ? 1 : .6};
+    .accordion-title {
+      font-weight: 600;
+      cursor: pointer;
+      color: #666;
+      padding: 0.5em 1.5em;
+      border: solid 1px #ccc;
+      border-radius: 1.5em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid currentColor;
+      }
+    
+      &:hover,
+      &.open {
+        color: black;
+      }
+    
+      &.open {
+        &::after {
+          content: "";
+          border-top: 0;
+          border-bottom: 5px solid;
+        }
+      }
+    }
   }
-  opacity: ${props => props.indicator ? 1 : .6};
 
+`
+const Blob = styled.div`
+  height: 196px;
+  width: 311px;
+  @media (max-width: 768px) {
+    display:none;
+  }
+`
+const Content = styled.div`
+  width: 311px;
+  color: #FFFFFF;
+  font-family: Calibre Regular;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28px;
+  p{
+    width: 311px;
+    color: #FFFFFF;
+    font-family: Calibre Regular;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+`
+const LearnMore = styled.h4`
+  height: 20px;
+  max-width: 90px;
+  color: #FECF09;
+  font-family: Calibre Medium;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20px;
 `
