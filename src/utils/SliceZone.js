@@ -12,7 +12,7 @@ import {
 
 import { Directions } from "../components/slices/Contact"
 
-import ProjectTiles from "../components/ListBlog"
+import ProjectTiles from "../components/slices/projects/list/ProjectTiles";
 import CTA from "../components/slices/CTA"
 import TextBackground from "../components/OurWoorkDetails/TextBackground"
 import ImageSlider from "../components/OurWoorkDetails/ImageSlider"
@@ -22,7 +22,8 @@ import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
-import Instagram from '../components/Instagram'
+import Instagram from '../components/Instagram';
+import HappyClinetssss from '../components/slices/Homepage/HappyClient/HappyClient';
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -103,6 +104,12 @@ const SliceZone = (props) => {
           return (
             <>
               <ProjectTiles key={index} input={s} />
+            </>
+          )
+        case "happy_clients":
+          return (
+            <>
+              <HappyClinetssss key={index} input={s} />
             </>
           )
         case "cta":

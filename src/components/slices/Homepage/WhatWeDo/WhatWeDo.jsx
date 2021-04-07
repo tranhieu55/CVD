@@ -56,4 +56,12 @@ const Skew = styled.div`
     position: relative;
     display: block;
   }
+  @media(max-width: 600px){
+    height: 672px;
+    width: 100%;
+    background-color: #0F1534;
+    :before{
+      height: 74px;
+    }
+  }
 `

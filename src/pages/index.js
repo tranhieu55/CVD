@@ -23,6 +23,7 @@ const Index = ({ data: { prismic } }) => {
               background={item.color_background_button}
               border = {item.color_border_button}
               textColor = {item.color_text_button}
+              vitri = {index}
             >
             {item.text_button[0].text}
           </ButtonBanner>
@@ -52,22 +53,38 @@ line-height: 88px;
     font-size: 3rem;
     margin: 0;
   }
+  @media(max-width: 600px){
+    height: 139px;
+  width: 301px;
+  color: #FFFFFF;
+  font-family: Calibre Bold;
+  font-size: 52px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  line-height: 44px;
+  }
 `
 
 const Container = styled.div`
   height: 798px;
   width: 100%;
  position: realative;
-  }
   @media (max-width: 769px) {
     display: block;
     height: auto;
+  }
+  @media (max-width: 600px){
+    height: 614px;
+    width: 375px;
   }
 `
 const ImageBanner = styled.img`
   height: 100%;
   width: 100%;
   z-index: 0; 
+  @media (max-width: 600px){
+    object-fit: cover;
+  }
 `
 
 
@@ -79,14 +96,25 @@ const ButtonBanner = styled.button`
   border: 3px solid ${props => props.border};
   color: ${props => props.textColor};
   border-radius : 3px;
+  @media(max-width: 600px){
+    height: 48px;
+    width: 132px;
+    margin-right:${props => props.vitri == 0 ? '16px' : '0px' };
+  }
 `
 const TextBanner = styled.div`
-height: 355px;
-width: 659px;
-position: absolute;
-top: 225px;
-padding-left: 167px;
-z-index: 1;
+  height: 355px;
+  width: 659px;
+  position: absolute;
+  top: 225px;
+  padding-left: 167px;
+  z-index: 1;
+  @media(max-width: 600px){
+    height: 206px;
+    width: 320px;
+    top: 204px;
+    padding-left: 24px;
+  }
 `
 
 export const pageQuery = graphql`
@@ -176,6 +204,19 @@ export const pageQuery = graphql`
                 }
                 label
                 type
+              }
+              ... on PRISMIC_HomepageBodyHappy_clients {
+                type
+                label
+                primary {
+                  title_happy_client
+                }
+                fields {
+                  logo_client
+                  qoute_of_client
+                  sub_title
+                  title
+                }
               }
             }
           }
