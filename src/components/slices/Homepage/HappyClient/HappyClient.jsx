@@ -67,6 +67,7 @@ const HappyClient = ({ input }, rootClass) => {
             ))}
         </Slides>
         <Opaci></Opaci>
+        <Buttons></Buttons>
     </HappyClients>
   )
 }
@@ -182,6 +183,28 @@ const Opaci = styled.div`
     right: 0px;
 `
 
-const Prevs = styled.div`
-
+const Buttons = styled.div`
+    position : absolute;
+    :after{
+        height: 24px;
+        width: 28px;
+        color: #AAABAB;
+        font-family: "Font Awesome 5 Pro";
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+    }
+    :before{
+        height: 24px;
+        width: 28px;
+        color: #AAABAB;
+        font-family: "Font Awesome 5 Pro";
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+    }
 `
