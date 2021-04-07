@@ -1,3 +1,4 @@
+import { RichText } from 'prismic-reactjs'
 import React from 'react'
 import styled from "styled-components"
 import H2 from '../bits/H2'

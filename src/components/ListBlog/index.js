@@ -155,7 +155,7 @@ export default function ListBlog() {
               data.prismic.allProjectss.edges.length === 3
                 ? "col-md-4"
                 : "col-md-6"
-            }`}
+              }`}
             key={index}
           >
             <DivIMG
