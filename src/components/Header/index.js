@@ -315,9 +315,9 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      background: gray;
-      transition: all 0.7s ease;
-      top: 60px;
+      /* background: gray; */
+      transition: all 0.5s ease;
+      top: 0px;
       position: absolute;
       width: 100vw;
     }
