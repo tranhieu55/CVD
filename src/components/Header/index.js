@@ -155,11 +155,11 @@ const WrapperHeader = styled.div`
         top: 100%;
         width: 100%;
         left: 0;
-        background-color: #f8f9fa;
+        background-color: white;
         max-height: 0;
         transition: all 0.5s ease-in-out;
         overflow: hidden;
-        height: 50vh;
+        height: 405px;
         & > ul {
           list-style: none;
         }
@@ -169,10 +169,17 @@ const WrapperHeader = styled.div`
           flex-direction: column;
           flex-basis: 25%;
           li.list-services_Item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 17px;
             padding-left: 0.8rem;
             display: block;
-            border-bottom: 1px solid #ededed;
+            /* border-bottom: 1px solid #ededed; */
+            display: flex;
+            align-items: center;
+            .image-services-item {
+              width:24px;
+              height:24px;
+              margin-right:10px;
+            }
             a {
               padding-bottom: 0.7rem;
               color: black;
@@ -184,14 +191,15 @@ const WrapperHeader = styled.div`
         }
 
         ul.list-platforms {
-          flex-basis: 25%;
+          flex-basis: 32%;
           li.list-platforms_Card {
             display: flex;
             align-items: center;
-            background-color: #b7b7b736;
-            padding: 1rem;
+            background-color: #F6F6F6;
+            padding: 25px;
             border-radius: 10px;
             margin-bottom: 1rem;
+            padding-top:10px;
             &:last-child {
               margin-bottom: unset;
             }
@@ -199,7 +207,7 @@ const WrapperHeader = styled.div`
         }
 
         ul.launches {
-          flex-basis: 50%;
+          flex-basis: 42%;
         }
       }
       &:hover .menu-area_services {
@@ -526,6 +534,22 @@ const WrapperHeader = styled.div`
     width: 20px;
     height: 20px;
   }
+  .imagefull {
+    height:500px!important;
+    width:89%;
+  }
+  .list-title-services {
+    font-family:'Calibre Regular'!important;
+    font-size: 18px!important;
+    color: #222222!important;
+    letter-spacing: 0!important;
+  }
+  .list-services_Item {
+    margin-top:15px;
+  }
+  .mt0 {
+    margin-top:0px;
+  }
 `
 const LogoHeader = styled.div`
   width: 172px;
@@ -561,9 +585,9 @@ const CardDescription = styled.div`
 
 `
 const MenuItemServices = styled.div`
-  margin-left: 70px;
-  margin-right: 160px;
-  margin-top: 30px;
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 35px;
   display: flex;
   justify-content: space-between;
 `
@@ -604,12 +628,78 @@ const Icon = styled.div`
     display:none;
   }
 `
+const DivIMG = styled.div`
+  overflow: hidden;
+  transition: all 200ms ease-in;
+  position: relative;
+  display: inline-block;
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: ".";
+    background-color: gold;
+    height: 5px;
+    transition: all 0.4s ease-in;
+  }
+  :hover {
+    ::after {
+      width: 100%;
+    }
+  }
+`
+const TitleImageBlog = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: 5rem;
+  left: 6rem;
+  cursor: pointer;
+  /* color:red; */
+  @media only screen and (min-width: 768px) {
+    bottom: 14rem;
+    left: 40px;
+  }
+  @media only screen and (min-width: 1200px) {
+    bottom: 14rem;
+    left: 40px;
+  }
+`
+const H3 = styled.h3`
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  @media only screen and (max-width: 600px) {
+    font-size: 28px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 36px;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 36px;
+  }
+`
+const Span = styled.span`
+  font-weight: bold;
+  color: gold!important;
+`
 
 
-
-const Header = ({ location, dataMenuHeader}) => {
+const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   
-  console.log("du lieu header",dataMenuHeader)
+  console.log("du lieu headerServiecs",dataServicesMenu)
+  const dataServices = dataServicesMenu.edges[0].node.body
+  console.log('hello word', dataServices)
+  
   const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
   
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
@@ -626,14 +716,6 @@ const Header = ({ location, dataMenuHeader}) => {
   
 
   const isShowCTA = dataMenuHeader.edges[0].node.body.filter(x => x.type === 'cta_buton');
-  console.log(dataIcon)
-  const titleServices = [
-    { title: "Web Development Strategy", slug: "" },
-    { title: "UX & Design", slug: "" },
-    { title: "Web Development", slug: "" },
-    { title: "Integration", slug: "" },
-    { title: "Web Migration", slug: "" },
-  ]
   
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
@@ -782,128 +864,100 @@ const Header = ({ location, dataMenuHeader}) => {
                       <Ul className="list-services">
                         <P
                           uppercase={true}
-                          fontSise="16"
+                          fontSise="14"
                           coLor={theme.colors.black4}
-                          fontWeight={theme.fonts.bold}
+                          fontWeight="600"
                           mrb="16"
+                          fontFamily="Calibre Semibold"
+                          lett="1"
                         >
-                          services
+                          {dataServices[0]?.primary?.title[0]?.text}
                         </P>
-                        {[...titleServices].map((item, index) => (
-                          <Li className="list-services_Item" key={index}>
-                            <Link to={item.slug}>{item.title}</Link>
-                          </Li>
+                        {dataServices[0]?.fields.map((item, index) => (
+                          <>
+                            <Li className={`${index === 0 ? 'mt0 list-services_Item':'list-services_Item'}`} key={index}>
+                              <img className="image-services-item" src={item.image_service_item.url} alt={item.image_service_item.alt}/>
+                              <Link className="list-title-services" to=''>{item.title_service_item[0].text}</Link>
+                            </Li>
+                            <hr />
+                          </>
                         ))}
                       </Ul>
                       {/* PLATFORMS */}
                       <Ul className="list-platforms">
                         <P
                           uppercase={true}
-                          fontSise="16"
+                          fontSise="14"
                           coLor={theme.colors.black4}
-                          fontWeight={theme.fonts.bold}
+                          fontWeight="600"
+                          fontFamily="Calibre Semibold"
                           mrb="16"
+                          lett="1"
                         >
-                          platforms
+                         {dataServices[1]?.primary.title[0]?.text}
                         </P>
-                        <Li className="list-platforms_Card">
-                          <IMG
-                            alt="abc"
-                            src={logoMagento}
-                            w="45"
-                            h="45"
-                            objectFit="contain"
-                            mr="12"
-                          ></IMG>
-                          <CardDescription>
-                            <P
-                              fontSise="15"
-                              coLor={theme.colors.black}
-                              fontWeight={theme.fonts.bold}
-                            >
-                              Magento
-                            </P>
-                            <P
-                              fontSise="13"
-                              coLor={theme.colors.black3}
-                              fontWeight={theme.fonts.regular}
-                            >
-                              The world's #1 eCommerce platform.
-                            </P>
-                          </CardDescription>
+                        {dataServices[1]?.fields.map((item,index) => (
+                          <Li key={index} className="list-platforms_Card">
+                            <IMG
+                              alt={item.image_platform_item.alt}
+                              src={item.image_platform_item.url}
+                              w="44"
+                              h="52"
+                              objectFit="contain"
+                              mr="22"
+                              
+                            ></IMG>
+                            <CardDescription>
+                              <P
+                                fontSise="20"
+                                coLor="#101010"
+                                fontWeight="500"
+                                fontFamily="Calibre Medium"
+                              >
+                                {item.name_service[0].text}
+                              </P>
+                              <P
+                                fontSise="18"
+                                fontFamily="Calibre Regular"
+                                coLor="#222222"
+                                fontWeight={theme.fonts.regular}
+                              >
+                                {item.short_description[0].text}
+                              </P>
+                            </CardDescription>
                         </Li>
-
-                        <Li className="list-platforms_Card">
-                          <IMG
-                            alt="abc"
-                            src={logoShopify}
-                            w="45"
-                            h="45"
-                            objectFit="contain"
-                            mr="12"
-                          ></IMG>
-                          <CardDescription>
-                            <P
-                              fontSise="15"
-                              coLor={theme.colors.black}
-                              fontWeight={theme.fonts.bold}
-                            >
-                              Shopify Plus
-                            </P>
-                            <P
-                              fontSise="13"
-                              coLor={theme.colors.black3}
-                              fontWeight={theme.fonts.regular}
-                            >
-                              The world's #1 eCommerce platform.
-                            </P>
-                          </CardDescription>
-                        </Li>
-
-                        <Li className="list-platforms_Card">
-                          <IMG
-                            alt="abc"
-                            src={logoBigcommerece}
-                            w="45"
-                            h="45"
-                            objectFit="contain"
-                            mr="12"
-                          ></IMG>
-                          <CardDescription>
-                            <P
-                              fontSise="15"
-                              coLor={theme.colors.black}
-                              fontWeight={theme.fonts.bold}
-                            >
-                              Bigcommerece
-                            </P>
-                            <P
-                              fontSise="13"
-                              coLor={theme.colors.black3}
-                              fontWeight={theme.fonts.regular}
-                            >
-                              The world's #1 eCommerce platform.
-                            </P>
-                          </CardDescription>
-                        </Li>
+                        ))}
                       </Ul>
                       {/* LAUNCHES */}
                       <Ul className="launches">
                         <P
                           uppercase={true}
-                          fontSise="16"
+                          fontSise="14"
                           coLor={theme.colors.black4}
-                          fontWeight={theme.fonts.bold}
+                          fontWeight="600"
                           mrb="16"
+                          fontFamily="Calibre Semibold"
+                          lett="1"
                         >
-                          launches
+                          {dataServices[2]?.primary.title[0].text}
                         </P>
+                        <DivIMG
+                          as={Link}
+                          className="imagefull"
+                          to={"projects/"+`${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/`+`${dataServices[2]?.primary.launches_project._meta.uid}`}
+                        >
+                          <IMG
+                            src={dataServices[2]?.primary.launches_project.project_header_image.url}
+                            objectFit="cover"
+                            heightPercent="60"
+                            alt={dataServices[2]?.primary.launches_project.project_header_image.alt}
 
-                        <IMG
-                          src={bannerServices}
-                          objectFit="cover"
-                          heightPercent="60"
-                        ></IMG>
+                          />
+                          <TitleImageBlog>
+                            <Span>{dataServices[2]?.primary.launches_project.name_category_of_project}</Span>
+                            <H3>{dataServices[2]?.primary.launches_project.project_name[0].text}</H3>
+                          </TitleImageBlog>
+                        </DivIMG>
                       </Ul>
                     </MenuItemServices>
                   </Ul>
@@ -917,7 +971,7 @@ const Header = ({ location, dataMenuHeader}) => {
               <>
                 <Icon>
                   {dataIcon.map((item,index) => (
-                      <img src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
+                      <img key={index} src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
                   ))
                   }
                 </Icon>
