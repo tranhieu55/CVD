@@ -4,7 +4,7 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 
 
 
-const HappyClient = ({ input }, rootClass) => {
+const HappyClient = ({ input }) => {
   const data = useStaticQuery(graphql`
     query queryHappyClient {
         prismic {
@@ -33,11 +33,7 @@ const HappyClient = ({ input }, rootClass) => {
         }
     `
     )
-    console.log(data.prismic.allHomepages.edges[0].node.body[6].fields);
-    const node = data.prismic.allHomepages.edges.map(item => item.node);
-    const body = node.map(item => item.body);
-    const bodys = body[0]
-    const Titles = bodys[6].primary.title_happy_client.map(item => item.text);
+    const Titles = input.primary.title_happy_client.map(item => item.text);
 
 
    
@@ -45,7 +41,7 @@ const HappyClient = ({ input }, rootClass) => {
     <HappyClients>
         <Title>{Titles}</Title>
         <Slides >
-            {bodys[6].fields.map((item, index) => (
+            {input.fields.map((item, index) => (
                 <Slider key={index} >
                     <Img
                         alt={item.logo_client.alt}
@@ -76,6 +72,7 @@ const HappyClients = styled.div`
     background-color: #F8F8F8;
     position: relative;
     margin-top: 96px;
+    clip-path: polygon(0px 0%,100% 2px,100% 87%,0% 100%);
 `
 
 const Title = styled.h1`
@@ -181,26 +178,32 @@ const Opaci = styled.div`
 `
 
 const Buttons = styled.div`
-    :after{
+    position: absolute;
+    top: 636px;
+    right: 171px; 
+    &::after {
+        content: "\f178";
+        font-family: "Font Awesome 5 Pro Regular";
         height: 24px;
         width: 28px;
-        color: #AAABAB;
-        font-family: "Font Awesome 5 Pro";
         font-size: 32px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 24px;
         text-align: center;
+        color: #AAABAB;
+        margin-left: 24px;
     }
-    :before{
+    &::before{
+        content: "\f177";
         height: 24px;
         width: 28px;
-        color: #AAABAB;
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 5 Pro Regular";
         font-size: 32px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 24px;
         text-align: center;
+        color: #D3D3D3;
     }
 `

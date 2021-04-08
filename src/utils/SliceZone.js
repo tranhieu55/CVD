@@ -22,8 +22,9 @@ import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
-import Instagram from '../components/Instagram';
+import Instagram from '../components/slices/Homepage/Instargram';
 import HappyClinetssss from '../components/slices/Homepage/HappyClient/HappyClient';
+import OurServicesss from '../components/slices/Homepage/OurService/index';
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -112,6 +113,12 @@ const SliceZone = (props) => {
               <HappyClinetssss key={index} input={s} />
             </>
           )
+        case "our_services":
+          return(
+            <>
+              <OurServicesss key={index} input={s} />
+            </>
+          )
         case "cta":
           return (
             <>
@@ -164,7 +171,7 @@ const SliceZone = (props) => {
               <TextQoute key={index} input={s} />
             </>
           )
-        case "":
+        case "connect_instagram":
           return (
             <>
               <Instagram key={index} input={s} />
