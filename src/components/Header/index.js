@@ -25,6 +25,31 @@ const WrapperHeader = styled.div`
     padding: 3px 16px !important;
     border-bottom: 0px solid !important;
   }
+  .menu-list li.menu-list_item span {
+      cursor: pointer;
+      font-family: "Calibre Semibold";
+      display: block;
+      font-weight: 600;
+      color: #ffffff;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      height: 16px;
+      font-size: 16px;
+      -webkit-letter-spacing: 0;
+      -moz-letter-spacing: 0;
+      -ms-letter-spacing: 0;
+      letter-spacing: 0;
+      line-height: 22px;
+      text-align: left;
+    }
+    .backgroundServiecs {
+      background-color: white!important;
+    }
+    .menu-area_services{
+      padding-left:0;
+    } hr {
+      margin: 0!important;
+    }
   .navbar-light .navbar-toggler {
     outline: none;
   }
@@ -58,7 +83,7 @@ const WrapperHeader = styled.div`
     color: white;
   }
   .menu-list_item_text-black {
-    color: black;
+    color: black !important;
   }
 
   .navbar-nav {
@@ -269,22 +294,6 @@ const WrapperHeader = styled.div`
     .menu-list li.menu-list_item a {
       text-align: left;
     }
-    .menu-list li.menu-list_item span {
-      font-family: "Calibre Semibold";
-      display: block;
-      font-weight: 600;
-      color: #ffffff;
-      -webkit-text-decoration: none;
-      text-decoration: none;
-      height: 16px;
-      font-size: 16px;
-      -webkit-letter-spacing: 0;
-      -moz-letter-spacing: 0;
-      -ms-letter-spacing: 0;
-      letter-spacing: 0;
-      line-height: 22px;
-      text-align: center;
-    }
     .wraper-header {
       padding-left: 0px;
       padding-right: 0px;
@@ -489,7 +498,7 @@ const WrapperHeader = styled.div`
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-  .dropdown_services:hover {
+  .dropdown_services {
     .menu-area_services{
       max-height:100%!important;
       top:7%!important;
@@ -625,8 +634,9 @@ const Header = ({ location, dataMenuHeader}) => {
     { title: "Integration", slug: "" },
     { title: "Web Migration", slug: "" },
   ]
-
+  
   const [scroll, setScroll] = useState(false)
+  const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const handleScroll = () => {
     if (!!window && window.scrollY > 20) {
       setScroll(true)
@@ -641,12 +651,43 @@ const Header = ({ location, dataMenuHeader}) => {
       !!window && window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
+  const handelClickServices = () => {
+    setIsDisPlayModalService(!isDisPlayModalService)
+  }
+  console.log('dữ liệu đấy nhé hiếu', isDisPlayModalService)
+  const checkColorText = () => {
+    if(scroll && isDisPlayModalService) {
+      return "menu-list_item_text-white"
+    } else {
+      if(isDisPlayModalService) {
+        return "menu-list_item_text-black"
+      }
+      else {
+        return "menu-list_item_text-white"
+      }
+    }
+  }
+  const checkColorTextButton = () => {
+    if(scroll && isDisPlayModalService) {
+      return "white"
+    } else {
+      if(isDisPlayModalService) {
+        return "black"
+      }
+      else {
+        return "white"
+      }
+    }
+  }
   return (
     <WrapperHeader>
       <Navbar
         expand="lg"
-        className={`wraper-header ${
+        className={`wraper-header 
+        ${
+          isDisPlayModalService === true ? "backgroundServiecs" : "" 
+        }
+        ${
           scroll
             ? "fixedTop "
             : `${
@@ -666,12 +707,7 @@ const Header = ({ location, dataMenuHeader}) => {
             ) : (
               <IMG
                 src={
-                  location === "/" ||
-                  location === "/contact" ||
-                  location === "/case-study" ||
-                  location === "/proposal"
-                    ? logoLight
-                    : logoBlack
+                  isDisPlayModalService === true ? logoBlack : logoLight
                 }
               />
             )}
@@ -720,27 +756,18 @@ const Header = ({ location, dataMenuHeader}) => {
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${
-                  item.slug_menu_item[0].text === "services" ? "dropdown_services" : ""
+                  isDisPlayModalService === true ? "dropdown_services" : ""
                 }`}
                 key={index}
               >
               {item.slug_menu_item[0].text === "services" ?
-                <span className="menu-list_item_text-white">{item.title_menu_item[0].text}</span>
+                <span onClick={handelClickServices} className={checkColorText()}>{item.title_menu_item[0].text}</span>
                 : <Link
                   to={
                     `/${item.slug_menu_item[0].text}`
                   }
                   activeClassName="active"
-                  className={
-                    scroll
-                      ? "menu-list_item_text-white hellohieutt"
-                      : location === "/" ||
-                        location === "/contact" ||
-                        location === "/case-study" ||
-                        location === "/proposal"
-                      ? "menu-list_item_text-white hellohieutt"
-                      : "menu-list_item_text-black"
-                  }
+                  className={checkColorText()}
                 >
                   {item.title_menu_item[0].text}
                 </Link>
@@ -748,6 +775,7 @@ const Header = ({ location, dataMenuHeader}) => {
                 
                 {item.slug_menu_item[0].text === "services" ? (
                   <Ul className="menu-area_services">
+                    <hr />
                     <MenuItemServices>
                       {" "}
                       {/* SERVICES */}
@@ -902,21 +930,9 @@ const Header = ({ location, dataMenuHeader}) => {
                         w="100"
                         bgColor={
                           item.primary.background_color_button
-                          // location === "/" ||
-                          // location === "/contact" ||
-                          // location === "/case-study" ||
-                          // location === "/proposal"
-                          //   ? theme.colors.transparent
-                          //   : theme.colors.lightGray
                         }
                         textColor={
-                          // location === "/" ||
-                          // location === "/contact" ||
-                          // location === "/case-study" ||
-                          // location === "/proposal"
-                          //   ? theme.colors.white
-                          //   : theme.colors.secondaryColor
-                          item.primary.button_text_color
+                          checkColorTextButton()
                         }
                         pd1="12"
                         pd2="19.5"
