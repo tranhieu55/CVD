@@ -4,6 +4,8 @@ import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import { Link } from "gatsby"
+import Instagrams from '../components/slices/Homepage/Instargram';
+import OurServices from "../components/slices/Homepage/OurService"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -32,6 +34,7 @@ const Index = ({ data: { prismic } }) => {
         </TextBanner>
       </Container>
       <SliceZone allSlices={data.body} />
+      <OurServices />
     </Layout>
   )
 }
@@ -129,6 +132,7 @@ export const pageQuery = graphql`
             meta_title
             meta_description
             keywords
+            token_instagram
             body {
               ... on PRISMIC_HomepageBodyCta {
                 type
@@ -224,6 +228,14 @@ export const pageQuery = graphql`
                   logo_client
                   qoute_of_client
                   sub_title
+                  title
+                }
+              }
+              ... on PRISMIC_HomepageBodyConnect_instagram {
+                type
+                label
+                primary {
+                  access_token
                   title
                 }
               }
