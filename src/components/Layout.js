@@ -272,7 +272,7 @@ const Layout = ({
   `)
   const dataFooter = data.prismic.allFooters
   const dataMenuHeader = data.prismic.allHeaders
-  const BoxLayout = styled.div``
+  const BoxLayout = styled.div`overflow-x: hidden;`
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>

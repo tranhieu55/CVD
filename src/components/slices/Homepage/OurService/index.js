@@ -61,6 +61,9 @@ const Container = styled.div`
     position: relative;
     margin-top: 96px;
     border-top: 1px solid #E4E4E4;
+    @media(max-width: 600px){
+      display: none;
+    }
 `
 
 const Title = styled.h1`

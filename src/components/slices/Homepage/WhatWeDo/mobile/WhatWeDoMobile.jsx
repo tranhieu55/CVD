@@ -86,7 +86,6 @@ const Container = styled.div`
   }
   margin-left: 32px;
   height: 496px;
-  width: 311px;
 `
 
 const Title = styled.h2`
@@ -177,11 +176,19 @@ const Content = styled.div`
 `
 const LearnMore = styled.h4`
   height: 20px;
-  max-width: 90px;
   color: #FECF09;
   font-family: Calibre Medium;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 20px;
+  &::after{
+    content: "\f178";
+    font-family: "Font Awesome 5 Pro Regular";
+    height: 18px;
+    line-height: 0px;
+    font-size: 18px;
+    color: #FECF09;
+    padding: 0px 0.6rem;
+  }
 `

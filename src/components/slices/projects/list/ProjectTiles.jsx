@@ -69,11 +69,9 @@ const ProjectTiles = ({ input }) => {
               as={Link}
               to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
             >
-              <IMG
+              <Img
                 alt={edge.project_item.project_header_image.alt }
                 src={edge.project_item.project_header_image.url}
-                objectFit="cover"
-                h="500"
               />
             </DivIMG>
             <TitleImageBlog>
@@ -124,6 +122,11 @@ const ListBlogStyle = styled.div`
     background-color: gold;
     color: white;
   }
+  @media(max-width: 600px){
+    margin-top: 30px;
+    height: 1076px;
+    margin: 30px 16px 0px;
+  }
 `
 const DivIMG = styled.div`
   overflow: hidden;
@@ -146,9 +149,26 @@ const DivIMG = styled.div`
       width: 100%;
     }
   }
+  @media(max-width: 600px){
+    width: 100%;
+    height: 100%;
+  }
 `
-const Rows = styled.div``
-const Colum = styled.div``
+const Rows = styled.div`
+  @media(max-width: 600px){
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+`
+const Colum = styled.div`
+  @media(max-width: 600px){
+    height: 245px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 8px;
+    margin-top: 0px !important;
+  }
+`
 const TitleImageBlog = styled.div`
   position: absolute;
   z-index: 2;
@@ -205,6 +225,11 @@ const H3 = styled.h3`
 `
 const MyBtn = styled.div`
   margin: 40px auto;
+  @media(max-width: 600px){
+    margin: 16px 0px;
+    height: 48px;
+    width: 100%;
+  }
 `
 const ButtonCustom = styled.button`
   font-family: "Calibre Semibold";
@@ -239,5 +264,18 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
+  @media(max-width: 600px){
+    width: 100%;
+    height: 100%; 
+  }
 `
-
+const Img = styled.img`
+  display: block;
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+@media(max-width: 600px){
+  width: 100%;
+  height: 100%;
+}
+`
