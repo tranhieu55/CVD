@@ -132,7 +132,6 @@ export const pageQuery = graphql`
             meta_title
             meta_description
             keywords
-            token_instagram
             body {
               ... on PRISMIC_HomepageBodyCta {
                 type
@@ -237,6 +236,23 @@ export const pageQuery = graphql`
                 primary {
                   access_token
                   title
+                }
+              }
+              ... on PRISMIC_HomepageBodyFeatured_posts {
+                type
+                label
+                primary {
+                  title
+                  messaging
+                }
+                fields {
+                  posts {
+                    _linkType
+                    ... on PRISMIC_Post {
+                      title
+                      post_image
+                    }
+                  }
                 }
               }
             }
