@@ -57,39 +57,6 @@ export default function WhatWeDoDesktop(props) {
             <Content>{RichText.render(content)}</Content>
             <LearnMore>Learn more</LearnMore>
           </UpperContent>
-          <Blob>
-            <div className="blob">
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-              <div className="blob__chunk"></div>
-            </div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <defs>
-                <filter id="goo">
-                  <feGaussianBlur
-                    in="SourceGraphic"
-                    stdDeviation="10"
-                    result="blur"
-                  />
-                  <feColorMatrix
-                    in="blur"
-                    mode="matrix"
-                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                    result="goo"
-                  />
-                  <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-              </defs>
-            </svg>
-          </Blob>
         </Right>
       </ContainerDesktop>
   )
@@ -173,13 +140,8 @@ const Right = styled.div`
 
 `
 
-const Blob = styled.div`
-  @media (max-width: 768px) {
-    display:none;
-  }
-`
+
 const Content = styled.div`
-height: 204px;
 width: 444px;
 color: #FFFFFF;
 font-family: Calibre Regular;
@@ -188,7 +150,6 @@ letter-spacing: 0;
 line-height: 34px;
 margin-bottom: 14px;
 p{
-  height: 204px;
   width: 444px;
   color: #FFFFFF;
   font-family: Calibre Regular;
