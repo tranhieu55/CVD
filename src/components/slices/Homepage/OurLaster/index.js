@@ -52,7 +52,7 @@ const OurLaster = ({ input }) => {
                     <Img
                         src={item.posts.post_image.url}
                     ></Img>
-                    <SubTitle>#createbyconvert</SubTitle>
+                    <SubTitle>June 25, 2019</SubTitle>
                     <TitlePost>
                         {item.posts.title.map(item => item.text)}
                     </TitlePost>
@@ -68,11 +68,12 @@ export default OurLaster
 
 const OurLasters = styled.div`
     height: 716px;
-    width: 1232px;
     position: relative;
-    margin-top: 96px;
-    margin-left : auto;
-    margin-right: auto;
+    margin: 96px 184px 0px;
+    @media(max-width: 600px){
+      height: 862px;
+      margin: 32px 16px 37px;
+    }
 `
 
 const Title = styled.h1`
@@ -86,25 +87,41 @@ const Title = styled.h1`
   line-height: 72px;
   text-align: center;
   margin: 0 auto;
+  @media(max-width: 600px){
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 38px;
+    text-align: center;
+    height: 38px;
+    width: 285px;
+  }
 `
 const Messagings = styled.h4`
-  height: 60px;
-  width: 928px;
   color: #262626;
   font-family: Calibre;
   font-size: 24px;
   letter-spacing: 0;
   line-height: 30px;
   text-align: center;
-  margin-top: 16px;
-  margin-left : auto;
-  margin-right: auto;
-  margin-bottom: 48px;
+  margin: 16px 152px 48px;
+  @media(max-width: 600px){
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    margin: 5px 0px 24px;
+  }
 `  
 
 const ListPost = styled.div`
   height: 517px;
   width: 606px;
+  @media(max-width: 600px){
+    height: 351px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
 `
 
 
@@ -112,10 +129,15 @@ const Img = styled.img`
   height: 400px;
   width: 573px;
   margin-left: 32px;
+  object-fit: cover;
+  @media(max-width: 600px){
+    width: 100%;
+    height: 240px;
+    margin-left: 0px;
+  }
 `
 const TitlePost = styled.h4`    
   height: 64px;
-  width: 516px;
   color: #111111;
   font-family: Calibre Semibold;
   font-size: 32px;
@@ -123,12 +145,28 @@ const TitlePost = styled.h4`
   letter-spacing: -0.5px;
   line-height: 32px;
   margin-left: 80px;
+  @media(max-width: 600px){
+    height: 72px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.25px;
+    line-height: 24px;
+    margin-left: 40px;
+  }
+  @media(max-width: 320px){
+    width: 249px;
+  }
 `
 const Content = styled.span`
   height: 520px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media(max-width: 600px){
+    height: 723px;
+    width: 100%;
+    display: block;
+  }
 `
 const SubTitle = styled.h4`
     position: relative;
@@ -152,6 +190,19 @@ const SubTitle = styled.h4`
         height: 2px;
         background: #fecf09
     }
+  @media(max-width: 600px){
+    height: 14px;
+    font-family: Calibre;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 14px;
+    margin-left: 40px;
+    margin-top: 18px;
+    &::after{
+      width: 23px;
+    }
+  }
 `
 
 

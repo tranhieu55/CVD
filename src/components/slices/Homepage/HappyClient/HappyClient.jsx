@@ -35,14 +35,18 @@ const HappyClient = ({ input }) => {
     )
     const Titles = input.primary.title_happy_client.map(item => item.text);
 
+    const [indicator, setindicator] = useState(0);
 
+    function updateSelected(index) {
+      setindicator(index)
+    }
    
   return (
     <HappyClients>
         <Title>{Titles}</Title>
-        <Slides >
+        <Slides className='md:overflow-scroll'>
             {input.fields.map((item, index) => (
-                <Slider key={index} >
+                <Slider key={index} onClick={() => updateSelected(index)} indicator={index == indicator}>
                     <Img
                         alt={item.logo_client.alt}
                         src={item.logo_client.url}
@@ -73,6 +77,11 @@ const HappyClients = styled.div`
     position: relative;
     margin-top: 96px;
     clip-path: polygon(0px 0%,100% 2px,100% 87%,0% 100%);
+    @media(max-width: 600px){
+      height: 653px;
+      margin-top: 24px;
+      clip-path: polygon(0px 0%,100% 2px,100% 95%,0% 100%);
+    }
 `
 
 const Title = styled.h1`
@@ -86,20 +95,42 @@ const Title = styled.h1`
     text-align: center;
     padding-top: 100px;
     margin-bottom: 0px;
+    @media(max-width: 600px){
+      height: 121px;
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      line-height: 38px;
+      text-align: center;
+      padding: 45px 77px 0px;
+    }
+    @media(max-width: 320px){
+      font-size: 30px;
+    }
 `   
 const Slider = styled.div`
     height: 254px;
     width: 548px;
     margin-right: 72px;
     margin-top: 47px;
+    @media(max-width: 600px){
+      margin-top: 0px;
+      margin-right: ${props => props.indicator === 4 ? '0px': '64px'};
+    }
+    @media(max-width: 320px){
+      width: 265px;
+    }
 
 `
 const Slides = styled.div`
     height: 406px;
     margin-top: 145px;
     display: flex;
-    margin-left: 180px;
+    padding-left: 180px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
     ::-webkit-scrollbar {
         height: 4px; 
         width: 50%;
@@ -121,26 +152,57 @@ const Slides = styled.div`
       ::-webkit-scrollbar-thumb:hover {
         background: #b30000; 
       }
-      :after{
-        height: 24px;
-        width: 28px;
-        color: #AAABAB;
-        font-family: "Font Awesome 5 Pro";
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: 0;
-        line-height: 24px;
-        text-align: center;
+
+    @media(max-width: 600px){
+      margin-top: 64px;
+      padding-left: 48px;
+      height: 354px;
+      overflow-x: auto;
+      width: 100%;
+      position: relative;
+      ::-webkit-scrollbar {
+        height: 4px; 
+        width: 50%;
       }
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #d5d5d5; 
+        border-radius: 10px;
+        margin-right: 80px;
+        margin-left: 80px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #BBBBBB; 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+      }
+    }
 `
 const Img = styled.img`
     height: 24px;
     width: 162px;
+    @media(max-width: 600px){
+      height: 24px;
+      width: 162px;
+    }
 `
 const Text = styled.div`    
     width: 548px;
     padding-top: 32px;
     padding-bottom: 14px;
+    @media(max-width: 600px){
+      width: 282px;
+      padding-top: 18px;
+      padding-bottom: 12px;
+    }
+    @media(max-width: 320px){
+      width: 265px;
+    }
 `
 const Content = styled.span`
     color: #222222;
@@ -148,6 +210,11 @@ const Content = styled.span`
     font-size: 20px;
     letter-spacing: 0;
     line-height: 28px;
+    @media(max-width: 600px){
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+    }
 `
 
 const SubTilte = styled.div`
@@ -156,6 +223,11 @@ const SubTilte = styled.div`
     font-size: 20px;
     letter-spacing: 0;
     line-height: 22px;
+    @media(max-width: 600px){
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 20px;
+    }
 `
 const SubText = styled.div`
     color: #555555;
@@ -163,6 +235,11 @@ const SubText = styled.div`
     font-size: 20px;
     letter-spacing: 0;
     line-height: 22px;
+    @media(max-width: 600px){
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 20px;
+    }
 `
 const Sub = styled.div`
     height: 44px;
@@ -175,6 +252,9 @@ const Opaci = styled.div`
     position : absolute;
     top: 238px;
     right: 0px;
+    @media(max-width: 600px){
+      display: none;
+    }
 `
 
 const Buttons = styled.div`
@@ -205,5 +285,13 @@ const Buttons = styled.div`
         line-height: 24px;
         text-align: center;
         color: #D3D3D3;
+    }
+    @media(max-width: 600px){
+      top: 565px;
+      right: 40%;
+      &::after{
+        height: 24px;
+        width: 28px;
+      }
     }
 `

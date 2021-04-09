@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
@@ -8,18 +8,24 @@ const PlatformTrio = ({ input }) => {
   const title = input.primary.title[0].text
   const content = input.primary.content
   const platforms = input.fields
+  const [indicator, setindicator] = useState(0);
+
+  function updateSelected(i) {
+    setindicator(i)
+  }
+
   return (
     <Container>
       <Title>{title}</Title>
       <Content className="content">{RichText.render(content)}</Content>
 
-      <Platforms>
+      <Platforms className='md:overflow-scroll'>
         {platforms.map((platform, i) => {
           const name = platform.platform[0].text
           const desc = platform.description
           const logo = platform.logo.url
           return (
-            <Platform key={i}>
+            <Platform key={i} onClick={() => updateSelected(i)} indicator={i == indicator}>
               <div className='white'></div>
               <Inner>
                 <PlatformLogo src={logo} />
@@ -58,15 +64,22 @@ const Container = styled.div`
     display: block;
     top: -79px;
   }
-  @media (max-width: 769px) {
+  @media (min-width: 769px) {
     :before{
       top: -19px;
       transform: skewY(4.5deg);
       height: 62px;
     }
     height: 855px;
-    width: 375px;
     
+  }
+  @media(max-width: 600px){
+    position: relative;
+    margin-top: 10px;
+    :before{
+      top: -51px;
+      height: 69px;
+    }
   }
 `
 const Title = styled.h2`
@@ -112,7 +125,6 @@ const Content = styled.div`
     text-align: center;
     top: -19px;
     height: 192px;
-    width: 344px;
     margin: 0 auto;
     p{
       width: 100%;
@@ -131,9 +143,34 @@ const Platforms = styled.div`
   @media(max-width: 600px){
     $color: white;
     margin-top: 54px;
-    margin-left: 48px;
+    padding-left: 48px;
     height: 375px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+    position: relative;
+    ::-webkit-scrollbar {
+      height: 3px; 
+      width: 50%;
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #d5d5d5; 
+      border-radius: 10px;
+      margin-right: 100px;
+      margin-left: 40px;
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #BBBBBB; 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000; 
+    }
   }
 `
 const Platform = styled.div`
@@ -145,7 +182,7 @@ const Platform = styled.div`
   @media(max-width: 600px){
     height: 274px;
     width: 216px;
-    margin-right: 64px;
+    margin-right: ${props => props.indicator === 0  ? '0px': '64px'};
   }
   
 `

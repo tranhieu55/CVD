@@ -22,18 +22,13 @@ const SubHeading = styled.h2`
   text-align: center;
   font-size: 48px;
   max-width: 1258px;
-  margin: auto;
+  margin: 0px auto;
   height: auto;
   padding-top: 134px;
   padding-bottom: 140px;
   font-family: Calibre Semibold;
   line-height: 52px;
   color: #101010;
-  @media (max-width: 769px) {
-    text-align: center;
-    font-size: 2rem;
-    width: 90%;
-  }
   @media(max-width: 600px){
     padding-top: 30px;
     padding-bottom: 56px;
@@ -42,7 +37,7 @@ const SubHeading = styled.h2`
     letter-spacing: 0;
     line-height: 29px;
     text-align: center;
-    width: 327px;
+    margin: 0px 24px;
   }
 `
 const Container = styled.div`

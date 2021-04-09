@@ -49,6 +49,9 @@ const Clientss = styled.div`
     height: 164px;
     margin-top: 52px;
   }
+  @media(max-width: 320px){
+    width: 274px;
+  }
 `
 
 const Heading = styled.h2`

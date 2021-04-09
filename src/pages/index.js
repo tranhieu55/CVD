@@ -78,13 +78,14 @@ const Container = styled.div`
   }
   @media (max-width: 600px){
     height: 614px;
-    width: 375px;
+    width: 100%;
   }
 `
 const ImageBanner = styled.img`
   height: 100%;
   width: 100%;
   z-index: 0; 
+  object-fit: cover;
   @media (max-width: 600px){
     object-fit: cover;
   }
