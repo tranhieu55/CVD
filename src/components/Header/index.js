@@ -8,7 +8,9 @@ import bannerServices from "../../images/banner_Services.jpg"
 import logoBuger from "../../images/burger-menu@2x-1.png"
 import logoBugerBlack from "../../images/burger-menu@2x.png"
 import logoIconClose from "../../images/iconclose.png"
+import logoIconClosBlack from "../../images/cancelBack.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
+import logoIconBack from "../../images/long-arrow-left@2x.png"
 import IMG from "../Image"
 import { Form, Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -152,7 +154,6 @@ const WrapperHeader = styled.div`
       }
       ul.menu-area_services {
         position: fixed;
-        top: 100%;
         width: 100%;
         left: 0;
         background-color: white;
@@ -170,9 +171,8 @@ const WrapperHeader = styled.div`
           flex-basis: 25%;
           li.list-services_Item {
             margin-bottom: 17px;
-            padding-left: 0.8rem;
+            padding-left: 10px;
             display: block;
-            /* border-bottom: 1px solid #ededed; */
             display: flex;
             align-items: center;
             .image-services-item {
@@ -198,8 +198,9 @@ const WrapperHeader = styled.div`
             background-color: #F6F6F6;
             padding: 25px;
             border-radius: 10px;
-            margin-bottom: 1rem;
-            padding-top:10px;
+            margin-bottom: 15px;
+            padding-bottom: 13px;
+            padding-top: 19px;
             &:last-child {
               margin-bottom: unset;
             }
@@ -210,15 +211,73 @@ const WrapperHeader = styled.div`
           flex-basis: 42%;
         }
       }
-      &:hover .menu-area_services {
-        max-height: 100vh;
-      }
     }
   }
   .edit-img {
     width:18px;
     height: 18px;
   }
+  .menu-mobile-iconBack {
+    display: none;
+  }
+  .menu-mobile-iconClose {
+    display: none;
+  }
+  .navbar-collapse {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .header-scroll {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .dropdown_services {
+    .menu-area_services{
+      max-height:100%!important;
+      top:72px;
+    }
+  }
+  
+  .show {
+    position: fixed;
+    top: 0!important;
+    height: 100vh;
+    z-index: 1000;
+    width: 400px;
+    max-width: 100%;
+    background-color: #191F3F!important;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    left: 0%;
+    transition: all 0.4s;
+    padding:48px;
+  }
+  .icon-close {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    width: 20px;
+    height: 20px;
+  }
+  .imagefull {
+    height:500px!important;
+    width:88%;
+  }
+  .list-title-services {
+    font-family:'Calibre Regular'!important;
+    font-size: 18px!important;
+    color: #222222!important;
+    letter-spacing: 0!important;
+  }
+  .list-services_Item {
+    margin-top:15px;
+  }
+  .mt0 {
+    margin-top:0px;
+  }
+
+
   @media (max-width: 600px) {
     .my-form {
       margin-top:50px;
@@ -247,6 +306,15 @@ const WrapperHeader = styled.div`
     .navbar-collapse {
       div {
         margin-bottom: 10px;
+        max-width:375px;
+        flex-wrap: wrap;
+        margin-left: 12px; 
+        margin-right: 12px;
+        margin-top:10px;
+        ul {
+          padding-left:0;
+          margin-bottom:18px;
+        }
       }
     }
     .menu-nav {
@@ -272,6 +340,68 @@ const WrapperHeader = styled.div`
       text-align: right;
       margin-top: 3px;
       margin-right: 4px;
+    }
+    .dropdown_services .menu-area_services {
+      max-width:375px!important;
+      z-index:1;
+      height: auto!important;
+      top:0%!important;
+    }
+    .menu-mobile {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      margin-bottom:45px!important;
+      p {
+        color:#101010;
+        font-size:32px;
+        font-family:"Calibre Bold";
+        margin-bottom:0px;
+        text-transform:none;
+        height:32px;
+      }
+      .menu-mobile-iconBack {
+        display: block;
+        width:21px;
+        height:15px;
+      }
+      .menu-mobile-iconClose {
+        display: block;
+        width:20px;
+        height:19px;
+      }
+    }
+    li.list-services_Item {
+      margin-left: 12px;
+      img {
+        margin-right: 15px!important;
+      }
+      a {
+        font-size:20px!important;
+      }
+    }
+    .list-services_Item {
+      margin-top: 25px!important;
+    }
+    .mt0 {
+      margin-top:0px!important;
+    }
+    .displayMobile {
+      display:none;
+    }
+    .list-platforms_Card {
+      padding-left:20px!important;
+      padding-right:0px!important;
+      padding-bottom: 0px!important;
+      padding-top: 5px!important;
+
+      img {
+        margin-right:6px;
+      }
+    }
+    .imagefull {
+      width:100%!important;
+      height: 100%!important;
     }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -498,58 +628,6 @@ const WrapperHeader = styled.div`
       transform: translateY(-100%);
     }
   }
-  .navbar-collapse {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-  .header-scroll {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-  .dropdown_services {
-    .menu-area_services{
-      max-height:100%!important;
-      top:7%!important;
-    }
-  }
-  .show {
-    position: fixed;
-    top: 0!important;
-    height: 100vh;
-    z-index: 1000;
-    width: 400px;
-    max-width: 100%;
-    background-color: #191F3F!important;
-    max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    left: 0%;
-    transition: all 0.4s;
-    padding:48px;
-  }
-  .icon-close {
-    position: absolute;
-    top: 26px;
-    right: 26px;
-    width: 20px;
-    height: 20px;
-  }
-  .imagefull {
-    height:500px!important;
-    width:89%;
-  }
-  .list-title-services {
-    font-family:'Calibre Regular'!important;
-    font-size: 18px!important;
-    color: #222222!important;
-    letter-spacing: 0!important;
-  }
-  .list-services_Item {
-    margin-top:15px;
-  }
-  .mt0 {
-    margin-top:0px;
-  }
 `
 const LogoHeader = styled.div`
   width: 172px;
@@ -590,6 +668,9 @@ const MenuItemServices = styled.div`
   margin-top: 35px;
   display: flex;
   justify-content: space-between;
+  @media(max-width: 600px) {
+    display: block;
+  }
 `
 
 const MenuText = styled.div`
@@ -656,41 +737,26 @@ const TitleImageBlog = styled.div`
   bottom: 5rem;
   left: 6rem;
   cursor: pointer;
-  /* color:red; */
-  @media only screen and (min-width: 768px) {
-    bottom: 14rem;
-    left: 40px;
+  @media only screen and (max-width: 600px) {
+    bottom: 0rem;
+    left: 1rem;
   }
   @media only screen and (min-width: 1200px) {
-    bottom: 14rem;
-    left: 40px;
+    top: 223px;
+    left: 27px;
   }
 `
 const H3 = styled.h3`
   color: white;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: bold;
   margin: 0;
   padding: 0;
-  @media only screen and (max-width: 600px) {
-    font-size: 28px;
-  }
-  @media only screen and (min-width: 600px) {
-    font-size: 30px;
-  }
-  @media only screen and (min-width: 768px) {
-    font-size: 30px;
-  }
-  @media only screen and (min-width: 992px) {
-    font-size: 36px;
-  }
-  @media only screen and (min-width: 1200px) {
-    font-size: 36px;
-  }
 `
 const Span = styled.span`
   font-weight: bold;
-  color: gold!important;
+  color: #FECF09!important;
+  font-size:18px;
 `
 
 
@@ -862,17 +928,21 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                       {" "}
                       {/* SERVICES */}
                       <Ul className="list-services">
-                        <P
-                          uppercase={true}
-                          fontSise="14"
-                          coLor={theme.colors.black4}
-                          fontWeight="600"
-                          mrb="16"
-                          fontFamily="Calibre Semibold"
-                          lett="1"
-                        >
-                          {dataServices[0]?.primary?.title[0]?.text}
-                        </P>
+                        <div className="menu-mobile">
+                          <img className="menu-mobile-iconBack" src={logoIconBack} alt="back"/>
+                          <P
+                            uppercase={true}
+                            fontSise="14"
+                            coLor={theme.colors.black4}
+                            fontWeight="600"
+                            mrb="19"
+                            fontFamily="Calibre Semibold"
+                            lett="1"
+                          >
+                            {dataServices[0]?.primary?.title[0]?.text}
+                          </P>
+                          <img className="menu-mobile-iconClose" src={logoIconClosBlack} alt="close"/>
+                        </div>
                         {dataServices[0]?.fields.map((item, index) => (
                           <>
                             <Li className={`${index === 0 ? 'mt0 list-services_Item':'list-services_Item'}`} key={index}>
@@ -891,8 +961,9 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                           coLor={theme.colors.black4}
                           fontWeight="600"
                           fontFamily="Calibre Semibold"
-                          mrb="16"
+                          mrb="10"
                           lett="1"
+                          className="displayMobile"
                         >
                          {dataServices[1]?.primary.title[0]?.text}
                         </P>
@@ -904,7 +975,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                               w="44"
                               h="52"
                               objectFit="contain"
-                              mr="22"
+                              mr="25"
                               
                             ></IMG>
                             <CardDescription>
@@ -935,9 +1006,10 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                           fontSise="14"
                           coLor={theme.colors.black4}
                           fontWeight="600"
-                          mrb="16"
+                          mrb="10"
                           fontFamily="Calibre Semibold"
                           lett="1"
+                          className="displayMobile"
                         >
                           {dataServices[2]?.primary.title[0].text}
                         </P>
