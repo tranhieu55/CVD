@@ -278,7 +278,7 @@ const WrapperHeader = styled.div`
   }
 
 
-  @media (max-width: 600px) {
+  @media (max-width: 600px) {    
     .my-form {
       margin-top:50px;
     }
@@ -306,15 +306,6 @@ const WrapperHeader = styled.div`
     .navbar-collapse {
       div {
         margin-bottom: 10px;
-        max-width:375px;
-        flex-wrap: wrap;
-        margin-left: 12px; 
-        margin-right: 12px;
-        margin-top:10px;
-        ul {
-          padding-left:0;
-          margin-bottom:18px;
-        }
       }
     }
     .menu-nav {
@@ -342,10 +333,12 @@ const WrapperHeader = styled.div`
       margin-right: 4px;
     }
     .dropdown_services .menu-area_services {
-      max-width:375px!important;
+      max-width:100%!important;
       z-index:1;
       height: auto!important;
       top:0%!important;
+      position: absolute !important;
+      overflow-y:scroll!important;
     }
     .menu-mobile {
       display: flex;
@@ -668,8 +661,26 @@ const MenuItemServices = styled.div`
   margin-top: 35px;
   display: flex;
   justify-content: space-between;
+  ul {
+    flex-basis: none;
+  }
   @media(max-width: 600px) {
     display: block;
+    max-width:100%;
+    flex-wrap: wrap;
+    margin-left: 12px; 
+    margin-right: 12px;
+    margin-top:10px;
+    ul {
+      padding-left:0;
+      margin-bottom:18px;
+    }
+  }
+  @media(min-width: 992px) {
+    
+  }
+  @media(min-width: 1366px) {
+
   }
 `
 
@@ -802,7 +813,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   const handelClickServices = () => {
     setIsDisPlayModalService(!isDisPlayModalService)
   }
-  console.log('dữ liệu đấy nhé hiếu', isDisPlayModalService)
+  console.log('dữ liệu đấy nhé hiếu', true)
   const checkColorText = () => {
     if(scroll && isDisPlayModalService) {
       return "menu-list_item_text-white"
@@ -891,7 +902,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
           className={`${scroll && "header-scroll"} `}
         >
           <Navbar.Toggle>
-            <img src={logoIconClose} className="icon-close"/>
+            <img onClick={() => setIsDisPlayModalService(false)} src={logoIconClose} className="icon-close"/>
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
             {dataMenu.map((item, index) => (
@@ -929,7 +940,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                       {/* SERVICES */}
                       <Ul className="list-services">
                         <div className="menu-mobile">
-                          <img className="menu-mobile-iconBack" src={logoIconBack} alt="back"/>
+                          <img className="menu-mobile-iconBack" onClick={() => setIsDisPlayModalService(false)} src={logoIconBack} alt="back"/>
                           <P
                             uppercase={true}
                             fontSise="14"
@@ -941,7 +952,9 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                           >
                             {dataServices[0]?.primary?.title[0]?.text}
                           </P>
-                          <img className="menu-mobile-iconClose" src={logoIconClosBlack} alt="close"/>
+                          <Navbar.Toggle>
+                            <img className="menu-mobile-iconClose" onClick={() => setIsDisPlayModalService(false)} src={logoIconClosBlack} alt="close"/>
+                          </Navbar.Toggle>
                         </div>
                         {dataServices[0]?.fields.map((item, index) => (
                           <>
