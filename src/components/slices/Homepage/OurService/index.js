@@ -5,7 +5,6 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 
 
 const OurServices = ({ input }) => {
-  console.log({input})
     const data = useStaticQuery(graphql`
     query queryOurServices {
       prismic {
@@ -61,6 +60,7 @@ const Container = styled.div`
     height: 515px;
     position: relative;
     margin-top: 96px;
+    border-top: 1px solid #E4E4E4;
 `
 
 const Title = styled.h1`
@@ -73,6 +73,7 @@ const Title = styled.h1`
   line-height: 56px;
   max-width: 1240px;
   margin: 0 auto;
+  margin-top: 80px;
 `   
 const Cards = styled.div`
   height: 136px;

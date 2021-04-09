@@ -25,6 +25,8 @@ import OneImage from "../components/OurWoorkDetails/OneImage"
 import Instagram from '../components/slices/Homepage/Instargram';
 import HappyClinetssss from '../components/slices/Homepage/HappyClient/HappyClient';
 import OurServicesss from '../components/slices/Homepage/OurService/index';
+import OurServices from "../components/slices/Homepage/OurService/index"
+import OurLaster from "../components/slices/Homepage/OurLaster/index"
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -175,6 +177,12 @@ const SliceZone = (props) => {
           return (
             <>
               <Instagram key={index} input={s} />
+            </>
+          )
+        case "featured_posts":
+          return (
+            <>
+              <OurLaster key={index} input={s} />
             </>
           )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
