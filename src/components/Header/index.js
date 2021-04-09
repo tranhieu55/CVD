@@ -196,11 +196,6 @@ const WrapperHeader = styled.div`
             display: flex;
             align-items: center;
             background-color: #F6F6F6;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            padding-bottom: 13px;
-            padding-top: 19px;
             &:last-child {
               margin-bottom: unset;
             }
@@ -495,6 +490,7 @@ const WrapperHeader = styled.div`
       display: none;
     }
   }
+  
   @media only screen and (min-width: 1024px) {
     .wraper-header {
       width: 100vw;
@@ -684,10 +680,57 @@ const MenuItemServices = styled.div`
     }
   }
   @media(min-width: 992px) {
-    
+    margin-left: 0px; 
+    margin-right: 0px;
+    .list-services_Item {
+      padding-left:0px!important;
+    }
+    .list-title-services {
+      font-size:16px!important;
+    }
+    .list-platforms_Card {
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      img {
+        margin-right: 15px!important;
+      }
+      div {
+        p {
+          font-size:14px;
+        }
+      }
+    }
   }
   @media(min-width: 1366px) {
-
+    margin-left: 120px; 
+    margin-right: 120px;
+    .list-services_Item {
+      padding-left:10px!important;
+    }
+    .list-title-services {
+      font-size:18px!important;
+    }
+    .list-platforms_Card {
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      padding-bottom: 13px;
+      padding-top: 10px;
+      img {
+        margin-right: 25px!important;
+      }
+      div {
+        .mobile {
+          font-size:20px;
+        }
+        p {
+          font-size:18px;
+        }
+      }
+    }
   }
 `
 
@@ -759,7 +802,11 @@ const TitleImageBlog = styled.div`
     bottom: 0rem;
     left: 1rem;
   }
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 992px) {
+    bottom: 13rem;
+    left: 2rem;
+  }
+  @media only screen and (min-width: 1366px) {
     top: 223px;
     left: 27px;
   }
@@ -803,6 +850,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
+  const [show, setShow] = useState(false)
   const handleScroll = () => {
     if (!!window && window.scrollY > 20) {
       setScroll(true)
@@ -833,18 +881,24 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
       }
     }
   }
-  const checkColorTextButton = () => {
+  const checkColorTextButton = (index) => {
+    console.log({index, isDisPlayModalService, show})
     if(scroll && isDisPlayModalService) {
       return "white"
     } else {
-      if(isDisPlayModalService) {
+      if(!!show && index ===  1) {
+        return "black"
+      }else {
+        if(isDisPlayModalService) {
         return "black"
       }
       else {
         return "white"
       }
+      }
     }
   }
+  console.log({isDisPlayModalService})
   return (
     <WrapperHeader>
       <Navbar
@@ -894,7 +948,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
           >
             Menu
           </MenuText>
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setShow(!show)}>
             {scroll ? (
               <img className="image-buger" src={logoBuger} alt="logo" />
             ) : location === "/we-do" || location === "/projects" ? (
@@ -1079,7 +1133,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                           item.primary.background_color_button
                         }
                         textColor={
-                          checkColorTextButton()
+                          checkColorTextButton(index)
                         }
                         pd1="12"
                         pd2="19.5"
