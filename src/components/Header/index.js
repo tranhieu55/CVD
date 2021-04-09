@@ -198,7 +198,7 @@ const WrapperHeader = styled.div`
             background-color: #F6F6F6;
             padding: 25px;
             border-radius: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             padding-bottom: 13px;
             padding-top: 19px;
             &:last-child {
@@ -345,6 +345,7 @@ const WrapperHeader = styled.div`
       justify-content:space-between;
       align-items: center;
       margin-bottom:45px!important;
+      padding-left:10px;
       p {
         color:#101010;
         font-size:32px;
@@ -389,7 +390,7 @@ const WrapperHeader = styled.div`
       padding-top: 5px!important;
 
       img {
-        margin-right:6px;
+        margin-right:16px;
       }
     }
     .imagefull {
@@ -653,6 +654,12 @@ const MenuColor = styled.div`
   height: 16px;
 `
 const CardDescription = styled.div`
+  @media(max-width: 600px) {
+    .mobile {
+      margin-top: 10px;
+      margin-bottom: -7px;
+    }
+  }
 
 `
 const MenuItemServices = styled.div`
@@ -670,7 +677,7 @@ const MenuItemServices = styled.div`
     flex-wrap: wrap;
     margin-left: 12px; 
     margin-right: 12px;
-    margin-top:10px;
+    margin-top:20px;
     ul {
       padding-left:0;
       margin-bottom:18px;
@@ -997,6 +1004,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                                 coLor="#101010"
                                 fontWeight="500"
                                 fontFamily="Calibre Medium"
+                                className="mobile"
                               >
                                 {item.name_service[0].text}
                               </P>
