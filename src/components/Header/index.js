@@ -86,6 +86,7 @@ const WrapperHeader = styled.div`
   }
   .menu-list_item_text-black {
     color: black !important;
+    opacity: 30%;
   }
 
   .navbar-nav {
@@ -95,7 +96,7 @@ const WrapperHeader = styled.div`
     color: black;
   }
   .menu-list_item_text-white:hover {
-    color: white;
+    color: #FECF09!important;
   }
   .menu-list_item_gold {
     border-bottom: 3px solid transparent !important;
@@ -170,7 +171,7 @@ const WrapperHeader = styled.div`
           flex-direction: column;
           flex-basis: 25%;
           li.list-services_Item {
-            margin-bottom: 17px;
+            margin-bottom: 16px;
             padding-left: 10px;
             display: block;
             display: flex;
@@ -178,7 +179,7 @@ const WrapperHeader = styled.div`
             .image-services-item {
               width:24px;
               height:24px;
-              margin-right:10px;
+              margin-right:14px;
             }
             a {
               padding-bottom: 0.7rem;
@@ -271,7 +272,30 @@ const WrapperHeader = styled.div`
   .mt0 {
     margin-top:0px;
   }
-
+  .menu-list .menu-list_item {
+    transition: all 200ms ease-in;
+    position: relative;
+    :before {
+      position: absolute;
+      left:0;
+      right:0;
+      bottom: -25px;
+      background-color:#FECF09;
+      width:0%;
+      height:3px;
+      content: ".";
+      transition: all 0.4s ease-in;
+      overflow:hidden;
+    }
+    :hover {
+      ::before {
+        width: 80px;
+      }
+    }
+  }
+  .active {
+      background-color:#FECF09;
+  }
 
   @media (max-width: 600px) {    
     .my-form {
@@ -300,7 +324,7 @@ const WrapperHeader = styled.div`
     }
     .navbar-collapse {
       div {
-        margin-bottom: 10px;
+        margin-bottom: 25px;
       }
     }
     .menu-nav {
@@ -332,7 +356,6 @@ const WrapperHeader = styled.div`
       z-index:1;
       height: auto!important;
       top:0%!important;
-      position: absolute !important;
       overflow-y:scroll!important;
     }
     .menu-mobile {
@@ -383,7 +406,8 @@ const WrapperHeader = styled.div`
       padding-right:0px!important;
       padding-bottom: 0px!important;
       padding-top: 5px!important;
-
+      margin-bottom: 10px;
+      border-radius: 6px; 
       img {
         margin-right:16px;
       }
@@ -402,7 +426,59 @@ const WrapperHeader = styled.div`
       }
     }
   }
-
+  @media (max-width: 812px) and (max-height: 450px) {
+    .dropdown_services .menu-area_services {
+      max-width:100%!important;
+      z-index:1;
+      height: auto!important;
+      top:0%!important;
+      position: absolute !important;
+      overflow-y:scroll!important;
+    }
+    .displayMobile {
+      display:none;
+    }
+    .menu-mobile {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      margin-bottom:45px!important;
+      padding-left:10px;
+      p {
+        color:#101010;
+        font-size:32px;
+        font-family:"Calibre Bold";
+        margin-bottom:0px;
+        text-transform:none;
+        height:32px;
+      }
+      .menu-mobile-iconBack {
+        display: block;
+        width:21px;
+        height:15px;
+      }
+      .menu-mobile-iconClose {
+        display: block;
+        width:20px;
+        height:19px;
+      }
+    }
+    .list-platforms_Card {
+      margin-bottom:20px;
+      border-radius:6px;
+      padding:10px 15px;
+    }
+    .imagefull {
+      width:100%!important;
+      height:100%!important;
+    }
+    .list-services_Item{
+      padding-left:25px!important;
+      img {
+        margin-right:25px!important;
+      }
+    }
+  }
   @media (max-width: 991px) {
     .navbar-nav {
       margin: 0px;
@@ -679,6 +755,18 @@ const MenuItemServices = styled.div`
       margin-bottom:18px;
     }
   }
+  @media (max-width: 812px) and (max-height: 450px) {
+    display: block;
+    max-width:100%;
+    flex-wrap: wrap;
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top:20px;
+    ul {
+      padding-left:0;
+      margin-bottom:20px;
+    }
+  }
   @media(min-width: 992px) {
     margin-left: 0px; 
     margin-right: 0px;
@@ -704,7 +792,17 @@ const MenuItemServices = styled.div`
       }
     }
   }
-  @media(min-width: 1366px) {
+  @media(min-width: 1200px) {
+    margin-left: 120px; 
+    margin-right: 120px;
+    .list-platforms_Card {
+      padding:10px 20px;
+      img {
+        margin-right: 25px!important;
+      }
+    }
+  }
+  @media(min-width: 1600px) {
     margin-left: 120px; 
     margin-right: 120px;
     .list-services_Item {
@@ -802,6 +900,10 @@ const TitleImageBlog = styled.div`
     bottom: 0rem;
     left: 1rem;
   }
+  @media (max-width: 812px) and (max-height: 450px) {
+    bottom: 1rem;
+    left: 3rem;
+  }
   @media only screen and (min-width: 992px) {
     bottom: 13rem;
     left: 2rem;
@@ -887,10 +989,10 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
       return "white"
     } else {
       if(!!show && index ===  1) {
-        return "black"
+        return "#101010"
       }else {
         if(isDisPlayModalService) {
-        return "black"
+        return "#101010"
       }
       else {
         return "white"
