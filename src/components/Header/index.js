@@ -51,6 +51,7 @@ const WrapperHeader = styled.div`
       padding-left:0;
     } hr {
       margin: 0!important;
+      border-top:1px solid #eeeeee!important;
     }
   .navbar-light .navbar-toggler {
     outline: none;
@@ -265,6 +266,7 @@ const WrapperHeader = styled.div`
     font-size: 18px!important;
     color: #222222!important;
     letter-spacing: 0!important;
+    font-weight:400!important;
   }
   .list-services_Item {
     margin-top:15px;
@@ -296,7 +298,6 @@ const WrapperHeader = styled.div`
   .active {
       background-color:#FECF09;
   }
-
   @media (max-width: 600px) {    
     .my-form {
       margin-top:50px;
@@ -358,12 +359,25 @@ const WrapperHeader = styled.div`
       top:0%!important;
       overflow-y:scroll!important;
     }
+    .list-services {
+      position: relative;
+    }
+    .menu-mobile:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 58px;
+      width: 100%;
+      height: 0.5px;
+      background-color: #eeeeee;
+    }
     .menu-mobile {
       display: flex;
       justify-content:space-between;
       align-items: center;
       margin-bottom:45px!important;
-      padding-left:10px;
+      padding-left:24px;
+      padding-right:10px;
       p {
         color:#101010;
         font-size:32px;
@@ -384,7 +398,7 @@ const WrapperHeader = styled.div`
       }
     }
     li.list-services_Item {
-      margin-left: 12px;
+      margin-left: 22px;
       img {
         margin-right: 15px!important;
       }
@@ -394,6 +408,7 @@ const WrapperHeader = styled.div`
     }
     .list-services_Item {
       margin-top: 25px!important;
+      margin-bottom:17px!important;
     }
     .mt0 {
       margin-top:0px!important;
@@ -427,6 +442,18 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 812px) and (max-height: 450px) {
+    .list-services {
+      position: relative;
+    }
+    .menu-mobile:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 58px;
+      width: 100%;
+      height: 0.5px;
+      background-color: #eeeeee;
+    }
     .dropdown_services .menu-area_services {
       max-width:100%!important;
       z-index:1;
@@ -436,6 +463,68 @@ const WrapperHeader = styled.div`
     }
     .displayMobile {
       display:none;
+    }
+    .menu-mobile {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      margin-bottom:45px!important;
+      p {
+        color:#101010;
+        font-size:32px;
+        font-family:"Calibre Bold";
+        margin-bottom:0px;
+        text-transform:none;
+        height:32px;
+      }
+      .menu-mobile-iconBack {
+        display: block;
+        width:21px;
+        height:15px;
+      }
+      .menu-mobile-iconClose {
+        display: block;
+        width:20px;
+        height:19px;
+      }
+    }
+    .list-platforms_Card {
+      margin-bottom:20px;
+      border-radius:6px;
+      padding:10px 15px;
+    }
+    .imagefull {
+      width:100%!important;
+      height:100%!important;
+    }
+    .list-services_Item{
+      padding-left:25px!important;
+      img {
+        margin-right:25px!important;
+      }
+    }
+  }
+  @media (min-width: 767.1px) and (max-width: 768.5px) { 
+    .list-services {
+      position: relative;
+    }
+    .menu-mobile:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 58px;
+      width: 100%;
+      height: 0.5px;
+      background-color: #eeeeee;
+    }
+    .displayMobile {
+      display:none;
+    }
+    .menu-area_services {
+      top:0!important;
+      height: 100vh !important;
+      z-index:123;
+      overflow:scroll !important;
     }
     .menu-mobile {
       display: flex;
@@ -472,14 +561,11 @@ const WrapperHeader = styled.div`
       height:100%!important;
     }
     .list-services_Item{
-      padding-left:25px!important;
+      padding-left:38px!important;
       img {
         margin-right:25px!important;
       }
     }
-  }
-  @media (min-width:768px) {
-    
   }
   @media (max-width: 991px) {
     .navbar-nav {
@@ -749,12 +835,20 @@ const MenuItemServices = styled.div`
     display: block;
     max-width:100%;
     flex-wrap: wrap;
-    margin-left: 12px; 
-    margin-right: 12px;
+    margin-left: 0px; 
+    margin-right: 0px;
     margin-top:20px;
     ul {
       padding-left:0;
       margin-bottom:18px;
+    }
+    .list-platforms {
+      padding-left:12px!important;
+      padding-right:12px!important;
+    }
+    .launches {
+      padding-left:12px!important;
+      padding-right:12px!important;
     }
   }
   @media (max-width: 812px) and (max-height: 450px) {
@@ -769,6 +863,33 @@ const MenuItemServices = styled.div`
       margin-bottom:20px;
     }
   }
+ @media (min-width: 767.1px) and (max-width: 768.5px) {
+    margin-left: 0px;
+    margin-right: 0px;
+    flex-wrap: wrap;
+    flex-direction:column;
+    .list-services {
+      padding-left:0!important;
+      flex-basis:unset!important;
+      margin-bottom:25px;
+    }
+    .list-platforms {
+      flex-basis:unset!important;
+      margin-bottom:25px;
+      padding-left:20px!important;
+      padding-right:20px!important;
+    }
+    .launches {
+      margin-bottom:25px;
+      flex-basis:unset!important;
+      padding-left:20px!important;
+      padding-right:20px!important;
+    }
+    .list-platforms_Card {
+      border-radius:6px;
+    }
+}
+
   @media(min-width: 992px) {
     margin-left: 0px; 
     margin-right: 0px;
@@ -777,6 +898,7 @@ const MenuItemServices = styled.div`
     }
     .list-title-services {
       font-size:16px!important;
+      font-weight:400!important;
     }
     .list-platforms_Card {
       padding: 10px;
@@ -812,6 +934,7 @@ const MenuItemServices = styled.div`
     }
     .list-title-services {
       font-size:18px!important;
+      font-weight:400!important;
     }
     .list-platforms_Card {
       padding: 25px;
