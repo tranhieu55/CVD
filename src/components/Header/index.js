@@ -11,6 +11,7 @@ import logoIconClose from "../../images/iconclose.png"
 import logoIconClosBlack from "../../images/cancelBack.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
 import logoIconBack from "../../images/long-arrow-left@2x.png"
+import logoIconRight from "../../images/long-arrow-right@2x.png"
 import IMG from "../Image"
 import { Form, Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -36,7 +37,7 @@ const WrapperHeader = styled.div`
       -webkit-text-decoration: none;
       text-decoration: none;
       height: 16px;
-      font-size: 16px;
+      font-size: 18px;
       -webkit-letter-spacing: 0;
       -moz-letter-spacing: 0;
       -ms-letter-spacing: 0;
@@ -270,6 +271,9 @@ const WrapperHeader = styled.div`
   }
   .list-services_Item {
     margin-top:15px;
+    .list-title-services:hover {
+      color:#FECF09!important;
+    }
   }
   .mt0 {
     margin-top:0px;
@@ -279,13 +283,13 @@ const WrapperHeader = styled.div`
     position: relative;
     :before {
       position: absolute;
-      left:0;
+      left:0px;
       right:0;
       bottom: -25px;
       background-color:#FECF09;
       width:0%;
       height:3px;
-      content: ".";
+      content: "";
       transition: all 0.4s ease-in;
       overflow:hidden;
     }
@@ -298,7 +302,19 @@ const WrapperHeader = styled.div`
   .active {
       background-color:#FECF09;
   }
-  @media (max-width: 600px) {    
+  .icon-mobile-right {
+    display: none;
+  }
+  @media (max-width: 600px) { 
+    .menu-list_item_text-white {
+      font-family:"Calibre Bold"!important;
+    } 
+    .icon-mobile-right {
+      display: inline-block;
+      margin-left: 10px;
+      width: 21px;
+      height: 15px;
+    }  
     .my-form {
       margin-top:50px;
     }
@@ -782,6 +798,9 @@ const WrapperHeader = styled.div`
       transform: translateY(-100%);
     }
   }
+  .convertColor {
+    color:#101010!important;
+  }
 `
 const LogoHeader = styled.div`
   width: 172px;
@@ -1046,7 +1065,7 @@ const TitleImageBlog = styled.div`
 const H3 = styled.h3`
   color: white;
   font-size: 48px;
-  font-weight: bold;
+  font-family: 'Calibre Bold';
   margin: 0;
   padding: 0;
 `
@@ -1213,7 +1232,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                 key={index}
               >
               {item.slug_menu_item[0].text === "services" ?
-                <span onClick={handelClickServices} className={checkColorText()}>{item.title_menu_item[0].text}</span>
+                <span onClick={handelClickServices} className={checkColorText()}>{item.title_menu_item[0].text} <img className="icon-mobile-right" src={logoIconRight} alt=""/> </span>
                 : <Link
                   to={
                     `/${item.slug_menu_item[0].text}`
@@ -1375,7 +1394,18 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <GetInTouch>{index === 1 ? <img className="edit-img" src={logoIconPhone}/> :""} {item.primary.text_button[0].text}</GetInTouch>
+                        {index === 1 ? 
+                          <GetInTouch>
+                            <a className="convertColor" href={`tel: ${item.primary.text_button[0].text}`}>
+                              <img className="edit-img" src={logoIconPhone}/> 
+                              {item.primary.text_button[0].text}
+                            </a>
+                          </GetInTouch>
+                        :
+                          <GetInTouch>
+                            {item.primary.text_button[0].text}
+                          </GetInTouch>
+                        }
                       </ButtonCustom>)
                   })
                 }
