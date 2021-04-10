@@ -432,7 +432,6 @@ const WrapperHeader = styled.div`
       z-index:1;
       height: auto!important;
       top:0%!important;
-      position: absolute !important;
       overflow-y:scroll!important;
     }
     .displayMobile {
@@ -478,6 +477,9 @@ const WrapperHeader = styled.div`
         margin-right:25px!important;
       }
     }
+  }
+  @media (min-width:768px) {
+    
   }
   @media (max-width: 991px) {
     .navbar-nav {
