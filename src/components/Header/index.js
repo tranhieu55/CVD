@@ -107,7 +107,7 @@ const WrapperHeader = styled.div`
   }
   .menu-list_item_gold:hover {
     transition: all 0.5s ease;
-    border-bottom: 3px solid gold !important;
+    border-bottom: 3px solid #FECF09 !important;
   }
   .menu-list_item_white:hover {
     transition: all 0.5s ease;
@@ -820,6 +820,11 @@ const CardDescription = styled.div`
       margin-bottom: -7px;
     }
   }
+   @media(min-width: 600px) {
+     .mobile {
+       letter-spacing:-0.5px !important;
+     }
+   }
 
 `
 const MenuItemServices = styled.div`
@@ -940,7 +945,7 @@ const MenuItemServices = styled.div`
       padding: 25px;
       border-radius: 10px;
       margin-bottom: 25px;
-      padding-bottom: 13px;
+      padding-bottom: 16px;
       padding-top: 10px;
       img {
         margin-right: 25px!important;
@@ -1005,7 +1010,7 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: gold;
+    background-color: go#FECF09ld;
     height: 5px;
     transition: all 0.4s ease-in;
   }
