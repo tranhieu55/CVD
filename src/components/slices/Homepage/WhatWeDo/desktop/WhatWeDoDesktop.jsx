@@ -9,7 +9,6 @@ export default function WhatWeDoDesktop(props) {
 
   const { fields } = props.props.input
   const { input } = props.props
-  const backgrounds = input.primary.background_image_what_we_do.url
 
 
 
@@ -39,27 +38,28 @@ export default function WhatWeDoDesktop(props) {
   }
 
   return (
-      <ContainerDesktop>
-        <Left>
-          <Title>{heading}</Title>
-          {fields.map((service, i) => {
-            const title = service.service[0].text
-            return (
-              <React.Fragment key={i}>  
-                <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
-                  {title}
-                </Service>
-              </React.Fragment>
-            )
-          })}
-        </Left>
-        <Right>
-          <UpperContent>
-            <Content>{RichText.render(content)}</Content>
-            <LearnMore >Learn more</LearnMore>
-          </UpperContent>
-        </Right>
-      </ContainerDesktop>
+        <ContainerDesktop>
+        <Image src={input.primary.background_image_what_we_do.url}></Image>
+          <Left>
+            <Title>{heading}</Title>
+            {fields.map((service, i) => {
+              const title = service.service[0].text
+              return (
+                <React.Fragment key={i}>  
+                  <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
+                    {title}
+                  </Service>
+                </React.Fragment>
+              )
+            })}
+          </Left>
+          <Right>
+            <UpperContent>
+              <Content>{RichText.render(content)}</Content>
+              <LearnMore >Learn more</LearnMore>
+            </UpperContent>
+          </Right>
+        </ContainerDesktop>
   )
 }
 
@@ -75,6 +75,7 @@ const ContainerDesktop = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
+  background: #2A304F;
   @media (max-width: 768px) {
     display:none;
   }
@@ -101,7 +102,6 @@ const Left = styled.div`
   margin: auto;
   max-width: 500px;
   height: 494px;
-  background: ${props => props.backgrounds}
 `
 
 const Service = styled.li`
@@ -182,4 +182,8 @@ const LearnMore = styled.h4`
     color: #FECF09;
     padding: 0px 0.6rem;
   }
+`
+const Image = styled.img`
+  width: 100%;
+  object-fit: cover;
 `
