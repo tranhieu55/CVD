@@ -69,6 +69,10 @@ const Container = styled.div`
       margin: 96px 32px 0px ;
 
     }
+    @media(min-width: 1366px){
+      height: 515px;
+      margin: 96px 0px 88px;
+    }
 `
 
 const Title = styled.h1`
@@ -81,7 +85,7 @@ const Title = styled.h1`
   line-height: 56px;
   max-width: 1240px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 88px;
 `   
 const Cards = styled.div`
   height: 136px;

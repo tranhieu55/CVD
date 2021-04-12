@@ -44,6 +44,7 @@ const Clientss = styled.div`
   margin-top: 100px;
   position: relative;
   width: 1137px;
+  color: #cccccc;
   @media ( max-width: 600px){
     width: 327px;
     height: 164px;
@@ -183,7 +184,7 @@ const ClientLogo = styled.img`
     width: 100%;
   }
   @media(min-width: 1024px){
-   width: 25%;
+   width: 15%;
   }
 `
 const Socke = styled.div`

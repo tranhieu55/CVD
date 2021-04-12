@@ -53,7 +53,7 @@ const OurLaster = ({ input }) => {
                         src={item.posts.post_image.url}
                         vitri={index}
                     ></Img>
-                    <SubTitle>June 25, 2019</SubTitle>
+                    <SubTitle vitri={index} >June 25, 2019</SubTitle>
                     <TitlePost>
                         {item.posts.title.map(item => item.text)}
                     </TitlePost>
@@ -166,6 +166,9 @@ const Img = styled.img`
     margin-left: 32px;
     margin-top: ${props => props.vitri === 1 ? '20px': '0px'};
   }
+  @media(min-width: 1366px){
+    width: ${props => props.vitri === 1 ? '80%': '95%'};
+  }
 `
 const TitlePost = styled.h4`    
   height: 64px;
@@ -224,7 +227,7 @@ const SubTitle = styled.h4`
     &::after{
         position: absolute;
         right: calc(100% + 17px);
-        top: 41%;
+        top: 31%;
         display: block;
         content: "";
         width: 63px;
@@ -247,6 +250,10 @@ const SubTitle = styled.h4`
   }
   @media(min-width: 768px){
     margin-left: 112px;
+  }
+  @media(min-width: 1366px){
+    margin-left: 80px;
+    margin-top: ${props => props.vitri === 1 ? '38px': '33px'}
   }
 `
 

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 import Button from "../../bits/Button"
+import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
   const title = input.primary.title[0].text
@@ -33,7 +34,10 @@ const PlatformTrio = ({ input }) => {
                 <PlatformDesc className="content">
                   {RichText.render(desc)}
                 </PlatformDesc>
-                <Button yellowBlack content={"Learn more"} />
+                <Buttons>
+                  <ButtonText> Learn more 
+                  </ButtonText>
+                </Buttons>
               </Inner>
             </Platform>
           )
@@ -66,8 +70,8 @@ const Container = styled.div`
   }
   @media(min-width: 600px){
     :before{
-      top: -37px;
-      height: 80px;
+      top: 0px;
+      height: 150px;
       transform: skewY(3.7deg);
     }
   }
@@ -144,6 +148,9 @@ const Content = styled.div`
   font-family: Calibre Regular;
   position: relative;
   top: -59px;
+  p{
+    margin-bottom: 30px;
+  }
   @media(max-width: 600px){
     font-size: 20px;
     letter-spacing: 0;
@@ -183,7 +190,7 @@ const Platforms = styled.div`
     }
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5; 
-      border-radius: 10px;
+      border-radius: 100px;
       margin-right: 80px;
       margin-left: 90px;
     }
@@ -191,7 +198,7 @@ const Platforms = styled.div`
     /* Handle */
     ::-webkit-scrollbar-thumb {
       background: #BBBBBB; 
-      border-radius: 10px;
+      border-radius: 100px;
     }
     
     /* Handle on hover */
@@ -273,7 +280,7 @@ const PlatformDesc = styled.div`
   letter-spacing: 0;
   line-height: 28px;
   margin-top: 30px;
-  margin-bottom: 49px;
+  margin-bottom: 39px;
   p{
     margin-bottom: 0px;
     height: 112px;
@@ -300,5 +307,29 @@ const PlatformDesc = styled.div`
       line-height: 24px;
       padding-top: 4px;
     }
+  }
+`
+const Buttons = styled.div`
+border-color: #FECF09;
+padding: 12px 15px;
+text-align: center;
+border-radius: 4px;
+border: solid 2px;
+position: relative;
+box-sizing: border-box;
+height: 48px;
+width: 148px;
+border: 2px solid #fecf09;
+border-radius: 3px;
+`
+const ButtonText = styled(Link)`
+  font-family: Caribre Medium;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: #101010;
+  :hover{
+    color: #101010;
+    text-decoration: none;
   }
 `

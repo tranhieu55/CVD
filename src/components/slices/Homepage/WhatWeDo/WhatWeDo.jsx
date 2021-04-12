@@ -76,4 +76,7 @@ const Skew = styled.div`
       height: 220px;
     }
   }
+  @media(min-width: 1366px){
+    height: 822px;
+  }
 `

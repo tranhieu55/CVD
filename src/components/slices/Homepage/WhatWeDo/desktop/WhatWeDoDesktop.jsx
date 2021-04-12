@@ -9,6 +9,7 @@ export default function WhatWeDoDesktop(props) {
 
   const { fields } = props.props.input
   const { input } = props.props
+  const backgrounds = input.primary.background_image_what_we_do.url
 
 
 
@@ -55,7 +56,7 @@ export default function WhatWeDoDesktop(props) {
         <Right>
           <UpperContent>
             <Content>{RichText.render(content)}</Content>
-            <LearnMore>Learn more</LearnMore>
+            <LearnMore >Learn more</LearnMore>
           </UpperContent>
         </Right>
       </ContainerDesktop>
@@ -98,8 +99,9 @@ const Left = styled.div`
   display: block;
   grid-column: 1;
   margin: auto;
-  max-width: 418px;
+  max-width: 500px;
   height: 494px;
+  background: ${props => props.backgrounds}
 `
 
 const Service = styled.li`
@@ -110,19 +112,21 @@ const Service = styled.li`
     font-size: 25px;
   }
   height: 48px;
-  width: 334px;
+  width: 100%;
   opacity: 0.6;
   color: #FFFFFF;
   font-family: Calibre Medium;
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: -1.5px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   line-height: 48px;
   margin-bottom: 14px;
   list-style : none;
+  cursor: pointer;
   :hover{
     color: white;
     opacity: 1;
+    list-style : 
   }
   opacity: ${props => props.indicator ? 1 : .6};
   
@@ -174,7 +178,7 @@ const LearnMore = styled.h4`
     font-family: "Font Awesome 5 Pro Regular";
     height: 18px;
     line-height: 0px;
-    font-size: 18px;
+    font-size: 20px;
     color: #FECF09;
     padding: 0px 0.6rem;
   }
