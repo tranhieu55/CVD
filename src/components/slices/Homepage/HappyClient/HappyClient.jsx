@@ -80,6 +80,9 @@ const HappyClients = styled.div`
     @media(max-width: 600px){
       height: 653px;
       margin-top: 24px;
+      clip-path: polygon(0px 0%,100% 2px,100% 96%,0% 100%);
+    }
+    @media(min-width: 600px){
       clip-path: polygon(0px 0%,100% 2px,100% 95%,0% 100%);
     }
 `
@@ -102,7 +105,7 @@ const Title = styled.h1`
       letter-spacing: -1px;
       line-height: 38px;
       text-align: center;
-      padding: 45px 77px 0px;
+      padding: 52px 77px 0px;
     }
     @media(max-width: 320px){
       font-size: 30px;
@@ -168,7 +171,7 @@ const Slides = styled.div`
         box-shadow: inset 0 0 5px #d5d5d5; 
         border-radius: 10px;
         margin-right: 80px;
-        margin-left: 80px;
+        margin-left: 90px;
       }
        
       /* Handle */
@@ -182,6 +185,34 @@ const Slides = styled.div`
         background: #b30000; 
       }
     }
+  @media(min-width: 600px){
+      padding-left: 48px;
+      height: 354px;
+      overflow-x: auto;
+      width: 100%;
+      position: relative;
+      ::-webkit-scrollbar {
+        height: 4px; 
+        width: 50%;
+      }
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #d5d5d5; 
+        border-radius: 10px;
+        margin-right: 80px;
+        margin-left: 90px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #BBBBBB; 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+      }
+  }
 `
 const Img = styled.img`
     height: 24px;
@@ -197,8 +228,8 @@ const Text = styled.div`
     padding-bottom: 14px;
     @media(max-width: 600px){
       width: 282px;
-      padding-top: 18px;
-      padding-bottom: 12px;
+      padding-top: 14px;
+      padding-bottom: 16px;
     }
     @media(max-width: 320px){
       width: 265px;
@@ -213,7 +244,7 @@ const Content = styled.span`
     @media(max-width: 600px){
       font-size: 18px;
       letter-spacing: 0;
-      line-height: 24px;
+      line-height: 18px;
     }
 `
 
@@ -287,11 +318,14 @@ const Buttons = styled.div`
         color: #D3D3D3;
     }
     @media(max-width: 600px){
-      top: 565px;
+      top: 570px;
       right: 40%;
       &::after{
         height: 24px;
         width: 28px;
       }
+    }
+    @media(min-width: 600px){
+      right: 43%;
     }
 `

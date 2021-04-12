@@ -62,7 +62,9 @@ console.log({fields});
                 <Collapse isOpen={isOpen === i} onExited={onExited}>
                     <UpperContent>  
                       <Content>{RichText.render(content)}</Content>
-                      <LearnMore>Learn more</LearnMore>
+                      <Lern>
+                        <LearnMore>Learn more</LearnMore>
+                      </Lern>
                     </UpperContent>
                   </Collapse>
               </React.Fragment>
@@ -76,6 +78,7 @@ const UpperContent = styled.div`
   position: relative;
   display: block;
   z-index: 22;
+  top: -5px;
 `
 const Container = styled.div`
   z-index: 3;
@@ -86,6 +89,9 @@ const Container = styled.div`
   }
   margin-left: 32px;
   height: 496px;
+  @media(max-width: 600px){
+    top: -26px;
+  }
 `
 
 const Title = styled.h2`
@@ -97,19 +103,19 @@ const Title = styled.h2`
   height: 30px;
   width: 148px;
   font-family: Calibre Bold;
+  margin-bottom: 20px;
 `
 
 const Service = styled.h4`
-  @media(max-width: 600px){
     height: 22px;
     opacity: 0.6;
     color: #FFFFFF;
     font-family: Calibre;
     font-size: 22px;
     font-weight: 500;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.7px;
     line-height: 26px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     :hover{
       color: white;
       opacity: 1;
@@ -148,8 +154,6 @@ const Service = styled.h4`
         }
       }
     }
-  }
-
 `
 const Blob = styled.div`
   height: 196px;
@@ -169,24 +173,32 @@ const Content = styled.div`
     width: 311px;
     color: #FFFFFF;
     font-family: Calibre Regular;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0;
     line-height: 28px;
+    margin-bottom: 10px;
   }
 `
 const LearnMore = styled.h4`
   height: 20px;
+  width: 90px;
   color: #FECF09;
   font-family: Calibre Medium;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 20px;
-  &::after{
+  border-bottom: 1px solid #FECF09;
+  margin-bottom: 17px;
+ 
+`
+const Lern = styled.div`
+  display: flex;
+   &::after{
     content: "\f178";
     font-family: "Font Awesome 5 Pro Regular";
     height: 18px;
-    line-height: 0px;
+    line-height: 16px;
     font-size: 18px;
     color: #FECF09;
     padding: 0px 0.6rem;

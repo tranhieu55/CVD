@@ -19,18 +19,21 @@ const Index = ({ data: { prismic } }) => {
       <ImageBanner src={background_image}></ImageBanner>
         <TextBanner>
           <Title>{data.page_title[0].text}</Title>
-        {data.body[0].fields.map((item, index)=>{
-          return(
-            <ButtonBanner key={index} 
-              background={item.color_background_button}
-              border = {item.color_border_button}
-              textColor = {item.color_text_button}
-              vitri = {index}
-            >
-            {item.text_button[0].text}
-          </ButtonBanner>
-          )
-        })}
+          <Buttons>
+          {data.body[0].fields.map((item, index)=>{
+            return(
+                  <ButtonBanner key={index} 
+                      background={item.color_background_button}
+                      border = {item.color_border_button}
+                      textColor = {item.color_text_button}
+                      vitri = {index}
+                    >
+                    {item.text_button[0].text}
+                  </ButtonBanner>
+            
+            )
+          })}
+         </Buttons>
         </TextBanner>
       </Container>
       <SliceZone allSlices={data.body} />
@@ -44,20 +47,27 @@ export default Index
 //styles
 
 const Title = styled.h1`
-height: 275px;
-width: 659px;
-color: #FFFFFF;
-font-family: Calibre Bold;
-font-size: 104px;
-font-weight: bold;
-letter-spacing: -0.5px;
-line-height: 88px;
-  @media (max-width: 769px) {
-    font-size: 3rem;
-    margin: 0;
+  height: 275px;
+  width: 659px;
+  color: #FFFFFF;
+  font-family: Calibre Bold;
+  font-size: 104px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  line-height: 88px;
+  @media (min-width: 600px) {
+    height: 139px;
+    width: 301px;
+    color: #FFFFFF;
+    font-family: Calibre Bold;
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 44px;
+    padding-top: 11px;
   }
   @media(max-width: 600px){
-    height: 139px;
+  height: 139px;
   width: 301px;
   color: #FFFFFF;
   font-family: Calibre Bold;
@@ -65,14 +75,35 @@ line-height: 88px;
   font-weight: bold;
   letter-spacing: -0.5px;
   line-height: 44px;
+  padding-top: 11px;
   }
+  @media(max-width: 360px){
+    width: 100%;
+    font-size: 43px;
+  }
+  @media(min-width: 1024px){
+    font-size: 74px;
+    height: 178px;
+    width: 419px;
+  }
+  @media(min-width: 1366px){
+    height: 275px;
+    width: 659px;
+    color: #FFFFFF;
+    font-family: Calibre Bold;
+    font-size: 104px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 88px;
+  }
+  
 `
 
 const Container = styled.div`
   height: 798px;
   width: 100%;
  position: realative;
-  @media (max-width: 769px) {
+  @media (min-width: 600px) {
     display: block;
     height: auto;
   }
@@ -101,9 +132,21 @@ const ButtonBanner = styled.button`
   color: ${props => props.textColor};
   border-radius : 3px;
   @media(max-width: 600px){
-    height: 48px;
-    width: 132px;
     margin-right:${props => props.vitri == 0 ? '16px' : '0px' };
+    width: ${props => props.vitri == 1 ? '156px': '148px'};
+  }
+  @media(max-width: 360px){
+    margin-right:${props => props.vitri == 0 ? '12px' : '0px' };
+    width: ${props => props.vitri == 1 ? '130px': '130px'};
+  }
+  @media(min-width: 1366px){
+    margin-right: 24px;
+    height: 48px;
+    width: 148px;
+    background: ${props => props.background ? props.background : 'transparent' };
+    border: 3px solid ${props => props.border};
+    color: ${props => props.textColor};
+    border-radius : 3px;
   }
 `
 const TextBanner = styled.div`
@@ -115,10 +158,37 @@ const TextBanner = styled.div`
   z-index: 1;
   @media(max-width: 600px){
     height: 206px;
-    width: 320px;
+    width: 345px;
     top: 204px;
     padding-left: 24px;
   }
+  @media(max-width: 360px){
+    width: 280px;
+  }
+  @media(min-width: 600px){
+    padding-left: 50px;
+    top: 86px;
+    height: 206px;
+    width: 345px;
+  }
+  @media(min-width: 1024px){
+    padding-left: 50px;
+    top: 122px;
+    height: 244px;
+    width: 469px;
+  }
+  @media(min-width: 1366px){
+    height: 355px;
+    width: 659px;
+    position: absolute;
+    top: 225px;
+    padding-left: 167px;
+    z-index: 1;
+  }
+`
+const Buttons = styled.div`
+  display: flex;
+  margin-top: 18px;
 `
 
 export const pageQuery = graphql`

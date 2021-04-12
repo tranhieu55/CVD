@@ -64,21 +64,38 @@ const Container = styled.div`
     display: block;
     top: -79px;
   }
-  @media (min-width: 769px) {
+  @media(min-width: 600px){
     :before{
-      top: -19px;
-      transform: skewY(4.5deg);
-      height: 62px;
+      top: -37px;
+      height: 80px;
+      transform: skewY(3.7deg);
     }
-    height: 855px;
-    
   }
   @media(max-width: 600px){
     position: relative;
     margin-top: 10px;
+    height: 803px;
     :before{
-      top: -51px;
-      height: 69px;
+      top: -25px;
+      height: 61px;
+      transform: skewY(3.7deg);
+    }
+  }
+  @media(min-width: 1024px){
+    :before{
+     height: 120px;
+    }
+  }
+  @media(min-width: 1366px){
+    :before{
+      height: 163px;
+      top: -79px;
+    }
+  }
+  @media(min-width: 1600px){
+    :before{
+      height: 204px;
+      top: -79px;
     }
   }
 `
@@ -98,11 +115,20 @@ const Title = styled.h2`
   @media(max-width: 600px){
     font-size: 40px;
     font-weight: bold;
-    letter-spacing: -1px;
+    letter-spacing: 0px;
     line-height: 38px;
     text-align: center;
-    top: -19px;
+    top: -41px;
     height: 114px;
+    word-spacing: -3.1px;
+  }
+  @media(min-width: 601px){
+    font-size: 56px;
+    margin: 0px 32px;
+  }
+  @media(min-width: 1366px){
+    font-size: 80px;
+    margin: auto;
   }
 `
 
@@ -123,12 +149,13 @@ const Content = styled.div`
     letter-spacing: 0;
     line-height: 24px;
     text-align: center;
-    top: -19px;
+    top: -35px;
     height: 192px;
     margin: 0 auto;
     p{
       width: 100%;
-      height: 
+      margin-bottom: 23px;
+      word-spacing: 1.2px;
     }
   }
 `
@@ -142,9 +169,9 @@ const Platforms = styled.div`
   height: 299px;
   @media(max-width: 600px){
     $color: white;
-    margin-top: 54px;
-    padding-left: 48px;
-    height: 375px;
+    margin-top: 23px;
+    padding-left: 49px;
+    height: 343px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -157,8 +184,40 @@ const Platforms = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5; 
       border-radius: 10px;
-      margin-right: 100px;
-      margin-left: 40px;
+      margin-right: 80px;
+      margin-left: 90px;
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #BBBBBB; 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000; 
+    }
+  }
+  @media(min-width: 600px){
+    $color: white;
+    margin-top: 23px;
+    padding-left: 49px;
+    height: 343px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+    position: relative;
+    ::-webkit-scrollbar {
+      height: 3px; 
+      width: 50%;
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #d5d5d5; 
+      border-radius: 10px;
+      margin-right: 80px;
+      margin-left: 90px;
     }
      
     /* Handle */
@@ -184,7 +243,9 @@ const Platform = styled.div`
     width: 216px;
     margin-right: ${props => props.indicator === 0  ? '0px': '64px'};
   }
-  
+  @media(min-width: 600px){
+    margin-right: 16px;
+  }
 `
 const Inner = styled.div`
   width: 100%;
@@ -237,6 +298,7 @@ const PlatformDesc = styled.div`
       font-size: 18px;
       letter-spacing: 0;
       line-height: 24px;
+      padding-top: 4px;
     }
   }
 `
