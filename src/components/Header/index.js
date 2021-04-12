@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
-import logoMagento from "../../images/logo_Magento.png"
-import logoShopify from "../../images/logo_Shopify.jpg"
-import logoBigcommerece from "../../images/logo_Bigcommerece.png"
-import bannerServices from "../../images/banner_Services.jpg"
 import logoBuger from "../../images/burger-menu@2x-1.png"
 import logoBugerBlack from "../../images/burger-menu@2x.png"
 import logoIconClose from "../../images/iconclose.png"
@@ -90,7 +86,23 @@ const WrapperHeader = styled.div`
     color: black !important;
     opacity: 30%;
   }
-
+  .test {
+    opacity:100%;
+    color:#0E0E0E!important;
+  }
+  .test:after {
+    position: absolute;
+      left:0px;
+      right:0;
+      bottom: -25px;
+      background-color:#FECF09;
+      width:100%;
+      height:3px;
+      content: "";
+      transition: all 0.4s ease-in;
+      overflow:hidden;
+      opacity: 100%!important;
+  }
   .navbar-nav {
     margin: auto;
   }
@@ -295,13 +307,13 @@ const WrapperHeader = styled.div`
     }
     :hover {
       ::before {
-        width: 80px;
+        width: 100%;
       }
     }
   }
-  .active {
+  /* .active {
       background-color:#FECF09;
-  }
+  } */
   .icon-mobile-right {
     display: none;
   }
@@ -311,7 +323,7 @@ const WrapperHeader = styled.div`
     } 
     .icon-mobile-right {
       display: inline-block;
-      margin-left: 10px;
+      margin-left: 5px;
       width: 21px;
       height: 15px;
     }  
@@ -460,7 +472,7 @@ const WrapperHeader = styled.div`
   @media (max-width: 991px) and (max-height: 450px) {
     .icon-mobile-right {
       display: inline-block;
-      margin-left: 10px;
+      margin-left: 5px;
       width: 21px;
       height: 15px;
     }
@@ -529,7 +541,7 @@ const WrapperHeader = styled.div`
   @media (min-width: 767.1px) and (max-width: 768.5px) { 
     .icon-mobile-right {
       display: inline-block;
-      margin-left: 10px;
+      margin-left: 5px;
       width: 21px;
       height: 15px;
     }
@@ -1087,15 +1099,13 @@ const Span = styled.span`
   font-size:18px;
 `
 
-
 const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   
-  console.log("du lieu headerServiecs",dataServicesMenu)
   const dataServices = dataServicesMenu.edges[0].node.body
-  console.log('hello word', dataMenuHeader)
   
   const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
   
+
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
 
   // dữ liệu button header(button GET in touch)
@@ -1123,15 +1133,16 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   }
 
   useEffect(() => {
-    !!window && window.addEventListener("scroll", handleScroll)
+    !!window && window.addEventListener("scroll", handleScroll);
+    // window.addEventListener("click", () => handleOutsideClick());
     return () => {
-      !!window && window.removeEventListener("scroll", handleScroll)
+      !!window && window.removeEventListener("scroll", handleScroll);
+      // window.removeEventListener("click", () => handleOutsideClick());
     }
   }, [])
   const handelClickServices = () => {
     setIsDisPlayModalService(!isDisPlayModalService)
   }
-  console.log('dữ liệu đấy nhé hiếu', true)
   const checkColorText = () => {
     if(scroll && isDisPlayModalService) {
       return "menu-list_item_text-white"
@@ -1145,7 +1156,6 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
     }
   }
   const checkColorTextButton = (index) => {
-    console.log({index, isDisPlayModalService, show})
     if(scroll && isDisPlayModalService) {
       return "white"
     } else {
@@ -1161,7 +1171,12 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
       }
     }
   }
-  console.log({isDisPlayModalService})
+
+  // useClickOutSize(clickRef, () => {
+  //   setIsDisPlayModalService(false)
+  // })
+
+
   return (
     <WrapperHeader>
       <Navbar
@@ -1244,7 +1259,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                 key={index}
               >
               {item.slug_menu_item[0].text === "services" ?
-                <span onClick={handelClickServices} className={checkColorText()}>{item.title_menu_item[0].text} <img className="icon-mobile-right" src={logoIconRight} alt=""/> </span>
+                <span onClick={handelClickServices } className={`${checkColorText()} ${isDisPlayModalService === true ? "test" :''} `}>{item.title_menu_item[0].text} <img className="icon-mobile-right" src={logoIconRight} alt=""/> </span>
                 : <Link
                   to={
                     `/${item.slug_menu_item[0].text}`
@@ -1257,7 +1272,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
               }
                 
                 {item.slug_menu_item[0].text === "services" ? (
-                  <Ul className="menu-area_services">
+                  <ul className="menu-area_services">
                     <hr />
                     <MenuItemServices>
                       {" "}
@@ -1370,7 +1385,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                         </DivIMG>
                       </Ul>
                     </MenuItemServices>
-                  </Ul>
+                  </ul>
                 ) : (
                   ""
                 )}

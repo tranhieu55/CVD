@@ -373,7 +373,6 @@ const Content = styled.div`
 `
 
 export default function Footer({ dataFooter }) {
-  console.log('Đây là dữ liệu footer' , dataFooter)
   // đây là background footer
   const dataBGR = dataFooter.edges[0].node.background_color_of_footer_bottom
   // đây là logoFooter ( alt và url)
