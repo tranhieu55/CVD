@@ -457,7 +457,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
-  @media (max-width: 886px) and (max-height: 450px) {
+  @media (max-width: 991px) and (max-height: 450px) {
     .list-services {
       position: relative;
     }
@@ -875,7 +875,7 @@ const MenuItemServices = styled.div`
       padding-right:12px!important;
     }
   }
-  @media (max-width: 886px) and (max-height: 450px) {
+  @media (max-width: 991px) and (max-height: 450px) {
     display: block;
     max-width:100%;
     flex-wrap: wrap;
@@ -1049,7 +1049,7 @@ const TitleImageBlog = styled.div`
     bottom: 0rem;
     left: 1rem;
   }
-  @media (max-width: 886px) and (max-height: 450px) {
+  @media (max-width: 991px) and (max-height: 450px) {
     bottom: 1rem;
     left: 3rem;
   }
