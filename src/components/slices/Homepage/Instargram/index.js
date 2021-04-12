@@ -61,7 +61,7 @@ export default function Instagram ({input}) {
             <Title>{input.primary.title.map(item => item.text)}</Title>
             <List>
                 {post?.data?.map((item, index) => (
-                    <ListPost key={index} as ={Link} to ={item.permalink}>
+                    <ListPost key={index} as ={Link} to ={item.permalink} vitri= {index} >
                         <Img
                             src = {item.media_url}
                             alt = {item.permalink}
@@ -84,26 +84,53 @@ const Container = styled.div`
         margin: 40px 16px 0px;
         height: 405px;
     }
+    @media(min-width: 1024px){
+        height: 620px;
+    }
+    @media(min-width: 1366px){
+        height: 466px;
+    }
+    @media(min-width: 1600px){
+        margin: 96px 32px 0px;
+    }
 `
 const ListPost = styled.div`
-    height: 360px;
+    height: 20%;
     display: flex;
     justify-content: space-between;
-    
     @media(max-width: 600px){
-        height: 164px;
-        width: 164px;
-        margin-right: 7px;
+        height: 48%;
+        width: 48%;
+        margin-right: ${props => props.vitri %2 === 0 ? '7px': '0px'};
+        margin-bottom: 14px;
     }
     @media(max-width: 320px){
         width: 137px;
         height: 137px;
     }
+    @media(min-width: 600px){
+        width: 48%;
+        height: 48%;
+        margin-right: ${props => props.vitri %2 === 0 ? '7px': '0px'};
+        margin-bottom: 14px;
+    }
+    @media(min-width: 1366px){
+        width: 24%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
 `
 const Img = styled.img`
-    width: 360px;
+    width: 25%;
     object-fit: cover;
     @media(max-width: 600px){
+        width: 100%;
+        height: 100%;
+    }
+    @media(min-width: 600px){
         width: 100%;
         height: 100%;
     }
@@ -114,14 +141,21 @@ const List = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 23px;
+    flex-wrap: wrap;
     @media(max-width: 600px){
         height: 343px;
         width: 100%;
-        flex-wrap: wrap;
-        margin-top: 12px;
+        margin-top: 6px;
     }
     @media(max-width: 320px){
         height: 285px;
+    }
+    @media(min-width: 1024px){
+        height: 520px;
+    }
+    @media(min-width: 1366px){
+        height: 360px;
+        display: flex;
     }
 `
 const Title = styled.h1`

@@ -51,6 +51,7 @@ const OurLaster = ({ input }) => {
                 <ListPost key={index} >
                     <Img
                         src={item.posts.post_image.url}
+                        vitri={index}
                     ></Img>
                     <SubTitle>June 25, 2019</SubTitle>
                     <TitlePost>
@@ -74,6 +75,17 @@ const OurLasters = styled.div`
       height: 862px;
       margin: 32px 16px 37px;
     }
+    @media(min-width: 600px){
+      height: 1243px;
+      margin: 50px 16px 37px;
+    }
+    @media(min-width: 1024px){
+      height: 716px;
+      margin: 50px 16px 37px;
+    }
+    @media(min-width: 1600px){
+      margin: 96px 184px 0px;
+    }
 `
 
 const Title = styled.h1`
@@ -91,7 +103,7 @@ const Title = styled.h1`
     font-size: 40px;
     font-weight: bold;
     letter-spacing: -1px;
-    line-height: 38px;
+    line-height: 54px;
     text-align: center;
     height: 38px;
     width: 285px;
@@ -120,20 +132,39 @@ const ListPost = styled.div`
   @media(max-width: 600px){
     height: 351px;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
+  @media(min-width: 768px){
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  @media(min-width: 1024px){
+    width: 49%;
+    height: 517px;
+    }
 `
 
 
 const Img = styled.img`
-  height: 400px;
-  width: 573px;
-  margin-left: 32px;
+   width: ${props => props.vitri === 1 ? '80%': '100%'};
+    height: ${props => props.vitri === 1 ? '360px': '400px'};
+    margin-left: 32px;
+    margin-top: ${props => props.vitri === 1 ? '20px': '0px'};
   object-fit: cover;
   @media(max-width: 600px){
     width: 100%;
     height: 240px;
     margin-left: 0px;
+  }
+  @media(min-width: 768px){
+    width: 100%;
+    margin-left: 0px;
+  }
+  @media(min-width: 1024px){
+    width: ${props => props.vitri === 1 ? '80%': '100%'};
+    height: ${props => props.vitri === 1 ? '360px': '400px'};
+    margin-left: 32px;
+    margin-top: ${props => props.vitri === 1 ? '20px': '0px'};
   }
 `
 const TitlePost = styled.h4`    
@@ -150,8 +181,8 @@ const TitlePost = styled.h4`
     font-size: 24px;
     font-weight: 600;
     letter-spacing: -0.25px;
-    line-height: 24px;
-    margin-left: 40px;
+    line-height: 26px;
+    margin-left: 48px;
   }
   @media(max-width: 320px){
     width: 249px;
@@ -167,6 +198,16 @@ const Content = styled.span`
     width: 100%;
     display: block;
   }
+  @media(min-width: 600px){
+    width: 100%;
+    display: block;
+  }
+  @media(min-width: 1024px){
+    height: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    }
 `
 const SubTitle = styled.h4`
     position: relative;
@@ -197,11 +238,15 @@ const SubTitle = styled.h4`
     font-weight: 600;
     letter-spacing: 1px;
     line-height: 14px;
-    margin-left: 40px;
-    margin-top: 18px;
+    margin-left: 50px;
+    margin-top: 16px;
     &::after{
-      width: 23px;
+      width: 32px;
+      right: calc(100% + 19px);
     }
+  }
+  @media(min-width: 768px){
+    margin-left: 112px;
   }
 `
 

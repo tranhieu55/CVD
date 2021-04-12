@@ -77,6 +77,9 @@ const ContainerDesktop = styled.div`
   @media (max-width: 768px) {
     display:none;
   }
+  @media(min-width: 1024px){
+    top: -219px;
+  }
 `
 
 const Title = styled.h2`

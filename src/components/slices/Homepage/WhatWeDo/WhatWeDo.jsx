@@ -57,11 +57,23 @@ const Skew = styled.div`
     display: block;
   }
   @media(max-width: 600px){
-    height: 672px;
+    height: 640px;
     width: 100%;
     background-color: #0F1534;
     :before{
       height: 74px;
+      transform: skewY(5deg);
+    }
+  }
+  @media(min-width: 600px){
+    height: 640px;
+    :before{
+      height: 80px;
+    }
+  }
+  @media(min-width: 1024px){
+    :before{
+      height: 220px;
     }
   }
 `

@@ -64,6 +64,11 @@ const Container = styled.div`
     @media(max-width: 600px){
       display: none;
     }
+    @media(min-width: 601px){
+      height: 820px;
+      margin: 96px 32px 0px ;
+
+    }
 `
 
 const Title = styled.h1`
@@ -80,9 +85,20 @@ const Title = styled.h1`
 `   
 const Cards = styled.div`
   height: 136px;
-  width: 278px;
+  width: 30%;
   margin-right: 32px;
-
+  @media(min-width: 600px){
+    width: 44%;
+    height: 160px;
+  }
+  @media(min-width: 1024px){
+    width: 30%;
+    height: 160px;
+  }
+  @media(min-width: 1600px){
+    height: 136px;
+    width: 22%;
+  }
 `
 const CardItem = styled.div`
   height: 100%;

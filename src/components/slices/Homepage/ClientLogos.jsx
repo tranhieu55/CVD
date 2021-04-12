@@ -52,6 +52,24 @@ const Clientss = styled.div`
   @media(max-width: 320px){
     width: 274px;
   }
+  @media(min-width: 600px){
+    margin: 40px auto 0px;
+    width : 560px;
+    height: 264px;
+  }
+  @media(min-width: 1024px){
+    margin: 80px auto 0px;
+    width: 980px;
+    height: 38px;
+    display: flex;
+  }
+  @media(min-width: 1366px){
+    margin: 100px auto 0px;
+    width: 1137px;
+    height: 38px;
+    display: flex;
+    position: relative;
+  }
 `
 
 const Heading = styled.h2`
@@ -66,6 +84,9 @@ const Heading = styled.h2`
   width: 156px;
   font-family: Calibre Bold;
   margin: 0 auto;
+  @media(max-width: 600px){
+    font-size: 14px;
+  }
 `
 const ClientsRight = styled.div`
   display: flex;
@@ -77,15 +98,26 @@ const ClientsRight = styled.div`
   width: 512.5px;
   justify-content: space-between;
   margin-left: 56px;
-  @media (max-width: 769px) {
+  @media (min-width: 600px) {
     flex-wrap: wrap;
     justify-content: flex-start;
+    height: 227px;
+    margin: 0px 0px 0px 20px;
   }
   @media ( max-width: 600px){
     display: block ;
     height: 164px;
     width: 113.5px;
     margin-left: 50px;
+  }
+  @media(min-width: 1024px){
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 38px;
+    position: relative;
+    margin-left: 30px;
   }
 `
 
@@ -99,16 +131,26 @@ const ClientsLeft = styled.div`
   width: 518.5px;
   margin-right: 50px;
   justify-content: space-between;
-  @media (max-width: 769px) {
+  @media (min-width: 600px) {
     flex-wrap: wrap;
     justify-content: flex-start;
+    height: 227px;
+    margin: 0px 20px 0px 0px;
   }
   @media ( max-width: 600px){
     display: block ;
     height: 164px;
-    height: 164px;
     width: 113.5px;
     margin-right: 50px;
+  }
+  @media(min-width: 1024px){
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 38px;
+    position: relative;
+    margin-right: 30px;
   }
 `
 
@@ -118,6 +160,12 @@ const Container = styled.div`
   max-width: 1137px;
   margin : 0 auto;
   position: relative;
+  @media(min-width: 600px){
+    height: 408px;
+  }
+  @media(max-width: 1024px){
+    height: 308px;
+  }
 `
 const ClientLogo = styled.img`
   height: auto;
@@ -129,14 +177,28 @@ const ClientLogo = styled.img`
     margin-bottom: 30px;
     width: 100%;
   }
+  @media(min-width: 600px){
+    height: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  @media(min-width: 1024px){
+   width: 25%;
+  }
 `
 const Socke = styled.div`
-  height: 264px;
+    height: 264px;
     width: 2px;
     background: #FECF09;
     left: 50%;
     position: absolute;
     margin-top: 24px;
+    @media(min-width: 600px){
+      height: 320px;
+    }
+    @media(min-width: 1024px){
+      height: 264px;
+    }
 `
 const Oval = styled.div`
   height: 12px;
@@ -149,4 +211,12 @@ const Oval = styled.div`
   @media(max-width: 600px){
     left : 48.8%;
   }
+  @media(min-width: 600px){
+    margin-top: 342px;
+    left:   49.4%;
+  }
+  @media(min-width: 1024px){
+    margin-top: 288px;
+    left: 49.6%;
+    }
 `

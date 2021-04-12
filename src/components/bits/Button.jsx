@@ -18,6 +18,7 @@ const ButtonText = styled(Link)`
   position: relative;
   font-weight: 600;
   top: -2px;
+  font-size: 14px;
 `
 const Container = styled.div`
   border-color: ${props => (props.yellow ? "#FECF09" : "black")};

@@ -30,7 +30,7 @@ const SubHeading = styled.h2`
   line-height: 52px;
   color: #101010;
   @media(max-width: 600px){
-    padding-top: 30px;
+    padding-top: 34px;
     padding-bottom: 56px;
     font-size: 24px;
     font-weight: 600;
@@ -38,10 +38,19 @@ const SubHeading = styled.h2`
     line-height: 29px;
     text-align: center;
     margin: 0px 24px;
+    word-spacing: -1.5px;
+  }
+  @media (min-width: 600px) {
+    padding-top: 34px;
+    padding-bottom: 56px;
+  }
+  @media(min-width: 1024px){
+    padding-top: 134px;
+    padding-bottom: 140px;
   }
 `
 const Container = styled.div`
-  @media (max-width: 769px) {
-    padding-top: 0;
+  @media (min-width: 600px) {
+    margin: 0px 16px;
   }
 `
