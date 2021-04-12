@@ -458,6 +458,12 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) and (max-height: 450px) {
+    .icon-mobile-right {
+      display: inline-block;
+      margin-left: 10px;
+      width: 21px;
+      height: 15px;
+    }
     .list-services {
       position: relative;
     }
@@ -521,6 +527,12 @@ const WrapperHeader = styled.div`
     }
   }
   @media (min-width: 767.1px) and (max-width: 768.5px) { 
+    .icon-mobile-right {
+      display: inline-block;
+      margin-left: 10px;
+      width: 21px;
+      height: 15px;
+    }
     .list-services {
       position: relative;
     }
