@@ -116,10 +116,10 @@ const ListBlogStyle = styled.div`
   }
   .btn-studies {
     background-color: transparent;
-    color: black;
+    color: #101010;
   }
   .btn-studies:hover {
-    background-color: gold;
+    background-color: #FECF09;
     color: white;
   }
   @media(max-width: 600px){
@@ -140,11 +140,12 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: gold;
-    height: 5px;
+    background-color: #FECF09;
+    height: 6px;
     transition: all 0.4s ease-in;
   }
   :hover {
+    transform: scale(1.05);
     ::after {
       width: 100%;
     }
@@ -199,7 +200,10 @@ const TitleImageBlog = styled.div`
 `
 const Span = styled.span`
   font-weight: bold;
-  color: gold;
+  color: #FECF09;
+  font-family: 'Calibre Semibold';
+  font-weight: 600;
+  font-size: 18px;
   @media(max-width: 600px){
     color: #FECF09;
     font-family: 'Calibre Semibold';
@@ -234,6 +238,9 @@ const H3 = styled.h3`
   }
   @media only screen and (min-width: 1200px) {
     font-size: 36px;
+  }
+  @media(min-width: 1366px){
+    font-size: 48px;
   }
 `
 const MyBtn = styled.div`
@@ -272,6 +279,8 @@ const ButtonCustom = styled.button`
   position: relative;
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
+  font-weight: 500;
+  color: #101010;
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;

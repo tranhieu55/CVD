@@ -57,7 +57,7 @@ export default function Instagram ({input}) {
     }, [])
     return (
         <Container>
-            <SubTitle>#createbyconvert</SubTitle>
+            <SubTitle>#CRAFTEDBYCONVERT</SubTitle>
             <Title>{input.primary.title.map(item => item.text)}</Title>
             <List>
                 {post?.data?.map((item, index) => (
@@ -115,7 +115,7 @@ const ListPost = styled.div`
         margin-bottom: 14px;
     }
     @media(min-width: 1366px){
-        width: 24%;
+        width: 22.5%;
         height: 100%;
         display: flex;
         justify-content: space-between;

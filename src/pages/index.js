@@ -128,9 +128,15 @@ const ButtonBanner = styled.button`
   height: 48px;
   width: 148px;
   background: ${props => props.background ? props.background : 'transparent' };
-  border: 3px solid ${props => props.border};
+  border: 2px solid ${props => props.border};
   color: ${props => props.textColor};
   border-radius : 3px;
+  font-family: 'Calibre Semibold';
+  font-size: 18px;
+  font-weight: 600;
+  :focus{
+    outline: none;
+  }
   @media(max-width: 600px){
     margin-right:${props => props.vitri == 0 ? '16px' : '0px' };
     width: ${props => props.vitri == 1 ? '156px': '148px'};
@@ -144,7 +150,7 @@ const ButtonBanner = styled.button`
     height: 48px;
     width: 148px;
     background: ${props => props.background ? props.background : 'transparent' };
-    border: 3px solid ${props => props.border};
+    border: 2px solid ${props => props.border};
     color: ${props => props.textColor};
     border-radius : 3px;
   }
@@ -242,15 +248,17 @@ export const pageQuery = graphql`
               }
               ... on PRISMIC_HomepageBodyWhat_we_do {
                 type
-                primary {
-                  title
-                }
+                label
                 fields {
-                  service
                   content
+                  service
                   to_service {
                     _linkType
                   }
+                }
+                primary {
+                  background_image_what_we_do
+                  title
                 }
               }
               ... on PRISMIC_HomepageBodyProject_tilesq {

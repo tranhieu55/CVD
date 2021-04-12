@@ -213,9 +213,40 @@ const Slides = styled.div`
         background: #b30000; 
       }
   }
+  @media(min-width: 1366px){
+    height: 406px;
+    margin-top: 145px;
+    display: flex;
+    padding-left: 180px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+    ::-webkit-scrollbar {
+      height: 4px; 
+      width: 50%;
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #d5d5d5; 
+      border-radius: 10px;
+      margin-right: 480px;
+      margin-left: 280px;
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #BBBBBB; 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000; 
+    }
+  }
 `
 const Img = styled.img`
-    height: 24px;
+    height: 32px;
     width: 162px;
     @media(max-width: 600px){
       height: 24px;
@@ -327,5 +358,34 @@ const Buttons = styled.div`
     }
     @media(min-width: 600px){
       right: 43%;
+    }
+    @media(min-width: 1366px){
+      position: absolute;
+    top: 636px;
+    right: 171px; 
+    &::after {
+        content: "\f178";
+        font-family: "Font Awesome 5 Pro Regular";
+        height: 24px;
+        width: 28px;
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+        color: #AAABAB;
+        margin-left: 24px;
+    }
+    &::before{
+        content: "\f177";
+        height: 24px;
+        width: 28px;
+        font-family: "Font Awesome 5 Pro Regular";
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+        color: #D3D3D3;
     }
 `
