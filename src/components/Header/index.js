@@ -457,7 +457,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
-  @media (max-width: 812px) and (max-height: 450px) {
+  @media (max-width: 886px) and (max-height: 450px) {
     .list-services {
       position: relative;
     }
@@ -875,7 +875,7 @@ const MenuItemServices = styled.div`
       padding-right:12px!important;
     }
   }
-  @media (max-width: 812px) and (max-height: 450px) {
+  @media (max-width: 886px) and (max-height: 450px) {
     display: block;
     max-width:100%;
     flex-wrap: wrap;
@@ -1004,11 +1004,11 @@ const GetInTouch = styled.h2`
 const Icon = styled.div`
   display:flex;
   color:white;
-  width:32px;
-  height:32px;
   margin-bottom:70px!important;
   img {
     margin-right:25px;
+    width:32px !important;
+    height:32px !important;
   }
   @media (max-width: 992px) {
     display: flex;
@@ -1049,7 +1049,7 @@ const TitleImageBlog = styled.div`
     bottom: 0rem;
     left: 1rem;
   }
-  @media (max-width: 812px) and (max-height: 450px) {
+  @media (max-width: 886px) and (max-height: 450px) {
     bottom: 1rem;
     left: 3rem;
   }
@@ -1080,7 +1080,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
   
   console.log("du lieu headerServiecs",dataServicesMenu)
   const dataServices = dataServicesMenu.edges[0].node.body
-  console.log('hello word', dataServices)
+  console.log('hello word', dataMenuHeader)
   
   const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
   
@@ -1369,7 +1369,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
               <>
                 <Icon>
                   {dataIcon.map((item,index) => (
-                      <img key={index} src={item.social_icon_item.url} alt={item.social_icon_item.alt} />
+                    <a targer={item?.link_to_social_network?.target} href={item?.link_to_social_network?.url}>  <img key={index} src={item.social_icon_item.url} alt={item.social_icon_item.alt} /></a>
                   ))
                   }
                 </Icon>
