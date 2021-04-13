@@ -134,6 +134,7 @@ const ButtonBanner = styled.button`
   font-family: 'Calibre Semibold';
   font-size: 18px;
   font-weight: 600;
+  padding-top: 5px;
   :focus{
     outline: none;
   }

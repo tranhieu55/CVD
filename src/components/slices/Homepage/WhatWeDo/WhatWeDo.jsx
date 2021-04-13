@@ -48,15 +48,16 @@ const Skew = styled.div`
   clip-path: polygon(0px 0%,100% 81px,100% 100%,0% 100%);
   position: relative;
   @media(max-width: 600px){
-    height: 640px;
+    height: 672px;
     width: 100%;
     background-color: #0F1534;
     clip-path: polygon(0px 0%,100% 41px,100% 100%,0% 100%);
     top: -41px;
   }
   @media(min-width: 600px){
-    height: 640px;
+    height: 672px;
     top: -81px;
+    background-color: #0F1534;
   }
   @media(min-width: 1024px){
   }

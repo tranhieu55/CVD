@@ -1,4 +1,4 @@
-import React, { querySelector, querySelectorAll, useState} from "react"
+import React, { querySelector, querySelectorAll, useRef, useState} from "react"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
@@ -40,11 +40,20 @@ const HappyClient = ({ input }) => {
     function updateSelected(index) {
       setindicator(index)
     }
+
+    const ref = useRef();
+
+    function Nextshowslider () {
+      ref.current.scrollLeft = ref.current.scrollLeft + 100;
+    }
+    function Prevshowslider () {
+      ref.current.scrollLeft = ref.current.scrollLeft - 100;
+    }
    
   return (
     <HappyClients>
         <Title>{Titles}</Title>
-        <Slides className='md:overflow-scroll'>
+        <Slides className='md:overflow-scroll' ref={ref}>
             {input.fields.map((item, index) => (
                 <Slider key={index} onClick={() => updateSelected(index)} indicator={index == indicator}>
                     <Img
@@ -63,7 +72,9 @@ const HappyClient = ({ input }) => {
             ))}
         </Slides>
         <Opaci></Opaci>
-        <Buttons></Buttons>
+        <Buttonss onClick={() => Prevshowslider()}></Buttonss>
+        <Buttons onClick={() => Nextshowslider()}></Buttons>
+
     </HappyClients>
   )
 }
@@ -322,7 +333,11 @@ const Opaci = styled.div`
 const Buttons = styled.div`
     position: absolute;
     top: 636px;
-    right: 171px; 
+    right: 171px;
+    color: #D3D3D3;
+    :hover{
+      color: #AAABAB;
+    }
     &::after {
         content: "\f178";
         font-family: "Font Awesome 5 Pro Regular";
@@ -333,20 +348,7 @@ const Buttons = styled.div`
         letter-spacing: 0;
         line-height: 24px;
         text-align: center;
-        color: #AAABAB;
         margin-left: 24px;
-    }
-    &::before{
-        content: "\f177";
-        height: 24px;
-        width: 28px;
-        font-family: "Font Awesome 5 Pro Regular";
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: 0;
-        line-height: 24px;
-        text-align: center;
-        color: #D3D3D3;
     }
     @media(max-width: 600px){
       top: 570px;
@@ -361,31 +363,64 @@ const Buttons = styled.div`
     }
     @media(min-width: 1366px){
       position: absolute;
-    top: 636px;
-    right: 171px; 
-    &::after {
-        content: "\f178";
-        font-family: "Font Awesome 5 Pro Regular";
-        height: 24px;
-        width: 28px;
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: 0;
-        line-height: 24px;
-        text-align: center;
-        color: #AAABAB;
-        margin-left: 24px;
+      top: 636px;
+      right: 171px; 
+      &::after {
+          content: "\f178";
+          font-family: "Font Awesome 5 Pro Regular";
+          height: 24px;
+          width: 28px;
+          font-size: 32px;
+          font-weight: 300;
+          letter-spacing: 0;
+          line-height: 24px;
+          text-align: center;
+          margin-left: 24px;
+      }
+`
+const Buttonss = styled.div`
+  position: absolute;
+      top: 636px;
+      right: 217px;
+      color: #D3D3D3;
+    :hover{
+      color: #AAABAB;
     }
+  &::before{
+    content: "\f177";
+    height: 24px;
+    width: 28px;
+    font-family: "Font Awesome 5 Pro Regular";
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+  }
+  @media(max-width: 600px){
+    top: 570px;
+    right: 52%;
     &::before{
-        content: "\f177";
-        height: 24px;
-        width: 28px;
-        font-family: "Font Awesome 5 Pro Regular";
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: 0;
-        line-height: 24px;
-        text-align: center;
-        color: #D3D3D3;
+      height: 24px;
+      width: 28px;
     }
+  }
+  @media(min-width: 600px){
+    right: 56%;
+  }
+  @media(min-width: 1366px){
+    position: absolute;
+      top: 636px;
+      right: 217px;
+  &::before{
+    content: "\f177";
+    height: 24px;
+    width: 28px;
+    font-family: "Font Awesome 5 Pro Regular";
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+  }
 `
