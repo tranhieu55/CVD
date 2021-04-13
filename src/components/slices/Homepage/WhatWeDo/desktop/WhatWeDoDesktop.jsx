@@ -143,7 +143,7 @@ const Service = styled.li`
     opacity: 1;
     list-style : 
   }
-  opacity: ${props => props.indicator ? 1 : .6};
+  opacity: ${props => props.indicator ? '1' : '0.6'};
   
 `
 

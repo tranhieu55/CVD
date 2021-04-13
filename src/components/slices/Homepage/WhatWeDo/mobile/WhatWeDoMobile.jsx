@@ -29,7 +29,7 @@ export default function WhatWeDoMobile(props) {
   // Declare a new state variable, which we'll call "count"
   const [service, setService] = useState(defaultService)
   const [content, setContent] = useState(defaultContent)
-  const [indicator, setindicator] = useState(defaultIndicator)
+  const [indicator, setindicator] = useState(null)
 
 
   function updateSelected(i) {
@@ -38,9 +38,10 @@ export default function WhatWeDoMobile(props) {
     setContent(fields[i].content)
     setindicator(i)
     if(isOpen === i) {
-      setIsOpen(null);
+      setIsOpen(null)
     } else {
-      setIsOpen(i)
+      setIsOpen(i);
+      
     }
   }
   const [isOpen, setIsOpen] = useState(null);
@@ -146,7 +147,7 @@ const Service = styled.h4`
       margin-left: 24px;
       opacity: 0.6;
   }
-    opacity: ${props => props.indicator ? 1 : .6};
+    opacity: ${props => props.indicator ? '1' : '0.6'};
     .accordion-title {
       font-weight: 600;
       cursor: pointer;
@@ -193,7 +194,7 @@ font-size: 22px;
 font-weight: 700;
 letter-spacing: -0.5px;
 line-height: 26px;
-margin-bottom: 24px;
+margin-bottom: 21px;
 :hover{
   color: white;
   opacity: 1;
