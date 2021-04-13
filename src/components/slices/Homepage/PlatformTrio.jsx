@@ -310,17 +310,18 @@ const PlatformDesc = styled.div`
   }
 `
 const Buttons = styled.div`
-border-color: #FECF09;
-padding: 12px 15px;
-text-align: center;
-border-radius: 4px;
-border: solid 2px;
-position: relative;
-box-sizing: border-box;
-height: 48px;
-width: 148px;
-border: 2px solid #fecf09;
-border-radius: 3px;
+  border-color: #FECF09;
+  padding: 12px 15px;
+  text-align: center;
+  border-radius: 4px;
+  border: solid 2px;
+  position: relative;
+  box-sizing: border-box;
+  height: 48px;
+  width: 148px;
+  border: 2px solid #fecf09;
+  border-radius: 3px;
+  cursor: pointer;
 `
 const ButtonText = styled(Link)`
   font-family: Caribre Medium;
