@@ -146,6 +146,9 @@ const ButtonBanner = styled.button`
     margin-right:${props => props.vitri == 0 ? '12px' : '0px' };
     width: ${props => props.vitri == 1 ? '130px': '130px'};
   }
+  @media(min-width: 600px){
+    width: ${props => props.vitri == 1 ? '160px': '156px'};
+  }
   @media(min-width: 1366px){
     margin-right: 24px;
     height: 48px;
