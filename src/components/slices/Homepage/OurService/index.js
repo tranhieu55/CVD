@@ -77,6 +77,10 @@ const Container = styled.div`
       height: 660px;
       margin: 96px 0px 88px;
     }
+    @media(min-width: 1600px){
+      height: 515px;
+      margin: 96px 0px 88px;
+    }
 `
 
 const Title = styled.h1`
