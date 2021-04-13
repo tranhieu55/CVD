@@ -55,7 +55,7 @@ const Skew = styled.div`
     top: -41px;
   }
   @media(min-width: 600px){
-    height: 672px;
+    height: 740px;
     top: -81px;
     background-color: #0F1534;
   }
