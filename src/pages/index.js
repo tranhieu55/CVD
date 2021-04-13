@@ -57,7 +57,7 @@ const Title = styled.h1`
   line-height: 88px;
   @media (min-width: 600px) {
     height: auto;
-    width: 301px;
+    width: 100%;
     color: #FFFFFF;
     font-family: Calibre Bold;
     font-size: 52px;
@@ -180,7 +180,7 @@ const TextBanner = styled.div`
     padding-left: 50px;
     top: 86px;
     height: auto;
-    width: 345px;
+    width: 445px;
   }
   @media(min-width: 1024px){
     padding-left: 50px;
