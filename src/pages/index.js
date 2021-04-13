@@ -88,6 +88,7 @@ const Title = styled.h1`
     font-size: 66px;
     height: auto;
     width: 419px;
+    line-height: 57px;
   }
   @media(min-width: 1366px){
     height: 275px;
