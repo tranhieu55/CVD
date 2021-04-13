@@ -333,6 +333,7 @@ const Opaci = styled.div`
     right: 0px;
     @media(max-width: 992px){
       display: none;
+      
     }
 `
 
