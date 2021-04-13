@@ -56,7 +56,7 @@ const Title = styled.h1`
   letter-spacing: -0.5px;
   line-height: 88px;
   @media (min-width: 600px) {
-    height: 139px;
+    height: auto;
     width: 301px;
     color: #FFFFFF;
     font-family: Calibre Bold;
@@ -67,7 +67,7 @@ const Title = styled.h1`
     padding-top: 11px;
   }
   @media(max-width: 600px){
-  height: 139px;
+  height: auto;
   width: 301px;
   color: #FFFFFF;
   font-family: Calibre Bold;
@@ -164,7 +164,7 @@ const TextBanner = styled.div`
   padding-left: 167px;
   z-index: 1;
   @media(max-width: 600px){
-    height: 206px;
+    height: auto;
     width: 345px;
     top: 204px;
     padding-left: 24px;
@@ -175,13 +175,13 @@ const TextBanner = styled.div`
   @media(min-width: 600px){
     padding-left: 50px;
     top: 86px;
-    height: 206px;
+    height: auto;
     width: 345px;
   }
   @media(min-width: 1024px){
     padding-left: 50px;
     top: 122px;
-    height: 244px;
+    height: auto;
     width: 469px;
   }
   @media(min-width: 1366px){
