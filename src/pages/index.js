@@ -60,11 +60,14 @@ const Title = styled.h1`
     width: 100%;
     color: #FFFFFF;
     font-family: Calibre Bold;
-    font-size: 52px;
+    font-size: 48px;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 44px;
     padding-top: 11px;
+  }
+  @media(min-width: 768px){
+    font-size: 52px;
   }
   @media(max-width: 600px){
   height: auto;
@@ -82,9 +85,11 @@ const Title = styled.h1`
     font-size: 43px;
   }
   @media(min-width: 1024px){
-    font-size: 74px;
-    height: 178px;
+    font-size: 66px;
+    height: auto;
     width: 419px;
+    line-height: 57px;
+    
   }
   @media(min-width: 1366px){
     height: 275px;

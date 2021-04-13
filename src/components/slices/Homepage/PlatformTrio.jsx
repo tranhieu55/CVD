@@ -126,10 +126,15 @@ const Title = styled.h2`
     top: -41px;
     height: 114px;
     word-spacing: -3.1px;
+    padding: 9px 16px 0px;
+    margin-bottom: 16px;
   }
   @media(min-width: 601px){
     font-size: 56px;
-    margin: 0px 32px;
+    padding: 0px 32px;
+  }
+  @media(min-width: 1024px){
+    padding: 0px 0px;
   }
   @media(min-width: 1366px){
     font-size: 80px;
@@ -170,7 +175,11 @@ const Content = styled.div`
     margin: 10px 16px 0px; 
   }
   @media(min-width: 600px){
-    margin: 0px 32px 0px; 
+    padding: 0px 32px 0px; 
+    height: 180px;
+  }
+  @media(min-width: 1024px){
+    padding: 0px 0px ;
   }
 `
 
