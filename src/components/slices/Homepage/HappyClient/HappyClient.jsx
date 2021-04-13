@@ -339,7 +339,7 @@ const Buttons = styled.div`
       color: #AAABAB;
     }
     &::after {
-        content: "\f078";
+        content: "\f178";
         font-family: "Font Awesome 5 Pro Regular";
         height: 24px;
         width: 28px;
@@ -387,7 +387,7 @@ const Buttonss = styled.div`
       color: #AAABAB;
     }
   &::before{
-    content: "\f077";
+    content: "\f177";
     height: 24px;
     width: 28px;
     font-family: "Font Awesome 5 Pro Regular";
