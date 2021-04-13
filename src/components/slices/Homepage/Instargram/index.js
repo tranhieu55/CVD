@@ -115,7 +115,7 @@ const ListPost = styled.div`
         margin-bottom: 14px;
     }
     @media(min-width: 1366px){
-        width: 23%;
+        width: 24%;
         height: 100%;
         display: flex;
         justify-content: space-between;
