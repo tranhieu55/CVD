@@ -119,7 +119,8 @@ const Title = styled.h1`
       padding: 52px 77px 0px;
     }
     @media(max-width: 320px){
-      font-size: 30px;
+      font-size: 40px;
+      padding: 52px 47px 0px;
     }
     @media(min-width: 601px){
       padding: 100px 32px 0px;
