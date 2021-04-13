@@ -16,6 +16,7 @@ import Mobile from '../components/Styleguide/components/Mobile';
 
 const WrapperStyledGuide = styled.div`
     display:flex;
+    margin-top: 57px;
     hr {
         margin-top:16px!important;
         margin-bottom:36px!important;
@@ -38,6 +39,7 @@ const BoxStyleguide = styled.div`
 const BoxColour = styled.div`
     width:50%;
     display:flex;
+    justify-content: space-between;
 `
 const TileColour = styled.div`
     h2 {
@@ -55,9 +57,10 @@ const TileColour = styled.div`
   
 `
 const BoxListItem = styled.div`
-    width:50%;
+    width:51%;
     display:flex;
     flex-wrap:wrap;
+    margin-left: 25px;
     .item-left {
         margin-right:25px;
     }
@@ -69,22 +72,27 @@ const WrapperLogog = styled.div``
 const WrapperForm = styled.div`
     width:600px;
     margin-left:76px;
-    margin-top:150px;
+    margin-top:135px;
     margin-right:  91px;
     margin-bottom:38px;
     .form-input {
         margin-top:40px;
         display: flex;
-        
+        .forms-left{
+            width: 264px;
+            height: 297px;
+            margin-right: 72px;
+        }
     }
     .checkbox {
         display: flex;
     }
 `
 const WrapperButton = styled.div`
-    margin-top:240px;
     display: flex;
     height: 48px;
+    margin-top: 87px;
+    margin-bottom: 61px
 `
 const BoxFormButton = styled.div`
     display: flex;
@@ -157,6 +165,31 @@ const TitleMoblie = styled.div`
 
     
 `
+const FormsRight = styled.div`
+    margin-top: 139px;
+    margin-left: 87px;
+    span{
+        height: 20px;
+        width: 90px;
+        color: #101010;
+        font-family: Calibre Medium;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 21px;
+        &::after{
+            content: "\f178";
+            font-family: "Font Awesome 5 Pro Regular";
+            height: 18px;
+            width: 21px;
+            line-height: 0px;
+            font-size: 20px;
+            color: #101010;
+            padding: 0px 0.6rem;
+        }
+    }
+`
 
 
 export default function Styledguid() {
@@ -208,7 +241,7 @@ export default function Styledguid() {
                 <hr />
             </TileColour>
             <div className="form-input">
-                <div>
+                <div className='forms-left'>
                     <TextInput name="Input Field"/>
                     <TextInput name="LABLE" value="Text Field" id="outlined-basic" display="2"/>
                     <TextInput name="LABLE" value="Text Field" id="outlined-size-small"/>
@@ -247,39 +280,35 @@ export default function Styledguid() {
                 </RadioGroup>
             </div>
         </WrapperForm>
+        <FormsRight>
             <WrapperButton>
-            <ButtonStyled 
-                name="(03) 9070 3463" 
-                background="#FECF09" 
-                color="#101010" icon='1'
-                border="none" 
-                width="208"/>
+                <ButtonStyled 
+                    name="(03) 9070 3463" 
+                    background="#FECF09" 
+                    color="#101010" icon='1'
+                    border="none" 
+                    width="208"/>
 
-            <ButtonStyled 
-                name="Button" 
-                background="#FECF09" 
-                color="#101010" icon="" 
-                border="none" 
-                width="166"/>
+                <ButtonStyled 
+                    name="Button" 
+                    background="#FECF09" 
+                    color="#101010" icon="" 
+                    border="none" 
+                    width="166"/>
 
-            <ButtonStyled 
-                name="Butoon" 
-                background="#101010" 
-                color="#FFFFFF" icon="" 
-                border="1px solid #FECF09" 
-                width="196"
-                height="76"
-                room="1"    
-                />
-
-            <ButtonStyled 
-                name="Learn more" 
-                background="transparent" 
-                color="#101010" icon="" 
-                border="none" 
-                width="166"/>
-
-         </WrapperButton> 
+                <ButtonStyled 
+                    name="Butoon" 
+                    background="#101010" 
+                    color="#FFFFFF" icon="" 
+                    border="1px solid #FECF09" 
+                    width="196"
+                    height="76"
+                    room="1"    
+                    />
+            </WrapperButton>
+            <span>Learn more</span>
+        </FormsRight>
+         
         </BoxFormButton>
         
         <BoxHeader>

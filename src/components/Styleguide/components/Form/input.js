@@ -5,8 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const Input  = styled.div`
-margin-bottom:24px;
-margin-right:72px;
+margin-bottom:26px;
+width: 100%;
+border-radius: 10px;
+margin-right: 72px;
 .edit-cl{
   border-color: rgb(0 0 0);
 }

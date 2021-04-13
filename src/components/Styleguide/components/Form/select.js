@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 
 const Option = styled.div`
   margin-bottom:24px;
+  margin-top: 5px;
  .MuiFormControl-root {
     width:264px;
   }

@@ -4,6 +4,17 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const Wrapper = styled.div`
+height: 47px;
+.MuiFormControlLabel-root{
+  margin-top: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-left: -10px;
+    margin-right: 34px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
 .MuiCheckbox-root{
     color:#101010;
 }`

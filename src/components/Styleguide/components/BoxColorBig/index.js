@@ -4,7 +4,6 @@ import styled from "styled-components"
 const BoxColor = styled.div`
 width: 182px;
 height:197px;
-margin-right:25px;
 box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.15);
 .item-color {
     width:100%;
