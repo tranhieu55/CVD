@@ -121,6 +121,7 @@ const ListPost = styled.div`
         justify-content: space-between;
         margin-right: 0px;
         margin-bottom: 0px;
+        
     }
 `
 const Img = styled.img`
