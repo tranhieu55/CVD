@@ -170,7 +170,7 @@ const Content = styled.div`
     margin: 10px 16px 0px; 
   }
   @media(min-width: 600px){
-
+    margin: 0px 32px 0px; 
   }
 `
 

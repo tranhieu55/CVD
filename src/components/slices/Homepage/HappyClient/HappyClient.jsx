@@ -359,7 +359,7 @@ const Buttons = styled.div`
       }
     }
     @media(min-width: 600px){
-      right: 43%;
+      right: 46%;
     }
     @media(min-width: 1366px){
       position: absolute;
@@ -406,7 +406,7 @@ const Buttonss = styled.div`
     }
   }
   @media(min-width: 600px){
-    right: 56%;
+    right: 50%;
   }
   @media(min-width: 1366px){
     position: absolute;
