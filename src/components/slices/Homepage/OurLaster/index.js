@@ -253,7 +253,7 @@ const SubTitle = styled.h4`
   }
   @media(min-width: 1366px){
     margin-left: 80px;
-    margin-top: ${props => props.vitri === 1 ? '38px': '33px'}
+    margin-top: ${props => props.vitri === 1 ? '53px': '33px'}
   }
 `
 

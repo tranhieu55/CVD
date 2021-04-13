@@ -38,21 +38,23 @@ export default function WhatWeDoDesktop(props) {
   }
 
   return (
-        <ContainerDesktop>
-        <Image src={input.primary.background_image_what_we_do.url}></Image>
-          <Left>
-            <Title>{heading}</Title>
-            {fields.map((service, i) => {
-              const title = service.service[0].text
-              return (
-                <React.Fragment key={i}>  
-                  <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
-                    {title}
-                  </Service>
-                </React.Fragment>
-              )
-            })}
-          </Left>
+        <ContainerDesktop >
+          <Contentleft>
+            <Image src={input.primary.background_image_what_we_do.url}></Image>
+            <Left>
+              <Title>{heading}</Title>
+              {fields.map((service, i) => {
+                const title = service.service[0].text
+                return (
+                  <React.Fragment key={i}>  
+                    <Service  onClick={() => updateSelected(i)} indicator={i == indicator}>
+                      {title}
+                    </Service>
+                  </React.Fragment>
+                )
+              })}
+            </Left>
+          </Contentleft>
           <Right>
             <UpperContent>
               <Content>{RichText.render(content)}</Content>
@@ -70,17 +72,15 @@ const UpperContent = styled.div`
 `
 const ContainerDesktop = styled.div`
   z-index: 3;
-  top: -250px;
   position: relative;
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
   background: #2A304F;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display:none;
   }
   @media(min-width: 1024px){
-    top: -219px;
   }
 `
 
@@ -102,6 +102,21 @@ const Left = styled.div`
   margin: auto;
   max-width: 500px;
   height: 494px;
+  position: absolute;
+  top: 19%;
+  left: 17%;
+  @media(min-width: 992px){
+    left: 6%;
+  }
+  @media(min-width: 1366px){
+    left: 12%;
+  }
+  @media(min-width: 1600px){
+    left: 15%;
+  }
+  @media(min-width: 1800px){
+    left: 16%;
+  }
 `
 
 const Service = styled.li`
@@ -185,5 +200,10 @@ const LearnMore = styled.h4`
 `
 const Image = styled.img`
   width: 100%;
-  object-fit: cover;
+  height: 100%;
+  position: relative;
+  object-fit: none;
+`
+const Contentleft = styled.div`
+  background: #0F1534;
 `

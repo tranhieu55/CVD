@@ -45,38 +45,23 @@ const Skew = styled.div`
   background-color: ${theme.Black};
   display: block;
   height: 808px;
-  :before {
-    background: inherit;
-    content: "";
-    transform-origin: 100%;
-    z-index: 1;
-    height: 250px;
-    width: 100%;
-    transform: skewY(3.5deg);
-    position: relative;
-    display: block;
-  }
+  clip-path: polygon(0px 0%,100% 81px,100% 100%,0% 100%);
+  position: relative;
   @media(max-width: 600px){
     height: 640px;
     width: 100%;
     background-color: #0F1534;
-    :before{
-      height: 74px;
-      transform: skewY(5deg);
-    }
+    clip-path: polygon(0px 0%,100% 41px,100% 100%,0% 100%);
+    top: -41px;
   }
   @media(min-width: 600px){
     height: 640px;
-    :before{
-      height: 80px;
-    }
+    top: -81px;
   }
   @media(min-width: 1024px){
-    :before{
-      height: 220px;
-    }
   }
   @media(min-width: 1366px){
-    height: 822px;
+    height: 908px;
+    top: -81px;
   }
 `
