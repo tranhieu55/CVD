@@ -70,7 +70,7 @@ const WrapperForm = styled.div`
     width:600px;
     margin-left:76px;
     margin-top:150px;
-    margin-right:200px;
+    margin-right:  91px;
     margin-bottom:38px;
     .form-input {
         margin-top:40px;
