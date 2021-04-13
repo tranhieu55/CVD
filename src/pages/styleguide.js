@@ -92,7 +92,7 @@ const WrapperButton = styled.div`
     display: flex;
     height: 48px;
     margin-top: 87px;
-    margin-bottom: 61px
+    margin-bottom: 61px;
 `
 const BoxFormButton = styled.div`
     display: flex;
