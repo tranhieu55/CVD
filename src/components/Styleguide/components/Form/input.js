@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const Input  = styled.div`
 margin-bottom:24px;
 margin-right:72px;
+.edit-cl{
+  border-color: rgb(0 0 0);
+}
 
 `
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +23,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 export default function TextInput(props) {
-    const {name , id, value, error ,helperText} = props;
+    const {name , id, value, error ,helperText,display} = props;
+    console.log("123",display)
     const classes = useStyles();
   return (
     <Input>
        <TextField id="outlined-basic"
-        className={classes.root}
+        className={display == 2 ? "edit-cl" : ""}
         size="small" 
         label={name} 
         variant="outlined" 
