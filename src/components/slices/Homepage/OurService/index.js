@@ -70,11 +70,11 @@ const Container = styled.div`
 
     }
     @media(min-width: 1024px){
-      height: 820px;
+      height: 730px;
       margin: 96px 32px 0px ;
     }
     @media(min-width: 1366px){
-      height: 515px;
+      height: 660px;
       margin: 96px 0px 88px;
     }
 `
