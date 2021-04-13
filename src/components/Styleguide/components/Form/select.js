@@ -18,12 +18,6 @@ const Option = styled.div`
   .test {
     top:-6px;
   }
-  .MuiCheckbox-root {
-    color: rgb(0 0 0);
-  }
-  .MuiRadio-root {
-    color: rgb(0 0 0);
-  }
 `
 export default function InputSelect(props) {
 const [age, setAge] = React.useState('');
@@ -43,6 +37,7 @@ const handleChange = (event) => {
           value={age}
           onChange={handleChange}
           label={lable}
+          className="test"
         >
           {nameSelect.map((item,index) => (
               <MenuItem value={10}>{item}</MenuItem>
