@@ -2,6 +2,7 @@ import React from "react"
 import BannerCaseStudy from "./BannerCaseStudy"
 import BannerProjects from "./BannerProjects"
 import BannerWhatWeDo from "./BannerWhatWeDo"
+import BannerStyleguide from "./BannerStyleguide"
 
 function Banner({
   location,
@@ -34,6 +35,8 @@ function Banner({
       )
     case "/we-do":
       return <BannerWhatWeDo />
+    case "/styleguide":
+    return <BannerStyleguide />
     default:
       return ""
   }

@@ -6,12 +6,15 @@ const Wrapper = styled.div`
     text-align: ${({textAlign}) => textAlign};
     font-size: ${({fontSize}) => fontSize};
     font-family: ${({fontFamily}) => fontFamily};
+    letter-spacing:${({letSpace}) => `${letSpace}px`};
+    line-height:${({lineH}) => `${lineH}px`};
+    margin-bottom:${({mrb}) => `${mrb}px`};
 
 `
 export default function Mobile(props) {
-    const {name, fontFamily, fontSize,color ,end} = props;
+    const {name, fontFamily, fontSize,color ,letSpace,lineH ,mrb} = props;
   return (
-    <Wrapper fontFamily={fontFamily} fontSize={fontSize} color={color} end={end}>
+    <Wrapper fontFamily={fontFamily} fontSize={fontSize} mrb={mrb} color={color} letSpace={letSpace} lineH={lineH}>
         <span>
             {name}
         </span>

@@ -74,7 +74,7 @@ const WrapperForm = styled.div`
     margin-left:76px;
     margin-top:135px;
     margin-right:  91px;
-    margin-bottom:38px;
+    margin-bottom: 70px;
     .form-input {
         margin-top:40px;
         display: flex;
@@ -131,7 +131,7 @@ const SpanContent = styled.div`
 `
 const Moblie = styled.div``
 const BoxMoblie = styled.div`
-    margin-bottom:100px;
+    margin-bottom:95px;
 `
 const BoxBold = styled.div`
     font-family:'Calibre Semibold';
@@ -144,17 +144,17 @@ const BoxRegular = styled.div`
     font-family: 'Calibre Regular';
     font-size:24px;
     color:#222222;
-    margin-bottom:100px;
+    margin-bottom:80px;
 `
 const BoxWrapperBold = styled.div`
     margin-left:76px;
 `
 const MobileBold = styled.div`
-    margin-bottom:54px;
+    margin-bottom:73px;
 `
 const TitleMoblie = styled.div`
     position: relative;
-    margin-bottom:54px;
+    margin-bottom:70px;
     font-family: 'Helvetica Neue Regular';
     font-size:24px;
     color:#6F6F6F;
@@ -203,7 +203,7 @@ export default function Styledguid() {
     };
   return (
     <>
-     <Layout location="/we-do">
+     <Layout location="/styleguide">
      <WrapperStyledGuide>
             <WrapperColour>
                 <TileColour>
@@ -321,28 +321,28 @@ export default function Styledguid() {
         </TileHeader>
         <div className="box-header">
             <div>
-                <Title name="Heading 1" textAlign="left" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 2" textAlign="left" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="left" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="left" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="left" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 6" textAlign="left" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
+                <Title name="Heading 1" textAlign="left"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 2" textAlign="left"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="left"   letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="left"   letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="left"   letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 6" textAlign="left"   letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
             <div>
-                <Title name="Heading 1" textAlign="center" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 2" textAlign="center" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="center" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="center" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="center" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 6" textAlign="center" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
+                <Title name="Heading 1" textAlign="center"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 2" textAlign="center"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="center"  letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="center"  letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="center"  letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 6" textAlign="center"  letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
             <div>
-                <Title name="Heading 1" textAlign="right" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 2" textAlign="right" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="right" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="right" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="right" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 6" textAlign="right" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
+                <Title name="Heading 1" textAlign="right"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 2" textAlign="right"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="right"  letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="right"  letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="right"  letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 6" textAlign="right"  letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
         </div>  
         </BoxHeader>
@@ -356,14 +356,14 @@ export default function Styledguid() {
             </TitleMoblie>
             
             <BoxMoblie>
-                <Mobile name="Mob Heading 1" fontFamily="Calibre Bold" fontSize="40px" color="#101010"/>
-                <Mobile name="Mob Heading 2" fontFamily="Calibre Bold" fontSize="32px" color="#101010"/>
-                <Mobile name="Mob Heading 3" fontFamily="Calibre Semibold" fontSize="32px" color="#101010"/>
-                <Mobile name="Mob Heading 4" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
+                <Mobile name="Mob Heading 1" letSpace="-1" fontFamily="Calibre Bold" fontSize="40px" color="#101010"/>
+                <Mobile name="Mob Heading 2" letSpace="-0.5" fontFamily="Calibre Bold" fontSize="32px" color="#101010"/>
+                <Mobile name="Mob Heading 3" mrb='14' letSpace="0" fontFamily="Calibre Semibold" fontSize="32px" color="#101010"/>
+                <Mobile name="Mob Heading 4" letSpace="-0.25" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
             </BoxMoblie>
             <MobileBold>
-                <Mobile name="Mobile Bold Intro" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
-                <Mobile name="Mobile Bold Intro" fontFamily="Calibre Regular" fontSize="20px" color="#222222" end='end'/>
+                <Mobile name="Mobile Bold Intro" lineH="26" mrb='16' letSpace="-0.25" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
+                <Mobile name="Mobile Regular Intro" lineH="24" letSpace="0" fontFamily="Calibre Regular" fontSize="20px" color="#222222" end='end'/>
             </MobileBold>
         </BoxWrapperBold>
     </Layout>

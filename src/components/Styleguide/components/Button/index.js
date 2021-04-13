@@ -31,7 +31,7 @@ const BgrButton = styled.div`
   button {
     width:166px;
     height: 48px;
-    margin-right:0px;
+    margin-left:0px;
   }
 ` 
 export default function ButtonStyled(props) {
