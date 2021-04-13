@@ -13,14 +13,15 @@ const Wrapper = styled.button`
     border-radius: 3px;
     font-family:'Calibre Semibold';
     font-size:18px;
-    margin-right:24px;
+    margin-left:24px;
     img {
       width:16px;
       height:16px;
     }
 `
 const BgrButton = styled.div`
-  margin-right:24px;
+  margin-left: 9px;
+  margin-top: -15px;
   display: flex;
   justify-content:center;
   align-items:center;
@@ -30,7 +31,7 @@ const BgrButton = styled.div`
   button {
     width:166px;
     height: 48px;
-    margin-right:0px;
+    margin-left:0px;
   }
 ` 
 export default function ButtonStyled(props) {

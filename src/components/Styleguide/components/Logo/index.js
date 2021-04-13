@@ -7,6 +7,7 @@ const BoxLogo = styled.div`
 width:208px;
 height: 58px;
 padding: 14px;
+margin-bottom: 10px;
 background-color: ${({background}) => background};
 .logo-image{
     width:150px;
@@ -18,7 +19,7 @@ background-color: ${({background}) => background};
 }
 `
 const Wrapper =  styled.div`
-
+    margin-left: 9px;
 `
 
 export default function LogoConvert(props) {

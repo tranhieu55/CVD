@@ -14,7 +14,8 @@ box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.15);
     background-color: ${({color}) => color};
 }
 .title-color-item {
-    margin-left:10px;
+    margin-left:14px;
+    margin-top: 7px;
     span {
         font-family: "Work Sans";
         font-size:14px;
