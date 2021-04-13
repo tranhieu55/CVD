@@ -339,7 +339,7 @@ const Buttons = styled.div`
       color: #AAABAB;
     }
     &::after {
-        content: "\f178";
+        content: "\f078";
         font-family: "Font Awesome 5 Pro Regular";
         height: 24px;
         width: 28px;
@@ -387,7 +387,7 @@ const Buttonss = styled.div`
       color: #AAABAB;
     }
   &::before{
-    content: "\f177";
+    content: "\f077";
     height: 24px;
     width: 28px;
     font-family: "Font Awesome 5 Pro Regular";
@@ -406,7 +406,7 @@ const Buttonss = styled.div`
     }
   }
   @media(min-width: 600px){
-    right: 50%;
+    right: 53%;
   }
   @media(min-width: 1366px){
     position: absolute;
