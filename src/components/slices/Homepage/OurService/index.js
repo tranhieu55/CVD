@@ -66,8 +66,12 @@ const Container = styled.div`
     }
     @media(min-width: 601px){
       height: 820px;
-      margin: 96px 32px 0px ;
+      margin: 96px 32px 50px ;
 
+    }
+    @media(min-width: 1024px){
+      height: 820px;
+      margin: 96px 32px 0px ;
     }
     @media(min-width: 1366px){
       height: 515px;
@@ -93,7 +97,8 @@ const Cards = styled.div`
   margin-right: 32px;
   @media(min-width: 600px){
     width: 44%;
-    height: 160px;
+    height: 155px;
+    margin-bottom: 16px;
   }
   @media(min-width: 1024px){
     width: 30%;

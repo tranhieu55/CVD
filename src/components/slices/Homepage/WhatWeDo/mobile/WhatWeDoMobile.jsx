@@ -99,6 +99,10 @@ const Container = styled.div`
   height: 496px;
   @media(max-width: 600px){
     top: 74px;
+    margin-right: 16px;
+  }
+  @media(max-width: 360px){
+    margin: 0px 16px;
   }
 `
 
@@ -109,7 +113,7 @@ const Title = styled.h2`
   letter-spacing: -0.5px;
   line-height: 30px;
   height: 30px;
-  width: 148px;
+  width: 100%;
   font-family: Calibre Bold;
   margin-bottom: 20px;
 `
@@ -239,6 +243,9 @@ opacity: ${props => props.indicator ? 1 : .6};
     }
   }
 }
+@media(max-width: 360px){
+  font-size: 19px;
+}
 `
 const Content = styled.div`
   width: 311px;
@@ -255,6 +262,9 @@ const Content = styled.div`
     letter-spacing: 0;
     line-height: 28px;
     margin-bottom: 10px;
+  }
+  @media(max-width: 360px){
+    width: 95%;
   }
 `
 const LearnMore = styled.h4`

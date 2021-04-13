@@ -159,12 +159,18 @@ const Content = styled.div`
     text-align: center;
     top: -35px;
     height: 192px;
-    margin: 0 auto;
+    margin: 0 16px;
     p{
       width: 100%;
       margin-bottom: 23px;
       word-spacing: 1.2px;
     }
+  }
+  @media(max-width: 360px){
+    margin: 10px 16px 0px; 
+  }
+  @media(min-width: 600px){
+
   }
 `
 

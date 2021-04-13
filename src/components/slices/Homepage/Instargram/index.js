@@ -160,7 +160,7 @@ const List = styled.div`
 `
 const Title = styled.h1`
     height: 56px;
-    width: 566px;
+    width: 100%;
     color: #101010;
     font-family: Calibre Bold;
     font-size: 64px;
