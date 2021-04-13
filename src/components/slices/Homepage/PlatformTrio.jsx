@@ -126,6 +126,8 @@ const Title = styled.h2`
     top: -41px;
     height: 114px;
     word-spacing: -3.1px;
+    padding: 9px 16px 0px;
+    margin-bottom: 16px;
   }
   @media(min-width: 601px){
     font-size: 56px;
