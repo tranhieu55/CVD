@@ -121,11 +121,11 @@ const Title = styled.h1`
     @media(max-width: 320px){
       font-size: 30px;
     }
-    @media(min-width: 600px){
-      margin: 0xp 32px;
+    @media(min-width: 601px){
+      padding: 100px 32px 0px;
     }
-    @media(min-width: 1024px){
-      margin: 0px 0px;
+    @media(min-width: 768px){
+      padding: 100px 0px 0px;
     }
 `   
 const Slider = styled.div`
