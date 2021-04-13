@@ -37,12 +37,9 @@ const Wrapper = styled.div`
   }
   .MuiFormControl-root {
     width:264px;
-    .fRSElf .MuiOutlinedInput-input{
-      padding: 14.5px 14px;
-    }
   }
   .MuiOutlinedInput-input {
-    padding: 9.5px 14px;
+    padding: 14.5px 14px;
   }
   .MuiSelect-outlined.MuiSelect-outlined {
   }

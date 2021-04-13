@@ -9,6 +9,13 @@ margin-bottom:26px;
 width: 100%;
 border-radius: 10px;
 margin-right: 72px;
+.MuiFormControl-root{
+  width: 100%;
+}
+.MuiOutlinedInput-inputMarginDense{
+  padding-top: 16.5px;
+  padding-bottom: 10.5px;
+}
 .edit-cl{
   border-color: rgb(0 0 0);
 }

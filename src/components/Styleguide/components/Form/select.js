@@ -10,6 +10,9 @@ const Option = styled.div`
   margin-top: 5px;
  .MuiFormControl-root {
     width:264px;
+    .MuiOutlinedInput-input {
+    padding: 14.5px 14px;
+  }
   }
   .MuiOutlinedInput-input {
     padding: 9.5px 14px;
