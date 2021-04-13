@@ -60,11 +60,14 @@ const Title = styled.h1`
     width: 100%;
     color: #FFFFFF;
     font-family: Calibre Bold;
-    font-size: 52px;
+    font-size: 48px;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 44px;
     padding-top: 11px;
+  }
+  @media(min-width: 768px){
+    font-size: 52px;
   }
   @media(max-width: 600px){
   height: auto;

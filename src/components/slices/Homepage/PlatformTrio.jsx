@@ -129,7 +129,10 @@ const Title = styled.h2`
   }
   @media(min-width: 601px){
     font-size: 56px;
-    margin: 0px 32px;
+    padding: 0px 32px;
+  }
+  @media(min-width: 1024px){
+    padding: 0px 0px;
   }
   @media(min-width: 1366px){
     font-size: 80px;
@@ -170,7 +173,11 @@ const Content = styled.div`
     margin: 10px 16px 0px; 
   }
   @media(min-width: 600px){
-    margin: 0px 32px 0px; 
+    padding: 0px 32px 0px; 
+    height: 180px;
+  }
+  @media(min-width: 1024px){
+    padding: 0px 0px ;
   }
 `
 

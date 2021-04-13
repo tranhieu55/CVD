@@ -121,6 +121,12 @@ const Title = styled.h1`
     @media(max-width: 320px){
       font-size: 30px;
     }
+    @media(min-width: 600px){
+      margin: 0xp 32px;
+    }
+    @media(min-width: 768px){
+      margin: 0px 0px;
+    }
 `   
 const Slider = styled.div`
     height: 254px;
@@ -325,7 +331,7 @@ const Opaci = styled.div`
     position : absolute;
     top: 238px;
     right: 0px;
-    @media(max-width: 600px){
+    @media(max-width: 992px){
       display: none;
     }
 `
