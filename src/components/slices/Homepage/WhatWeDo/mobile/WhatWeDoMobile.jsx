@@ -98,7 +98,7 @@ const Container = styled.div`
   margin-left: 32px;
   height: 496px;
   @media(max-width: 600px){
-    top: 118px;
+    top: 74px;
   }
 `
 
@@ -120,8 +120,8 @@ const Service = styled.h4`
     color: #FFFFFF;
     font-family: Calibre;
     font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.7px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     line-height: 26px;
     margin-bottom: 24px;
     :hover{
@@ -183,8 +183,8 @@ opacity: 0.6;
 color: #FFFFFF;
 font-family: Calibre;
 font-size: 22px;
-font-weight: 500;
-letter-spacing: -0.7px;
+font-weight: 700;
+letter-spacing: -0.5px;
 line-height: 26px;
 margin-bottom: 24px;
 :hover{

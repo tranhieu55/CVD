@@ -116,6 +116,7 @@ const Title = styled.h2`
   font-family: Calibre Bold;
   position: relative;
   top: -79px;
+  padding-top: 9px;
   @media(max-width: 600px){
     font-size: 40px;
     font-weight: bold;
