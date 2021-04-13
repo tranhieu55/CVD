@@ -127,6 +127,12 @@ const Messagings = styled.h4`
     text-align: center;
     margin: 5px 0px 24px;
   }
+  @media(min-width: 600px){
+    margin: 16px 50px 48px;
+  }
+  @media(min-width: 1024px){
+    margin: 16px 152px 48px;
+  }
 `  
 
 const ListPost = styled.div`

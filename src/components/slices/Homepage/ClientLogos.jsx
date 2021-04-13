@@ -136,7 +136,7 @@ const ClientsLeft = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     height: 227px;
-    margin: 0px 20px 0px 0px;
+    margin: 0px 150px 0px 0px;
   }
   @media ( max-width: 600px){
     display: block ;
@@ -165,7 +165,7 @@ const Container = styled.div`
     height: 408px;
   }
   @media(max-width: 1024px){
-    height: 308px;
+    height: 340px;
   }
 `
 const ClientLogo = styled.img`
