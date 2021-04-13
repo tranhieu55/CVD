@@ -56,9 +56,14 @@ console.log({fields});
             let title = service.service[0].text
             return (
               <React.Fragment key={i}>
-                <Service className={`accordion-title ${isOpen === i ? "open" : ""}`} onClick={() => updateSelected(i)} indicator={i === indicator}>
+                {isOpen === i ? <Service className={`accordion-title ${isOpen === i ? "open" : ""}`} onClick={() => updateSelected(i)} indicator={i === indicator}>
                   {title}
-                </Service>
+                </Service>: 
+                  <Services className={`accordion-title ${isOpen === i ? "open" : ""}`} onClick={() => updateSelected(i)} indicator={i === indicator}>
+                  {title}
+                </Services>
+                }
+                
                 <Collapse isOpen={isOpen === i} onExited={onExited}>
                     <UpperContent>  
                       <Content>{RichText.render(content)}</Content>
@@ -84,13 +89,16 @@ const Container = styled.div`
   z-index: 3;
   position: relative;
   display: block;
-  @media (min-width: 769px) {
+  @media (min-width: 993px) {
     display:none;
+  }
+  @media(min-width: 600px){
+    top: 125px;
   }
   margin-left: 32px;
   height: 496px;
   @media(max-width: 600px){
-    top: -26px;
+    top: 118px;
   }
 `
 
@@ -120,6 +128,20 @@ const Service = styled.h4`
       color: white;
       opacity: 1;
     }
+    &::after {
+      content: "\f078";
+      font-family: "Font Awesome 5 Pro Regular";
+      height: 18px;
+      width: 16px;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 24px;
+      text-align: right;
+      color: #FFFFFF;
+      margin-left: 24px;
+      opacity: 0.6;
+  }
     opacity: ${props => props.indicator ? 1 : .6};
     .accordion-title {
       font-weight: 600;
@@ -155,12 +177,68 @@ const Service = styled.h4`
       }
     }
 `
-const Blob = styled.div`
-  height: 196px;
-  width: 311px;
-  @media (max-width: 768px) {
-    display:none;
+const Services  = styled.h4`
+height: 22px;
+opacity: 0.6;
+color: #FFFFFF;
+font-family: Calibre;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: -0.7px;
+line-height: 26px;
+margin-bottom: 24px;
+:hover{
+  color: white;
+  opacity: 1;
+}
+&::after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Pro Regular";
+  height: 18px;
+  width: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: right;
+  color: #FFFFFF;
+  margin-left: 24px;
+  opacity: 0.6;
+}
+opacity: ${props => props.indicator ? 1 : .6};
+.accordion-title {
+  font-weight: 600;
+  cursor: pointer;
+  color: #666;
+  padding: 0.5em 1.5em;
+  border: solid 1px #ccc;
+  border-radius: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
   }
+
+  &:hover,
+  &.open {
+    color: black;
+  }
+
+  &.open {
+    &::after {
+      content: "";
+      border-top: 0;
+      border-bottom: 5px solid;
+    }
+  }
+}
 `
 const Content = styled.div`
   width: 311px;

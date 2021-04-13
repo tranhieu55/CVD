@@ -102,7 +102,7 @@ export default ProjectTiles
 
 
 const ListBlogStyle = styled.div`
-  margin-top: 10px;
+  margin-top: -71px;
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
@@ -123,9 +123,8 @@ const ListBlogStyle = styled.div`
     color: white;
   }
   @media(max-width: 600px){
-    margin-top: 30px;
     height: 1076px;
-    margin: 30px 16px 0px;
+    margin: -11px 16px 0px;
   }
 `
 const DivIMG = styled.div`
