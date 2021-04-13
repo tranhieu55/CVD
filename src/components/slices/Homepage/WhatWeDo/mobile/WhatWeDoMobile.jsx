@@ -122,7 +122,7 @@ const Service = styled.h4`
     height: 22px;
     opacity: 0.6;
     color: #FFFFFF;
-    font-family: Calibre;
+    font-family: Calibre Bold;
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -133,7 +133,7 @@ const Service = styled.h4`
       opacity: 1;
     }
     &::after {
-      content: "\f078";
+      content: "\f077";
       font-family: "Font Awesome 5 Pro Regular";
       height: 18px;
       width: 16px;
@@ -180,12 +180,15 @@ const Service = styled.h4`
         }
       }
     }
+    @media(max-width: 360px){
+      font-size: 19px;
+    }
 `
 const Services  = styled.h4`
 height: 22px;
 opacity: 0.6;
 color: #FFFFFF;
-font-family: Calibre;
+font-family: Calibre Bold;
 font-size: 22px;
 font-weight: 700;
 letter-spacing: -0.5px;
@@ -196,7 +199,7 @@ margin-bottom: 24px;
   opacity: 1;
 }
 &::after {
-  content: "\f077";
+  content: "\f078";
   font-family: "Font Awesome 5 Pro Regular";
   height: 18px;
   width: 16px;
@@ -264,7 +267,9 @@ const Content = styled.div`
     margin-bottom: 10px;
   }
   @media(max-width: 360px){
-    width: 95%;
+    p{
+      width: 95%;
+    }
   }
 `
 const LearnMore = styled.h4`
