@@ -75,6 +75,9 @@ const OurLasters = styled.div`
       height: 862px;
       margin: 32px 16px 37px;
     }
+    @media(max-width: 360px){
+      margin: 32px 16px 57px;
+    }
     @media(min-width: 600px){
       height: 1243px;
       margin: 50px 16px 37px;
@@ -90,7 +93,7 @@ const OurLasters = styled.div`
 
 const Title = styled.h1`
   height: 72px;
-  width: 569px;
+  width: 100%;
   color: #101010;
   font-family: Calibre Bold;
   font-size: 80px;
@@ -106,7 +109,7 @@ const Title = styled.h1`
     line-height: 54px;
     text-align: center;
     height: 38px;
-    width: 285px;
+    width: 100%;
   }
 `
 const Messagings = styled.h4`
@@ -215,7 +218,7 @@ const Content = styled.span`
 const SubTitle = styled.h4`
     position: relative;
     height: 16px;
-    width: 94px;
+    width: 154px;
     color: #999999;
     font-family: Calibre Semibold;
     font-size: 14px;

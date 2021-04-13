@@ -71,7 +71,7 @@ const Title = styled.h1`
   width: 301px;
   color: #FFFFFF;
   font-family: Calibre Bold;
-  font-size: 52px;
+  font-size: 49px;
   font-weight: bold;
   letter-spacing: -0.5px;
   line-height: 44px;

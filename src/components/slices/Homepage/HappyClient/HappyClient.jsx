@@ -399,7 +399,7 @@ const Buttonss = styled.div`
   }
   @media(max-width: 600px){
     top: 570px;
-    right: 52%;
+    right: 54%;
     &::before{
       height: 24px;
       width: 28px;
