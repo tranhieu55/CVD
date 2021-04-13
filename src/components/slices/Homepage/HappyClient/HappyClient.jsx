@@ -124,7 +124,7 @@ const Title = styled.h1`
     @media(min-width: 600px){
       margin: 0xp 32px;
     }
-    @media(min-width: 768px){
+    @media(min-width: 1024px){
       margin: 0px 0px;
     }
 `   
