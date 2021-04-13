@@ -147,7 +147,8 @@ const ButtonBanner = styled.button`
     width: ${props => props.vitri == 1 ? '130px': '130px'};
   }
   @media(min-width: 600px){
-    width: ${props => props.vitri == 1 ? '160px': '156px'};
+    width: ${props => props.vitri == 1 ? '216px': '200px'};
+    padding: 5px 6px 0px;
   }
   @media(min-width: 1366px){
     margin-right: 24px;
