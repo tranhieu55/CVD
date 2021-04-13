@@ -144,6 +144,7 @@ const BoxRegular = styled.div`
     font-family: 'Calibre Regular';
     font-size:24px;
     color:#222222;
+    margin-bottom:100px;
 `
 const BoxWrapperBold = styled.div`
     margin-left:76px;
@@ -160,10 +161,12 @@ const TitleMoblie = styled.div`
     .cl-hr::before {
         position: absolute;
         content:"";
-        border-bottom:1px solid #DDDDDD;
+        width:1326px;
+        height: 1px;
+        background-color:#DDDDDD;
+        bottom:-17px;
     }
 
-    
 `
 const FormsRight = styled.div`
     margin-top: 139px;
