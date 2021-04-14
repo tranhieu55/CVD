@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+
 import styled from 'styled-components'
 import Sliders from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function ListSlider(props) {
-  var settings = {
+export default function ColumSilder(props) {
+    var settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -13,28 +14,27 @@ export default function ListSlider(props) {
     slidesToScroll: 1
   };
   return (
-    <Container>
-      <Slider
-        data-sal="slide-down"
-        data-sal-delay="5000"
-        data-sal-easing="ease"
-        data-sal-duration="1000"
-      >
-        <Sliders {...settings}>
-          {
-            props.input.fields.map((item, key) => (
-              <ImageSlider key={key}>
-                <Images
-                  src={item.slider_image.url}
-                  alt={item.slider_image.alt}
-                ></Images>
-              </ImageSlider>
-            ))
-          }
-        </Sliders>
-      </Slider>
-    </Container>
-  )
+    <>
+        <Container>
+        <Slider>
+            <Sliders 
+            {...settings}
+            >
+            {
+                props.input.fields.map((item, key) => (
+                <ImageSlider key={key}>
+                    <Images
+                    src={item.item_image.url}
+                    alt={item.item_image.alt}
+                    ></Images>
+                </ImageSlider>
+                ))
+            }
+            </Sliders>
+        </Slider>
+        </Container>
+    </>
+  );
 }
 const Slider = styled.div`
     width: 100%;
@@ -42,9 +42,16 @@ const Slider = styled.div`
       display: none !important;
     }
     .slick-dots{
-      display: none !important;
+        bottom:32px;
+    }
+    .slick-dots li button:before  {
+        font-size: 10px;
+        color:#A9A9A9;
     }
     @media only screen and (max-width: 600px) {
+    .slick-dots{
+        bottom:15px;
+    }
       margin-bottom: 40px;
       height: 272px;
       background-color: #f5f5f5;
@@ -62,6 +69,9 @@ const Slider = styled.div`
       }
     }
     @media (min-width: 601px) {
+    .slick-dots{
+        bottom:15px;
+    }
     margin-bottom: 40px;
     height: 403px;
     background-color: #f5f5f5;
@@ -87,6 +97,10 @@ const Slider = styled.div`
     }
      @media (min-width: 1200px) {
         margin-bottom: 96px;
+        .slick-dots{
+            bottom:32px;
+        }
+
     }
      @media (min-width: 1600px) {
       height: 898px;
@@ -137,36 +151,13 @@ const Images = styled.img`
   }
 `
 const Container = styled.div`
-max-width: 1240px;
+width:100%;
 margin: 0 auto;
 @media only screen and (max-width: 600px) {
-  margin: 0px 16px;
 }
 @media (min-width: 601px) {
   .wrap-header {
     width: 100vw;
   }
-  max-width: 585px;
-}
-@media (min-width: 992px) {
-  max-width: 780px;
-}
-@media (min-width: 1024px) {
-  max-width: 900px;
-}
-@media (min-width: 1200px) {
-  max-width: 1024px;
-}
-
-@media (min-width: 1400px) {
-  max-width: 1151px;
-}
-
-@media (min-width: 1600px) {
-  max-width: 1240px;
-}
-
-@media (min-width: 1800px) {
-  max-width: 1380px;
 }
 `

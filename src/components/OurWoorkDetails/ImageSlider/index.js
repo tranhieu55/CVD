@@ -141,7 +141,7 @@ const Container = styled.div`
 max-width: 1240px;
 margin: 0 auto;
 @media only screen and (max-width: 600px) {
-  margin 0px 16px;
+  margin: 0px 16px;
 }
 @media (min-width: 601px) {
   .wrap-header {

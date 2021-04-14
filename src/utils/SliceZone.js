@@ -32,6 +32,7 @@ import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
 import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
 import ThreeColum from '../components/ColumCaseStudy/ThreeColum';
 import FullColum from '../components/ColumCaseStudy/ColumFullA';
+import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -220,6 +221,12 @@ const SliceZone = (props) => {
                 <FullColum key={index} input={s} />
               </>
             )
+        case 'slide_show_banner_':
+          return(
+            <>
+              <ColumSilder key={index} input={s} />
+            </>
+          )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo key={index} input={{ ...s , total:props.allSlices.length}} index={index}/>
