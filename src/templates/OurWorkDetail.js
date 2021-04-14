@@ -219,6 +219,7 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
   const data = props.data.prismic.projects
+  console.log("bbbbbbbbbbbbb" , data)
 
 
   return (

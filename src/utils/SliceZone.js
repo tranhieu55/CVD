@@ -30,6 +30,7 @@ import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA";
 import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
 import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
+import ThreeColum from '../components/ColumCaseStudy/ThreeColum';
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -200,10 +201,16 @@ const SliceZone = (props) => {
               <TwoColumB key={index} input={s} />
             </>
           )
-          case "two_columns_c":
+        case "two_columns_c":
           return(
             <>
               <TwoColumC key={index} input={s} />
+            </>
+          )
+        case 'threes_column':
+          return(
+            <>
+              <ThreeColum key={index} input={s} />
             </>
           )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":

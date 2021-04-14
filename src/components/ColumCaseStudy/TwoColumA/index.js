@@ -7,14 +7,14 @@ import styled from 'styled-components';
 export default function TwoColum (props) {
     return (
         <Container>
-            {/* <Img
+            <Img
                 alt={props.input.primary.image_side_left.alt}
                 src={props.input.primary.image_side_left.url}
             ></Img>
             <Img
                 alt={props.input.primary.image_side_right.alt}
                 src={props.input.primary.image_side_right.url}
-            ></Img> */}
+            ></Img>
         </Container>
     )
 }
