@@ -6,6 +6,7 @@ import { theme } from "../../../utils/theme"
 export default function TextBackground(props) {
   const data = props.input.primary
   return (
+    <Container>
     <Background
       hb="205"
       mt="0"
@@ -28,6 +29,7 @@ export default function TextBackground(props) {
         {data.text_description[0].text}
       </TextStyle>
     </Background>
+    </Container>
   )
 }
 const Background = styled.div`
@@ -200,4 +202,40 @@ const TextStyle = styled.h4`
   font-size: 20px;
   color: #222222;
   line-height: 28px;
+`
+const Container = styled.div`
+max-width: 1240px;
+margin: 0 auto;
+@media only screen and (max-width: 600px) {
+  margin-left: 16px;
+  margin-right: 16px;
+
+}
+@media (min-width: 601px) {
+  .wrap-header {
+    width: 100vw;
+  }
+  max-width: 585px;
+}
+@media (min-width: 992px) {
+  max-width: 780px;
+}
+@media (min-width: 1024px) {
+  max-width: 900px;
+}
+@media (min-width: 1200px) {
+  max-width: 1024px;
+}
+
+@media (min-width: 1400px) {
+  max-width: 1151px;
+}
+
+@media (min-width: 1600px) {
+  max-width: 1240px;
+}
+
+@media (min-width: 1800px) {
+  max-width: 1380px;
+}
 `

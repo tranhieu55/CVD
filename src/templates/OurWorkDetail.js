@@ -8,41 +8,13 @@ import Other from "../components/OurWoorkDetails/Other"
 import SliceZone from "../utils/SliceZone"
 
 const Study = styled.div`
-  max-width: 1240px;
-  margin: 0 auto;
-  border-bottom: 1px solid #e4e4e4;
-  @media only screen and (max-width: 600px) {
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom: -70px;
-    padding-bottom: 3px;
-  }
-  @media (min-width: 601px) {
-    .wrap-header {
-      width: 100vw;
-    }
-    max-width: 585px;
-  }
-  @media (min-width: 992px) {
-    max-width: 780px;
-  }
-  @media (min-width: 1024px) {
-    max-width: 900px;
-  }
-  @media (min-width: 1200px) {
-    max-width: 1024px;
-  }
-
-  @media (min-width: 1400px) {
-    max-width: 1151px;
-  }
-
+  width: 100%;
   @media (min-width: 1600px) {
-    max-width: 1240px;
+    width: 100%
   }
 
   @media (min-width: 1800px) {
-    max-width: 1380px;
+    width: 100%
   }
 `
 export const query = graphql`
@@ -58,6 +30,18 @@ export const query = graphql`
             name_category_of_project
             _meta {
               uid
+            }
+            body{
+              ... on PRISMIC_ProjectsBodyTwo_columns_a {
+                type
+                label
+                primary {
+                  background_image_side_left
+                  image_side_left
+                  image_side_right
+                  title
+                }
+              }
             }
             relationship_to_project_category {
               ... on PRISMIC_Category_ourwork {
