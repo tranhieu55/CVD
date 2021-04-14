@@ -28,17 +28,17 @@ const Container = styled.div`
     @media(max-width: 600px){
         width: 468px;
         margin : 0 auto;
-        height: 160px;
+        height: 236px;
     }
     @media(max-width: 498px){
         width: 343px;
         margin : 0 autol
-        height: 160px;
+        height: 220px;
     }
     @media(max-width: 320px){
-        width: 296px;
+        width: 288px;
         margin : 0 auto;
-        height: 160px;
+        height: 220px;
     }
     @media(min-width: 600px){
         width: 585px;
