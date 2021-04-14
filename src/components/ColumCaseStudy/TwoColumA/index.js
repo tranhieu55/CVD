@@ -25,6 +25,11 @@ const Container = styled.div`
     height: 650px;
     display: flex;
     justify-content: space-between;
+    @media(max-width: 600px){
+        display: block ;
+        width: 343px;
+        margin : 0 auto;
+    }
 `
 
 const Img = styled.img`
