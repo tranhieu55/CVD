@@ -84,7 +84,7 @@ const WrapperHeader = styled.div`
   }
   .menu-list_item_text-black {
     color: black !important;
-    opacity: 30%;
+    opacity: ${({location}) => location === '/' ? '30%' : '100%'} 
   }
   .test {
     opacity:100%;
@@ -1100,6 +1100,7 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
+  console.log("======",location)
   
   const dataServices = dataServicesMenu.edges[0].node.body
   
@@ -1144,32 +1145,45 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
     setIsDisPlayModalService(!isDisPlayModalService)
   }
   const checkColorText = () => {
-    if(scroll && isDisPlayModalService) {
-      return "menu-list_item_text-white"
-    } else {
-      if(isDisPlayModalService) {
-        return "menu-list_item_text-black"
-      }
-      else {
+    if (location !== "/") {
+      if(scroll) {
         return "menu-list_item_text-white"
       }
+      return "menu-list_item_text-black"
     }
+    if(scroll && isDisPlayModalService) {
+        return "menu-list_item_text-white"
+      } else {
+        if(isDisPlayModalService) {
+          return "menu-list_item_text-black"
+        }
+        else {
+          return "menu-list_item_text-white"
+        }
+      }
   }
   const checkColorTextButton = (index) => {
-    if(scroll && isDisPlayModalService) {
-      return "white"
-    } else {
-      if(!!show && index ===  1) {
-        return "#101010"
-      }else {
-        if(isDisPlayModalService) {
-        return "#101010"
-      }
-      else {
+    if (location !== "/") {
+      if(scroll) {
         return "white"
       }
-      }
+      return "#101010"
     }
+      if(scroll && isDisPlayModalService) {
+        return "white"
+      } else {
+        if(!!show && index ===  1) {
+          return "#101010"
+        }else {
+          if(isDisPlayModalService) {
+          return "#101010"
+        }
+        else {
+          return "white"
+        }
+        }
+      }
+    
   }
 
   // useClickOutSize(clickRef, () => {
@@ -1178,7 +1192,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
 
 
   return (
-    <WrapperHeader>
+    <WrapperHeader location={location}>
       <Navbar
         expand="lg"
         className={`wraper-header 
@@ -1205,7 +1219,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
             ) : (
               <IMG
                 src={
-                  isDisPlayModalService === true ? logoBlack : logoLight
+                  isDisPlayModalService === true || location !== '/' ? logoBlack : logoLight
                 }
               />
             )}
@@ -1229,7 +1243,7 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setShow(!show)}>
             {scroll ? (
               <img className="image-buger" src={logoBuger} alt="logo" />
-            ) : location === "/we-do" || location === "/projects" ? (
+            ) : location === "/styleguide" || location === "/styleguide" ? (
               <img className="image-buger" src={logoBugerBlack} alt="logo" />
             ) : (
               <img className="image-buger" src={logoBuger} alt="logo" />

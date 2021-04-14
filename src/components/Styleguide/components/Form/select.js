@@ -29,7 +29,7 @@ const [age, setAge] = React.useState('');
 const handleChange = (event) => {
     setAge(event.target.value);
   };
-  const {id , name , lable ,nameSelect} = props
+  const {id , name , lable ,nameSelect,checked} = props
   console.log("lee",nameSelect)
   return (
     <Option>
@@ -42,6 +42,7 @@ const handleChange = (event) => {
           onChange={handleChange}
           label={lable}
           className="test"
+          checked={checked}
         >
           {nameSelect.map((item,index) => (
               <MenuItem value={10}>{item}</MenuItem>

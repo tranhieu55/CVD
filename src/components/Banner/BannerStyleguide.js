@@ -93,6 +93,7 @@ const Wraper = styled.div`
       p {
         font-size: 64px;
         max-width: 825px;
+        font-weight: 700;
       }
       .row {
         margin-right: -15px !important;
@@ -178,13 +179,13 @@ const SpanBorder = styled.span`
   @media only screen and (min-width: 992px) {
     width: 60px;
     height: 2px;
-    background-color: gold;
+    background-color: #fecf09;
     margin-right: 24px;
   }
   @media only screen and (min-width: 1200px) {
     width: 80px;
     height: 2px;
-    background-color: gold;
+    background-color: #fecf09;
     margin-right: 24px;
   }
 `
