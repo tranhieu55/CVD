@@ -6,6 +6,7 @@ import SliceZone from "../utils/SliceZone"
 import { Link } from "gatsby"
 import Instagrams from '../components/slices/Homepage/Instargram';
 import OurServices from "../components/slices/Homepage/OurService"
+import TwoColums from '../components/ColumCaseStudy/TwoColumA';
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -38,6 +39,7 @@ const Index = ({ data: { prismic } }) => {
       </Container>
       <SliceZone allSlices={data.body} />
       <OurServices />
+      <TwoColums />
     </Layout>
   )
 }

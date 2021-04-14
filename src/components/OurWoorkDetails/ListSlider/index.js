@@ -13,7 +13,7 @@ export default function ListSlider(props) {
     slidesToScroll: 1
   };
   return (
-    <>
+    <Container>
       <Slider
         data-sal="slide-down"
         data-sal-delay="5000"
@@ -33,7 +33,7 @@ export default function ListSlider(props) {
           }
         </Sliders>
       </Slider>
-    </>
+    </Container>
   )
 }
 const Slider = styled.div`
@@ -135,4 +135,38 @@ const Images = styled.img`
     width: 100%;
     padding: 117px 137px !important;
   }
+`
+const Container = styled.div`
+max-width: 1240px;
+margin: 0 auto;
+@media only screen and (max-width: 600px) {
+  margin 0px 16px;
+}
+@media (min-width: 601px) {
+  .wrap-header {
+    width: 100vw;
+  }
+  max-width: 585px;
+}
+@media (min-width: 992px) {
+  max-width: 780px;
+}
+@media (min-width: 1024px) {
+  max-width: 900px;
+}
+@media (min-width: 1200px) {
+  max-width: 1024px;
+}
+
+@media (min-width: 1400px) {
+  max-width: 1151px;
+}
+
+@media (min-width: 1600px) {
+  max-width: 1240px;
+}
+
+@media (min-width: 1800px) {
+  max-width: 1380px;
+}
 `

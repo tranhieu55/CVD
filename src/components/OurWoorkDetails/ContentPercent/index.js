@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default function ContentPercent(props) {
   return (
-    <>
+    <Container>
       <Percent className="plus">
         {props.input.fields.map((item, index) => (
           <Content key={index}>
@@ -12,7 +12,7 @@ export default function ContentPercent(props) {
           </Content>
         ))}
       </Percent>
-    </>
+    </Container>
   )
 }
 const TiTle = styled.h1`
@@ -98,4 +98,38 @@ const Percent = styled.div`
         margin: 0 auto 86px;
         display: flex;
     }
+`
+const Container = styled.div`
+max-width: 1240px;
+margin: 0 auto;
+@media only screen and (max-width: 600px) {
+
+}
+@media (min-width: 601px) {
+  .wrap-header {
+    width: 100vw;
+  }
+  max-width: 585px;
+}
+@media (min-width: 992px) {
+  max-width: 780px;
+}
+@media (min-width: 1024px) {
+  max-width: 900px;
+}
+@media (min-width: 1200px) {
+  max-width: 1024px;
+}
+
+@media (min-width: 1400px) {
+  max-width: 1151px;
+}
+
+@media (min-width: 1600px) {
+  max-width: 1240px;
+}
+
+@media (min-width: 1800px) {
+  max-width: 1380px;
+}
 `
