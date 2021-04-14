@@ -83,7 +83,7 @@ const WrapperHeader = styled.div`
     color: white;
   }
   .menu-list_item_text-black {
-    color: black !important;
+    color: #0e0e0e !important;
     opacity: ${({location}) => location === '/' ? '30%' : '100%'} 
   }
   .test {

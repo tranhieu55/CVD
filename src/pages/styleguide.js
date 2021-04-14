@@ -257,19 +257,19 @@ export default function Styledguid() {
                     />
                 </div>
                 <div>
-                    <InputSelect name="Dropdown Text" 
+                    <InputSelect name="LABEL" 
                         id="demo-simple-select-outlined-label"
-                        nameSelect={['number1','number2','number3']}
+                        nameSelect={['Dropdown Text','Dropdown Text 2' ,'Dropdown Text 3']}
                         lable="lable"/>
 
-                    <InputSelect name="Dropdown Text" 
+                    <InputSelect name="LABEL" 
                         id="demo-simple-select-outlined-label"
-                        nameSelect={['number4','number5','number6']}
+                        nameSelect={['Dropdown Text','Dropdown Text 2' ,'Dropdown Text 3']}
                         lable="lable"/>
 
-                    <InputSelect name="Dropdown Text" 
+                    <InputSelect name="LABEL" 
                         id="demo-simple-select-outlined-label"
-                        nameSelect={['number4','number5','number6']}
+                        nameSelect={['Dropdown Text','Dropdown Text 2' ,'Dropdown Text 3']}
                         lable="lable"/>
                 </div>
             </div>
@@ -364,7 +364,7 @@ export default function Styledguid() {
             <BoxMoblie>
                 <Mobile name="Mob Heading 1" letSpace="-1" fontFamily="Calibre Bold" fontSize="40px" color="#101010"/>
                 <Mobile name="Mob Heading 2" letSpace="-0.5" fontFamily="Calibre Bold" fontSize="32px" color="#101010"/>
-                <Mobile name="Mob Heading 3" mrb='14' letSpace="0" fontFamily="Calibre Semibold" fontSize="32px" color="#1111111"/>
+                <Mobile name="Mob Heading 3" mrb='14' letSpace="0" fontFamily="Calibre Semibold" fontSize="32px" color="#111111"/>
                 <Mobile name="Mob Heading 4" letSpace="-0.25" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
             </BoxMoblie>
             <MobileBold>

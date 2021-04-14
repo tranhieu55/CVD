@@ -16,11 +16,31 @@ const Option = styled.div`
   }
   .MuiOutlinedInput-input {
     padding: 9.5px 14px;
+    color:#222222;
+    font-family: 'Calibre Regular';
+    letter-spacing: 0;
   }
-  .MuiSelect-outlined.MuiSelect-outlined {
+  .MuiSelect-outlined {
+    border-radius:3px;
   }
   .test {
     top:-6px;
+    background-color:white;
+    color: #6E6E6E;
+    font-family: 'Calibre Semibold';
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 16px;
+  }
+  .MuiOutlinedInput-root {
+    border-radius:3px!important;
+  }
+  .MuiFormLabel-root.Mui-focused {
+   color: #6E6E6E !important;
+  }
+  .MuiOutlinedInput-notchedOutline {
+    border-color:#6E6E6E!important;
   }
 `
 export default function InputSelect(props) {

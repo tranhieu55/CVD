@@ -12,7 +12,7 @@ const Wrapper = styled.button`
     width:${({width}) => `${width}px`};
     border-radius: 3px;
     font-family:'Calibre Semibold';
-    font-size:18px;
+    font-size:${({fontSize}) => `${fontSize}px`};
     margin-left:24px;
     img {
       width:16px;

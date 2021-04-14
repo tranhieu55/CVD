@@ -65,6 +65,7 @@ const RadioForm = styled.div`
     font-family: "Calibre Regular";
     font-size: 18px;
     color: #222222;
+    margin-top:5px;
   }
 `
 function StyledRadio(props) {

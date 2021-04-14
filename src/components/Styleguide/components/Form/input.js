@@ -40,6 +40,21 @@ margin-right: 72px;
   border-radius:3px;
 }
 
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  color: #6E6E6E;
+  font-family: 'Calibre Semibold';
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 16px;
+}
+.MuiFormLabel-root.Mui-error {
+    color: #f44336;
+    font-family: 'Calibre Semibold';
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
 `
 const useStyles = makeStyles((theme) => ({
   root: {

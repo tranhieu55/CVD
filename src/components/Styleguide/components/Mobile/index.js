@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    color: ${({color}) => color};
+    color: ${({color}) => `${color}`};
     text-align: ${({textAlign}) => textAlign};
     font-size: ${({fontSize}) => fontSize};
     font-family: ${({fontFamily}) => fontFamily};
