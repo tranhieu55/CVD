@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 
 export default function ThreeColum (props) {
-    console.log("aaaaaaaaaaaaaaaaa", props);
     return (
         <Container>
             <Img
