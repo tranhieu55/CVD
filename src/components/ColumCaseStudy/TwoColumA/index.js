@@ -17,5 +17,4 @@ const Container = styled.div`
     background : red;
     width : 1240px;
     height: 650px;
-
 `
