@@ -17,6 +17,7 @@ const Wrapper = styled.button`
     img {
       width:16px;
       height:16px;
+      margin-right:5px;
     }
 `
 const BgrButton = styled.div`
@@ -28,6 +29,7 @@ const BgrButton = styled.div`
   width:${({width}) => `${width}px`};
   height: ${({height}) => `${height}px`};
   background-color: ${({background}) => background};
+  font-size: ${({fontSize}) => `${fontSize}px`};
   button {
     width:166px;
     height: 48px;
@@ -35,16 +37,16 @@ const BgrButton = styled.div`
   }
 ` 
 export default function ButtonStyled(props) {
-    const {name, background , border , color , icon, width,room,height} = props;
+    const {name, background , border , color , icon, width,room,height , fontSize} = props;
   return (
     <>{ room == 1 ? 
-    <BgrButton width={width} background={background} height={height}>
+    <BgrButton width={width} background={background} height={height} fontSize={fontSize}>
       <Wrapper name={name}  color={color} icon={icon} border={border}>
       {icon == 1 ? <img src={IconIphone}/> : ""} {name}
       </Wrapper>
     </BgrButton>
     :
-    <Wrapper width={width} name={name} background={background} color={color} icon={icon} border={border}>
+    <Wrapper fontSize={fontSize} width={width} name={name} background={background} color={color} icon={icon} border={border}>
       {icon == 1 ? <img src={IconIphone}/> : ""} {name}
     </Wrapper>
      }

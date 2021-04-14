@@ -127,6 +127,7 @@ const SpanContent = styled.div`
     a {
        color:#555555!important;
        text-decoration-line: underline !important;
+       cursor: pointer;
     }
 `
 const Moblie = styled.div``
@@ -234,7 +235,7 @@ export default function Styledguid() {
                     <h2>Logo</h2>
                     <hr className="w-hr"/>
                 </TileColour>
-                <LogoConvert background="black"/>
+                <LogoConvert background="#101010"/>
             </WrapperLogog>
         </WrapperStyledGuide>
         <BoxFormButton>
@@ -274,11 +275,11 @@ export default function Styledguid() {
             </div>
             <div className="checkbox">
                 <div>
-                    <CheckBox name="Unchecked Box" />
+                    <CheckBox name="Unchecked Box" checked="checked"/>
                     <CheckBox name="Checked Box"/> 
                 </div>
                 <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChangeRadio}>
-                    <InputRadio name="Unchecked Radio"/>
+                    <InputRadio name="Unchecked Radio" checked="checked"/>
                     <InputRadio name="Checked Radio"/>
                 </RadioGroup>
             </div>
@@ -290,23 +291,28 @@ export default function Styledguid() {
                     background="#FECF09" 
                     color="#101010" icon='1'
                     border="none" 
-                    width="208"/>
+                    width="208"
+                    fontSize="18"
+                    />
 
                 <ButtonStyled 
                     name="Button" 
                     background="#FECF09" 
                     color="#101010" icon="" 
                     border="none" 
-                    width="166"/>
+                    width="166"
+                    fontSize="16"
+                    />
 
                 <ButtonStyled 
                     name="Butoon" 
-                    background="#101010" 
+                    background="#000000" 
                     color="#FFFFFF" icon="" 
-                    border="1px solid #FECF09" 
+                    border="2px solid #FECF09" 
                     width="196"
                     height="76"
-                    room="1"    
+                    room="1" 
+                    fontSize="18"
                     />
             </WrapperButton>
             <span>Learn more</span>
@@ -323,25 +329,25 @@ export default function Styledguid() {
             <div>
                 <Title name="Heading 1" textAlign="left"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 2" textAlign="left"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="left"   letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="left"   letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="left"   letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="left" fontWeight="600"   letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="left" fontWeight="600"   letSpace="-0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="left" fontWeight="600"  letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 6" textAlign="left"   letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
             <div>
                 <Title name="Heading 1" textAlign="center"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 2" textAlign="center"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="center"  letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="center"  letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="center"  letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="center" fontWeight="600" letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="center" fontWeight="600"  letSpace="-0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="center" fontWeight="600" letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 6" textAlign="center"  letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
             <div>
                 <Title name="Heading 1" textAlign="right"  letSpace="-1.5" fontSize="80px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 2" textAlign="right"  letSpace="-1" fontSize="64px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 3" textAlign="right"  letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 4" textAlign="right"  letSpace="0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
-                <Title name="Heading 5" textAlign="right"  letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 3" textAlign="right" fontWeight="600" letSpace="0" fontSize="48px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 4" textAlign="right" fontWeight="600"  letSpace="-0.5" fontSize="32px" fontFamily="Calibre Bold" color="#101010"/>
+                <Title name="Heading 5" textAlign="right" fontWeight="600" letSpace="-0.5" fontSize="28px" fontFamily="Calibre Bold" color="#101010"/>
                 <Title name="Heading 6" textAlign="right"  letSpace="1" fontSize="14px" fontFamily="Calibre Bold" color="#999999"/>
             </div>
         </div>  
@@ -358,7 +364,7 @@ export default function Styledguid() {
             <BoxMoblie>
                 <Mobile name="Mob Heading 1" letSpace="-1" fontFamily="Calibre Bold" fontSize="40px" color="#101010"/>
                 <Mobile name="Mob Heading 2" letSpace="-0.5" fontFamily="Calibre Bold" fontSize="32px" color="#101010"/>
-                <Mobile name="Mob Heading 3" mrb='14' letSpace="0" fontFamily="Calibre Semibold" fontSize="32px" color="#101010"/>
+                <Mobile name="Mob Heading 3" mrb='14' letSpace="0" fontFamily="Calibre Semibold" fontSize="32px" color="#1111111"/>
                 <Mobile name="Mob Heading 4" letSpace="-0.25" fontFamily="Calibre Semibold" fontSize="24px" color="#101010"/>
             </BoxMoblie>
             <MobileBold>

@@ -19,6 +19,26 @@ margin-right: 72px;
 .edit-cl{
   border-color: rgb(0 0 0);
 }
+.MuiOutlinedInput-notchedOutline {
+  border-color: #6E6E6E!important;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: #6E6E6E!important;
+  font-size:14px !important;
+  font-weight:600!important;
+  letter-spacing:1px;
+}
+.MuiFormHelperText-contained {
+  margin-left:0px;
+  margin-right:0px;
+  color:#f10909 !important;
+  font-size:18px !important;
+  letter-spacing:0;
+  font-family:'Calibre Regular';
+}
+.MuiOutlinedInput-root {
+  border-radius:3px;
+}
 
 `
 const useStyles = makeStyles((theme) => ({

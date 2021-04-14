@@ -10,11 +10,12 @@ font-size: ${({fontSize}) => fontSize};
 font-family: ${({fontFamily}) => fontFamily};
 letter-spacing: ${({letSpace}) => `${letSpace}px`};
 line-height: ${({lineH}) => `${lineH}px`};
+font-weight: ${({fontWeight}) => fontWeight};
 `
 export default function Title(props) {
-    const { name, textAlign ,fontSize ,fontFamily, color ,letSpace,lineH} = props
+    const {fontWeight , name, textAlign ,fontSize ,fontFamily, color ,letSpace,lineH} = props
   return (
-    <TextHeader className="test" name={name} textAlign={textAlign} letSpace={letSpace} lineH={lineH} fontSize={fontSize} fontFamily={fontFamily} color={color}>
+    <TextHeader className="test" fontWeight={fontWeight}  name={name} textAlign={textAlign} letSpace={letSpace} lineH={lineH} fontSize={fontSize} fontFamily={fontFamily} color={color}>
         {name}
     </TextHeader>
   );
