@@ -30,7 +30,6 @@ const handleChange = (event) => {
     setAge(event.target.value);
   };
   const {id , name , lable ,nameSelect,checked} = props
-  console.log("lee",nameSelect)
   return (
     <Option>
         <FormControl variant="outlined">

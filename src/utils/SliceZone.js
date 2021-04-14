@@ -28,10 +28,13 @@ import OurServicesss from '../components/slices/Homepage/OurService/index';
 import OurServices from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA";
+import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
+import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
 
 const SliceZone = (props) => {
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
+      console.log('object',s)
       switch (s.type || s.__typename) {
         // These are the API IDs of the slices
         case "text":
@@ -190,6 +193,18 @@ const SliceZone = (props) => {
           return(
             <>
               <TwoColumA key={index} input={s} />
+            </>
+          )
+        case "two_columns_b":
+          return(
+            <>
+              <TwoColumB key={index} input={s} />
+            </>
+          )
+          case "two_columns_c":
+          return(
+            <>
+              <TwoColumC key={index} input={s} />
             </>
           )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":

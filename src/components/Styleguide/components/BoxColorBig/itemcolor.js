@@ -15,7 +15,7 @@ box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.15);
 }
 .title-color-item {
     margin-left:14px;
-    margin-top: 7px;
+    margin-top:8px;
     span {
         font-family: "Work Sans";
         font-size:14px;
