@@ -89,5 +89,6 @@ export default function InputRadio(props) {
     <RadioForm>
         <FormControlLabel value={name} control={<StyledRadio color="black"/>} label={name} />
     </RadioForm>
+    
   );
 }
