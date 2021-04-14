@@ -348,6 +348,24 @@ export const pageQuery = graphql`
           }
         }
       }
+      allProjectss {
+        edges {
+          node {
+            body {
+              ... on PRISMIC_ProjectsBodyTwo_columns_a {
+                type
+                label
+                primary {
+                  background_image_side_left
+                  image_side_left
+                  image_side_right
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `

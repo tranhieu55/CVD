@@ -27,6 +27,7 @@ import HappyClinetssss from '../components/slices/Homepage/HappyClient/HappyClie
 import OurServicesss from '../components/slices/Homepage/OurService/index';
 import OurServices from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
+import TwoColumA from "../components/ColumCaseStudy/TwoColumA";
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -183,6 +184,12 @@ const SliceZone = (props) => {
           return (
             <>
               <OurLaster key={index} input={s} />
+            </>
+          )
+        case "two_columns_a":
+          return(
+            <>
+              <TwoColumA key={index} input={s} />
             </>
           )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":

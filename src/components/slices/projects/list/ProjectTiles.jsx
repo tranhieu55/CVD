@@ -64,6 +64,8 @@ const ProjectTiles = ({ input }) => {
                 : "col-md-6"
             }`}
             key={index}
+            as={Link}
+            to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
           >
             <DivIMG
               as={Link}
