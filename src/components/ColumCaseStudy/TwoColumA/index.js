@@ -5,28 +5,23 @@ import styled from 'styled-components';
 
 
 export default function TwoColum (props) {
-    console.log("day la ++++++++++++++++++++",props)
     return (
         <Container>
-            {/* {data.prismic.allProjectss.edges[7].node.body.map((item, index) => (
-                <div key={index}>
-                    <Img
-                        alt={item.primary.image_side_left.alt}
-                        src={item.primary.image_side_left.url}
-                    ></Img>
-                    <Img
-                        alt={item.primary.image_side_right.alt}
-                        src={item.primary.image_side_right.url}
-                    ></Img>
-                </div>
-            ))} */}
-            
+            <Img
+                alt={props.input.primary.image_side_left.alt}
+                src={props.input.primary.image_side_left.url}
+            ></Img>
+            <Img
+                alt={props.input.primary.image_side_right.alt}
+                src={props.input.primary.image_side_right.url}
+            ></Img>
         </Container>
     )
 }
 
 const Container = styled.div`
     width : 1240px;
+    margin: 0px auto 96px;
     height: 650px;
     display: flex;
     justify-content: space-between;

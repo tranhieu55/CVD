@@ -77,6 +77,67 @@ export const query = graphql`
               title_quote
             }
           }
+          ... on PRISMIC_ProjectsBodyTwo_columns_a {
+            type
+            label
+            primary {
+              background_image_side_left
+              image_side_left
+              image_side_right
+              title
+            }
+          }
+          ... on PRISMIC_ProjectsBodyTwo_columns_b {
+            type
+            label
+            primary {
+              image_side_right
+              image_sile_left
+              title
+              background_image_side_right
+            }
+          }
+          ... on PRISMIC_ProjectsBodyTwo_columns_c {
+            type
+            label
+            primary {
+              background_image_side_left
+              image_side_left
+              image_side_right
+              title
+            }
+          }
+          ... on PRISMIC_ProjectsBodyThrees_column {
+            type
+            label
+            primary {
+              image_side_left
+              image_side_right
+              image_center
+              enter_title
+              background_image_side_right
+              background_image_side_left
+            }
+          }
+          ... on PRISMIC_ProjectsBodyFull_banner_a {
+            type
+            label
+            primary {
+              image_full_banner_a
+              title
+            }
+          }
+          ... on PRISMIC_ProjectsBodySlide_show_banner_ {
+            type
+            label
+            primary {
+              background_slide_show_banner
+              title
+            }
+            fields {
+              item_image
+            }
+          }
           ... on PRISMIC_ProjectsBodyTitle_solution {
             type
             primary {
@@ -158,6 +219,10 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
   const data = props.data.prismic.projects
+
+   
+  console.log('data : ', data);
+
 
   return (
     <Layout
