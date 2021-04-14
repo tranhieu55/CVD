@@ -1100,7 +1100,6 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
-  console.log("======",location)
   
   const dataServices = dataServicesMenu.edges[0].node.body
   

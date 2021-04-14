@@ -74,7 +74,7 @@ const WrapperForm = styled.div`
     margin-left:76px;
     margin-top:135px;
     margin-right:  91px;
-    margin-bottom: 70px;
+    margin-bottom:83px;
     .form-input {
         margin-top:40px;
         display: flex;
@@ -145,13 +145,13 @@ const BoxRegular = styled.div`
     font-family: 'Calibre Regular';
     font-size:24px;
     color:#222222;
-    margin-bottom:80px;
+    margin-bottom:90px;
 `
 const BoxWrapperBold = styled.div`
     margin-left:76px;
 `
 const MobileBold = styled.div`
-    margin-bottom:73px;
+    margin-bottom:83px;
 `
 const TitleMoblie = styled.div`
     position: relative;
