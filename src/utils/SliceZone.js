@@ -34,7 +34,6 @@ import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
 const SliceZone = (props) => {
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
-      console.log('object',s)
       switch (s.type || s.__typename) {
         // These are the API IDs of the slices
         case "text":

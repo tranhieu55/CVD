@@ -62,7 +62,6 @@ const IMG = styled.img`
   height: 100%;
 `
 export default function ColumnB(props) {
-  console.log("hieutt ",props)
   return (
     <Wrapper>
         <BoxImamgeLeft>

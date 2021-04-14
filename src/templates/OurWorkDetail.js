@@ -220,9 +220,6 @@ const OurWorkDetail = props => {
 
   const data = props.data.prismic.projects
 
-   
-  console.log('data : ', data);
-
 
   return (
     <Layout
