@@ -39,7 +39,6 @@ const Index = ({ data: { prismic } }) => {
       </Container>
       <SliceZone allSlices={data.body} />
       <OurServices />
-      <TwoColums />
     </Layout>
   )
 }
