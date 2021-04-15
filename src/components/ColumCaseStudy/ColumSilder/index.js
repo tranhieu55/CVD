@@ -74,11 +74,12 @@ const Slider = styled.div`
     height: 100%;
     left: 0px;
     top: -3px;
+    border-color: #e4e4e4;
   }
 
   @media only screen and (max-width: 600px) {
     .slick-dots {
-      bottom: 0px;
+      bottom: 10px;
     }
     margin-bottom: 40px;
     height: 272px;
@@ -99,7 +100,7 @@ const Slider = styled.div`
 
   @media (min-width: 601px) {
     .slick-dots {
-      bottom: -30px;
+      bottom: 10px;
     }
     margin-bottom: 40px;
     height: 403px;
@@ -167,7 +168,7 @@ const Images = styled.img`
     padding: 47px 61px !important;
   }
   @media (min-width: 992px) {
-    padding: 11px 112px !important;
+    padding: 40px 112px !important;
   }
   @media (min-width: 1200px) {
     padding: 67px 49px !important;
