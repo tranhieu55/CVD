@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
 import P from "../../components/bits/Typography"
+import { Button, Modal } from "react-bootstrap"
 
 const InterestedStyle = styled.div`
   clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
@@ -14,7 +15,6 @@ const InterestedStyle = styled.div`
     .get-in-touch {
       height: 20px;
       color: #ffffff;
-      /* font-family: 'Calibre Semibold'; */
       font-size: 20px;
       font-weight: 600;
       letter-spacing: 0;
@@ -38,7 +38,7 @@ const InterestedStyle = styled.div`
   .box-btn {
     position: relative;
   }
-  .my-btn-back:hover::before {
+  /* .my-btn-back:hover::before {
     transform: translate(270px);
     opacity: 0.5;
     overflow: hidden;
@@ -56,7 +56,7 @@ const InterestedStyle = styled.div`
     transition: all 0.2s ease;
     width: 50px;
     z-index: 1;
-  }
+  } */
 
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
@@ -76,13 +76,13 @@ const InterestedStyle = styled.div`
       line-height: 24px;
     }
   }
-  .button-header {
+  /* .button-header {
     &::before {
       content: "";
     }
-  }
+  } */
 
-  .button-header span:nth-child(1) {
+  /* .button-header span:nth-child(1) {
     position: absolute;
     top: 0;
     left: 0;
@@ -152,7 +152,7 @@ const InterestedStyle = styled.div`
     100% {
       transform: translateY(-100%);
     }
-  }
+  } */
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
@@ -241,6 +241,11 @@ export default function Interested({dataFooter}) {
     const dataBGR = dataFooter.edges[0].node.body[0].primary.background_color_cta_block
     const dataInterested =  dataFooter.edges[0].node.body[0].primary.subtitle[0].text
     const dataInterestedTitle =  dataFooter.edges[0].node.body[0].primary.title[0].text
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   return (
     <InterestedStyle dataBGR={dataBGR}>
       <BoxInterested>
@@ -252,6 +257,7 @@ export default function Interested({dataFooter}) {
         </P>
         <BoxBtn>
           <ButtonCustom
+            variant="primary" onClick={handleShow}
             className="my-btn-back  my-btn button-header"
             bgColor={theme.colors.transparent}
             textColor={theme.colors.white}
@@ -263,14 +269,24 @@ export default function Interested({dataFooter}) {
             Block={true}
             margin="auto"
           >
-            <Span></Span>
-            <Span></Span>
-            <Span></Span>
-            <Span></Span>
             <H2 className="get-in-touch">Get in touch</H2>
           </ButtonCustom>
         </BoxBtn>
       </BoxInterested>
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </InterestedStyle>
   )
 }

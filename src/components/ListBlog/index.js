@@ -143,9 +143,6 @@ export default function ListBlog() {
    setLimit(limit + 4);
    setOrinal(orinal + 4);
   }
-  console.log(limit);
-  console.log(orinal);
-  console.log(data.prismic.allProjectss.edges)
   return (
     <ListBlogStyle >
       <Rows className="row">
@@ -158,11 +155,10 @@ export default function ListBlog() {
               }`}
             key={index}
           >
-            <DivIMG
-              as={Link}
-              to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
-            >
+            <DivIMG>
               <IMG
+                as={Link}
+                to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
                 alt={edge.node.project_header_image.alt }
                 src={edge.node.project_header_image.url}
                 objectFit="cover"

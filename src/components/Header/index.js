@@ -745,7 +745,7 @@ const WrapperHeader = styled.div`
     }
   }
 
-  .button-header {
+  /* .button-header {
     &::before {
       content: "";
     }
@@ -821,7 +821,7 @@ const WrapperHeader = styled.div`
     100% {
       transform: translateY(-100%);
     }
-  }
+  } */
   .convertColor {
     color:#101010!important;
   }
@@ -1430,10 +1430,6 @@ const Header = ({ location, dataMenuHeader , dataServicesMenu}) => {
                         pd2="19.5"
                         lineh="22"
                       >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
                         {index === 1 ? 
                           <GetInTouch>
                             <a className="convertColor" href={`tel: ${item.primary.text_button[0].text}`}>

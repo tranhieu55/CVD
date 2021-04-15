@@ -212,10 +212,6 @@ const BannerWhatWeDo = () => {
   return (
     <WraperBannerWhatWeDo
       className="contrainer-fluid"
-      data-sal="slide-up"
-      data-sal-delay="2000"
-      data-sal-easing="ease"
-      data-sal-duration="1000"
     >
       <Container className="container">
         <Row className="row">
@@ -234,6 +230,7 @@ const BannerWhatWeDo = () => {
               pdb="96"
               lineh="36"
               lett="-0.5"
+              fontWeight="600"
             >
               {data.prismic.allWhatwedo_pages.edges[0].node.banner_text[0].text}
             </P>
