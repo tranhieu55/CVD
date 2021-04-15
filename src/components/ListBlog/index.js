@@ -138,39 +138,46 @@ export default function ListBlog() {
     }
   `)
   const [limit, setLimit] = useState(4)
-  const [orinal , setOrinal] = useState(0);
-  function setMap () {
-   setLimit(limit + 4);
-   setOrinal(orinal + 4);
+  const [orinal, setOrinal] = useState(0)
+  function setMap() {
+    setLimit(limit + 4)
+    setOrinal(orinal + 4)
   }
+  console.log(limit)
+  console.log(orinal)
+  console.log(data.prismic.allProjectss.edges)
+
   return (
-    <ListBlogStyle >
+    <ListBlogStyle>
       <Rows className="row">
-        {data.prismic.allProjectss.edges.slice(orinal,limit).map((edge, index) => (
-          <Colum
-            className={`${
-              data.prismic.allProjectss.edges.length === 3
-                ? "col-md-4"
-                : "col-md-6"
+        {data.prismic.allProjectss.edges
+          .slice(orinal, limit)
+          .map((edge, index) => (
+            <Colum
+              className={`${
+                data.prismic.allProjectss.edges.length === 3
+                  ? "col-md-4"
+                  : "col-md-6"
               }`}
-            key={index}
-          >
-            <DivIMG>
-              <IMG
+              key={index}
+            >
+              <DivIMG
                 as={Link}
                 to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
-                alt={edge.node.project_header_image.alt }
-                src={edge.node.project_header_image.url}
-                objectFit="cover"
-                h="500"
-              />
-            </DivIMG>
-            <TitleImageBlog>
-              <Span>{edge.node.name_category_of_project}</Span>
-              <H3>{edge.node.project_name.map(item => item.text)}</H3>
-            </TitleImageBlog>
-          </Colum>
-        ))}
+              >
+                <IMG
+                  alt={edge.node.project_header_image.alt}
+                  src={edge.node.project_header_image.url}
+                  objectFit="cover"
+                  h="500"
+                />
+              </DivIMG>
+              <TitleImageBlog>
+                <Span>{edge.node.name_category_of_project}</Span>
+                <H3>{edge.node.project_name.map(item => item.text)}</H3>
+              </TitleImageBlog>
+            </Colum>
+          ))}
         <MyBtn>
           <ButtonCustom
             wt="212"
@@ -178,7 +185,7 @@ export default function ListBlog() {
             fz="18"
             lineh="48"
             className="btn-studies"
-            id='loadMore'
+            id="loadMore"
             Block={true}
             onClick={() => setMap()}
           >
@@ -189,5 +196,3 @@ export default function ListBlog() {
     </ListBlogStyle>
   )
 }
-
-

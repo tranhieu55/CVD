@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"
@@ -102,7 +102,7 @@ const WraperBannerProjects = styled.div`
       justify-content: flex-start;
     }
     li {
-      padding-right: 20px;
+      padding-right: 0px;
       text-align: center;
     }
     a {
@@ -110,6 +110,7 @@ const WraperBannerProjects = styled.div`
     }
   }
 `
+
 const BannerProjectsContent = styled.div`
   padding-top: 10rem;
   padding-bottom: 40px;
@@ -136,11 +137,30 @@ const BannerProjectsContent = styled.div`
 const ListCategory = styled.ul`
   list-style: none;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  // reset boostrap
+  max-width: unset;
+  flex: unset;
+
+  // li : reset filter has persudo class
+  li.reset_filters {
+    display: flex;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    }
+  }
 `
 const CategoryItem = styled.li`
   cursor: pointer;
-  margin-right: 1rem;
+  padding: 0;
+  margin: 0;
+  margin-right: 32px;
+
   a {
     text-decoration: none;
     display: block;
@@ -148,7 +168,10 @@ const CategoryItem = styled.li`
     color: #101010;
     font-family: "Calibre Semibold";
     font-size: 20px;
+    line-height: 24px;
     position: relative;
+
+    // persudo class
     :after {
       position: absolute;
       content: "";
@@ -157,14 +180,23 @@ const CategoryItem = styled.li`
       width: 0%;
       background-color: #101010;
       height: 3px;
-      transition: all 0.4s ease-in;
+      transition: all 0.4s ease-in 0s;
     }
+
+    // when hover
     :hover {
       ::after {
         width: 100%;
       }
     }
   }
+  a.active_modify {
+    color: #101010 !important;
+    opacity: 1;
+    margin-right: 8px;
+  }
+
+  // when a active
   a.active {
     color: #101010 !important;
     opacity: 1;
@@ -181,23 +213,50 @@ const CategoryItem = styled.li`
     }
   }
 `
+
 const BannerProjects = () => {
-  const dataAllCategoryOurwork = useStaticQuery(graphql`
-    query queryAllCategoryOurwork {
+  const getListCateProject = useStaticQuery(graphql`
+    query QueryBannerOurwork {
       prismic {
-        allCategory_ourworks {
+        allOurwork_pages {
           edges {
             node {
-              _meta {
-                uid
+              body {
+                ... on PRISMIC_Ourwork_pageBodyBanner_our_work_page {
+                  type
+                  primary {
+                    sub_title
+                    title
+                  }
+                  fields {
+                    category_project_item {
+                      ... on PRISMIC_Category_ourwork {
+                        category_name
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
+                  }
+                }
               }
-              category_name
             }
           }
         }
       }
     }
   `)
+
+  const listCategories =
+    getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0].fields
+
+  // console.log("data is here : ", listCategories)
+
+  const [activeTab, setActiveTab] = useState("All")
+
+  console.log("active tab : ", activeTab)
+
+  const handleResetFilters = () => {}
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
@@ -214,22 +273,31 @@ const BannerProjects = () => {
         </H2>
         <div className="row">
           <ListCategory className="col-md-10">
-            {dataAllCategoryOurwork.prismic.allCategory_ourworks.edges.map(
-              (edge, index) => (
-                <CategoryItem key={index}>
-                  <Link
-                    to={`${edge.node._meta.uid === "all"
-                        ? "/projects"
-                        : `/projects/${edge.node._meta.uid}`
-                      }`}
-                    activeClassName="active"
-                  >
-                    {" "}
-                    {edge.node.category_name.map(item => item.text)}{" "}
-                  </Link>
-                </CategoryItem>
-              )
-            )}
+            {listCategories.map((item, index) => (
+              <CategoryItem
+                key={index}
+                onClick={() =>
+                  setActiveTab(item.category_project_item.category_name[0].text)
+                }
+              >
+                <Link
+                  className={
+                    activeTab ===
+                      item.category_project_item.category_name[0].text &&
+                    "active"
+                  }
+                >
+                  {item.category_project_item.category_name[0].text}
+                </Link>
+              </CategoryItem>
+            ))}
+
+            <CategoryItem
+              className="reset_filters"
+              onClick={handleResetFilters}
+            >
+              <Link className="active_modify">Reset Filters</Link>
+            </CategoryItem>
           </ListCategory>
         </div>
       </BannerProjectsContent>
