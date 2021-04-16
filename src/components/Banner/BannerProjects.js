@@ -1,9 +1,13 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"
 import P from "../../components/bits/Typography"
+import {
+  OurWorkDispatchContext,
+  OurWorkStateContext,
+} from "../../context/ourwork/OurWorkContextProvider"
 
 const WraperBannerProjects = styled.div`
   background-color: ${theme.colors.lightGray};
@@ -190,10 +194,15 @@ const CategoryItem = styled.li`
       }
     }
   }
+
   a.active_modify {
     color: #101010 !important;
     opacity: 1;
     margin-right: 8px;
+
+    :after {
+      content: unset;
+    }
   }
 
   // when a active
@@ -209,7 +218,7 @@ const CategoryItem = styled.li`
       background-color: #101010;
       opacity: 0.3;
       height: 2px;
-      transition: all 0.4s ease-in;
+      transition: all 0s ease-in;
     }
   }
 `
@@ -247,16 +256,13 @@ const BannerProjects = () => {
     }
   `)
 
-  const listCategories =
-    getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0].fields
+  const listCategories = getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0].fields.filter(
+    x => x.category_project_item
+  )
 
-  // console.log("data is here : ", listCategories)
+  const dispatch = useContext(OurWorkDispatchContext)
+  const state = useContext(OurWorkStateContext)
 
-  const [activeTab, setActiveTab] = useState("All")
-
-  console.log("active tab : ", activeTab)
-
-  const handleResetFilters = () => {}
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
@@ -277,24 +283,27 @@ const BannerProjects = () => {
               <CategoryItem
                 key={index}
                 onClick={() =>
-                  setActiveTab(item.category_project_item.category_name[0].text)
+                  dispatch({
+                    type: "ADD_FILTER_ITEM",
+                    value: item.category_project_item._meta.uid,
+                  })
                 }
               >
                 <Link
                   className={
-                    activeTab ===
-                      item.category_project_item.category_name[0].text &&
-                    "active"
+                    [...state.listSelected].includes(
+                      item.category_project_item._meta.uid
+                    ) && "active"
                   }
                 >
-                  {item.category_project_item.category_name[0].text}
+                  {item.category_project_item.category_name[0]?.text}
                 </Link>
               </CategoryItem>
             ))}
 
             <CategoryItem
               className="reset_filters"
-              onClick={handleResetFilters}
+              onClick={() => dispatch({ type: "RESET_FILTER" })}
             >
               <Link className="active_modify">Reset Filters</Link>
             </CategoryItem>

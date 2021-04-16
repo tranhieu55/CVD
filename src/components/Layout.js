@@ -24,10 +24,11 @@ import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regula
 import "bootstrap/dist/css/bootstrap.min.css"
 import styled from "styled-components"
 import Interested from "../components/Interested"
+import OurWorkContextProvider from "../context/ourwork/OurWorkContextProvider"
 
 const GlobalStyle = createGlobalStyle`
-   @font-face {
-    font-family: 'Calibre';
+@font-face {
+    font-family: 'Calibre Regular';
     font-style: normal;
     font-weight: 400;
     src: local('Calibre Regular'), url(${CalibreRegular}) format('woff');
@@ -71,7 +72,7 @@ src: local('Calibre Light Italic'), url(${CalibreLightItalic}) format('woff');
 
 
 @font-face {
-font-family: 'Calibre';
+font-family: 'Calibre Medium';
 font-style: normal;
 font-weight: 500;
 src: local('Calibre Medium'), url(${CalibreMedium}) format('woff');
@@ -87,7 +88,7 @@ src: local('Calibre Medium Italic'), url(${CalibreMediumItalic}) format('woff');
 
 
 @font-face {
-font-family: 'Calibre';
+font-family: 'Calibre Semibold';
 font-style: normal;
 font-weight: 600;
 src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
@@ -103,7 +104,7 @@ src: local('Calibre Semibold Italic'), url(${CalibreSemiboldItalic}) format('wof
 
 
 @font-face {
-font-family: 'Calibre';
+font-family: 'Calibre Bold';
 font-style: normal;
 font-weight: bold;
 src: local('Calibre Bold'), url(${CalibreBold}) format('woff');
@@ -161,53 +162,55 @@ const Layout = ({
   const data = useStaticQuery(graphql`
     query MyQuery {
       prismic {
-         allService_headers {
-      edges {
-        node {
-          body {
-            ... on PRISMIC_Service_headerBodyOur_services {
-              type
-              label
-              fields {
-                image_service_item
-                title_service_item
-              }
-              primary {
-                title
-              }
-            }
-            ... on PRISMIC_Service_headerBodyOur_playforms {
-              type
-              label
-              fields {
-                image_platform_item
-                name_service
-                short_description
-              }
-              primary {
-                title
-              }
-            }
-            ... on PRISMIC_Service_headerBodyOur_launches {
-              type
-              label
-              primary {
-                title
-                launches_project {
-                  ... on PRISMIC_Projects {
-                    name_category_of_project
-                    project_name
-                    _meta {
-                      uid
-                    }
-                    project_header_image
-                    project_header_imageSharp {
-                      uid
-                    }
-                    relationship_to_project_category {
-                      ... on PRISMIC_Category_ourwork {
+        allService_headers {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_Service_headerBodyOur_services {
+                  type
+                  label
+                  fields {
+                    image_service_item
+                    title_service_item
+                  }
+                  primary {
+                    title
+                  }
+                }
+                ... on PRISMIC_Service_headerBodyOur_playforms {
+                  type
+                  label
+                  fields {
+                    image_platform_item
+                    name_service
+                    short_description
+                  }
+                  primary {
+                    title
+                  }
+                }
+                ... on PRISMIC_Service_headerBodyOur_launches {
+                  type
+                  label
+                  primary {
+                    title
+                    launches_project {
+                      ... on PRISMIC_Projects {
+                        name_category_of_project
+                        project_name
                         _meta {
                           uid
+                        }
+                        project_header_image
+                        project_header_imageSharp {
+                          uid
+                        }
+                        relationship_to_project_category {
+                          ... on PRISMIC_Category_ourwork {
+                            _meta {
+                              uid
+                            }
+                          }
                         }
                       }
                     }
@@ -217,8 +220,6 @@ const Layout = ({
             }
           }
         }
-      }
-    }
         allFooters {
           edges {
             node {
@@ -247,7 +248,7 @@ const Layout = ({
                   label
                   fields {
                     address_detail
-                    city                
+                    city
                     phone_office
                   }
                   primary {
@@ -282,9 +283,9 @@ const Layout = ({
               logo_footer
             }
           }
-        } 
-      allHeaders {
-        edges {
+        }
+        allHeaders {
+          edges {
             node {
               website_logo
               body {
@@ -331,24 +332,32 @@ const Layout = ({
   const dataFooter = data.prismic.allFooters
   const dataMenuHeader = data.prismic.allHeaders
   const dataServicesMenu = data.prismic.allService_headers
-  const BoxLayout = styled.div`overflow-x: hidden;`
+  const BoxLayout = styled.div`
+    overflow-x: hidden;
+  `
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header location={location} dataMenuHeader={dataMenuHeader} dataServicesMenu={dataServicesMenu} />
-        <Banner
-          location={location}
-          nameProject={nameProject}
-          logoProject={logoProject}
-          nameCategoryOfWorkItem={nameCategoryOfWorkItem}
-          descriptionOfWorkItem={descriptionOfWorkItem}
-          backgroundWorkItemSrc={backgroundWorkItemSrc}
-          backgroundWorkItemAlt={backgroundWorkItemAlt}
-        />
-        {children}
-        <Interested dataFooter={dataFooter}/>
-        <Footer dataFooter={dataFooter} />
+        <OurWorkContextProvider>
+          <GlobalStyle />
+          <Header
+            location={location}
+            dataMenuHeader={dataMenuHeader}
+            dataServicesMenu={dataServicesMenu}
+          />
+          <Banner
+            location={location}
+            nameProject={nameProject}
+            logoProject={logoProject}
+            nameCategoryOfWorkItem={nameCategoryOfWorkItem}
+            descriptionOfWorkItem={descriptionOfWorkItem}
+            backgroundWorkItemSrc={backgroundWorkItemSrc}
+            backgroundWorkItemAlt={backgroundWorkItemAlt}
+          />
+          {children}
+          <Interested dataFooter={dataFooter} />
+          <Footer dataFooter={dataFooter} />
+        </OurWorkContextProvider>
       </ThemeProvider>
     </BoxLayout>
   )
