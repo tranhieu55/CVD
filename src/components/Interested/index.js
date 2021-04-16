@@ -1,9 +1,8 @@
 import React, {useState} from "react"
 import styled from "styled-components"
-import { theme } from "../../utils/theme"
-import ButtonCustom from "../ButtonCustom"
 import P from "../../components/bits/Typography"
-import { Button, Modal } from "react-bootstrap"
+import { Button, ModalDialog } from "react-bootstrap"
+import Modal from '../ModalContact/index';
 
 const InterestedStyle = styled.div`
   clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
@@ -11,6 +10,17 @@ const InterestedStyle = styled.div`
   width: 100%;
   color: white;
   margin: -2px auto;
+  .modals{
+  @media(min-width: 768px){
+    height: 100%;
+    width: 605px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    margin: auto;
+  }
+}
+  }
   .button-header {
     .get-in-touch {
       height: 20px;
@@ -214,6 +224,7 @@ const InterestedStyle = styled.div`
       margin-bottom: 28px;
     }
   }
+ 
 `
 const BoxInterested = styled.div`
   padding-top: 175px;
@@ -234,18 +245,14 @@ const BoxInterested = styled.div`
     padding-bottom: 108px;
   }
 `
-const Span = styled.span``
-const BoxBtn = styled.div``
+
 const H2 = styled.h2``
 export default function Interested({dataFooter}) {
     const dataBGR = dataFooter.edges[0].node.body[0].primary.background_color_cta_block
     const dataInterested =  dataFooter.edges[0].node.body[0].primary.subtitle[0].text
     const dataInterestedTitle =  dataFooter.edges[0].node.body[0].primary.title[0].text
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    
   return (
     <InterestedStyle dataBGR={dataBGR}>
       <BoxInterested>
@@ -255,38 +262,8 @@ export default function Interested({dataFooter}) {
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">
           {dataInterested}
         </P>
-        <BoxBtn>
-          <ButtonCustom
-            variant="primary" onClick={handleShow}
-            className="my-btn-back  my-btn button-header"
-            bgColor={theme.colors.transparent}
-            textColor={theme.colors.white}
-            variant="primary"
-            fz="20"
-            pd1="16"
-            pd2="31.5"
-            lineh="24"
-            Block={true}
-            margin="auto"
-          >
-            <H2 className="get-in-touch">Get in touch</H2>
-          </ButtonCustom>
-        </BoxBtn>
+        <Modal />
       </BoxInterested>
-      <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </InterestedStyle>
   )
 }
