@@ -27,9 +27,9 @@ import Interested from "../components/Interested"
 
 const GlobalStyle = createGlobalStyle`
    @font-face {
-    font-family: 'Calibre Regular';
+    font-family: 'Calibre';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     src: local('Calibre Regular'), url(${CalibreRegular}) format('woff');
 }
 @font-face {
@@ -71,9 +71,9 @@ src: local('Calibre Light Italic'), url(${CalibreLightItalic}) format('woff');
 
 
 @font-face {
-font-family: 'Calibre Medium';
+font-family: 'Calibre';
 font-style: normal;
-font-weight: normal;
+font-weight: 500;
 src: local('Calibre Medium'), url(${CalibreMedium}) format('woff');
 }
 
@@ -87,9 +87,9 @@ src: local('Calibre Medium Italic'), url(${CalibreMediumItalic}) format('woff');
 
 
 @font-face {
-font-family: 'Calibre Semibold';
+font-family: 'Calibre';
 font-style: normal;
-font-weight: normal;
+font-weight: 600;
 src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
 }
 
@@ -103,9 +103,9 @@ src: local('Calibre Semibold Italic'), url(${CalibreSemiboldItalic}) format('wof
 
 
 @font-face {
-font-family: 'Calibre Bold';
+font-family: 'Calibre';
 font-style: normal;
-font-weight: normal;
+font-weight: bold;
 src: local('Calibre Bold'), url(${CalibreBold}) format('woff');
 }
 
