@@ -64,8 +64,6 @@ const ProjectTiles = ({ input }) => {
                 : "col-md-6"
             }`}
             key={index}
-            as={Link}
-            to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
           >
             <DivIMG
               as={Link}
@@ -146,7 +144,6 @@ const DivIMG = styled.div`
     transition: all 0.4s ease-in;
   }
   :hover {
-    transform: scale(1.05);
     ::after {
       width: 100%;
     }
@@ -299,6 +296,12 @@ const Img = styled.img`
   height: 500px;
   width: 100%;
   object-fit: cover;
+  transition: all 0.4s ease-in;
+  :hover {
+    transition: all 0.4s ease-in;
+    transform: scale(1.05);
+  }
+
 @media(max-width: 600px){
   width: 100%;
   height: 100%;

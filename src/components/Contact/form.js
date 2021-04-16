@@ -1,6 +1,15 @@
-import React from "react"
-import styled from "styled-components"
+import styled from 'styled-components';
+import React from 'react';
+
 
 export default function FormContact() {
-  return <></>
+    return (
+        <Container>
+            
+        </Container>
+    );
 }
+
+
+const Container = styled.div`
+`
