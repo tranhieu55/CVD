@@ -62,14 +62,14 @@ export default function Other(arrResult, slugCurrent) {
               />
               <Shadow></Shadow>
             </DivIMG>
-            <TitleImageblock>
-              <TextTitleUp>
-                <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
-              </TextTitleUp>
-              <TextTitleDown>
-                <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
-              </TextTitleDown>
-            </TitleImageblock>
+              <TitleImageblock>
+                <TextTitleUp>
+                  <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
+                </TextTitleUp>
+                <TextTitleDown>
+                  <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
+                </TextTitleDown>
+              </TitleImageblock>
           </Slide>
           : <Slides
               key={index}
@@ -324,7 +324,6 @@ const TextTitleDown = styled.div`
 const TitleBlock = styled.span`
   font-weight: bold;
   color: gold;
-  text-shadow: 1px 1px #000;
   @media (max-width: 600px){
     font-size: 14px;
   }
@@ -336,7 +335,6 @@ const TextBlock = styled.h3`
   font-weight: bold;
   margin: 0;
   padding: 0;
-  text-shadow: 1px 1px #000;
   @media (min-width: 768px){
     font-size: 30px;
   }
@@ -372,3 +370,10 @@ const Slides = styled.div`
   padding-right: 0px;
   padding-left: 0px;
 `
+// const DivOther = styled.div`
+//   width: 100%;
+//   height : 50%;
+//   background: linear-gradient(
+//     180deg
+//     , rgba(0,0,0,0) 0%, #000000 100%);
+// `
