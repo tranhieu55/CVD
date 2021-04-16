@@ -10,8 +10,6 @@ import {
   ImageWithSideText,
 } from "../components/slices/Service"
 
-import { Directions } from "../components/slices/Contact"
-
 import ProjectTiles from "../components/slices/projects/list/ProjectTiles";
 import CTA from "../components/slices/CTA"
 import TextBackground from "../components/OurWoorkDetails/TextBackground"
@@ -32,7 +30,9 @@ import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
 import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
 import ThreeColum from '../components/ColumCaseStudy/ThreeColum';
 import FullColum from '../components/ColumCaseStudy/ColumFullA';
-import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
+import ColumSilder from "../components/ColumCaseStudy/ColumSilder";
+import FormSumits from '../components/Contact/FormSubmit/index';
+import Derection from '../components/Contact/Derection/index';
 
 const SliceZone = (props) => {
   if (props.allSlices) {
@@ -133,12 +133,6 @@ const SliceZone = (props) => {
               <CTA key={index} input={s} />
             </>
           )
-        case "directions":
-          return (
-            <>
-              <Directions key={index} input={s} />
-            </>
-          )
         case "ourworkitem_description":
           return (
             <>
@@ -227,6 +221,18 @@ const SliceZone = (props) => {
               <ColumSilder key={index} input={s} />
             </>
           )
+        case 'directions' : 
+            return(
+              <>
+                <Derection key={index} input={s} />
+              </>
+            )
+        case 'form_submit' : 
+            return(
+              <>
+                <FormSumits key={index} input={s} />
+              </>
+            )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo key={index} input={{ ...s , total:props.allSlices.length}} index={index}/>
