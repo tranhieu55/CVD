@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const FooterStyle = styled.div`
-  background-color: ${({dataBGR}) => dataBGR};
+  background-color: ${({ dataBGR }) => dataBGR};
   font-family: "Calibre Medium";
   font-size: 20px;
   .row {
@@ -39,16 +39,16 @@ const FooterStyle = styled.div`
     line-height: 24px;
   }
   .changes-text {
-      font-size:18px !important;
-      a {
-        font-weight:500;
-        color: white;
-        opacity: 0.7;
+    font-size: 18px !important;
+    a {
+      font-weight: 500;
+      color: white;
+      opacity: 0.7;
       &:hover {
-        text-decoration:none;
-      }
+        text-decoration: none;
       }
     }
+  }
   .text-3 p {
     font-family: "Calibre Medium";
     opacity: 0.7;
@@ -77,7 +77,7 @@ const FooterStyle = styled.div`
       width: 135px !important;
     }
     .editText {
-     margin-right: 15px !important;
+      margin-right: 15px !important;
     }
   }
   @media only screen and (max-width: 600px) {
@@ -98,7 +98,7 @@ const FooterStyle = styled.div`
       width: 600px;
     }
     .editText {
-     margin-right: 30px !important;
+      margin-right: 30px !important;
     }
     .text-3 {
       width: 155px;
@@ -112,7 +112,7 @@ const FooterStyle = styled.div`
       font-size: 18px !important;
       padding-bottom: 0px;
     }
-    
+
     .convert-2020 {
       font-size: 16px !important;
     }
@@ -143,14 +143,14 @@ const FooterStyle = styled.div`
     }
     .content-digital {
       margin-top: 30px;
-      margin-right:80px;
+      margin-right: 80px;
     }
     .style-icon {
       padding-top: 30px !important;
     }
 
     .editText {
-     margin-right: 64px !important;
+      margin-right: 64px !important;
     }
     .none-pd {
       padding-top: 0;
@@ -183,13 +183,13 @@ const FooterStyle = styled.div`
       display: block;
       width: 30px;
     }
-    
+
     .editText {
-     margin-right: 64px !important;
+      margin-right: 64px !important;
     }
     .content-digital {
       margin-top: 0px;
-      margin-right:0px;
+      margin-right: 0px;
     }
     .text-3 p {
       font-size: 18px;
@@ -242,7 +242,7 @@ export const Icon = styled.div`
   text-align: right;
   cursor: pointer;
   img {
-    width:21px;
+    width: 21px;
     height: 20px;
     margin-right: 24px;
     &:hover {
@@ -278,7 +278,8 @@ const Boxicon = styled.div`
   }
 `
 const IphoneX = styled.div`
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 `
 const Container = styled.div`
   max-width: 1260px;
@@ -305,17 +306,17 @@ const ListIcon = styled.div``
 const Order = styled.div``
 const Row = styled.div``
 const BoxImage = styled.div`
-@media only screen and (max-width: 600px) {
-  margin: auto;
-}
-@media only screen and (min-width: 600px) {
+  @media only screen and (max-width: 600px) {
     margin: auto;
-}
-@media only screen and (min-width: 992px) {
-  margin: 0;
-  margin-right:0px;
-}
-@media only screen and (min-width: 1300px) {
+  }
+  @media only screen and (min-width: 600px) {
+    margin: auto;
+  }
+  @media only screen and (min-width: 992px) {
+    margin: 0;
+    margin-right: 0px;
+  }
+  @media only screen and (min-width: 1300px) {
     margin: 0;
   }
 `
@@ -342,7 +343,6 @@ const BoxTextOrder = styled.div`
   @media only screen and (min-width: 1300px) {
     margin-top: 0px;
   }
-    
 `
 const BoxContentDigital = styled.div``
 const ListContent = styled.div``
@@ -385,19 +385,13 @@ export default function Footer({ dataFooter }) {
   // dữ liệu data image icon
   const dataImg = dataFooter.edges[0].node.body[3].fields
 
-
-
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
       <IphoneX>
         <Container className="container">
           <Row className="row">
             <BoxImage className="order-1">
-              <img
-                alt={dataLogoAlt}
-                className="img"
-                src={dataLogo}
-              />
+              <img alt={dataLogoAlt} className="img" src={dataLogo} />
             </BoxImage>
             <BoxOrder className="w-141 order-2"></BoxOrder>
             <BoxTextOrder className="order-3">
@@ -406,10 +400,7 @@ export default function Footer({ dataFooter }) {
                   Our work
                 </Link>
                 {dataLinkPages.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={`/${item.slug_sub_title[0].text}`}
-                  >
+                  <Link key={index} to={`/${item.slug_sub_title[0].text}`}>
                     {item.sub_title[0].text}
                   </Link>
                 ))}
@@ -418,16 +409,20 @@ export default function Footer({ dataFooter }) {
             <BoxOrder className="w-112 order-4"></BoxOrder>
             <BoxContentDigital className="content-digital order-5">
               {dataAddress.map((item, index) => (
-                <ListContent key={index}
-                className={ index === 0 ? 'text-3 editText' : 'text-3'}
+                <ListContent
+                  key={index}
+                  className={index === 0 ? "text-3 editText" : "text-3"}
                 >
                   <Content>
                     <span>{item.city[0].text}</span>
                     <p>
                       {item.address_detail[0]?.text}
                       <br />
-                      <span className='changes-text'>
-                      <a href={`tel: ${item.phone_office[0].text}`}>{item.phone_office[0].text}</a></span>
+                      <span className="changes-text">
+                        <a href={`tel: ${item.phone_office[0].text}`}>
+                          {item.phone_office[0].text}
+                        </a>
+                      </span>
                     </p>
                   </Content>
                 </ListContent>
@@ -437,18 +432,25 @@ export default function Footer({ dataFooter }) {
           <ListIcon className="style-icon">
             <Boxicon className="row">
               <Order className=" order-1">
-                <span className="convert-2020">© {new Date().getFullYear()} Convert Digital. </span>
+                <span className="convert-2020">
+                  © {new Date().getFullYear()} Convert Digital.{" "}
+                </span>
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  {dataImg.map((item,key) => (
-                    <React.Fragment>
-                      <a target={item.link_to_social_network?.target} href={item.link_to_social_network?.url}>
-                        <img src={item.icon_item.url} alt={item.icon_item.alt} />
+                  {dataImg.map((item, index) => (
+                    <React.Fragment key={index}>
+                      <a
+                        target={item.link_to_social_network?.target}
+                        href={item.link_to_social_network?.url}
+                      >
+                        <img
+                          src={item.icon_item.url}
+                          alt={item.icon_item.alt}
+                        />
                       </a>
                     </React.Fragment>
-                  ))
-                  }
+                  ))}
                 </Icon>
               </Order>
             </Boxicon>
@@ -458,5 +460,3 @@ export default function Footer({ dataFooter }) {
     </FooterStyle>
   )
 }
-
-

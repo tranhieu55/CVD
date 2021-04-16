@@ -143,9 +143,9 @@ export default function ListBlog() {
     setLimit(limit + 4)
     setOrinal(orinal + 4)
   }
-  console.log(limit)
-  console.log(orinal)
-  console.log(data.prismic.allProjectss.edges)
+  // console.log(limit)
+  // console.log(orinal)
+  // console.log(data.prismic.allProjectss.edges)
 
   return (
     <ListBlogStyle>

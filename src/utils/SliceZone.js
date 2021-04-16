@@ -12,7 +12,7 @@ import {
 
 import { Directions } from "../components/slices/Contact"
 
-import ProjectTiles from "../components/slices/projects/list/ProjectTiles";
+import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 import CTA from "../components/slices/CTA"
 import TextBackground from "../components/OurWoorkDetails/TextBackground"
 import ImageSlider from "../components/OurWoorkDetails/ImageSlider"
@@ -22,19 +22,20 @@ import ListSlider from "../components/OurWoorkDetails/ListSlider"
 import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
-import Instagram from '../components/slices/Homepage/Instargram';
-import HappyClinetssss from '../components/slices/Homepage/HappyClient/HappyClient';
-import OurServicesss from '../components/slices/Homepage/OurService/index';
+import Instagram from "../components/slices/Homepage/Instargram"
+import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClient"
+import OurServicesss from "../components/slices/Homepage/OurService/index"
 import OurServices from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
-import TwoColumA from "../components/ColumCaseStudy/TwoColumA";
-import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
-import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
-import ThreeColum from '../components/ColumCaseStudy/ThreeColum';
-import FullColum from '../components/ColumCaseStudy/ColumFullA';
+import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
+import TwoColumB from "../components/ColumCaseStudy/TwoColumB"
+import TwoColumC from "../components/ColumCaseStudy/TwoColumC"
+import ThreeColum from "../components/ColumCaseStudy/ThreeColum"
+import FullColum from "../components/ColumCaseStudy/ColumFullA"
 import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
+import OurWorkProjects from "../components/OurWorkProjects"
 
-const SliceZone = (props) => {
+const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
@@ -122,7 +123,7 @@ const SliceZone = (props) => {
             </>
           )
         case "our_services":
-          return(
+          return (
             <>
               <OurServicesss key={index} input={s} />
             </>
@@ -145,10 +146,8 @@ const SliceZone = (props) => {
               <TextBackground key={index} input={s} />
             </>
           )
-        case "one_image": 
-            return (
-              <OneImage key={index} input={s}/>
-            )
+        case "one_image":
+          return <OneImage key={index} input={s} />
         case "list_image":
           return (
             <>
@@ -192,50 +191,53 @@ const SliceZone = (props) => {
             </>
           )
         case "two_columns_a":
-          return(
+          return (
             <>
               <TwoColumA key={index} input={s} />
             </>
           )
         case "two_columns_b":
-          return(
+          return (
             <>
               <TwoColumB key={index} input={s} />
             </>
           )
         case "two_columns_c":
-          return(
+          return (
             <>
               <TwoColumC key={index} input={s} />
             </>
           )
-        case 'threes_column':
-          return(
+        case "threes_column":
+          return (
             <>
               <ThreeColum key={index} input={s} />
             </>
           )
-        case 'full_banner_a':
-            return(
-              <>
-                <FullColum key={index} input={s} />
-              </>
-            )
-        case 'slide_show_banner_':
-          return(
+        case "full_banner_a":
+          return (
+            <>
+              <FullColum key={index} input={s} />
+            </>
+          )
+        case "slide_show_banner_":
+          return (
             <>
               <ColumSilder key={index} input={s} />
             </>
           )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
-            <Cardwhatwedo key={index} input={{ ...s , total:props.allSlices.length}} index={index}/>
+            <Cardwhatwedo
+              key={index}
+              input={{ ...s, total: props.allSlices.length }}
+              index={index}
+            />
           )
+        case "list_projects_to_show":
+          return <OurWorkProjects key={index} input={s} />
         default:
-          return (
-            <>
-            </>
-          )
+          return <></>
       }
     })
     //return the slice
