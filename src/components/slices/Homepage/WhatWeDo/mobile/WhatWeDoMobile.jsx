@@ -134,7 +134,7 @@ const Service = styled.h4`
       opacity: 1;
     }
     &::after {
-      content: "\f077";
+      content: "\f00d";
       font-family: "Font Awesome 5 Pro Regular";
       height: 18px;
       width: 16px;

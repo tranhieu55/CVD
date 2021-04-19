@@ -2,14 +2,17 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import P from "../../components/bits/Typography"
 import { Button, ModalDialog } from "react-bootstrap"
-import Modal from '../ModalContact/index';
+import ButtonCustom from "../ButtonCustom";
+import { theme } from "../../utils/theme"
+import Modal from '../ModalContact/index'
 
-const InterestedStyle = styled.div`
+const InterestedStyle  = styled.div`
   clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
   background-color: ${({dataBGR}) => dataBGR};
   width: 100%;
   color: white;
   margin: -2px auto;
+  position: relative;
   .modals{
   @media(min-width: 768px){
     height: 100%;
@@ -245,15 +248,20 @@ const BoxInterested = styled.div`
     padding-bottom: 108px;
   }
 `
-
+const Span = styled.span``
+const BoxBtn = styled.div``
 const H2 = styled.h2``
 export default function Interested({dataFooter}) {
     const dataBGR = dataFooter.edges[0].node.body[0].primary.background_color_cta_block
     const dataInterested =  dataFooter.edges[0].node.body[0].primary.subtitle[0].text
     const dataInterestedTitle =  dataFooter.edges[0].node.body[0].primary.title[0].text
 
-    
+    const [showModal , setShowModal] = useState(false);
+    const openModal = () => {
+      setShowModal(prev => !prev)
+    }
   return (
+    <>
     <InterestedStyle dataBGR={dataBGR}>
       <BoxInterested>
         <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
@@ -262,8 +270,26 @@ export default function Interested({dataFooter}) {
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">
           {dataInterested}
         </P>
-        <Modal />
+        <BoxBtn>
+                <ButtonCustom
+                    variant="primary" onClick={openModal}
+                    className="my-btn-back  my-btn button-header w3-button w3-black"
+                    bgColor={theme.colors.transparent}
+                    textColor={theme.colors.white}
+                    variant="primary"
+                    fz="20"
+                    pd1="16"
+                    pd2="31.5"
+                    lineh="24"
+                    Block={true}
+                    margin="auto"
+                >
+                    <H2 className="get-in-touch">Get in touch</H2>
+                </ButtonCustom>
+            </BoxBtn>
       </BoxInterested>
     </InterestedStyle>
+    <Modal showModal={showModal} setShowModal={setShowModal} openModal={openModal}/>
+  </>
   )
 }

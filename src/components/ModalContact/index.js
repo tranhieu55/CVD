@@ -1,81 +1,68 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 import styled from 'styled-components';
-import ButtonCustom from "../ButtonCustom";
-import { theme } from "../../utils/theme"
 
-const customStyles = {
-    content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        height                : '872px',
-        width                 : '605px',
-        backgroundColor        : '#FFFFFF',
-        marginRight           : '-50%',
-        padding                : '48px',
-        transform             : 'translate(-50%, -50%)'
-    }
-  };
 
-const Modals = () => {
-    const [modalIsOpen,setIsOpen] = useState(false);
-    function openModal() {
-      setIsOpen(true);
-    }
-
-    function closeModal(){
-      setIsOpen(false);
-    }
+const Modals = ({showModal, setShowModal}) => {
+    const data = useStaticQuery(graphql`
+        query ModalQuery {
+            prismic {
+            allContact_pages {
+                edges {
+                node {
+                    body {
+                    ... on PRISMIC_Contact_pageBodyForm_submit {
+                        type
+                        label
+                        fields {
+                        placeholder
+                        requied
+                        type
+                        }
+                        primary {
+                        title_contact_form
+                        }
+                    }
+                    }
+                }
+                }
+            }
+            }
+        }
+    `)
+    const Titles = data.prismic.allContact_pages.edges[0].node.body.filter(item => item.type === 'form_submit');
+    console.log({'dsad': Titles[0].fields});
     return (
-        <Container>
-            <BoxBtn>
-                <ButtonCustom
-                    variant="primary" onClick={openModal}
-                    className="my-btn-back  my-btn button-header w3-button w3-black"
-                    bgColor={theme.colors.transparent}
-                    textColor={theme.colors.white}
-                    variant="primary"
-                    fz="20"
-                    pd1="16"
-                    pd2="31.5"
-                    lineh="24"
-                    Block={true}
-                    margin="auto"
+        <>
+            {showModal ? 
+                <Container>
+                <Modal showModal={showModal}
                 >
-                    <H2 className="get-in-touch">Get in touch</H2>
-                </ButtonCustom>
-            </BoxBtn>
-            <Modal
-            isOpen={modalIsOpen}
-            //   onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-            >
-            <ButtonClose onClick={closeModal}></ButtonClose>
-            <TiTle>Get in touch</TiTle>
-            <Inputs>
-                <Input ht='64' placeholder='Name'></Input>
-                <Input ht='64' placeholder='Email'></Input>
-                <Input ht='64' placeholder='NUMBER'></Input>
-                <Input ht='64' placeholder='Company'></Input>
-                <Input ht='64' placeholder='Current Website URL'></Input>
-                <Input ht='178' placeholder='Message / Requirement'></Input>
-            </Inputs>
-            <Submit>Submit</Submit>
-            </Modal>
-        </Container>
+                <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
+                <Content>
+                    <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
+                    {Titles[0].fields.map((item, index) => {
+                        if(item.type === 'text') {
+                            return <Input size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                        }
+                        if(item.type === 'textarea') {
+                            return <Textarea size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                        }
+                        return null;
+                    })}
+                    <Submit>Submit</Submit>
+                </Content>
+                </Modal>
+                </Container>
+            :null }
+        </>
     );
 }
   
   export default Modals;
 
 
-const Span = styled.span``
-const BoxBtn = styled.div``
-const H2 = styled.h2``
+
 const TiTle = styled.h1`
     color: #101010;
     font-family: Calibre Semibold;
@@ -84,10 +71,18 @@ const TiTle = styled.h1`
     letter-spacing: 0;
     line-height: 52px;
     margin-bottom : 0px;
-    
 `
 const Container = styled.div`
-  
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    position: fixed;
+    top: 0px;
+    background: rgba(0,0,0,0.35);
+    z-index : 10000;
+    overflow-y: auto;
 `
 
 const ButtonClose = styled.span`
@@ -109,25 +104,72 @@ position: absolute;
     opacity: 0.6;
 }
 `
-const Inputs = styled.div`
-    margin-top: 20px;
-    width : 100%;
-    height: 618px;
-`
+
 const Input = styled.input`
     width: 100%;
-    height: ${({ht}) => `${ht}px`};
+    height: 64px;
     border-radius: 5px;
     background-color: #FFFFFF;
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
     margin-bottom: 24px;
+    box-sizing: border-box;
+    border: 2px solid #CCCCCC;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    padding-left: 24px;
+    &::placeholder {
+        height: 24px;
+        width: 184px;
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+    &::active{
+        border: 2px solid #222222;
+    }
+    @media(max-width: 768px){
+        height: 44px;
+    }
 `
+
+const Textarea = styled.textarea`
+    width: 100%;
+    height: 178px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    border: 2px solid #CCCCCC;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    padding-top: 24px;
+    padding-left: 24px;
+    &::placeholder {
+        height: 24px;
+        width: 184px;
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+    &::active{
+        border: 2px solid #222222;
+    }
+    @media(max-width: 768px){
+        height: 138px;
+    }
+`
+
 const Submit = styled.button`
     height: 64px;
     width: 180px;
     border-radius: 3px;
     background-color: #FECF09;
-    margin-top: 24px;
+    border-color: #FECF09;
     color: #101010;
     font-family: Calibre Semibold;
     font-size: 20px;
@@ -135,4 +177,24 @@ const Submit = styled.button`
     letter-spacing: 0;
     line-height: 18px;
     text-align: center;
+    padding: 25px 0px;
+    border-width: 0px;
+`
+const Content = styled.div`
+    margin: 46px 48px;
+    @media(max-width: 768px){
+        margin : 26px 48px;
+    }
+`
+const Modal = styled.div`
+    height: 872px;
+    width: 605px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    position: relative;
+    margin: auto;
+    @media(max-width: 768px){
+        height:  672px;
+    }
 `
