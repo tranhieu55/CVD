@@ -4,9 +4,9 @@ import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import { Link } from "gatsby"
-import Instagrams from '../components/slices/Homepage/Instargram';
+import Instagrams from "../components/slices/Homepage/Instargram"
 import OurServices from "../components/slices/Homepage/OurService"
-import TwoColums from '../components/ColumCaseStudy/TwoColumA';
+import TwoColums from "../components/ColumCaseStudy/TwoColumA"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -17,24 +17,24 @@ const Index = ({ data: { prismic } }) => {
     <Layout location="/">
       <SEO props={data} location="/" />
       <Container>
-      <ImageBanner src={background_image}></ImageBanner>
+        <ImageBanner src={background_image}></ImageBanner>
         <TextBanner>
           <Title>{data.page_title[0].text}</Title>
           <Buttons>
-          {data.body[0].fields.map((item, index)=>{
-            return(
-                  <ButtonBanner key={index} 
-                      background={item.color_background_button}
-                      border = {item.color_border_button}
-                      textColor = {item.color_text_button}
-                      vitri = {index}
-                    >
-                    {item.text_button[0].text}
-                  </ButtonBanner>
-            
-            )
-          })}
-         </Buttons>
+            {data.body[0].fields.map((item, index) => {
+              return (
+                <ButtonBanner
+                  key={index}
+                  background={item.color_background_button}
+                  border={item.color_border_button}
+                  textColor={item.color_text_button}
+                  vitri={index}
+                >
+                  {item.text_button[0].text}
+                </ButtonBanner>
+              )
+            })}
+          </Buttons>
         </TextBanner>
       </Container>
       <SliceZone allSlices={data.body} />
@@ -50,7 +50,7 @@ export default Index
 const Title = styled.h1`
   height: 275px;
   width: 659px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: Calibre Bold;
   font-size: 104px;
   font-weight: bold;
@@ -59,7 +59,7 @@ const Title = styled.h1`
   @media (min-width: 600px) {
     height: auto;
     width: 100%;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: Calibre Bold;
     font-size: 48px;
     font-weight: bold;
@@ -67,53 +67,53 @@ const Title = styled.h1`
     line-height: 44px;
     padding-top: 11px;
   }
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     font-size: 52px;
   }
-  @media(max-width: 600px){
-  height: auto;
-  width: 301px;
-  color: #FFFFFF;
-  font-family: Calibre Bold;
-  font-size: 49px;
-  font-weight: bold;
-  letter-spacing: -0.5px;
-  line-height: 44px;
-  padding-top: 11px;
+  @media (max-width: 600px) {
+    height: auto;
+    width: 301px;
+    color: #ffffff;
+    font-family: Calibre Bold;
+    font-size: 49px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 44px;
+    padding-top: 11px;
   }
-  @media(max-width: 360px){
+  @media (max-width: 360px) {
     width: 100%;
     font-size: 43px;
   }
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     font-size: 66px;
     height: auto;
     width: 419px;
     line-height: 57px;
-    
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     height: 275px;
     width: 659px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: Calibre Bold;
     font-size: 104px;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 88px;
   }
-  
 `
 
 const Container = styled.div`
   height: 798px;
   width: 100%;
- position: realative;
+  position: realative;
   @media (min-width: 600px) {
     display: block;
     height: auto;
+    margin-top: -72px;
   }
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
+    margin-top: -72px;
     height: 614px;
     width: 100%;
   }
@@ -121,49 +121,49 @@ const Container = styled.div`
 const ImageBanner = styled.img`
   height: 100%;
   width: 100%;
-  z-index: 0; 
+  z-index: 0;
   object-fit: cover;
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     object-fit: cover;
   }
 `
-
 
 const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: ${props => props.background ? props.background : 'transparent' };
+  background: ${props => (props.background ? props.background : "transparent")};
   border: 2px solid ${props => props.border};
   color: ${props => props.textColor};
-  border-radius : 3px;
-  font-family: 'Calibre Semibold';
+  border-radius: 3px;
+  font-family: "Calibre Semibold";
   font-size: 18px;
   font-weight: 600;
   padding-top: 5px;
-  :focus{
+  :focus {
     outline: none;
   }
-  @media(max-width: 600px){
-    margin-right:${props => props.vitri == 0 ? '16px' : '0px' };
-    width: ${props => props.vitri == 1 ? '156px': '148px'};
+  @media (max-width: 600px) {
+    margin-right: ${props => (props.vitri == 0 ? "16px" : "0px")};
+    width: ${props => (props.vitri == 1 ? "156px" : "148px")};
   }
-  @media(max-width: 360px){
-    margin-right:${props => props.vitri == 0 ? '12px' : '0px' };
-    width: ${props => props.vitri == 1 ? '130px': '130px'};
+  @media (max-width: 360px) {
+    margin-right: ${props => (props.vitri == 0 ? "12px" : "0px")};
+    width: ${props => (props.vitri == 1 ? "130px" : "130px")};
   }
-  @media(min-width: 600px){
-    width: ${props => props.vitri == 1 ? '216px': '200px'};
+  @media (min-width: 600px) {
+    width: ${props => (props.vitri == 1 ? "216px" : "200px")};
     padding: 5px 6px 0px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: ${props => props.background ? props.background : 'transparent' };
+    background: ${props =>
+      props.background ? props.background : "transparent"};
     border: 2px solid ${props => props.border};
     color: ${props => props.textColor};
-    border-radius : 3px;
+    border-radius: 3px;
   }
 `
 const TextBanner = styled.div`
@@ -173,28 +173,28 @@ const TextBanner = styled.div`
   top: 225px;
   padding-left: 167px;
   z-index: 1;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     height: auto;
     width: 345px;
     top: 204px;
     padding-left: 24px;
   }
-  @media(max-width: 360px){
+  @media (max-width: 360px) {
     width: 280px;
   }
-  @media(min-width: 600px){
+  @media (min-width: 600px) {
     padding-left: 50px;
     top: 86px;
     height: auto;
     width: 445px;
   }
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     padding-left: 50px;
     top: 122px;
     height: auto;
     width: 469px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     height: 355px;
     width: 659px;
     position: absolute;
