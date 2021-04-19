@@ -41,13 +41,13 @@ export default function FormSumit ({input}) {
         }
         @media(min-width: 600px){
             right: 16px;
-            width: 330px;
-            height: 718px
+            width: 310px;
+            height: 770px
         }
         @media(min-width: 768px){
             width: 340px;
             right: 20px;
-            height: 718px
+            height: 770px;
         }
         @media(min-width: 1024px){
             right : 40px;
@@ -114,7 +114,7 @@ export default function FormSumit ({input}) {
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
-                
+
             }
         }
        
