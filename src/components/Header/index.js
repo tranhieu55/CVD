@@ -17,6 +17,8 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const WrapperHeader = styled.div`
+    position: absolute;
+    top: 0px;
   * {
     box-sizing: border-box;
   }
