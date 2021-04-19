@@ -12,15 +12,22 @@ import {
 const WraperBannerProjects = styled.div`
   background-color: ${theme.colors.lightGray};
   @media only screen and (max-width: 600px) {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     h2 {
       font-size: 32px;
     }
     p {
       font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      margin-bottom: 14px;
+      margin-left: 47px;
+
+      &::before {
+        position: absolute;
+        right: calc(100% + 1rem);
+        top: 30%;
+        width: 32px !important;
+      }
     }
     li {
       padding-right: 7px;
@@ -37,10 +44,6 @@ const WraperBannerProjects = styled.div`
     }
     p {
       font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
     li {
       padding-right: 7px;
@@ -59,10 +62,6 @@ const WraperBannerProjects = styled.div`
     p {
       font-size: 14px;
     }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
     li {
       padding-right: 10px;
       text-align: center;
@@ -80,10 +79,6 @@ const WraperBannerProjects = styled.div`
     p {
       font-size: 14px;
     }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
     li {
       padding-right: 20px;
       text-align: center;
@@ -100,10 +95,6 @@ const WraperBannerProjects = styled.div`
     }
     p {
       font-size: 16px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
     li {
       padding-right: 0px;
@@ -136,6 +127,11 @@ const BannerProjectsContent = styled.div`
       background: ${theme.colors.primaryColor};
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    padding-bottom: 0px;
+    padding-top: 80px;
+  }
 `
 
 const ListCategory = styled.ul`
@@ -157,6 +153,12 @@ const ListCategory = styled.ul`
       font-size: 13px;
       color: #101010;
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 0px;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 `
 const CategoryItem = styled.li`
@@ -219,6 +221,15 @@ const CategoryItem = styled.li`
       opacity: 0.3;
       height: 2px;
       transition: all 0s ease-in;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 20px;
+    padding-right: 0px !important;
+    a {
+      font-size: 20px !important;
+      white-space: nowrap;
     }
   }
 `
