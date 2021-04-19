@@ -11,7 +11,7 @@ export default function Derection ({input}) {
         width: 556px;
         margin: 66px 0px 72px 180px;
         @media(max-width: 600px){
-            margin: 518px 0px 72px 16px;
+            margin: 518px auto 72px ;
             width: 343px;
         }
         @media(max-width: 360px){
@@ -19,7 +19,7 @@ export default function Derection ({input}) {
             width: 328px;
         }
         @media(max-width: 320px){
-            margin: 518px 0px 72px 16px;
+            margin: 528px 0px 72px 16px;
             width: 288px;
         }
         @media(min-width: 600px){
@@ -50,6 +50,11 @@ export default function Derection ({input}) {
         line-height: 52px;
         border-bottom: 1px solid #E4E4E4;
         margin-bottom: 32px;
+        @media(max-width: 600px){
+            height: 52px;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
     `
     const Contentleft = styled.div`
         width: 40%;

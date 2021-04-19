@@ -71,6 +71,7 @@ const TiTle = styled.h1`
     letter-spacing: 0;
     line-height: 52px;
     margin-bottom : 0px;
+    
 `
 const Container = styled.div`
     height: 100%;
@@ -83,26 +84,31 @@ const Container = styled.div`
     background: rgba(0,0,0,0.35);
     z-index : 10000;
     overflow-y: auto;
+    
 `
 
 const ButtonClose = styled.span`
-top: 26px;
-right: 26px;
-position: absolute;
-&::after {
-    content: "\f00d";
-    font-family: "Font Awesome 5 Pro Regular";
-    height: 20px;
-    width: 19px;
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 0;
-    line-height: 24px;
-    text-align: right;
-    color: #333333;
-    margin-left: 24px;
-    opacity: 0.6;
-}
+    top: 26px;
+    right: 26px;
+    position: absolute;
+    &::after {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Pro Regular";
+        height: 20px;
+        width: 19px;
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: right;
+        color: #333333;
+        margin-left: 24px;
+        opacity: 0.6;
+    }
+    @media(max-width: 320px){
+        top: 16px;
+        right: 16px;
+    }
 `
 
 const Input = styled.input`
@@ -117,6 +123,7 @@ const Input = styled.input`
     border-radius: 3px;
     background-color: #FFFFFF;
     padding-left: 24px;
+    box-shadow: none;
     &::placeholder {
         height: 24px;
         width: 184px;
@@ -126,8 +133,21 @@ const Input = styled.input`
         letter-spacing: 0;
         line-height: 24px;
     }
-    &::active{
-        border: 2px solid #222222;
+    :hover{
+        border: 2px solid #222222 ;
+    }
+    :focus{
+        &::placeholder {
+            height: 24px;
+            width: 184px;
+            color: #B6B6B6;
+            font-family: Calibre Regular;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            top: 2px;
+        }
     }
     @media(max-width: 768px){
         height: 44px;
@@ -147,6 +167,7 @@ const Textarea = styled.textarea`
     background-color: #FFFFFF;
     padding-top: 24px;
     padding-left: 24px;
+    box-shadow: none;
     &::placeholder {
         height: 24px;
         width: 184px;
@@ -156,8 +177,22 @@ const Textarea = styled.textarea`
         letter-spacing: 0;
         line-height: 24px;
     }
-    &::active{
-        border: 2px solid #222222;
+    :hover{
+        border: 2px solid #222222 ;
+        
+    }
+    :focus{
+        &::placeholder {
+            height: 24px;
+            width: 184px;
+            color: #B6B6B6;
+            font-family: Calibre Regular;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            top: 2px;
+        }
     }
     @media(max-width: 768px){
         height: 138px;
@@ -184,6 +219,9 @@ const Content = styled.div`
     margin: 46px 48px;
     @media(max-width: 768px){
         margin : 26px 48px;
+    }
+    @media(max-width: 320px){
+        margin : 20px 16px;
     }
 `
 const Modal = styled.div`

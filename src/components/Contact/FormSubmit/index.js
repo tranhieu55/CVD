@@ -16,21 +16,27 @@ export default function FormSumit ({input}) {
         top: 186px;
         right: 180px;
         @media(max-width: 600px){
-            left: 16px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
             width: 343px;
             top: 391px;
             height: 718px;
         }
         @media(max-width: 360px){
-            right: 20px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
             width: 320px;
             top: 391px;
             height: 718px
         }
         @media(max-width: 320px){
-            right: 16px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
             width: 288px;
-            top: 391px;
+            top: 415px;
             height: 718px
         }
         @media(min-width: 600px){
@@ -54,6 +60,7 @@ export default function FormSumit ({input}) {
         }
         @media(min-width: 1444px){
             right : 150px;
+            width: 604px;
         }
         @media(min-width: 1600px){
             right : 180px;
@@ -80,6 +87,7 @@ export default function FormSumit ({input}) {
         border-radius: 3px;
         background-color: #FFFFFF;
         padding-left: 24px;
+        box-shadow: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -89,6 +97,26 @@ export default function FormSumit ({input}) {
             letter-spacing: 0;
             line-height: 24px;
         }
+        @media(max-width: 600px){
+            margin-bottom: 16px;
+        }
+        :hover{
+            border: 2px solid #222222 ;
+        }
+        :focus{
+            &::placeholder {
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Regular;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: 2px;
+            }
+        }
+       
     `
     const Textarea = styled.textarea`
         width: 100%;
@@ -103,6 +131,7 @@ export default function FormSumit ({input}) {
         background-color: #FFFFFF;
         padding-top: 24px;
         padding-left: 24px;
+        box-shadow: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -112,11 +141,24 @@ export default function FormSumit ({input}) {
             letter-spacing: 0;
             line-height: 24px;
         }
-        &::active{
-            border: 2px solid #222222;
+        :hover{
+            border: 2px solid #222222 ;
+        }
+        :focus{
+            &::placeholder {
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Regular;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: 2px;
+            }
         }
         @media(max-width: 768px){
-            height: 138px;
+            margin-bottom: 16px;
         }
     `
     const ButtonForm = styled.button`

@@ -35,17 +35,23 @@ const ContentBanner = styled.div`
     top: 210px;
     left: 180px;
     @media(max-width: 600px){
-        left: 16px;
+        left: 0px;
+        right: 0px;
+        margin: 0 auto;
         width: 330px;
         top: 84px;
     }
     @media(max-width: 320px){
-        left: 16px;
+        left: 0px;
+        right: 0px;
+        margin: 0 auto;
         width: 288px;
         top: 84px;
     }
     @media(min-width: 600px){
-        left: 16px;
+        left: 0px;
+        right: 0px;
+        margin: 0 auto;
         width: 260px;
         top: 160px;
     }
@@ -57,6 +63,10 @@ const ContentBanner = styled.div`
         left: 50px;
         width: 430px;
     }
+    @media(min-width: 1200px){
+        left: 180px;
+        top: 210px;
+    }
 `
 const Title = styled.h1`
     color: #FFFFFF;
@@ -65,11 +75,14 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: 0;
     line-height: 56px;
-    @media(min-width: 600px){
-        font-size: 50px;
+    @media(max-width: 600px){
+        fon-size: 40px;
     }
     @media(max-width: 320px){
         font-size: 40px;
+    }
+    @media(min-width: 600px){
+        font-size: 50px;
     }
     @media(min-width: 768px){
         font-size: 64px;
@@ -98,11 +111,12 @@ const Buttons = styled.button`
     line-height: 22px;
     text-align: center;
     background: transparent;
+    padding: 14px 0px;
 `
 const PhoneNumber = styled.h4`
     width: 135px;
     color: #FFFFFF;
-    font-family: Calibre;
+    font-family: Calibre Semibold;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 0;
