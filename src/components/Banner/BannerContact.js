@@ -76,7 +76,7 @@ const Title = styled.h1`
     letter-spacing: 0;
     line-height: 56px;
     @media(max-width: 600px){
-        fon-size: 40px;
+        font-size: 40px;
     }
     @media(max-width: 320px){
         font-size: 40px;
