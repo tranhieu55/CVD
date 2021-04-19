@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Derection ({input}) {
-    console.log("derection =================", input);
-    const data = input;
+    const data = input.fields;
     const DivIMG = styled.div`
     overflow:hidden;
     `
@@ -11,6 +10,33 @@ export default function Derection ({input}) {
         height: 916px;
         width: 556px;
         margin: 66px 0px 72px 180px;
+        @media(max-width: 600px){
+            margin: 518px 0px 72px 16px;
+            width: 343px;
+        }
+        @media(max-width: 360px){
+            margin: 518px 0px 72px 16px;
+            width: 328px;
+        }
+        @media(max-width: 320px){
+            margin: 518px 0px 72px 16px;
+            width: 288px;
+        }
+        @media(min-width: 600px){
+            margin: 66px 0px 72px 16px;
+            width: 260px;
+        }
+        @media(min-width: 768px){
+            margin: 66px 0px 72px 30px;
+            width: 296px;
+        }
+        @media(min-width: 1024px){
+            margin: 66px 0px 72px 50px;
+            width: 396px;
+        }
+        @media(min-width: 1444px){
+            margin: 66px 0px 72px 180px;
+        }
     `
     const Title = styled.h1`
         height: 76px;
@@ -26,16 +52,44 @@ export default function Derection ({input}) {
     `
     const Contentleft = styled.div`
         width: 40%;
+        @media(max-width: 600px){
+            width: 100%;
+        }
+        @media(min-width: 600px){
+            width: 100%;
+        }
+        @media(min-width: 1024px){
+            width: 40%;
+        }
     `
     const ContentRight = styled.div`
         width: 40%
         color: red;
+        @media(max-width: 600px){
+            width: 100%;
+        }
+        @media(min-width: 600px){
+            width: 100%;
+        }
+        @media(min-width: 1024px){
+            width: 40%;
+        }
     `
     const Content = styled.div`
         width: 100%;
         height: 172px;
         display: flex;
         justify-content : space-between;
+        margin-bottom: 40px;
+        @media(max-width: 600px){
+            display: block;
+        }
+        @media(min-width: 600px){
+            display: block;
+        }
+        @media(min-width: 1024px){
+            display: flex;
+        }
     `
     const TitleLeft = styled.div`
         color: #101010;
@@ -61,17 +115,19 @@ export default function Derection ({input}) {
     `
     return(
         <Derections>
-            <Title>Offices</Title>
-            <Content>
-                <Contentleft>
-                    <TitleLeft>{data.primary.office_title.map(item => item.text)}</TitleLeft>
-                    <TextLeft>{data.primary.address.map(item => item.text)}</TextLeft>
-                    <Phone>{data.primary.office_phone_number.map(item => item.text)}</Phone>
-                </Contentleft>
-                <ContentRight>
+            <Title>{input.primary.title.map(item => item.text)}</Title>
+            {data.map((item , index) => (
+                <Content>
+                        <Contentleft key={index}>
+                            <TitleLeft>{item.office_title.map(item => item.text)}</TitleLeft>
+                            <TextLeft>{item.address.map(item => item.text)}</TextLeft>
+                            <Phone>{item.office_phone_number.map(item => item.text)}</Phone>
+                        </Contentleft>
+                    <ContentRight>
 
-                </ContentRight>
-            </Content>
+                    </ContentRight>
+                </Content>
+            ))}
         </Derections>
     )
 }

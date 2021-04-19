@@ -22,13 +22,37 @@ const Banner = styled.div`
     width: 100%;
     background-color: #0F1534;
     clip-path: polygon(0px 0%, 100% 0px, 100% 86%, 0% 100%);
+    @media(min-width: 600px){
+        clip-path: polygon(0px 0%, 100% 0px, 100% 92%, 0% 100%);
+    }
 `
 const ContentBanner = styled.div`
     width: 430px;
     position: relative;
     top: 210px;
     left: 180px;
-
+    @media(max-width: 600px){
+        left: 16px;
+        width: 330px;
+        top: 84px;
+    }
+    @media(max-width: 320px){
+        left: 16px;
+        width: 288px;
+        top: 84px;
+    }
+    @media(min-width: 600px){
+        left: 16px;
+        width: 260px;
+        top: 160px;
+    }
+    @media(min-width: 768px){
+        left: 30px;
+        width: 330px;
+    }
+    @media(min-width: 1024px){
+        left: 50px;
+    }
 `
 const Title = styled.h1`
     color: #FFFFFF;
@@ -37,6 +61,15 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: 0;
     line-height: 56px;
+    @media(min-width: 600px){
+        font-size: 50px;
+    }
+    @media(max-width: 320px){
+        font-size: 40px;
+    }
+    @media(min-width: 768px){
+        font-size: 64px;
+    }
 `
 const Content = styled.p`
     color: #FFFFFF;
@@ -84,6 +117,7 @@ const PhoneNumber = styled.h4`
         padding: 15px 0px;
         margin-right: 8px;
     }
+    
 `
 
 const ButtonBanner = styled.div`
@@ -91,4 +125,13 @@ const ButtonBanner = styled.div`
     margin-top: 31px;
     width: 301px;
     justify-content: space-between;
+    @media(min-width: 600px){
+        display: block;
+    }
+    @media(max-width: 320px){
+        width: 288px;
+    }
+    @media(min-width: 768px){
+        display: flex;
+    }
 `

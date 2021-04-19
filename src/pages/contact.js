@@ -32,15 +32,31 @@ export const pageQuery = graphql`
         edges {
           node {
             _linkType
+            phone_number
+            page_title
+            page_content
+            office_block_title
+            meta_title
+            meta_description
+            keywords
+            button_link_label
             body {
               ... on PRISMIC_Contact_pageBodyDirections {
                 type
                 label
                 primary {
+                  title
+                }
+                fields {
                   address
-
                   office_phone_number
                   office_title
+                  directions_link {
+                    _linkType
+                  }
+                  google_maps_link {
+                    _linkType
+                  }
                 }
               }
               ... on PRISMIC_Contact_pageBodyForm_submit {
@@ -56,14 +72,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            button_link_label
-            keywords
-            meta_description
-            meta_title
-            office_block_title
-            page_content
-            page_title
-            phone_number
           }
         }
       }

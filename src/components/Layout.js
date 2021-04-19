@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
@@ -26,6 +26,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import styled from "styled-components"
 import Interested from "../components/Interested"
 import OurWorkContextProvider from "../context/ourwork/OurWorkContextProvider"
+
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -343,9 +344,12 @@ const Layout = ({
   const dataServicesMenu = data.prismic.allService_headers
   const BoxLayout = styled.div`
     overflow-x: hidden;
+  
   `
+  
+  
   return (
-    <BoxLayout>
+    <BoxLayout >
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <GlobalStyle />
@@ -373,3 +377,5 @@ const Layout = ({
 }
 
 export default Layout
+
+
