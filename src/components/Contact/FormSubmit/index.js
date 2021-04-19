@@ -159,7 +159,7 @@ export default function FormSumit ({input}) {
             }
         }
         @media(max-width: 768px){
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
     `
     const ButtonForm = styled.button`
@@ -177,11 +177,13 @@ export default function FormSumit ({input}) {
         text-align: center;
         padding: 25px 0px;
         border-width: 0px;
+        @media(max-width: 600px){
+            width: 100%;
+        }
     `
     return(
         <FormSumits>
             <Forms>
-                <Form.Group>
                 {data.fields.map((item, index) => {
                      if(item.type === 'text') {
                         return <Input size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
@@ -192,7 +194,6 @@ export default function FormSumit ({input}) {
                     return null;
                 })}
                <ButtonForm>Submit</ButtonForm>
-                </Form.Group>
             </Forms>
         </FormSumits>
     )

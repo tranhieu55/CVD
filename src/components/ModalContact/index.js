@@ -149,6 +149,27 @@ const Input = styled.input`
             top: 2px;
         }
     }
+    @media(max-width: 320px){
+        margin-bottom: 20px;
+    }
+    @media(max-width: 600px){
+        :hover{
+            border: 2px solid #222222 ;
+        }
+        :focus{
+            &::placeholder {
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Regular;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: -2px;
+            }
+        }
+    }
     @media(max-width: 768px){
         height: 44px;
     }
@@ -194,6 +215,27 @@ const Textarea = styled.textarea`
             top: 2px;
         }
     }
+    @media(max-width: 320px){
+        margin-bottom: 20px;
+    }
+    @media(max-width: 600px){
+        :hover{
+            border: 2px solid #222222 ;
+        }
+        :focus{
+            &::placeholder {
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Regular;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: -2px;
+            }
+        }
+    }
     @media(max-width: 768px){
         height: 138px;
     }
@@ -221,7 +263,7 @@ const Content = styled.div`
         margin : 26px 48px;
     }
     @media(max-width: 320px){
-        margin : 20px 16px;
+        margin : 20px 24px;
     }
 `
 const Modal = styled.div`
