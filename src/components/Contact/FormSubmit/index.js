@@ -46,6 +46,7 @@ export default function FormSumit ({input}) {
         @media(min-width: 1024px){
             right : 40px;
             width: 480px;
+            height: 802px;
         }
         @media(min-width: 1200px){
             right : 40px;

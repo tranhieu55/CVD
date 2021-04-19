@@ -25,6 +25,9 @@ const Banner = styled.div`
     @media(min-width: 600px){
         clip-path: polygon(0px 0%, 100% 0px, 100% 92%, 0% 100%);
     }
+    @media(min-width: 1024px){
+        clip-path: polygon(0px 0%, 100% 0px, 100% 86%, 0% 100%);
+    }
 `
 const ContentBanner = styled.div`
     width: 430px;
@@ -52,6 +55,7 @@ const ContentBanner = styled.div`
     }
     @media(min-width: 1024px){
         left: 50px;
+        width: 430px;
     }
 `
 const Title = styled.h1`

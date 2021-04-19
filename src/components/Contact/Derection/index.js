@@ -36,6 +36,7 @@ export default function Derection ({input}) {
         }
         @media(min-width: 1444px){
             margin: 66px 0px 72px 180px;
+            width: 556px;
         }
     `
     const Title = styled.h1`
