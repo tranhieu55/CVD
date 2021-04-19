@@ -58,6 +58,7 @@ const ContentBanner = styled.div`
     @media(min-width: 768px){
         left: 30px;
         width: 330px;
+        margin: 0 ;
     }
     @media(min-width: 1024px){
         left: 50px;
