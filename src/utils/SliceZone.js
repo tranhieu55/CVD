@@ -10,7 +10,7 @@ import {
   ImageWithSideText,
 } from "../components/slices/Service"
 
-import ProjectTiles from "../components/slices/projects/list/ProjectTiles";
+import ProjectTiles from "../components/slices/projects/list/ProjectTiles"
 import CTA from "../components/slices/CTA"
 import TextBackground from "../components/OurWoorkDetails/TextBackground"
 import ImageSlider from "../components/OurWoorkDetails/ImageSlider"
@@ -25,15 +25,15 @@ import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClie
 import OurServicesss from "../components/slices/Homepage/OurService/index"
 import OurServices from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
-import TwoColumA from "../components/ColumCaseStudy/TwoColumA";
-import TwoColumB from "../components/ColumCaseStudy/TwoColumB";
-import TwoColumC from "../components/ColumCaseStudy/TwoColumC";
-import ThreeColum from '../components/ColumCaseStudy/ThreeColum';
-import FullColum from '../components/ColumCaseStudy/ColumFullA';
-import ColumSilder from "../components/ColumCaseStudy/ColumSilder";
-import FormSumits from '../components/Contact/FormSubmit/index';
-import Derection from '../components/Contact/Derection/index';
-import OurWorkProjects from '../components/OurWorkProjects/index';
+import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
+import TwoColumB from "../components/ColumCaseStudy/TwoColumB"
+import TwoColumC from "../components/ColumCaseStudy/TwoColumC"
+import ThreeColum from "../components/ColumCaseStudy/ThreeColum"
+import FullColum from "../components/ColumCaseStudy/ColumFullA"
+import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
+import FormSumits from "../components/Contact/FormSubmit/index"
+import Derection from "../components/Contact/Derection/index"
+import OurWorkProjects from "../components/OurWorkProjects/index"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -220,18 +220,18 @@ const SliceZone = props => {
               <ColumSilder key={index} input={s} />
             </>
           )
-        case 'directions' : 
-            return(
-              <>
-                <Derection key={index} input={s} />
-              </>
-            )
-        case 'form_submit' : 
-            return(
-              <>
-                <FormSumits key={index} input={s} />
-              </>
-            )
+        case "directions":
+          return (
+            <>
+              <Derection key={index} input={s} />
+            </>
+          )
+        case "form_submit":
+          return (
+            <>
+              <FormSumits key={index} input={s} />
+            </>
+          )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo
