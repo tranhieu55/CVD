@@ -19,6 +19,7 @@ import CalibreBlack from "../assets/fonts/CalibreBlack.woff"
 import CalibreBlackItalic from "../assets/fonts/CalibreBlackItalic.woff"
 import CalibreBold from "../assets/fonts/CalibreBold.woff"
 import CalibreBoldItalic from "../assets/fonts/CalibreBoldItalic.woff"
+import HelveticaNeue_Regular from "../assets/fonts/HelveticaNeue-Regular.ttf"
 import FontAwesome5ProRegular from "../assets/fonts/FontAwesome5Pro-Regular.woff"
 import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regular.woff"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -124,6 +125,14 @@ font-family: 'Calibre Black';
 font-style: normal;
 font-weight: normal;
 src: local('Calibre Black'), url(${CalibreBlack}) format('woff');
+}
+
+
+@font-face {
+font-family: 'Helvetica Neue Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Helvetica Neue Regular'), url(${HelveticaNeue_Regular}) format('ttf');
 }
 
 
