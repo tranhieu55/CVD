@@ -33,6 +33,7 @@ import FullColum from '../components/ColumCaseStudy/ColumFullA';
 import ColumSilder from "../components/ColumCaseStudy/ColumSilder";
 import FormSumits from '../components/Contact/FormSubmit/index';
 import Derection from '../components/Contact/Derection/index';
+import OurWorkProjects from '../components/OurWorkProjects/index';
 
 const SliceZone = props => {
   if (props.allSlices) {
