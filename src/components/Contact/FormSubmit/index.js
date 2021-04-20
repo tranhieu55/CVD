@@ -77,20 +77,6 @@ export default function FormSumit({ input }) {
       padding: 48px 48px;
     }
   `
-    const Labels = styled.label`
-        width: 184px;
-        color: #B6B6B6;
-        font-family: Calibre Regular;
-        font-size: 20px;
-        letter-spacing: 0;
-        line-height: 24px;
-        box-shadow: none;
-        border-top: 0px;
-        position : absolute;
-        transform: translate(24px, 24px) scale(1);
-        top: 0;
-        left: 0;
-    `
     const Input = styled.input`
         height: 64px ;
         margin-bottom: 24px;
@@ -101,13 +87,14 @@ export default function FormSumit({ input }) {
         text-indent: 24px;
         box-shadow: none;
         -webkit-tap-highlight-color: transparent;
-        box-sizing: content-box;
+        box-sizing: border-box;
         animation-name: mui-auto-fill-cancel;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        :focus~label{
-            width: 184px;
+        :active~label,
+        :focus~label,
+        :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
             font-family: Calibre Semibold;
             font-size: 12px;
@@ -121,9 +108,6 @@ export default function FormSumit({ input }) {
         @media(max-width: 600px){
             margin-bottom: 16px;
         }
-        :hover{
-            border: 2px solid #222222 ;
-        }
         :focus{
             outline: none;
             border: 2px solid #222222 ;
@@ -133,10 +117,22 @@ export default function FormSumit({ input }) {
     const Inputs = styled.div`
         position: relative;
         width: 100%;
-        
+        label{
+            color: #B6B6B6;
+            font-family: Calibre Regular;
+            font-size: 20px;
+            letter-spacing: 0;
+            line-height: 24px;
+            box-shadow: none;
+            border-top: 0px;
+            position : absolute;
+            transform: translate(24px, 24px) scale(1);
+            top: 0;
+            left: 0;
+        }
     `
     const Textarea = styled.textarea`
-        width: 101%;
+        width: 100%;
         height: 178px;
         border-radius: 5px;
         box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
@@ -153,8 +149,9 @@ export default function FormSumit({ input }) {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        :focus~label{
-            width: 184px;
+        :active~label,
+        :focus~label,
+        :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
             font-family: Calibre Semibold;
             font-size: 12px;
@@ -185,35 +182,27 @@ export default function FormSumit({ input }) {
         border-width: 0px;
         @media(max-width: 600px){
             width: 100%;
+            font-size: 20px;
         }
     `
-    const [isOpen, setIsOpen] = useState(null); 
-    function setLabels (index){
-        if(isOpen === index) {
-            setIsOpen(null)
-          } else {
-            setIsOpen(index);
-            
-          }
-    }
     return(
         <FormSumits>
             <Forms>
                 {data.fields.map((item, index) => {
                      if(item.type === 'text') {
                         return <Inputs>
-                            <Input size="lg" type="text"/>
-                            <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                            <Input size="lg" type="text" placeholder=" "/>
+                            <label >
                                 {item.placeholder.map(item => item.text)}
-                            </Labels>
+                            </label>
                         </Inputs>
                     }
                     if(item.type === 'textarea') {
                         return <Inputs>
-                        <Textarea size="lg" type="text"/>
-                        <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
-                            {item.placeholder.map(item => item.text)}
-                        </Labels>
+                        <Textarea size="lg" type="text" placeholder=" "/>
+                        <label >
+                                {item.placeholder.map(item => item.text)}
+                        </label>
                     </Inputs>
                     }
                     return null;
