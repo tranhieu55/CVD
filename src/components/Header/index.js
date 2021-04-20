@@ -994,7 +994,7 @@ const GetInTouch = styled.h2`
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 22px;
+  line-height: 25px;
   text-align: center;
   white-space: nowrap;
   margin-bottom: 0px;
