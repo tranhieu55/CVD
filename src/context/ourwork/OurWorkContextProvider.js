@@ -4,38 +4,22 @@ export const OurWorkStateContext = React.createContext()
 export const OurWorkDispatchContext = React.createContext()
 
 const initialState = {
-  listSelected: ["all"],
+  listSelected: "all",
 }
 
 function reducer(state, action) {
   switch (action.type) {
     case "ADD_FILTER_ITEM":
-      if (action.value === "all") {
-        return {
-          ...state,
-          listSelected: ["all"],
-        }
-      }
-      let isInArr = [...state.listSelected].includes(action.value) // true or false
-      if (!isInArr && action.value !== "all") {
-        let newArrSelected = [...state.listSelected, action.value].filter(
-          x => x !== "all"
-        )
-        return {
-          ...state,
-          listSelected: [...newArrSelected],
-        }
-      } else {
-        return {
-          ...state,
-          listSelected: [...state.listSelected],
-        }
+      console.log({action})
+      return {
+        ...state,
+        listSelected: action.value,
       }
 
     case "RESET_FILTER":
       return {
         ...state,
-        listSelected: ["all"],
+        listSelected: "all",
       }
     default:
       return { ...state }

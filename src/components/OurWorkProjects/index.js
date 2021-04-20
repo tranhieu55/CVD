@@ -13,20 +13,16 @@ function OurWorkProjects(props) {
 
   const [listProjects, setListProject] = useState(input.fields)
   const state = useContext(OurWorkStateContext)
-  const { listSelected } = state
+  const {listSelected} = state; 
 
-  console.log("list-selected : ", listSelected)
+  const [showList , setShowList] = useState(listSelected) ;
+  console.log("list-listProjects : ", listProjects)
 
-  console.log("listProject", listProjects)
-
-  const test = listSelected.includes("all")
+  const test = listSelected === "all"
     ? listProjects
-    : listProjects.filter(x => {
-        return listSelected.includes(
-          x.project_item?.relationship_to_project_category._meta.uid
-        )
-      })
-
+    : listProjects.filter(x => listSelected.toUpperCase().includes(x.project_item.name_category_of_project.toUpperCase()) || x.project_item.name_category_of_project.toUpperCase().includes(listSelected.toUpperCase()));
+    console.log("list-selected : ", test)
+      
   return (
     <ListBlogStyle>
       <Rows className="row">

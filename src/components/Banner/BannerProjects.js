@@ -11,6 +11,10 @@ import {
 
 const WraperBannerProjects = styled.div`
   background-color: ${theme.colors.lightGray};
+  h2{
+    color: #101010;
+    letter-spacing: -1px;
+  }
   @media only screen and (max-width: 600px) {
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -216,16 +220,18 @@ const CategoryItem = styled.li`
   a.active {
     color: #101010 !important;
     opacity: 1;
+    border-bottom: 1px solid #101010;
     &::after {
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";
       background-color: #101010;
       opacity: 0.3;
-      height: 2px;
       transition: all 0s ease-in;
+      border-bottom: 1px solid #101010;
+      height: 0px;
     }
   }
 
@@ -278,6 +284,7 @@ const BannerProjects = () => {
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
+  console.log({listCategories})
 
   return (
     <WraperBannerProjects>
@@ -306,10 +313,9 @@ const BannerProjects = () => {
                 }
               >
                 <Link
-                  className={
-                    [...state.listSelected].includes(
-                      item.category_project_item._meta.uid
-                    ) && "active"
+                  className={[...state.listSelected].includes(
+                    item.category_project_item._meta.uid
+                  ) && "active" 
                   }
                 >
                   {item.category_project_item.category_name[0]?.text}
