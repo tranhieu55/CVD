@@ -79,7 +79,7 @@ export default function FormSumit ({input}) {
         }
     `
     const Input = styled.input`
-        height: 64px };
+        height: 64px ;
         margin-bottom: 24px;
         width: 100%;
         box-sizing: border-box;
@@ -88,6 +88,7 @@ export default function FormSumit ({input}) {
         background-color: #FFFFFF;
         padding-left: 24px;
         box-shadow: none;
+        outline: -webkit-focus-ring-color auto 0px;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -133,6 +134,8 @@ export default function FormSumit ({input}) {
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
+        outline: -webkit-focus-ring-color auto 0px;
+        
         &::placeholder {
             height: 24px;
             width: 184px;
