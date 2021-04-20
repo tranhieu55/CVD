@@ -33,7 +33,7 @@ const WrapperHeader = styled.div`
     -webkit-text-decoration: none;
     text-decoration: none;
     height: 16px;
-    font-size: 18px;
+    font-size: 16px;
     -webkit-letter-spacing: 0;
     -moz-letter-spacing: 0;
     -ms-letter-spacing: 0;
