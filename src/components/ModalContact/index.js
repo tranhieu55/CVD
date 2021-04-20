@@ -1,7 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby"
-import React, { useState } from "react"
-import styled from "styled-components"
-import TextField from "@material-ui/core/TextField"
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Modals = ({ showModal, setShowModal }) => {
   const data = useStaticQuery(graphql`
@@ -27,59 +26,52 @@ const Modals = ({ showModal, setShowModal }) => {
             }
           }
         }
-      }
+    `)
+    const Titles = data.prismic.allContact_pages.edges[0].node.body.filter(item => item.type === 'form_submit');
+    const [isOpen, setIsOpen] = useState(null); 
+    function setLabels (index){
+        if(isOpen === index) {
+            setIsOpen(null)
+          } else {
+            setIsOpen(index);
+            
+          }
     }
-  `)
-  const Titles = data.prismic.allContact_pages.edges[0].node.body.filter(
-    item => item.type === "form_submit"
-  )
-  console.log({ dsad: Titles[0].fields })
-  return (
-    <>
-      {showModal ? (
-        <Container>
-          <Modal showModal={showModal}>
-            <ButtonClose
-              onClick={() => setShowModal(prev => !prev)}
-            ></ButtonClose>
-            <Content>
-              <TiTle>
-                {Titles[0].primary.title_contact_form.map(item => item.text)}
-              </TiTle>
-              {Titles[0].fields.map((item, index) => {
-                if (item.type === "text") {
-                  return (
-                    <Input>
-                      <TextField
-                        id="outlined-basic"
-                        size="small"
-                        variant="outlined"
-                        label={item.placeholder.map(item => item.text)}
-                      />
-                    </Input>
-                  )
-                }
-                if (item.type === "textarea") {
-                  return (
-                    <Input>
-                      <TextField
-                        id="outlined-basic"
-                        size="small"
-                        variant="outlined"
-                        label={item.placeholder.map(item => item.text)}
-                      />
-                    </Input>
-                  )
-                }
-                return null
-              })}
-              <Submit>Submit</Submit>
-            </Content>
-          </Modal>
-        </Container>
-      ) : null}
-    </>
-  )
+    return (
+        <>
+            {showModal ? 
+                <Container>
+                <Modal showModal={showModal}
+                >
+                <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
+                <Content>
+                    <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
+                    {Titles[0].fields.map((item, index) => {
+                        if(item.type === 'text') {
+                            return <Inputs>
+                                <Input size="lg" type="text"/>
+                                <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                    {item.placeholder.map(item => item.text)}
+                                </Labels>
+                            </Inputs>
+                        }
+                        if(item.type === 'textarea') {
+                            return <Inputs>
+                            <Textarea size="lg" type="text"/>
+                            <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                {item.placeholder.map(item => item.text)}
+                            </Labels>
+                        </Inputs>
+                        }
+                        return null;
+                    })}
+                    <Submit>Submit</Submit>
+                </Content>
+                </Modal>
+                </Container>
+            :null }
+        </>
+    );
 }
 
 export default Modals
@@ -130,154 +122,138 @@ const ButtonClose = styled.span`
   }
 `
 
-const Input = styled.div`
-  width: 100%;
-  height: 64px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
-  margin-bottom: 24px;
-  box-sizing: border-box;
-  border: 2px solid #cccccc;
-  border-radius: 3px;
-  background-color: #ffffff;
-  padding-left: 24px;
-  box-shadow: none;
-  position: relative;
-  &::placeholder {
-    height: 24px;
-    width: 184px;
-    color: #b6b6b6;
-    font-family: Calibre Regular;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 24px;
+const Input = styled.input`
+    width: 100%;
+    height: 64px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    border: 2px solid #cccccc;
+    border-radius: 3px;
+    padding-left: 24px;
     box-shadow: none;
-    border-top: 0px;
-  }
-  :hover {
-    border: 1px solid #222222;
-  }
-  :focus {
-    outline: none;
-    &::placeholder {
-      height: 24px;
-      width: 184px;
-      color: #b6b6b6;
-      font-family: Calibre Regular;
-      font-size: 14px;
-      letter-spacing: 0;
-      line-height: 24px;
-      position: absolute;
-      top: 5px;
-      box-shadow: none;
-      border-top: 0px;
-    }
-  }
-  @media (max-width: 320px) {
-    margin-bottom: 20px;
-  }
-  @media (max-width: 600px) {
-    :hover {
-      border: 1px solid #222222;
-      position: relative;
-    }
-    :focus {
-      outline: none;
-      &::placeholder {
-        height: 24px;
-        width: 184px;
-        color: #6e6e6e;
-        font-family: Calibre Regular;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    :focus~label{
+        color: #B6B6B6;
+        font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 0;
         line-height: 24px;
         position: absolute;
-        top: -12px;
-        box-shadow: none;
-        border-top: 0px;
-        background-color: #ffffff;
-      }
+        transform: translate(24px, 6px) scale(1);
+        top: 0;
+        left: 0;
+        background: #ffffff;
     }
-  }
-  @media (max-width: 768px) {
-    height: 44px;
-  }
+    :hover{
+        border: px solid #B6B6B6 ;
+    }
+    :focus{
+        outline: none;
+        border: 2px solid #B6B6B6 ;
+    }
+    @media(max-width: 320px){
+        margin-bottom: 20px;
+    }
+    @media(max-width: 600px){
+        border: 1px solid #6E6E6E;
+        :hover{
+            border: 2px solid #B6B6B6 ;
+            position: relative;
+        }
+        :focus{
+            outline: none;
+            border: 2px solid #B6B6B6 ;
+        }
+        :focus~label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, -9px) scale(1);
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            padding: 0px 5px;
+        }
+    }
+    @media(max-width: 768px){
+        height: 44px;
+    }
 `
 
 const Textarea = styled.textarea`
-  width: 100%;
-  height: 178px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
-  margin-bottom: 24px;
-  box-sizing: border-box;
-  border: 2px solid #cccccc;
-  border-radius: 3px;
-  padding-top: 24px;
-  padding-left: 24px;
-  box-shadow: none;
-  position: relative;
-  &::placeholder {
-    height: 24px;
-    width: 184px;
-    color: #b6b6b6;
-    font-family: Calibre Regular;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 24px;
+    width: 100%;
+    height: 178px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    border: 2px solid #222222;
+    border-radius: 3px;
+    padding-top: 24px;
+    padding-left: 24px;
     box-shadow: none;
-    border-top: 0px;
-  }
-  :hover {
-    border: 1px solid #222222;
-  }
-  :focus {
-    outline: none;
-    &::placeholder {
-      height: 24px;
-      width: 184px;
-      color: #b6b6b6;
-      font-family: Calibre Regular;
-      font-size: 14px;
-      letter-spacing: 0;
-      line-height: 24px;
-      position: absolute;
-      top: 2px;
-      box-shadow: none;
-      border-top: 0px;
-    }
-  }
-  @media (max-width: 320px) {
-    margin-bottom: 20px;
-  }
-  @media (max-width: 600px) {
-    :hover {
-      border: 1px solid #222222;
-      position: relative;
-    }
-    :focus {
-      outline: none;
-      &::placeholder {
-        height: 24px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    :focus~label{
         width: 184px;
-        color: #6e6e6e;
-        font-family: Calibre Regular;
+        color: #B6B6B6;
+        font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 0;
         line-height: 24px;
         position: absolute;
-        top: -12px;
-        box-shadow: none;
-        border-top: 0px;
-        background-color: #ffffff;
-      }
+        transform: translate(24px, 6px) scale(1);
+        top: 0;
+        left: 0;
+        background: #ffffff;
     }
-  }
-  @media (max-width: 768px) {
-    height: 138px;
-  }
+    :hover{
+        border: 2px solid #B6B6B6 ;
+    }
+    @media(max-width: 320px){
+        margin-bottom: 20px;
+    }
+    @media(max-width: 600px){
+        border: 1px solid #6E6E6E;
+        :hover{
+            border: 2px solid #B6B6B6 ;
+            position: relative;
+        }
+        :focus{
+            outline: none;
+            border: 2px solid #B6B6B6 ;
+        }
+        :focus~label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, -9px) scale(1);
+            top: 0;
+            left: 0;
+            background: #B6B6B6;
+            padding: 0px 5px;
+        }
+    }
+    @media(max-width: 768px){
+        height: 138px;
+    }
 `
 
 const Submit = styled.button`
@@ -306,14 +282,35 @@ const Content = styled.div`
   }
 `
 const Modal = styled.div`
-  height: 872px;
-  width: 605px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
-  position: relative;
-  margin: auto;
-  @media (max-width: 768px) {
-    height: 672px;
-  }
+    height: 872px;
+    width: 605px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+    position: relative;
+    margin: auto;
+    @media(max-width: 768px){
+        height:  672px;
+    }
 `
+const Labels = styled.label`
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
+        position : absolute;
+        transform: translate(24px, 24px) scale(1);
+        top: 0;
+        left: 0;
+        @media(max-width: 768px){
+            transform: translate(24px, 12px) scale(1);
+        }
+    `
+    const Inputs = styled.div`
+        position: relative;
+        width: 100%;
+        
+    `

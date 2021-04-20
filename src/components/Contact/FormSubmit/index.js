@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { Form } from "react-bootstrap"
-import ButtonCustom from "../../ButtonCustom/index"
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Form } from "react-bootstrap";
+import ButtonCustom from "../../ButtonCustom/index";
 
 export default function FormSumit({ input }) {
   const data = input
@@ -77,169 +77,149 @@ export default function FormSumit({ input }) {
       padding: 48px 48px;
     }
   `
-  const Input = styled.input`
-    height: 64px;
-    margin-bottom: 24px;
-    width: 100%;
-    border-radius: 3px;
-    border: 2px solid #cccccc;
-    padding: 0px;
-    text-indent: 24px;
-    box-shadow: none;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    box-sizing: content-box;
-    animation-name: mui-auto-fill-cancel;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    &::placeholder {
-      height: 24px;
-      width: 184px;
-      color: #b6b6b6;
-      font-family: Calibre Regular;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: 24px;
-      box-shadow: none;
-      border-top: 0px;
-    }
-    @media (max-width: 600px) {
-      margin-bottom: 16px;
-    }
-    :hover {
-      border: 2px solid #222222;
-    }
-    :focus {
-      outline: none;
-      &::placeholder {
-        height: 24px;
+    const Labels = styled.label`
         width: 184px;
-        color: #b6b6b6;
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
+        position : absolute;
+        transform: translate(24px, 24px) scale(1);
+        top: 0;
+        left: 0;
+    `
+    const Input = styled.input`
+        height: 64px ;
+        margin-bottom: 24px;
+        width: 100%;
+        border-radius: 3px;
+        border: 2px solid #cccccc;
+        padding: 0px ;
+        text-indent: 24px;
+        box-shadow: none;
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: content-box;
+        animation-name: mui-auto-fill-cancel;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        :focus~label{
+            width: 184px;
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, 6px) scale(1);
+            top: 0;
+            left: 0;
+        }
+        @media(max-width: 600px){
+            margin-bottom: 16px;
+        }
+        :hover{
+            border: 2px solid #222222 ;
+        }
+        :focus{
+            outline: none;
+            border: 2px solid #222222 ;
+        }
+       
+    `
+    const Inputs = styled.div`
+        position: relative;
+        width: 100%;
+        
+    `
+    const Textarea = styled.textarea`
+        width: 101%;
+        height: 178px;
+        border-radius: 5px;
+        box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
+        margin-bottom: 24px;
+        box-sizing: border-box;
+        animation-name: mui-auto-fill-cancel;
+        border-radius: 3px;
+        border: 2px solid #cccccc;
+        padding-top: 24px;
+        padding-left: 24px;
+        box-shadow: none;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        :focus~label{
+            width: 184px;
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, 6px) scale(1);
+            top: 0;
+            left: 0;
+        }
+        @media(max-width: 768px){
+            margin-bottom: 10px;
+        }
+    `
+    const ButtonForm = styled.button`
+        height: 64px;
+        width: 180px;
+        border-radius: 3px;
+        background-color: #FECF09;
+        border-color: #FECF09;
+        color: #101010;
         font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 0;
-        line-height: 24px;
-        position: absolute;
-        top: 2px;
-      }
-      &::-webkit-input-placeholder {
-        height: 24px;
-        width: 184px;
-        color: #b6b6b6;
-        font-family: Calibre Semibold;
-        font-size: 14px;
-        letter-spacing: 0;
-        line-height: 24px;
-      }
-    }
-  `
-  const Textarea = styled.textarea`
-    width: 101%;
-    height: 178px;
-    border-radius: 5px;
-    box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
-    margin-bottom: 24px;
-    box-sizing: border-box;
-    animation-name: mui-auto-fill-cancel;
-    border-radius: 3px;
-    border: 2px solid #cccccc;
-    padding-top: 24px;
-    padding-left: 24px;
-    box-shadow: none;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    &::placeholder {
-      height: 24px;
-      width: 184px;
-      color: #b6b6b6;
-      font-family: Calibre Regular;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: 24px;
-      box-shadow: none;
-      border-top: 0px;
-    }
-    :hover {
-      border: 2px solid #222222;
-    }
-    :focus {
-      outline: none;
-      &::placeholder {
-        height: 24px;
-        width: 184px;
-        color: #b6b6b6;
-        font-family: Calibre Semibold;
-        font-size: 14px;
-        letter-spacing: 0;
-        line-height: 24px;
-        position: absolute;
-        top: 2px;
-      }
-      &::-webkit-input-placeholder {
-        height: 24px;
-        width: 184px;
-        color: #b6b6b6;
-        font-family: Calibre Semibold;
-        font-size: 14px;
-        letter-spacing: 0;
-        line-height: 24px;
-      }
-    }
-    @media (max-width: 768px) {
-      margin-bottom: 10px;
-    }
-  `
-  const ButtonForm = styled.button`
-    height: 64px;
-    width: 180px;
-    border-radius: 3px;
-    background-color: #fecf09;
-    border-color: #fecf09;
-    color: #101010;
-    font-family: Calibre Semibold;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: 18px;
-    text-align: center;
-    padding: 25px 0px;
-    border-width: 0px;
-    @media (max-width: 600px) {
-      width: 100%;
-    }
-  `
-  return (
-    <FormSumits>
-      <Forms>
-        {data.fields.map((item, index) => {
-          if (item.type === "text") {
-            return (
-              <Input
-                size="lg"
-                type="text"
-                placeholder={item.placeholder.map(item => item.text)}
-                ht={index}
-              />
-            )
+        line-height: 18px;
+        text-align: center;
+        padding: 25px 0px;
+        border-width: 0px;
+        @media(max-width: 600px){
+            width: 100%;
+        }
+    `
+    const [isOpen, setIsOpen] = useState(null); 
+    function setLabels (index){
+        if(isOpen === index) {
+            setIsOpen(null)
+          } else {
+            setIsOpen(index);
+            
           }
-          if (item.type === "textarea") {
-            return (
-              <Textarea
-                size="lg"
-                type="text"
-                placeholder={item.placeholder.map(item => item.text)}
-                ht={index}
-              />
-            )
-          }
-          return null
-        })}
-        <ButtonForm>Submit</ButtonForm>
-      </Forms>
-    </FormSumits>
-  )
+    }
+    return(
+        <FormSumits>
+            <Forms>
+                {data.fields.map((item, index) => {
+                     if(item.type === 'text') {
+                        return <Inputs>
+                            <Input size="lg" type="text"/>
+                            <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                {item.placeholder.map(item => item.text)}
+                            </Labels>
+                        </Inputs>
+                    }
+                    if(item.type === 'textarea') {
+                        return <Inputs>
+                        <Textarea size="lg" type="text"/>
+                        <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                            {item.placeholder.map(item => item.text)}
+                        </Labels>
+                    </Inputs>
+                    }
+                    return null;
+                })}
+               <ButtonForm>Submit</ButtonForm>
+            </Forms>
+        </FormSumits>
+    )
 }
