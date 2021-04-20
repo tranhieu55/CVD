@@ -88,6 +88,7 @@ export default function FormSumit ({input}) {
         background-color: #FFFFFF;
         padding-left: 24px;
         box-shadow: none;
+        position: relative;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -137,6 +138,7 @@ export default function FormSumit ({input}) {
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
+        position: relative;
         &::placeholder {
             height: 24px;
             width: 184px;
