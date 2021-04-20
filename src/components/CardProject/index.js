@@ -11,7 +11,6 @@ CardProject.propTypes = {
 function CardProject(props) {
   const { input } = props
   const inforProject = input.project_item
-
   return (
     <Colum className="col-md-6">
       <DivIMG
@@ -56,20 +55,34 @@ const DivIMG = styled.div`
       width: 100%;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    img {
+      height: 245px;
+    }
+  }
 `
-const Colum = styled.div``
+const Colum = styled.div`
+  @media only screen and (max-width: 600px) {
+    padding: 0px;
+    margin-top: 0px !important;
+    margin-bottom: 2px;
+  }
+`
+
 const TitleImageBlog = styled.div`
   position: absolute;
+  left: 63px;
+  bottom: 30px;
   z-index: 2;
-  bottom: 5rem;
-  left: 6rem;
   cursor: pointer;
-  /* color:red; */
+
   @media only screen and (max-width: 600px) {
-    bottom: 10px;
-    left: 40px;
+    left: 24px;
+    bottom: 21px;
   }
-  @media only screen and (min-width: 600px) {
+
+  /* @media only screen and (min-width: 600px) {
     bottom: 20px;
     left: 60px;
   }
@@ -84,22 +97,34 @@ const TitleImageBlog = styled.div`
   @media only screen and (min-width: 1200px) {
     bottom: 3rem;
     left: 40px;
-  }
+  } */
 `
 const Span = styled.span`
-  font-weight: bold;
-  color: gold;
+  color: #fecf09;
+  font-size: 18px;
+  line-height: 16px;
+  font-family: "Calibre Semibold";
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 4px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+    line-height: 6px;
+  }
 `
 const H3 = styled.h3`
-  color: white;
-  font-size: 36px;
-  font-weight: bold;
+  color: #ffffff;
+  font-size: 48px;
+  font-family: "Calibre Bold";
   margin: 0;
   padding: 0;
+
   @media only screen and (max-width: 600px) {
-    font-size: 28px;
+    font-size: 24px;
   }
-  @media only screen and (min-width: 600px) {
+  /* @media only screen and (min-width: 600px) {
     font-size: 30px;
   }
   @media only screen and (min-width: 768px) {
@@ -108,7 +133,7 @@ const H3 = styled.h3`
   @media only screen and (min-width: 992px) {
     font-size: 36px;
   }
-  @media only screen and (min-width: 1200px) {
-    font-size: 36px;
-  }
+  @media only screen and (min-width: 1600px) {
+    font-size: 48px;
+  } */
 `

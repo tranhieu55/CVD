@@ -480,7 +480,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     position: absolute;
     top: 0px;
   }
@@ -1247,6 +1247,21 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       return <img className="image-buger" src={logoBuger} alt="logo" />
     }
   }
+  const checkTextMenu = () => {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
+      if (show !== 0) {
+        return "menu-nav-white"
+      } else {
+        return "menu-nav"
+      }
+    } else {
+      return "menu-nav-white"
+    }
+  }
   return (
     <WrapperHeader
       location={location}
@@ -1279,20 +1294,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          <MenuText
-            className={
-              scroll
-                ? "menu-nav-white"
-                : location === "/" ||
-                  location === "/contact" ||
-                  location === "/case-study" ||
-                  location === "/proposal"
-                ? "menu-nav-white"
-                : "menu-nav"
-            }
-          >
-            Menu
-          </MenuText>
+          <MenuText className={checkTextMenu()}>Menu</MenuText>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={() => setShow(!show)}
