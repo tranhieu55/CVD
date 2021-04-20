@@ -132,8 +132,6 @@ export default function FormSumit ({input}) {
                 font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
-                position: absolute;
-                top: 2px;
             }
         }
        
@@ -191,8 +189,6 @@ export default function FormSumit ({input}) {
                 font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
-                position: absolute;
-                top: 2px;
             }
         }
         @media(max-width: 768px){
