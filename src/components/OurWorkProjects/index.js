@@ -27,8 +27,6 @@ function OurWorkProjects(props) {
         )
       })
 
-  console.log('test " ', test)
-
   return (
     <ListBlogStyle>
       <Rows className="row">
@@ -60,8 +58,11 @@ const ListBlogStyle = styled.div`
     color: black;
   }
   .btn-studies:hover {
-    background-color: gold;
+    background-color: #fecf09;
     color: white;
+  }
+  @media (max-width: 600px) {
+    margin-top: 16px;
   }
 `
 const Rows = styled.div``

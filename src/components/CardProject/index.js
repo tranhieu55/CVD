@@ -11,7 +11,6 @@ CardProject.propTypes = {
 function CardProject(props) {
   const { input } = props
   const inforProject = input.project_item
-
   return (
     <Colum className="col-md-6">
       <DivIMG
@@ -66,7 +65,8 @@ const DivIMG = styled.div`
 const Colum = styled.div`
   @media only screen and (max-width: 600px) {
     padding: 0px;
-    margin-top: 10px !important;
+    margin-top: 0px !important;
+    margin-bottom: 2px;
   }
 `
 
@@ -78,15 +78,11 @@ const TitleImageBlog = styled.div`
   cursor: pointer;
 
   @media only screen and (max-width: 600px) {
-    left: 38px;
-    bottom: 16px;
+    left: 24px;
+    bottom: 21px;
   }
 
-  /* @media only screen and (max-width: 600px) {
-    bottom: 10px;
-    left: 40px;
-  }
-  @media only screen and (min-width: 600px) {
+  /* @media only screen and (min-width: 600px) {
     bottom: 20px;
     left: 60px;
   }
@@ -128,11 +124,7 @@ const H3 = styled.h3`
   @media only screen and (max-width: 600px) {
     font-size: 24px;
   }
-
-  /* @media only screen and (max-width: 600px) {
-    font-size: 14px;
-  }
-  @media only screen and (min-width: 600px) {
+  /* @media only screen and (min-width: 600px) {
     font-size: 30px;
   }
   @media only screen and (min-width: 768px) {

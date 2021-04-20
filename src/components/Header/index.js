@@ -55,7 +55,8 @@ const WrapperHeader = styled.div`
     outline: none;
   }
   .fixedTop {
-    background-color: #252940 !important;
+    background-color: ${({ show }) =>
+      show !== 0 ? "white !important" : "transparent"};
   }
   a:hover {
     text-decoration: none;
@@ -86,6 +87,7 @@ const WrapperHeader = styled.div`
   .menu-list_item_text-black {
     color: #0e0e0e !important;
     opacity: ${({ location }) => (location === "/" ? "30%" : "100%")};
+    opacity: ${({ scroll }) => (scroll === "true" ? "100%" : "100%")};
   }
   .test {
     opacity: 100%;
@@ -130,7 +132,7 @@ const WrapperHeader = styled.div`
   .wraper-header {
     width: 100%;
     height: 60px;
-    position: fixed;
+    position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
     display: flex;
@@ -227,6 +229,7 @@ const WrapperHeader = styled.div`
   .edit-img {
     width: 18px;
     height: 18px;
+    margin-right: 5px;
   }
   .menu-mobile-iconBack {
     display: none;
@@ -319,6 +322,8 @@ const WrapperHeader = styled.div`
     display: none;
   }
   @media (max-width: 600px) {
+    position: absolute;
+    top: 0px;
     .menu-list_item_text-white {
       font-family: "Calibre Bold" !important;
     }
@@ -349,6 +354,11 @@ const WrapperHeader = styled.div`
       }
     }
     .menu-list_item_text-white {
+      font-size: 32px !important;
+      line-height: 56px !important;
+    }
+    .colorWhite {
+      color: white !important;
       font-size: 32px !important;
       line-height: 56px !important;
     }
@@ -469,6 +479,10 @@ const WrapperHeader = styled.div`
         margin-bottom: 9px;
       }
     }
+  }
+  @media (max-width: 600px) {
+    position: absolute;
+    top: 0px;
   }
   @media (max-width: 991px) and (max-height: 450px) {
     .icon-mobile-right {
@@ -609,6 +623,14 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
+    .button-header {
+      color: white;
+    }
+    .colorWhite {
+      color: white !important;
+      font-size: 32px !important;
+      line-height: 56px !important;
+    }
     .navbar-nav {
       margin: 0px;
     }
@@ -730,7 +752,7 @@ const WrapperHeader = styled.div`
   @media only screen and (min-width: 1600px) {
     .wraper-header {
       width: 100%;
-      position: fixed;
+      position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
       box-sizing: border-box;
       z-index: 999 !important;
       display: flex;
@@ -985,11 +1007,16 @@ const MenuItemServices = styled.div`
       font-weight: 400 !important;
     }
     .list-platforms_Card {
-      padding: 25px;
+      height: 88px;
+      padding: 24px;
       border-radius: 10px;
-      margin-bottom: 25px;
-      padding-bottom: 16px;
-      padding-top: 10px;
+      margin-bottom: 16px;
+      .mobile {
+        height: 25px;
+      }
+      .mobile1 {
+        height: 35px;
+      }
       img {
         margin-right: 25px !important;
       }
@@ -1050,7 +1077,7 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: go#FECF09ld;
+    background-color: #fecf09;
     height: 5px;
     transition: all 0.4s ease-in;
   }
@@ -1123,14 +1150,37 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
 
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(0)
+  // const [translateHeader, setTranslateHeader] = useState(false)
+
+  let lastScrollTop = 0
+  useEffect(() => {
+    window.onscroll = function () {
+      var st = window.pageYOffset
+      if (st > lastScrollTop) {
+        if (window.pageYOffset > 87) {
+          setScroll(false)
+        } else {
+          setScroll(true)
+        }
+      } else {
+        setScroll(true)
+      }
+      lastScrollTop = st <= 0 ? 0 : st
+    }
+    return () => {
+      window.onscroll = function () {
+        return
+      }
+    }
+  }, [])
 
   const handleScroll = () => {
-    if (!!window && window.scrollY > 20) {
-      setScroll(true)
-    } else {
-      setScroll(false)
+    const _show = window.scrollY
+    if (_show > 0) {
+      setIsDisPlayModalService(false)
     }
+    setShow(_show)
   }
 
   useEffect(() => {
@@ -1146,75 +1196,96 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     setIsDisPlayModalService(!isDisPlayModalService)
   }
   const checkColorText = () => {
-    if (location !== "/") {
-      if (scroll) {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
+      return "menu-list_item_text-black"
+    }
+    if (show === 0 && !!isDisPlayModalService) {
+      return "menu-list_item_text-black"
+    } else {
+      if (show === 0) {
+        return "menu-list_item_text-white"
+      }
+      if (!isDisPlayModalService && !scroll) {
         return "menu-list_item_text-white"
       }
       return "menu-list_item_text-black"
     }
-    if (scroll && isDisPlayModalService) {
-      return "menu-list_item_text-white"
-    } else {
-      if (isDisPlayModalService) {
-        return "menu-list_item_text-black"
-      } else {
-        return "menu-list_item_text-white"
-      }
-    }
   }
   const checkColorTextButton = index => {
-    if (location !== "/") {
-      if (scroll) {
-        return "white"
-      }
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do" ||
+      show > 0 ||
+      !!isDisPlayModalService
+    ) {
       return "#101010"
     }
-    if (scroll && isDisPlayModalService) {
-      return "white"
-    } else {
-      if (!!show && index === 1) {
-        return "#101010"
-      } else {
-        if (isDisPlayModalService) {
-          return "#101010"
-        } else {
-          return "white"
-        }
-      }
-    }
+    return "#ffffff"
   }
-
   // useClickOutSize(clickRef, () => {
   //   setIsDisPlayModalService(false)
   // })
-
+  const checkIconMenu = () => {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
+      return <img className="image-buger" src={logoBugerBlack} alt="logo" />
+    }
+    if (show === 0) {
+      return <img className="image-buger" src={logoBuger} alt="logo" />
+    } else {
+      if (!!scroll) {
+        return <img className="image-buger" src={logoBugerBlack} alt="logo" />
+      }
+      return <img className="image-buger" src={logoBuger} alt="logo" />
+    }
+  }
+  const checkTextMenu = () => {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
+      if (show !== 0) {
+        return "menu-nav-white"
+      } else {
+        return "menu-nav"
+      }
+    } else {
+      return "menu-nav-white"
+    }
+  }
   return (
-    <WrapperHeader location={location}>
+    <WrapperHeader
+      location={location}
+      scroll={scroll}
+      show={show}
+      isDisPlayModalService={isDisPlayModalService}
+    >
       <Navbar
         expand="lg"
-        className={`wraper-header 
+        className={`wraper-header fixedTop
         ${isDisPlayModalService === true ? "backgroundServiecs" : ""}
-        ${
-          scroll
-            ? "fixedTop "
-            : `${
-                location === "/" ||
-                location === "/contact" ||
-                location === "/case-study" ||
-                location === "/proposal"
-                  ? "nav-bar_1024px_down_home"
-                  : "nav-bar_1024px_down"
-              }`
-        }`}
+        `}
       >
         <LogoHeader>
           <Navbar.Brand as={Link} to="/">
-            {scroll ? (
-              <IMG src={logoLight} />
+            {show !== 0 ? (
+              <IMG src={logoBlack} />
             ) : (
               <IMG
                 src={
-                  isDisPlayModalService === true || location !== "/"
+                  isDisPlayModalService === true ||
+                  location === "/styleguide" ||
+                  location === "/projects" ||
+                  location === "/what-we-do"
                     ? logoBlack
                     : logoLight
                 }
@@ -1223,31 +1294,12 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          <MenuText
-            className={
-              scroll
-                ? "menu-nav-white"
-                : location === "/" ||
-                  location === "/contact" ||
-                  location === "/case-study" ||
-                  location === "/proposal"
-                ? "menu-nav-white"
-                : "menu-nav"
-            }
-          >
-            Menu
-          </MenuText>
+          <MenuText className={checkTextMenu()}>Menu</MenuText>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={() => setShow(!show)}
           >
-            {scroll ? (
-              <img className="image-buger" src={logoBuger} alt="logo" />
-            ) : location === "/styleguide" || location === "/styleguide" ? (
-              <img className="image-buger" src={logoBugerBlack} alt="logo" />
-            ) : (
-              <img className="image-buger" src={logoBuger} alt="logo" />
-            )}
+            {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
         <Navbar.Collapse
@@ -1277,7 +1329,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 {item.slug_menu_item[0].text === "services" ? (
                   <span
                     onClick={handelClickServices}
-                    className={`${checkColorText()} ${
+                    className={`${checkColorText()} colorWhite ${
                       isDisPlayModalService === true ? "test" : ""
                     } `}
                   >
@@ -1292,7 +1344,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   <Link
                     to={`/${item.slug_menu_item[0].text}`}
                     activeClassName="active"
-                    className={checkColorText()}
+                    className={`${checkColorText()} colorWhite`}
                   >
                     {item.title_menu_item[0].text}
                   </Link>
@@ -1393,6 +1445,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                                 fontFamily="Calibre Regular"
                                 coLor="#222222"
                                 fontWeight={theme.fonts.regular}
+                                className="mobile1"
                               >
                                 {item.short_description[0].text}
                               </P>

@@ -15,12 +15,16 @@ const WraperBannerProjects = styled.div`
     margin-bottom: 0px;
     padding-bottom: 0px;
     h2 {
-      font-size: 32px;
+      font-size: 40px;
+      color: #101010;
+      font-family: "Calibre Bold";
+      letter-spacing: -1px;
+      margin-bottom: 10px !important;
     }
     p {
-      font-size: 14px;
-      margin-bottom: 14px;
-      margin-left: 47px;
+      margin-bottom: 10px;
+      margin-left: 50px;
+      font-size: 12px !important;
 
       &::before {
         position: absolute;
@@ -90,6 +94,7 @@ const WraperBannerProjects = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
+    margin-top: -72px;
     h2 {
       font-size: 64px;
     }
@@ -130,7 +135,7 @@ const BannerProjectsContent = styled.div`
 
   @media only screen and (max-width: 600px) {
     padding-bottom: 0px;
-    padding-top: 80px;
+    padding-top: 86px;
   }
 `
 
@@ -156,7 +161,7 @@ const ListCategory = styled.ul`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-bottom: 0px;
+    margin-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -225,7 +230,7 @@ const CategoryItem = styled.li`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-right: 20px;
+    margin-right: 24px;
     padding-right: 0px !important;
     a {
       font-size: 20px !important;
