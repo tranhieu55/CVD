@@ -17,8 +17,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const WrapperHeader = styled.div`
-    position: absolute;
-    top: 0px;
   * {
     box-sizing: border-box;
   }
@@ -324,6 +322,8 @@ const WrapperHeader = styled.div`
     display: none;
   }
   @media (max-width: 600px) {
+    position: absolute;
+    top: 0px;
     .menu-list_item_text-white {
       font-family: "Calibre Bold" !important;
     }
@@ -1192,7 +1192,11 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     setIsDisPlayModalService(!isDisPlayModalService)
   }
   const checkColorText = () => {
-    if (show === 0 && location !== "/") {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
       return "menu-list_item_text-black"
     }
     if (show === 0 && !!isDisPlayModalService) {
@@ -1208,41 +1212,35 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     }
   }
   const checkColorTextButton = index => {
-    if (location === "/") {
-      if (show !== 0) {
-        return "#101010"
-      }
-      return "white"
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do" ||
+      show > 0 ||
+      !!isDisPlayModalService
+    ) {
+      return "#101010"
     }
-    if (location !== "/") {
-      if (scroll == true) {
-        return "#101010"
-      }
-    }
-    if (scroll && isDisPlayModalService) {
-      return "white"
-    } else {
-      if (!!show && index === 1) {
-        return "#101010"
-      } else {
-        if (isDisPlayModalService) {
-          return "#101010"
-        } else {
-          return "white"
-        }
-      }
-    }
+    return "#ffffff"
   }
   // useClickOutSize(clickRef, () => {
   //   setIsDisPlayModalService(false)
   // })
   const checkIconMenu = () => {
-    if (show === 0 && location === "/") {
+    if (
+      location === "/styleguide" ||
+      location === "/projects" ||
+      location === "/what-we-do"
+    ) {
+      return <img className="image-buger" src={logoBugerBlack} alt="logo" />
+    }
+    if (show === 0) {
       return <img className="image-buger" src={logoBuger} alt="logo" />
-    } else if (location !== "/") {
-      return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     } else {
-      return <img className="image-buger" src={logoBugerBlack} alt="logo" />
+      if (!!scroll) {
+        return <img className="image-buger" src={logoBugerBlack} alt="logo" />
+      }
+      return <img className="image-buger" src={logoBuger} alt="logo" />
     }
   }
   return (
@@ -1265,7 +1263,10 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             ) : (
               <IMG
                 src={
-                  isDisPlayModalService === true || location !== "/"
+                  isDisPlayModalService === true ||
+                  location === "/styleguide" ||
+                  location === "/projects" ||
+                  location === "/what-we-do"
                     ? logoBlack
                     : logoLight
                 }

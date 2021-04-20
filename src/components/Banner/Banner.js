@@ -33,10 +33,10 @@ function Banner({
           backgroundWorkItemAlt={backgroundWorkItemAlt}
         />
       )
-    case "/we-do":
+    case "/what-we-do":
       return <BannerWhatWeDo />
     case "/styleguide":
-    return <BannerStyleguide />
+      return <BannerStyleguide />
     default:
       return ""
   }
