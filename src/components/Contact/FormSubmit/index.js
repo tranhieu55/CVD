@@ -127,7 +127,7 @@ export default function FormSumit ({input}) {
        
     `
     const Textarea = styled.textarea`
-        width: 100%;
+        width: 101%;
         height: 178px;
         border-radius: 5px;
         box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
