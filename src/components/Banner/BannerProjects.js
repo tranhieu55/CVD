@@ -10,6 +10,7 @@ import {
 } from "../../context/ourwork/OurWorkContextProvider"
 
 const WraperBannerProjects = styled.div`
+  margin-top: -72px;
   background-color: ${theme.colors.lightGray};
   @media only screen and (max-width: 600px) {
     h2 {

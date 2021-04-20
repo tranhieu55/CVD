@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 
 import styled from "styled-components"
 
@@ -7,7 +7,7 @@ import { theme } from "../../utils/theme"
 
 const Wraper = styled.div`
   width: 100%;
-  background-color: ${theme.colors.lightGray};  
+  background-color: ${theme.colors.lightGray};
   span {
     color: #999999;
     display: block;
@@ -16,7 +16,6 @@ const Wraper = styled.div`
     text-transform: uppercase;
   }
   @media only screen and (max-width: 600px) {
-    
     span {
       font-size: 12px !important;
     }
@@ -30,7 +29,7 @@ const Wraper = styled.div`
     .offset-1 {
       margin-left: 0 !important;
     }
-    
+
     .col-md-10 {
       padding-right: 16px;
       padding-left: 16px;
@@ -114,7 +113,7 @@ const Wraper = styled.div`
 const Container = styled.div`
   max-width: 1240px !important;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
-  env(safe-area-inset-bottom) env(safe-area-inset-left);
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   @media only screen and (max-width: 600px) {
     margin-bottom: 16px;
     padding-right: 16px !important;
@@ -134,7 +133,6 @@ const Container = styled.div`
   @media only screen and (min-width: 1200px) {
     margin-bottom: 57px;
   }
-
 `
 const Row = styled.div``
 const Col = styled.div``
@@ -196,9 +194,7 @@ const SpanText = styled.span`
 `
 export default function BannerStyleguide() {
   return (
-    <Wraper
-      className="contrainer-fluid"
-    >
+    <Wraper className="contrainer-fluid">
       <Container className="container">
         <Row className="row">
           <Col className="col-md">
@@ -217,11 +213,11 @@ export default function BannerStyleguide() {
               lineh="56"
               lett="-1"
             >
-                Style Guide
+              Style Guide
             </P>
           </Col>
         </Row>
       </Container>
     </Wraper>
-  );
+  )
 }
