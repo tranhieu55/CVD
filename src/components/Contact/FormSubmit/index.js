@@ -82,7 +82,6 @@ export default function FormSumit ({input}) {
         height: 64px ;
         margin-bottom: 24px;
         width: 100%;
-        box-sizing: border-box;
         border-radius: 3px;
         border: 2px solid #cccccc;
         padding: 0px ;
@@ -90,6 +89,8 @@ export default function FormSumit ({input}) {
         box-shadow: none;
         position: relative;
         -webkit-tap-highlight-color: transparent;
+        box-sizing: content-box;
+        animation-name: mui-auto-fill-cancel;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -105,7 +106,7 @@ export default function FormSumit ({input}) {
             margin-bottom: 16px;
         }
         :hover{
-            border: 1px solid #222222 ;
+            border: 2px solid #222222 ;
         }
         :focus{
             outline: none;
@@ -131,7 +132,8 @@ export default function FormSumit ({input}) {
         border-radius: 5px;
         box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
         margin-bottom: 24px;
-        box-sizing: border-box;
+        box-sizing: inherit;
+        animation-name: mui-auto-fill-cancel;
         border-radius: 3px;
         border: 2px solid #cccccc;
         padding-top: 24px;
@@ -151,7 +153,7 @@ export default function FormSumit ({input}) {
             border-top: 0px;
         }
         :hover{
-            border: 1px solid #222222 ;
+            border: 2px solid #222222 ;
         }
         :focus{
             outline: none;
