@@ -144,7 +144,7 @@ const Input = styled.input`
     :focus~label{
         color: #B6B6B6;
         font-family: Calibre Semibold;
-        font-size: 14px;
+        font-size: 12px;
         letter-spacing: 0;
         line-height: 24px;
         position: absolute;
@@ -152,6 +152,7 @@ const Input = styled.input`
         top: 0;
         left: 0;
         background: #ffffff;
+        height: 12px;
     }
     :hover{
         border: px solid #B6B6B6 ;
@@ -214,7 +215,7 @@ const Textarea = styled.textarea`
         width: 184px;
         color: #B6B6B6;
         font-family: Calibre Semibold;
-        font-size: 14px;
+        font-size: 12px;
         letter-spacing: 0;
         line-height: 24px;
         position: absolute;

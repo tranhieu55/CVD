@@ -110,7 +110,7 @@ export default function FormSumit({ input }) {
             width: 184px;
             color: #B6B6B6;
             font-family: Calibre Semibold;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
@@ -157,7 +157,7 @@ export default function FormSumit({ input }) {
             width: 184px;
             color: #B6B6B6;
             font-family: Calibre Semibold;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
