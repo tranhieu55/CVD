@@ -315,11 +315,17 @@ const WrapperHeader = styled.div`
       }
     }
   }
-  /* .active {
-      background-color:#FECF09;
-  } */
   .icon-mobile-right {
     display: none;
+  }
+  .mask ::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    height: 299px;
+    width: 470px;
+    left: 0;
+    opacity: 30%;
   }
   @media (max-width: 600px) {
     position: absolute;
@@ -364,7 +370,7 @@ const WrapperHeader = styled.div`
     }
     .navbar-collapse {
       div {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
       }
     }
     .menu-nav {
@@ -424,6 +430,7 @@ const WrapperHeader = styled.div`
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;
+        letter-spacing: 0px !important;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -463,7 +470,8 @@ const WrapperHeader = styled.div`
       margin-bottom: 10px;
       border-radius: 6px;
       img {
-        margin-right: 16px;
+        margin-right: 23px;
+        margin-top: -8px;
       }
     }
     .imagefull {
@@ -518,6 +526,8 @@ const WrapperHeader = styled.div`
       justify-content: space-between;
       align-items: center;
       margin-bottom: 45px !important;
+      margin-left: 20px;
+      margin-right: 4px;
       p {
         color: #101010;
         font-size: 32px;
@@ -525,6 +535,7 @@ const WrapperHeader = styled.div`
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;
+        letter-spacing: 0px;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -594,6 +605,7 @@ const WrapperHeader = styled.div`
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;
+        letter-spacing: 0px;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -623,6 +635,12 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
+    .icon-mobile-right {
+      display: inline-block;
+      margin-left: 5px;
+      width: 21px;
+      height: 15px;
+    }
     .button-header {
       color: white;
     }
@@ -767,84 +785,6 @@ const WrapperHeader = styled.div`
       padding-bottom: 0px;
     }
   }
-
-  /* .button-header {
-    &::before {
-      content: "";
-    }
-  }
-
-  .button-header span:nth-child(1) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, #fff, transparent);
-    animation: animate1 2s linear infinite;
-  }
-  @keyframes animate1 {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  .button-header span:nth-child(2) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, #fff, transparent);
-    animation: animate2 2s linear infinite;
-    animation-delay: 1s;
-  }
-  @keyframes animate2 {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
-  .button-header span:nth-child(3) {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to left, #fff, transparent);
-    animation: animate3 2s linear infinite;
-  }
-  @keyframes animate3 {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  .button-header span:nth-child(4) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to top, #fff, transparent);
-    animation: animate4 2s linear infinite;
-    animation-delay: 1s;
-  }
-
-  @keyframes animate4 {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  } */
   .convertColor {
     color: #101010 !important;
   }
@@ -882,8 +822,12 @@ const MenuColor = styled.div`
 const CardDescription = styled.div`
   @media (max-width: 600px) {
     .mobile {
-      margin-top: 10px;
+      margin-top: 12px;
       margin-bottom: -7px;
+      letter-spacing: -0.5px;
+    }
+    .mobile1 {
+      margin-top: 3px;
     }
   }
   @media (min-width: 600px) {
@@ -925,12 +869,20 @@ const MenuItemServices = styled.div`
     display: block;
     max-width: 100%;
     flex-wrap: wrap;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 20px;
     ul {
       padding-left: 0;
       margin-bottom: 20px;
+    }
+    .list-platforms {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+    .launches {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
     }
   }
   @media (min-width: 767.1px) and (max-width: 768.5px) {
@@ -1008,6 +960,7 @@ const MenuItemServices = styled.div`
     }
     .list-platforms_Card {
       height: 88px;
+      width: 390px;
       padding: 24px;
       border-radius: 10px;
       margin-bottom: 16px;
@@ -1469,7 +1422,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                         </P>
                         <DivIMG
                           as={Link}
-                          className="imagefull"
+                          className="imagefull mask"
                           to={
                             "projects/" +
                             `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
