@@ -201,7 +201,7 @@ const Textarea = styled.textarea`
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
     margin-bottom: 24px;
     box-sizing: border-box;
-    border: 2px solid #222222;
+    border: 2px solid #cccccc;
     border-radius: 3px;
     padding-top: 24px;
     padding-left: 24px;
@@ -232,10 +232,6 @@ const Textarea = styled.textarea`
     }
     @media(max-width: 600px){
         border: 1px solid #6E6E6E;
-        :hover{
-            border: 2px solid #B6B6B6 ;
-            position: relative;
-        }
         :focus{
             outline: none;
             border: 2px solid #B6B6B6 ;
