@@ -33,7 +33,7 @@ const WrapperHeader = styled.div`
     -webkit-text-decoration: none;
     text-decoration: none;
     height: 16px;
-    font-size: 18px;
+    font-size: 16px;
     -webkit-letter-spacing: 0;
     -moz-letter-spacing: 0;
     -ms-letter-spacing: 0;
@@ -229,7 +229,7 @@ const WrapperHeader = styled.div`
   .edit-img {
     width: 18px;
     height: 18px;
-    margin-right: 5px;
+    margin-right: 8px;
   }
   .menu-mobile-iconBack {
     display: none;
@@ -317,15 +317,6 @@ const WrapperHeader = styled.div`
   }
   .icon-mobile-right {
     display: none;
-  }
-  .mask ::before {
-    position: absolute;
-    content: "";
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    height: 299px;
-    width: 100%;
-    left: 0;
-    opacity: 30%;
   }
   @media (max-width: 600px) {
     position: absolute;
@@ -635,6 +626,15 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
+    .mask ::before {
+      position: absolute;
+      content: "";
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+      height: 100%;
+      width: 100%;
+      left: 0;
+      opacity: 30%;
+    }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -737,6 +737,15 @@ const WrapperHeader = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
+    .mask ::before {
+      position: absolute;
+      content: "";
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+      height: 299px;
+      width: 100%;
+      left: 0;
+      opacity: 30%;
+    }
     .wraper-header {
       width: 100vw;
     }
@@ -994,7 +1003,7 @@ const GetInTouch = styled.h2`
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 22px;
+  line-height: 25px;
   text-align: center;
   white-space: nowrap;
   margin-bottom: 0px;
@@ -1492,7 +1501,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                     w="100"
                     bgColor={item.primary.background_color_button}
                     textColor={checkColorTextButton(index)}
-                    pd1="12"
+                    pd1="9"
                     pd2="19.5"
                     lineh="22"
                   >
