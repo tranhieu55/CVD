@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Form } from "react-bootstrap";
 import ButtonCustom from "../../ButtonCustom/index";
@@ -78,6 +78,20 @@ export default function FormSumit ({input}) {
             padding: 48px 48px;
         }
     `
+    const Labels = styled.label`
+        width: 184px;
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
+        position : absolute;
+        transform: translate(24px, 24px) scale(1);
+        top: 0;
+        left: 0;
+    `
     const Input = styled.input`
         height: 64px ;
         margin-bottom: 24px;
@@ -87,23 +101,23 @@ export default function FormSumit ({input}) {
         padding: 0px ;
         text-indent: 24px;
         box-shadow: none;
-        position: relative;
         -webkit-tap-highlight-color: transparent;
         box-sizing: content-box;
         animation-name: mui-auto-fill-cancel;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        &::placeholder {
-            height: 24px;
+        :focus~label{
             width: 184px;
             color: #B6B6B6;
-            font-family: Calibre Regular;
-            font-size: 20px;
+            font-family: Calibre Semibold;
+            font-size: 14px;
             letter-spacing: 0;
             line-height: 24px;
-            box-shadow: none;
-            border-top: 0px;
+            position: absolute;
+            transform: translate(24px, 6px) scale(1);
+            top: 0;
+            left: 0;
         }
         @media(max-width: 600px){
             margin-bottom: 16px;
@@ -113,21 +127,14 @@ export default function FormSumit ({input}) {
         }
         :focus{
             outline: none;
-            &::placeholder {
-                height: 24px;
-                width: 184px;
-                color: #B6B6B6;
-                font-family: Calibre Regular;
-                font-size: 14px;
-                letter-spacing: 0;
-                line-height: 24px;
-                position: absolute;
-                top: 2px;
-                box-shadow: none;
-                border-top: 0px;
-            }
+            border: 2px solid #222222 ;
         }
        
+    `
+    const Inputs = styled.div`
+        position: relative;
+        width: 100%;
+        
     `
     const Textarea = styled.textarea`
         width: 101%;
@@ -147,35 +154,17 @@ export default function FormSumit ({input}) {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        &::placeholder {
-            height: 24px;
+        :focus~label{
             width: 184px;
             color: #B6B6B6;
-            font-family: Calibre Regular;
-            font-size: 20px;
+            font-family: Calibre Semibold;
+            font-size: 14px;
             letter-spacing: 0;
             line-height: 24px;
-            box-shadow: none;
-            border-top: 0px;
-        }
-        :hover{
-            border: 2px solid #222222 ;
-        }
-        :focus{
-            outline: none;
-            &::placeholder {
-                height: 24px;
-                width: 184px;
-                color: #B6B6B6;
-                font-family: Calibre Regular;
-                font-size: 14px;
-                letter-spacing: 0;
-                line-height: 24px;
-                position: absolute;
-                top: 2px;
-                box-shadow: none;
-                border-top: 0px;
-            }
+            position: absolute;
+            transform: translate(24px, 6px) scale(1);
+            top: 0;
+            left: 0;
         }
         @media(max-width: 768px){
             margin-bottom: 10px;
@@ -200,15 +189,34 @@ export default function FormSumit ({input}) {
             width: 100%;
         }
     `
+    const [isOpen, setIsOpen] = useState(null); 
+    function setLabels (index){
+        if(isOpen === index) {
+            setIsOpen(null)
+          } else {
+            setIsOpen(index);
+            
+          }
+    }
     return(
         <FormSumits>
             <Forms>
                 {data.fields.map((item, index) => {
                      if(item.type === 'text') {
-                        return <Input size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                        return <Inputs>
+                            <Input size="lg" type="text"/>
+                            <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                {item.placeholder.map(item => item.text)}
+                            </Labels>
+                        </Inputs>
                     }
                     if(item.type === 'textarea') {
-                        return <Textarea size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                        return <Inputs>
+                        <Textarea size="lg" type="text"/>
+                        <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                            {item.placeholder.map(item => item.text)}
+                        </Labels>
+                    </Inputs>
                     }
                     return null;
                 })}
