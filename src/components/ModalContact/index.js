@@ -119,7 +119,7 @@ const Input = styled.input`
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
     margin-bottom: 24px;
     box-sizing: border-box;
-    border: 1px solid #CCCCCC;
+    border: 2px solid #CCCCCC;
     border-radius: 3px;
     background-color: #FFFFFF;
     padding-left: 24px;
@@ -134,9 +134,10 @@ const Input = styled.input`
         line-height: 24px;
     }
     :hover{
-        border: 2px solid #222222 ;
+        border: 1px solid #222222 ;
     }
     :focus{
+        outline: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -154,9 +155,10 @@ const Input = styled.input`
     }
     @media(max-width: 600px){
         :hover{
-            border: 2px solid #222222 ;
+            border: 1px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
@@ -183,7 +185,7 @@ const Textarea = styled.textarea`
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
     margin-bottom: 24px;
     box-sizing: border-box;
-    border: 1px solid #CCCCCC;
+    border: 2px solid #CCCCCC;
     border-radius: 3px;
     background-color: #FFFFFF;
     padding-top: 24px;
@@ -199,10 +201,11 @@ const Textarea = styled.textarea`
         line-height: 24px;
     }
     :hover{
-        border: 2px solid #222222 ;
+        border: 1px solid #222222 ;
         
     }
     :focus{
+        outline: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -220,9 +223,10 @@ const Textarea = styled.textarea`
     }
     @media(max-width: 600px){
         :hover{
-            border: 2px solid #222222 ;
+            border: 1px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
