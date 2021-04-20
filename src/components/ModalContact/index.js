@@ -124,6 +124,7 @@ const Input = styled.input`
     background-color: #FFFFFF;
     padding-left: 24px;
     box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
     &::placeholder {
         height: 24px;
         width: 184px;
@@ -189,6 +190,7 @@ const Textarea = styled.textarea`
     padding-top: 24px;
     padding-left: 24px;
     box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
     &::placeholder {
         height: 24px;
         width: 184px;

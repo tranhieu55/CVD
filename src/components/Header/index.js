@@ -17,8 +17,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const WrapperHeader = styled.div`
-    position: absolute;
-    top: 0px;
   * {
     box-sizing: border-box;
   }
@@ -479,6 +477,10 @@ const WrapperHeader = styled.div`
         margin-bottom: 9px;
       }
     }
+  }
+  @media(max-width: 600px){
+    position: absolute;
+    top: 0px;
   }
   @media (max-width: 991px) and (max-height: 450px) {
     .icon-mobile-right {
