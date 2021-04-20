@@ -323,7 +323,7 @@ const WrapperHeader = styled.div`
     content: "";
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
     height: 299px;
-    width: 470px;
+    width: 100%;
     left: 0;
     opacity: 30%;
   }
