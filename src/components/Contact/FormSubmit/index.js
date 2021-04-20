@@ -83,10 +83,11 @@ export default function FormSumit ({input}) {
         margin-bottom: 24px;
         width: 100%;
         box-sizing: border-box;
-        border: 2px solid #CCCCCC;
         border-radius: 3px;
         background-color: #FFFFFF;
-        padding-left: 24px;
+        border: 2px double #cccccc;
+        padding: 0px ;
+        text-indent: 24px;
         box-shadow: none;
         position: relative;
         &::placeholder {
@@ -132,9 +133,9 @@ export default function FormSumit ({input}) {
         box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
         margin-bottom: 24px;
         box-sizing: border-box;
-        border: 2px solid #CCCCCC;
         border-radius: 3px;
         background-color: #FFFFFF;
+        border: 2px double #cccccc;
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
