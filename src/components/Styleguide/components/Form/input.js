@@ -19,9 +19,7 @@ margin-right: 72px;
 .edit-cl{
   border-color: rgb(0 0 0);
 }
-.MuiOutlinedInput-notchedOutline {
-  border-color: #6E6E6E!important;
-}
+
 .MuiFormLabel-root.Mui-focused {
   color: #6E6E6E!important;
   font-size:14px !important;

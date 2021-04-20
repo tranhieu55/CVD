@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 
 
 const Modals = ({showModal, setShowModal}) => {
@@ -11,7 +12,7 @@ const Modals = ({showModal, setShowModal}) => {
                 edges {
                 node {
                     body {
-                    ... on PRISMIC_Contact_pageBodyForm_submit {
+                    ... on PRISMIC_Contact_pageBodyForm_submit {    
                         type
                         label
                         fields {
@@ -43,10 +44,23 @@ const Modals = ({showModal, setShowModal}) => {
                     <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
                     {Titles[0].fields.map((item, index) => {
                         if(item.type === 'text') {
-                            return <Input size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                            return <Input>
+                            <TextField id="outlined-basic"
+                            
+                             size="small" 
+                             variant="outlined" 
+                             label={item.placeholder.map(item => item.text)}
+                            />
+                         </Input>
                         }
                         if(item.type === 'textarea') {
-                            return <Textarea size="lg" type="text" placeholder={item.placeholder.map(item => item.text)} ht={index}/>
+                            return <Input>
+                            <TextField id="outlined-basic"
+                             size="small" 
+                             variant="outlined"
+                             label={item.placeholder.map(item => item.text)}
+                            />
+                         </Input>
                         }
                         return null;
                     })}
@@ -111,7 +125,7 @@ const ButtonClose = styled.span`
     }
 `
 
-const Input = styled.input`
+const Input = styled.div`
     width: 100%;
     height: 64px;
     border-radius: 5px;
@@ -150,7 +164,7 @@ const Input = styled.input`
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
-            top: 2px;
+            top: 5px;
             box-shadow: none;
             border-top: 0px;
         }
@@ -161,21 +175,23 @@ const Input = styled.input`
     @media(max-width: 600px){
         :hover{
             border: 1px solid #222222 ;
+            position: relative;
         }
         :focus{
             outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
-                color: #B6B6B6;
+                color: #6E6E6E;
                 font-family: Calibre Regular;
-                font-size: 12px;
+                font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
                 position: absolute;
-                top: -2px;
+                top: -12px;
                 box-shadow: none;
                 border-top: 0px;
+                background-color: #ffffff;
             }
         }
     }
@@ -194,7 +210,6 @@ const Textarea = styled.textarea`
     box-sizing: border-box;
     border: 2px solid #CCCCCC;
     border-radius: 3px;
-    background-color: #FFFFFF;
     padding-top: 24px;
     padding-left: 24px;
     box-shadow: none;
@@ -212,7 +227,6 @@ const Textarea = styled.textarea`
     }
     :hover{
         border: 1px solid #222222 ;
-        
     }
     :focus{
         outline: none;
@@ -236,21 +250,23 @@ const Textarea = styled.textarea`
     @media(max-width: 600px){
         :hover{
             border: 1px solid #222222 ;
+            position: relative;
         }
         :focus{
             outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
-                color: #B6B6B6;
+                color: #6E6E6E;
                 font-family: Calibre Regular;
-                font-size: 12px;
+                font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
                 position: absolute;
-                top: -2px;
+                top: -12px;
                 box-shadow: none;
                 border-top: 0px;
+                background-color: #ffffff;
             }
         }
     }
