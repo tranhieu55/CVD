@@ -132,6 +132,8 @@ const Input = styled.input`
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
     }
     :hover{
         border: 1px solid #222222 ;
@@ -148,6 +150,8 @@ const Input = styled.input`
             line-height: 24px;
             position: absolute;
             top: 2px;
+            box-shadow: none;
+            border-top: 0px;
         }
     }
     @media(max-width: 320px){
@@ -169,6 +173,8 @@ const Input = styled.input`
                 line-height: 24px;
                 position: absolute;
                 top: -2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
     }
@@ -199,6 +205,8 @@ const Textarea = styled.textarea`
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
     }
     :hover{
         border: 1px solid #222222 ;
@@ -216,6 +224,8 @@ const Textarea = styled.textarea`
             line-height: 24px;
             position: absolute;
             top: 2px;
+            box-shadow: none;
+            border-top: 0px;
         }
     }
     @media(max-width: 320px){
@@ -237,6 +247,8 @@ const Textarea = styled.textarea`
                 line-height: 24px;
                 position: absolute;
                 top: -2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
     }

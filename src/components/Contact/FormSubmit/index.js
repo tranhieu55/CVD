@@ -96,6 +96,8 @@ export default function FormSumit ({input}) {
             font-size: 20px;
             letter-spacing: 0;
             line-height: 24px;
+            box-shadow: none;
+            border-top: 0px;
         }
         @media(max-width: 600px){
             margin-bottom: 16px;
@@ -115,7 +117,8 @@ export default function FormSumit ({input}) {
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
-
+                box-shadow: none;
+                border-top: 0px;
             }
         }
        
@@ -142,6 +145,8 @@ export default function FormSumit ({input}) {
             font-size: 20px;
             letter-spacing: 0;
             line-height: 24px;
+            box-shadow: none;
+            border-top: 0px;
         }
         :hover{
             border: 1px solid #222222 ;
@@ -158,6 +163,8 @@ export default function FormSumit ({input}) {
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
         @media(max-width: 768px){
