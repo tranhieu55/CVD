@@ -220,18 +220,18 @@ const SliceZone = props => {
               <ColumSilder key={index} input={s} />
             </>
           )
-        // case "directions":
-        //   return (
-        //     <>
-        //       <Derection key={index} input={s} />
-        //     </>
-        //   )
-        // case "form_submit":
-        //   return (
-        //     <>
-        //       <FormSumits key={index} input={s} />
-        //     </>
-        //   )
+        case "directions":
+          return (
+            <>
+              <Derection key={index} input={s} />
+            </>
+          )
+        case "form_submit":
+          return (
+            <>
+              <FormSumits key={index} input={s} />
+            </>
+          )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo

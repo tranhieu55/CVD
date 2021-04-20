@@ -3,73 +3,75 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Modals = ({ showModal, setShowModal }) => {
-  const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     query ModalQuery {
-      prismic {
-        allContact_pages {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_Contact_pageBodyForm_submit {
-                  type
-                  label
-                  fields {
-                    placeholder
-                    requied
-                    type
-                  }
-                  primary {
-                    title_contact_form
-                  }
+        prismic {
+            allContact_pages {
+                edges {
+                    node {
+                        body {
+                            ... on PRISMIC_Contact_pageBodyForm_submit {
+                                type
+                                label
+                                fields {
+                                    placeholder
+                                    requied
+                                    type
+                                }
+                                primary {
+                                    title_contact_form
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
+    }
     `)
     const Titles = data.prismic.allContact_pages.edges[0].node.body.filter(item => item.type === 'form_submit');
-    const [isOpen, setIsOpen] = useState(null); 
-    function setLabels (index){
-        if(isOpen === index) {
+    const [isOpen, setIsOpen] = useState(null);
+    function setLabels(index) {
+        if (isOpen === index) {
             setIsOpen(null)
-          } else {
+        } else {
             setIsOpen(index);
-            
-          }
+
+        }
     }
     return (
         <>
-            {showModal ? 
+            {showModal ?
                 <Container>
-                <Modal showModal={showModal}
-                >
-                <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
-                <Content>
-                    <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
-                    {Titles[0].fields.map((item, index) => {
-                        if(item.type === 'text') {
-                            return <Inputs>
-                                <Input size="lg" type="text"/>
-                                <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
-                                    {item.placeholder.map(item => item.text)}
-                                </Labels>
-                            </Inputs>
-                        }
-                        if(item.type === 'textarea') {
-                            return <Inputs>
-                            <Textarea size="lg" type="text"/>
-                            <Labels className= {`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
-                                {item.placeholder.map(item => item.text)}
-                            </Labels>
-                        </Inputs>
-                        }
-                        return null;
-                    })}
-                    <Submit>Submit</Submit>
-                </Content>
-                </Modal>
+                    <Modal showModal={showModal}
+                    >
+                        <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
+                        <Content>
+                            <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
+                            {Titles[0].fields.map((item, index) => {
+                                if (item.type === 'text') {
+                                    return <Inputs>
+                                        <Input size="lg" type="text" />
+                                        <Labels className={`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                            {item.placeholder.map(item => item.text)}
+                                        </Labels>
+                                    </Inputs>
+                                }
+                                if (item.type === 'textarea') {
+                                    return <Inputs>
+                                        <Textarea size="lg" type="text" />
+                                        <Labels className={`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                            {item.placeholder.map(item => item.text)}
+                                        </Labels>
+                                    </Inputs>
+                                }
+                                return null;
+                            })}
+                            <Submit>Submit</Submit>
+                        </Content>
+                    </Modal>
                 </Container>
-            :null }
+                : null}
         </>
     );
 }
@@ -309,7 +311,7 @@ const Labels = styled.label`
             transform: translate(24px, 12px) scale(1);
         }
     `
-    const Inputs = styled.div`
+const Inputs = styled.div`
         position: relative;
         width: 100%;
         
