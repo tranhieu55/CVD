@@ -43,7 +43,6 @@ const FooterStyle = styled.div`
     a {
       font-weight: 500;
       color: white;
-      opacity: 0.7;
       &:hover {
         text-decoration: none;
       }
@@ -92,7 +91,7 @@ const FooterStyle = styled.div`
       margin: 0;
     }
     .style-icon {
-      padding-top: 28px !important;
+      padding-top: 20px !important;
     }
     .w-141 {
       width: 600px;
@@ -253,7 +252,6 @@ export const Icon = styled.div`
   }
   @media only screen and (max-width: 600px) {
     text-align: left;
-    margin-bottom: 10px;
   }
 `
 const Boxicon = styled.div`
@@ -270,9 +268,12 @@ const Boxicon = styled.div`
     }
     .order-1 {
       order: 2;
+      height: 24px;
     }
     .order-2 {
       order: 1;
+      height: 24px;
+      margin-bottom: 22px;
     }
     flex-direction: column;
   }
