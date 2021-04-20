@@ -117,14 +117,23 @@ export default function FormSumit ({input}) {
                 height: 24px;
                 width: 184px;
                 color: #B6B6B6;
-                font-family: Calibre Regular;
+                font-family: Calibre Semibold;
                 font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
-                box-shadow: none;
-                border-top: 0px;
+            }
+            &::-webkit-input-placeholder{
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Semibold;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: 2px;
             }
         }
        
@@ -167,14 +176,23 @@ export default function FormSumit ({input}) {
                 height: 24px;
                 width: 184px;
                 color: #B6B6B6;
-                font-family: Calibre Regular;
+                font-family: Calibre Semibold;
                 font-size: 14px;
                 letter-spacing: 0;
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
-                box-shadow: none;
-                border-top: 0px;
+            }
+            &::-webkit-input-placeholder{
+                height: 24px;
+                width: 184px;
+                color: #B6B6B6;
+                font-family: Calibre Semibold;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 24px;
+                position: absolute;
+                top: 2px;
             }
         }
         @media(max-width: 768px){
