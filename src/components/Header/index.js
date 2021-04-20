@@ -480,6 +480,10 @@ const WrapperHeader = styled.div`
       }
     }
   }
+  @media(max-width: 600px){
+    position: absolute;
+    top: 0px;
+  }
   @media (max-width: 991px) and (max-height: 450px) {
     .icon-mobile-right {
       display: inline-block;

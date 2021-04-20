@@ -79,15 +79,18 @@ export default function FormSumit ({input}) {
         }
     `
     const Input = styled.input`
-        height: 64px };
+        height: 64px ;
         margin-bottom: 24px;
         width: 100%;
-        box-sizing: border-box;
-        border: 2px solid #CCCCCC;
         border-radius: 3px;
-        background-color: #FFFFFF;
-        padding-left: 24px;
+        border: 2px solid #cccccc;
+        padding: 0px ;
+        text-indent: 24px;
         box-shadow: none;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: content-box;
+        animation-name: mui-auto-fill-cancel;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -96,6 +99,8 @@ export default function FormSumit ({input}) {
             font-size: 20px;
             letter-spacing: 0;
             line-height: 24px;
+            box-shadow: none;
+            border-top: 0px;
         }
         @media(max-width: 600px){
             margin-bottom: 16px;
@@ -104,6 +109,7 @@ export default function FormSumit ({input}) {
             border: 2px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
@@ -114,25 +120,27 @@ export default function FormSumit ({input}) {
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
-
+                box-shadow: none;
+                border-top: 0px;
             }
         }
        
     `
     const Textarea = styled.textarea`
-        width: 100%;
+        width: 101%;
         height: 178px;
         border-radius: 5px;
-        background-color: #FFFFFF;
         box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
         margin-bottom: 24px;
-        box-sizing: border-box;
-        border: 2px solid #CCCCCC;
+        box-sizing: inherit;
+        animation-name: mui-auto-fill-cancel;
         border-radius: 3px;
-        background-color: #FFFFFF;
+        border: 2px solid #cccccc;
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -141,11 +149,14 @@ export default function FormSumit ({input}) {
             font-size: 20px;
             letter-spacing: 0;
             line-height: 24px;
+            box-shadow: none;
+            border-top: 0px;
         }
         :hover{
             border: 2px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
@@ -156,6 +167,8 @@ export default function FormSumit ({input}) {
                 line-height: 24px;
                 position: absolute;
                 top: 2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
         @media(max-width: 768px){

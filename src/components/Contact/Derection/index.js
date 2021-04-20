@@ -7,7 +7,6 @@ export default function Derection ({input}) {
     overflow:hidden;
     `
     const Derections = styled.div`
-        height: 916px;
         width: 556px;
         margin: 66px 0px 72px 180px;
         @media(max-width: 600px){

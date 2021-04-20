@@ -124,6 +124,7 @@ const Input = styled.input`
     background-color: #FFFFFF;
     padding-left: 24px;
     box-shadow: none;
+    position: relative;
     &::placeholder {
         height: 24px;
         width: 184px;
@@ -132,11 +133,14 @@ const Input = styled.input`
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
     }
     :hover{
-        border: 2px solid #222222 ;
+        border: 1px solid #222222 ;
     }
     :focus{
+        outline: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -147,6 +151,8 @@ const Input = styled.input`
             line-height: 24px;
             position: absolute;
             top: 2px;
+            box-shadow: none;
+            border-top: 0px;
         }
     }
     @media(max-width: 320px){
@@ -154,9 +160,10 @@ const Input = styled.input`
     }
     @media(max-width: 600px){
         :hover{
-            border: 2px solid #222222 ;
+            border: 1px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
@@ -167,6 +174,8 @@ const Input = styled.input`
                 line-height: 24px;
                 position: absolute;
                 top: -2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
     }
@@ -189,6 +198,7 @@ const Textarea = styled.textarea`
     padding-top: 24px;
     padding-left: 24px;
     box-shadow: none;
+    position: relative;
     &::placeholder {
         height: 24px;
         width: 184px;
@@ -197,12 +207,15 @@ const Textarea = styled.textarea`
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
     }
     :hover{
-        border: 2px solid #222222 ;
+        border: 1px solid #222222 ;
         
     }
     :focus{
+        outline: none;
         &::placeholder {
             height: 24px;
             width: 184px;
@@ -213,6 +226,8 @@ const Textarea = styled.textarea`
             line-height: 24px;
             position: absolute;
             top: 2px;
+            box-shadow: none;
+            border-top: 0px;
         }
     }
     @media(max-width: 320px){
@@ -220,9 +235,10 @@ const Textarea = styled.textarea`
     }
     @media(max-width: 600px){
         :hover{
-            border: 2px solid #222222 ;
+            border: 1px solid #222222 ;
         }
         :focus{
+            outline: none;
             &::placeholder {
                 height: 24px;
                 width: 184px;
@@ -233,6 +249,8 @@ const Textarea = styled.textarea`
                 line-height: 24px;
                 position: absolute;
                 top: -2px;
+                box-shadow: none;
+                border-top: 0px;
             }
         }
     }
