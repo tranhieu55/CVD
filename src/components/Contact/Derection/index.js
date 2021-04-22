@@ -33,26 +33,32 @@ export default function Derection ({input}) {
             margin: 66px 0px 72px 50px;
             width: 396px;
         }
-        @media(min-width: 1444px){
+        @media(min-width: 1200px){
+            margin: 66px 0px 72px 180px;
+            width: 456px;
+        }
+        @media(min-width: 1440px){
             margin: 66px 0px 72px 180px;
             width: 556px;
         }
     `
     const Title = styled.h1`
-        height: 76px;
-        width: 100%;
-        color: #101010;
-        font-family: Calibre Semibold;
-        font-size: 48px;
-        font-weight: 600;
-        letter-spacing: 0;
-        line-height: 52px;
-        border-bottom: 1px solid #E4E4E4;
-        margin-bottom: 32px;
         @media(max-width: 600px){
             height: 52px;
             font-size: 32px;
             margin-bottom: 24px;
+        }
+        @media(min-width: 600px){
+            height: 76px;
+            width: 100%;
+            color: #101010;
+            font-family: Calibre Semibold;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 52px;
+            border-bottom: 1px solid #E4E4E4;
+            margin-bottom: 32px;
         }
     `
     const Contentleft = styled.div`
