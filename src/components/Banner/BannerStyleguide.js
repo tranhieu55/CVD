@@ -206,7 +206,7 @@ export default function BannerStyleguide() {
           <Col className="col-md-10 offset-1">
             <P
               coLor="#101010"
-              fontFamily="Calibre Semibold"
+              fontFamily="Calibre Bold"
               mt="24"
               fontSise="64"
               pdb="72"
