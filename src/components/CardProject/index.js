@@ -39,6 +39,7 @@ const DivIMG = styled.div`
   transition: all 200ms ease-in;
   position: relative;
   display: inline-block;
+  width: 100%;
   :after {
     position: absolute;
     bottom: 0;
@@ -82,22 +83,22 @@ const TitleImageBlog = styled.div`
     bottom: 21px;
   }
 
-  /* @media only screen and (min-width: 600px) {
-    bottom: 20px;
+   @media only screen and (min-width: 600px) {
+    bottom: 40px;
     left: 60px;
   }
   @media only screen and (min-width: 768px) {
-    bottom: 10px;
+    bottom: 40px;
     left: 40px;
   }
   @media only screen and (min-width: 992px) {
     bottom: 50px;
-    left: 80px;
+    left: 40px;
   }
   @media only screen and (min-width: 1200px) {
     bottom: 3rem;
     left: 40px;
-  } */
+  } 
 `
 const Span = styled.span`
   color: #fecf09;
@@ -107,8 +108,7 @@ const Span = styled.span`
   display: block;
   padding: 0;
   margin: 0;
-  margin-bottom: 4px;
-
+  margin-bottom: 8px;
   @media only screen and (max-width: 600px) {
     font-size: 14px;
     line-height: 6px;
@@ -118,8 +118,12 @@ const H3 = styled.h3`
   color: #ffffff;
   font-size: 48px;
   font-family: "Calibre Bold";
+  font-weight: bold;
+  height: 32px;
   margin: 0;
   padding: 0;
+  line-height: 32px;
+  margin-top: 10px; 
 
   @media only screen and (max-width: 600px) {
     font-size: 24px;
