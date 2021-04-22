@@ -8,6 +8,7 @@ import logoIconClosBlack from "../../images/cancelBack.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
 import logoIconBack from "../../images/long-arrow-left@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
+import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
 import { Form, Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -259,7 +260,10 @@ const WrapperHeader = styled.div`
     z-index: 1000;
     width: 400px;
     max-width: 100%;
-    background-color: #191f3f !important;
+    background-image: url(${({ backgroundMobile }) => backgroundMobile});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1226,6 +1230,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   }
   return (
     <WrapperHeader
+      backgroundMobile={backgroundMobile}
       location={location}
       scroll={scroll}
       show={show}
