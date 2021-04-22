@@ -18,15 +18,19 @@ function OurWorkProjects(props) {
   const [showList , setShowList] = useState(listSelected) ;
   console.log("list-listProjects : ", listProjects)
 
-  const test = listSelected === "all"
+  const test = listSelected.includes("all")
     ? listProjects
-    : listProjects.filter(x => listSelected.toUpperCase().includes(x.project_item.name_category_of_project.toUpperCase()) || x.project_item.name_category_of_project.toUpperCase().includes(listSelected.toUpperCase()));
+    : listProjects.filter(x => {
+      return listSelected.includes(
+      x.project_item?.relationship_to_project_category._meta.uid
+      )
+      })
     console.log("list-selected : ", test)
       
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {test.map((project, index) => (
+        {test.slice(0,4).map((project, index) => (
           <CardProject key={index} input={project} />
         ))}
       </Rows>
@@ -37,7 +41,7 @@ function OurWorkProjects(props) {
 export default OurWorkProjects
 
 const ListBlogStyle = styled.div`
-  margin-top: 10px;
+  margin-top: 2px;
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
@@ -59,6 +63,10 @@ const ListBlogStyle = styled.div`
   }
   @media (max-width: 600px) {
     margin-top: 16px;
+  }
+  .row{
+    margin-right: -16px;
+    margin-left: -16px;
   }
 `
 const Rows = styled.div``
