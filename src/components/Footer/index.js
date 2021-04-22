@@ -43,6 +43,7 @@ const FooterStyle = styled.div`
     a {
       font-weight: 500;
       color: white;
+      font-family: "Calibre Medium";
       &:hover {
         text-decoration: none;
       }
