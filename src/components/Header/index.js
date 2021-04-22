@@ -1098,9 +1098,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
 
   // dữ liệu button header(button GET in touch)
   const isShow =
-    dataMenuHeader.edges[0].node.body[1].primary.display_desktop_or_mobile
+    dataMenuHeader.edges[0].node.body[1].primary?.display_desktop_or_mobile
   const dataButton =
-    dataMenuHeader.edges[0].node.body[1].primary.text_button[0].text
+    dataMenuHeader.edges[0].node.body[1]?.primary?.text_button[0].text
   // dữ liệu button header(button phone)
   const isShowButtonPhone =
     dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
@@ -1186,6 +1186,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/styleguide" ||
       location === "/projects" ||
       location === "/what-we-do" ||
+      location === "/partners" ||
       show > 0 ||
       !!isDisPlayModalService
     ) {
@@ -1200,7 +1201,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
-      location === "/what-we-do"
+      location === "/what-we-do" ||
+      location === "/partners"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1217,7 +1219,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
-      location === "/what-we-do"
+      location === "/what-we-do" ||
+      location === "/partners"
     ) {
       if (show !== 0) {
         return "menu-nav-white"
@@ -1252,7 +1255,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/projects" ||
-                  location === "/what-we-do"
+                  location === "/what-we-do" ||
+                  location === "/partners"
                     ? logoBlack
                     : logoLight
                 }
@@ -1281,13 +1285,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             />
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
-            {dataMenu.map((item, index) => (
+            {dataMenu?.map((item, index) => (
               <Li
                 className={`menu-list_item ${
                   location === "/" ||
                   location === "/contact" ||
                   location === "/case-study" ||
-                  location === "/proposal"
+                  location === "/proposal" ||
+                  location === "/partners"
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
@@ -1482,7 +1487,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           <Form className="my-form">
             <>
               <Icon>
-                {dataIcon.map((item, index) => (
+                {dataIcon?.map((item, index) => (
                   <a
                     targer={item?.link_to_social_network?.target}
                     href={item?.link_to_social_network?.url}

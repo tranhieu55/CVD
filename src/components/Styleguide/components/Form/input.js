@@ -11,6 +11,9 @@ const Input = styled.div`
   .MuiFormControl-root {
     width: 100%;
   }
+  .MuiInputLabel-outlined.MuiInputLabel-marginDense {
+    transform: translate(14px, 16px) scale(1);
+  }
   .MuiOutlinedInput-inputMarginDense {
     padding-top: 16.5px;
     padding-bottom: 10.5px;
