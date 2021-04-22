@@ -1,28 +1,27 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import P from "../../components/bits/Typography"
 import { Button, ModalDialog } from "react-bootstrap"
-import ButtonCustom from "../ButtonCustom";
+import ButtonCustom from "../ButtonCustom"
 import { theme } from "../../utils/theme"
-import Modal from '../ModalContact/index'
+import Modal from "../ModalContact/index"
 
-const InterestedStyle  = styled.div`
+const InterestedStyle = styled.div`
   clip-path: polygon(0px 16%, 101% 2px, 100% 100%, 0% 100%);
-  background-color: ${({dataBGR}) => dataBGR};
+  background-color: ${({ dataBGR }) => dataBGR};
   width: 100%;
   color: white;
   margin: -2px auto;
   position: relative;
-  .modals{
-  @media(min-width: 768px){
-    height: 100%;
-    width: 605px;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
-    margin: auto;
-  }
-}
+  .modals {
+    @media (min-width: 768px) {
+      height: 100%;
+      width: 605px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
+      margin: auto;
+    }
   }
   .button-header {
     .get-in-touch {
@@ -41,7 +40,7 @@ const InterestedStyle  = styled.div`
     margin-bottom: 0px;
     max-width: 500px;
     margin: auto;
-    font-family: 'Calibre Bold';
+    font-family: "Calibre Semibold";
   }
   p {
     /* font-size: 24px; */
@@ -51,26 +50,6 @@ const InterestedStyle  = styled.div`
   .box-btn {
     position: relative;
   }
-  /* .my-btn-back:hover::before {
-    transform: translate(270px);
-    opacity: 0.5;
-    overflow: hidden;
-  }
-  .my-btn::before {
-    background-color: white;
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: 0.7;
-    position: absolute;
-    top: -50px;
-    -webkit-transform: rotate(60deg);
-    transform: rotate(35deg);
-    transition: all 0.2s ease;
-    width: 50px;
-    z-index: 1;
-  } */
-
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
@@ -79,7 +58,7 @@ const InterestedStyle  = styled.div`
       max-width: 260px;
       margin: auto;
       line-height: 33px;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Semibold";
       letter-spacing: -0.5px;
     }
     p {
@@ -89,91 +68,13 @@ const InterestedStyle  = styled.div`
       line-height: 24px;
     }
   }
-  /* .button-header {
-    &::before {
-      content: "";
-    }
-  } */
-
-  /* .button-header span:nth-child(1) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, #fff, transparent);
-    animation: animate1 2s linear infinite;
-  }
-  @keyframes animate1 {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  .button-header span:nth-child(2) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, #fff, transparent);
-    animation: animate2 2s linear infinite;
-    animation-delay: 1s;
-  }
-  @keyframes animate2 {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
-  .button-header span:nth-child(3) {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to left, #fff, transparent);
-    animation: animate3 2s linear infinite;
-  }
-  @keyframes animate3 {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  .button-header span:nth-child(4) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to top, #fff, transparent);
-    animation: animate4 2s linear infinite;
-    animation-delay: 1s;
-  }
-
-  @keyframes animate4 {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  } */
-
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     h2 {
       font-size: 40px;
       max-width: 320px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Semibold";
     }
     p {
       font-size: 20px;
@@ -186,7 +87,7 @@ const InterestedStyle  = styled.div`
       font-size: 40px;
       max-width: 325px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Semibold";
     }
     p {
       margin-top: 20px;
@@ -200,7 +101,7 @@ const InterestedStyle  = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Semibold";
     }
     p {
       font-size: 24px;
@@ -213,11 +114,10 @@ const InterestedStyle  = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
-      font-family: "Calibre Bold";
+      font-family: "Calibre Semibold";
       color: #ffffff;
       font-weight: bold;
       line-height: 54px;
-      font-family: 'Calibre Bold';
       letter-spacing: -1px;
     }
     p {
@@ -227,7 +127,6 @@ const InterestedStyle  = styled.div`
       margin-bottom: 28px;
     }
   }
- 
 `
 const BoxInterested = styled.div`
   padding-top: 175px;
@@ -243,7 +142,7 @@ const BoxInterested = styled.div`
     padding-top: 187px;
     padding-bottom: 108px;
   }
-  @media (min-width: 1600px){
+  @media (min-width: 1600px) {
     padding-top: 175px;
     padding-bottom: 108px;
   }
@@ -251,45 +150,53 @@ const BoxInterested = styled.div`
 const Span = styled.span``
 const BoxBtn = styled.div``
 const H2 = styled.h2``
-export default function Interested({dataFooter}) {
-    const dataBGR = dataFooter.edges[0].node.body[0].primary.background_color_cta_block
-    const dataInterested =  dataFooter.edges[0].node.body[0].primary.subtitle[0].text
-    const dataInterestedTitle =  dataFooter.edges[0].node.body[0].primary.title[0].text
+export default function Interested({ dataFooter }) {
+  const dataBGR =
+    dataFooter.edges[0].node.body[0].primary.background_color_cta_block
+  const dataInterested =
+    dataFooter.edges[0].node.body[0].primary.subtitle[0].text
+  const dataInterestedTitle =
+    dataFooter.edges[0].node.body[0].primary.title[0].text
 
-    const [showModal , setShowModal] = useState(false);
-    const openModal = () => {
-      setShowModal(prev => !prev)
-    }
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
   return (
     <>
-    <InterestedStyle dataBGR={dataBGR}>
-      <BoxInterested>
-        <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
-          {dataInterestedTitle}
-        </H2>
-        <P lineh="30" fontFamily="Calibre Regular" mrb="30">
-          {dataInterested}
-        </P>
-        <BoxBtn>
-                <ButtonCustom
-                    variant="primary" onClick={openModal}
-                    className="my-btn-back  my-btn button-header w3-button w3-black"
-                    bgColor={theme.colors.transparent}
-                    textColor={theme.colors.white}
-                    variant="primary"
-                    fz="20"
-                    pd1="16"
-                    pd2="31.5"
-                    lineh="24"
-                    Block={true}
-                    margin="auto"
-                >
-                    <H2 className="get-in-touch">Get in touch</H2>
-                </ButtonCustom>
-            </BoxBtn>
-      </BoxInterested>
-    </InterestedStyle>
-    <Modal showModal={showModal} setShowModal={setShowModal} openModal={openModal}/>
-  </>
+      <InterestedStyle dataBGR={dataBGR}>
+        <BoxInterested>
+          <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
+            {dataInterestedTitle}
+          </H2>
+          <P lineh="30" fontFamily="Calibre Regular" mrb="30">
+            {dataInterested}
+          </P>
+          <BoxBtn>
+            <ButtonCustom
+              variant="primary"
+              onClick={openModal}
+              className="my-btn-back  my-btn button-header w3-button w3-black"
+              bgColor={theme.colors.transparent}
+              textColor={theme.colors.white}
+              variant="primary"
+              fz="20"
+              pd1="16"
+              pd2="31.5"
+              lineh="24"
+              Block={true}
+              margin="auto"
+            >
+              <H2 className="get-in-touch">Get in touch</H2>
+            </ButtonCustom>
+          </BoxBtn>
+        </BoxInterested>
+      </InterestedStyle>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        openModal={openModal}
+      />
+    </>
   )
 }
