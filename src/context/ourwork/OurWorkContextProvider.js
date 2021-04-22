@@ -10,7 +10,8 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "ADD_FILTER_ITEM":
-      console.log({ action })
+      console.log("action : ", { action })
+
       return {
         ...state,
         listSelected: action.value,
