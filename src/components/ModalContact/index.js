@@ -49,21 +49,21 @@ const Modals = ({ showModal, setShowModal }) => {
                         <Content>
                             <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
                             {Titles[0].fields.map((item, index) => {
-                                if (item.type === 'text') {
+                                if(item.type === 'text') {
                                     return <Inputs>
-                                        <Input size="lg" type="text" />
-                                        <Labels className={`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                        <Input size="lg" type="text" placeholder=" "/>
+                                        <label >
                                             {item.placeholder.map(item => item.text)}
-                                        </Labels>
+                                        </label>
                                     </Inputs>
                                 }
-                                if (item.type === 'textarea') {
+                                if(item.type === 'textarea') {
                                     return <Inputs>
-                                        <Textarea size="lg" type="text" />
-                                        <Labels className={`${isOpen === index ? "label" : ""}`} onClick={() => setLabels(index)}>
+                                    <Textarea size="lg" type="text" placeholder=" "/>
+                                    <label >
                                             {item.placeholder.map(item => item.text)}
-                                        </Labels>
-                                    </Inputs>
+                                    </label>
+                                </Inputs>
                                 }
                                 return null;
                             })}
@@ -86,6 +86,13 @@ const TiTle = styled.h1`
   letter-spacing: 0;
   line-height: 52px;
   margin-bottom: 0px;
+  @media(max-width: 600px){
+      letter-spacing : -0.5px;
+      font-size: 32px;
+      text-align : center;
+      height: 32px;
+      margin-bottom: 21px;
+  }
 `
 const Container = styled.div`
   height: 100%;
@@ -122,6 +129,55 @@ const ButtonClose = styled.span`
     top: 16px;
     right: 16px;
   }
+  @media(max-width: 600px){
+      top: 26px;
+      right: 26px;
+      &::after {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Pro Regular";
+        font-size: 30px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: right;
+        color: #333333;
+        margin-left: 24px;
+        opacity: 1;
+      }
+  }
+`
+const Inputs = styled.div`
+    position: relative;
+    width: 100%;
+    label{
+        color: #B6B6B6;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+        box-shadow: none;
+        border-top: 0px;
+        position : absolute;
+        transform: translate(24px, 24px) scale(1);
+        top: 0;
+        left: 0;
+    }
+    @media(max-width: 600px){
+        label{
+            color: #222222;
+            transform: translate(14px, 14px) scale(1);
+            font-family: Calibre Regular;
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 24px;
+        }
+    }
+    @media(min-width: 600px){
+        color: #B6B6B6;
+        label{
+            transform: translate(24px, 24px) scale(1);
+        }
+    }
 `
 
 const Input = styled.input`
@@ -136,26 +192,24 @@ const Input = styled.input`
     border-radius: 3px;
     padding-left: 24px;
     box-shadow: none;
+    padding-top: 15px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    :focus~label{
-        color: #B6B6B6;
-        font-family: Calibre Semibold;
-        font-size: 12px;
-        letter-spacing: 0;
-        line-height: 24px;
-        position: absolute;
-        transform: translate(24px, 6px) scale(1);
-        top: 0;
-        left: 0;
-        background: #ffffff;
-        height: 12px;
-    }
-    :hover{
-        border: px solid #B6B6B6 ;
+    :active~label,
+    :focus~label,
+    :not(:placeholder-shown) ~ label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, 12px) scale(1);
+            top: 0;
+            left: 0;
     }
     :focus{
         outline: none;
@@ -166,10 +220,10 @@ const Input = styled.input`
     }
     @media(max-width: 600px){
         border: 1px solid #6E6E6E;
-        :hover{
-            border: 2px solid #B6B6B6 ;
-            position: relative;
-        }
+        margin-bottom: 20px;
+        padding-top: 0px;
+        height: 48px;
+        padding-left: 16px;
         :focus{
             outline: none;
             border: 2px solid #B6B6B6 ;
@@ -181,15 +235,46 @@ const Input = styled.input`
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, -9px) scale(1);
-            top: 0;
-            left: 0;
+            transform: translate(16px, -9px) scale(1);
+            top: 0px;
+            left: 0px;
+            background: #ffffff;
+            padding: 0px 5px;
+        }
+        :not(:placeholder-shown) ~ label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(14px, -9px) scale(1);
+            top: 0px;
+            left: 0px;
             background: #ffffff;
             padding: 0px 5px;
         }
     }
-    @media(max-width: 768px){
-        height: 44px;
+    @media(min-width: 768px){
+        height: 48px;
+        padding-top: 15px;
+        :not(:placeholder-shown) ~ label{
+            left: 1px;
+            transform: translate(24px, 6px) scale(1);
+        }
+        :focus~label{
+            transform: translate(24px, 6px) scale(1);
+        }
+    }
+    @media(min-width: 768px){
+        height: 64px;
+        :focus~label{
+            transform: translate(24px, 12px) scale(1);
+        }
+        :not(:placeholder-shown) ~ label{
+            left: 1px;
+            transform: translate(24px, 12px) scale(1);
+        }
     }
 `
 
@@ -206,32 +291,32 @@ const Textarea = styled.textarea`
     padding-top: 24px;
     padding-left: 24px;
     box-shadow: none;
+    padding-top: 25px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    :focus~label{
-        width: 184px;
-        color: #B6B6B6;
-        font-family: Calibre Semibold;
-        font-size: 12px;
-        letter-spacing: 0;
-        line-height: 24px;
-        position: absolute;
-        transform: translate(24px, 6px) scale(1);
-        top: 0;
-        left: 0;
-        background: #ffffff;
-    }
-    :hover{
-        border: 2px solid #B6B6B6 ;
-    }
+    :active~label,
+        :focus~label,
+        :not(:placeholder-shown) ~ label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(24px, 12px) scale(1);
+            top: 0;
+            left: 0;
+        }
     @media(max-width: 320px){
         margin-bottom: 20px;
     }
     @media(max-width: 600px){
         border: 1px solid #6E6E6E;
+        margin-bottom: 12px;
+        padding-left: 16px;
         :focus{
             outline: none;
             border: 2px solid #B6B6B6 ;
@@ -243,16 +328,30 @@ const Textarea = styled.textarea`
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, -9px) scale(1);
+            transform: translate(16px, -9px) scale(1);
             top: 0;
-            left: 0;
-            background: #B6B6B6;
+            left: 0px;
+            background: #ffffff;
+            padding: 0px 5px;
+        }
+        :not(:placeholder-shown) ~ label{
+            color: #B6B6B6;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(14px, -9px) scale(1);
+            top: 0px;
+            left: 0px;
+            background: #ffffff;
             padding: 0px 5px;
         }
     }
     @media(max-width: 768px){
         height: 138px;
     }
+    
 `
 
 const Submit = styled.button`
@@ -270,11 +369,17 @@ const Submit = styled.button`
   text-align: center;
   padding: 25px 0px;
   border-width: 0px;
+  @media(max-width: 600px){
+      width: 100%;
+  }
+  @media(min-width: 600px){
+      width: 180px;
+  }
 `
 const Content = styled.div`
   margin: 46px 48px;
   @media (max-width: 768px) {
-    margin: 26px 48px;
+    margin: 26px 24px;
   }
   @media (max-width: 320px) {
     margin: 20px 24px;
@@ -289,27 +394,6 @@ const Modal = styled.div`
     position: relative;
     margin: auto;
     @media(max-width: 768px){
-        height:  672px;
+        height:  780px;
     }
 `
-const Labels = styled.label`
-        color: #B6B6B6;
-        font-family: Calibre Regular;
-        font-size: 20px;
-        letter-spacing: 0;
-        line-height: 24px;
-        box-shadow: none;
-        border-top: 0px;
-        position : absolute;
-        transform: translate(24px, 24px) scale(1);
-        top: 0;
-        left: 0;
-        @media(max-width: 768px){
-            transform: translate(24px, 12px) scale(1);
-        }
-    `
-const Inputs = styled.div`
-        position: relative;
-        width: 100%;
-        
-    `
