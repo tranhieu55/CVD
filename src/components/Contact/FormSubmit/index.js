@@ -97,8 +97,8 @@ export default function FormSumit({ input }) {
         :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
             font-family: Calibre Semibold;
-            font-size: 12px;
-            letter-spacing: 0;
+            font-size: 14px;
+            letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
             transform: translate(24px, 6px) scale(1);
@@ -161,6 +161,10 @@ export default function FormSumit({ input }) {
             transform: translate(24px, 6px) scale(1);
             top: 0;
             left: 0;
+        }
+        :focus{
+          outline: none;
+          border: 2px solid #222222 ;
         }
         @media(max-width: 768px){
             margin-bottom: 10px;
