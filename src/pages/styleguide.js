@@ -235,7 +235,7 @@ export default function Styledguid() {
             </TileColour>
             <div className="form-input">
               <div className="forms-left">
-                <TextInput name="Input Field" />
+                <TextInput value="Input Field" />
                 <TextInput
                   name="LABLE"
                   value="Text Field"

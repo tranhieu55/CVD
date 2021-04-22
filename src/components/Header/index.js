@@ -1092,15 +1092,14 @@ const Span = styled.span`
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const dataServices = dataServicesMenu.edges[0].node.body
 
-  const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
-
+  const dataMenu = dataMenuHeader.edges[0].node.body[1].fields
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
 
   // dữ liệu button header(button GET in touch)
   const isShow =
     dataMenuHeader.edges[0].node.body[1].primary?.display_desktop_or_mobile
   const dataButton =
-    dataMenuHeader.edges[0].node.body[1]?.primary?.text_button[0].text
+    dataMenuHeader.edges[0].node.body[1].primary?.text_button[0].text
   // dữ liệu button header(button phone)
   const isShowButtonPhone =
     dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
