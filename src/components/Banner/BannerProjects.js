@@ -263,10 +263,8 @@ const CategoryItem = styled.li`
     }
 
     // when hover
-    :hover {
-      ::after {
-        width: 100%;
-      }
+    :hover{
+      border-bottom : 1px solid #101010;
     }
   }
   a:not([href]):not([class]){

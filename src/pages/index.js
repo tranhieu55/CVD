@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 import Instagrams from "../components/slices/Homepage/Instargram"
 import OurServices from "../components/slices/Homepage/OurService"
 import TwoColums from "../components/ColumCaseStudy/TwoColumA"
+import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
@@ -14,32 +15,35 @@ const Index = ({ data: { prismic } }) => {
   const background_image = data.background_image.url
   console.log(data.body)
   return (
-    <Layout location="/">
-      <SEO props={data} location="/" />
-      <Container>
-        <ImageBanner src={background_image}></ImageBanner>
-        <TextBanner>
-          <Title>{data.page_title[0].text}</Title>
-          <Buttons>
-            {data.body[0].fields.map((item, index) => {
-              return (
-                <ButtonBanner
-                  key={index}
-                  background={item.color_background_button}
-                  border={item.color_border_button}
-                  textColor={item.color_text_button}
-                  vitri={index}
-                >
-                  {item.text_button[0].text}
-                </ButtonBanner>
-              )
-            })}
-          </Buttons>
-        </TextBanner>
-      </Container>
-      <SliceZone allSlices={data.body} />
-      <OurServices />
-    </Layout>
+    <>
+      <GlobalMessage></GlobalMessage>
+      <Layout location="/">
+        <SEO props={data} location="/" />
+        <Container>
+          <ImageBanner src={background_image}></ImageBanner>
+          <TextBanner>
+            <Title>{data.page_title[0].text}</Title>
+            <Buttons>
+              {data.body[0].fields.map((item, index) => {
+                return (
+                  <ButtonBanner
+                    key={index}
+                    background={item.color_background_button}
+                    border={item.color_border_button}
+                    textColor={item.color_text_button}
+                    vitri={index}
+                  >
+                    {item.text_button[0].text}
+                  </ButtonBanner>
+                )
+              })}
+            </Buttons>
+          </TextBanner>
+        </Container>
+        <SliceZone allSlices={data.body} />
+        <OurServices />
+      </Layout>
+    </>
   )
 }
 
@@ -170,7 +174,7 @@ const TextBanner = styled.div`
   height: 355px;
   width: 659px;
   position: absolute;
-  top: 225px;
+  top: 273px;
   padding-left: 167px;
   z-index: 1;
   @media (max-width: 600px) {
@@ -184,13 +188,13 @@ const TextBanner = styled.div`
   }
   @media (min-width: 600px) {
     padding-left: 50px;
-    top: 86px;
+    top: 124px;
     height: auto;
     width: 445px;
   }
   @media (min-width: 1024px) {
     padding-left: 50px;
-    top: 122px;
+    top: 170px;
     height: auto;
     width: 469px;
   }
@@ -198,7 +202,7 @@ const TextBanner = styled.div`
     height: 355px;
     width: 659px;
     position: absolute;
-    top: 225px;
+    top: 273px;
     padding-left: 167px;
     z-index: 1;
   }
