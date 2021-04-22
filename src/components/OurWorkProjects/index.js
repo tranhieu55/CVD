@@ -15,9 +15,7 @@ function OurWorkProjects(props) {
   const state = useContext(OurWorkStateContext)
   const {listSelected} = state; 
 
-  const [showList , setShowList] = useState(listSelected) ;
-  console.log("list-listProjects : ", listProjects)
-
+  
   const test = listSelected.includes("all")
     ? listProjects
     : listProjects.filter(x => {
@@ -25,7 +23,7 @@ function OurWorkProjects(props) {
       x.project_item?.relationship_to_project_category._meta.uid
       )
       })
-    console.log("list-selected : ", test)
+    
       
   return (
     <ListBlogStyle>
@@ -34,6 +32,18 @@ function OurWorkProjects(props) {
           <CardProject key={index} input={project} />
         ))}
       </Rows>
+      <MyBtn>
+          <ButtonCustom
+            wt="212"
+            ht="48"
+            fz="18"
+            lineh="48"
+            className="btn-studies"
+            id='loadMore'
+          >
+            Load more case studies
+          </ButtonCustom>
+        </MyBtn>
     </ListBlogStyle>
   )
 }
@@ -63,10 +73,61 @@ const ListBlogStyle = styled.div`
   }
   @media (max-width: 600px) {
     margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
   .row{
-    margin-right: -16px;
-    margin-left: -16px;
+    margin-right: 0px;
+    margin-left: 0px;
   }
 `
 const Rows = styled.div``
+const MyBtn = styled.div`
+  margin: 34px auto 38px;
+  width: 176px;
+  @media(max-width: 600px){
+    margin: 16px 0px;
+    height: 48px;
+    width: 100%;
+  }
+`
+const ButtonCustom = styled.button`
+  font-family: "Calibre Semibold";
+  border: 2px solid #fecf09;
+  border-radius: 3px;
+  background-color: ${({ bgColor }) => bgColor === null ? "transparent" : bgColor};
+  color: ${({ textColor }) => textColor};
+  font-weight: ${({ fw }) => `${fw}`};
+  outline: none;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: ${({ wt }) => `${wt}px`};
+  width: ${({ w }) => `${w}%`};
+  height: ${({ ht }) => `${ht}px`};
+  margin-bottom: ${({ mb }) => `${mb}px`};
+  margin: ${({ margin }) => `${margin}`};
+  margin-right: ${({ mr }) => `${mr}px`};
+  margin-top: ${({ mt }) => `${mt}px`};
+  padding-left: ${({ pdl }) => `${pdl}px`};
+  padding-right: ${({ pdr }) => `${pdr}px`};
+  height: ${({ cc }) => `${cc}px`};
+  font-size: ${({ fz }) => `${fz}px`};
+  line-height: ${({ lineh }) => `${lineh}px`};
+  padding: ${({ pd1 }) => `${pd1}px`} ${({ pd2 }) => `${pd2}px`};
+  position: relative;
+  overflow: hidden;
+  white-space: ${({ wspace }) => `${wspace}`};
+  font-weight: 500;
+  color: #101010;
+  :hover {
+    transition: all 0.6s ease;
+    background-color: #ffd700;
+    color: #000;
+  }
+  @media(max-width: 600px){
+    width: 100%;
+    height: 100%; 
+  }
+`
