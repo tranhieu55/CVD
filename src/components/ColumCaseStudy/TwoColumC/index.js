@@ -10,22 +10,24 @@ justify-content: space-between;
 @media(max-width: 600px){
     width: 468px;
     margin : 0 auto;
-    height: 160px;
+    height: 653px;
+    display: block
 }
 @media(max-width: 498px){
     width: 343px;
     margin : 0 autol
-    height: 160px;
+    height: 653px;
 }
 @media(max-width: 320px){
     width: 296px;
     margin : 0 auto;
-    height: 160px;
+    height: 653px;
 }
 @media(min-width: 600px){
     width: 585px;
     margin : 0 auto 32px;
     height: 220px;
+    display: flex;
 }
 @media(min-width: 992px){
     width: 785px;
@@ -50,12 +52,25 @@ justify-content: space-between;
 `
 
 const BoxImamgeLeft = styled.div`
-  width: 65.8%;
-  height: 100%;
+  @media(max-width: 600px){
+    width: 100%;
+    height: 41.7%;
+    margin-bottom : 12px;
+  }
+  @media(min-width: 600px){
+    width: 65.8%;
+    height: 100%;
+  }
 `
 const BoxImamgeRight = styled.div`
-  width: 31.6%;
-  height: 100%;
+  @media(max-width: 600px){
+    width: 100%;
+    height: 56.5%;
+  }
+  @media(min-width: 600px){
+    width: 31.6%;
+    height: 100%;
+  }
 `
 const IMG = styled.img`
   width:100%;
