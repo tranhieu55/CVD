@@ -35,21 +35,26 @@ const Container = styled.div`
     height: 650px;
     display: flex;
     justify-content: space-between;
-   
     @media(max-width: 600px){
-        width: 470px;
         margin : 0px auto 28px;
-        height: 236px;
+        height: 432px;
+        width: 100%;
+        overflow-x: auto;
+        margin-left: 16px;
     }
     @media(max-width: 480px){
-        width: 343px;
         margin : 0px auto 28px;
-        height: 236px;
+        height: 432px;
+        width: 100%;
+        overflow-x: auto;
+        margin-left: 16px;
     }
     @media(max-width: 320px){
-        width: 278px;
         margin : 0 auto;
-        height: 220px;
+        height: 432px;
+        width: 100%;
+        overflow-x: auto;
+        margin-left: 16px;
     }
     @media(min-width: 600px){
         width: 585px;
@@ -60,6 +65,7 @@ const Container = styled.div`
         width: 785px;
         margin : 0 auto 32px;
         height: 400px;
+        overflow-x: hidden;
     }
     @media(min-width: 1024px){
         width: 885px;
@@ -79,13 +85,40 @@ const Container = styled.div`
 `
 
 const Img = styled.img`
-    height: ${props => props.alt === "image item " ? '100%' : ""};
-    width: ${props => props.alt === "image item " ? '100%' : ""};
-    margin: ${props => props.alt === "image item " ? '0px' : "68px 73px"};
+    height: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : ""};
+    width: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : ""};
+    margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "68px 73px"};
     object-fit: cover;
+    @media(max-width: 600px){
+        height: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : "378px"};
+        object-fit: cover;
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "33px 37px"};
+    }
+    @media(min-width: 600px){
+        width: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : "80%"};
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "22px 18px"};
+    }
+    @media(min-width: 1024px){
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "17px 28px"};
+    }
+    @media(min-width: 1200px){
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "19px 32px"};
+    }
+    @media(min-width: 1440px){
+        height: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : ""};
+        width: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : "auto"};
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "68px 73px"};
+    }
 `
 const DivImg = styled.div`
     width: 31.6%;
     height: 100%;
-    background-color: ${props => props.show === "image item " ? '' : "#f1f1f1"};
+    background-color: ${props => props.alt === "image item 1" && props.alt === "item image" ? '' : "#f1f1f1"};
+    @media(max-width: 600px){
+        width: 258px;
+        height: 100%;
+        display: table;
+        margin-right: 22px;
+        background-color: ${props => props.alt === "image item 1" && props.alt === "item image" ? '' : "#f1f1f1"};
+    }
 `
