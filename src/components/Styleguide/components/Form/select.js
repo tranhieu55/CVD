@@ -16,6 +16,7 @@ const Option = styled.div`
       line-height: 24px;
       color: #222222;
       font-family: "Calibre Regular";
+      font-weight: 400;
     }
   }
   .MuiOutlinedInput-input {
