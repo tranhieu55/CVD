@@ -8,10 +8,10 @@ export default function TwoColum(props) {
         alt={props.input.primary.image_side_left.alt}
         src={props.input.primary.image_side_left.url}
       ></Img>
-      <Img
+      <Imgs
         alt={props.input.primary.image_side_right.alt}
         src={props.input.primary.image_side_right.url}
-      ></Img>
+      ></Imgs>
     </Container>
   )
 }
@@ -25,22 +25,25 @@ const Container = styled.div`
   @media (max-width: 600px) {
     width: 468px;
     margin: 0 auto;
-    height: 236px;
+    height: 750px;
+    display: block;
+
   }
   @media (max-width: 498px) {
     width: 343px;
     margin: 0 auto;
-    height: 220px;
+    height: 750px;
   }
   @media (max-width: 320px) {
     width: 288px;
     margin: 0 auto;
-    height: 220px;
+    height: 750px;
   }
   @media (min-width: 600px) {
     width: 585px;
     margin: 0 auto 32px;
     height: 220px;
+    display: flex;
   }
   @media (min-width: 992px) {
     width: 785px;
@@ -65,7 +68,27 @@ const Container = styled.div`
 `
 
 const Img = styled.img`
-  width: 48.71%;
-  height: 100%;
-  object-fit: cover;
+  @media(max-width: 600px){
+    width: 100%;
+    height: 49.2%;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  @media(min-width: 600px){
+    width: 48.71%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+const Imgs = styled.img`
+  @media(max-width: 600px){
+    width: 100%;
+    height: 49.2%;
+    object-fit: cover;
+  }
+  @media(min-width: 600px){
+    width: 48.71%;
+    height: 100%;
+    object-fit: cover;
+  }
 `

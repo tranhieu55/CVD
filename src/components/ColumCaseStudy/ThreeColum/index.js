@@ -5,20 +5,27 @@ import styled from 'styled-components';
 
 
 export default function ThreeColum (props) {
+    console.log({props})
     return (
         <Container>
-            <Img
-                alt={props.input.primary.image_side_left.alt}
-                src={props.input.primary.image_side_left.url}
-            ></Img>
-            <Img
-                alt={props.input.primary.image_center.alt}
-                src={props.input.primary.image_center.url}
-            ></Img>
-            <Img
-                alt={props.input.primary.image_side_right.alt}
-                src={props.input.primary.image_side_right.url}
-            ></Img>
+            <DivImg show={props.input.primary.image_side_left.alt}>
+                <Img
+                    alt={props.input.primary.image_side_left.alt}
+                    src={props.input.primary.image_side_left.url}
+                ></Img>
+            </DivImg>
+            <DivImg show={props.input.primary.image_side_left.alt}>
+                <Img
+                    alt={props.input.primary.image_center.alt}
+                    src={props.input.primary.image_center.url}
+                ></Img>
+            </DivImg>
+            <DivImg show={props.input.primary.image_side_left.alt}> 
+                <Img
+                    alt={props.input.primary.image_side_right.alt}
+                    src={props.input.primary.image_side_right.url}
+                ></Img>
+            </DivImg>
         </Container>
     )
 }
@@ -73,7 +80,13 @@ const Container = styled.div`
 `
 
 const Img = styled.img`
+    height: ${props => props.alt === "image item " ? '100%' : ""};
+    width: ${props => props.alt === "image item " ? '100%' : ""};
+    margin: ${props => props.alt === "image item " ? '0px' : "68px 73px"};
+    object-fit: cover;
+`
+const DivImg = styled.div`
     width: 31.6%;
     height: 100%;
-    object-fit: cover;
+    background-color: ${props => props.show === "image item " ? '' : "#f1f1f1"};
 `

@@ -248,7 +248,7 @@ const ListImageOther = styled.div`
   }
   @media (min-width: 1400px){
     max-height: 433px;
-    max-width: 494px;
+    max-width: 581px;
   }
   @media (min-width: 1600px){
     max-height: 433px;
