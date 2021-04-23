@@ -27,8 +27,6 @@ import styled from "styled-components"
 import Interested from "../components/Interested"
 import OurWorkContextProvider from "../context/ourwork/OurWorkContextProvider"
 
-
-
 const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'Calibre Regular';
@@ -345,12 +343,10 @@ const Layout = ({
   const dataServicesMenu = data.prismic.allService_headers
   const BoxLayout = styled.div`
     overflow-x: hidden;
-  
   `
-  
-  
+
   return (
-    <BoxLayout >
+    <BoxLayout>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <GlobalStyle />
@@ -378,5 +374,3 @@ const Layout = ({
 }
 
 export default Layout
-
-

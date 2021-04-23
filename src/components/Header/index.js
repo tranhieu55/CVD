@@ -1092,22 +1092,22 @@ const Span = styled.span`
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const dataServices = dataServicesMenu.edges[0].node.body
 
-  const dataMenu = dataMenuHeader.edges[0].node.body[1].fields
+  const dataMenu = dataMenuHeader.edges[0].node.body[1]?.fields
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
 
   // dữ liệu button header(button GET in touch)
   const isShow =
-    dataMenuHeader.edges[0].node.body[1].primary?.display_desktop_or_mobile
+    dataMenuHeader.edges[0].node.body[1]?.primary?.display_desktop_or_mobile
   const dataButton =
-    dataMenuHeader.edges[0].node.body[1].primary?.text_button[0].text
+    dataMenuHeader.edges[0].node.body[1]?.primary?.text_button[0].text
   // dữ liệu button header(button phone)
   const isShowButtonPhone =
-    dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
+    dataMenuHeader.edges[0].node.body[2]?.primary.display_desktop_or_mobile
   const dataButtonPhone =
-    dataMenuHeader.edges[0].node.body[2].primary.text_button[0].text
+    dataMenuHeader.edges[0].node.body[2]?.primary.text_button[0].text
 
   //dulieu icon
-  const dataIcon = dataMenuHeader.edges[0].node.body[3].fields
+  const dataIcon = dataMenuHeader.edges[0].node.body[3]?.fields
 
   const isShowCTA = dataMenuHeader.edges[0].node.body.filter(
     x => x.type === "cta_buton"
@@ -1123,7 +1123,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     window.onscroll = function () {
       var st = window.pageYOffset
       if (st > lastScrollTop) {
-        if (window.pageYOffset > 87) {
+        if (window.pageYOffset > 10) {
           setScroll(false)
         } else {
           setScroll(true)
@@ -1164,7 +1164,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
-      location === "/what-we-do"
+      location === "/what-we-do" ||
+      location === "/partners"
     ) {
       return "menu-list_item_text-black"
     }

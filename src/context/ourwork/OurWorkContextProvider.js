@@ -12,23 +12,23 @@ function reducer(state, action) {
     case "ADD_FILTER_ITEM":
       if (action.value === "all") {
         return {
-        ...state,
-        listSelected: ["all"],
+          ...state,
+          listSelected: ["all"],
         }
-        }
-        let isInArr = [...state.listSelected].includes(action.value) // true or false
-        if (!isInArr && action.value !== "all") {
+      }
+      let isInArr = [...state.listSelected].includes(action.value) // true or false
+      if (!isInArr && action.value !== "all") {
         let newArrSelected = [...state.listSelected, action.value].filter(
-        x => x !== "all"
+          x => x !== "all"
         )
         return {
-        ...state,
-        listSelected: [...newArrSelected],
+          ...state,
+          listSelected: [...newArrSelected],
         }
-        } else {
+      } else {
         return {
-        ...state,
-        listSelected: [...state.listSelected],
+          ...state,
+          listSelected: [...state.listSelected],
         }
       }
 

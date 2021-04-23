@@ -12,9 +12,7 @@ const Projects = ({ data: { prismic } }) => {
   return (
     <Layout location="/projects">
       <SEO props={data} />
-
       <SliceZone allSlices={data.body} />
-      {/* <ListBlog /> */}
     </Layout>
   )
 }

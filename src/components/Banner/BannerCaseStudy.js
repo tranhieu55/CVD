@@ -128,11 +128,10 @@ const Shadow = styled.div`
 `
 const TitleBanner = styled.div`
   position: absolute;
-  width: 70vw;
   padding: 250px;
   padding-top: 400px;
   @media (max-width: 1023px){
-    width: 95vw;
+   
     padding: 320px 60px 250px;
     img {
         margin-top: 20px;
@@ -149,7 +148,7 @@ const TitleBanner = styled.div`
   @media (min-width: 768px){
     margin: 43px 80px 0px;
     padding: 0px;
-    width: 70%;
+    
     img {
         margin-top: 16px;
       }
@@ -160,7 +159,7 @@ const TitleBanner = styled.div`
     padding-top: 0px;
   }
   @media (min-width: 1200px){
-    width: 60%;
+    
     margin-left: 17%;
     margin-top: 7%;
     padding: 0%;
@@ -170,7 +169,7 @@ const TitleBanner = styled.div`
   }
   @media (min-width: 1600px){
     margin-top: 72px;
-    max-width: 606px;
+    
     height: 248px;
     margin-left: 286px;
   }

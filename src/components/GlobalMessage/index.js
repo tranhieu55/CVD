@@ -35,6 +35,7 @@ export default function GlobalMessage () {
         setShow(!show);
     }
     console.log(show)
+   
     return(
         <Container open = {show}>
             <Content>
@@ -88,7 +89,6 @@ const Content = styled.div`
         display: flex;
         margin: auto;
         width: 299px;
-        
 `
 const Close = styled.div`
     @media(max-width: 600px){
