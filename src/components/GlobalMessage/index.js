@@ -88,6 +88,7 @@ const Content = styled.div`
         display: flex;
         margin: auto;
         width: 299px;
+        
 `
 const Close = styled.div`
     @media(max-width: 600px){
