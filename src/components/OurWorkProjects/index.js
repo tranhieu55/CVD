@@ -13,37 +13,35 @@ function OurWorkProjects(props) {
 
   const [listProjects, setListProject] = useState(input.fields)
   const state = useContext(OurWorkStateContext)
-  const {listSelected} = state; 
+  const { listSelected } = state
 
-  
   const test = listSelected.includes("all")
     ? listProjects
     : listProjects.filter(x => {
-      return listSelected.includes(
-      x.project_item?.relationship_to_project_category._meta.uid
-      )
+        return listSelected.includes(
+          x.project_item?.relationship_to_project_category._meta.uid
+        )
       })
-    
-      
+
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {test.slice(0,4).map((project, index) => (
+        {test.slice(0, 4).map((project, index) => (
           <CardProject key={index} input={project} />
         ))}
       </Rows>
       <MyBtn>
-          <ButtonCustom
-            wt="212"
-            ht="48"
-            fz="18"
-            lineh="48"
-            className="btn-studies"
-            id='loadMore'
-          >
-            Load more case studies
-          </ButtonCustom>
-        </MyBtn>
+        <ButtonCustom
+          wt="212"
+          ht="48"
+          fz="18"
+          lineh="48"
+          className="btn-studies"
+          id="loadMore"
+        >
+          Load more case studies
+        </ButtonCustom>
+      </MyBtn>
     </ListBlogStyle>
   )
 }
@@ -76,7 +74,7 @@ const ListBlogStyle = styled.div`
     margin-left: 16px;
     margin-right: 16px;
   }
-  .row{
+  .row {
     margin-right: 0px;
     margin-left: 0px;
   }
@@ -85,7 +83,7 @@ const Rows = styled.div``
 const MyBtn = styled.div`
   margin: 34px auto 38px;
   width: 176px;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     margin: 16px 0px;
     height: 48px;
     width: 100%;
@@ -95,7 +93,8 @@ const ButtonCustom = styled.button`
   font-family: "Calibre Semibold";
   border: 2px solid #fecf09;
   border-radius: 3px;
-  background-color: ${({ bgColor }) => bgColor === null ? "transparent" : bgColor};
+  background-color: ${({ bgColor }) =>
+    bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
   font-weight: ${({ fw }) => `${fw}`};
   outline: none;
@@ -126,8 +125,8 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 100%;
-    height: 100%; 
+    height: 100%;
   }
 `

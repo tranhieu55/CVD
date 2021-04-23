@@ -1,24 +1,41 @@
-import { Link, useStaticQuery } from "gatsby"
-import React from "react"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import React, { useContext, useState, memo } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
-import P from "../bits/Typography"
-import H2 from "../bits/H2/"
+import H2 from "../../components/bits/H2"
+import P from "../../components/bits/Typography"
+import {
+  OurWorkDispatchContext,
+  OurWorkStateContext,
+} from "../../context/ourwork/OurWorkContextProvider"
 
-const WraperBannerPartners = styled.div`
-  min-height: 50vh;
-  background-color: ${theme.colors.lightGray};
-  margin-bottom: 3rem;
+const WraperBannerProjects = styled.div`
+  background-color: #f8f8f8;
+  h2 {
+    color: #101010;
+    letter-spacing: -0.5px;
+  }
   @media only screen and (max-width: 600px) {
+    margin-bottom: 0px;
     h2 {
-      font-size: 14px;
+      font-size: 24px;
+      color: #101010;
+      font-family: "Calibre Semibold";
+      margin-bottom: 20px !important;
+      line-height: 26px;
+      letter-spacing: -0.25px;
     }
     p {
-      font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      margin-bottom: 10px;
+      margin-left: 50px;
+      font-size: 12px !important;
+
+      &::before {
+        position: absolute;
+        right: calc(100% + 1rem);
+        top: 30%;
+        width: 32px !important;
+      }
     }
     li {
       padding-right: 7px;
@@ -31,14 +48,10 @@ const WraperBannerPartners = styled.div`
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     h2 {
-      font-size: 14px;
+      font-size: 32px;
     }
     p {
       font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
     li {
       padding-right: 7px;
@@ -52,14 +65,10 @@ const WraperBannerPartners = styled.div`
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     h2 {
-      font-size: 14px;
+      font-size: 36px;
     }
     p {
       font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
     li {
       padding-right: 10px;
@@ -73,14 +82,10 @@ const WraperBannerPartners = styled.div`
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
     h2 {
-      font-size: 16px;
+      font-size: 40px;
     }
     p {
       font-size: 14px;
-    }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
     }
     li {
       padding-right: 20px;
@@ -93,88 +98,232 @@ const WraperBannerPartners = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-    p {
-      font-size: 14px;
-    }
     h2 {
-      font-size: 35px;
+      font-size: 32px;
+      margin-bottom: 40px;
     }
     p {
       font-size: 16px;
     }
-    ul {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
     li {
-      padding-right: 20px;
+      padding-right: 24px;
       text-align: center;
+      white-space: nowrap;
     }
     a {
-      font-size: 18px !important;
+      font-size: 20px !important;
     }
   }
 `
-const BannerPartnersContent = styled.div`
+
+const BannerProjectsContent = styled.div`
   padding-top: 10rem;
+  padding-bottom: 45px;
+  height: 100%;
   p {
+    font-family: "Calibre Semibold";
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
     position: relative;
+    letter-spacing: 1px;
     &::before {
       position: absolute;
       right: calc(100% + 1rem);
-      top: 50%;
+      top: 30%;
       display: block;
       content: "";
-      width: 6rem;
+      width: 64px;
       height: 2px;
       background: ${theme.colors.primaryColor};
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding-bottom: 0px;
+    padding-top: 86px;
+  }
+  @media (min-width: 600px) {
+    p {
+      &::before {
+        right: calc(100% + 10px);
+        width: 25px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    p {
+      &::before {
+        right: calc(100% + 10px);
+        width: 30px;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 890px;
+    }
+  }
+  @media (min-width: 1024px) {
+    p {
+      &::before {
+        right: calc(100% + 10px);
+        width: 35 px;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    padding-left: 89px;
+    p {
+      &::before {
+        right: calc(100% + 1rem);
+        width: 64px;
+      }
+    }
+  }
+  @media (min-width: 1440px) {
+    padding-left: 30px;
+    padding-right: 283px;
   }
 `
 
 const ListCategory = styled.ul`
   list-style: none;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  // reset boostrap
+  max-width: unset;
+  flex: unset;
+
+  // li : reset filter has persudo class
+  li.reset_filters {
+    display: flex;
+    /* &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    } */
+  }
+  li.not_reset_filters {
+    display: none;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    }
+  }
+  li.reset_filters_moblie {
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    li.reset_filters_moblie {
+      display: block;
+    }
+    li.reset_filters {
+      display: none;
+    }
+  }
+  @media (min-width: 600px) {
+    padding: 0px;
+  }
+  @media (min-width: 768px) {
+    padding: 0px 15px;
+    width: ${props => (props.show && props.show !== 0 ? "995px" : "845px")};
+  }
 `
 const CategoryItem = styled.li`
   cursor: pointer;
-  margin-right: 0.2rem;
+  padding: 0;
+  margin: 0;
+  margin-right: 32px;
   a {
     text-decoration: none;
     display: block;
-    color: ${theme.colors.gray2} !important;
-    font-weight: ${theme.fonts.bold};
-    font-size: 1rem;
+    opacity: 0.3;
+    color: #101010;
+    font-family: "Calibre Semibold";
+    font-size: 20px;
+    line-height: 24px;
     position: relative;
-    padding-bottom: 3px;
+    height: 23px;
+    // persudo class
     :after {
       position: absolute;
       content: "";
       bottom: 0;
       left: 0;
       width: 0%;
-      background-color: black;
+      background-color: #101010;
       height: 3px;
-      transition: all 0.4s ease-in;
+      transition: all 0.4s ease-in 0s;
     }
+
+    // when hover
     :hover {
-      ::after {
-        width: 100%;
-      }
+      border-bottom: 1px solid #101010;
     }
   }
+  a:not([href]):not([class]) {
+    color: #101010;
+  }
+  a.active_modify {
+    color: #101010 !important;
+    opacity: 1;
+    margin-right: 8px;
+    border-bottom: 1px solid #101010;
+    :after {
+      content: unset;
+    }
+  }
+
+  // when a active
   a.active {
-    color: ${theme.colors.secondaryColor} !important;
+    color: #101010 !important;
+    opacity: 1;
+    border-bottom: 1px solid #101010;
     &::after {
       position: absolute;
-      bottom: 0;
+      bottom: -2.2px;
       left: 0;
       width: 100%;
       content: " ";
-      background-color: black;
-      height: 3px;
-      transition: all 0.4s ease-in;
+      background-color: #101010;
+      opacity: 0.3;
+      transition: all 0s ease-in;
+      height: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 24px;
+    padding-right: 0px !important;
+    a {
+      font-size: 20px !important;
+      white-space: nowrap;
+    }
+  }
+  @media (min-width: 600px) {
+    margin-right: 2px;
+    a {
+      font-size: 12px !important;
+    }
+  }
+  @media (min-width: 768px) {
+    a {
+      font-size: 14px !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    a {
+      font-size: 20px !important;
     }
   }
 `
@@ -211,45 +360,85 @@ const BannerPartners = () => {
       }
     }
   `)
-  //   console.log("hieutt123", listCategoryPartners)
+
   const data = listCategoryPartners.prismic.allPartners_pages.edges[0].node
-  //   console.log(
-  //     "data-filter",
-  //     data.body.map((item, key) => item)
-  //   )
+
+  const cateAll = {
+    category_partner: {
+      category_name: [
+        {
+          spans: [],
+          text: "All",
+          type: "heading1",
+        },
+      ],
+      __typename: "PRISMIC_Partner_category",
+      _meta: {
+        uid: "all",
+      },
+    },
+  }
+
+  const listCategories = listCategoryPartners.prismic.allPartners_pages.edges[0].node.body[0]?.fields.filter(
+    x => x.category_partner
+  )
+
+  const newArr = [cateAll, ...listCategories]
+
+  // console.log("hieutt123", newArr)
+
+  const dispatch = useContext(OurWorkDispatchContext)
+  const state = useContext(OurWorkStateContext)
+
+  console.log("state : ", state)
   return (
-    <WraperBannerPartners>
-      <BannerPartnersContent className="container">
+    <WraperBannerProjects>
+      <BannerProjectsContent className="container">
         <P
           uppercase={true}
           fontWeight={theme.fonts.bold}
           coLor={theme.colors.gray1}
-          mrb_rem="2"
+          mrb="29"
         >
           {data.title[0].text}
         </P>
-        <H2 mrb_rem="1.5">{data.description[0].text}</H2>
-        <div className="row">
+        <H2
+          fz="32"
+          mrb_rem="1.5"
+          fontFamily="Calibre Semibold"
+          lineh="36"
+          lett="-0.5"
+          color="#111111"
+        >
+          {data.description[0].text}
+        </H2>
+        <div className="row ">
           <ListCategory className="col-md-10">
-            {/* {data.body.map(
-              (node, index) => (
-                <CategoryItem key={index}>
-                  <Link
-                    to={`${
-                      node.uid === "all" ? "/partners" : `/partners/${node.uid}`
-                    }`}
-                    activeClassName="active"
-                  >
-                    {" "}
-                    {node.data.partners_title.map(item => item.text)}{" "}
-                  </Link>
-                </CategoryItem>
-              )
-            )} */}
+            {newArr.map((item, index) => (
+              <CategoryItem
+                key={index}
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_FILTER_ITEM",
+                    value: item.category_partner._meta.uid,
+                  })
+                }}
+              >
+                <Link
+                  className={
+                    [...state.listSelected].includes(
+                      item.category_partner._meta.uid
+                    ) && "active"
+                  }
+                >
+                  {item.category_partner.category_name[0]?.text}
+                </Link>
+              </CategoryItem>
+            ))}
           </ListCategory>
         </div>
-      </BannerPartnersContent>
-    </WraperBannerPartners>
+      </BannerProjectsContent>
+    </WraperBannerProjects>
   )
 }
-export default BannerPartners
+export default memo(BannerPartners)

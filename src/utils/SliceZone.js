@@ -34,6 +34,7 @@ import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
 import FormSumits from "../components/Contact/FormSubmit/index"
 import Derection from "../components/Contact/Derection/index"
 import OurWorkProjects from "../components/OurWorkProjects/index"
+import CardPartners from "../components/CardPartners"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -242,6 +243,8 @@ const SliceZone = props => {
           )
         case "list_projects_to_show":
           return <OurWorkProjects key={index} input={s} />
+        case "partner_details":
+          return <CardPartners key={index} input={s} />
         default:
           return <></>
       }

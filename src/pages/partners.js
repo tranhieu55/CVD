@@ -1,18 +1,11 @@
-import { graphql, useStaticQuery, Link } from "gatsby"
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import React, { memo } from "react"
 
 import Layout from "../components/Layout"
-import IMG from "../components/Image"
-import styled from "styled-components"
+import SliceZone from "../utils/SliceZone"
+import SEO from "../components/utilities/SEO"
 
-const DivIMG = styled.div`
-  overflow: hidden;
-  img:hover {
-    opacity: 0.5;
-  }
-`
-
-const Partners = props => {
+const Partners = () => {
   const data = useStaticQuery(graphql`
     query {
       prismic {
@@ -63,29 +56,13 @@ const Partners = props => {
       }
     }
   `)
-  console.log("alo123", data)
-  const dataPartners =
-    data.prismic.allPartners_pages.edges?.[0].node.body[1].fields
-  console.log("hieutt", dataPartners)
+  const dataPartners = data.prismic.allPartners_pages.edges?.[0].node
   return (
     <Layout location="/partners">
-      <div className="container">
-        <div className="row">
-          {dataPartners.map((node, index) => (
-            <div className="col-sm-6  col-md-3">
-              <DivIMG
-                as={Link}
-                to={node.partner_url.url}
-                target={node.partner_url.target}
-              >
-                <IMG src={node.partner_logo.url} alt={node.partner_logo.alt} />
-              </DivIMG>
-            </div>
-          ))}
-        </div>
-      </div>
+      <SEO props={data} />
+      <SliceZone allSlices={dataPartners.body} />
     </Layout>
   )
 }
 
-export default Partners
+export default memo(Partners)
