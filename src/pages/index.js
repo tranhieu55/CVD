@@ -114,7 +114,6 @@ const Container = styled.div`
   @media (min-width: 600px) {
     display: block;
     height: auto;
-    margin-top: -72px;
   }
   @media (max-width: 600px) {
     margin-top: -72px;

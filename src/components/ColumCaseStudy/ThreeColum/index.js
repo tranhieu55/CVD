@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 
 export default function ThreeColum (props) {
-    console.log({props})
     return (
         <Container>
             <DivImg show={props.input.primary.image_side_left.alt}>
