@@ -57,6 +57,7 @@ const BoxImamgeLeft = styled.div`
     height: 41.7%;
     margin-bottom : 12px;
   }
+  
   @media(min-width: 600px){
     width: 65.8%;
     height: 100%;
