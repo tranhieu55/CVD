@@ -227,12 +227,16 @@ const ListCategory = styled.ul`
     li.reset_filters_moblie{
       display: block;
     }
+    li.reset_filters {
+      display: none;
+    }
   }
   @media(min-width: 600px){
     padding : 0px;
   }
   @media(min-width: 768px){
     padding : 0px 15px;
+    width: ${props => props.show && props.show !== 0 ? '995px': '845px'}
   }
 `
 const CategoryItem = styled.li`
@@ -264,7 +268,7 @@ const CategoryItem = styled.li`
 
     // when hover
     :hover{
-      border-bottom : 1px solid #101010;
+      border-bottom : 2px solid #101010;
     }
   }
   a:not([href]):not([class]){
@@ -284,17 +288,17 @@ const CategoryItem = styled.li`
   a.active {
     color: #101010 !important;
     opacity: 1;
-    border-bottom: 1px solid #101010;
+    border-bottom: 2px solid #101010;
     &::after {
       position: absolute;
-      bottom: -1px;
+      bottom: -2.2px;
       left: 0;
       width: 100%;
       content: " ";
       background-color: #101010;
       opacity: 0.3;
       transition: all 0s ease-in;
-      border-bottom: 1px solid #101010;
+      border-bottom: 2px solid #101010;
       height: 0px;
     }
   }
@@ -386,7 +390,7 @@ const BannerProjects = () => {
           Our Work
         </H2>
         <div className="row">
-          <ListCategory className="col-md-10">
+          <ListCategory className="col-md-10" show={filter}>
           <CategoryItem
                   className="reset_filters_moblie"
                   onClick={() => dispatch({ type: "RESET_FILTER" })}

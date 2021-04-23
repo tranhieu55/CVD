@@ -86,6 +86,7 @@ export default function FormSumit({ input }) {
         padding: 0px ;
         text-indent: 24px;
         box-shadow: none;
+        padding-top: 15px;
         -webkit-tap-highlight-color: transparent;
         box-sizing: border-box;
         animation-name: mui-auto-fill-cancel;
@@ -97,13 +98,13 @@ export default function FormSumit({ input }) {
         :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
             font-family: Calibre Semibold;
-            font-size: 12px;
-            letter-spacing: 0;
+            font-size: 14px;
+            letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, 6px) scale(1);
+            transform: translate(24px, 12px) scale(1);
             top: 0;
-            left: 0;
+            left: 1px;
         }
         @media(max-width: 600px){
             margin-bottom: 16px;
@@ -144,6 +145,7 @@ export default function FormSumit({ input }) {
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
+        padding-top: 15px;
         position: relative;
         -webkit-tap-highlight-color: transparent;
         -webkit-appearance: none;
@@ -158,9 +160,13 @@ export default function FormSumit({ input }) {
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, 6px) scale(1);
+            transform: translate(24px, 12px) scale(1);
             top: 0;
-            left: 0;
+            left: 1px;
+        }
+        :focus{
+          outline: none;
+          border: 2px solid #222222 ;
         }
         @media(max-width: 768px){
             margin-bottom: 10px;

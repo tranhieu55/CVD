@@ -126,6 +126,9 @@ const FooterStyle = styled.div`
     .w-112 {
       display: none;
     }
+    .row {
+      line-height: 24px;
+    }
   }
 
   @media only screen and (min-width: 600px) {
@@ -360,7 +363,7 @@ const ListLink = styled.div`
   @media only screen and (max-width: 600px) {
     line-height: 28px;
     a {
-      font-size: 17px;
+      font-size: 18px;
     }
   }
 `

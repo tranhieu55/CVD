@@ -8,6 +8,7 @@ import logoIconClosBlack from "../../images/cancelBack.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
 import logoIconBack from "../../images/long-arrow-left@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
+import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
 import { Form, Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -259,7 +260,10 @@ const WrapperHeader = styled.div`
     z-index: 1000;
     width: 400px;
     max-width: 100%;
-    background-color: #191f3f !important;
+    background-image: url(${({ backgroundMobile }) => backgroundMobile});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1088,15 +1092,14 @@ const Span = styled.span`
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const dataServices = dataServicesMenu.edges[0].node.body
 
-  const dataMenu = dataMenuHeader.edges[0].node.body[0].fields
-
+  const dataMenu = dataMenuHeader.edges[0].node.body[1].fields
   const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
 
   // dữ liệu button header(button GET in touch)
   const isShow =
-    dataMenuHeader.edges[0].node.body[1].primary.display_desktop_or_mobile
+    dataMenuHeader.edges[0].node.body[1].primary?.display_desktop_or_mobile
   const dataButton =
-    dataMenuHeader.edges[0].node.body[1].primary.text_button[0].text
+    dataMenuHeader.edges[0].node.body[1].primary?.text_button[0].text
   // dữ liệu button header(button phone)
   const isShowButtonPhone =
     dataMenuHeader.edges[0].node.body[2].primary.display_desktop_or_mobile
@@ -1182,6 +1185,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/styleguide" ||
       location === "/projects" ||
       location === "/what-we-do" ||
+      location === "/partners" ||
       show > 0 ||
       !!isDisPlayModalService
     ) {
@@ -1196,7 +1200,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
-      location === "/what-we-do"
+      location === "/what-we-do" ||
+      location === "/partners"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1213,7 +1218,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
-      location === "/what-we-do"
+      location === "/what-we-do" ||
+      location === "/partners"
     ) {
       if (show !== 0) {
         return "menu-nav-white"
@@ -1226,6 +1232,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   }
   return (
     <WrapperHeader
+      backgroundMobile={backgroundMobile}
       location={location}
       scroll={scroll}
       show={show}
@@ -1247,7 +1254,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/projects" ||
-                  location === "/what-we-do"
+                  location === "/what-we-do" ||
+                  location === "/partners"
                     ? logoBlack
                     : logoLight
                 }
@@ -1276,13 +1284,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             />
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
-            {dataMenu.map((item, index) => (
+            {dataMenu?.map((item, index) => (
               <Li
                 className={`menu-list_item ${
                   location === "/" ||
                   location === "/contact" ||
                   location === "/case-study" ||
-                  location === "/proposal"
+                  location === "/proposal" ||
+                  location === "/partners"
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
@@ -1477,7 +1486,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           <Form className="my-form">
             <>
               <Icon>
-                {dataIcon.map((item, index) => (
+                {dataIcon?.map((item, index) => (
                   <a
                     targer={item?.link_to_social_network?.target}
                     href={item?.link_to_social_network?.url}

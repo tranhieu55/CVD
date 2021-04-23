@@ -235,7 +235,7 @@ export default function Styledguid() {
             </TileColour>
             <div className="form-input">
               <div className="forms-left">
-                <TextInput name="Input Field" />
+                <TextInput value="Input Field" />
                 <TextInput
                   name="LABLE"
                   value="Text Field"
@@ -317,8 +317,8 @@ export default function Styledguid() {
               />
 
               <ButtonStyled
-                name="Butoon"
-                background="#101010"
+                name="Button"
+                background="#000000"
                 color="#FFFFFF"
                 icon=""
                 border="2px solid #FECF09"
@@ -435,7 +435,7 @@ export default function Styledguid() {
                 letSpace="1"
                 fontSize="14px"
                 fontFamily="Calibre Semibold"
-                color="#999999"
+                color="#a3a3a3"
               />
             </div>
             <div>
@@ -485,7 +485,7 @@ export default function Styledguid() {
                 letSpace="1"
                 fontSize="14px"
                 fontFamily="Calibre Semibold"
-                color="#999999"
+                color="#a3a3a3"
               />
             </div>
           </div>
