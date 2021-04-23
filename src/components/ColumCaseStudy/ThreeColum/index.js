@@ -41,6 +41,7 @@ const Container = styled.div`
         width: 100%;
         overflow-x: auto;
         margin-left: 16px;
+        overflow-y: hidden;
     }
     @media(max-width: 480px){
         margin : 0px auto 28px;
@@ -48,6 +49,7 @@ const Container = styled.div`
         width: 100%;
         overflow-x: auto;
         margin-left: 16px;
+        overflow-y: hidden;
     }
     @media(max-width: 320px){
         margin : 0 auto;
@@ -55,6 +57,7 @@ const Container = styled.div`
         width: 100%;
         overflow-x: auto;
         margin-left: 16px;
+        overflow-y: hidden;
     }
     @media(min-width: 600px){
         width: 585px;
