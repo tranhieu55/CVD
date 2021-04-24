@@ -510,7 +510,10 @@ const BannerProjects = () => {
             ))}
              <CategoryItem
                   className={`${filter && filter !== 0 ? "reset_filters" : "not_reset_filters" }`}
-                  onClick={() => dispatch({ type: "RESET_FILTER" })}
+                  onClick={() =>{
+                    dispatch({ type: "RESET_FILTER" })
+                    setFilters(0)
+                  }}
                 >
                   <Link className="active_modify">Reset Filters</Link>
                 </CategoryItem>
