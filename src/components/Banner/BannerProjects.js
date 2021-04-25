@@ -221,9 +221,10 @@ const ListCategory = styled.ul`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-bottom: 24px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    margin-bottom: 4px;
+    overflow: auto hidden;
+    margin-right: 15px;
+    padding-bottom: 20px;
     li.reset_filters_moblie{
       display: block;
     }
@@ -270,6 +271,92 @@ const CategoryItem = styled.li`
     :hover{
       border-bottom : 2px solid #101010;
     }
+  }
+  a:not([href]):not([class]){
+    color: #101010;
+  }
+  a.active_modify {
+    color: #101010 !important;
+    opacity: 1;
+    margin-right: 8px;
+
+    :after {
+      content: unset;
+    }
+  }
+
+  // when a active
+  a.active {
+    color: #101010 !important;
+    opacity: 1;
+    border-bottom: 2px solid #101010;
+    &::after {
+      position: absolute;
+      bottom: -2.2px;
+      left: 0;
+      width: 100%;
+      content: " ";
+      background-color: #101010;
+      opacity: 0.3;
+      transition: all 0s ease-in;
+      border-bottom: 2px solid #101010;
+      height: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 24px;
+    padding-right: 0px !important;
+    a {
+      font-size: 20px !important;
+      white-space: nowrap;
+    }
+  }
+  @media(min-width: 600px){
+    margin-right : 2px;
+    a{
+      font-size: 12px !important;
+    }
+  }
+  @media(min-width: 768px){
+    a{
+      font-size: 14px !important;
+    }
+  }
+  @media(min-width: 1200px){
+    a{
+      font-size: 20px !important;
+    }
+  }
+`
+const CategoryItems = styled.li`
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  margin-right: 32px;
+  a {
+    text-decoration: none;
+    display: block;
+    opacity: 0.3;
+    color: #101010;
+    font-family: "Calibre Semibold";
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+    height: 23px;
+    // persudo class
+    :after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      background-color: #101010;
+      height: 3px;
+      transition: all 0.4s ease-in 0s;
+    }
+
+    // when hover
   }
   a:not([href]):not([class]){
     color: #101010;
@@ -391,12 +478,12 @@ const BannerProjects = () => {
         </H2>
         <div className="row">
           <ListCategory className="col-md-10" show={filter}>
-          <CategoryItem
+          <CategoryItems
                   className="reset_filters_moblie"
                   onClick={() => dispatch({ type: "RESET_FILTER" })}
                 >
                   <Link className="active_modify">Filters</Link>
-                </CategoryItem>
+                </CategoryItems>
             {listCategories.map((item, index) => (
               <CategoryItem
                 key={index}
@@ -423,7 +510,10 @@ const BannerProjects = () => {
             ))}
              <CategoryItem
                   className={`${filter && filter !== 0 ? "reset_filters" : "not_reset_filters" }`}
-                  onClick={() => dispatch({ type: "RESET_FILTER" })}
+                  onClick={() =>{
+                    dispatch({ type: "RESET_FILTER" })
+                    setFilters(0)
+                  }}
                 >
                   <Link className="active_modify">Reset Filters</Link>
                 </CategoryItem>

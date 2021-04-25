@@ -31,17 +31,17 @@ function OurWorkProjects(props) {
         ))}
       </Rows>
       <MyBtn>
-        <ButtonCustom
-          wt="212"
-          ht="48"
-          fz="18"
-          lineh="48"
-          className="btn-studies"
-          id="loadMore"
-        >
-          Load more case studies
-        </ButtonCustom>
-      </MyBtn>
+          <ButtonCustom
+            wt="212"
+            ht="48"
+            fz="16"
+            lineh="48"
+            className="btn-studies"
+            id='loadMore'
+          >
+            Load more projects
+          </ButtonCustom>
+        </MyBtn>
     </ListBlogStyle>
   )
 }
@@ -52,6 +52,7 @@ const ListBlogStyle = styled.div`
   margin-top: 2px;
   margin-left: 32px;
   margin-right: 32px;
+  
   .col-md-6 {
     margin-top: 30px;
     /* height: 500px; */
@@ -63,7 +64,7 @@ const ListBlogStyle = styled.div`
   }
   .btn-studies {
     background-color: transparent;
-    color: black;
+    color: #101010;
   }
   .btn-studies:hover {
     background-color: #fecf09;
@@ -83,14 +84,14 @@ const Rows = styled.div``
 const MyBtn = styled.div`
   margin: 34px auto 38px;
   width: 176px;
-  @media (max-width: 600px) {
-    margin: 16px 0px;
+  @media(max-width: 600px){
+    margin: 6px 0px 16px;
     height: 48px;
     width: 100%;
   }
 `
 const ButtonCustom = styled.button`
-  font-family: "Calibre Semibold";
+  font-family: "Calibre Medium";
   border: 2px solid #fecf09;
   border-radius: 3px;
   background-color: ${({ bgColor }) =>
@@ -125,7 +126,8 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
-  @media (max-width: 600px) {
+  
+  @media(max-width: 600px){
     width: 100%;
     height: 100%;
   }
