@@ -12,14 +12,13 @@ import {
 const WraperBannerProjects = styled.div`
   background-color: #f8f8f8;
   h2 {
-    color: #101010;
     letter-spacing: -0.5px;
   }
   @media only screen and (max-width: 600px) {
     margin-bottom: 0px;
     h2 {
       font-size: 24px;
-      color: #101010;
+      color: #222222;
       font-family: "Calibre Semibold";
       margin-bottom: 20px !important;
       line-height: 26px;
@@ -54,7 +53,7 @@ const WraperBannerProjects = styled.div`
       font-size: 14px;
     }
     li {
-      padding-right: 7px;
+      /* padding-right: 7px; */
       text-align: center;
     }
     a {
@@ -71,7 +70,7 @@ const WraperBannerProjects = styled.div`
       font-size: 14px;
     }
     li {
-      padding-right: 10px;
+      /* padding-right: 10px; */
       text-align: center;
     }
     a {
@@ -88,7 +87,7 @@ const WraperBannerProjects = styled.div`
       font-size: 14px;
     }
     li {
-      padding-right: 20px;
+      /* padding-right: 20px; */
       text-align: center;
     }
     a {
@@ -106,7 +105,7 @@ const WraperBannerProjects = styled.div`
       font-size: 16px;
     }
     li {
-      padding-right: 24px;
+      /* padding-right: 24px; */
       text-align: center;
       white-space: nowrap;
     }
@@ -192,20 +191,11 @@ const ListCategory = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  // reset boostrap
   max-width: unset;
   flex: unset;
 
-  // li : reset filter has persudo class
   li.reset_filters {
     display: flex;
-    /* &::after {
-      content: "\f01e";
-      font-family: "Font Awesome 5 Pro Regular";
-      font-size: 13px;
-      color: #101010;
-    } */
   }
   li.not_reset_filters {
     display: none;
@@ -213,7 +203,7 @@ const ListCategory = styled.ul`
       content: "\f01e";
       font-family: "Font Awesome 5 Pro Regular";
       font-size: 13px;
-      color: #101010;
+      color: #222222;
     }
   }
   li.reset_filters_moblie {
@@ -224,6 +214,7 @@ const ListCategory = styled.ul`
     margin-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
+    margin-right: 16px;
     li.reset_filters_moblie {
       display: block;
     }
@@ -248,7 +239,7 @@ const CategoryItem = styled.li`
     text-decoration: none;
     display: block;
     opacity: 0.3;
-    color: #101010;
+    color: #222222;
     font-family: "Calibre Semibold";
     font-size: 20px;
     line-height: 24px;
@@ -261,24 +252,24 @@ const CategoryItem = styled.li`
       bottom: 0;
       left: 0;
       width: 0%;
-      background-color: #101010;
+      background-color: #222222;
       height: 3px;
       transition: all 0.4s ease-in 0s;
     }
 
     // when hover
     :hover {
-      border-bottom: 1px solid #101010;
+      border-bottom: 1px solid #222222;
     }
   }
   a:not([href]):not([class]) {
-    color: #101010;
+    color: #222222;
   }
   a.active_modify {
-    color: #101010 !important;
+    color: #222222 !important;
     opacity: 1;
     margin-right: 8px;
-    border-bottom: 1px solid #101010;
+    border-bottom: 1px solid #222222;
     :after {
       content: unset;
     }
@@ -286,16 +277,16 @@ const CategoryItem = styled.li`
 
   // when a active
   a.active {
-    color: #101010 !important;
+    color: #222222 !important;
     opacity: 1;
-    border-bottom: 1px solid #101010;
+    border-bottom: 1px solid #222222;
     &::after {
       position: absolute;
       bottom: -2.2px;
       left: 0;
       width: 100%;
       content: " ";
-      background-color: #101010;
+      background-color: #222222;
       opacity: 0.3;
       transition: all 0s ease-in;
       height: 0px;
@@ -311,7 +302,6 @@ const CategoryItem = styled.li`
     }
   }
   @media (min-width: 600px) {
-    margin-right: 2px;
     a {
       font-size: 12px !important;
     }
@@ -385,8 +375,6 @@ const BannerPartners = () => {
 
   const newArr = [cateAll, ...listCategories]
 
-  // console.log("hieutt123", newArr)
-
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
 
@@ -408,7 +396,7 @@ const BannerPartners = () => {
           fontFamily="Calibre Semibold"
           lineh="36"
           lett="-0.5"
-          color="#111111"
+          col="#111111"
         >
           {data.description[0].text}
         </H2>

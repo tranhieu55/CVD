@@ -6,18 +6,32 @@ import IMG from "./Image"
 
 const Wrapper = styled.div`
   @media (max-width: 600px) {
+    .item-image {
+      width: 160px;
+      height: 80px;
+      margin: auto;
+    }
     .box-list-logo {
       margin-top: 16px;
       margin-bottom: 32px;
     }
+    .col-6 {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
   }
   @media (min-width: 1200px) {
+    .item-image {
+      width: 244px;
+      height: 122px;
+      margin: auto;
+    }
     .box-list-logo {
       margin-top: 64px;
       margin-bottom: 72px;
     }
     .col-md-3 {
-      margin-bottom: 33px;
+      margin-bottom: 40px;
     }
   }
 `
@@ -48,7 +62,11 @@ export default function CardPartners(props) {
               to={node.partner_url.url}
               target={node.partner_url.target}
             >
-              <IMG src={node.partner_logo.url} alt={node.partner_logo.alt} />
+              <IMG
+                className="item-image"
+                src={node.partner_logo.url}
+                alt={node.partner_logo.alt}
+              />
             </DivIMG>
           </div>
         ))}
