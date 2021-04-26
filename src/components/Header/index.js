@@ -18,6 +18,10 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const WrapperHeader = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   * {
     box-sizing: border-box;
   }
@@ -69,7 +73,7 @@ const WrapperHeader = styled.div`
     height: 21px;
     border: 0px;
     margin-left: 4px;
-    margin-right: 16px;
+    margin-right: ${({ show }) => (show > 0 ? "14px" : "16px")};
     border-radius: 0px;
     span {
       width: 20px;
@@ -741,6 +745,13 @@ const WrapperHeader = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
+    .button-header {
+      h2 {
+        font-family: ${({ show }) =>
+          show > 0 ? "Calibre Medium" : "Calibre Semibold"};
+        font-weight: ${({ show }) => (show > 0 ? "500" : "600")};
+      }
+    }
     .mask ::before {
       position: absolute;
       content: "";
@@ -811,11 +822,11 @@ const LogoHeader = styled.div`
     margin-right: 0px;
   }
   @media (max-width: 600px) {
-    padding-left: 16px;
+    padding-left: ${({ show }) => (show > 0 ? "18px" : "16px")};
   }
   @media (max-width: 992px) {
     width: 187px;
-    padding-left: 16px;
+    /* padding-left: 16px; */
     height: 34px;
   }
   @media only screen and (min-width: 1600px) {
@@ -1245,7 +1256,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
         ${isDisPlayModalService === true ? "backgroundServiecs" : ""}
         `}
       >
-        <LogoHeader>
+        <LogoHeader show={show}>
           <Navbar.Brand as={Link} to="/">
             {show !== 0 ? (
               <IMG src={logoBlack} />

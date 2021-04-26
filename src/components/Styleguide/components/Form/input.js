@@ -11,13 +11,15 @@ const Input = styled.div`
   .MuiFormControl-root {
     width: 100%;
   }
-  .PrivateNotchedOutline-legendLabelled-4 > span {
-    font-family: "Calibre Semibold";
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 1px;
-    color: #6e6e6e;
-    font-weight: 600;
+  legend {
+    span {
+      font-family: "Calibre Semibold";
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 1px;
+      color: #6e6e6e;
+      font-weight: 600;
+    }
   }
   .MuiOutlinedInput-inputMarginDense {
     padding-top: 16.5px;
