@@ -202,7 +202,7 @@ const Input = styled.input`
     :active~label,
     :focus~label,
     :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -308,7 +308,7 @@ const Textarea = styled.textarea`
     :active~label,
         :focus~label,
         :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -338,7 +338,7 @@ const Textarea = styled.textarea`
             border: 2px solid #6E6E6E ;
         }
         :focus~label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 0;
