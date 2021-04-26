@@ -343,6 +343,7 @@ const Layout = ({
   const dataServicesMenu = data.prismic.allService_headers
   const BoxLayout = styled.div`
     overflow-x: hidden;
+    position: relative;
   `
 
   return (

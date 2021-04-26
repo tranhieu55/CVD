@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -19,7 +19,7 @@ import { Link } from "gatsby"
 
 const WrapperHeader = styled.div`
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   * {
@@ -138,6 +138,7 @@ const WrapperHeader = styled.div`
     width: 100%;
     height: 60px;
     position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
+    top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
     display: flex;
@@ -822,11 +823,12 @@ const LogoHeader = styled.div`
     margin-right: 0px;
   }
   @media (max-width: 600px) {
-    padding-left: ${({ show }) => (show > 0 ? "18px" : "16px")};
+    padding-left: ${({ show }) =>
+      show > 0 ? "18px !important" : "16px !important"};
   }
   @media (max-width: 992px) {
     width: 187px;
-    /* padding-left: 16px; */
+    padding-left: 16px;
     height: 34px;
   }
   @media only screen and (min-width: 1600px) {

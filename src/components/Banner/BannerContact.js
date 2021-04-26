@@ -26,7 +26,6 @@ const Banner = styled.div`
   }
   @media (min-width: 1024px) {
     clip-path: polygon(0px 0%, 100% 0px, 100% 86%, 0% 100%);
-    margin-top: -72px;
   }
 `
 const ContentBanner = styled.div`
