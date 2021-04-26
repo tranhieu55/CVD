@@ -291,7 +291,6 @@ const PlatformDesc = styled.div`
   height: 112px;
   width: 306px;
   color: #222222;
-  font-family: Calibre Regular;
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28px;
