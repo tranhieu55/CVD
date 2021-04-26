@@ -85,7 +85,7 @@ const MyBtn = styled.div`
   margin: 34px auto 38px;
   width: 176px;
   @media(max-width: 600px){
-    margin: 6px 0px 16px;
+    margin: 6px 0px 24px;
     height: 48px;
     width: 100%;
   }
