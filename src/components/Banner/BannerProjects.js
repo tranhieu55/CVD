@@ -11,7 +11,7 @@ import {
 
 const WraperBannerProjects = styled.div`
   background-color: #f8f8f8;
-  h2{
+  h2 {
     color: #101010;
     letter-spacing: -1px;
   }
@@ -98,8 +98,7 @@ const WraperBannerProjects = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-    margin-top: -72px;
-    height : 354px;
+    height: 354px;
     h2 {
       font-size: 64px;
       margin-bottom: 9px;
@@ -144,45 +143,45 @@ const BannerProjectsContent = styled.div`
     padding-bottom: 0px;
     padding-top: 86px;
   }
-  @media(min-width: 600px){
-    p{
-      &::before{
+  @media (min-width: 600px) {
+    p {
+      &::before {
         right: calc(100% + 10px);
         width: 25px;
       }
     }
   }
-  @media(min-width: 768px){
-    p{
-      &::before{
+  @media (min-width: 768px) {
+    p {
+      &::before {
         right: calc(100% + 10px);
         width: 30px;
       }
     }
   }
-  @media(min-width: 992px){
-      .container{
-        max-width: 890px;
-      }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 890px;
+    }
   }
-  @media(min-width: 1024px){
-    p{
-      &::before{
+  @media (min-width: 1024px) {
+    p {
+      &::before {
         right: calc(100% + 10px);
         width: 35 px;
       }
     }
   }
-  @media(min-width: 1200px){
+  @media (min-width: 1200px) {
     padding-left: 89px;
-    p{
-      &::before{
+    p {
+      &::before {
         right: calc(100% + 1rem);
         width: 64px;
       }
     }
   }
-  @media(min-width: 1440px){
+  @media (min-width: 1440px) {
     padding-left: 0px;
   }
 `
@@ -199,7 +198,7 @@ const ListCategory = styled.ul`
 
   // li : reset filter has persudo class
   li.reset_filters {
-    display : flex;
+    display: flex;
     &::after {
       content: "\f01e";
       font-family: "Font Awesome 5 Pro Regular";
@@ -208,7 +207,7 @@ const ListCategory = styled.ul`
     }
   }
   li.not_reset_filters {
-    display : none;
+    display: none;
     &::after {
       content: "\f01e";
       font-family: "Font Awesome 5 Pro Regular";
@@ -216,7 +215,7 @@ const ListCategory = styled.ul`
       color: #101010;
     }
   }
-  li.reset_filters_moblie{
+  li.reset_filters_moblie {
     display: none;
   }
 
@@ -225,19 +224,19 @@ const ListCategory = styled.ul`
     overflow: auto hidden;
     margin-right: 15px;
     padding-bottom: 20px;
-    li.reset_filters_moblie{
+    li.reset_filters_moblie {
       display: block;
     }
     li.reset_filters {
       display: none;
     }
   }
-  @media(min-width: 600px){
-    padding : 0px;
+  @media (min-width: 600px) {
+    padding: 0px;
   }
-  @media(min-width: 768px){
-    padding : 0px 15px;
-    width: ${props => props.show && props.show !== 0 ? '995px': '845px'}
+  @media (min-width: 768px) {
+    padding: 0px 15px;
+    width: ${props => (props.show && props.show !== 0 ? "995px" : "845px")};
   }
 `
 const CategoryItem = styled.li`
@@ -268,11 +267,11 @@ const CategoryItem = styled.li`
     }
 
     // when hover
-    :hover{
-      border-bottom : 2px solid #101010;
+    :hover {
+      border-bottom: 2px solid #101010;
     }
   }
-  a:not([href]):not([class]){
+  a:not([href]):not([class]) {
     color: #101010;
   }
   a.active_modify {
@@ -312,19 +311,19 @@ const CategoryItem = styled.li`
       white-space: nowrap;
     }
   }
-  @media(min-width: 600px){
-    margin-right : 2px;
-    a{
+  @media (min-width: 600px) {
+    margin-right: 2px;
+    a {
       font-size: 12px !important;
     }
   }
-  @media(min-width: 768px){
-    a{
+  @media (min-width: 768px) {
+    a {
       font-size: 14px !important;
     }
   }
-  @media(min-width: 1200px){
-    a{
+  @media (min-width: 1200px) {
+    a {
       font-size: 20px !important;
     }
   }
@@ -358,7 +357,7 @@ const CategoryItems = styled.li`
 
     // when hover
   }
-  a:not([href]):not([class]){
+  a:not([href]):not([class]) {
     color: #101010;
   }
   a.active_modify {
@@ -398,19 +397,19 @@ const CategoryItems = styled.li`
       white-space: nowrap;
     }
   }
-  @media(min-width: 600px){
-    margin-right : 2px;
-    a{
+  @media (min-width: 600px) {
+    margin-right: 2px;
+    a {
       font-size: 12px !important;
     }
   }
-  @media(min-width: 768px){
-    a{
+  @media (min-width: 768px) {
+    a {
       font-size: 14px !important;
     }
   }
-  @media(min-width: 1200px){
-    a{
+  @media (min-width: 1200px) {
+    a {
       font-size: 20px !important;
     }
   }
@@ -455,12 +454,11 @@ const BannerProjects = () => {
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
-  const [filter, setFilter] = useState();
-  console.log(filter);
-  function setFilters (index) {
+  const [filter, setFilter] = useState()
+  console.log(filter)
+  function setFilters(index) {
     setFilter(index)
-  } 
-  
+  }
 
   return (
     <WraperBannerProjects>
@@ -478,45 +476,45 @@ const BannerProjects = () => {
         </H2>
         <div className="row">
           <ListCategory className="col-md-10" show={filter}>
-          <CategoryItems
-                  className="reset_filters_moblie"
-                  onClick={() => dispatch({ type: "RESET_FILTER" })}
-                >
-                  <Link className="active_modify">Filters</Link>
-                </CategoryItems>
+            <CategoryItems
+              className="reset_filters_moblie"
+              onClick={() => dispatch({ type: "RESET_FILTER" })}
+            >
+              <Link className="active_modify">Filters</Link>
+            </CategoryItems>
             {listCategories.map((item, index) => (
               <CategoryItem
                 key={index}
-                onClick={() =>
-                  {
-                    dispatch({
-                      type: "ADD_FILTER_ITEM",
-                      value: item.category_project_item._meta.uid,
-                    }) 
-                    setFilters(index)
-                  }
-                }
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_FILTER_ITEM",
+                    value: item.category_project_item._meta.uid,
+                  })
+                  setFilters(index)
+                }}
               >
                 <Link
-                   className={
+                  className={
                     [...state.listSelected].includes(
-                    item.category_project_item._meta.uid
-                    ) && "active" 
+                      item.category_project_item._meta.uid
+                    ) && "active"
                   }
                 >
                   {item.category_project_item.category_name[0]?.text}
                 </Link>
               </CategoryItem>
             ))}
-             <CategoryItem
-                  className={`${filter && filter !== 0 ? "reset_filters" : "not_reset_filters" }`}
-                  onClick={() =>{
-                    dispatch({ type: "RESET_FILTER" })
-                    setFilters(0)
-                  }}
-                >
-                  <Link className="active_modify">Reset Filters</Link>
-                </CategoryItem>
+            <CategoryItem
+              className={`${
+                filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+              }`}
+              onClick={() => {
+                dispatch({ type: "RESET_FILTER" })
+                setFilters(0)
+              }}
+            >
+              <Link className="active_modify">Reset Filters</Link>
+            </CategoryItem>
           </ListCategory>
         </div>
       </BannerProjectsContent>

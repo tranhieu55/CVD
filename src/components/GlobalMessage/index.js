@@ -1,6 +1,6 @@
 import { useStaticQuery } from "gatsby"
 import React, { useEffect } from "react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import styled from "styled-components"
 
 export default function GlobalMessage() {
@@ -33,43 +33,17 @@ export default function GlobalMessage() {
   const texts = dataGlobal.map(item => item.primary)
 
   const [show, setShow] = useState(true)
-  const [active, setActive] = useState(true)
-  console.log({ active })
-  const handleScroll = () => {
-    const _show = window.scrollY
-    if (_show > 0) {
-      setShow(false)
-    } else {
-      if (active === true) {
-        setShow(true)
-        console.log("chua click an di ")
-      } else {
-        console.log(" click an roi ")
-        setShow(false)
-      }
-    }
+  function showGlobal() {
+    setShow(!show)
   }
 
-  useEffect(() => {
-    !!window && window.addEventListener("scroll", handleScroll)
-    // window.addEventListener("click", () => handleOutsideClick());
-    return () => {
-      !!window && window.removeEventListener("scroll", handleScroll)
-      // window.removeEventListener("click", () => handleOutsideClick());
-    }
-  }, [])
-  console.log({ show, active })
   return (
-    <Container open={show} active={active}>
+    <Container open={show}>
       <Content>
         <Text lh={24}>{texts[0].message.map(item => item.text)}.</Text>
         <LI lh={24}>{texts[0].link_title.map(item => item.text)}</LI>
       </Content>
-      <Close
-        onClick={() => {
-          setShow(false)
-        }}
-      ></Close>
+      <Close onClick={() => showGlobal()}></Close>
     </Container>
   )
 }
@@ -84,12 +58,15 @@ const Container = styled.div`
     display: ${props => (props.open === true ? "flex" : "none")};
   }
   @media (min-width: 600px) {
+    width: 100%;
+    height: 48px;
+    background-color: #2a304f;
     display: ${props => (props.open === true ? "flex" : "none")};
   }
 `
 const Text = styled.span`
   color: #ffffff;
-  font-family: Calibre Medium;
+  font-family: "Calibre Medium";
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
