@@ -40,7 +40,7 @@ export default function GlobalMessage() {
   return (
     <Container open={show}>
       <Content>
-        <Text lh={24}>{texts[0].message.map(item => item.text)}.</Text>
+        <Text lh={24}>{texts[0].message.map(item => item.text)}. </Text>
         <LI lh={24}>{texts[0].link_title.map(item => item.text)}</LI>
       </Content>
       <Close onClick={() => showGlobal()}></Close>
@@ -72,6 +72,7 @@ const Text = styled.span`
   letter-spacing: 0;
   line-height: ${({ lh }) => `${lh}px`};
   margin-bottom: 0px;
+  margin-right: 4px;
 `
 const LI = styled.span`
   color: #ffffff;
@@ -90,6 +91,12 @@ const Content = styled.div`
   display: flex;
   margin: auto;
   width: 299px;
+  @media (max-width: 320px) {
+    display: unset;
+    margin: auto;
+    width: 250px;
+    text-align: center;
+  }
 `
 const Close = styled.div`
   @media (max-width: 600px) {
