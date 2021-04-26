@@ -116,12 +116,10 @@ const Image = styled.img`
 `
 const Shadow = styled.div`
   height: 100%;
-  width: 100%;
   opacity: 0.4;
   position: absolute;
   @media (max-width: 600px){
     height: 100%;
-    width: 100%;
     opacity: 0.4;
     position: absolute;
   }
