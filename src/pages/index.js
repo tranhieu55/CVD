@@ -17,7 +17,6 @@ const Index = ({ data: { prismic } }) => {
   return (
     <>
       {/* <GlobalMessage></GlobalMessage> */}
-      
       <Layout location="/">
         <SEO props={data} location="/" />
         <Container>
