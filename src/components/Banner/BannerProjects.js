@@ -101,7 +101,7 @@ const WraperBannerProjects = styled.div`
     height: 354px;
     h2 {
       font-size: 64px;
-      margin-bottom: 9px;
+      margin-bottom: 1px;
     }
     p {
       font-size: 16px;
@@ -118,9 +118,9 @@ const WraperBannerProjects = styled.div`
 
 const BannerProjectsContent = styled.div`
   padding-top: 10rem;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
   height: 100%;
-  
+
   p {
     font-family: "Calibre Semibold";
     height: 16px;
