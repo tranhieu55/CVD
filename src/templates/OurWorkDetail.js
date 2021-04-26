@@ -9,6 +9,7 @@ import SliceZone from "../utils/SliceZone"
 
 const Study = styled.div`
   width: 100%;
+
   @media (min-width: 1600px) {
     width: 100%
   }
