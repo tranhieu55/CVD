@@ -101,6 +101,9 @@ const Content = styled.p`
       a{
         color: #ffffff;
         border-bottom : 1px solid #ffffff;
+        :hover{
+          text-decoration: none;
+        }
       }
     }
 `

@@ -18,7 +18,7 @@ export default function Derection ({input}) {
             width: 328px;
         }
         @media(max-width: 320px){
-            margin: 528px 0px 72px 16px;
+            margin: 565px 0px 72px 16px;
             width: 288px;
         }
         @media(min-width: 600px){

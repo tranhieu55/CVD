@@ -35,7 +35,7 @@ export default function FormSumit({ input }) {
       right: 0px;
       margin: 0px auto;
       width: 288px;
-      top: 415px;
+      top: 435px;
       height: 718px;
     }
     @media (min-width: 600px) {
@@ -158,7 +158,7 @@ export default function FormSumit({ input }) {
             color: #B6B6B6;
             font-family: Calibre Semibold;
             font-size: 12px;
-            letter-spacing: 0;
+            letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
             transform: translate(24px, 12px) scale(1);
