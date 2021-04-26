@@ -202,7 +202,7 @@ const Input = styled.input`
     :active~label,
     :focus~label,
     :not(:placeholder-shown) ~ label{
-            color: #6E6E6E;
+            color: #B6B6B6;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -215,7 +215,10 @@ const Input = styled.input`
     }
     :focus{
         outline: none;
-        border: 2px solid #B6B6B6 ;
+        border: 1px solid #222222;
+    }
+    :not(:placeholder-shown){
+        border: 1px solid #222222;
     }
     @media(max-width: 320px){
         margin-bottom: 20px;
@@ -245,7 +248,7 @@ const Input = styled.input`
             text-transform: uppercase;
         }
         :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -257,6 +260,9 @@ const Input = styled.input`
             background: #ffffff;
             padding: 0px 5px;
             text-transform: uppercase;
+        }
+        :not(:placeholder-shown){
+            border: 1px solid #6E6E6E;
         }
     }
     @media(min-width: 768px){
@@ -306,9 +312,9 @@ const Textarea = styled.textarea`
     -moz-appearance: none;
     appearance: none;
     :active~label,
-        :focus~label,
+    :focus~label,
         :not(:placeholder-shown) ~ label{
-            color: #6E6E6E;
+            color: #B6B6B6;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -319,6 +325,16 @@ const Textarea = styled.textarea`
             left: 0;
             text-transform: uppercase;
         }
+    :focus-visible{
+        outline: none;
+       
+    }
+    :focus{
+        border: 1px solid #222222;
+    }
+    :not(:placeholder-shown){
+        border: 1px solid #222222;
+    }
     @media(max-width: 320px){
         margin-bottom: 20px;
         padding-top: 12px;
@@ -364,6 +380,9 @@ const Textarea = styled.textarea`
             background: #ffffff;
             padding: 0px 5px;
             text-transform: uppercase;
+        }
+        :not(:placeholder-shown){
+            border: 1px solid #6E6E6E;
         }
     }
     
