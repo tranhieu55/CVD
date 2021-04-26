@@ -262,7 +262,7 @@ const Input = styled.input`
             text-transform: uppercase;
         }
         :not(:placeholder-shown){
-            border: 1px solid #6E6E6E;
+            border: 2px solid #6E6E6E;
         }
     }
     @media(min-width: 768px){
@@ -382,7 +382,7 @@ const Textarea = styled.textarea`
             text-transform: uppercase;
         }
         :not(:placeholder-shown){
-            border: 1px solid #6E6E6E;
+            border: 2px solid #6E6E6E;
         }
     }
     
