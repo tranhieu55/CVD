@@ -92,10 +92,10 @@ const Content = styled.div`
   margin: auto;
   width: 299px;
   @media (max-width: 320px) {
-    display: unset;
+    flex-direction: column;
     margin: auto;
-    width: 250px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 `
 const Close = styled.div`
