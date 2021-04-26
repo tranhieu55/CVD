@@ -1,3 +1,4 @@
+import { RichText } from "prismic-reactjs"
 import React from "react"
 import styled from "styled-components"
 
@@ -6,7 +7,7 @@ export default function BannerContacts({ title, content, button, Phones }) {
     <Banner>
       <ContentBanner>
         <Title>{title}</Title>
-        <Content>{content}</Content>
+        <Content>{RichText.render(content)}</Content>
         <ButtonBanner>
           <Buttons>{button}</Buttons>
           <PhoneNumber>{Phones}</PhoneNumber>
@@ -96,6 +97,12 @@ const Content = styled.p`
   letter-spacing: 0;
   line-height: 26px;
   margin-top: 10px;
+    p{
+      a{
+        color: #ffffff;
+        border-bottom : 1px solid #ffffff;
+      }
+    }
 `
 const Buttons = styled.button`
   box-sizing: border-box;

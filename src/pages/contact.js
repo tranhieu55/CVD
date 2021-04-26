@@ -8,10 +8,10 @@ import Banner from "../components/Banner/BannerContact"
 export default function Contact({ data: { prismic } }) {
   const data = prismic.allContact_pages.edges[0].node
   const Title = data.page_title.map(item => item.text)
-  const ContentPage = data.page_content.map(item => item.text)
+  const ContentPage = data.page_content
   const Buttonss = data.button_link_label.map(item => item.text)
   const PhonesNumber = data.phone_number.map(item => item.text)
-
+  console.log({data})
   return (
     <Layout location="/contact">
       <Banner
