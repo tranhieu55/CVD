@@ -92,6 +92,7 @@ const TiTle = styled.h1`
       text-align : center;
       height: 32px;
       margin-bottom: 21px;
+      line-height: 32px;
   }
 `
 const Container = styled.div`
@@ -116,14 +117,14 @@ const ButtonClose = styled.span`
     font-family: "Font Awesome 5 Pro Regular";
     height: 20px;
     width: 19px;
-    font-size: 20px;
+    font-size: 31px;
     font-weight: 300;
     letter-spacing: 0;
     line-height: 24px;
     text-align: right;
     color: #333333;
     margin-left: 24px;
-    opacity: 0.6;
+    opacity: 1;
   }
   @media (max-width: 320px) {
     top: 16px;
@@ -201,15 +202,16 @@ const Input = styled.input`
     :active~label,
     :focus~label,
     :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, 12px) scale(1);
+            transform: translate(26px, 12px) scale(1);
             top: 0;
             left: 0;
+            text-transform: uppercase;
     }
     :focus{
         outline: none;
@@ -226,20 +228,21 @@ const Input = styled.input`
         padding-left: 16px;
         :focus{
             outline: none;
-            border: 2px solid #B6B6B6 ;
+            border: 2px solid #6E6E6E ;
         }
         :focus~label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
-            letter-spacing: 0;
+            letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(16px, -9px) scale(1);
+            transform: translate(12px, -9px) scale(1);
             top: 0px;
             left: 0px;
             background: #ffffff;
             padding: 0px 5px;
+            text-transform: uppercase;
         }
         :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
@@ -248,11 +251,12 @@ const Input = styled.input`
             letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(14px, -9px) scale(1);
+            transform: translate(12px, -9px) scale(1);
             top: 0px;
             left: 0px;
             background: #ffffff;
             padding: 0px 5px;
+            text-transform: uppercase;
         }
     }
     @media(min-width: 768px){
@@ -261,19 +265,23 @@ const Input = styled.input`
         :not(:placeholder-shown) ~ label{
             left: 1px;
             transform: translate(24px, 6px) scale(1);
+            text-transform: uppercase;
         }
         :focus~label{
             transform: translate(24px, 6px) scale(1);
+            text-transform: uppercase;
         }
     }
     @media(min-width: 768px){
         height: 64px;
         :focus~label{
             transform: translate(24px, 12px) scale(1);
+            text-transform: uppercase;
         }
         :not(:placeholder-shown) ~ label{
             left: 1px;
             transform: translate(24px, 12px) scale(1);
+            text-transform: uppercase;
         }
     }
 `
@@ -300,56 +308,63 @@ const Textarea = styled.textarea`
     :active~label,
         :focus~label,
         :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(24px, 12px) scale(1);
+            transform: translate(26px, 12px) scale(1);
             top: 0;
             left: 0;
+            text-transform: uppercase;
         }
     @media(max-width: 320px){
         margin-bottom: 20px;
+        padding-top: 12px;
     }
+    @media(max-width: 768px){
+        height: 138px;
+    }
+    
     @media(max-width: 600px){
         border: 1px solid #6E6E6E;
         margin-bottom: 12px;
         padding-left: 16px;
+        padding-top: 12px;
+        height: 158px;
         :focus{
             outline: none;
-            border: 2px solid #B6B6B6 ;
+            border: 2px solid #6E6E6E ;
         }
         :focus~label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 0;
             line-height: 24px;
             position: absolute;
-            transform: translate(16px, -9px) scale(1);
+            transform: translate(15px, -9px) scale(1);
             top: 0;
             left: 0px;
             background: #ffffff;
             padding: 0px 5px;
+            text-transform: uppercase;
         }
         :not(:placeholder-shown) ~ label{
-            color: #B6B6B6;
+            color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
-            transform: translate(14px, -9px) scale(1);
+            transform: translate(12px, -9px) scale(1);
             top: 0px;
             left: 0px;
             background: #ffffff;
             padding: 0px 5px;
+            text-transform: uppercase;
         }
-    }
-    @media(max-width: 768px){
-        height: 138px;
     }
     
 `
@@ -371,9 +386,13 @@ const Submit = styled.button`
   border-width: 0px;
   @media(max-width: 600px){
       width: 100%;
+      height: 48px;
+      padding: 18px 0px;
   }
   @media(min-width: 600px){
       width: 180px;
+      height: 64px;
+      padding: 25px 0px;
   }
 `
 const Content = styled.div`
@@ -393,7 +412,11 @@ const Modal = styled.div`
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
     position: relative;
     margin: auto;
+    
     @media(max-width: 768px){
         height:  780px;
+    }
+    @media(max-width: 600px){
+        height: 667px;
     }
 `

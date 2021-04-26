@@ -233,6 +233,12 @@ const SliceZone = props => {
               <FormSumits key={index} input={s} />
             </>
           )
+        // case "global_messing_bar":
+        //   return (
+        //     <>
+        //       <GlobalMessage key={index} input={s} />
+        //     </>
+        //   )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo
