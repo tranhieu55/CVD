@@ -94,6 +94,9 @@ const TiTle = styled.h1`
       margin-bottom: 21px;
       line-height: 32px;
   }
+  @media(max-width: 320px){
+    margin-bottom: 8px;
+  }
 `
 const Container = styled.div`
   height: 100%;
@@ -126,10 +129,7 @@ const ButtonClose = styled.span`
     margin-left: 24px;
     opacity: 1;
   }
-  @media (max-width: 320px) {
-    top: 16px;
-    right: 16px;
-  }
+  
   @media(max-width: 600px){
       top: 26px;
       right: 26px;
@@ -145,6 +145,10 @@ const ButtonClose = styled.span`
         margin-left: 24px;
         opacity: 1;
       }
+  }
+  @media (max-width: 320px) {
+    top: 16px;
+    right: 16px;
   }
 `
 const Inputs = styled.div`
@@ -215,10 +219,10 @@ const Input = styled.input`
     }
     :focus{
         outline: none;
-        border: 1px solid #222222;
+        border: 2px solid #222222;
     }
     :not(:placeholder-shown){
-        border: 1px solid #222222;
+        border: 2px solid #222222;
     }
     @media(max-width: 320px){
         margin-bottom: 20px;
@@ -330,10 +334,10 @@ const Textarea = styled.textarea`
        
     }
     :focus{
-        border: 1px solid #222222;
+        border: 2px solid #222222;
     }
     :not(:placeholder-shown){
-        border: 1px solid #222222;
+        border: 2px solid #222222;
     }
     @media(max-width: 320px){
         margin-bottom: 20px;
@@ -357,7 +361,7 @@ const Textarea = styled.textarea`
             color: #6E6E6E;
             font-family: Calibre Semibold;
             font-size: 14px;
-            letter-spacing: 0;
+            letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
             transform: translate(15px, -9px) scale(1);
