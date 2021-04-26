@@ -1586,6 +1586,7 @@ export const query = graphql`
                   social_icon_item
                 }
               }
+              
             }
             website_logo
           }

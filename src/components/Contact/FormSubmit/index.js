@@ -98,13 +98,14 @@ export default function FormSumit({ input }) {
         :not(:placeholder-shown) ~ label{
             color: #B6B6B6;
             font-family: Calibre Semibold;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 1px;
             line-height: 24px;
             position: absolute;
             transform: translate(24px, 12px) scale(1);
             top: 0;
             left: 1px;
+            text-transform: uppercase;
         }
         @media(max-width: 600px){
             margin-bottom: 16px;
@@ -145,7 +146,7 @@ export default function FormSumit({ input }) {
         padding-top: 24px;
         padding-left: 24px;
         box-shadow: none;
-        padding-top: 15px;
+        padding-top: 25px;
         position: relative;
         -webkit-tap-highlight-color: transparent;
         -webkit-appearance: none;
@@ -163,6 +164,7 @@ export default function FormSumit({ input }) {
             transform: translate(24px, 12px) scale(1);
             top: 0;
             left: 1px;
+            text-transform: uppercase;
         }
         :focus{
           outline: none;
@@ -180,7 +182,7 @@ export default function FormSumit({ input }) {
         border-color: #FECF09;
         color: #101010;
         font-family: Calibre Semibold;
-        font-size: 14px;
+        font-size: 20px;
         letter-spacing: 0;
         line-height: 18px;
         text-align: center;
