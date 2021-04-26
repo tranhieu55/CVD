@@ -52,7 +52,7 @@ const Container = styled.div`
         overflow-y: hidden;
     }
     @media(max-width: 320px){
-        margin : 0 auto;
+        margin : 0 auto 28px;
         height: 432px;
         width: 100%;
         overflow-x: auto;
@@ -68,7 +68,7 @@ const Container = styled.div`
         width: 785px;
         margin : 0 auto 32px;
         height: 400px;
-        overflow-x: hidden;
+        overflow: hidden;
     }
     @media(min-width: 1024px){
         width: 885px;
@@ -100,6 +100,10 @@ const Img = styled.img`
     @media(min-width: 600px){
         width: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : "80%"};
         margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "22px 18px"};
+    }
+    @media(min-width: 992px){
+        width: ${props => props.alt !== "image item 1" && props.alt !== "item image" ? '100%' : "80%"};
+        margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "2px 18px"};
     }
     @media(min-width: 1024px){
         margin: ${props => props.alt !== "image item 1" && props.alt !== "item image"? '0px' : "17px 28px"};
