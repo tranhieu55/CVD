@@ -6,28 +6,39 @@ import styled from 'styled-components';
 
 export default function ThreeColum (props) {
     return (
-        <Container>
-            <DivImg show={props.input.primary.image_side_left.alt}>
-                <Img
-                    alt={props.input.primary.image_side_left.alt}
-                    src={props.input.primary.image_side_left.url}
-                ></Img>
-            </DivImg>
-            <DivImg show={props.input.primary.image_side_left.alt}>
-                <Img
-                    alt={props.input.primary.image_center.alt}
-                    src={props.input.primary.image_center.url}
-                ></Img>
-            </DivImg>
-            <DivImg show={props.input.primary.image_side_left.alt}> 
-                <Img
-                    alt={props.input.primary.image_side_right.alt}
-                    src={props.input.primary.image_side_right.url}
-                ></Img>
-            </DivImg>
-        </Container>
+        <Box>
+            <Container>
+                <DivImg show={props.input.primary.image_side_left.alt}>
+                    <Img
+                        alt={props.input.primary.image_side_left.alt}
+                        src={props.input.primary.image_side_left.url}
+                    ></Img>
+                </DivImg>
+                <DivImg show={props.input.primary.image_side_left.alt}>
+                    <Img
+                        alt={props.input.primary.image_center.alt}
+                        src={props.input.primary.image_center.url}
+                    ></Img>
+                </DivImg>
+                <DivImg show={props.input.primary.image_side_left.alt}> 
+                    <Img
+                        alt={props.input.primary.image_side_right.alt}
+                        src={props.input.primary.image_side_right.url}
+                    ></Img>
+                </DivImg>
+            </Container>
+        </Box>
     )
 }
+
+const Box = styled.div`
+    @media(max-width: 600px){
+        margin: 0px 16px 28px;
+    }
+    @media(min-width: 600px){
+        margin: 0px;
+    }
+`
 
 const Container = styled.div`
     width : 1240px;
@@ -36,28 +47,25 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     @media(max-width: 600px){
-        margin : 0px auto 28px;
         height: 432px;
-        width: 100%;
+        width: 343px;
         overflow-x: auto;
-        margin-left: 16px;
         overflow-y: hidden;
+        margin-bottom: 28px;
     }
     @media(max-width: 480px){
-        margin : 0px auto 28px;
         height: 432px;
         width: 100%;
         overflow-x: auto;
-        margin-left: 16px;
         overflow-y: hidden;
+        margin-bottom: 28px;
     }
     @media(max-width: 320px){
-        margin : 0 auto 28px;
         height: 432px;
         width: 100%;
         overflow-x: auto;
-        margin-left: 16px;
         overflow-y: hidden;
+        margin-bottom: 28px;
     }
     @media(min-width: 600px){
         width: 585px;
