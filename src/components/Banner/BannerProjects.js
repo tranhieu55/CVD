@@ -118,8 +118,9 @@ const WraperBannerProjects = styled.div`
 
 const BannerProjectsContent = styled.div`
   padding-top: 10rem;
-  padding-bottom: 40px;
+  padding-bottom: 48px;
   height: 100%;
+  
   p {
     font-family: "Calibre Semibold";
     height: 16px;
