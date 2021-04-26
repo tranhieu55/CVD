@@ -32,7 +32,7 @@ function OurWorkProjects(props) {
       </Rows>
       <MyBtn>
           <ButtonCustom
-            wt="212"
+            wt="178"
             ht="48"
             fz="16"
             lineh="48"

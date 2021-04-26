@@ -112,6 +112,7 @@ const Span = styled.span`
   @media only screen and (max-width: 600px) {
     font-size: 14px;
     line-height: 6px;
+    margin-bottom: 0px;
   }
 `
 const H3 = styled.h3`
@@ -119,7 +120,6 @@ const H3 = styled.h3`
   font-size: 48px;
   font-family: "Calibre Bold";
   font-weight: bold;
-  height: 32px;
   margin: 0;
   padding: 0;
   line-height: 32px;
@@ -127,9 +127,12 @@ const H3 = styled.h3`
 
   @media only screen and (max-width: 600px) {
     font-size: 24px;
+    margin-top: 0px; 
   }
   /* @media only screen and (min-width: 600px) {
     font-size: 30px;
+    height: 32px;
+    margin-top: 10px; 
   }
   @media only screen and (min-width: 768px) {
     font-size: 30px;
