@@ -1,6 +1,6 @@
 import { useStaticQuery } from 'gatsby';
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 export default function GlobalMessage () {
@@ -34,7 +34,7 @@ export default function GlobalMessage () {
     function showGlobal () {
         setShow(!show);
     }
-
+    
    
     return(
         <Container open = {show}>
