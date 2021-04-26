@@ -73,7 +73,9 @@ const WrapperHeader = styled.div`
     height: 21px;
     border: 0px;
     margin-left: 4px;
-    margin-right: ${({ show }) => (show > 0 ? "14px" : "16px")};
+    margin-right: ${({ show }) => {
+      return show > 0 || show === false ? "14px" : "16px"
+    }};
     border-radius: 0px;
     span {
       width: 20px;
