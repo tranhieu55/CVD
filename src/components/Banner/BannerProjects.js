@@ -153,6 +153,7 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 768px) {
+    max-width: 680px;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -161,9 +162,8 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 992px) {
-    .container {
-      max-width: 890px;
-    }
+    max-width: 890px;
+    margin-left: 85px;
   }
   @media (min-width: 1024px) {
     p {
@@ -175,6 +175,7 @@ const BannerProjectsContent = styled.div`
   }
   @media (min-width: 1200px) {
     padding-left: 89px;
+    max-width: 1024px;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -183,7 +184,7 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 1440px) {
-    padding-left: 0px;
+    margin-left: 180px;
   }
 `
 
