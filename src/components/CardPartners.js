@@ -26,6 +26,12 @@ const Wrapper = styled.div`
       padding-left: 16px;
     }
   }
+  @media (min-width: 600px) {
+    .box-list-logo {
+      margin-top: 32px;
+      margin-bottom: 40px;
+    }
+  }
   @media (min-width: 1200px) {
     .item-image {
       width: 244px;
