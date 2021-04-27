@@ -229,6 +229,10 @@ const ListCategory = styled.ul`
     padding: 0px 15px;
     width: ${props => (props.show && props.show !== 0 ? "995px" : "845px")};
   }
+  @media (max-width: 991px) {
+    display: -webkit-inline-box;
+    overflow-x: scroll;
+  }
 `
 const CategoryItem = styled.li`
   cursor: pointer;
@@ -259,7 +263,7 @@ const CategoryItem = styled.li`
 
     // when hover
     :hover {
-      border-bottom: 1px solid #222222;
+      border-bottom: 2px solid #222222;
     }
   }
   a:not([href]):not([class]) {
@@ -269,7 +273,7 @@ const CategoryItem = styled.li`
     color: #222222 !important;
     opacity: 1;
     margin-right: 8px;
-    border-bottom: 1px solid #222222;
+    border-bottom: 2px solid #222222;
     :after {
       content: unset;
     }
@@ -279,7 +283,7 @@ const CategoryItem = styled.li`
   a.active {
     color: #222222 !important;
     opacity: 1;
-    border-bottom: 1px solid #222222;
+    border-bottom: 2px solid #222222;
     &::after {
       position: absolute;
       bottom: -2.2px;

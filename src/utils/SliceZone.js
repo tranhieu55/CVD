@@ -34,6 +34,7 @@ import FormSumits from "../components/Contact/FormSubmit/index"
 import Derection from "../components/Contact/Derection/index"
 import OurWorkProjects from "../components/OurWorkProjects/index"
 import CardPartners from "../components/CardPartners"
+import CardPageBlog from "../components/CardPageBlog"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -232,12 +233,13 @@ const SliceZone = props => {
               <FormSumits key={index} input={s} />
             </>
           )
-        // case "global_messing_bar":
-        //   return (
-        //     <>
-        //       <GlobalMessage key={index} input={s} />
-        //     </>
-        //   )
+        // list_post
+        case "list_post":
+          return (
+            <>
+              <CardPageBlog key={index} input={s} />
+            </>
+          )
         case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
           return (
             <Cardwhatwedo
