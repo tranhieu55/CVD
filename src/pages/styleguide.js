@@ -122,7 +122,6 @@ const SpanContent = styled.div`
     text-decoration-line: underline !important;
   }
 `
-const Moblie = styled.div``
 const BoxMoblie = styled.div`
   margin-bottom: 95px;
 `

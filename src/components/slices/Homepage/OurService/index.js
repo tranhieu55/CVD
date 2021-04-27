@@ -1,11 +1,9 @@
-import React, { querySelector, querySelectorAll, useState} from "react"
+import React from "react"
 import styled from "styled-components"
-import { graphql, Link, useStaticQuery } from "gatsby"
-
-
+import { graphql, useStaticQuery } from "gatsby"
 
 const OurServices = ({ input }) => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query queryOurServices {
       prismic {
         allOur_services_home_pages {
@@ -29,25 +27,28 @@ const OurServices = ({ input }) => {
         }
       }
     }
-    `
-    )
-   const datas = data.prismic.allOur_services_home_pages.edges[0].node.body
-   console.log(datas)
+  `)
+  const datas = data.prismic.allOur_services_home_pages.edges[0].node.body
+  console.log(datas)
   return (
     <Container>
-        <Title>Our services</Title>
-        <Content>
-          <CardItem >
-              {datas.map((item, index) => (
-                  <Cards key={index} >
-                      <SubTitle>{item.primary.title_service_item.map(item => item.text)}</SubTitle>
-                      {item.fields.map((item, index)=>(
-                          <SubText key={index}>{item.service_sub_title.map(item => item.text)}</SubText>
-                      ))}
-                  </Cards>
+      <Title>Our services</Title>
+      <Content>
+        <CardItem>
+          {datas.map((item, index) => (
+            <Cards key={index}>
+              <SubTitle>
+                {item.primary.title_service_item.map(item => item.text)}
+              </SubTitle>
+              {item.fields.map((item, index) => (
+                <SubText key={index}>
+                  {item.service_sub_title.map(item => item.text)}
+                </SubText>
               ))}
-          </CardItem>
-        </Content>
+            </Cards>
+          ))}
+        </CardItem>
+      </Content>
     </Container>
     // <><h1>abc</h1></>
   )
@@ -55,32 +56,30 @@ const OurServices = ({ input }) => {
 
 export default OurServices
 
-
 const Container = styled.div`
+  height: 515px;
+  position: relative;
+  margin-top: 96px;
+  border-top: 1px solid #e4e4e4;
+  @media (max-width: 600px) {
+    display: none;
+  }
+  @media (min-width: 601px) {
+    height: 820px;
+    margin: 96px 32px 50px;
+  }
+  @media (min-width: 1024px) {
+    height: 730px;
+    margin: 96px 32px 0px;
+  }
+  @media (min-width: 1366px) {
+    height: 660px;
+    margin: 96px 0px 88px;
+  }
+  @media (min-width: 1600px) {
     height: 515px;
-    position: relative;
-    margin-top: 96px;
-    border-top: 1px solid #E4E4E4;
-    @media(max-width: 600px){
-      display: none;
-    }
-    @media(min-width: 601px){
-      height: 820px;
-      margin: 96px 32px 50px ;
-
-    }
-    @media(min-width: 1024px){
-      height: 730px;
-      margin: 96px 32px 0px ;
-    }
-    @media(min-width: 1366px){
-      height: 660px;
-      margin: 96px 0px 88px;
-    }
-    @media(min-width: 1600px){
-      height: 515px;
-      margin: 96px 0px 88px;
-    }
+    margin: 96px 0px 88px;
+  }
 `
 
 const Title = styled.h1`
@@ -94,21 +93,21 @@ const Title = styled.h1`
   max-width: 1240px;
   margin: 0 auto;
   margin-top: 88px;
-`   
+`
 const Cards = styled.div`
   height: 136px;
   width: 30%;
   margin-right: 32px;
-  @media(min-width: 600px){
+  @media (min-width: 600px) {
     width: 44%;
     height: 155px;
     margin-bottom: 16px;
   }
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 30%;
     height: 160px;
   }
-  @media(min-width: 1600px){
+  @media (min-width: 1600px) {
     height: 136px;
     width: 22%;
   }

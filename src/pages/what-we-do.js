@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Interested from "../components/Interested"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 

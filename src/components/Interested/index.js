@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import P from "../../components/bits/Typography"
-import { Button, ModalDialog } from "react-bootstrap"
 import ButtonCustom from "../ButtonCustom"
 import { theme } from "../../utils/theme"
 import Modal from "../ModalContact/index"
@@ -147,7 +146,6 @@ const BoxInterested = styled.div`
     padding-bottom: 108px;
   }
 `
-const Span = styled.span``
 const BoxBtn = styled.div``
 const H2 = styled.h2``
 export default function Interested({ dataFooter }) {

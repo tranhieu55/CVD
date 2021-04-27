@@ -3,15 +3,11 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
-import { Link } from "gatsby"
-import Instagrams from "../components/slices/Homepage/Instargram"
 import OurServices from "../components/slices/Homepage/OurService"
-import TwoColums from "../components/ColumCaseStudy/TwoColumA"
 import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
-  const title = data.page_title[0].text
   const background_image = data.background_image.url
   console.log(data.body)
   return (
@@ -147,15 +143,15 @@ const ButtonBanner = styled.button`
     outline: none;
   }
   @media (max-width: 600px) {
-    margin-right: ${props => (props.vitri == 0 ? "16px" : "0px")};
-    width: ${props => (props.vitri == 1 ? "156px" : "148px")};
+    margin-right: ${props => (props.vitri === 0 ? "16px" : "0px")};
+    width: ${props => (props.vitri === 1 ? "156px" : "148px")};
   }
   @media (max-width: 360px) {
-    margin-right: ${props => (props.vitri == 0 ? "12px" : "0px")};
-    width: ${props => (props.vitri == 1 ? "130px" : "130px")};
+    margin-right: ${props => (props.vitri === 0 ? "12px" : "0px")};
+    width: ${props => (props.vitri === 1 ? "130px" : "130px")};
   }
   @media (min-width: 600px) {
-    width: ${props => (props.vitri == 1 ? "216px" : "200px")};
+    width: ${props => (props.vitri === 1 ? "216px" : "200px")};
     padding: 5px 6px 0px;
   }
   @media (min-width: 1366px) {

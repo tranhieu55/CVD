@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import IconIphone from "../../../../images/phone-black@2x.png"
-import IconRight from "../../../../images/phone-black@2x.png"
 
 const Wrapper = styled.button`
   background-color: transparent;
@@ -51,7 +50,7 @@ export default function ButtonStyled(props) {
   } = props
   return (
     <>
-      {room == 1 ? (
+      {room === 1 ? (
         <BgrButton
           width={width}
           background={background}
@@ -59,7 +58,7 @@ export default function ButtonStyled(props) {
           fontSize={fontSize}
         >
           <Wrapper name={name} color={color} icon={icon} border={border}>
-            {icon == 1 ? <img src={IconIphone} /> : ""} {name}
+            {icon === 1 ? <img src={IconIphone} /> : ""} {name}
           </Wrapper>
         </BgrButton>
       ) : (
@@ -72,7 +71,7 @@ export default function ButtonStyled(props) {
           icon={icon}
           border={border}
         >
-          {icon == 1 ? <img src={IconIphone} /> : ""} {name}
+          {icon === 1 ? <img src={IconIphone} /> : ""} {name}
         </Wrapper>
       )}
     </>

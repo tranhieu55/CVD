@@ -1,9 +1,8 @@
-import { RichText } from 'prismic-reactjs'
-import React from 'react'
+import React from "react"
 import styled from "styled-components"
-import H2 from '../bits/H2'
-import P from '../bits/Typography'
-import IMG from '../Image'
+import H2 from "../bits/H2"
+import P from "../bits/Typography"
+import IMG from "../Image"
 
 export default function Cardwhatwedo(props) {
   return (
@@ -12,9 +11,17 @@ export default function Cardwhatwedo(props) {
         <IphoneX>
           {
             <BoxStudy
-              className={` ${props.input.primary.location_image === 'Left' ? "" : "cl-order"} ${props.input.primary.location_image === 'Right' ? "box-study-5" : "box-study"
-                }
-                ${props.input.primary.location_content === 'Right' ? "box-study-5" : "box-study"
+              className={` ${
+                props.input.primary.location_image === "Left" ? "" : "cl-order"
+              } ${
+                props.input.primary.location_image === "Right"
+                  ? "box-study-5"
+                  : "box-study"
+              }
+                ${
+                  props.input.primary.location_content === "Right"
+                    ? "box-study-5"
+                    : "box-study"
                 }
                 `}
               data-sal="zoom-in"
@@ -35,7 +42,7 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {props.index +1}/{props.input.total}
+                    {props.index + 1}/{props.input.total}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2
@@ -69,8 +76,8 @@ export default function Cardwhatwedo(props) {
   )
 }
 const Container = styled.div`
-    margin-bottom: 115px;
-    max-width: 1240px !important;
+  margin-bottom: 115px;
+  max-width: 1240px !important;
   @media only screen and (max-width: 600px) {
     margin-bottom: 25px;
   }
@@ -81,20 +88,18 @@ const Container = styled.div`
     margin-bottom: 40px;
   }
   @media only screen and (min-width: 992px) {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
   }
   @media only screen and (min-width: 1200px) {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
   }
 `
 const IphoneX = styled.div`
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
-  env(safe-area-inset-bottom) env(safe-area-inset-left);  
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 `
-const BoxStudy = styled.div`
-`
-const BoxImage = styled.div`
-`
+const BoxStudy = styled.div``
+const BoxImage = styled.div``
 const BoxContentStudy = styled.div`
   width: 446px;
   @media only screen and (max-width: 600px) {
@@ -103,32 +108,32 @@ const BoxContentStudy = styled.div`
   }
 `
 const BoxTagStudy = styled.div`
-    display: flex;
-    align-items: center;
-    color: #999999;
-    font-size: 14px;
-    height: 16px;
-    @media only screen and (max-width: 600px) {
-      margin-bottom: 10px;
-    }
-    @media only screen and (min-width: 1366px) {
-      margin-bottom: 12px;
-    }
+  display: flex;
+  align-items: center;
+  color: #999999;
+  font-size: 14px;
+  height: 16px;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 10px;
+  }
+  @media only screen and (min-width: 1366px) {
+    margin-bottom: 12px;
+  }
 `
 const SpanBorderStudy = styled.span`
-    width: 64px;
-    height: 2px;
-    background-color: gold;
-    margin-right: 16px;
-    margin-bottom: 4px;
+  width: 64px;
+  height: 2px;
+  background-color: gold;
+  margin-right: 16px;
+  margin-bottom: 4px;
 `
 const SpanTextStudy = styled.span`
-    font-family: "Calibre Semibold";
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 1px;
-    color: #999999;
-    letter-spacing: 1px;
+  font-family: "Calibre Semibold";
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1px;
+  color: #999999;
+  letter-spacing: 1px;
 `
 const BoxIconStudy = styled.div`
   font-size: 20px;
@@ -154,7 +159,7 @@ const BoxIconStudy = styled.div`
     font-size: 16px;
   }
   @media only screen and (min-width: 992px) {
-      font-size: 20px;
+    font-size: 20px;
   }
 `
 const SpanStudy = styled.span``
@@ -176,7 +181,7 @@ const Study = styled.div`
   .cl-order {
     flex-direction: row-reverse;
   }
-  
+
   .icon-leadmore span {
     color: #101010;
     line-height: 2px;
@@ -187,7 +192,7 @@ const Study = styled.div`
     transform: translateX(15px);
     animation: mymove 0.8s infinite;
   }
-  
+
   .box-img:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
       rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -206,7 +211,6 @@ const Study = styled.div`
   .cl80 {
     width: 80px;
   }
-  
 
   @keyframes mymove {
     0% {
@@ -345,7 +349,6 @@ const Study = styled.div`
     width: 540px;
     height: 540px;
   }
-  
 
   span.learn-more-title {
     display: flex;

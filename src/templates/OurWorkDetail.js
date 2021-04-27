@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
-import Interested from "../components/Interested"
 import Layout from "../components/Layout"
 import SEO from "../components/utilities/SEO"
 import Other from "../components/OurWoorkDetails/Other"
@@ -11,11 +10,11 @@ const Study = styled.div`
   width: 100%;
 
   @media (min-width: 1600px) {
-    width: 100%
+    width: 100%;
   }
 
   @media (min-width: 1800px) {
-    width: 100%
+    width: 100%;
   }
 `
 export const query = graphql`
@@ -32,7 +31,7 @@ export const query = graphql`
             _meta {
               uid
             }
-            body{
+            body {
               ... on PRISMIC_ProjectsBodyTwo_columns_a {
                 type
                 label
@@ -220,8 +219,7 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
 
   const data = props.data.prismic.projects
-  console.log("bbbbbbbbbbbbb" , data);
-
+  console.log("bbbbbbbbbbbbb", data)
 
   return (
     <Layout
