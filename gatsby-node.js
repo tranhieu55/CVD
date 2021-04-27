@@ -3,6 +3,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const OurWorkDetail = path.resolve("./src/templates/OurWorkDetail.js")
   const OurWorkItems = path.resolve("./src/templates/OurWorkItems.js")
+  const BlogDetails = path.resolve("./src/templates/BlogDetails.js")
   const res = await graphql(`
     query IndexQuery {
       prismic {
@@ -25,10 +26,20 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allPosts {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+            }
+          }
+        }
       }
     }
   `)
-
+   
+  console.log('data : ', res);
   res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkDetail,
@@ -46,6 +57,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
       context: {
         // slug: edge.node.relationship_to_categoryourwork._meta.uid,
         slug: edge.node.name_category_of_project,
+        dataLayout: edge,
+      },
+    })
+  })
+  res.data.prismic.allPosts.edges.forEach(edge => {
+    createPage({
+      component: BlogDetails,
+      path: `/blog/${edge.node._meta.uid}`,
+      context: {
+        slug: edge.node._meta.uid,
         dataLayout: edge,
       },
     })
