@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import IMG from "../../../Image"
 
 const ProjectTiles = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -42,44 +41,46 @@ const ProjectTiles = ({ input }) => {
     }
   `)
   const [limit, setLimit] = useState(4)
-  const [orinal , setOrinal] = useState(0);
-  function setMap () {
-   if(limit > data.prismic.allHomepages.edges[0].node.body[5].fields.length){
-     setLimit(4);
-     setOrinal(0);
-   }else{
-     setOrinal(orinal + 4);
-     setLimit(limit + 4);
-   }
+  const [orinal, setOrinal] = useState(0)
+  function setMap() {
+    if (limit > data.prismic.allHomepages.edges[0].node.body[5].fields.length) {
+      setLimit(4)
+      setOrinal(0)
+    } else {
+      setOrinal(orinal + 4)
+      setLimit(limit + 4)
+    }
   }
-  
+
   return (
-    <ListBlogStyle >
+    <ListBlogStyle>
       <Rows className="row">
-        {data.prismic.allHomepages.edges[0].node.body[5].fields.slice(orinal, limit).map((edge, index) => (
-          <Colum
-            className={`${
-              data.prismic.allHomepages.edges.length === 3
-                ? "col-md-4"
-                : "col-md-6"
-            }`}
-            key={index}
-          >
-            <DivIMG
-              as={Link}
-              to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
+        {data.prismic.allHomepages.edges[0].node.body[5].fields
+          .slice(orinal, limit)
+          .map((edge, index) => (
+            <Colum
+              className={`${
+                data.prismic.allHomepages.edges.length === 3
+                  ? "col-md-4"
+                  : "col-md-6"
+              }`}
+              key={index}
             >
-              <Img
-                alt={edge.project_item.project_header_image.alt }
-                src={edge.project_item.project_header_image.url}
-              />
-            </DivIMG>
-            <TitleImageBlog>
-              <Span>{edge.project_item.name_category_of_project}</Span>
-              <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
-            </TitleImageBlog>
-          </Colum>
-        ))}
+              <DivIMG
+                as={Link}
+                to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
+              >
+                <Img
+                  alt={edge.project_item.project_header_image.alt}
+                  src={edge.project_item.project_header_image.url}
+                />
+              </DivIMG>
+              <TitleImageBlog>
+                <Span>{edge.project_item.name_category_of_project}</Span>
+                <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
+              </TitleImageBlog>
+            </Colum>
+          ))}
         <MyBtn>
           <ButtonCustom
             wt="212"
@@ -87,8 +88,8 @@ const ProjectTiles = ({ input }) => {
             fz="18"
             lineh="48"
             className="btn-studies"
-            id='loadMore'
-            onClick={(orinal, limit ) => setMap(orinal, limit)}
+            id="loadMore"
+            onClick={(orinal, limit) => setMap(orinal, limit)}
           >
             Load more case studies
           </ButtonCustom>
@@ -99,7 +100,6 @@ const ProjectTiles = ({ input }) => {
 }
 
 export default ProjectTiles
-
 
 const ListBlogStyle = styled.div`
   margin-top: -71px;
@@ -119,10 +119,10 @@ const ListBlogStyle = styled.div`
     color: #101010;
   }
   .btn-studies:hover {
-    background-color: #FECF09;
+    background-color: #fecf09;
     color: white;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     height: 1076px;
     margin: -11px 16px 0px;
   }
@@ -139,7 +139,7 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: #FECF09;
+    background-color: #fecf09;
     height: 6px;
     transition: all 0.4s ease-in;
   }
@@ -148,19 +148,19 @@ const DivIMG = styled.div`
       width: 100%;
     }
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 100%;
     height: 100%;
   }
 `
 const Rows = styled.div`
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     margin-left: 0px;
     margin-right: 0px;
   }
 `
 const Colum = styled.div`
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     height: 245px;
     padding-left: 0px;
     padding-right: 0px;
@@ -198,13 +198,13 @@ const TitleImageBlog = styled.div`
 `
 const Span = styled.span`
   font-weight: bold;
-  color: #FECF09;
-  font-family: 'Calibre Semibold';
+  color: #fecf09;
+  font-family: "Calibre Semibold";
   font-weight: 600;
   font-size: 18px;
-  @media(max-width: 600px){
-    color: #FECF09;
-    font-family: 'Calibre Semibold';
+  @media (max-width: 600px) {
+    color: #fecf09;
+    font-family: "Calibre Semibold";
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0;
@@ -220,7 +220,7 @@ const H3 = styled.h3`
   line-height: 0.9;
   font-family: Calibre Bold;
   @media only screen and (max-width: 600px) {
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: Calibre;
     font-size: 24px;
     font-weight: bold;
@@ -239,13 +239,13 @@ const H3 = styled.h3`
   @media only screen and (min-width: 1200px) {
     font-size: 36px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     font-size: 48px;
   }
 `
 const MyBtn = styled.div`
   margin: 40px auto;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     margin: 16px 0px;
     height: 48px;
     width: 100%;
@@ -255,7 +255,8 @@ const ButtonCustom = styled.button`
   font-family: "Calibre Semibold";
   border: 2px solid #fecf09;
   border-radius: 3px;
-  background-color: ${({ bgColor }) => bgColor === null ? "transparent" : bgColor};
+  background-color: ${({ bgColor }) =>
+    bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
   font-weight: ${({ fw }) => `${fw}`};
   outline: none;
@@ -286,9 +287,9 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 100%;
-    height: 100%; 
+    height: 100%;
   }
 `
 const Img = styled.img`
@@ -302,14 +303,14 @@ const Img = styled.img`
     transform: scale(1.05);
   }
 
-@media(max-width: 600px){
-  width: 100%;
-  height: 100%;
-}
-@media(min-width: 768px){
-  height: 300px;
-}
-@media(min-width: 1366px){
-  height: 500px;
-}
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+  @media (min-width: 768px) {
+    height: 300px;
+  }
+  @media (min-width: 1366px) {
+    height: 500px;
+  }
 `

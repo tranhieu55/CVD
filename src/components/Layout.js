@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"

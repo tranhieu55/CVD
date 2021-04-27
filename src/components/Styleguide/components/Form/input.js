@@ -69,7 +69,6 @@ const Input = styled.div`
 `
 const useStyles = makeStyles(theme => ({
   root: {
-    color: "red",
     color: "#222222",
     fontFamily: "Calibre Regular",
     fontSize: "18px",
@@ -85,7 +84,7 @@ export default function TextInput(props) {
     <Input>
       <TextField
         id="outlined-basic"
-        className={`${display == 2 ? "edit-cl" : ""}`}
+        className={`${display === 2 ? "edit-cl" : ""}`}
         className={classes.root}
         size="small"
         label={name}

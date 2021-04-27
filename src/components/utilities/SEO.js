@@ -7,8 +7,6 @@ const SEO = ({ props, location }) => {
   const defaultDescription =
     "Convert Digital is a Melbourne and Sydney based ecommerce agency specialising in website development on Magento, Shopify, and BigCommerce. Call us today."
   const defaultkeywords = "Convert Digital, website development, shopify plus"
-  const defaultImage = false
-  const defaultUrl = "www.convertdigital.com.au"
 
   let title = props.meta_title ? props.meta_title[0].text : defaultTitle
 

@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import React, { useContext, useState, memo } from "react"
+import React, { useContext, memo } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"

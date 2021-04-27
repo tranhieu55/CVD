@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -1108,19 +1108,6 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const dataServices = dataServicesMenu.edges[0].node.body
 
   const dataMenu = dataMenuHeader.edges[0].node.body[1]?.fields
-  const dataImageLogo = dataMenuHeader.edges[0].node.website_logo.url
-
-  // dữ liệu button header(button GET in touch)
-  const isShow =
-    dataMenuHeader.edges[0].node.body[1]?.primary?.display_desktop_or_mobile
-  const dataButton =
-    dataMenuHeader.edges[0].node.body[1]?.primary?.text_button[0].text
-  // dữ liệu button header(button phone)
-  const isShowButtonPhone =
-    dataMenuHeader.edges[0].node.body[2]?.primary.display_desktop_or_mobile
-  const dataButtonPhone =
-    dataMenuHeader.edges[0].node.body[2]?.primary.text_button[0].text
-
   //dulieu icon
   const dataIcon = dataMenuHeader.edges[0].node.body[3]?.fields
 
@@ -1588,7 +1575,6 @@ export const query = graphql`
                   social_icon_item
                 }
               }
-              
             }
             website_logo
           }

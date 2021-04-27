@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import CardProject from "../CardProject"
@@ -31,17 +31,17 @@ function OurWorkProjects(props) {
         ))}
       </Rows>
       <MyBtn>
-          <ButtonCustom
-            wt="178"
-            ht="48"
-            fz="16"
-            lineh="48"
-            className="btn-studies"
-            id='loadMore'
-          >
-            Load more projects
-          </ButtonCustom>
-        </MyBtn>
+        <ButtonCustom
+          wt="178"
+          ht="48"
+          fz="16"
+          lineh="48"
+          className="btn-studies"
+          id="loadMore"
+        >
+          Load more projects
+        </ButtonCustom>
+      </MyBtn>
     </ListBlogStyle>
   )
 }
@@ -52,7 +52,7 @@ const ListBlogStyle = styled.div`
   margin-top: 2px;
   margin-left: 32px;
   margin-right: 32px;
-  
+
   .col-md-6 {
     margin-top: 30px;
     /* height: 500px; */
@@ -84,7 +84,7 @@ const Rows = styled.div``
 const MyBtn = styled.div`
   margin: 34px auto 38px;
   width: 176px;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     margin: 6px 0px 24px;
     height: 48px;
     width: 100%;
@@ -126,8 +126,8 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
-  
-  @media(max-width: 600px){
+
+  @media (max-width: 600px) {
     width: 100%;
     height: 100%;
   }

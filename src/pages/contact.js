@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Layout from "../components/Layout"
 import SliceZone from "../utils/SliceZone"
@@ -11,7 +10,7 @@ export default function Contact({ data: { prismic } }) {
   const ContentPage = data.page_content
   const Buttonss = data.button_link_label.map(item => item.text)
   const PhonesNumber = data.phone_number.map(item => item.text)
-  console.log({data})
+  console.log({ data })
   return (
     <Layout location="/contact">
       <Banner
