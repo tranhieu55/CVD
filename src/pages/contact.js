@@ -53,7 +53,10 @@ export const pageQuery = graphql`
                     _linkType
                   }
                   google_maps_link {
-                    _linkType
+                    ... on PRISMIC__ExternalLink {
+                      _linkType
+                      url
+                    }
                   }
                 }
               }
