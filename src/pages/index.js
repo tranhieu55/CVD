@@ -9,7 +9,6 @@ import GlobalMessage from "../components/GlobalMessage"
 const Index = ({ data: { prismic } }) => {
   const data = prismic.allHomepages.edges[0].node
   const background_image = data.background_image.url
-  console.log(data.body)
   return (
     <>
       <GlobalMessage />

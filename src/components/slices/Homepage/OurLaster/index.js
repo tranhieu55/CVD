@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
 const OurLaster = ({ input }) => {
-  console.log({ input })
   const data = useStaticQuery(graphql`
     query queryOurLaster {
       prismic {

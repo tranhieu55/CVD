@@ -13,9 +13,7 @@ export default function WhatWeDoDesktop(props) {
   const heading = input.primary.title[0].text
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log(`You clicked imes`)
-    }, 3000)
+    setTimeout(() => {}, 3000)
   })
 
   // Declare a new state variable, which we'll call "count"

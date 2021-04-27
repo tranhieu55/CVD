@@ -43,11 +43,8 @@ export default function Instagram({ input }) {
       .then(responseJson => {
         return responseJson
       })
-      .catch(error => {
-        console.log("loi============")
-      })
+      .catch(error => {})
     setPost(data)
-    console.log(data)
   }
   useEffect(() => {
     getPhoto()

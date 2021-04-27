@@ -378,7 +378,6 @@ const BannerPartners = () => {
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
 
-  console.log("state : ", state)
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">

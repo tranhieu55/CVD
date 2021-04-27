@@ -456,7 +456,6 @@ const BannerProjects = () => {
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
   const [filter, setFilter] = useState()
-  console.log(filter)
   function setFilters(index) {
     setFilter(index)
   }

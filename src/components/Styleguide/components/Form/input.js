@@ -78,7 +78,6 @@ const useStyles = makeStyles(theme => ({
 }))
 export default function TextInput(props) {
   const { name, id, value, error, helperText, display } = props
-  console.log("123", display)
   const classes = useStyles()
   return (
     <Input>

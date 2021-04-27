@@ -29,7 +29,6 @@ const OurServices = ({ input }) => {
     }
   `)
   const datas = data.prismic.allOur_services_home_pages.edges[0].node.body
-  console.log(datas)
   return (
     <Container>
       <Title>Our services</Title>

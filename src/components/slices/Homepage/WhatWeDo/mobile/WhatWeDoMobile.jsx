@@ -13,9 +13,7 @@ export default function WhatWeDoMobile(props) {
   const heading = input.primary.title[0].text
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log(`You clicked imes`)
-    }, 3000)
+    setTimeout(() => {}, 3000)
   })
 
   // Declare a new state variable, which we'll call "count"
@@ -24,7 +22,6 @@ export default function WhatWeDoMobile(props) {
   const [indicator, setindicator] = useState(null)
 
   function updateSelected(i) {
-    console.log(i)
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)
@@ -37,8 +34,6 @@ export default function WhatWeDoMobile(props) {
   const [isOpen, setIsOpen] = useState(null)
   const [status, setStatus] = useState("Closed")
   const onExited = () => setStatus("Closed")
-
-  console.log({ fields })
 
   return (
     <Container>
