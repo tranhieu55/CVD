@@ -1167,7 +1167,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/styleguide" ||
       location === "/projects" ||
       location === "/what-we-do" ||
-      location === "/partners"
+      location === "/partners" ||
+      location === "/pageblog"
     ) {
       return "menu-list_item_text-black"
     }
@@ -1189,6 +1190,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
+      location === "/pageblog" ||
       show > 0 ||
       !!isDisPlayModalService
     ) {
@@ -1196,15 +1198,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     }
     return "#ffffff"
   }
-  // useClickOutSize(clickRef, () => {
-  //   setIsDisPlayModalService(false)
-  // })
+
   const checkIconMenu = () => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
       location === "/what-we-do" ||
-      location === "/partners"
+      location === "/partners" ||
+      location === "/pageblog"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1217,12 +1218,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       return <img className="image-buger" src={logoBuger} alt="logo" />
     }
   }
+
   const checkTextMenu = () => {
     if (
       location === "/styleguide" ||
       location === "/projects" ||
       location === "/what-we-do" ||
-      location === "/partners"
+      location === "/partners" ||
+      location === "/pageblog"
     ) {
       if (show !== 0) {
         return "menu-nav-white"
@@ -1233,6 +1236,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       return "menu-nav-white"
     }
   }
+
   return (
     <WrapperHeader
       backgroundMobile={backgroundMobile}
@@ -1258,7 +1262,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   location === "/styleguide" ||
                   location === "/projects" ||
                   location === "/what-we-do" ||
-                  location === "/partners"
+                  location === "/partners" ||
+                  location === "/pageblog"
                     ? logoBlack
                     : logoLight
                 }
@@ -1294,7 +1299,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   location === "/contact" ||
                   location === "/case-study" ||
                   location === "/proposal" ||
-                  location === "/partners"
+                  location === "/partners" ||
+                  location === "/pageblog"
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
