@@ -1,23 +1,28 @@
+import moment from "moment"
 import React from "react"
 import styled from "styled-components"
 
 const OurLaster = ({ input }) => {
-  const Titles = input.primary.title.map(item => item.text)
-  const Messaging = input.primary.messaging.map(item => item.text)
-
+  console.log({ input })
+  const datatime = input.fields.map(item =>
+    moment(item.post_item?.date_created).format("LL")
+  )
+  console.log("hieutt", { datatime })
   return (
     <OurLasters>
-      <Title>{Titles}</Title>
-      <Messagings>{Messaging}</Messagings>
-      <Content>
-        {input.fields.map((item, index) => (
-          <ListPost key={index}>
-            <Img src={item.posts.post_image.url} vitri={index}></Img>
-            <SubTitle vitri={index}>June 25, 2019</SubTitle>
-            <TitlePost>{item.posts.title.map(item => item.text)}</TitlePost>
-          </ListPost>
-        ))}
-      </Content>
+      {input.fields.map((item, index) => (
+        <ListPost key={index}>
+          <Img
+            src={item.post_item.post_image.url}
+            vitri={index}
+            al={item.post_item.post_image?.alt}
+          ></Img>
+          <SubTitle vitri={index}>
+            {moment(item.post_item?.date_created).format("LL")}
+          </SubTitle>
+          <TitlePost>{item.post_item?.title[0].text}</TitlePost>
+        </ListPost>
+      ))}
     </OurLasters>
   )
 }
@@ -44,51 +49,8 @@ const OurLasters = styled.div`
     margin: 50px 16px 37px;
   }
   @media (min-width: 1600px) {
-    margin: 96px 184px 0px;
-  }
-`
-
-const Title = styled.h1`
-  height: 72px;
-  width: 100%;
-  color: #101010;
-  font-family: Calibre Bold;
-  font-size: 80px;
-  font-weight: bold;
-  letter-spacing: -2px;
-  line-height: 72px;
-  text-align: center;
-  margin: 0 auto;
-  @media (max-width: 600px) {
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 54px;
-    text-align: center;
-    height: 38px;
-    width: 100%;
-  }
-`
-const Messagings = styled.h4`
-  color: #262626;
-  font-family: Calibre;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 30px;
-  text-align: center;
-  margin: 16px 152px 48px;
-  @media (max-width: 600px) {
-    font-size: 17px;
-    letter-spacing: 0;
-    line-height: 24px;
-    text-align: center;
-    margin: 5px 0px 24px;
-  }
-  @media (min-width: 600px) {
-    margin: 16px 50px 48px;
-  }
-  @media (min-width: 1024px) {
-    margin: 16px 152px 48px;
+    max-width: 1240px;
+    margin: auto;
   }
 `
 
@@ -156,7 +118,7 @@ const TitlePost = styled.h4`
     width: 249px;
   }
 `
-const Content = styled.span`
+const Content = styled.div`
   height: 520px;
   width: 100%;
   display: flex;

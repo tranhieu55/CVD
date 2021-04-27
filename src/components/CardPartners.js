@@ -5,6 +5,12 @@ import { OurWorkStateContext } from "../context/ourwork/OurWorkContextProvider"
 import IMG from "./Image"
 
 const Wrapper = styled.div`
+  @media (max-width: 374px) {
+    .item-image {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
   @media (max-width: 600px) {
     .item-image {
       width: 160px;
