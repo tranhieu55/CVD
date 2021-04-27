@@ -1,17 +1,26 @@
 import { Link } from "gatsby"
 import moment from "moment"
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import { OurWorkStateContext } from "../context/ourwork/OurWorkContextProvider"
 
 const OurLaster = ({ input }) => {
-  console.log({ input })
   const datatime = input.fields.map(item =>
     moment(item.post_item?.date_created).format("LL")
   )
-  console.log("hieutt", { datatime })
+
+  const data = input.fields
+  const state = useContext(OurWorkStateContext)
+  const { listSelected } = state
+
+  const listPartners = listSelected.includes("all")
+    ? data
+    : data.filter(x => {
+        return listSelected.includes(x.post_item.post_category?._meta.uid)
+      })
   return (
     <OurLasters>
-      {input.fields.map((item, index) => (
+      {listPartners.map((item, index) => (
         <ListPost key={index} className={index % 2 === 0 ? "orderleft" : ""}>
           <Link to={`/blog/${item.post_item._meta.uid}`}>
             <Img
@@ -37,15 +46,34 @@ const OurLasters = styled.div`
   flex-wrap: wrap;
   max-width: 1240px;
   margin: auto;
-  margin-top: 64px;
   .orderleft {
     margin-right: 28px;
   }
   @media (max-width: 600px) {
     padding: 16px;
+    padding-bottom: 0;
+    margin-bottom: 0;
     .orderleft {
       margin-right: 0px;
     }
+  }
+  @media (min-width: 600px) {
+    margin-bottom: 0px;
+    margin-top: 32px;
+    .orderleft {
+      margin-right: 0px;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+  }
+  @media (min-width: 1366px) {
+    margin-top: 64px;
+    .orderleft {
+      margin: unset;
+      margin-right: 28px;
+      margin-bottom: 84px;
+    }
+    margin-bottom: 15px;
   }
 `
 
@@ -59,14 +87,13 @@ const ListPost = styled.div`
     width: 100%;
     margin-bottom: 50px;
   }
-  /* @media (min-width: 768px) {
-    width: 100%;
-    margin-bottom: 16px;
+  @media (min-width: 600px) {
+    margin: auto;
+    margin-bottom: 50px;
   }
-  @media (min-width: 1024px) {
-    width: 49%;
-    height: 517px;
-  } */
+  @media (min-width: 1366px) {
+    margin: unset;
+  }
 `
 
 const Img = styled.img`
@@ -102,8 +129,9 @@ const TitlePost = styled.h4`
   letter-spacing: -0.5px;
   line-height: 32px;
   margin-left: 80px;
-  @media (max-width: 320px) {
+  @media (max-width: 374px) {
     width: 249px;
+    font-size: 24px !important;
   }
   @media (max-width: 600px) {
     height: 72px;
@@ -112,27 +140,6 @@ const TitlePost = styled.h4`
     letter-spacing: -0.33px;
     line-height: 26px;
     margin-left: 48px;
-  }
-`
-const Content = styled.div`
-  height: 520px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  @media (max-width: 600px) {
-    height: 723px;
-    width: 100%;
-    display: block;
-  }
-  @media (min-width: 600px) {
-    width: 100%;
-    display: block;
-  }
-  @media (min-width: 1024px) {
-    height: 520px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
 `
 const SubTitle = styled.h4`
@@ -176,6 +183,6 @@ const SubTitle = styled.h4`
   }
   @media (min-width: 1366px) {
     margin-left: 80px;
-    margin-top: 33px;
+    margin-top: 37px;
   }
 `
