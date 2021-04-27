@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 export default function Derection ({input}) {
     const data = input.fields;
     const DivIMG = styled.div`
@@ -62,7 +63,7 @@ export default function Derection ({input}) {
         }
     `
     const Contentleft = styled.div`
-        width: 40%;
+        width: 43.2%;
         @media(max-width: 600px){
             width: 100%;
         }
@@ -70,12 +71,14 @@ export default function Derection ({input}) {
             width: 100%;
         }
         @media(min-width: 1024px){
-            width: 40%;
+            width: 43.2%;
         }
     `
     const ContentRight = styled.div`
-        width: 40%
-        color: red;
+        width: 48.9%;
+        .googole-map{
+            border: none;
+        }
         @media(max-width: 600px){
             width: 100%;
         }
@@ -83,7 +86,7 @@ export default function Derection ({input}) {
             width: 100%;
         }
         @media(min-width: 1024px){
-            width: 40%;
+            width: 48.9%;
         }
     `
     const Content = styled.div`
@@ -124,6 +127,21 @@ export default function Derection ({input}) {
         letter-spacing: 0;
         line-height: 24px;
     `
+    const DivLink = styled.div`
+        display: flex;
+        margin-top: 12px;
+    `
+    const Link = styled.p`
+        opacity: 0.9;
+        color: #555555;
+        font-family: Calibre;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 24px;
+        border-bottom: 1px solid #555555;
+        margin-bottom: 0px;
+        margin-right: 16px;
+    `
     return(
         <Derections>
             <Title>{input.primary.title.map(item => item.text)}</Title>
@@ -133,9 +151,16 @@ export default function Derection ({input}) {
                             <TitleLeft>{item.office_title.map(item => item.text)}</TitleLeft>
                             <TextLeft>{item.address.map(item => item.text)}</TextLeft>
                             <Phone>{item.office_phone_number.map(item => item.text)}</Phone>
+                            <DivLink>
+                                <Link>Call</Link>
+                                <Link>Directions</Link>
+                            </DivLink>
                         </Contentleft>
                     <ContentRight>
-
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.2612906442637!2d144.9868783163482!3d-37.80734834145114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642d8a7795b53%3A0x7efe11a86e7e0b15!2sConvert%20Digital!5e0!3m2!1sen!2sau!4v1619490398964!5m2!1sen!2sau" 
+                        width="100%" height="100%" className='googole-map' allowfullscreen="" loading="lazy"
+                    >
+                    </iframe>
                     </ContentRight>
                 </Content>
             ))}
