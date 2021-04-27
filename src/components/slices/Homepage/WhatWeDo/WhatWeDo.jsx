@@ -12,9 +12,7 @@ export default function WhatWeDo(props) {
   const defaultIndicator = 0
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log(`You clicked imes`)
-    }, 3000)
+    setTimeout(() => {}, 3000)
   })
 
   // Declare a new state variable, which we'll call "count"

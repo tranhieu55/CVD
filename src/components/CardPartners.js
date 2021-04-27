@@ -43,7 +43,6 @@ const DivIMG = styled.div`
 `
 export default function CardPartners(props) {
   const data = props.input.fields
-  console.log(data)
   const state = useContext(OurWorkStateContext)
   const { listSelected } = state
 
