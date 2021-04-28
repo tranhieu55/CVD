@@ -81,6 +81,9 @@ const ListPost = styled.div`
   height: 517px;
   width: 606px;
   margin-bottom: 84px;
+  @media (max-width: 374px) {
+    margin-bottom: 20px !important;
+  }
   @media (max-width: 600px) and (max-height: 350px) {
     margin-bottom: 16px !important;
   }
@@ -92,6 +95,9 @@ const ListPost = styled.div`
   @media (min-width: 600px) {
     margin: auto;
     margin-bottom: 50px;
+  }
+  @media (min-width: 768px) {
+    padding: 0 16px;
   }
   @media (min-width: 1366px) {
     margin: unset;
@@ -119,6 +125,10 @@ const Img = styled.img`
     width: 100%;
     height: 400px;
     margin-top: 0px;
+  }
+  @media (min-width: 1200px) {
+    /* margin-left: 32px;
+    width: 95%; */
   }
   @media (min-width: 1366px) {
     margin-left: 32px;

@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"
@@ -12,7 +12,7 @@ import {
 const WraperBannerProjects = styled.div`
   background-color: #f8f8f8;
   h2 {
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
   }
   @media only screen and (max-width: 600px) {
     margin-bottom: 0px;
@@ -178,7 +178,7 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    padding-left: 89px;
+    padding-left: 89px !important;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -202,8 +202,13 @@ const ListCategory = styled.ul`
   li.reset_filters {
     display: flex;
   }
+  .not_reset_filters {
+    display: flex;
+    /* opacity: 0.3; */
+    color: #222222;
+  }
   li.not_reset_filters {
-    display: none;
+    /* display: none; */
     &::after {
       content: "\f01e";
       font-family: "Font Awesome 5 Pro Regular";
@@ -216,7 +221,7 @@ const ListCategory = styled.ul`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-bottom: 24px;
+    padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
     margin-right: 16px;
@@ -224,6 +229,9 @@ const ListCategory = styled.ul`
       display: block;
     }
     li.reset_filters {
+      display: none;
+    }
+    .not_reset_filters {
       display: none;
     }
   }
@@ -238,8 +246,16 @@ const ListCategory = styled.ul`
     display: -webkit-inline-box;
     overflow-x: scroll;
   }
+  @media (min-width: 992px) {
+    li.reset_filters {
+      display: block;
+    }
+  }
 `
 const CategoryItem = styled.li`
+  .opacity {
+    opacity: 1;
+  }
   cursor: pointer;
   padding: 0;
   margin: 0;
@@ -326,6 +342,95 @@ const CategoryItem = styled.li`
     }
   }
 `
+const CategoryItems = styled.li`
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  margin-right: 32px;
+  .opacity01 {
+    opacity: 1;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    opacity: 0.3;
+    color: #101010;
+    font-family: "Calibre Semibold";
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+    height: 23px;
+    // persudo class
+    :after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      background-color: #101010;
+      height: 3px;
+      transition: all 0.4s ease-in 0s;
+    }
+
+    // when hover
+  }
+  a:not([href]):not([class]) {
+    color: #101010;
+  }
+  a.active_modify {
+    color: #101010 !important;
+    opacity: 1;
+    margin-right: 8px;
+
+    :after {
+      content: unset;
+    }
+  }
+
+  // when a active
+  a.active {
+    color: #101010 !important;
+    opacity: 1;
+    border-bottom: 2px solid #101010;
+    &::after {
+      position: absolute;
+      bottom: -2.2px;
+      left: 0;
+      width: 100%;
+      content: " ";
+      background-color: #101010;
+      opacity: 0.3;
+      transition: all 0s ease-in;
+      border-bottom: 2px solid #101010;
+      height: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 24px;
+    padding-right: 0px !important;
+    a {
+      font-size: 20px !important;
+      white-space: nowrap;
+    }
+  }
+  @media (min-width: 600px) {
+    margin-right: 2px;
+    a {
+      font-size: 12px !important;
+    }
+  }
+  @media (min-width: 768px) {
+    a {
+      font-size: 14px !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    a {
+      font-size: 20px !important;
+    }
+  }
+`
 const BannerBlog = () => {
   const listCategoryPartners = useStaticQuery(graphql`
     query {
@@ -401,7 +506,10 @@ const BannerBlog = () => {
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
-
+  const [filter, setFilter] = useState()
+  function setFilters(index) {
+    setFilter(index)
+  }
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
@@ -424,7 +532,13 @@ const BannerBlog = () => {
           {data.big_title[0]?.text}
         </H2>
         <div className="row ">
-          <ListCategory className="col-md-10">
+          <ListCategory className="col-md-10" show={filter}>
+            <CategoryItems
+              className="reset_filters_moblie"
+              onClick={() => dispatch({ type: "RESET_FILTER" })}
+            >
+              <Link className="opacity01">Filters</Link>
+            </CategoryItems>
             {newArr.map((item, index) => (
               <CategoryItem
                 key={index}
@@ -446,6 +560,17 @@ const BannerBlog = () => {
                 </Link>
               </CategoryItem>
             ))}
+            <CategoryItem
+              className={`${
+                filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+              }`}
+              onClick={() => {
+                dispatch({ type: "RESET_FILTER" })
+                setFilters(0)
+              }}
+            >
+              <Link className="opacity">Reset Filters</Link>
+            </CategoryItem>
           </ListCategory>
         </div>
       </BannerProjectsContent>
