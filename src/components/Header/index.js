@@ -1168,7 +1168,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
-      location === "/pageblog"
+      location === "/pageblog" ||
+      location === "/blog-details"
     ) {
       return "menu-list_item_text-black"
     }
@@ -1191,6 +1192,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/what-we-do" ||
       location === "/partners" ||
       location === "/pageblog" ||
+      location === "/blog-details" ||
       show > 0 ||
       !!isDisPlayModalService
     ) {
@@ -1205,7 +1207,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
-      location === "/pageblog"
+      location === "/pageblog" ||
+      location === "/blog-details"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1225,7 +1228,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
-      location === "/pageblog"
+      location === "/pageblog" ||
+      location === "/blog-details"
     ) {
       if (show !== 0) {
         return "menu-nav-white"
@@ -1263,7 +1267,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   location === "/projects" ||
                   location === "/what-we-do" ||
                   location === "/partners" ||
-                  location === "/pageblog"
+                  location === "/pageblog" ||
+                  location === "/blog-details"
                     ? logoBlack
                     : logoLight
                 }
@@ -1300,7 +1305,8 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   location === "/case-study" ||
                   location === "/proposal" ||
                   location === "/partners" ||
-                  location === "/pageblog"
+                  location === "/pageblog" ||
+                  location === "/blog-details"
                     ? "menu-list_item_white"
                     : "menu-list_item_gold"
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
