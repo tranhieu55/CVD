@@ -7,7 +7,6 @@ import moment from "moment"
 import { RichText } from 'prismic-reactjs';
 
 const BlogDetails = props => {
-    console.log(props.data);
     const dataIcon = props.data.prismic.post?.body[0].fields
     const dataText = props.data.prismic.post?.body[1].fields
     return (
