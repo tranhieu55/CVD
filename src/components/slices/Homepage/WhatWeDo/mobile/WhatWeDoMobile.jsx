@@ -30,7 +30,8 @@ export default function WhatWeDoMobile(props) {
   const [service, setService] = useState(defaultService)
   const [content, setContent] = useState(defaultContent)
   const [indicator, setindicator] = useState(null)
-
+  
+  
 
   function updateSelected(i) {
     console.log(i);
@@ -97,10 +98,13 @@ const Container = styled.div`
     top: 125px;
   }
   margin-left: 32px;
+  margin-right:
   height: 496px;
+  @media(max-width: 993px){
+    margin-right: 32px;
+  }
   @media(max-width: 600px){
     top: 74px;
-    margin-right: 16px;
   }
   @media(max-width: 360px){
     margin: 0px 16px;
@@ -129,12 +133,13 @@ const Service = styled.h4`
     letter-spacing: -0.5px;
     line-height: 26px;
     margin-bottom: 24px;
+    position: relative;
     :hover{
       color: white;
       opacity: 1;
     }
     &::after {
-      content: "\f00d";
+      content: "\f077";
       font-family: "Font Awesome 5 Pro Regular";
       height: 18px;
       width: 16px;
@@ -146,6 +151,8 @@ const Service = styled.h4`
       color: #FFFFFF;
       margin-left: 24px;
       opacity: 0.6;
+      position: absolute;
+      right: 0;
   }
     opacity: ${props => props.indicator ? '1' : '0.6'};
     .accordion-title {
@@ -189,12 +196,12 @@ const Services  = styled.h4`
 height: 22px;
 opacity: 0.6;
 color: #FFFFFF;
-font-family: Calibre Bold;
+font-family: Calibre Regular;
 font-size: 22px;
-font-weight: 700;
 letter-spacing: -0.5px;
 line-height: 26px;
 margin-bottom: 21px;
+position: relative;
 :hover{
   color: white;
   opacity: 1;
@@ -212,6 +219,9 @@ margin-bottom: 21px;
   color: #FFFFFF;
   margin-left: 24px;
   opacity: 0.6;
+  position: absolute;
+  right: 0;
+
 }
 opacity: ${props => props.indicator ? 1 : .6};
 .accordion-title {

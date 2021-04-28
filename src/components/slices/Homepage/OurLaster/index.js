@@ -113,8 +113,8 @@ const Title = styled.h1`
   }
 `
 const Messagings = styled.h4`
-  color: #262626;
-  font-family: Calibre;
+  color: #222;
+  font-family: Calibre Regular;
   font-size: 24px;
   letter-spacing: 0;
   line-height: 30px;

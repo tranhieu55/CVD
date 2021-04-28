@@ -68,6 +68,7 @@ const Container = styled.div`
     display: block;
     top: -79px;
   }
+  
   @media(min-width: 600px){
     :before{
       top: 0px;
@@ -78,7 +79,7 @@ const Container = styled.div`
   @media(max-width: 600px){
     position: relative;
     margin-top: 10px;
-    height: 803px;
+    height: 825px;
     :before{
       top: -25px;
       height: 61px;

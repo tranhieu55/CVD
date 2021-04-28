@@ -6,40 +6,40 @@ import BannerStyleguide from "./BannerStyleguide"
 import BannerPartners from "./BannerPartners"
 
 function Banner({
-  location,
-  listCategoryOurWork,
-  nameProject,
-  logoProject,
-  nameCategoryOfWorkItem,
-  descriptionOfWorkItem,
-  backgroundWorkItemSrc,
-  backgroundWorkItemAlt,
+location,
+listCategoryOurWork,
+nameProject,
+logoProject,
+nameCategoryOfWorkItem,
+descriptionOfWorkItem,
+backgroundWorkItemSrc,
+backgroundWorkItemAlt,
 }) {
-  switch (location) {
-    case "/":
-      return ""
-    case "/projects":
-      return <BannerProjects listCategoryOurWork={listCategoryOurWork} />
+switch (location) {
+	case "/":
+	return ""
+	case "/projects":
+	return <BannerProjects listCategoryOurWork={listCategoryOurWork} />
 
-    case "/case-study":
-      return (
-        <BannerCaseStudy
-          nameProject={nameProject}
-          logoProject={logoProject}
-          nameCategoryOfWorkItem={nameCategoryOfWorkItem}
-          descriptionOfWorkItem={descriptionOfWorkItem}
-          backgroundWorkItemSrc={backgroundWorkItemSrc}
-          backgroundWorkItemAlt={backgroundWorkItemAlt}
-        />
-      )
-    case "/what-we-do":
-      return <BannerWhatWeDo />
-    case "/styleguide":
-      return <BannerStyleguide />
-    case "/partners":
-      return <BannerPartners />
-    default:
-      return ""
-  }
+	case "/case-study":
+	return (
+		<BannerCaseStudy
+		nameProject={nameProject}
+		logoProject={logoProject}
+		nameCategoryOfWorkItem={nameCategoryOfWorkItem}
+		descriptionOfWorkItem={descriptionOfWorkItem}
+		backgroundWorkItemSrc={backgroundWorkItemSrc}
+		backgroundWorkItemAlt={backgroundWorkItemAlt}
+		/>
+	)
+	case "/what-we-do":
+	return <BannerWhatWeDo />
+	case "/styleguide":
+	return <BannerStyleguide />
+	case "/partners":
+	return <BannerPartners />
+	default:
+	return ""
+}
 }
 export default Banner

@@ -117,7 +117,7 @@ const Container = styled.div`
   }
   @media (max-width: 600px) {
     margin-top: -72px;
-    height: 614px;
+    height: 707px;
     width: 100%;
   }
 `
@@ -128,6 +128,7 @@ const ImageBanner = styled.img`
   object-fit: cover;
   @media (max-width: 600px) {
     object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 97%)
   }
 `
 
