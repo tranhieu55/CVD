@@ -92,7 +92,7 @@ const Text = styled.p`
 const TextImg = styled.div`
     width: 100%;
     height: auto;
-    margin-top: 20px;
+    margin-top: 23px;
 `
 const Texxt = styled.div`
     p{
@@ -115,7 +115,7 @@ const Texxt = styled.div`
         img{
             width: 100%;
             height: 428px;
-            margin-top: 14px;
+            margin-top: 17px;
             margin-bottom : 40px;
             object-fit: cover;
         }
