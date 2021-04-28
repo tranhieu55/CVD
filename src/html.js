@@ -54,8 +54,4 @@ HTML.propTypes = {
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> aac8790405976bc6089d45e1fe6b2e5ba3e902d0
