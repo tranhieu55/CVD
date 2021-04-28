@@ -146,7 +146,7 @@ const TitlePost = styled.h4`
   margin-left: 80px;
   @media (max-width: 374px) {
     width: 225px;
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
   @media (max-width: 600px) and (max-height: 350px) {
     font-size: 26px !important;

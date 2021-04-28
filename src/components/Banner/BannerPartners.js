@@ -289,7 +289,7 @@ const CategoryItem = styled.li`
 
     &::after {
       position: absolute;
-      bottom: -2.2px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";
