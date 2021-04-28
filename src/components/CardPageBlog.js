@@ -81,7 +81,9 @@ const ListPost = styled.div`
   height: 517px;
   width: 606px;
   margin-bottom: 84px;
-
+  @media (max-width: 600px) and (max-height: 350px) {
+    margin-bottom: 16px !important;
+  }
   @media (max-width: 600px) {
     height: 351px;
     width: 100%;
@@ -106,6 +108,9 @@ const Img = styled.img`
     height: 240px;
     margin-left: 0px;
   }
+  @media (min-width: 600px) {
+    margin-left: 16px;
+  }
   @media (min-width: 768px) {
     width: 100%;
     margin-left: 0px;
@@ -113,10 +118,10 @@ const Img = styled.img`
   @media (min-width: 1024px) {
     width: 100%;
     height: 400px;
-    margin-left: 32px;
     margin-top: 0px;
   }
   @media (min-width: 1366px) {
+    margin-left: 32px;
     width: 95%;
   }
 `
@@ -130,8 +135,12 @@ const TitlePost = styled.h4`
   line-height: 32px;
   margin-left: 80px;
   @media (max-width: 374px) {
-    width: 249px;
+    width: 225px;
     font-size: 24px !important;
+  }
+  @media (max-width: 600px) and (max-height: 350px) {
+    font-size: 26px !important;
+    line-height: 30px !important;
   }
   @media (max-width: 600px) {
     height: 72px;
@@ -154,6 +163,7 @@ const SubTitle = styled.h4`
   line-height: 16px;
   margin-left: 80px;
   margin-top: 33px;
+  text-transform: uppercase;
   &::after {
     position: absolute;
     right: calc(100% + 17px);
@@ -163,6 +173,9 @@ const SubTitle = styled.h4`
     width: 63px;
     height: 2px;
     background: #fecf09;
+  }
+  @media (max-width: 600px) and (max-height: 350px) {
+    margin-top: 20px !important;
   }
   @media (max-width: 600px) {
     height: 14px;
@@ -178,8 +191,16 @@ const SubTitle = styled.h4`
       right: calc(100% + 19px);
     }
   }
+  @media (min-width: 600px) {
+    &::after {
+      width: 45px;
+    }
+  }
   @media (min-width: 768px) {
     margin-left: 112px;
+    &::after {
+      width: 63px;
+    }
   }
   @media (min-width: 1366px) {
     margin-left: 80px;

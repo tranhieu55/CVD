@@ -18,11 +18,12 @@ const WraperBannerProjects = styled.div`
     margin-bottom: 0px;
     h2 {
       font-size: 40px;
-      color: #222222;
-      font-family: "Calibre Semibold";
+      color: #101010;
+      font-family: "Calibre Bold";
+      font-weight: bold;
       margin-bottom: 20px !important;
       line-height: 26px;
-      letter-spacing: -0.25px;
+      letter-spacing: -1px;
     }
     p {
       margin-bottom: 20px;
@@ -50,10 +51,10 @@ const WraperBannerProjects = styled.div`
       font-size: 46px;
     }
     p {
+      margin-left: 35px;
       font-size: 14px;
     }
     li {
-      /* padding-right: 7px; */
       text-align: center;
     }
     a {
@@ -70,7 +71,6 @@ const WraperBannerProjects = styled.div`
       font-size: 14px;
     }
     li {
-      /* padding-right: 10px; */
       text-align: center;
     }
     a {
@@ -87,7 +87,6 @@ const WraperBannerProjects = styled.div`
       font-size: 14px;
     }
     li {
-      /* padding-right: 20px; */
       text-align: center;
     }
     a {
@@ -103,10 +102,10 @@ const WraperBannerProjects = styled.div`
       font-weight: bold;
     }
     p {
+      margin-left: 0px;
       font-size: 16px;
     }
     li {
-      /* padding-right: 24px; */
       text-align: center;
       white-space: nowrap;
     }
@@ -144,6 +143,8 @@ const BannerProjectsContent = styled.div`
   @media (min-width: 600px) {
     padding-bottom: 20px;
     padding-top: 6rem;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -162,6 +163,8 @@ const BannerProjectsContent = styled.div`
   @media (min-width: 992px) {
     padding-top: 10rem;
     padding-bottom: 45px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
     .container {
       max-width: 890px;
     }
@@ -380,7 +383,6 @@ const BannerBlog = () => {
   `)
 
   const data = listCategoryPartners.prismic.allPost_listing_pages.edges[0].node
-  console.log("hieutt", data)
   const cateAll = {
     post_category: {
       title: [{ spans: [], text: "All", type: "heading1" }],
@@ -396,7 +398,6 @@ const BannerBlog = () => {
   )
 
   const newArr = [cateAll, ...listCategories]
-  console.log({ newArr })
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
@@ -418,7 +419,7 @@ const BannerBlog = () => {
           fontFamily="Calibre Bold"
           lineh="56"
           lett="-1"
-          col="#111111"
+          col="#101010"
         >
           {data.big_title[0]?.text}
         </H2>
