@@ -79,11 +79,24 @@ const Slider = styled.div`
 
   @media only screen and (max-width: 600px) {
     .slick-dots {
-      bottom: 10px;
+      bottom: -26px;
     }
+    .slick-dots li {
+      width: 8px;
+      height: 8px;
+      border: 1px solid #a9a9a9;
+      border-radius: 50%;
+    }
+    .slick-dots li button{
+      padding: 3px;
+    }
+    .slick-dots li button:before{
+      left: -2px;
+      top: -6px;
+    } 
     margin-bottom: 40px;
-    height: 272px;
-    background-color: #f5f5f5;
+    height: 245px;
+    background-color: #f1f1f1;
     .slick-slider {
       height: 100%;
       .slick-list {
@@ -104,7 +117,7 @@ const Slider = styled.div`
     }
     margin-bottom: 40px;
     height: 403px;
-    background-color: #f5f5f5;
+    background-color: #f1f1f1;
     .slick-slider {
       height: 100%;
       .slick-list {
@@ -132,8 +145,8 @@ const Slider = styled.div`
     }
   }
   @media (min-width: 1600px) {
-    height: 898px;
-    background-color: #f1f1f1;
+    height: 800px;
+    background-color: #F1F1F1;
     div {
       margin: 0 auto;
       height: 100%;
