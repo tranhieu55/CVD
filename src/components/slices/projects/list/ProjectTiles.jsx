@@ -51,7 +51,6 @@ const ProjectTiles = ({ input }) => {
       setLimit(limit + 4)
     }
   }
-
   return (
     <ListBlogStyle>
       <Rows className="row">
