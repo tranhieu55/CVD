@@ -255,6 +255,7 @@ const ListCategory = styled.ul`
 const CategoryItem = styled.li`
   .opacity {
     opacity: 1;
+    margin-right: 5px;
   }
   cursor: pointer;
   padding: 0;
@@ -307,7 +308,7 @@ const CategoryItem = styled.li`
     border-bottom: 2px solid #222222;
     &::after {
       position: absolute;
-      bottom: -2.2px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";
@@ -394,7 +395,7 @@ const CategoryItems = styled.li`
     border-bottom: 2px solid #101010;
     &::after {
       position: absolute;
-      bottom: -2.2px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";

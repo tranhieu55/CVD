@@ -293,7 +293,7 @@ const CategoryItem = styled.li`
     border-bottom: 2px solid #101010;
     &::after {
       position: absolute;
-      bottom: -2.2px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";
@@ -379,7 +379,7 @@ const CategoryItems = styled.li`
     border-bottom: 2px solid #101010;
     &::after {
       position: absolute;
-      bottom: -2.2px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       content: " ";
