@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import SliceZone from "../utils/SliceZone"
 
 const Projects = ({ data: { prismic } }) => {
+
+  // const {data} = props
   const data = prismic.allOurwork_pages.edges[0].node
 
   return (
