@@ -339,6 +339,9 @@ export const pageQuery = graphql`
                     ... on PRISMIC_Post {
                       title
                       post_image
+                      _meta {
+                        uid
+                      }
                     }
                   }
                 }
