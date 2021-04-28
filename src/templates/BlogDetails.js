@@ -169,7 +169,7 @@ const DivText = styled.div`
 const Texts = styled.p`
     margin-left: 16px;
     height: 24px;
-    color: ${props => props.key === 1 ? "#999999" : "#22222"}
+    color: ${props => props.key === 1 ? "#999999" : "#22222"};
     font-family: Calibre Regular;
     font-size: 18px;
     letter-spacing: 0;
