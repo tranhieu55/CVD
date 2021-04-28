@@ -108,22 +108,46 @@ const Texxt = styled.div`
     font-size: 20px;
     letter-spacing: 0;
     line-height: 28px;
-    strong {
-      color: #101010;
-      font-family: Calibre Medium;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0;
-      line-height: 20px;
+    margin-bottom : 9px;
+`
+const TextImg = styled.div`
+    width: 100%;
+    height: auto;
+    margin-top: 23px;
+`
+const Texxt = styled.div`
+    p{
+        margin-bottom: 0px;
+        color: #222222;
+        font-family: Calibre Regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 28px;
+        strong{
+            color: #101010;
+            font-family: Calibre Medium;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
     }
-  }
-  .block-img {
-    img {
-      width: 100%;
-      height: 428px;
-      margin-top: 14px;
-      margin-bottom: 40px;
-      object-fit: cover;
+    .block-img{
+        img{
+            width: 100%;
+            height: 428px;
+            margin-top: 17px;
+            margin-bottom : 40px;
+            object-fit: cover;
+        }
+        @media(max-width: 600px){
+            img{
+                height: 204px;
+                margin-top: 6px;
+                margin-bottom : 24px;
+                object-fit: cover;
+            }
+        }
     }
     @media (max-width: 600px) {
       img {
