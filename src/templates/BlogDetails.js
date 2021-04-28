@@ -95,21 +95,7 @@ const Text = styled.p`
   line-height: 28px;
   margin-bottom: 9px;
 `
-const TextImg = styled.div`
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-`
-const Texxt = styled.div`
-  p {
-    margin-bottom: 0px;
-    color: #222222;
-    font-family: Calibre Regular;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 28px;
-    margin-bottom : 9px;
-`
+
 const TextImg = styled.div`
     width: 100%;
     height: auto;
