@@ -8,16 +8,16 @@ import { RichText } from 'prismic-reactjs';
 
 const BlogDetails = props => {
     console.log(props.data);
-    const dataIcon = props.data.prismic.post.body[0].fields
-    const dataText = props.data.prismic.post.body[1].fields
+    const dataIcon = props.data.prismic.post?.body[0].fields
+    const dataText = props.data.prismic.post?.body[1].fields
     return (
         <Layout location='/blog-details'>
-            <BannerBlogDetails titles={props.data.prismic.post.title.map(item => item.text)} 
+            <BannerBlogDetails titles={props.data.prismic.post.title?.map(item => item.text)} 
                 sub={moment(props.data.prismic.post?.date_created).format("LL")}
             ></BannerBlogDetails>
-            <Img src={props.data.prismic.post.post_image.url} alt={props.data.prismic.post.post_image.alt}></Img>
+            <Img src={props.data.prismic.post.post_image?.url} alt={props.data.prismic.post.post_image?.alt}></Img>
             <Container>
-                {props.data.prismic.post.contenr_description.map((item , index) => (
+                {props.data.prismic.post.contenr_description?.map((item , index) => (
                     <Text>{item.text}</Text>
                 ))}
                 <TextImg>
@@ -26,7 +26,7 @@ const BlogDetails = props => {
                 <Fotters>
                         <DivIcon >
                             {dataIcon.map((item , index) => (
-                                <Icon src={item.icon_image.url} alt ={item.icon_image.alt}></Icon>
+                                <Icon src={item.icon_image?.url} alt ={item.icon_image?.alt}></Icon>
                             ))}
                         </DivIcon>
                         <DivText>
