@@ -159,7 +159,7 @@ const Icon = styled.img`
     margin-right: 24px;
 `
 const DivText = styled.div`
-    margin-top: 28px;
+    margin-top: 31px;
     display: flex;
     @media(max-width: 600px){
         margin-top: 23px;
