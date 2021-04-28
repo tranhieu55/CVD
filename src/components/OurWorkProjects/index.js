@@ -22,7 +22,9 @@ function OurWorkProjects(props) {
           x.project_item?.relationship_to_project_category._meta.uid
         )
       })
-
+  const handelClickLoadMore = () => {
+    alert("hello hieutt")
+  }
   return (
     <ListBlogStyle>
       <Rows className="row">
@@ -38,6 +40,7 @@ function OurWorkProjects(props) {
           lineh="48"
           className="btn-studies"
           id="loadMore"
+          onClick={handelClickLoadMore}
         >
           Load more projects
         </ButtonCustom>
