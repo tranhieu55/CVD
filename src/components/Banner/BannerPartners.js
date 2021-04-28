@@ -211,10 +211,9 @@ const ListCategory = styled.ul`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-bottom: 24px;
+    padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-right: 16px;
     li.reset_filters_moblie {
       display: block;
     }
@@ -257,13 +256,16 @@ const CategoryItem = styled.li`
       left: 0;
       width: 0%;
       background-color: #222222;
+      opacity: 0.3;
       height: 3px;
       transition: all 0.4s ease-in 0s;
     }
 
     // when hover
     :hover {
+      width: 100%;
       border-bottom: 2px solid #222222;
+      opacity: 0.3;
     }
   }
   a:not([href]):not([class]) {
@@ -274,6 +276,7 @@ const CategoryItem = styled.li`
     opacity: 1;
     margin-right: 8px;
     border-bottom: 2px solid #222222;
+    opacity: 0.3;
     :after {
       content: unset;
     }
@@ -283,7 +286,7 @@ const CategoryItem = styled.li`
   a.active {
     color: #222222 !important;
     opacity: 1;
-    border-bottom: 2px solid #222222;
+
     &::after {
       position: absolute;
       bottom: -2.2px;
@@ -293,7 +296,7 @@ const CategoryItem = styled.li`
       background-color: #222222;
       opacity: 0.3;
       transition: all 0s ease-in;
-      height: 0px;
+      height: 2px;
     }
   }
 
