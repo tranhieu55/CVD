@@ -73,7 +73,7 @@ const Slider = styled.div`
     width: 100%;
     height: 100%;
     left: 0px;
-    top: -3px;
+    top: -4px;
     border-color: #e4e4e4;
   }
 
@@ -88,12 +88,21 @@ const Slider = styled.div`
       border-radius: 50%;
     }
     .slick-dots li button{
-      padding: 3px;
+      padding-bottom : 3px;
+      padding-right: 3px;
+      padding-top: 2.5px;
+      padding-left: 0px;
     }
     .slick-dots li button:before{
-      left: -2px;
-      top: -6px;
+      left: -1.5px;
+      top: -6.5px;
+      font-size: 8px;
     } 
+    .slick-dots li.slick-active button:before{
+      font-size: 8px;
+      left: -1.5px;
+      top: -6.5px;
+    }
     margin-bottom: 40px;
     height: 245px;
     background-color: #f1f1f1;
@@ -113,7 +122,7 @@ const Slider = styled.div`
 
   @media (min-width: 601px) {
     .slick-dots {
-      bottom: 10px;
+      bottom: 25px;
     }
     margin-bottom: 40px;
     height: 403px;
@@ -134,7 +143,15 @@ const Slider = styled.div`
   @media (min-width: 768px) {
     margin-bottom: 50px;
   }
+  @media(min-width: 890px){
+    .slick-dots {
+      bottom: 15px;
+    }
+  }
   @media (min-width: 1024px) {
+    .slick-dots {
+      bottom: 30px;
+    }
     margin-bottom: 50px;
     height: 650px;
   }
@@ -145,6 +162,9 @@ const Slider = styled.div`
     }
   }
   @media (min-width: 1600px) {
+    .slick-dots {
+      bottom: 50px;
+    }
     height: 800px;
     background-color: #F1F1F1;
     div {

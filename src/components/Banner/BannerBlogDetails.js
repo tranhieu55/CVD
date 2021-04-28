@@ -47,7 +47,7 @@ const SubTitle = styled.div`
         margin : 0 auto;
     }
     @media(min-width: 600px){
-        padding-top: 68px;
+        padding-top: 86px;
         padding-left: 68px;
         padding-right: 10px;
     }
