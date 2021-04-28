@@ -172,7 +172,6 @@ const Container = styled.div`
 const ClientLogo = styled.img`
   height: auto;
   filter: grayscale(1);
-  opacity: 0.3;
   display: block;
   @media (max-width: 600px) {
     height: 36px;

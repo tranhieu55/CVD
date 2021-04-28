@@ -80,8 +80,8 @@ const Container = styled.div`
   @media (max-width: 600px) {
     position: relative;
     margin-top: 10px;
-    height: 803px;
-    :before {
+    height: 825px;
+    :before{
       top: -25px;
       height: 61px;
       transform: skewY(3.7deg);

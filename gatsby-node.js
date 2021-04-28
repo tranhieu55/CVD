@@ -50,6 +50,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  
   res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkItems,
