@@ -37,12 +37,12 @@ const Container = styled.div`
 const SubTitle = styled.div`
    
     @media(max-width: 600px){
-        padding-top: 85px;
+        padding-top: 90px;
         width: 343px;
         margin : 0 auto;
     }
     @media(max-width: 360px){
-        padding-top: 85px;
+        padding-top: 90px;
         width: 292px;
         margin : 0 auto;
     }
@@ -72,7 +72,8 @@ const SubTitle = styled.div`
         padding-right: 192px;
     }
     @media(min-width: 1600px){
-        padding: 159px 260px 48px 262px;
+        padding: 176px 264px 44px 260px;
+        height: 100%;
     }
 `
 const Sub = styled.p`
@@ -84,6 +85,7 @@ const Sub = styled.p`
     line-height: 16px;
     position: relative;
     margin-bottom : 24px;
+    text-transform: uppercase;
     &::before {
         position: absolute;
         right: calc(100% + 17px);
@@ -97,14 +99,14 @@ const Sub = styled.p`
     @media(max-width: 600px){
         font-size: 12px;
         margin-bottom : 10px;
-        margin-left: 65px;
+        margin-left: 51px;
         &::before {
             position: absolute;
             right: calc(100% + 17px);
             top: 36%;
             display: block;
             content: "";
-            width: 48px;
+            width: 32px;
             height: 2px;
             background: ${theme.colors.primaryColor};
           }
@@ -112,11 +114,23 @@ const Sub = styled.p`
     @media(min-width: 600px){
         &::before {
             position: absolute;
-            right: calc(100% + 15px);
+            right: calc(100% + 10px);
             top: 36%;
             display: block;
             content: "";
             width: 36px;
+            height: 2px;
+            background: ${theme.colors.primaryColor};
+          }
+    }
+    @media(min-width: 1200px){
+        &::before {
+            position: absolute;
+            right: calc(100% + 17px);
+            top: 36%;
+            display: block;
+            content: "";
+            width: 64px;
             height: 2px;
             background: ${theme.colors.primaryColor};
           }
@@ -127,7 +141,7 @@ const Title = styled.h1`
     font-family: Calibre Bold;
     font-size: 64px;
     font-weight: bold;
-    letter-spacing: 0px;
+    letter-spacing: -1px;
     line-height: 56px;
     margin-bottom: 0px;
     @media(max-width: 600px){
