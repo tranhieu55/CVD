@@ -41,6 +41,36 @@ const SubTitle = styled.div`
         width: 343px;
         margin : 0 auto;
     }
+    @media(max-width: 360px){
+        padding-top: 85px;
+        width: 292px;
+        margin : 0 auto;
+    }
+    @media(min-width: 600px){
+        padding-top: 68px;
+        padding-left: 68px;
+        padding-right: 10px;
+    }
+    @media(min-width: 768px){
+        padding-top: 107px;
+        padding-left: 77px;
+        padding-right: 20px;
+    }
+    @media(min-width: 1024px){
+        padding-top: 117px;
+        padding-left: 77px;
+        padding-right: 40px;
+    }
+    @media(min-width: 1200px){
+        padding-top: 137px;
+        padding-left: 160px;
+        padding-right: 95px;
+    }
+    @media(min-width: 1372px){
+        padding-top: 159px;
+        padding-left: 220px;
+        padding-right: 192px;
+    }
     @media(min-width: 1600px){
         padding: 159px 260px 48px 262px;
     }
@@ -79,6 +109,18 @@ const Sub = styled.p`
             background: ${theme.colors.primaryColor};
           }
     }
+    @media(min-width: 600px){
+        &::before {
+            position: absolute;
+            right: calc(100% + 15px);
+            top: 36%;
+            display: block;
+            content: "";
+            width: 36px;
+            height: 2px;
+            background: ${theme.colors.primaryColor};
+          }
+    }
 `
 const Title = styled.h1`
     color: #101010;
@@ -93,5 +135,8 @@ const Title = styled.h1`
         font-weight: bold;
         letter-spacing: -1px;
         line-height: 38px;
+    }
+    @media(max-width: 360px){
+        font-size: 38px;
     }
 `

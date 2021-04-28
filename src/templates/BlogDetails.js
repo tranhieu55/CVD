@@ -49,13 +49,17 @@ const Container = styled.div`
         width: 343px;
         margin: 16px auto 32px;
     }
+    @media(max-width: 360px){
+        width: 292px;
+        margin: 16px auto 32px;
+    }
     @media(min-width: 600px){
         width: 586px;
-        margin: 40px auto 60px;
+        margin: 20px auto 40px;
     }
     @media(min-width: 768px){
         width: 716px;
-        margin: 60px auto 80px;
+        margin: 20px auto 40px;
     }
     @media(min-width: 1200px){
         margin-top: 60px;
@@ -84,7 +88,7 @@ const Text = styled.p`
     font-size: 20px;
     letter-spacing: 0;
     line-height: 28px;
-    margin-bottom : 12px;
+    margin-bottom : 9px;
 `
 const TextImg = styled.div`
     width: 100%;
@@ -112,14 +116,16 @@ const Texxt = styled.div`
         img{
             width: 100%;
             height: 428px;
-            margin-top: 24px;
+            margin-top: 14px;
             margin-bottom : 40px;
+            object-fit: cover;
         }
         @media(max-width: 600px){
             img{
                 height: 204px;
                 margin-top: 6px;
                 margin-bottom : 24px;
+                object-fit: cover;
             }
         }
     }
