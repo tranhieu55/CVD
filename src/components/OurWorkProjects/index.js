@@ -14,8 +14,8 @@ function OurWorkProjects(props) {
   const [listProjects, setListProject] = useState(input.fields)
   const state = useContext(OurWorkStateContext)
   const { listSelected } = state
-
-  const test = listSelected.includes("all")
+  const [toggle, setToggle] = useState(false)
+  let test = listSelected.includes("all")
     ? listProjects
     : listProjects.filter(x => {
         return listSelected.includes(
@@ -23,12 +23,13 @@ function OurWorkProjects(props) {
         )
       })
   const handelClickLoadMore = () => {
-    alert("hello hieutt")
+    setToggle(!toggle)
   }
+  console.log({ test })
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {test.slice(0, 4).map((project, index) => (
+        {test.slice(0, toggle ? test.length : 4).map((project, index) => (
           <CardProject key={index} input={project} />
         ))}
       </Rows>
@@ -128,6 +129,10 @@ const ButtonCustom = styled.button`
     transition: all 0.6s ease;
     background-color: #ffd700;
     color: #000;
+  }
+  :focus {
+    border: 2px solid #ffd700;
+    outline: none;
   }
 
   @media (max-width: 600px) {

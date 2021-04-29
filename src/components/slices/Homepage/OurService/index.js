@@ -49,7 +49,6 @@ const OurServices = ({ input }) => {
         </CardItem>
       </Content>
     </Container>
-    // <><h1>abc</h1></>
   )
 }
 
@@ -84,7 +83,7 @@ const Container = styled.div`
 const Title = styled.h1`
   height: 56px;
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: "Calibre Bold";
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;
@@ -119,7 +118,7 @@ const CardItem = styled.div`
 `
 const SubTitle = styled.h4`
   color: #101010;
-  font-family: Calibre Semibold;
+  font-family: "Calibre Semibold";
   font-size: 20px;
   letter-spacing: 0;
   line-height: 20px;
@@ -135,7 +134,7 @@ const Content = styled.div`
 `
 const SubText = styled.h4`
   color: #262626;
-  font-family: Calibre Regular;
+  font-family: "Calibre Regular";
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28px;

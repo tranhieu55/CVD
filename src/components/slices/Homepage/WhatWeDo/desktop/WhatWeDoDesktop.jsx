@@ -51,7 +51,9 @@ export default function WhatWeDoDesktop(props) {
       <Right>
         <UpperContent>
           <Content>{RichText.render(content)}</Content>
-          <LearnMore>Learn more</LearnMore>
+          <LearnMore>
+            <span>Learn more</span>
+          </LearnMore>
         </UpperContent>
       </Right>
     </ContainerDesktop>
@@ -170,13 +172,17 @@ const Content = styled.div`
   }
 `
 const LearnMore = styled.h4`
-  height: 20px;
-  color: #fecf09;
-  font-family: Calibre Medium;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 20px;
+  span {
+    height: 20px;
+    color: #fecf09;
+    font-family: Calibre Medium;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-decoration: underline;
+  }
+
   &::after {
     content: "\f178";
     font-family: "Font Awesome 5 Pro Regular";
