@@ -224,7 +224,6 @@ const ListCategory = styled.ul`
     padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-right: 16px;
     li.reset_filters_moblie {
       display: block;
     }
