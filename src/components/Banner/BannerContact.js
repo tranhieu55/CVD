@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 export default function BannerContacts({ title, content, button, Phones }) {
+  
   return (
     <Banner>
       <ContentBanner>

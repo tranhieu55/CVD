@@ -81,6 +81,10 @@ const ListPost = styled.div`
   height: 517px;
   width: 606px;
   margin-bottom: 84px;
+  a:hover {
+    text-decoration: none;
+  }
+
   @media (max-width: 374px) {
     margin-bottom: 20px !important;
   }
@@ -166,7 +170,7 @@ const SubTitle = styled.h4`
   height: 16px;
   width: 154px;
   color: #999999;
-  font-family: "Calibre Semibold";
+  font-family: Calibre Semibold;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -186,10 +190,11 @@ const SubTitle = styled.h4`
   }
   @media (max-width: 600px) and (max-height: 350px) {
     margin-top: 20px !important;
+    
   }
   @media (max-width: 600px) {
     height: 14px;
-    font-family: "Calibre Semibold";
+    font-family: Calibre Semibold;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
