@@ -5,19 +5,19 @@ import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
-const title = input.primary.title[0].text
-const content = input.primary.content
-const platforms = input.fields
-const [indicator, setindicator] = useState(0);
+  const title = input.primary.title[0].text
+  const content = input.primary.content
+  const platforms = input.fields
+  const [indicator, setindicator] = useState(0)
 
-function updateSelected(i) {
-	setindicator(i)
-}
+  function updateSelected(i) {
+    setindicator(i)
+  }
 
-return (
-	<Container>
-	<Title>{title}</Title>
-	<Content className="content">{RichText.render(content)}</Content>
+  return (
+    <Container>
+      <Title>{title}</Title>
+      <Content className="content">{RichText.render(content)}</Content>
 
       <Platforms className="md:overflow-scroll">
         {platforms.map((platform, i) => {
@@ -52,7 +52,7 @@ return (
 export default PlatformTrio
 
 PlatformTrio.propTypes = {
-input: PropTypes.object.isRequired,
+  input: PropTypes.object.isRequired,
 }
 
 const Container = styled.div`
@@ -81,7 +81,7 @@ const Container = styled.div`
     position: relative;
     margin-top: 10px;
     height: 825px;
-    :before{
+    :before {
       top: -25px;
       height: 61px;
       transform: skewY(3.7deg);
@@ -276,14 +276,14 @@ const Platform = styled.div`
   }
 `
 const Inner = styled.div`
-width: 100%;
+  width: 100%;
 `
 
 const PlatformLogo = styled.img`
   height: auto;
   display: block;
   max-width: 218px;
-  height: 60px;
+  height: 45px;
   background: #f8f8f8;
   @media (max-width: 600px) {
     height: 48px;
@@ -330,7 +330,7 @@ const PlatformDesc = styled.div`
 `
 const Buttons = styled.div`
   border-color: #fecf09;
-  padding: 12px 15px;
+  padding: 8px 15px;
   text-align: center;
   border-radius: 4px;
   border: solid 2px;

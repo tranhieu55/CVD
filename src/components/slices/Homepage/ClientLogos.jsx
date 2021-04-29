@@ -168,6 +168,16 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     height: 340px;
   }
+  @media (min-width: 1025px) {
+    height: 330px;
+  }
+  @media (min-width: 1200px) {
+    height: 325px;
+  }
+  @media (min-width: 1366px) {
+    height: 405px;
+  }
+
   @media (max-width: 600px) {
     height: 308px;
   }
@@ -201,7 +211,7 @@ const Socke = styled.div`
     height: 320px;
   }
   @media (min-width: 1024px) {
-    height: 264px;
+    height: 300px;
   }
 `
 const Oval = styled.div`
@@ -220,7 +230,7 @@ const Oval = styled.div`
     left: 49.4%;
   }
   @media (min-width: 1024px) {
-    margin-top: 288px;
+    margin-top: 315px;
     left: 49.6%;
   }
 `

@@ -259,7 +259,7 @@ const Slides = styled.div`
   }
 `
 const Img = styled.img`
-  height: 32px;
+  height: 24px;
   width: 162px;
   @media (max-width: 600px) {
     height: 24px;
