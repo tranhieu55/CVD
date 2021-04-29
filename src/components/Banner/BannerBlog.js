@@ -283,10 +283,10 @@ const CategoryItem = styled.li`
       transition: all 0.4s ease-in 0s;
     }
 
-    // when hover
+    /* // when hover
     :hover {
       border-bottom: 2px solid #222222;
-    }
+    } */
   }
   a:not([href]):not([class]) {
     color: #222222;
@@ -305,7 +305,6 @@ const CategoryItem = styled.li`
   a.active {
     color: #222222 !important;
     opacity: 1;
-    border-bottom: 2px solid #222222;
     &::after {
       position: absolute;
       bottom: -1px;
@@ -315,7 +314,7 @@ const CategoryItem = styled.li`
       background-color: #222222;
       opacity: 0.3;
       transition: all 0s ease-in;
-      height: 0px;
+      height: 2px;
     }
   }
 
@@ -372,8 +371,6 @@ const CategoryItems = styled.li`
       height: 3px;
       transition: all 0.4s ease-in 0s;
     }
-
-    // when hover
   }
   a:not([href]):not([class]) {
     color: #101010;
