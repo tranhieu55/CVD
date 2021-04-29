@@ -16,10 +16,11 @@ const OurLaster = ({ input }) => {
           <ListPost key={index} 
             as={Link}
             to={`/blog/${item.posts._meta.uid}`}
+            vitri={index}
             >
             <Img src={item.posts.post_image.url} vitri={index}></Img>
-            <SubTitle vitri={index}>June 25, 2019</SubTitle>
-            <TitlePost>{item.posts.title.map(item => item.text)}</TitlePost>
+            <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
+            <TitlePost vitri={index}>{item.posts.title.map(item => item.text)}</TitlePost>
           </ListPost>
         ))}
       </Content>
@@ -95,6 +96,9 @@ const Messagings = styled.h4`
   @media (min-width: 1024px) {
     margin: 16px 152px 48px;
   }
+  @media(min-width: 1600px){
+    margin: 16px 210px 48px;
+  }
 `
 
 const ListPost = styled.div`
@@ -110,15 +114,17 @@ const ListPost = styled.div`
     margin-bottom: 16px;
   }
   @media (min-width: 1024px) {
-    width: 49%;
+    width: ${props => props.vitri === 0 ? '49.2%' : '45.8%'};
     height: 517px;
   }
+  
+
 `
 
 const Img = styled.img`
   width: ${props => (props.vitri === 1 ? "80%" : "100%")};
   height: ${props => (props.vitri === 1 ? "360px" : "400px")};
-  margin-left: 32px;
+  margin-left: ${props => props.vitri === 1 ? "24px" : "32px"};
   margin-top: ${props => (props.vitri === 1 ? "20px" : "0px")};
   object-fit: cover;
   @media (max-width: 600px) {
@@ -126,18 +132,21 @@ const Img = styled.img`
     height: 240px;
     margin-left: 0px;
   }
+  @media(min-width: 600px){
+    width: 90%;
+  }
   @media (min-width: 768px) {
     width: 100%;
     margin-left: 0px;
   }
   @media (min-width: 1024px) {
-    width: ${props => (props.vitri === 1 ? "80%" : "100%")};
+    width: ${props => (props.vitri === 1 ? "95%" : "100%")};
     height: ${props => (props.vitri === 1 ? "360px" : "400px")};
-    margin-left: 32px;
+    margin-left: ${props => props.vitri === 1 ? "24px" : "32px"};
     margin-top: ${props => (props.vitri === 1 ? "20px" : "0px")};
   }
   @media (min-width: 1366px) {
-    width: ${props => (props.vitri === 1 ? "80%" : "95%")};
+    width: ${props => (props.vitri === 1 ? "96%" : "95%")};
   }
 `
 const TitlePost = styled.h4`
@@ -148,7 +157,7 @@ const TitlePost = styled.h4`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-left: 80px;
+  margin-left: ${props => props.vitri === 1 ? "48px" : "80px"};
   @media (max-width: 600px) {
     height: 72px;
     font-size: 24px;
@@ -181,6 +190,12 @@ const Content = styled.span`
     display: flex;
     justify-content: space-between;
   }
+  @media(min-width: 1600px){
+    height: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 `
 const SubTitle = styled.h4`
   position: relative;
@@ -192,7 +207,7 @@ const SubTitle = styled.h4`
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 16px;
-  margin-left: 80px;
+  margin-left: ${props => props.vitri === 1 ? "48px" : "80px"};
   margin-top: 33px;
   &::after {
     position: absolute;
@@ -200,7 +215,7 @@ const SubTitle = styled.h4`
     top: 31%;
     display: block;
     content: "";
-    width: 63px;
+    width: ${props => props.vitri === 1 ? "32px" : "64px"};
     height: 2px;
     background: #fecf09;
   }
@@ -222,7 +237,7 @@ const SubTitle = styled.h4`
     margin-left: 112px;
   }
   @media (min-width: 1366px) {
-    margin-left: 80px;
+    margin-left: ${props => props.vitri === 1 ? "48px" : "80px"};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "33px")};
   }
 `
