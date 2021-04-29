@@ -231,6 +231,7 @@ const ListCategory = styled.ul`
   @media (max-width: 991px) {
     display: -webkit-inline-box;
     overflow-x: scroll;
+    padding-bottom: 16px;
   }
 `
 const CategoryItem = styled.li`
