@@ -224,7 +224,6 @@ const ListCategory = styled.ul`
     padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-right: 16px;
     li.reset_filters_moblie {
       display: block;
     }
@@ -307,7 +306,7 @@ const CategoryItem = styled.li`
     opacity: 1;
     &::after {
       position: absolute;
-      bottom: -1px;
+      bottom: 0px;
       left: 0;
       width: 100%;
       content: " ";
