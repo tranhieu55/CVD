@@ -121,7 +121,6 @@ const SubTitle = styled.h4`
   color: #101010;
   font-family: Calibre Semibold;
   font-size: 20px;
-  font-weight: 600;
   letter-spacing: 0;
   line-height: 20px;
   margin-bottom: 0px;
@@ -136,7 +135,7 @@ const Content = styled.div`
 `
 const SubText = styled.h4`
   color: #262626;
-  font-family: Calibre;
+  font-family: Calibre Regular;
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28px;

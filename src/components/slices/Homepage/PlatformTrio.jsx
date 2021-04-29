@@ -131,6 +131,9 @@ const Title = styled.h2`
     padding: 9px 16px 0px;
     margin-bottom: 16px;
   }
+  @media (max-width: 320px) {
+    padding: 9px 10px 0px;
+  }
   @media (min-width: 601px) {
     font-size: 56px;
     padding: 0px 32px;
@@ -226,7 +229,7 @@ const Platforms = styled.div`
   }
   @media (min-width: 600px) {
     $color: white;
-    margin-top: 23px;
+    margin-top: -53px;
     padding-left: 49px;
     height: 343px;
     overflow-x: auto;

@@ -168,6 +168,9 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     height: 340px;
   }
+  @media (max-width: 600px) {
+    height: 308px;
+  }
 `
 const ClientLogo = styled.img`
   height: auto;
