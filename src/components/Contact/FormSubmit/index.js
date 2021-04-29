@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 export default function FormSumit({ input }) {
-  const data = input
+  const data = input;
   const FormSumits = styled.div`
     height: 802px;
     width: 604px;
@@ -62,7 +62,7 @@ export default function FormSumit({ input }) {
     @media (min-width: 1600px) {
       right: 180px;
     }
-  `
+  `;
   const Forms = styled.div`
     padding: 48px 48px;
     @media (max-width: 600px) {
@@ -112,6 +112,12 @@ export default function FormSumit({ input }) {
       outline: none;
       border: 2px solid #222222;
     }
+
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 24px;
   `
   const Inputs = styled.div`
     position: relative;
@@ -170,6 +176,13 @@ export default function FormSumit({ input }) {
     @media (max-width: 768px) {
       margin-bottom: 10px;
     }
+
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 24px;
+    resize: none;
   `
   const ButtonForm = styled.button`
     height: 64px;
@@ -212,7 +225,9 @@ export default function FormSumit({ input }) {
           }
           return null
         })}
-        <ButtonForm>Submit</ButtonForm>
+        <a href="#">
+          <ButtonForm >Submit</ButtonForm>
+        </a>
       </Forms>
     </FormSumits>
   )

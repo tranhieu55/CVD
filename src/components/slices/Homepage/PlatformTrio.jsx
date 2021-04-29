@@ -5,19 +5,19 @@ import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
-  const title = input.primary.title[0].text
-  const content = input.primary.content
-  const platforms = input.fields
-  const [indicator, setindicator] = useState(0)
+const title = input.primary.title[0].text
+const content = input.primary.content
+const platforms = input.fields
+const [indicator, setindicator] = useState(0);
 
-  function updateSelected(i) {
-    setindicator(i)
-  }
+function updateSelected(i) {
+	setindicator(i)
+}
 
-  return (
-    <Container>
-      <Title>{title}</Title>
-      <Content className="content">{RichText.render(content)}</Content>
+return (
+	<Container>
+	<Title>{title}</Title>
+	<Content className="content">{RichText.render(content)}</Content>
 
       <Platforms className="md:overflow-scroll">
         {platforms.map((platform, i) => {
@@ -52,7 +52,7 @@ const PlatformTrio = ({ input }) => {
 export default PlatformTrio
 
 PlatformTrio.propTypes = {
-  input: PropTypes.object.isRequired,
+input: PropTypes.object.isRequired,
 }
 
 const Container = styled.div`
@@ -273,7 +273,7 @@ const Platform = styled.div`
   }
 `
 const Inner = styled.div`
-  width: 100%;
+width: 100%;
 `
 
 const PlatformLogo = styled.img`

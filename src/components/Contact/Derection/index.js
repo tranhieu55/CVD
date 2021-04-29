@@ -135,6 +135,7 @@ export default function Derection ({input}) {
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
+        margin-bottom: 12px;
     `
     const DivLink = styled.div`
         display: flex;
@@ -143,7 +144,7 @@ export default function Derection ({input}) {
     const Link = styled.p`
         opacity: 0.9;
         color: #555555;
-        font-family: Calibre;
+        font-family: Calibre Regular;
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
