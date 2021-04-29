@@ -111,7 +111,7 @@ const Title = styled.h1`
     letter-spacing: -1px;
     line-height: 38px;
     text-align: center;
-    padding: 52px 77px 0px;
+    padding: 52px 32px 0px;
   }
   @media (max-width: 320px) {
     font-size: 40px;
@@ -169,7 +169,8 @@ const Slides = styled.div`
   }
 
   @media (max-width: 600px) {
-    margin-top: 64px;
+    // margin-top: 64px;
+    margin-top: 32px;
     padding-left: 48px;
     height: 354px;
     overflow-x: auto;

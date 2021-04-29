@@ -220,7 +220,7 @@ const H3 = styled.h3`
   font-family: Calibre Bold;
   @media only screen and (max-width: 600px) {
     color: #ffffff;
-    font-family: Calibre;
+    font-family: Calibre Bold;
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 0;

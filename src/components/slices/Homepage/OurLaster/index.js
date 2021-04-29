@@ -104,6 +104,11 @@ const Messagings = styled.h4`
 const ListPost = styled.div`
   height: 517px;
   width: 606px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
   @media (max-width: 600px) {
     height: 351px;
     width: 100%;
