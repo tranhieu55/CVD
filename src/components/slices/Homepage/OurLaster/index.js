@@ -86,7 +86,7 @@ const Messagings = styled.h4`
   text-align: center;
   margin: 16px 152px 48px;
   @media (max-width: 600px) {
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 0;
     line-height: 24px;
     text-align: center;
@@ -229,7 +229,7 @@ const SubTitle = styled.h4`
   }
   @media (max-width: 600px) {
     height: 14px;
-    font-family: Calibre;
+    font-family: Calibre Semibold;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;

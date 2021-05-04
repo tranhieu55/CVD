@@ -152,6 +152,11 @@ const Service = styled.h4`
       position: absolute;
       right: 0;
   }
+  @media (min-width: 600px) {
+    &::after {
+      right: 32px;
+    }
+  }
     opacity: ${props => props.indicator ? '1' : '0.6'};
     .accordion-title {
       font-weight: 600;
@@ -220,7 +225,12 @@ position: relative;
   opacity: 0.6;
   position: absolute;
   right: 0;
-
+  
+}
+@media (min-width: 600px) {
+  &::after {
+    right: 32px;
+  }
 }
 opacity: ${props => props.indicator ? 1 : .6};
 .accordion-title {
