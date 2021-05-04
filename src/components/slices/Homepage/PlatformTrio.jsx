@@ -93,15 +93,16 @@ const Container = styled.div`
     }
   }
   @media (min-width: 1366px) {
+    margin-top: -70px;
     :before {
-      height: 163px;
-      top: -79px;
+      height: 146px;
     }
   }
   @media (min-width: 1600px) {
+    height: 1000px;
+    margin-top: -70px;
     :before {
-      height: 204px;
-      top: -79px;
+      height: 146px;
     }
   }
 `
@@ -258,6 +259,9 @@ const Platforms = styled.div`
     ::-webkit-scrollbar-thumb:hover {
       background: #b30000;
     }
+  }
+  @media (min-width: 1600px){
+    margin-top: -28px;
   }
 `
 const Platform = styled.div`
