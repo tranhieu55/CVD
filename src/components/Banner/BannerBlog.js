@@ -16,6 +16,7 @@ const WraperBannerProjects = styled.div`
   }
   @media only screen and (max-width: 600px) {
     margin-bottom: 0px;
+    height: 214px;
     h2 {
       font-size: 40px;
       color: #101010;
@@ -112,6 +113,9 @@ const WraperBannerProjects = styled.div`
     a {
       font-size: 20px !important;
     }
+  }
+  @media(min-width: 1600px){
+    height: 370px;
   }
 `
 
@@ -530,12 +534,6 @@ const BannerBlog = () => {
         </H2>
         <div className="row ">
           <ListCategory className="col-md-10" show={filter}>
-            <CategoryItems
-              className="reset_filters_moblie"
-              onClick={() => dispatch({ type: "RESET_FILTER" })}
-            >
-              <Link className="opacity01">Filters</Link>
-            </CategoryItems>
             {newArr.map((item, index) => (
               <CategoryItem
                 key={index}

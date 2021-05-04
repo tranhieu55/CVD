@@ -33,7 +33,7 @@ function OurWorkProjects(props) {
           <CardProject key={index} input={project} />
         ))}
       </Rows>
-      <MyBtn>
+      <MyBtn className={test.length < 4 ? "none" : ""}>
         <ButtonCustom
           wt="178"
           ht="48"
@@ -82,6 +82,9 @@ const ListBlogStyle = styled.div`
   .row {
     margin-right: 0px;
     margin-left: 0px;
+  }
+  .none{
+    display: none;
   }
 `
 const Rows = styled.div``

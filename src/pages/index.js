@@ -23,9 +23,6 @@ const Index = ({ data: { prismic } }) => {
                 return (
                   <ButtonBanner
                     key={index}
-                    background={item.color_background_button}
-                    border={item.color_border_button}
-                    textColor={item.color_text_button}
                     vitri={index}
                   >
                     {item.text_button[0].text}
@@ -131,9 +128,9 @@ const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: ${props => (props.background ? props.background : "transparent")};
-  border: 2px solid ${props => props.border};
-  color: ${props => props.textColor};
+  background: "transparent";
+  border: 2px solid #fecf09;
+  color: #ffffff;
   border-radius: 3px;
   font-family: "Calibre Semibold";
   font-size: 18px;
@@ -141,6 +138,11 @@ const ButtonBanner = styled.button`
   padding-top: 5px;
   :focus {
     outline: none;
+  }
+  :hover {
+    color: #101010;
+    background: #fecf09;
+    border: 2px solid #fecf09;
   }
   @media (max-width: 600px) {
     margin-right: ${props => (props.vitri === 0 ? "16px" : "0px")};
