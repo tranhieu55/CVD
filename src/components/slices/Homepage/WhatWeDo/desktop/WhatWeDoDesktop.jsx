@@ -28,9 +28,10 @@ export default function WhatWeDoDesktop(props) {
   }
 
   return (
+    <>
+    <Image src={input.primary.background_image_what_we_do.url}></Image>
     <ContainerDesktop>
       <Contentleft>
-        <Image src={input.primary.background_image_what_we_do.url}></Image>
         <Left>
           <Title>{heading}</Title>
           {fields.map((service, i) => {
@@ -48,15 +49,18 @@ export default function WhatWeDoDesktop(props) {
           })}
         </Left>
       </Contentleft>
-      <Right>
-        <UpperContent>
-          <Content>{RichText.render(content)}</Content>
-          <LearnMore>
-            <span>Learn more</span>
-          </LearnMore>
-        </UpperContent>
-      </Right>
+      <ConTentRight>
+        <Right>
+          <UpperContent>
+            <Content>{RichText.render(content)}</Content>
+            <LearnMore>
+              <span>Learn more</span>
+            </LearnMore>
+          </UpperContent>
+        </Right>
+      </ConTentRight>
     </ContainerDesktop>
+    </>
   )
 }
 
@@ -64,14 +68,21 @@ const UpperContent = styled.div`
   position: relative;
   display: block;
   z-index: 22;
+  margin: auto;
+  max-width: 444px;
+  height: 241px;
+  top: 38%;
 `
 const ContainerDesktop = styled.div`
-  z-index: 3;
-  position: relative;
+  position: absolute;
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
-  background: #2a304f;
+  background: #0F1534;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   @media (max-width: 992px) {
     display: none;
   }
@@ -149,9 +160,10 @@ const Right = styled.div`
   justify-items: center;
   position: relative;
   display: block;
-  margin: auto;
-  max-width: 444px;
-  height: 241px;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #2A304F;
 `
 
 const Content = styled.div`
@@ -194,11 +206,26 @@ const LearnMore = styled.h4`
   }
 `
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 126%;
+  height: 160%;
   position: relative;
-  object-fit: none;
+  object-fit: cover;
+  z-index: 1;
+  top: -353px;
+  z-index: 10;
+  left: -338px;
+  display: block;
+  @media(max-width: 992px){
+    display: none;
+  }
 `
 const Contentleft = styled.div`
-  background: #0f1534;
+  z-index: 999;
+`
+const ConTentRight = styled.div`
+  background-color: #2A304F;
+  display: block;
+  @media(max-width: 992px){
+    display: none;
+  }
 `
