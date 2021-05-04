@@ -80,7 +80,8 @@ const ProjectTiles = ({ input }) => {
               </TitleImageBlog>
             </Colum>
           ))}
-        <MyBtn>
+      </Rows>
+      <MyBtn>
           <ButtonCustom
             wt="212"
             ht="48"
@@ -93,7 +94,6 @@ const ProjectTiles = ({ input }) => {
             { data.prismic.allHomepages.edges[0].node.body[5].fields.slice(orinal, limit).length > 3 ? "Load more case studies" : "Load less case studies"}
           </ButtonCustom>
         </MyBtn>
-      </Rows>
     </ListBlogStyle>
   )
 }
@@ -244,6 +244,7 @@ const H3 = styled.h3`
 `
 const MyBtn = styled.div`
   margin: 32px auto 0px;
+  width: 212px;
   @media (max-width: 600px) {
     margin: 16px 0px;
     height: 48px;
@@ -266,19 +267,10 @@ const ButtonCustom = styled.button`
   width: ${({ wt }) => `${wt}px`};
   width: ${({ w }) => `${w}%`};
   height: ${({ ht }) => `${ht}px`};
-  margin-bottom: ${({ mb }) => `${mb}px`};
-  margin: ${({ margin }) => `${margin}`};
-  margin-right: ${({ mr }) => `${mr}px`};
-  margin-top: ${({ mt }) => `${mt}px`};
-  padding-left: ${({ pdl }) => `${pdl}px`};
-  padding-right: ${({ pdr }) => `${pdr}px`};
-  height: ${({ cc }) => `${cc}px`};
   font-size: ${({ fz }) => `${fz}px`};
   line-height: ${({ lineh }) => `${lineh}px`};
-  padding: ${({ pd1 }) => `${pd1}px`} ${({ pd2 }) => `${pd2}px`};
   position: relative;
   overflow: hidden;
-  white-space: ${({ wspace }) => `${wspace}`};
   font-weight: 500;
   color: #101010;
   :hover {
