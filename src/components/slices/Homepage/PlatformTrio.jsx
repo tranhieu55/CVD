@@ -177,6 +177,9 @@ const Content = styled.div`
       word-spacing: 1.2px;
     }
   }
+  @media (min-width: 500px) and (max-width: 600px) {
+    height: auto;
+  }
   @media (max-width: 360px) {
     margin: 10px 16px 0px;
   }
