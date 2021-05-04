@@ -145,12 +145,15 @@ const Img = styled.img`
     margin-left: 0px;
   }
   @media (min-width: 1024px) {
-    width: ${props => (props.vitri === 1 ? "95%" : "100%")};
+    width: ${props => (props.vitri === 1 ? "94.5%" : "93.5%")};
     height: ${props => (props.vitri === 1 ? "360px" : "400px")};
     margin-left: ${props => (props.vitri === 1 ? "24px" : "32px")};
     margin-top: ${props => (props.vitri === 1 ? "20px" : "0px")};
   }
   @media (min-width: 1366px) {
+    width: ${props => (props.vitri === 1 ? "96%" : "95%")};
+  }
+  @media (min-width: 1600px) {
     width: ${props => (props.vitri === 1 ? "96%" : "95%")};
   }
 `
@@ -193,7 +196,7 @@ const Content = styled.span`
     height: 520px;
     width: 100%;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
   }
   @media (min-width: 1600px) {
     height: 520px;
@@ -239,7 +242,11 @@ const SubTitle = styled.h4`
     }
   }
   @media (min-width: 768px) {
-    margin-left: 112px;
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+  }
+  @media(min-width: 1024px){
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+    margin-top: ${props => (props.vitri === 1 ? "53px" : "32px")};
   }
   @media (min-width: 1366px) {
     margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
