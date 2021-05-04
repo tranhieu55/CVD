@@ -277,6 +277,7 @@ const Text = styled.div`
   }
   @media (max-width: 320px) {
     width: 265px;
+    padding-right: 15px;
   }
 `
 const Content = styled.span`

@@ -184,6 +184,9 @@ const Content = styled.div`
     padding: 0px 32px 0px;
     height: 180px;
   }
+  @media (min-width: 600px) and (max-width: 768px) {
+    margin-bottom: 50px;
+  }
   @media (min-width: 1024px) {
     padding: 0px 0px;
   }
