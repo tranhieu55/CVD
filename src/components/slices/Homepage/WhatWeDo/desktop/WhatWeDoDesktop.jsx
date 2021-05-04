@@ -224,4 +224,8 @@ const Contentleft = styled.div`
 `
 const ConTentRight = styled.div`
   background-color: #2A304F;
+  display: block;
+  @media(max-width: 992px){
+    display: none;
+  }
 `
