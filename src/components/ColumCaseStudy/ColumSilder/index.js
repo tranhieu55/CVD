@@ -195,7 +195,7 @@ const Images = styled.img`
   @media (min-width: 601px) {
     height: 100%;
     width: 100%;
-    padding: 37px 25px;
+    padding: 20px 32px;
   }
   @media (min-width: 768px) {
     padding: 47px 61px !important;
