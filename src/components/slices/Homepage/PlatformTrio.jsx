@@ -334,7 +334,7 @@ const PlatformDesc = styled.div`
 `
 const Buttons = styled.div`
   border-color: #fecf09;
-  padding: 8px 15px;
+  padding: 11px 15px;
   text-align: center;
   border-radius: 4px;
   border: solid 2px;

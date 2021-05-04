@@ -90,7 +90,7 @@ const ProjectTiles = ({ input }) => {
             id="loadMore"
             onClick={(orinal, limit) => setMap(orinal, limit)}
           >
-            Load more case studies
+            { data.prismic.allHomepages.edges[0].node.body[5].fields.slice(orinal, limit).length > 3 ? "Load more case studies" : "Load less case studies"}
           </ButtonCustom>
         </MyBtn>
       </Rows>
@@ -243,7 +243,7 @@ const H3 = styled.h3`
   }
 `
 const MyBtn = styled.div`
-  margin: 40px auto;
+  margin: 32px auto 0px;
   @media (max-width: 600px) {
     margin: 16px 0px;
     height: 48px;
@@ -285,6 +285,9 @@ const ButtonCustom = styled.button`
     transition: all 0.6s ease;
     background-color: #ffd700;
     color: #000;
+  }
+  :focus{
+    outline: none;
   }
   @media (max-width: 600px) {
     width: 100%;
