@@ -10,7 +10,9 @@ export default function BannerContacts({ title, content, button, Phones }) {
         <Title>{title}</Title>
         <Content>{RichText.render(content)}</Content>
         <ButtonBanner>
-          <Buttons>{button}</Buttons>
+          <a href='#'>
+            <Buttons>{button}</Buttons>
+          </a>
           <PhoneNumber>{Phones}</PhoneNumber>
         </ButtonBanner>
       </ContentBanner>
