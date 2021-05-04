@@ -141,16 +141,24 @@ export default function Derection ({input}) {
         display: flex;
         margin-top: 12px;
     `
-    const Link = styled.p`
+    const Link = styled.a`
         opacity: 0.9;
         color: #555555;
         font-family: Calibre Regular;
         font-size: 20px;
         letter-spacing: 0;
         line-height: 24px;
-        border-bottom: 1px solid #555555;
+        text-decoration: underline;
+        text-underline-offset: 3px;
         margin-bottom: 0px;
         margin-right: 16px;
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: #555555;
+        }
     `
     return(
         <Derections>
@@ -162,8 +170,8 @@ export default function Derection ({input}) {
                             <TextLeft>{item.address.map(item => item.text)}</TextLeft>
                             <Phone>{item.office_phone_number.map(item => item.text)}</Phone>
                             <DivLink>
-                                <Link>Call</Link>
-                                <Link>Directions</Link>
+                                <Link href='#'>Call</Link>
+                                <Link href='#'>Directions</Link>
                             </DivLink>
                         </Contentleft>
                     <ContentRight>

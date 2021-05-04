@@ -82,9 +82,10 @@ export default function FormSumit({ input }) {
     border-radius: 3px;
     border: 2px solid #cccccc;
     padding: 0px;
+    padding-right: 24px;
     text-indent: 24px;
     box-shadow: none;
-    padding-top: 15px;
+    padding-top: 28px;
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     animation-name: mui-auto-fill-cancel;
@@ -146,10 +147,10 @@ export default function FormSumit({ input }) {
     animation-name: mui-auto-fill-cancel;
     border-radius: 3px;
     border: 2px solid #cccccc;
-    padding-top: 24px;
+    padding-top: 32px;
     padding-left: 24px;
+    padding-right: 24px;
     box-shadow: none;
-    padding-top: 25px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
