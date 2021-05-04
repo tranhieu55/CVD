@@ -122,7 +122,7 @@ const ListBlogStyle = styled.div`
     color: white;
   }
   @media (max-width: 600px) {
-    height: 1076px;
+    height: auto;
     margin: -11px 16px 0px;
   }
 `
@@ -258,14 +258,12 @@ const ButtonCustom = styled.button`
   background-color: ${({ bgColor }) =>
     bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
-  font-weight: ${({ fw }) => `${fw}`};
   outline: none;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   width: ${({ wt }) => `${wt}px`};
-  width: ${({ w }) => `${w}%`};
   height: ${({ ht }) => `${ht}px`};
   font-size: ${({ fz }) => `${fz}px`};
   line-height: ${({ lineh }) => `${lineh}px`};
