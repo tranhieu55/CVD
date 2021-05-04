@@ -128,7 +128,7 @@ const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: "transparent";
+  background: transparent;
   border: 2px solid #fecf09;
   color: #ffffff;
   border-radius: 3px;
@@ -160,10 +160,9 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: ${props =>
-      props.background ? props.background : "transparent"};
-    border: 2px solid ${props => props.border};
-    color: ${props => props.textColor};
+    background: transparent;
+    border: 2px solid #fecf09;
+    color: #ffffff;
     border-radius: 3px;
   }
 `
