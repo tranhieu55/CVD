@@ -158,6 +158,7 @@ export default function Derection ({input}) {
         &:active,
         &:focus {
             color: #555555;
+            
         }
     `
     return(
