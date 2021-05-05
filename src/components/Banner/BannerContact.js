@@ -103,7 +103,7 @@ const Content = styled.p`
     p{
       a{
         color: #ffffff;
-        border-bottom : 1px solid #ffffff;
+        border-bottom : 1px solid #888a99;
         :hover{
           text-decoration: none;
         }
