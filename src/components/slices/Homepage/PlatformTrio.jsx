@@ -353,7 +353,7 @@ const Buttons = styled.div`
   cursor: pointer;
 `
 const ButtonText = styled(Link)`
-  font-family: Caribre Medium;
+  font-family: Calibre Medium;
   font-size: 16px;
   font-weight: 500;
   text-align: center;
