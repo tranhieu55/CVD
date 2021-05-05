@@ -43,7 +43,7 @@ function OurWorkProjects(props) {
           id="loadMore"
           onClick={handelClickLoadMore}
         >
-          {toggle === false ? "Load more project" : "load less project"}
+          {toggle === false ? "Load more project" : "Load less project"}
         </ButtonCustom>
       </MyBtn>
     </ListBlogStyle>
