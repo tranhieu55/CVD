@@ -11,14 +11,14 @@ justify-content: space-between;
     width: 468px;
     margin : 0 auto;
     height: 653px;
-    display: block
+    display: block;
 }
 @media(max-width: 498px){
     width: 343px;
-    margin : 0 autol
+    margin : 0 auto;
     height: 653px;
 }
-@media(max-width: 320px){
+@media(max-width: 360px){
     width: 296px;
     margin : 0 auto;
     height: 653px;
