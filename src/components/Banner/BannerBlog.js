@@ -207,12 +207,21 @@ const ListCategory = styled.ul`
     display: flex;
   }
   .not_reset_filters {
-    display: flex;
+    display: none;
     /* opacity: 0.3; */
     color: #222222;
   }
   li.not_reset_filters {
-    /* display: none; */
+    display: none;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #222222;
+    }
+  }
+  li.not_reset_filters {
+    display: none;
     &::after {
       content: "\f01e";
       font-family: "Font Awesome 5 Pro Regular";
@@ -232,7 +241,7 @@ const ListCategory = styled.ul`
       display: block;
     }
     li.reset_filters {
-      display: none;
+      display: flex;
     }
     .not_reset_filters {
       display: none;
@@ -542,6 +551,7 @@ const BannerBlog = () => {
                     type: "ADD_FILTER_ITEM",
                     value: item.post_category._meta.uid,
                   })
+                  setFilter(index)
                 }}
               >
                 <Link
