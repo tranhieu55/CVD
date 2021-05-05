@@ -33,7 +33,7 @@ const OurLaster = ({ input }) => {
             {moment(item.post_item?.date_created).format("LL")}
           </SubTitle>
           <TitlePost>{item.post_item?.title[0].text}</TitlePost>
-          <Read>Read more</Read>
+          <Read href={`/blog/${item.post_item._meta.uid}`}>Read more</Read>
         </ListPost>
       ))}
     </OurLasters>
@@ -53,7 +53,7 @@ const OurLasters = styled.div`
   @media (max-width: 600px) {
     padding: 16px;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 14px;
     .orderleft {
       margin-right: 0px;
     }
@@ -87,7 +87,7 @@ const ListPost = styled.div`
   }
 
   @media (max-width: 374px) {
-    margin-bottom: 20px !important;
+    margin-bottom: 36px !important;
   }
   @media (max-width: 600px) and (max-height: 350px) {
     margin-bottom: 16px !important;
@@ -148,24 +148,32 @@ const TitlePost = styled.h4`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-left: 80px;
   @media (max-width: 374px) {
-    font-size: 20px !important;
+    font-size: 24px !important;
   }
   @media (max-width: 600px) and (max-height: 350px) {
     font-size: 26px !important;
     line-height: 23px !important;
   }
   @media (max-width: 600px) {
-    font-size: 32px;
     font-weight: 600;
     letter-spacing: -0.25px;
     line-height: 24px;
-    margin-left: 48px;
     color: #101010;
     font-size: 24px;
-    margin-left: 0px;
     height: auto;
+  }
+  @media(min-width: 600px){
+    margin-left: 17px;
+  }
+  @media(min-width: 768px){
+    margin-left: 32px;
+  }
+  @media(min-width: 1200px){
+    margin-left: 30px;
+  }
+  @media(min-width: 1366px){
+    margin-left: 80px;
   }
 `
 const SubTitle = styled.h4`
@@ -225,7 +233,7 @@ const SubTitle = styled.h4`
     margin-top: 37px;
   }
 `
-const Read = styled.h4`
+const Read = styled.a`
   margin-bottom: 0px;
   color: #101010;
   font-family: Calibre Medium;
@@ -233,6 +241,7 @@ const Read = styled.h4`
   font-weight: 500;
   letter-spacing: 0;
   line-height: 20px;
+  cursor: pointer;
   &::after{
     content: "\f178";
     font-family: "Font Awesome 5 Pro Regular";
@@ -243,6 +252,15 @@ const Read = styled.h4`
     padding: 0px 0.6rem; 
   }
   @media(min-width: 600px){
+    margin-left: 17px;
+  }
+  @media(min-width: 768px){
+    margin-left: 32px;
+  }
+  @media(min-width: 1200px){
+    margin-left: 30px;
+  }
+  @media(min-width: 1366px){
     margin-left: 80px;
   }
 `
