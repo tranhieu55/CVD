@@ -6,7 +6,8 @@ import moment from "moment"
 import { RichText } from "prismic-reactjs"
 
 const BlogDetails = props => {
-  const dataIcon = props.data.prismic.post?.body[0].fields
+  console.log(props.data.prismic.post);
+  // const dataIcon = props.data.prismic.post?.body[0].fields
   const dataText = props.data.prismic.post?.body[1].fields
   return (
     <Layout location="/blog-details">
@@ -27,14 +28,12 @@ const BlogDetails = props => {
         </TextImg>
         <Fotters>
           <DivIcon>
-            {dataIcon.map((item, index) => (
-              <Icon
-                src={item.icon_image?.url}
-                alt={item.icon_image?.alt}
-              ></Icon>
-            ))}
+            <Facebook href='https://www.facebook.com'></Facebook>
+            <LinkedIn href='https://www.linkedin.com'></LinkedIn>
+            <Twitter href='https://twitter.com'></Twitter>
           </DivIcon>
           <DivText>
+            <FirstTexts>Tags</FirstTexts>
             {dataText.map((item, index) => (
               <Texts key={index}>{item.tag_item}</Texts>
             ))}
@@ -50,12 +49,13 @@ const Container = styled.div`
   margin-left: 260px;
   margin-bottom: 80px;
   width: 716px;
+
   @media (max-width: 600px) {
     width: 343px;
     margin: 16px auto 32px;
   }
   @media (max-width: 360px) {
-    width: 292px;
+    width: 300px;
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
@@ -99,7 +99,7 @@ const Text = styled.p`
 const TextImg = styled.div`
     width: 100%;
     height: auto;
-    margin-top: 23px;
+    margin-top: 26px;
 `
 const Texxt = styled.div`
     p{
@@ -165,14 +165,65 @@ const DivIcon = styled.div`
     margin-top: 24px;
   }
 `
-const Icon = styled.img`
-  height: 21px;
-  width: 20px;
-  background-color: #999999;
-  font-size: 21px;
-  letter-spacing: 1.5px;
-  line-height: 21px;
+const Facebook = styled.a`
   margin-right: 24px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    content: "\f082";
+    height: 21px;
+    width: 20px;
+    color: #999999;
+    font-family: "Font Awesome 5 Brands Regular";
+    font-size: 21px;
+    letter-spacing: 1.5px;
+    line-height: 21px;                            
+  }
+`
+
+const LinkedIn = styled.a`
+  margin-right: 24px;
+  cursor: pointer;
+
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    content: "\f0e0";
+    height: 21px;
+    width: 23px;
+    color: #999999;
+    font-family: "Font Awesome 5 Pro Regular";
+    font-size: 21px;
+    letter-spacing: 1.5px;
+    line-height: 21px;
+  }
+`
+
+const Twitter = styled.a`
+  cursor: pointer;
+
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    content: "\f099";
+    height: 21px;
+    width: 23px;
+    color: #999999;
+    font-family: "Font Awesome 5 Brands Regular";
+    font-size: 21px;
+    letter-spacing: 1.5px;
+    line-height: 21px;                          
+  }
 `
 const DivText = styled.div`
   margin-top: 31px;
@@ -182,10 +233,23 @@ const DivText = styled.div`
     display: flex;
   }
 `
+const FirstTexts = styled.p`
+  height: 16px;
+  width: 36px;
+  color: #999999;
+  font-family: Calibre Semibold;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding-top: 4px;
+`
 const Texts = styled.p`
   margin-left: 16px;
   height: 24px;
-  color: ${props => (props.key === 1 ? "#999999" : "#22222")};
+  // color: ${props => (props.key === 1 ? "#999999" : "#22222")};
+  color: #222222;
   font-family: Calibre Regular;
   font-size: 18px;
   letter-spacing: 0;
