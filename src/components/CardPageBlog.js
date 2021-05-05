@@ -33,6 +33,7 @@ const OurLaster = ({ input }) => {
             {moment(item.post_item?.date_created).format("LL")}
           </SubTitle>
           <TitlePost>{item.post_item?.title[0].text}</TitlePost>
+          <Read>Read more</Read>
         </ListPost>
       ))}
     </OurLasters>
@@ -94,7 +95,7 @@ const ListPost = styled.div`
   @media (max-width: 600px) {
     height: 351px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
   }
   @media (min-width: 600px) {
     margin: auto;
@@ -149,20 +150,22 @@ const TitlePost = styled.h4`
   line-height: 32px;
   margin-left: 80px;
   @media (max-width: 374px) {
-    width: 225px;
     font-size: 20px !important;
   }
   @media (max-width: 600px) and (max-height: 350px) {
     font-size: 26px !important;
-    line-height: 30px !important;
+    line-height: 23px !important;
   }
   @media (max-width: 600px) {
-    height: 72px;
     font-size: 32px;
     font-weight: 600;
-    letter-spacing: -0.33px;
-    line-height: 26px;
+    letter-spacing: -0.25px;
+    line-height: 24px;
     margin-left: 48px;
+    color: #101010;
+    font-size: 24px;
+    margin-left: 0px;
+    height: auto;
   }
 `
 const SubTitle = styled.h4`
@@ -220,5 +223,26 @@ const SubTitle = styled.h4`
   @media (min-width: 1366px) {
     margin-left: 80px;
     margin-top: 37px;
+  }
+`
+const Read = styled.h4`
+  margin-bottom: 0px;
+  color: #101010;
+  font-family: Calibre Medium;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20px;
+  &::after{
+    content: "\f178";
+    font-family: "Font Awesome 5 Pro Regular";
+    height: 18px;
+    line-height: 16px;
+    font-size: 18px;
+    color: #101010;
+    padding: 0px 0.6rem; 
+  }
+  @media(min-width: 600px){
+    margin-left: 80px;
   }
 `
