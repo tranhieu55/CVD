@@ -48,6 +48,13 @@ export default function Derection ({input}) {
             height: 52px;
             font-size: 32px;
             margin-bottom: 24px;
+            color: #101010;
+            font-family: Calibre Semibold;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 52px;
+            border-bottom: 1px solid #E4E4E4;
         }
         @media(min-width: 600px){
             height: 59px;
@@ -158,6 +165,7 @@ export default function Derection ({input}) {
         &:active,
         &:focus {
             color: #555555;
+            
         }
     `
     return(
