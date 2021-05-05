@@ -50,7 +50,7 @@ export default function Derection ({input}) {
             margin-bottom: 24px;
         }
         @media(min-width: 600px){
-            height: 76px;
+            height: 59px;
             width: 100%;
             color: #101010;
             font-family: Calibre Semibold;
@@ -175,7 +175,7 @@ export default function Derection ({input}) {
                             </DivLink>
                         </Contentleft>
                     <ContentRight>
-                    <iframe src={item.google_maps_link.url} 
+                    <iframe src={item.google_maps_link.url + "&language=iw"} id="serviceFrameSend" 
                         width="100%" height="100%" className='googole-map' allowfullscreen="" loading="lazy"
                     >
                     </iframe>
