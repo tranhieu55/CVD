@@ -33,6 +33,9 @@ const Container = styled.div`
         height: 365px;
         background-color: #ffffff ;
     }
+    @media(min-width: 1040px) and (max-width: 1366px){
+        height: 337px;
+    }
 `
 const SubTitle = styled.div`
    
