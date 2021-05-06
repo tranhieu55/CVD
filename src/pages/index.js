@@ -7,7 +7,7 @@ import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
-  const data = prismic.allHomepages.edges[0].node
+  const data = prismic ? prismic.allHomepages.edges[0]?.node : [];
   const background_image = data.background_image.url
   return (
     <>
@@ -17,15 +17,15 @@ const Index = ({ data: { prismic } }) => {
         <Container>
           <ImageBanner src={background_image}></ImageBanner>
           <TextBanner>
-            <Title>{data.page_title[0].text}</Title>
+            <Title>{data.page_title[0]?.text}</Title>
             <Buttons>
-              {data.body[0].fields.map((item, index) => {
+              {data.body[0]?.fields?.map((item, index) => {
                 return (
                   <ButtonBanner
                     key={index}
                     vitri={index}
                   >
-                    {item.text_button[0].text}
+                    {item.text_button[0]?.text}
                   </ButtonBanner>
                 )
               })}

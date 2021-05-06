@@ -4,20 +4,23 @@ import styled from 'styled-components'
 export default function TextQoute(props) {
   return (
     <Container>
-    <Qoute
-      data-sal="slide-down"
-      data-sal-delay="5000"
-      data-sal-easing="ease"
-      data-sal-duration="1000"
-    >
-      <TypeAliquam>
-      “{props.input.primary.title_quote[0].text}”
-      </TypeAliquam>
-      <TypeAliquams>
-        {props.input.primary.author_of_quote[0].text}
-      </TypeAliquams>
-
-    </Qoute>
+      {props ?
+        <Qoute
+          data-sal="slide-down"
+          data-sal-delay="5000"
+          data-sal-easing="ease"
+          data-sal-duration="1000"
+        >
+          <TypeAliquam>
+          “{props.input.primary.title_quote[0]?.text}”
+          </TypeAliquam>
+          <TypeAliquams>
+            {props.input.primary.author_of_quote[0]?.text}
+          </TypeAliquams>
+    
+        </Qoute>
+        : <></>
+      }
     </Container>
   )
 }

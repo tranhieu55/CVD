@@ -147,9 +147,9 @@ export default function ListBlog() {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {data.prismic.allProjectss.edges
+        { data ? data.prismic.allProjectss.edges
           .slice(orinal, limit)
-          .map((edge, index) => (
+          ?.map((edge, index) => (
             <Colum
               className={`${
                 data.prismic.allProjectss.edges.length === 3
@@ -171,10 +171,10 @@ export default function ListBlog() {
               </DivIMG>
               <TitleImageBlog>
                 <Span>{edge.node.name_category_of_project}</Span>
-                <H3>{edge.node.project_name.map(item => item.text)}</H3>
+                <H3>{edge.node.project_name?.map(item => item.text)}</H3>
               </TitleImageBlog>
             </Colum>
-          ))}
+          )) : <></>}
         <MyBtn>
           <ButtonCustom
             wt="212"

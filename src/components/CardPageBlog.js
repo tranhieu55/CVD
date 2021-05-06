@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { OurWorkStateContext } from "../context/ourwork/OurWorkContextProvider"
 
 const OurLaster = ({ input }) => {
-  const datatime = input.fields.map(item =>
+  const datatime = input.fields?.map(item =>
     moment(item.post_item?.date_created).format("LL")
   )
 
@@ -20,7 +20,7 @@ const OurLaster = ({ input }) => {
       })
   return (
     <OurLasters>
-      {listPartners.map((item, index) => (
+      {listPartners?.map((item, index) => (
         <ListPost key={index} className={index % 2 === 0 ? "orderleft" : ""}>
           <Link to={`/blog/${item.post_item._meta.uid}`}>
             <Img
@@ -32,8 +32,8 @@ const OurLaster = ({ input }) => {
           <SubTitle vitri={index}>
             {moment(item.post_item?.date_created).format("LL")}
           </SubTitle>
-          <TitlePost>{item.post_item?.title[0].text}</TitlePost>
-          <Read href={`/blog/${item.post_item._meta.uid}`}>Read more</Read>
+          <TitlePost>{item.post_item?.title[0]?.text}</TitlePost>
+          <Read href={`/blog/${item.post_item?._meta.uid}`}>Read more</Read>
         </ListPost>
       ))}
     </OurLasters>

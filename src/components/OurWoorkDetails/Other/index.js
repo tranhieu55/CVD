@@ -15,7 +15,7 @@ export default function Other(arrResult, slugCurrent) {
         <TextOther>Other case studies</TextOther>
       </TitleOther>
       <RowOther>
-        {arrResult.arrResult.map((item, index) => (
+        { arrResult ? arrResult.arrResult?.map((item, index) => (
           <ListImageOther
             key={index}
             tabIndex={slugCurrent}
@@ -37,14 +37,14 @@ export default function Other(arrResult, slugCurrent) {
                 <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
               </TextTitleUp>
               <TextTitleDown>
-                <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
+                <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
               </TextTitleDown>
             </TitleImageblock>
           </ListImageOther>
-        ))}
+        )) : <></>}
       </RowOther>
       <TechSlideShow>
-        {arrResult.arrResult.map((item, index) => (
+        { arrResult ? arrResult.arrResult?.map((item, index) => (
           index === 1 ?
           <Slide 
             key={index}
@@ -67,7 +67,7 @@ export default function Other(arrResult, slugCurrent) {
                   <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
                 </TextTitleUp>
                 <TextTitleDown>
-                  <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
+                  <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
                 </TextTitleDown>
               </TitleImageblock>
           </Slide>
@@ -92,11 +92,11 @@ export default function Other(arrResult, slugCurrent) {
                   <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
                 </TextTitleUp>
                 <TextTitleDown>
-                  <TextBlock>{item.node.project_name.map(item => item.text)}</TextBlock>
+                  <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
                 </TextTitleDown>
               </TitleImageblock>
           </Slides>
-        ))}
+        )) : <></>}
       </TechSlideShow>
     </Container>
   )

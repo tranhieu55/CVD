@@ -149,12 +149,12 @@ const BoxInterested = styled.div`
 const BoxBtn = styled.div``
 const H2 = styled.h2``
 export default function Interested({ dataFooter }) {
-  const dataBGR =
-    dataFooter.edges[0].node.body[0].primary.background_color_cta_block
-  const dataInterested =
-    dataFooter.edges[0].node.body[0].primary.subtitle[0].text
-  const dataInterestedTitle =
-    dataFooter.edges[0].node.body[0].primary.title[0].text
+  const dataBGR = dataFooter.edges[0] ?
+    dataFooter.edges[0].node.body[0]?.primary.background_color_cta_block : [];
+  const dataInterested = dataFooter.edges[0] ?
+    dataFooter.edges[0].node.body[0]?.primary.subtitle[0]?.text : [];
+  const dataInterestedTitle = dataFooter.edges[0] ?
+    dataFooter.edges[0].node.body[0]?.primary.title[0]?.text : [];
 
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {

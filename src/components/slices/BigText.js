@@ -3,7 +3,7 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 
 const BigText = ({ input }) => {
-  const heading = input.primary.text[0].text
+  const heading = input.primary.text[0]?.text
 
   return (
     <Container>

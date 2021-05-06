@@ -7,48 +7,51 @@ import { theme } from "../../../utils/theme"
 export default function TextSolution(props) {
   return (
     <Container>
-    <Solution
-      hb="264"
-      mt="28"
-      mb="18"
-      data-sal="slide-top"
-      data-sal-delay="5000"
-      data-sal-easing="ease"
-      data-sal-duration="1000"
-    >
-      <P
-        uppercase={true}
-        fontWeight={theme.fonts.bold}
-        coLor={theme.colors.gray1}
-        mrb_rem="2"
-      >
-        {props.input.primary.title[0].text}
-      </P>
-      <MapSolution>
-        <>
-          {props.input.fields.map((item, index) => (
-            <SolutionText
-              key={index}
-              className={
-                `${index}` === "1" || `${index}` === "3"
-                  ? "solution-right"
-                  : ""
-              }
-              id={`${index}` === "3" ? "solution-down" : ""}
-            >
-              <H4 fontWeight={theme.fonts.bold}>
-                {item.title_the_solution[0].text}
-              </H4>
-            </SolutionText>
-          ))}
-        </>
-      </MapSolution>
-      <Text>
-        <Content>
-          {props.input.primary.text_description[0].text}
-        </Content>
-      </Text>
-    </Solution>
+      {props ? 
+        <Solution
+          hb="264"
+          mt="28"
+          mb="18"
+          data-sal="slide-top"
+          data-sal-delay="5000"
+          data-sal-easing="ease"
+          data-sal-duration="1000"
+        >
+          <P
+            uppercase={true}
+            fontWeight={theme.fonts.bold}
+            coLor={theme.colors.gray1}
+            mrb_rem="2"
+          >
+            {props.input.primary.title[0]?.text}
+          </P>
+          <MapSolution>
+            <>
+              {props.input.fields?.map((item, index) => (
+                <SolutionText
+                  key={index}
+                  className={
+                    `${index}` === "1" || `${index}` === "3"
+                      ? "solution-right"
+                      : ""
+                  }
+                  id={`${index}` === "3" ? "solution-down" : ""}
+                >
+                  <H4 fontWeight={theme.fonts.bold}>
+                    {item.title_the_solution[0]?.text}
+                  </H4>
+                </SolutionText>
+              ))}
+            </>
+          </MapSolution>
+          <Text>
+            <Content>
+              {props.input.primary.text_description[0].text}
+            </Content>
+          </Text>
+        </Solution>
+        : <></>
+      }
     </Container>
   )
 }

@@ -5,11 +5,11 @@ import SliceZone from "../utils/SliceZone"
 import Banner from "../components/Banner/BannerContact"
 
 export default function Contact({ data: { prismic } }) {
-  const data = prismic.allContact_pages.edges[0].node
-  const Title = data.page_title.map(item => item.text)
+  const data = prismic ? prismic.allContact_pages.edges[0]?.node : [];
+  const Title = data.page_title?.map(item => item.text) 
   const ContentPage = data.page_content
-  const Buttonss = data.button_link_label.map(item => item.text)
-  const PhonesNumber = data.phone_number.map(item => item.text)
+  const Buttonss = data.button_link_label?.map(item => item.text)
+  const PhonesNumber = data.phone_number?.map(item => item.text)
   return (
     <Layout location="/contact">
       <Banner

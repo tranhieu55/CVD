@@ -450,13 +450,13 @@ const BannerProjects = () => {
     }
   `)
 
-  const listCategories = getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0].fields.filter(
+  const listCategories = getListCateProject.prismic.allOurwork_pages.edges[0] ? getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0]?.fields.filter(
     x => x.category_project_item
-  )
+  ) : [];
 
-  const dispatch = useContext(OurWorkDispatchContext)
-  const state = useContext(OurWorkStateContext)
-  const [filter, setFilter] = useState()
+  const dispatch = useContext(OurWorkDispatchContext);
+  const state = useContext(OurWorkStateContext);
+  const [filter, setFilter] = useState();
   function setFilters(index) {
     setFilter(index)
   }
@@ -494,6 +494,7 @@ const BannerProjects = () => {
                   setFilters(index)
                 }}
               >
+                {item.category_project_item.category_name[0] ? 
                 <Link
                   className={
                     [...state.listSelected].includes(
@@ -503,6 +504,8 @@ const BannerProjects = () => {
                 >
                   {item.category_project_item.category_name[0]?.text}
                 </Link>
+                : <></>
+                }
               </CategoryItem>
             ))}
             <CategoryItem

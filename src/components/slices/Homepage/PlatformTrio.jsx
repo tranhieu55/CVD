@@ -5,7 +5,7 @@ import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
-  const title = input.primary.title[0].text
+  const title = input.primary.title[0]?.text
   const content = input.primary.content
   const platforms = input.fields
   const [indicator, setindicator] = useState(0)
@@ -20,8 +20,8 @@ const PlatformTrio = ({ input }) => {
       <Content className="content">{RichText.render(content)}</Content>
 
       <Platforms className="md:overflow-scroll">
-        {platforms.map((platform, i) => {
-          const name = platform.platform[0].text
+        {platforms?.map((platform, i) => {
+          const name = platform.platform[0]?.text
           const desc = platform.description
           const logo = platform.logo.url
           return (

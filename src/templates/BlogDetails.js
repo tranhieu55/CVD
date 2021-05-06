@@ -8,7 +8,7 @@ import { RichText } from "prismic-reactjs"
 const BlogDetails = props => {
   
   // const dataIcon = props.data.prismic.post?.body[0].fields
-  const dataText = props.data.prismic.post?.body[1].fields
+  const dataText = props ? props.data.prismic.post?.body[1]?.fields : [];
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
@@ -34,7 +34,7 @@ const BlogDetails = props => {
           </DivIcon>
           <DivText>
             <FirstTexts>Tags</FirstTexts>
-            {dataText.map((item, index) => (
+            {dataText?.map((item, index) => (
               <Texts key={index}>{item.tag_item}</Texts>
             ))}
           </DivText>

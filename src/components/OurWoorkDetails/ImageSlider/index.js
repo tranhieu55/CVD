@@ -11,7 +11,7 @@ export default function ImageSlider(props) {
       data-sal-duration="1000"
     >
       <ThreeImage>
-        {props.input.fields.map((item, index) => (
+        {props.input.fields?.map((item, index) => (
           props.input.fields.length > 2 ?
           <ImageBackground key={index}>
             <Images 

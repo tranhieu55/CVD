@@ -6,7 +6,7 @@ import { Divider, Spacer } from "../../bits"
 
 const TextWithBulletList = props => {
   const fields = props.input.fields[0]
-  const title = fields.title[0].text
+  const title = fields.title[0]?.text
   const content = fields.content
   const bulletsLeft = fields.bullet_list_left
   const bulletsMiddle = fields.bullet_list_middle

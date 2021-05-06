@@ -25,7 +25,7 @@ export default function Instagram({ input }) {
       }
     }
   `)
-  const tokens = input.primary.access_token.find(item => item.text)
+  const tokens = input.primary.access_token?.find(item => item.text)
   const token = tokens.text
   const [post, setPost] = useState([])
 
@@ -52,7 +52,7 @@ export default function Instagram({ input }) {
   return (
     <Container>
       <SubTitle>#CRAFTEDBYCONVERT</SubTitle>
-      <Title>{input.primary.title.map(item => item.text)}</Title>
+      <Title>{input.primary.title?.map(item => item.text)}</Title>
       <List>
         {post?.data?.map((item, index) => (
           <ListPost key={index} as={Link} to={item.permalink} vitri={index}>

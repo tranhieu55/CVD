@@ -379,16 +379,19 @@ const Content = styled.div`
 
 export default function Footer({ dataFooter }) {
   // đây là background footer
-  const dataBGR = dataFooter.edges[0].node.background_color_of_footer_bottom
+  const dataBGR = dataFooter.edges[0] ? dataFooter.edges[0].node.background_color_of_footer_bottom : [] ;
   // đây là logoFooter ( alt và url)
-  const dataLogo = dataFooter.edges[0].node.logo_footer.url
-  const dataLogoAlt = dataFooter.edges[0].node.logo_footer.alt
+  const dataLogo = dataFooter.edges[0] ? dataFooter.edges[0].node.logo_footer.url : [];
+
+  const dataLogoAlt = dataFooter.edges[0] ?  dataFooter.edges[0].node.logo_footer.alt : [];
   // dữ liệu order1 map()
-  const dataLinkPages = dataFooter.edges[0].node.body[1].fields
+  const dataLinkPages = dataFooter.edges[0] ? dataFooter.edges[0].node.body[1].fields : [];
+
   // dữ liệu addres map()
-  const dataAddress = dataFooter.edges[0].node.body[2].fields
+  const dataAddress = dataFooter.edges[0] ? dataFooter.edges[0].node.body[2].fields : [];
+
   // dữ liệu data image icon
-  const dataImg = dataFooter.edges[0].node.body[3].fields
+  const dataImg = dataFooter.edges[0] ? dataFooter.edges[0].node.body[3]?.fields : [];
 
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
@@ -404,7 +407,7 @@ export default function Footer({ dataFooter }) {
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                {dataLinkPages.map((item, index) => (
+                {dataLinkPages?.map((item, index) => (
                   <Link key={index} to={`/${item.slug_sub_title[0].text}`}>
                     {item.sub_title[0].text}
                   </Link>
@@ -413,19 +416,19 @@ export default function Footer({ dataFooter }) {
             </BoxTextOrder>
             <BoxOrder className="w-112 order-4"></BoxOrder>
             <BoxContentDigital className="content-digital order-5">
-              {dataAddress.map((item, index) => (
+              {dataAddress?.map((item, index) => (
                 <ListContent
                   key={index}
                   className={index === 0 ? "text-3 editText" : "text-3"}
                 >
                   <Content>
-                    <span>{item.city[0].text}</span>
+                    <span>{item.city[0]?.text}</span>
                     <p>
                       {item.address_detail[0]?.text}
                       <br />
                       <span className="changes-text">
-                        <a href={`tel: ${item.phone_office[0].text}`}>
-                          {item.phone_office[0].text}
+                        <a href={`tel: ${item.phone_office[0]?.text}`}>
+                          {item.phone_office[0]?.text}
                         </a>
                       </span>
                     </p>
@@ -443,7 +446,7 @@ export default function Footer({ dataFooter }) {
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  {dataImg.map((item, index) => (
+                  {dataImg?.map((item, index) => (
                     <React.Fragment key={index}>
                       <a
                         target={item.link_to_social_network?.target}

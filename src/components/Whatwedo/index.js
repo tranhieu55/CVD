@@ -9,7 +9,7 @@ export default function Cardwhatwedo(props) {
     <Study>
       <Container className="container">
         <IphoneX>
-          {
+          { props ? 
             <BoxStudy
               className={` ${
                 props.input.primary.location_image === "Left" ? "" : "cl-order"
@@ -53,7 +53,7 @@ export default function Cardwhatwedo(props) {
                   fz="32"
                   fontFamily="Calibre Semibold"
                 >
-                  {props.input.primary.what_we_do_title[0].text}
+                  {props.input.primary.what_we_do_title[0]?.text}
                 </H2>
                 <P
                   lineh="28"
@@ -61,7 +61,7 @@ export default function Cardwhatwedo(props) {
                   fontFamily="Calibre Regular"
                   fontSise="20"
                 >
-                  {props.input.primary.what_we_do_description[0].text}
+                  {props.input.primary.what_we_do_description[0]?.text}
                 </P>
                 <BoxIconStudy className="icon-leadmore">
                   <SpanStudy className="learn-more-title">Learn more</SpanStudy>
@@ -69,6 +69,7 @@ export default function Cardwhatwedo(props) {
               </BoxContentStudy>
               <BoxDivStudy className="cl80"></BoxDivStudy>
             </BoxStudy>
+            : <></>
           }
         </IphoneX>
       </Container>

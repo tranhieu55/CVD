@@ -22,7 +22,7 @@ export default function ListSlider(props) {
       >
         <Sliders {...settings}>
           {
-            props.input.fields.map((item, key) => (
+            props.input.fields?.map((item, key) => (
               <ImageSlider key={key}>
                 <Images
                   src={item.slider_image.url}
