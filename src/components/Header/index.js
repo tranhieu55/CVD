@@ -1165,6 +1165,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const checkColorText = () => {
     if (
       location === "/styleguide" ||
+      location === "/404" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1188,6 +1189,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const checkColorTextButton = index => {
     if (
       location === "/styleguide" ||
+      location === "/404" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1204,6 +1206,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const checkIconMenu = () => {
     if (
       location === "/styleguide" ||
+      location === "/404" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1225,6 +1228,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const checkTextMenu = () => {
     if (
       location === "/styleguide" ||
+      location === "/404" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1264,6 +1268,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 src={
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
+                  location === "/404" ||
                   location === "/projects" ||
                   location === "/what-we-do" ||
                   location === "/partners" ||
@@ -1277,7 +1282,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          <MenuText className={checkTextMenu()}>Menu</MenuText>
+          {
+            location==='/404'?'':<MenuText className={checkTextMenu()}>Menu</MenuText>
+          }
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={() => setShow(!show)}

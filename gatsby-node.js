@@ -5,6 +5,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const OurWorkItems = path.resolve("./src/templates/OurWorkItems.js")
   const BlogDetails = path.resolve("./src/templates/BlogDetails.js")
   const res = await graphql(`
+  
+  
+
     query IndexQuery {
       prismic {
         allProjectss {

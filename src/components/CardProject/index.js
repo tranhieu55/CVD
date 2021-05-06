@@ -3,16 +3,18 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import IMG from "../Image"
 import { Link } from "gatsby"
+import { responsiveFontSizes } from "@material-ui/core"
 
 CardProject.propTypes = {
   input: PropTypes.object,
 }
 
 function CardProject(props) {
-  const { input } = props
+  const { input,resize } = props
+
   const inforProject = input.project_item
   return (
-    <Colum className="col-md-6">
+    <Colum className="col-md-6" resize={resize}>
       <DivIMG
         as={Link}
         to={`/projects/${inforProject.relationship_to_project_category._meta.uid}/${inforProject._meta.uid}`}
@@ -21,12 +23,12 @@ function CardProject(props) {
           alt={inforProject.project_header_image.alt}
           src={inforProject.project_header_image.url}
           objectFit="cover"
-          h="500"
+          h={resize?'433':"500"}
         />
       </DivIMG>
       <TitleImageBlog>
-        <Span>{inforProject.name_category_of_project}</Span>
-        <H3>{inforProject.project_name[0]?.text}</H3>
+        <Span resize={resize}>{inforProject.name_category_of_project}</Span>
+        <H3 resize={resize}>{inforProject.project_name[0]?.text}</H3>
       </TitleImageBlog>
     </Colum>
   )
@@ -64,6 +66,12 @@ const DivIMG = styled.div`
   }
 `
 const Colum = styled.div`
+  @media (min-width: 600px) {
+    height: ${({resize}) => resize?' 433px':''};
+  }
+  @media (min-width: 600px) and (max-width: 768px) {
+    margin-bottom: 8px;
+  }
   @media only screen and (max-width: 600px) {
     padding: 0px;
     margin-top: 0px !important;
@@ -83,7 +91,7 @@ const TitleImageBlog = styled.div`
     bottom: 21px;
   }
 
-   @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     bottom: 40px;
     left: 60px;
   }
@@ -98,11 +106,11 @@ const TitleImageBlog = styled.div`
   @media only screen and (min-width: 1200px) {
     bottom: 3rem;
     left: 40px;
-  } 
+  }
 `
 const Span = styled.span`
   color: #fecf09;
-  font-size: 18px;
+  font-size: ${({resize}) => resize?"16px":"18px"};
   line-height: 16px;
   font-family: "Calibre Semibold";
   display: block;
@@ -117,17 +125,17 @@ const Span = styled.span`
 `
 const H3 = styled.h3`
   color: #ffffff;
-  font-size: 48px;
+  font-size: ${({resize}) => resize?"40px":"48px"};
   font-family: "Calibre Bold";
   font-weight: bold;
   margin: 0;
   padding: 0;
   line-height: 32px;
-  margin-top: 10px; 
+  margin-top: 10px;
 
   @media only screen and (max-width: 600px) {
     font-size: 24px;
-    margin-top: 0px; 
+    margin-top: 0px;
   }
   /* @media only screen and (min-width: 600px) {
     font-size: 30px;
