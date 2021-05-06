@@ -99,7 +99,7 @@ const Text = styled.p`
 const TextImg = styled.div`
     width: 100%;
     height: auto;
-    margin-top: 26px;
+    margin-top: 22px;
 `
 const Texxt = styled.div`
     p{

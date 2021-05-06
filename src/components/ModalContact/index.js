@@ -428,7 +428,7 @@ const Content = styled.div`
   }
 `
 const Modal = styled.div`
-    height: 872px;
+    height: auto;
     width: 605px;
     border-radius: 5px;
     background-color: #FFFFFF;

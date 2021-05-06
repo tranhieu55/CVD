@@ -128,9 +128,9 @@ const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: transparent;
+  background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
   border: 2px solid #fecf09;
-  color: #ffffff;
+  color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
   border-radius: 3px;
   font-family: "Calibre Semibold";
   font-size: 18px;
@@ -140,7 +140,7 @@ const ButtonBanner = styled.button`
     outline: none;
   }
   :hover {
-    color: #101010;
+    color: #222222;
     background: #fecf09;
     border: 2px solid #fecf09;
   }
@@ -160,9 +160,9 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: transparent;
+    background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
     border: 2px solid #fecf09;
-    color: #ffffff;
+    color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
     border-radius: 3px;
   }
 `
