@@ -161,7 +161,7 @@ const CaseStudiHeading = styled.h4`
 
   @media (max-width: 600px) {
     margin-top: 43px;
-    margin-bototm: 24px;
+    margin-bottom: 24px;
   }
 `
 
