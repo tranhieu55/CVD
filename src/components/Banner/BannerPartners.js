@@ -377,7 +377,7 @@ const BannerPartners = () => {
     },
   }
   const ListCT = listCategoryPartners ? listCategoryPartners.prismic.allPartners_pages.edges[0].node.body?.filter(item => item. type === "lists_category"): [];
-  const listCategories = ListCT.fields.filter(
+  const listCategories = ListCT[0]?.fields.filter(
     x => x.category_partner
   )
 
