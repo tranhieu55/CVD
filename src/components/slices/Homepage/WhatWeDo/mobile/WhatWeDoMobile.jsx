@@ -49,7 +49,6 @@ export default function WhatWeDoMobile(props) {
   const [status, setStatus] = useState('Closed');
   const onExited = () => setStatus('Closed');
 
-console.log({fields});
   
   return (
       <Container>
