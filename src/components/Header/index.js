@@ -1544,7 +1544,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                     w="100"
                     bgColor={item.primary.background_color_button}
                     textColor={checkColorTextButton(index)}
-                    pd1="9"
+                    pd1="13"
                     pd2="19.5"
                     lineh="22"
                   >
