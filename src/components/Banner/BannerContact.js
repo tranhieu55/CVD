@@ -81,9 +81,15 @@ const Title = styled.h1`
   line-height: 56px;
   @media (max-width: 600px) {
     font-size: 40px;
+    margin-bottom: 0px;
+    letter-spacing: -1px;
+    line-height: 56px;
   }
   @media (max-width: 320px) {
     font-size: 40px;
+    margin-bottom: 0px;
+    letter-spacing: -1px;
+    line-height: 56px;
   }
   @media (min-width: 600px) {
     font-size: 50px;
@@ -103,11 +109,14 @@ const Content = styled.p`
     p{
       a{
         color: #ffffff;
-        border-bottom : 1px solid #888a99;
+        border-bottom : 2px solid #888a99;
         :hover{
           text-decoration: none;
         }
       }
+    }
+    @media(max-width: 600px){
+      margin-top: 0px;
     }
 `
 const Buttons = styled.button`
@@ -125,6 +134,11 @@ const Buttons = styled.button`
   text-align: center;
   background: transparent;
   padding: 14px 0px;
+  :hover{
+    background: #fecf09;
+    color: #101010;
+    border: 2px solid #fecf09;
+  }
 `
 const PhoneNumber = styled.h4`
   width: 135px;
