@@ -6,11 +6,11 @@ export default function WhatWeDoDesktop(props) {
   const { fields } = props.props.input
   const { input } = props.props
 
-  const defaultService = JSON.stringify(fields[0].service[0].text)
-  const defaultContent = fields[0].content
+  const defaultService = JSON.stringify(fields[0]?.service[0]?.text)
+  const defaultContent = fields[0]?.content
   const defaultIndicator = 0
 
-  const heading = input.primary.title[0].text
+  const heading = input.primary.title[0]?.text
 
   useEffect(() => {
     setTimeout(() => {}, 3000)
@@ -34,8 +34,8 @@ export default function WhatWeDoDesktop(props) {
       <Contentleft>
         <Left>
           <Title>{heading}</Title>
-          {fields.map((service, i) => {
-            const title = service.service[0].text
+          {fields?.map((service, i) => {
+            const title = service.service[0]?.text
             return (
               <React.Fragment key={i}>
                 <Service
@@ -52,7 +52,7 @@ export default function WhatWeDoDesktop(props) {
       <ConTentRight>
         <Right>
           <UpperContent>
-            <Content>{RichText.render(content)}</Content>
+            <Content>{RichText?.render(content)}</Content>
             <LearnMore>
               <span>Learn more</span>
             </LearnMore>

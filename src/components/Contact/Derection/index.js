@@ -171,13 +171,13 @@ export default function Derection ({input}) {
     `
     return(
         <Derections>
-            <Title>{input.primary.title.map(item => item.text)}</Title>
-            {data.map((item , index) => (
+            <Title>{input.primary.title?.map(item => item.text)}</Title>
+            {data?.map((item , index) => (
                 <Content vitri={index}>
                         <Contentleft key={index}>
-                            <TitleLeft>{item.office_title.map(item => item.text)}</TitleLeft>
-                            <TextLeft>{item.address.map(item => item.text)}</TextLeft>
-                            <Phone>{item.office_phone_number.map(item => item.text)}</Phone>
+                            <TitleLeft>{item.office_title?.map(item => item.text)}</TitleLeft>
+                            <TextLeft>{item.address?.map(item => item.text)}</TextLeft>
+                            <Phone>{item.office_phone_number?.map(item => item.text)}</Phone>
                             <DivLink>
                                 <Link href='#'>Call</Link>
                                 <Link href='#'>Directions</Link>

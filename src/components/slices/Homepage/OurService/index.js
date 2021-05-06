@@ -28,20 +28,20 @@ const OurServices = ({ input }) => {
       }
     }
   `)
-  const datas = data.prismic.allOur_services_home_pages.edges[0].node.body
+  const datas = data ? data.prismic.allOur_services_home_pages.edges[0]?.node.body : [];
   return (
     <Container>
       <Title>Our services</Title>
       <Content>
         <CardItem>
-          {datas.map((item, index) => (
+          {datas?.map((item, index) => (
             <Cards key={index}>
               <SubTitle>
                 {item.primary.title_service_item.map(item => item.text)}
               </SubTitle>
-              {item.fields.map((item, index) => (
+              {item.fields?.map((item, index) => (
                 <SubText key={index}>
-                  {item.service_sub_title.map(item => item.text)}
+                  {item.service_sub_title?.map(item => item.text)}
                 </SubText>
               ))}
             </Cards>

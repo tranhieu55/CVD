@@ -131,7 +131,7 @@ function OurWorkItems(props) {
     <Layout location="/projects">
       <ListBlogStyle className="container-fluid">
         <RowItem>
-          {props.data.prismic.allProjectss.edges.map((edge, index) => (
+          { props && props.data.prismic.allProjectss.edges?.map((edge, index) => (
             <Item
               className={`${
                 props.data.prismic.allProjectss.edges.length === 3
@@ -153,7 +153,7 @@ function OurWorkItems(props) {
               </DivIMG>
               <TitleImageBlock>
                 <span>{edge.node.name_category_of_project}</span>
-                <h3>{edge.node.project_name[0].text}</h3>
+                <h3>{edge.node.project_name[0]?.text}</h3>
               </TitleImageBlock>
             </Item>
           ))}

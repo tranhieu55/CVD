@@ -3,15 +3,15 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const OurLaster = ({ input }) => {
-  const Titles = input.primary.title.map(item => item.text)
-  const Messaging = input.primary.messaging.map(item => item.text)
+  const Titles = input.primary.title?.map(item => item.text)
+  const Messaging = input.primary.messaging?.map(item => item.text)
 
   return (
     <OurLasters>
       <Title>{Titles}</Title>
       <Messagings>{Messaging}</Messagings>
       <Content>
-        {input.fields.map((item, index) => (
+        {input.fields?.map((item, index) => (
           <ListPost
             key={index}
             as={Link}
@@ -21,7 +21,7 @@ const OurLaster = ({ input }) => {
             <Img src={item.posts.post_image.url} vitri={index}></Img>
             <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
             <TitlePost vitri={index}>
-              {item.posts.title.map(item => item.text)}
+              {item.posts.title?.map(item => item.text)}
             </TitlePost>
           </ListPost>
         ))}

@@ -6,7 +6,7 @@ import { Spacer } from "../../bits"
 
 const ImageWithSideText = props => {
   const fields = props.input.primary
-  const title = fields.title[0].text
+  const title = fields.title[0]?.text
   const content = fields.text
   const image = fields.image.url
   const alignImageRight = fields.image_align_right

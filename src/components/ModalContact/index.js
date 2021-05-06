@@ -29,7 +29,7 @@ const Modals = ({ showModal, setShowModal }) => {
         }
     }
     `)
-    const Titles = data.prismic.allContact_pages.edges[0].node.body.filter(item => item.type === 'form_submit');
+    const Titles = data.prismic.allContact_pages.edges[0] ?  data.prismic.allContact_pages.edges[0].node.body?.filter(item => item.type === 'form_submit') : [];
     const [isOpen, setIsOpen] = useState(null);
     function setLabels(index) {
         if (isOpen === index) {
@@ -46,29 +46,32 @@ const Modals = ({ showModal, setShowModal }) => {
                     <Modal showModal={showModal}
                     >
                         <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
-                        <Content>
-                            <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
-                            {Titles[0].fields.map((item, index) => {
-                                if(item.type === 'text') {
-                                    return <Inputs>
-                                        <Input size="lg" type="text" placeholder=" "/>
+                        {Titles[0] ? 
+                            <Content>
+                                <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
+                                {Titles[0].fields.map((item, index) => {
+                                    if(item.type === 'text') {
+                                        return <Inputs>
+                                            <Input size="lg" type="text" placeholder=" "/>
+                                            <label >
+                                                {item.placeholder.map(item => item.text)}
+                                            </label>
+                                        </Inputs>
+                                    }
+                                    if(item.type === 'textarea') {
+                                        return <Inputs>
+                                        <Textarea size="lg" type="text" placeholder=" "/>
                                         <label >
-                                            {item.placeholder.map(item => item.text)}
+                                                {item.placeholder.map(item => item.text)}
                                         </label>
                                     </Inputs>
-                                }
-                                if(item.type === 'textarea') {
-                                    return <Inputs>
-                                    <Textarea size="lg" type="text" placeholder=" "/>
-                                    <label >
-                                            {item.placeholder.map(item => item.text)}
-                                    </label>
-                                </Inputs>
-                                }
-                                return null;
-                            })}
-                            <Submit>Submit</Submit>
-                        </Content>
+                                    }
+                                    return null;
+                                })}
+                                <Submit>Submit</Submit>
+                            </Content>
+                            : <></>
+                        }
                     </Modal>
                 </Container>
                 : null}
@@ -428,7 +431,7 @@ const Content = styled.div`
   }
 `
 const Modal = styled.div`
-    height: 872px;
+    height: auto;
     width: 605px;
     border-radius: 5px;
     background-color: #FFFFFF;

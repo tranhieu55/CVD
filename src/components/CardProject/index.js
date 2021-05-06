@@ -26,7 +26,7 @@ function CardProject(props) {
       </DivIMG>
       <TitleImageBlog>
         <Span>{inforProject.name_category_of_project}</Span>
-        <H3>{inforProject.project_name[0].text}</H3>
+        <H3>{inforProject.project_name[0]?.text}</H3>
       </TitleImageBlog>
     </Colum>
   )

@@ -66,7 +66,7 @@ export default function CardPartners(props) {
   return (
     <Wrapper className="container">
       <div className="row box-list-logo">
-        {listPartners.map((node, index) => (
+        {listPartners?.map((node, index) => (
           <div className="col-6 col-md-3">
             <DivIMG
               as={Link}

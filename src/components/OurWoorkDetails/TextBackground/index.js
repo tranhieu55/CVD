@@ -23,10 +23,10 @@ export default function TextBackground(props) {
         mrb_rem="2"
         fontSise="14"
       >
-        {data.title[0].text}
+        {data.title[0]?.text}
       </P>
       <TextStyle>
-        {data.text_description[0].text}
+        {data.text_description[0]?.text}
       </TextStyle>
     </Background>
     </Container>

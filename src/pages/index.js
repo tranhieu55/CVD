@@ -7,7 +7,7 @@ import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
-  const data = prismic.allHomepages.edges[0].node
+  const data = prismic ? prismic.allHomepages.edges[0]?.node : [];
   const background_image = data.background_image.url
   return (
     <>
@@ -17,15 +17,15 @@ const Index = ({ data: { prismic } }) => {
         <Container>
           <ImageBanner src={background_image}></ImageBanner>
           <TextBanner>
-            <Title>{data.page_title[0].text}</Title>
+            <Title>{data.page_title[0]?.text}</Title>
             <Buttons>
-              {data.body[0].fields.map((item, index) => {
+              {data.body[0]?.fields?.map((item, index) => {
                 return (
                   <ButtonBanner
                     key={index}
                     vitri={index}
                   >
-                    {item.text_button[0].text}
+                    {item.text_button[0]?.text}
                   </ButtonBanner>
                 )
               })}
@@ -128,9 +128,9 @@ const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: transparent;
+  background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
   border: 2px solid #fecf09;
-  color: #ffffff;
+  color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
   border-radius: 3px;
   font-family: "Calibre Semibold";
   font-size: 18px;
@@ -140,7 +140,7 @@ const ButtonBanner = styled.button`
     outline: none;
   }
   :hover {
-    color: #101010;
+    color: #222222;
     background: #fecf09;
     border: 2px solid #fecf09;
   }
@@ -160,9 +160,9 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: transparent;
+    background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
     border: 2px solid #fecf09;
-    color: #ffffff;
+    color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
     border-radius: 3px;
   }
 `

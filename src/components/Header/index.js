@@ -1105,15 +1105,14 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
-  const dataServices = dataServicesMenu.edges[0].node.body
-
-  const dataMenu = dataMenuHeader.edges[0].node.body[1]?.fields
+  const dataServices = dataServicesMenu.edges[0] ? dataServicesMenu.edges[0].node.body : [];
+  const dataMenu = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body[1]?.fields : [];
   //dulieu icon
-  const dataIcon = dataMenuHeader.edges[0].node.body[3]?.fields
+  const dataIcon = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body[3]?.fields : [];
 
-  const isShowCTA = dataMenuHeader.edges[0].node.body.filter(
+  const isShowCTA = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body.filter(
     x => x.type === "cta_buton"
-  )
+  ) : [];
 
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
@@ -1312,14 +1311,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
                 key={index}
               >
-                {item.slug_menu_item[0].text === "services" ? (
+                { item && item.slug_menu_item[0]?.text === "services" ? (
                   <span
                     onClick={handelClickServices}
                     className={`${checkColorText()} colorWhite ${
                       isDisPlayModalService === true ? "test" : ""
                     } `}
                   >
-                    {item.title_menu_item[0].text}{" "}
+                    {item.title_menu_item[0]?.text}{" "}
                     <img
                       className="icon-mobile-right"
                       src={logoIconRight}
@@ -1328,118 +1327,125 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   </span>
                 ) : (
                   <Link
-                    to={`/${item.slug_menu_item[0].text}`}
+                    to={`/${item.slug_menu_item[0]?.text}`}
                     activeClassName="active"
                     className={`${checkColorText()} colorWhite`}
                   >
-                    {item.title_menu_item[0].text}
+                    {item.title_menu_item[0]?.text}
                   </Link>
                 )}
 
-                {item.slug_menu_item[0].text === "services" ? (
+                { item && item.slug_menu_item[0]?.text === "services" ? (
                   <ul className="menu-area_services">
                     <hr />
                     <MenuItemServices>
                       {" "}
                       {/* SERVICES */}
-                      <Ul className="list-services">
-                        <div className="menu-mobile">
-                          <img
-                            className="menu-mobile-iconBack"
-                            onClick={() => setIsDisPlayModalService(false)}
-                            src={logoIconBack}
-                            alt="back"
-                          />
+                      {dataServices[0] ? 
+                        <Ul className="list-services">\
+                          <div className="menu-mobile">
+                            <img
+                              className="menu-mobile-iconBack"
+                              onClick={() => setIsDisPlayModalService(false)}
+                              src={logoIconBack}
+                              alt="back"
+                            />
+                            <P
+                              uppercase={true}
+                              fontSise="14"
+                              coLor={theme.colors.black4}
+                              fontWeight="600"
+                              mrb="19"
+                              fontFamily="Calibre Semibold"
+                              lett="1"
+                            >
+                              {dataServices[0]?.primary?.title[0]?.text}
+                            </P>
+                            <Navbar.Toggle>
+                              <img
+                                className="menu-mobile-iconClose"
+                                onClick={() => setIsDisPlayModalService(false)}
+                                src={logoIconClosBlack}
+                                alt="close"
+                              />
+                            </Navbar.Toggle>
+                          </div>
+                          {dataServices[0]?.fields?.map((item, index) => (
+                            <React.Fragment key={index}>
+                              <Li
+                                className={`${
+                                  index === 0
+                                    ? "mt0 list-services_Item"
+                                    : "list-services_Item"
+                                }`}
+                              >
+                                <img
+                                  className="image-services-item"
+                                  src={item.image_service_item.url}
+                                  alt={item.image_service_item.alt}
+                                />
+                                <Link className="list-title-services" to="">
+                                  {item.title_service_item[0]?.text}
+                                </Link>
+                              </Li>
+                              <hr />
+                            </React.Fragment>
+                          ))}
+                        </Ul>
+                        : <></>
+                      }
+                      {/* PLATFORMS */}
+                      {dataServices[1] ? 
+                        <Ul className="list-platforms">
                           <P
                             uppercase={true}
                             fontSise="14"
                             coLor={theme.colors.black4}
                             fontWeight="600"
-                            mrb="19"
                             fontFamily="Calibre Semibold"
+                            mrb="10"
                             lett="1"
+                            className="displayMobile"
                           >
-                            {dataServices[0]?.primary?.title[0]?.text}
+                            {dataServices[1]?.primary.title[0]?.text}
                           </P>
-                          <Navbar.Toggle>
-                            <img
-                              className="menu-mobile-iconClose"
-                              onClick={() => setIsDisPlayModalService(false)}
-                              src={logoIconClosBlack}
-                              alt="close"
-                            />
-                          </Navbar.Toggle>
-                        </div>
-                        {dataServices[0]?.fields.map((item, index) => (
-                          <React.Fragment key={index}>
-                            <Li
-                              className={`${
-                                index === 0
-                                  ? "mt0 list-services_Item"
-                                  : "list-services_Item"
-                              }`}
-                            >
-                              <img
-                                className="image-services-item"
-                                src={item.image_service_item.url}
-                                alt={item.image_service_item.alt}
-                              />
-                              <Link className="list-title-services" to="">
-                                {item.title_service_item[0].text}
-                              </Link>
+                          {dataServices[1]?.fields?.map((item, index) => (
+                            <Li key={index} className="list-platforms_Card">
+                              <IMG
+                                alt={item.image_platform_item.alt}
+                                src={item.image_platform_item.url}
+                                w="44"
+                                h="52"
+                                objectFit="contain"
+                                mr="25"
+                              ></IMG>
+                              <CardDescription>
+                                <P
+                                  fontSise="20"
+                                  coLor="#101010"
+                                  fontWeight="500"
+                                  fontFamily="Calibre Medium"
+                                  className="mobile"
+                                >
+                                  {item.name_service[0]?.text}
+                                </P>
+                                <P
+                                  fontSise="18"
+                                  fontFamily="Calibre Regular"
+                                  coLor="#222222"
+                                  fontWeight={theme.fonts.regular}
+                                  className="mobile1"
+                                >
+                                  {item.short_description[0]?.text}
+                                </P>
+                              </CardDescription>
                             </Li>
-                            <hr />
-                          </React.Fragment>
-                        ))}
-                      </Ul>
-                      {/* PLATFORMS */}
-                      <Ul className="list-platforms">
-                        <P
-                          uppercase={true}
-                          fontSise="14"
-                          coLor={theme.colors.black4}
-                          fontWeight="600"
-                          fontFamily="Calibre Semibold"
-                          mrb="10"
-                          lett="1"
-                          className="displayMobile"
-                        >
-                          {dataServices[1]?.primary.title[0]?.text}
-                        </P>
-                        {dataServices[1]?.fields.map((item, index) => (
-                          <Li key={index} className="list-platforms_Card">
-                            <IMG
-                              alt={item.image_platform_item.alt}
-                              src={item.image_platform_item.url}
-                              w="44"
-                              h="52"
-                              objectFit="contain"
-                              mr="25"
-                            ></IMG>
-                            <CardDescription>
-                              <P
-                                fontSise="20"
-                                coLor="#101010"
-                                fontWeight="500"
-                                fontFamily="Calibre Medium"
-                                className="mobile"
-                              >
-                                {item.name_service[0].text}
-                              </P>
-                              <P
-                                fontSise="18"
-                                fontFamily="Calibre Regular"
-                                coLor="#222222"
-                                fontWeight={theme.fonts.regular}
-                                className="mobile1"
-                              >
-                                {item.short_description[0].text}
-                              </P>
-                            </CardDescription>
-                          </Li>
-                        ))}
-                      </Ul>
+                          ))}
+                        </Ul>
+                        : <></>
+                      }
                       {/* LAUNCHES */}
+                      {dataServices[2] ? 
                       <Ul className="launches">
                         <P
                           uppercase={true}
@@ -1484,37 +1490,42 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                             <H3>
                               {
                                 dataServices[2]?.primary.launches_project
-                                  .project_name[0].text
+                                  .project_name[0]?.text
                               }
                             </H3>
                           </TitleImageBlog>
                         </DivIMG>
                       </Ul>
+                      : <></>
+                    }
                     </MenuItemServices>
                   </ul>
                 ) : (
-                  ""
+                  <></>
                 )}
               </Li>
             ))}
           </Nav>
           <Form className="my-form">
             <>
+            {dataIcon ?
               <Icon>
-                {dataIcon?.map((item, index) => (
-                  <a
-                    targer={item?.link_to_social_network?.target}
-                    href={item?.link_to_social_network?.url}
-                    key={index}
-                  >
-                    <img
-                      src={item.social_icon_item.url}
-                      alt={item.social_icon_item.alt}
-                    />
-                  </a>
-                ))}
-              </Icon>
-              {isShowCTA.map((item, index) => {
+              {dataIcon?.map((item, index) => (
+                <a
+                  targer={item?.link_to_social_network?.target}
+                  href={item?.link_to_social_network?.url}
+                  key={index}
+                >
+                  <img
+                    src={item?.social_icon_item?.url}
+                    alt={item?.social_icon_item?.alt}
+                  />
+                </a>
+              ))}
+            </Icon>
+            : <></>
+            }
+              {isShowCTA?.map((item, index) => {
                 return (
                   <ButtonCustom
                     key={index}
@@ -1533,15 +1544,15 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       <GetInTouch>
                         <a
                           className="convertColor"
-                          href={`tel: ${item.primary.text_button[0].text}`}
+                          href={`tel: ${item.primary.text_button[0]?.text}`}
                         >
                           <img className="edit-img" src={logoIconPhone} />
-                          {item.primary.text_button[0].text}
+                          {item.primary.text_button[0]?.text}
                         </a>
                       </GetInTouch>
                     ) : (
                       <GetInTouch>
-                        {item.primary.text_button[0].text}
+                        {item.primary.text_button[0]?.text}
                       </GetInTouch>
                     )}
                   </ButtonCustom>

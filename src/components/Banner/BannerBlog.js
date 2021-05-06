@@ -520,9 +520,9 @@ const BannerBlog = () => {
     },
   }
 
-  const listCategories = listCategoryPartners.prismic.allPost_listing_pages.edges[0].node.body[0]?.fields.filter(
+  const listCategories = listCategoryPartners.prismic.allPost_listing_pages.edges[0] ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
     x => x.post_category
-  )
+  ) : [];
 
   const newArr = [cateAll, ...listCategories]
 
@@ -541,7 +541,7 @@ const BannerBlog = () => {
           coLor={theme.colors.gray1}
           mrb="35"
         >
-          {data.title[0].text}{" "}
+          {data.title[0]?.text}{" "}
         </P>
         <H2
           fz="64"
@@ -555,7 +555,7 @@ const BannerBlog = () => {
         </H2>
         <div className="row ">
           <ListCategory className="col-md-10" show={filter}>
-            {newArr.map((item, index) => (
+            {newArr?.map((item, index) => (
               <CategoryItem
                 key={index}
                 onClick={() => {

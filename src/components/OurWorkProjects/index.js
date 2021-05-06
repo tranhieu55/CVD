@@ -25,11 +25,10 @@ function OurWorkProjects(props) {
   const handelClickLoadMore = () => {
     setToggle(!toggle)
   }
-  console.log({ test })
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {test.slice(0, toggle ? test.length : 4).map((project, index) => (
+        {test?.slice(0, toggle ? test.length : 4).map((project, index) => (
           <CardProject key={index} input={project} />
         ))}
       </Rows>

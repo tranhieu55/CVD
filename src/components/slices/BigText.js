@@ -3,7 +3,7 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 
 const BigText = ({ input }) => {
-  const heading = input.primary.text[0].text
+  const heading = input.primary.text[0]?.text
 
   return (
     <Container>
@@ -30,7 +30,7 @@ const SubHeading = styled.h2`
   line-height: 52px;
   color: #101010;
   @media(max-width: 600px){
-    padding-top: 34px;
+    padding-top: 10px;
     padding-bottom: 56px;
     font-size: 24px;
     font-weight: 600;

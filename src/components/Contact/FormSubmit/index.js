@@ -207,12 +207,12 @@ export default function FormSumit({ input }) {
   return (
     <FormSumits>
       <Forms>
-        {data.fields.map((item, index) => {
+        {data.fields?.map((item, index) => {
           if (item.type === "text") {
             return (
               <Inputs>
                 <Input size="lg" type="text" placeholder=" " />
-                <label>{item.placeholder.map(item => item.text)}</label>
+                <label>{item.placeholder?.map(item => item.text)}</label>
               </Inputs>
             )
           }
@@ -220,7 +220,7 @@ export default function FormSumit({ input }) {
             return (
               <Inputs>
                 <Textarea size="lg" type="text" placeholder=" " />
-                <label>{item.placeholder.map(item => item.text)}</label>
+                <label>{item.placeholder?.map(item => item.text)}</label>
               </Inputs>
             )
           }

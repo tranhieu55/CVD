@@ -70,7 +70,7 @@ export default function InputSelect(props) {
           className="test"
           checked={checked}
         >
-          {nameSelect.map((item, index) => (
+          {nameSelect?.map((item, index) => (
             <MenuItem value={10}>{item}</MenuItem>
           ))}
         </Select>

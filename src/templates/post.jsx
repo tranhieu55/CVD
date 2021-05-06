@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 
 const Post = ({ data }) => {
 
-  let title = data.prismic.post.title[0].text
-  let content = data.prismic.post.content[0].text
+  let title = data ? data.prismic.post.title[0]?.text : [];
+  let content = props ? data.prismic.post.content[0]?.text : []
 
   return (
     <React.Fragment>

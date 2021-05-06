@@ -56,9 +56,8 @@ const Partners = () => {
       }
     }
   `)
-  const dataPartners = data.prismic.allPartners_pages.edges?.[0].node
+  const dataPartners = data ? data.prismic.allPartners_pages.edges?.[0]?.node : [];
 
-  console.log('data partner : ', dataPartners);
   return (
     <Layout location="/partners">
       <SEO props={data} />

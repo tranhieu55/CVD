@@ -200,12 +200,12 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props.data.prismic.projects
-  let nameCategory = props.pathContext.dataLayout.node.name_category_of_project
+  let dataOurWorkItem = props ? props.data.prismic.projects : [];
+  let nameCategory = props ? props.pathContext.dataLayout.node.name_category_of_project : [];
 
-  let slugCurrent = props.pathContext.slug
+  let slugCurrent = props ? props.pathContext.slug : [];
 
-  let allProjects = props.data.prismic.allProjectss.edges
+  let allProjects = props ? props.data.prismic.allProjectss.edges : [];
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item.node._meta.uid !== slugCurrent
@@ -216,14 +216,14 @@ const OurWorkDetail = props => {
     let r = Math.floor(Math.random() * removeProjectInPageCurrent.length)
     if (arrRandom.indexOf(r) === -1) arrRandom.push(r)
   }
-  const arrResult = arrRandom.map(x => removeProjectInPageCurrent[x])
+  const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
   const data = props.data.prismic.projects
 
   return (
     <Layout
       location="/case-study"
-      nameProject={dataOurWorkItem.project_description[0].text}
+      nameProject={dataOurWorkItem.project_description[0]?.text}
       logoProject={dataOurWorkItem.project_logo}
       nameCategoryOfWorkItem={nameCategory}
       descriptionOfWorkItem={

@@ -6,8 +6,8 @@ import { Spacer } from "../../bits"
 
 const HalfWidthText = props => {
   const fields = props.input.primary
-  const titleLeft = fields.title_left[0].text
-  const titleRight = fields.title_right[0].text
+  const titleLeft = fields.title_left[0]?.text
+  const titleRight = fields.title_right[0]?.text
   const textLeft = fields.text_left
   const textRight = fields.text_right
 
