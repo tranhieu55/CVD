@@ -509,7 +509,7 @@ const BannerBlog = () => {
     }
   `)
 
-  const data = listCategoryPartners.prismic.allPost_listing_pages.edges[0].node
+  const data = listCategoryPartners? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node : [];
   const cateAll = {
     post_category: {
       title: [{ spans: [], text: "All", type: "heading1" }],
@@ -520,7 +520,7 @@ const BannerBlog = () => {
     },
   }
 
-  const listCategories = listCategoryPartners.prismic.allPost_listing_pages.edges[0] ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
+  const listCategories = listCategoryPartners ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
     x => x.post_category
   ) : [];
 

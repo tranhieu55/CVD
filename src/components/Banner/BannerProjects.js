@@ -449,8 +449,8 @@ const BannerProjects = () => {
       }
     }
   `)
-
-  const listCategories = getListCateProject.prismic.allOurwork_pages.edges[0] ? getListCateProject.prismic.allOurwork_pages.edges[0].node.body[0]?.fields.filter(
+  const listCT = getListCateProject ? getListCateProject.prismic.allOurwork_pages.edges[0].node.body?.filter(item => item.type === "banner_our_work_page") : [];
+  const listCategories = getListCateProject ? listCT[0]?.fields.filter(
     x => x.category_project_item
   ) : [];
 
