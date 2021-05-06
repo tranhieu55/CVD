@@ -6,9 +6,10 @@ import moment from "moment"
 import { RichText } from "prismic-reactjs"
 
 const BlogDetails = props => {
+  console.log({props});
   
   // const dataIcon = props.data.prismic.post?.body[0].fields
-  const dataText = props ? props.data.prismic.post?.body[1]?.fields : [];
+  const dataText = props ? props.data.prismic.post?.body.filter(item => item.type === "tag_for_post") : [];
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails

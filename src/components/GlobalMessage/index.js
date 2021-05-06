@@ -27,7 +27,7 @@ export default function GlobalMessage() {
     }
   `)
 
-  const dataGlobal = data.prismic.allHeaders.edges[0] ? data.prismic.allHeaders.edges[0].node.body.filter(
+  const dataGlobal = data.prismic.allHeaders.edges[0] ? data.prismic.allHeaders.edges[0].node.body?.filter(
     x => x.primary
   ) : [];
   const texts = dataGlobal?.map(item => item.primary)

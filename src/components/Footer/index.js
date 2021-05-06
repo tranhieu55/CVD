@@ -379,19 +379,22 @@ const Content = styled.div`
 
 export default function Footer({ dataFooter }) {
   // đây là background footer
-  const dataBGR = dataFooter.edges[0] ? dataFooter.edges[0].node.background_color_of_footer_bottom : [] ;
+  const dataBGR = dataFooter ? dataFooter.edges[0]?.node.background_color_of_footer_bottom : [] ;
   // đây là logoFooter ( alt và url)
-  const dataLogo = dataFooter.edges[0] ? dataFooter.edges[0].node.logo_footer.url : [];
+  const dataLogo = dataFooter? dataFooter.edges[0]?.node.logo_footer.url : [];
 
-  const dataLogoAlt = dataFooter.edges[0] ?  dataFooter.edges[0].node.logo_footer.alt : [];
+  const dataLogoAlt = dataFooter ?  dataFooter.edges[0]?.node.logo_footer.alt : [];
   // dữ liệu order1 map()
-  const dataLinkPages = dataFooter.edges[0] ? dataFooter.edges[0].node.body[1].fields : [];
+  const dataLP = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "ourwork_footer") : [];
+  const dataLinkPages = dataFooter ? dataLP.filter(item => item.fields)  : [];
 
-  // dữ liệu addres map()
-  const dataAddress = dataFooter.edges[0] ? dataFooter.edges[0].node.body[2].fields : [];
+  // dữ liệu addres map()]
+  const dataAD = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "address") : [];
+  const dataAddress = dataAD.filter(item => item.fields) ;
 
   // dữ liệu data image icon
-  const dataImg = dataFooter.edges[0] ? dataFooter.edges[0].node.body[3]?.fields : [];
+  const dataIMAGE = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "lists_icon_footer") : [];
+  const dataImg = dataFooter ? dataIMAGE.filter(item => item.fields)  : [];
 
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
@@ -407,7 +410,7 @@ export default function Footer({ dataFooter }) {
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                {dataLinkPages?.map((item, index) => (
+                {dataLinkPages[0]?.fields?.map((item, index) => (
                   <Link key={index} to={`/${item.slug_sub_title[0].text}`}>
                     {item.sub_title[0].text}
                   </Link>
@@ -416,7 +419,7 @@ export default function Footer({ dataFooter }) {
             </BoxTextOrder>
             <BoxOrder className="w-112 order-4"></BoxOrder>
             <BoxContentDigital className="content-digital order-5">
-              {dataAddress?.map((item, index) => (
+              {dataAddress[0]?.fields?.map((item, index) => (
                 <ListContent
                   key={index}
                   className={index === 0 ? "text-3 editText" : "text-3"}
@@ -446,7 +449,7 @@ export default function Footer({ dataFooter }) {
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  {dataImg?.map((item, index) => (
+                  {dataImg[0]?.fields?.map((item, index) => (
                     <React.Fragment key={index}>
                       <a
                         target={item.link_to_social_network?.target}

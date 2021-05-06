@@ -1105,12 +1105,13 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
-  const dataServices = dataServicesMenu.edges[0] ? dataServicesMenu.edges[0].node.body : [];
-  const dataMenu = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body[1]?.fields : [];
+  const dataServices = dataServicesMenu ? dataServicesMenu.edges[0].node.body : [];
+  const dataMN = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items") : [];
+  const dataMenu = dataMN.filter(item => item.fields);
   //dulieu icon
-  const dataIcon = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body[3]?.fields : [];
+  const dataIcon = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "social_icon_header") : [];
 
-  const isShowCTA = dataMenuHeader.edges[0] ? dataMenuHeader.edges[0].node.body.filter(
+  const isShowCTA = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(
     x => x.type === "cta_buton"
   ) : [];
 
@@ -1296,7 +1297,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             />
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
-            {dataMenu?.map((item, index) => (
+            { dataMenu && dataMenu[0]?.fields.map((item, index) => (
               <Li
                 className={`menu-list_item ${
                   location === "/" ||
@@ -1510,7 +1511,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             <>
             {dataIcon ?
               <Icon>
-              {dataIcon?.map((item, index) => (
+              {dataIcon[0]?.fields?.map((item, index) => (
                 <a
                   targer={item?.link_to_social_network?.target}
                   href={item?.link_to_social_network?.url}
