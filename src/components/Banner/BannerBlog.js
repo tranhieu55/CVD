@@ -205,6 +205,12 @@ const ListCategory = styled.ul`
 
   li.reset_filters {
     display: flex;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    }
   }
   .not_reset_filters {
     display: none;
@@ -242,6 +248,12 @@ const ListCategory = styled.ul`
     }
     li.reset_filters {
       display: flex;
+      &::after {
+        content: "\f01e";
+        font-family: "Font Awesome 5 Pro Regular";
+        font-size: 13px;
+        color: #101010;
+      }
     }
     .not_reset_filters {
       display: none;
@@ -260,7 +272,7 @@ const ListCategory = styled.ul`
   }
   @media (min-width: 992px) {
     li.reset_filters {
-      display: block;
+      display: flex;
     }
   }
 `

@@ -11,15 +11,15 @@ export default function Derection ({input}) {
         width: 556px;
         margin: 66px 0px 72px 180px;
         @media(max-width: 600px){
-            margin: 518px auto 72px ;
+            margin: 518px auto 24px ;
             width: 343px;
         }
         @media(max-width: 360px){
-            margin: 518px 0px 72px 16px;
+            margin: 518px 0px 24px 16px;
             width: 328px;
         }
         @media(max-width: 320px){
-            margin: 565px 0px 72px 16px;
+            margin: 565px 0px 24px 16px;
             width: 288px;
         }
         @media(min-width: 600px){
@@ -111,6 +111,7 @@ export default function Derection ({input}) {
         @media(max-width: 600px){
             display: block;
             height: auto;
+            margin-bottom: ${props => props.vitri === data.length -1 ? "0px": "32px"};
         }
         @media(min-width: 600px){
             display: block;
@@ -172,7 +173,7 @@ export default function Derection ({input}) {
         <Derections>
             <Title>{input.primary.title.map(item => item.text)}</Title>
             {data.map((item , index) => (
-                <Content>
+                <Content vitri={index}>
                         <Contentleft key={index}>
                             <TitleLeft>{item.office_title.map(item => item.text)}</TitleLeft>
                             <TextLeft>{item.address.map(item => item.text)}</TextLeft>
