@@ -65,6 +65,9 @@ const WraperBannerProjects = styled.div`
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
+    .container {
+      max-width: 600px !important;
+    }
     h2 {
       font-size: 46px;
     }
@@ -81,6 +84,9 @@ const WraperBannerProjects = styled.div`
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
+    .container {
+      max-width: 670px !important;
+    }
     h2 {
       font-size: 46px;
     }
@@ -97,6 +103,9 @@ const WraperBannerProjects = styled.div`
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
+    .container {
+      max-width: 1140px !important;
+    }
     h2 {
       font-size: 64px;
       margin-bottom: 16px;
@@ -114,7 +123,7 @@ const WraperBannerProjects = styled.div`
       font-size: 20px !important;
     }
   }
-  @media(min-width: 1600px){
+  @media (min-width: 1600px) {
     height: 370px;
   }
 `
@@ -182,7 +191,7 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    padding-left: 89px !important;
+    padding-left: 30px !important;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -509,7 +518,9 @@ const BannerBlog = () => {
     }
   `)
 
-  const data = listCategoryPartners? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node : [];
+  const data = listCategoryPartners
+    ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node
+    : []
   const cateAll = {
     post_category: {
       title: [{ spans: [], text: "All", type: "heading1" }],
@@ -520,9 +531,11 @@ const BannerBlog = () => {
     },
   }
 
-  const listCategories = listCategoryPartners ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
-    x => x.post_category
-  ) : [];
+  const listCategories = listCategoryPartners
+    ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
+        x => x.post_category
+      )
+    : []
 
   const newArr = [cateAll, ...listCategories]
 
