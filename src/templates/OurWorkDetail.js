@@ -225,7 +225,7 @@ const OurWorkDetail = props => {
   return (
     <Layout
       location="/case-study"
-      nameProject={dataMapNameProject}
+      nameProject={dataOurWorkItem}
       logoProject={dataOurWorkItem?.project_logo}
       nameCategoryOfWorkItem={nameCategory}
       descriptionOfWorkItem={
