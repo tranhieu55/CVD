@@ -23,7 +23,9 @@ const Container = styled.div`
         padding: 0 86px;
     }
     @media(min-width: 768px){
-        padding: 0 146px;
+        width: 420px;
+        margin: 0 auto;
+        padding: 0;
     }
     @media(min-width: 992px){
         display: flex;
@@ -31,6 +33,7 @@ const Container = styled.div`
         border-bottom: 1px solid #92939B;
         padding: 0 0px;
         height: 208px;
+        width: auto;
     }
     @media(min-width: 1280px){
         height: 208px;
@@ -107,11 +110,13 @@ const Text = styled.p`
     }
     @media(min-width: 992px){
         margin-top: 70px;
+        padding: 0px 56px;
     }
     @media(min-width: 1188px){
         margin-top: 70px;
         margin-right: 46px;
         margin-left: 46px;
+        padding: 0px 16px;
     }
     @media(min-width: 1280px){
         width: 253px;
@@ -172,7 +177,7 @@ const Input = styled.input`
     @media(min-width: 992px){
         width: auto;
         margin-right: 18px;
-        margin-top: 65px;
+        margin-top: 73px;
     }
     @media(min-width: 1280px){
         height: 48px;
@@ -232,7 +237,7 @@ const Submit = styled.button`
     }
     @media(min-width: 992px){
         width: auto;
-        margin-top: 65px;
+        margin-top: 73px;
     }
     @media(min-width: 1280px){
         background: transparent;
