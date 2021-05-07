@@ -204,7 +204,6 @@ const OurWorkDetail = props => {
   let nameCategory = props
     ? props?.pathContext?.dataLayout?.node?.name_category_of_project
     : []
-  console.log("hieutt", dataOurWorkItem)
   let slugCurrent = props ? props.pathContext.slug : []
 
   let allProjects = props ? props.data.prismic.allProjectss.edges : []
@@ -221,11 +220,13 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
   const data = props?.data?.prismic?.projects
-
+  const dataMapNameProject = dataOurWorkItem?.project_description.map(
+    item => item.text
+  )
   return (
     <Layout
       location="/case-study"
-      nameProject={dataOurWorkItem?.project_description[0]?.text}
+      nameProject={dataMapNameProject}
       logoProject={dataOurWorkItem?.project_logo}
       nameCategoryOfWorkItem={nameCategory}
       descriptionOfWorkItem={
