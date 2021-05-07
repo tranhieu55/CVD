@@ -298,7 +298,7 @@ const Textarea = styled.textarea`
     border-radius: 5px;
     background-color: #FFFFFF;
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.07);
-    margin-bottom: 24px;
+    margin-bottom: 17px;
     box-sizing: border-box;
     border: 2px solid #cccccc;
     border-radius: 3px;

@@ -11,11 +11,11 @@ export default function Derection ({input}) {
         width: 556px;
         margin: 66px 0px 72px 180px;
         @media(max-width: 600px){
-            margin: 518px auto 24px ;
+            margin: 512px auto 24px ;
             width: 343px;
         }
         @media(max-width: 360px){
-            margin: 518px 0px 24px 16px;
+            margin: 512px 0px 24px 16px;
             width: 328px;
         }
         @media(max-width: 320px){
@@ -50,7 +50,6 @@ export default function Derection ({input}) {
             margin-bottom: 24px;
             color: #101010;
             font-family: Calibre Semibold;
-            font-size: 48px;
             font-weight: 600;
             letter-spacing: 0;
             line-height: 52px;
