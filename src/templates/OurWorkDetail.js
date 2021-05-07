@@ -200,13 +200,14 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props ? props?.data?.prismic?.projects : []
-  let nameCategory = props
+  let dataOurWorkItem = props?.data?.prismic?.projects ? props?.data?.prismic?.projects : []
+  let nameCategory = props?.pathContext?.dataLayout?.node?.name_category_of_project
     ? props?.pathContext?.dataLayout?.node?.name_category_of_project
     : []
-  let slugCurrent = props ? props.pathContext.slug : []
 
-  let allProjects = props ? props.data.prismic.allProjectss.edges : []
+  let slugCurrent = props?.pathContext?.slug ? props?.pathContext?.slug : []
+
+  let allProjects = props?.data.prismic?.allProjectss?.edges ? props?.data.prismic?.allProjectss?.edges : []
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item?.node?._meta?.uid !== slugCurrent
@@ -219,10 +220,8 @@ const OurWorkDetail = props => {
   }
   const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
-  const data = props?.data?.prismic?.projects
-  const dataMapNameProject = dataOurWorkItem?.project_description.map(
-    item => item.text
-  )
+  const data = props.data.prismic.projects ?  props?.data?.prismic?.projects : []
+
   return (
     <Layout
       location="/case-study"
@@ -232,8 +231,8 @@ const OurWorkDetail = props => {
       descriptionOfWorkItem={
         dataOurWorkItem?.relationship_to_project_category?.text
       }
-      backgroundWorkItemSrc={dataOurWorkItem?.project_header_image.url}
-      backgroundWorkItemAlt={dataOurWorkItem?.project_header_image.alt}
+      backgroundWorkItemSrc={dataOurWorkItem?.project_header_image?.url}
+      backgroundWorkItemAlt={dataOurWorkItem?.project_header_image?.alt}
     >
       <SEO props={dataOurWorkItem} />
       <Study>
