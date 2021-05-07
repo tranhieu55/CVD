@@ -519,7 +519,7 @@ const BannerBlog = () => {
   `)
 
   const data = listCategoryPartners
-    ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node
+    ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node
     : []
   const cateAll = {
     post_category: {
@@ -532,7 +532,7 @@ const BannerBlog = () => {
   }
 
   const listCategories = listCategoryPartners
-    ? listCategoryPartners.prismic.allPost_listing_pages.edges[0]?.node.body[0]?.fields.filter(
+    ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node?.body[0]?.fields?.filter(
         x => x.post_category
       )
     : []
@@ -564,7 +564,7 @@ const BannerBlog = () => {
           lett="-1"
           col="#101010"
         >
-          {data.big_title[0]?.text}
+          {data?.big_title[0]?.text}
         </H2>
         <div className="row ">
           <ListCategory className="col-md-10" show={filter}>
@@ -574,7 +574,7 @@ const BannerBlog = () => {
                 onClick={() => {
                   dispatch({
                     type: "ADD_FILTER_ITEM",
-                    value: item.post_category._meta.uid,
+                    value: item?.post_category?._meta?.uid,
                   })
                   setFilter(index)
                 }}
@@ -582,11 +582,11 @@ const BannerBlog = () => {
                 <Link
                   className={
                     [...state.listSelected].includes(
-                      item.post_category._meta.uid
+                      item?.post_category?._meta?.uid
                     ) && "active"
                   }
                 >
-                  {item.post_category.title[0]?.text}
+                  {item?.post_category?.title[0]?.text}
                 </Link>
               </CategoryItem>
             ))}
