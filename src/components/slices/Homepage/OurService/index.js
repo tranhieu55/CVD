@@ -37,7 +37,7 @@ const OurServices = ({ input }) => {
           {datas?.map((item, index) => (
             <Cards key={index}>
               <SubTitle>
-                {item.primary.title_service_item.map(item => item.text)}
+                { item.primary ? item.primary.title_service_item.map(item => item.text) : ''}
               </SubTitle>
               {item.fields?.map((item, index) => (
                 <SubText key={index}>
