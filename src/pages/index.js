@@ -7,9 +7,8 @@ import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
-  const data = prismic ? prismic.allHomepages.edges[0]?.node : [];
+  const data = prismic ? prismic.allHomepages.edges[0]?.node : []
   const background_image = data.background_image.url
-
 
   return (
     <>
@@ -23,10 +22,7 @@ const Index = ({ data: { prismic } }) => {
             <Buttons>
               {data.body[0]?.fields?.map((item, index) => {
                 return (
-                  <ButtonBanner
-                    key={index}
-                    vitri={index}
-                  >
+                  <ButtonBanner key={index} vitri={index}>
                     {item.text_button[0]?.text}
                   </ButtonBanner>
                 )
@@ -122,7 +118,7 @@ const ImageBanner = styled.img`
   object-fit: cover;
   @media (max-width: 600px) {
     object-fit: cover;
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 97%)
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 97%);
   }
 `
 
@@ -130,9 +126,9 @@ const ButtonBanner = styled.button`
   margin-right: 24px;
   height: 48px;
   width: 148px;
-  background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
+  background: transparent;
   border: 2px solid #fecf09;
-  color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
+  color: #ffffff;
   border-radius: 3px;
   font-family: "Calibre Semibold";
   font-size: 18px;
@@ -162,9 +158,9 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: ${props => props.vitri === 0 ? "#fecf09" : "transparent"};
+    background: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
     border: 2px solid #fecf09;
-    color: ${props => props.vitri === 0 ? "#222222" : "#ffffff"};
+    color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
     border-radius: 3px;
   }
 `

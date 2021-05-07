@@ -154,6 +154,7 @@ const CaseStudiHeading = styled.h4`
   font-size: 32px;
   font-weight: 600;
   letter-spacing: -0.5px;
+
   line-height: 32px;
   text-align: center;
   margin-top: 141px;
