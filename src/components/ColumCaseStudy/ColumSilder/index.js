@@ -45,7 +45,6 @@ const Slider = styled.div`
     width: 10px;
     height: 10px;
   }
-  /* ul.slick-dots > li.slick-active - li > button > ::before  */
   .slick-dots li.slick-active button {
     background-color: #a9a9a9;
     border: 1px solid #a9a9a9;
@@ -87,25 +86,24 @@ const Slider = styled.div`
       border: 1px solid #a9a9a9;
       border-radius: 50%;
     }
-    .slick-dots li button{
-      padding-bottom : 3px;
+    .slick-dots li button {
+      padding-bottom: 3px;
       padding-right: 3px;
       padding-top: 2.5px;
       padding-left: 0px;
     }
-    .slick-dots li button:before{
+    .slick-dots li button:before {
       left: -1.5px;
       top: -6.5px;
       font-size: 8px;
-    } 
-    .slick-dots li.slick-active button:before{
+    }
+    .slick-dots li.slick-active button:before {
       font-size: 8px;
       left: -1.5px;
       top: -6.5px;
     }
     margin-bottom: 40px;
     height: 245px;
-    background-color: #f1f1f1;
     .slick-slider {
       height: 100%;
       .slick-list {
@@ -122,11 +120,10 @@ const Slider = styled.div`
 
   @media (min-width: 601px) {
     .slick-dots {
-      bottom: 25px;
+      bottom: 10px;
     }
     margin-bottom: 40px;
     height: 403px;
-    background-color: #f1f1f1;
     .slick-slider {
       height: 100%;
       .slick-list {
@@ -142,11 +139,13 @@ const Slider = styled.div`
   }
   @media (min-width: 768px) {
     margin-bottom: 50px;
+    height: 500px;
   }
-  @media(min-width: 890px){
+  @media (min-width: 890px) {
     .slick-dots {
       bottom: 15px;
     }
+    height: 650px;
   }
   @media (min-width: 1024px) {
     .slick-dots {
@@ -163,10 +162,9 @@ const Slider = styled.div`
   }
   @media (min-width: 1600px) {
     .slick-dots {
-      bottom: 50px;
+      bottom: 31px;
     }
     height: 800px;
-    background-color: #F1F1F1;
     div {
       margin: 0 auto;
       height: 100%;
@@ -189,27 +187,33 @@ const Images = styled.img`
   @media only screen and (max-width: 600px) {
     height: 100%;
     width: 100%;
-    padding: 37px 25px;
+    padding: 0px;
     object-fit: cover;
   }
   @media (min-width: 601px) {
     height: 100%;
     width: 100%;
-    padding: 20px 32px;
+    padding: 0px;
   }
   @media (min-width: 768px) {
-    padding: 47px 61px !important;
+    padding: 0px !important;
+    height: 100%;
+    width: 100%;
   }
   @media (min-width: 992px) {
-    padding: 40px 112px !important;
+    padding: 0px !important;
+    height: 100%;
+    width: 100%;
   }
   @media (min-width: 1200px) {
-    padding: 67px 49px !important;
+    padding: 0px !important;
+    height: 100%;
+    width: 100%;
   }
   @media (min-width: 1600px) {
     height: 100%;
     width: 100%;
-    padding: 117px 137px !important;
+    padding: 0px !important;
   }
 `
 const Container = styled.div`
