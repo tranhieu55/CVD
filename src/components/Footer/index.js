@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import Newletter from '../NewLetter/index';
 
 const FooterStyle = styled.div`
   background-color: ${({ dataBGR }) => dataBGR};
@@ -399,6 +400,7 @@ export default function Footer({ dataFooter }) {
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
       <IphoneX>
+        <Newletter dataFooter={dataFooter}/>
         <Container className="container">
           <Row className="row">
             <BoxImage className="order-1">
