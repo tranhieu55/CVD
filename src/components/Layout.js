@@ -288,6 +288,18 @@ const Layout = ({
                     }
                   }
                 }
+                ... on PRISMIC_FooterBodyNewsletter_signup {
+                  type
+                  label
+                  primary {
+                    alert_submit_side_success
+                    alert_submit_success
+                    form_submit_placeholder
+                    text_button
+                    title
+                    title_side
+                  }
+                }
               }
               logo_footer
             }
