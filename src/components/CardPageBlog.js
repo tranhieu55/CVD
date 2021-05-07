@@ -22,18 +22,18 @@ const OurLaster = ({ input }) => {
     <OurLasters>
       {listPartners?.map((item, index) => (
         <ListPost key={index} className={index % 2 === 0 ? "orderleft" : ""}>
-          <Link to={`/blog/${item.post_item._meta.uid}`}>
+          <Link to={`/blog/${item?.post_item?._meta.uid}`}>
             <Img
-              src={item.post_item.post_image.url}
+              src={item?.post_item?.post_image?.url}
               vitri={index}
-              al={item.post_item.post_image?.alt}
+              al={item?.post_item?.post_image?.alt}
             ></Img>
           </Link>
           <SubTitle vitri={index}>
-            {moment(item.post_item?.date_created).format("LL")}
+            {moment(item?.post_item?.date_created).format("LL")}
           </SubTitle>
-          <TitlePost>{item.post_item?.title[0]?.text}</TitlePost>
-          <Read href={`/blog/${item.post_item?._meta.uid}`}>Read more</Read>
+          <TitlePost>{item?.post_item?.title[0]?.text}</TitlePost>
+          <Read href={`/blog/${item?.post_item?._meta.uid}`}>Read more</Read>
         </ListPost>
       ))}
     </OurLasters>

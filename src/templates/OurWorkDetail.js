@@ -200,17 +200,17 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props ? props.data.prismic.projects : []
+  let dataOurWorkItem = props ? props?.data?.prismic?.projects : []
   let nameCategory = props
-    ? props.pathContext.dataLayout.node.name_category_of_project
+    ? props?.pathContext?.dataLayout?.node?.name_category_of_project
     : []
-
+  console.log("hieutt", dataOurWorkItem)
   let slugCurrent = props ? props.pathContext.slug : []
 
   let allProjects = props ? props.data.prismic.allProjectss.edges : []
 
   let removeProjectInPageCurrent = allProjects.filter(
-    item => item.node._meta.uid !== slugCurrent
+    item => item?.node?._meta?.uid !== slugCurrent
   )
 
   let arrRandom = []
@@ -220,7 +220,7 @@ const OurWorkDetail = props => {
   }
   const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
-  const data = props.data.prismic.projects
+  const data = props?.data?.prismic?.projects
 
   return (
     <Layout
