@@ -225,6 +225,11 @@ const Submit = styled.button`
     text-align: center;
     margin-top: 78px;
     padding: 14px 45px;
+    :hover{
+        color: #101010;
+        background: #fecf09;
+        border: 2px solid #FECF09;
+    }
     @media(max-width: 600px){
         margin-top: 16px;
         width: 100%;
