@@ -6,10 +6,20 @@ import moment from "moment"
 import { RichText } from "prismic-reactjs"
 
 const BlogDetails = props => {
-  console.log({props});
-  
-  // const dataIcon = props.data.prismic.post?.body[0].fields
-  const dataText = props ? props.data.prismic.post?.body.filter(item => item.type === "tag_for_post") : [];
+  console.log({ props })
+
+  const dataIcon = props
+    ? props.data.prismic.post?.body.filter(
+        item => item.type === "socical_icons"
+      )
+    : []
+  // const dataIconMap = dataIcon?.map(item =>
+  //   item?.fields?.map(item => item?.icon_image.url)
+  // )
+  // console.log("akvkvkv", dataIconMap)
+  const dataText = props
+    ? props.data.prismic.post?.body.filter(item => item.type === "tag_for_post")
+    : []
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
@@ -22,20 +32,27 @@ const BlogDetails = props => {
       ></Img>
       <Container>
         {props.data.prismic.post.contenr_description?.map((item, index) => (
-          <Text>{item.text}</Text>
+          <Text key={index}>{item.text}</Text>
         ))}
         <TextImg>
           <Texxt>{RichText.render(props.data.prismic.post?.content)}</Texxt>
         </TextImg>
         <Fotters>
           <DivIcon>
-            <Facebook href='https://www.facebook.com'></Facebook>
-            <LinkedIn href='https://www.linkedin.com'></LinkedIn>
-            <Twitter href='https://twitter.com'></Twitter>
+            {dataIcon?.map((item, key) =>
+              item?.fields?.map((x, index) => (
+                <Icon
+                  key={index}
+                  value={index}
+                  src={x?.icon_image?.url}
+                  alt={x?.icon_image?.alt}
+                />
+              ))
+            )}
           </DivIcon>
           <DivText>
             <FirstTexts>Tags</FirstTexts>
-            {dataText?.map((item, index) => (
+            {dataText[0]?.fields?.map((item, index) => (
               <Texts key={index}>{item.tag_item}</Texts>
             ))}
           </DivText>
@@ -98,43 +115,34 @@ const Text = styled.p`
 `
 
 const TextImg = styled.div`
-    width: 100%;
-    height: auto;
-    margin-top: 22px;
+  width: 100%;
+  height: auto;
+  margin-top: 22px;
 `
 const Texxt = styled.div`
-    p{
-        margin-bottom: 0px;
-        color: #222222;
-        font-family: Calibre Regular;
-        font-size: 20px;
-        letter-spacing: 0;
-        line-height: 28px;
-        strong{
-            color: #101010;
-            font-family: Calibre Medium;
-            font-size: 20px;
-            font-weight: 500;
-            letter-spacing: 0;
-            line-height: 20px;
-        }
+  p {
+    margin-bottom: 0px;
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+    strong {
+      color: #101010;
+      font-family: Calibre Medium;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 20px;
     }
-    .block-img{
-        img{
-            width: 100%;
-            height: 428px;
-            margin-top: 17px;
-            margin-bottom : 40px;
-            object-fit: cover;
-        }
-        @media(max-width: 600px){
-            img{
-                height: 204px;
-                margin-top: 6px;
-                margin-bottom : 24px;
-                object-fit: cover;
-            }
-        }
+  }
+  .block-img {
+    img {
+      width: 100%;
+      height: 428px;
+      margin-top: 17px;
+      margin-bottom: 40px;
+      object-fit: cover;
     }
     @media (max-width: 600px) {
       img {
@@ -143,6 +151,14 @@ const Texxt = styled.div`
         margin-bottom: 24px;
         object-fit: cover;
       }
+    }
+  }
+  @media (max-width: 600px) {
+    img {
+      height: 204px;
+      margin-top: 6px;
+      margin-bottom: 24px;
+      object-fit: cover;
     }
   }
 `
@@ -166,65 +182,14 @@ const DivIcon = styled.div`
     margin-top: 24px;
   }
 `
-const Facebook = styled.a`
-  margin-right: 24px;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &::before {
-    content: "\f082";
-    height: 21px;
-    width: 20px;
-    color: #999999;
-    font-family: "Font Awesome 5 Brands Regular";
-    font-size: 21px;
-    letter-spacing: 1.5px;
-    line-height: 21px;                            
-  }
-`
-
-const LinkedIn = styled.a`
-  margin-right: 24px;
-  cursor: pointer;
-
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &::before {
-    content: "\f0e0";
-    height: 21px;
-    width: 23px;
-    color: #999999;
-    font-family: "Font Awesome 5 Pro Regular";
-    font-size: 21px;
-    letter-spacing: 1.5px;
-    line-height: 21px;
-  }
-`
-
-const Twitter = styled.a`
-  cursor: pointer;
-
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &::before {
-    content: "\f099";
-    height: 21px;
-    width: 23px;
-    color: #999999;
-    font-family: "Font Awesome 5 Brands Regular";
-    font-size: 21px;
-    letter-spacing: 1.5px;
-    line-height: 21px;                          
-  }
+const Icon = styled.img`
+  margin-right: 16.5px;
+  width: ${({ value }) => (value === 0 ? "12.5px" : "")};
+  width: ${({ value }) => (value === 1 ? "21.5px" : "")};
+  width: ${({ value }) => (value === 2 ? "18px" : "")};
+  height: ${({ value }) => (value === 0 ? "19.5px" : "")};
+  height: ${({ value }) => (value === 1 ? "17.53px" : "")};
+  height: ${({ value }) => (value === 2 ? "14px" : "")};
 `
 const DivText = styled.div`
   margin-top: 31px;
@@ -238,7 +203,7 @@ const FirstTexts = styled.p`
   height: 16px;
   width: 36px;
   color: #999999;
-  font-family: Calibre Semibold;
+  font-family: "Calibre Semibold";
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -249,9 +214,9 @@ const FirstTexts = styled.p`
 const Texts = styled.p`
   margin-left: 16px;
   height: 24px;
-  // color: ${props => (props.key === 1 ? "#999999" : "#22222")};
+   /* color: ${props => (props.key === 1 ? "#999999" : "#22222")}; */
   color: #222222;
-  font-family: Calibre Regular;
+  font-family: "Calibre Regular";
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;

@@ -72,16 +72,16 @@ const OurLasters = styled.div`
     .orderleft {
       margin: unset;
       margin-right: 28px;
-      margin-bottom: 84px;
+      margin-bottom: 80px;
     }
-    margin-bottom: 15px;
+    margin-bottom: 26px;
   }
 `
 
 const ListPost = styled.div`
   height: 517px;
   width: 606px;
-  margin-bottom: 84px;
+  margin-bottom: 80px;
   a:hover {
     text-decoration: none;
   }
@@ -102,7 +102,7 @@ const ListPost = styled.div`
     margin-bottom: 50px;
   }
   @media (min-width: 768px) {
-    padding: 0 16px;
+    /* padding: 0 16px; */
   }
   @media (min-width: 1366px) {
     margin: unset;
@@ -136,8 +136,8 @@ const Img = styled.img`
     width: 95%; */
   }
   @media (min-width: 1366px) {
-    margin-left: 32px;
-    width: 95%;
+    /* margin-left: 0px; */
+    width: 100%;
   }
 `
 const TitlePost = styled.h4`
@@ -163,17 +163,17 @@ const TitlePost = styled.h4`
     font-size: 24px;
     height: auto;
   }
-  @media(min-width: 600px){
+  @media (min-width: 600px) {
     margin-left: 17px;
   }
-  @media(min-width: 768px){
-    margin-left: 32px;
+  @media (min-width: 768px) {
+    margin-left: 0px;
   }
-  @media(min-width: 1200px){
-    margin-left: 30px;
+  @media (min-width: 1200px) {
+    margin-left: 0px;
   }
-  @media(min-width: 1366px){
-    margin-left: 80px;
+  @media (min-width: 1366px) {
+    margin-left: 0px;
   }
 `
 const SubTitle = styled.h4`
@@ -192,7 +192,7 @@ const SubTitle = styled.h4`
   &::after {
     position: absolute;
     right: calc(100% + 17px);
-    top: 31%;
+    top: 20%;
     display: block;
     content: "";
     width: 63px;
@@ -201,7 +201,6 @@ const SubTitle = styled.h4`
   }
   @media (max-width: 600px) and (max-height: 350px) {
     margin-top: 20px !important;
-    
   }
   @media (max-width: 600px) {
     height: 14px;
@@ -223,7 +222,7 @@ const SubTitle = styled.h4`
     }
   }
   @media (min-width: 768px) {
-    margin-left: 112px;
+    margin-left: 80px;
     &::after {
       width: 63px;
     }
@@ -242,25 +241,25 @@ const Read = styled.a`
   letter-spacing: 0;
   line-height: 20px;
   cursor: pointer;
-  &::after{
+  &::after {
     content: "\f178";
     font-family: "Font Awesome 5 Pro Regular";
     height: 18px;
     line-height: 16px;
     font-size: 18px;
     color: #101010;
-    padding: 0px 0.6rem; 
+    padding: 0px 0.6rem;
   }
-  @media(min-width: 600px){
+  @media (min-width: 600px) {
     margin-left: 17px;
   }
-  @media(min-width: 768px){
-    margin-left: 32px;
+  @media (min-width: 768px) {
+    margin-left: 0px;
   }
-  @media(min-width: 1200px){
-    margin-left: 30px;
+  @media (min-width: 1200px) {
+    margin-left: 0px;
   }
-  @media(min-width: 1366px){
-    margin-left: 80px;
+  @media (min-width: 1366px) {
+    margin-left: 0px;
   }
 `
