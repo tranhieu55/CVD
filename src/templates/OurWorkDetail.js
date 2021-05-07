@@ -200,12 +200,14 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props ? props.data.prismic.projects : [];
-  let nameCategory = props ? props.pathContext.dataLayout.node.name_category_of_project : [];
+  let dataOurWorkItem = props ? props.data.prismic.projects : []
+  let nameCategory = props
+    ? props.pathContext.dataLayout.node.name_category_of_project
+    : []
 
-  let slugCurrent = props ? props.pathContext.slug : [];
+  let slugCurrent = props ? props.pathContext.slug : []
 
-  let allProjects = props ? props.data.prismic.allProjectss.edges : [];
+  let allProjects = props ? props.data.prismic.allProjectss.edges : []
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item.node._meta.uid !== slugCurrent
@@ -223,14 +225,14 @@ const OurWorkDetail = props => {
   return (
     <Layout
       location="/case-study"
-      nameProject={dataOurWorkItem.project_description[0]?.text}
-      logoProject={dataOurWorkItem.project_logo}
+      nameProject={dataOurWorkItem?.project_description[0]?.text}
+      logoProject={dataOurWorkItem?.project_logo}
       nameCategoryOfWorkItem={nameCategory}
       descriptionOfWorkItem={
-        dataOurWorkItem.relationship_to_project_category.text
+        dataOurWorkItem?.relationship_to_project_category?.text
       }
-      backgroundWorkItemSrc={dataOurWorkItem.project_header_image.url}
-      backgroundWorkItemAlt={dataOurWorkItem.project_header_image.alt}
+      backgroundWorkItemSrc={dataOurWorkItem?.project_header_image.url}
+      backgroundWorkItemAlt={dataOurWorkItem?.project_header_image.alt}
     >
       <SEO props={dataOurWorkItem} />
       <Study>
