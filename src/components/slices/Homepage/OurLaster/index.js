@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 const OurLaster = ({ input }) => {
   const Titles = input.primary.title?.map(item => item.text)
   const Messaging = input.primary.messaging?.map(item => item.text)
+  console.log({input});
 
   return (
     <OurLasters>
@@ -15,13 +16,13 @@ const OurLaster = ({ input }) => {
           <ListPost
             key={index}
             as={Link}
-            to={`/blog/${item.posts._meta.uid}`}
+            to={ item.posts ? `/blog/${item.posts?._meta.uid}` : ``}
             vitri={index}
           >
-            <Img src={item.posts.post_image.url} vitri={index}></Img>
+            <Img src={item.posts ? item.posts.post_image.url : ''} vitri={index}></Img>
             <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
             <TitlePost vitri={index}>
-              {item.posts.title?.map(item => item.text)}
+              {item.posts ? item.posts.title?.map(item => item.text) : ''}
             </TitlePost>
           </ListPost>
         ))}
