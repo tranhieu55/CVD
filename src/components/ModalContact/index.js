@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import images from '../../images/cancel@2x.png';
 
 const Modals = ({ showModal, setShowModal }) => {
     const data = useStaticQuery(graphql`
@@ -45,7 +46,7 @@ const Modals = ({ showModal, setShowModal }) => {
                 <Container>
                     <Modal showModal={showModal}
                     >
-                        <ButtonClose onClick={() => setShowModal(prev => !prev)}></ButtonClose>
+                        <ButtonClose onClick={() => setShowModal(prev => !prev)} src={images}></ButtonClose>
                         {Titles[0] ? 
                             <Content>
                                 <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
@@ -114,14 +115,11 @@ const Container = styled.div`
   overflow-y: auto;
 `
 
-const ButtonClose = styled.span`
+const ButtonClose = styled.img`
   top: 26px;
   right: 26px;
   position: absolute;
-  &::after {
-    content: "\f00d";
-    font-family: "Font Awesome 5 Pro Regular";
-    height: 20px;
+  height: 20px;
     width: 19px;
     font-size: 31px;
     font-weight: 300;
@@ -131,15 +129,11 @@ const ButtonClose = styled.span`
     color: #333333;
     margin-left: 24px;
     opacity: 1;
-  }
   
   @media(max-width: 600px){
       top: 26px;
       right: 26px;
-      &::after {
-        content: "\f00d";
-        font-family: "Font Awesome 5 Pro Regular";
-        font-size: 30px;
+      font-size: 30px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 24px;
@@ -147,7 +141,6 @@ const ButtonClose = styled.span`
         color: #333333;
         margin-left: 24px;
         opacity: 1;
-      }
   }
   @media (max-width: 320px) {
     top: 16px;
