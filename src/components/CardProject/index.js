@@ -10,7 +10,7 @@ CardProject.propTypes = {
 }
 
 function CardProject(props) {
-  const { input,resize } = props
+  const { input, resize } = props
 
   const inforProject = input.project_item
   return (
@@ -23,7 +23,7 @@ function CardProject(props) {
           alt={inforProject.project_header_image.alt}
           src={inforProject.project_header_image.url}
           objectFit="cover"
-          h={resize?'433':"500"}
+          h={resize ? "433" : "500"}
         />
       </DivIMG>
       <TitleImageBlog>
@@ -67,7 +67,7 @@ const DivIMG = styled.div`
 `
 const Colum = styled.div`
   @media (min-width: 600px) {
-    height: ${({resize}) => resize?' 433px':''};
+    height: ${({ resize }) => (resize ? " 433px" : "")};
   }
   @media (min-width: 600px) and (max-width: 768px) {
     margin-bottom: 8px;
@@ -110,7 +110,7 @@ const TitleImageBlog = styled.div`
 `
 const Span = styled.span`
   color: #fecf09;
-  font-size: ${({resize}) => resize?"16px":"18px"};
+  font-size: ${({ resize }) => (resize ? "16px" : "18px")};
   line-height: 16px;
   font-family: "Calibre Semibold";
   display: block;
@@ -119,13 +119,13 @@ const Span = styled.span`
   margin-bottom: 8px;
   @media only screen and (max-width: 600px) {
     font-size: 14px;
-    line-height: 6px;
+    line-height: ${({ resize }) => (resize ? "14px" : "6px")};
     margin-bottom: 0px;
   }
 `
 const H3 = styled.h3`
   color: #ffffff;
-  font-size: ${({resize}) => resize?"40px":"48px"};
+  font-size: ${({ resize }) => (resize ? "40px" : "48px")};
   font-family: "Calibre Bold";
   font-weight: bold;
   margin: 0;

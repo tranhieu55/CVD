@@ -100,6 +100,8 @@ const Heading = styled.h2`
   line-height: 56px;
   margin-bottom: 20px;
   text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
 
   @media (max-width: 600px) {
     font-size: 40px;
@@ -127,6 +129,7 @@ const HeadingText = styled.p`
 const Button = styled.a`
   display: block;
   padding-top: 18px;
+  padding-bottom: 18px;
   margin: 0 auto;
   height: 48px;
   width: 142px;
@@ -137,7 +140,7 @@ const Button = styled.a`
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 22px;
+  line-height: 18px;
   text-align: center;
 
   &:hover,
