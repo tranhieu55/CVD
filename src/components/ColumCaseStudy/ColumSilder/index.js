@@ -22,8 +22,8 @@ export default function ColumSilder(props) {
               {props?.input?.fields?.map((item, key) => (
                 <ImageSlider key={key}>
                   <Images
-                    src={item?.item_image?.url}
-                    alt={item?.item_image?.alt}
+                    src={item?.item_image?.url ? item?.item_image?.url : ""}
+                    alt={item?.item_image?.alt ? item?.item_image?.alt : ""}
                   ></Images>
                 </ImageSlider>
               ))}

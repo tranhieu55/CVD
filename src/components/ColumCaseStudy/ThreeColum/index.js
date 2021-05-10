@@ -9,22 +9,22 @@ export default function ThreeColum (props) {
         <Box>
             {props ? 
                 <Container>
-                    <DivImg show={props?.input?.primary?.image_side_left?.alt}>
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt ? props?.input?.primary?.image_side_left?.alt : ""}>
                         <Img
-                            alt={props?.input?.primary?.image_side_left?.alt}
-                            src={props?.input?.primary?.image_side_left?.url}
+                            alt={props?.input?.primary?.image_side_left?.alt ? props?.input?.primary?.image_side_left?.alt : ""}
+                            src={props?.input?.primary?.image_side_left?.url ? props?.input?.primary?.image_side_left?.alt : ""}
                         ></Img>
                     </DivImg>
-                    <DivImg show={props?.input?.primary?.image_side_left?.alt}>
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt ? props?.input?.primary?.image_side_left?.alt : ""}>
                         <Img
-                            alt={props?.input?.primary?.image_center?.alt}
-                            src={props?.input?.primary?.image_center?.url}
+                            alt={props?.input?.primary?.image_center?.alt ? props?.input?.primary?.image_center?.alt : ""}
+                            src={props?.input?.primary?.image_center?.url ? props?.input?.primary?.image_center?.url : ""}
                         ></Img>
                     </DivImg>
-                    <DivImg show={props?.input?.primary?.image_side_left?.alt}> 
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt ? props?.input?.primary?.image_side_left?.alt : ""}> 
                         <Img
-                            alt={props?.input?.primary?.image_side_right?.alt}
-                            src={props?.input?.primary?.image_side_right?.url}
+                            alt={props?.input?.primary?.image_side_right?.alt ? props?.input?.primary?.image_side_right?.alt : ""}
+                            src={props?.input?.primary?.image_side_right?.url ? props?.input?.primary?.image_side_right?.url : ""}
                         ></Img>
                     </DivImg>
                 </Container>

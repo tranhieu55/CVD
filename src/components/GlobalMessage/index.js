@@ -27,10 +27,10 @@ export default function GlobalMessage() {
     }
   `)
 
-  const dataGlobal = data.prismic.allHeaders.edges[0] ? data.prismic.allHeaders.edges[0].node.body?.filter(
-    x => x.primary
+  const dataGlobal = data.prismic?.allHeaders?.edges[0] ? data.prismic?.allHeaders?.edges[0]?.node?.body?.filter(
+    x => x.primary ? x.primary : x
   ) : [];
-  const texts = dataGlobal ? dataGlobal?.map(item => item.primary) : [];
+  const texts = dataGlobal ? dataGlobal?.map(item => item.primary ? item.primary : "") : [];
 
   const [show, setShow] = useState(true)
   function showGlobal() {
@@ -41,8 +41,8 @@ export default function GlobalMessage() {
     <Container open={show}>
       {texts ? 
         <Content>
-          <Text lh={24}>{texts[0]?.message?.map(item => item?.text)}. </Text>
-          <LI lh={24}>{texts[0]?.link_title?.map(item => item?.text)}</LI>
+          <Text lh={24}>{texts[0]?.message?.map(item => item?.text ? item?.text : "")}. </Text>
+          <LI lh={24}>{texts[0]?.link_title?.map(item => item?.text ? item?.text : "")}</LI>
         </Content>
         :<></>
       }

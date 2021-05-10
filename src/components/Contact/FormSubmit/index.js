@@ -212,7 +212,7 @@ export default function FormSumit({ input }) {
             return (
               <Inputs>
                 <Input size="lg" type="text" placeholder=" " />
-                <label>{item?.placeholder?.map(item => item?.text)}</label>
+                <label>{item?.placeholder?.map(item => item?.text ? item?.text : item)}</label>
               </Inputs>
             )
           }
@@ -220,7 +220,7 @@ export default function FormSumit({ input }) {
             return (
               <Inputs>
                 <Textarea size="lg" type="text" placeholder=" " />
-                <label>{item?.placeholder?.map(item => item?.text)}</label>
+                <label>{item?.placeholder?.map(item => item?.text ? item?.text : item)}</label>
               </Inputs>
             )
           }

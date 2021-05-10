@@ -8,8 +8,8 @@ export default function FullColum (props) {
         <Container>
             {props ? 
                 <Img
-                    alt={props?.input?.primary?.image_full_banner_a?.alt}
-                    src={props?.input?.primary?.image_full_banner_a?.url}
+                    alt={props?.input?.primary?.image_full_banner_a?.alt ? props?.input?.primary?.image_full_banner_a?.alt :""}
+                    src={props?.input?.primary?.image_full_banner_a?.url ? props?.input?.primary?.image_full_banner_a?.url : ""}
                 ></Img>
                 : <></>
             }

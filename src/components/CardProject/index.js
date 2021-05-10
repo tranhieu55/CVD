@@ -21,8 +21,8 @@ function CardProject(props) {
        to={`/projects/${inforProject?.relationship_to_project_category?._meta?.uid}/${inforProject?._meta?.uid}`}
      >
        <IMG
-         alt={inforProject?.project_header_image?.alt}
-         src={inforProject?.project_header_image?.url}
+         alt={inforProject?.project_header_image?.alt ? inforProject?.project_header_image?.alt : ""}
+         src={inforProject?.project_header_image?.url ? inforProject?.project_header_image?.url : ""}
          objectFit="cover"
          h={resize ? "433" : "500"}
        />
@@ -31,8 +31,8 @@ function CardProject(props) {
      }
       {inforProject ? 
         <TitleImageBlog>
-        <Span resize={resize}>{inforProject?.name_category_of_project}</Span>
-        <H3 resize={resize}>{inforProject?.project_name[0]?.text}</H3>
+        <Span resize={resize}>{inforProject?.name_category_of_project ? inforProject?.name_category_of_project : ""}</Span>
+        <H3 resize={resize}>{inforProject?.project_name[0]?.text ? inforProject?.project_name[0]?.text : ""}</H3>
       </TitleImageBlog>
       :<></>
       }
