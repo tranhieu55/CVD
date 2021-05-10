@@ -1078,7 +1078,24 @@ const DivIMGA = styled.div`
   @media(max-width: 600px){
     top: 45%;
     height: 224px;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
   }
+  @media(max-width: 992px){
+    top: 52%;
+    height: 250px;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  }
+  @media(min-width: 993px){
+    height: 164px;
+    position: absolute;
+    width: 100%;
+    top: 27%;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  }
+
 `
 const TitleImageBlog = styled.div`
   position: absolute;
