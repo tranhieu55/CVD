@@ -380,22 +380,22 @@ const Content = styled.div`
 
 export default function Footer({ dataFooter }) {
   // đây là background footer
-  const dataBGR = dataFooter ? dataFooter.edges[0]?.node.background_color_of_footer_bottom : [] ;
+  const dataBGR = dataFooter && dataFooter.edges[0]?.node?.background_color_of_footer_bottom ? dataFooter.edges[0]?.node?.background_color_of_footer_bottom : [] ;
   // đây là logoFooter ( alt và url)
-  const dataLogo = dataFooter? dataFooter.edges[0]?.node.logo_footer.url : [];
+  const dataLogo = dataFooter && dataFooter.edges[0]?.node?.logo_footer?.url ? dataFooter.edges[0]?.node?.logo_footer?.url : [];
 
-  const dataLogoAlt = dataFooter ?  dataFooter.edges[0]?.node.logo_footer.alt : [];
+  const dataLogoAlt = dataFooter &&  dataFooter.edges[0]?.node?.logo_footer?.alt ? dataFooter.edges[0]?.node?.logo_footer?.alt  : [];
   // dữ liệu order1 map()
-  const dataLP = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "ourwork_footer") : [];
-  const dataLinkPages = dataFooter ? dataLP.filter(item => item.fields)  : [];
+  const dataLP = dataFooter ? dataFooter.edges[0]?.node?.body?.filter(item => item.type ? item.type === "ourwork_footer" : "") : [];
+  const dataLinkPages = dataFooter ? dataLP.filter(item => item.fields ? item.fields : "")  : [];
 
   // dữ liệu addres map()]
-  const dataAD = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "address") : [];
-  const dataAddress = dataAD.filter(item => item.fields) ;
+  const dataAD = dataFooter ? dataFooter.edges[0]?.node?.body?.filter(item => item.type ? item.type === "address": "") : [];
+  const dataAddress = dataAD.filter(item => item.fields ? item.fields : "") ;
 
   // dữ liệu data image icon
-  const dataIMAGE = dataFooter ? dataFooter.edges[0]?.node.body.filter(item => item.type === "lists_icon_footer") : [];
-  const dataImg = dataFooter ? dataIMAGE.filter(item => item.fields)  : [];
+  const dataIMAGE = dataFooter ? dataFooter.edges[0]?.node?.body?.filter(item => item.type ? item.type === "lists_icon_footer" : "") : [];
+  const dataImg = dataFooter ? dataIMAGE.filter(item => item.fields ? item.fields : "")  : [];
 
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
@@ -419,8 +419,8 @@ export default function Footer({ dataFooter }) {
                   Our work
                 </Link>
                 {dataLinkPages[0] ? dataLinkPages[0]?.fields?.map((item, index) => (
-                  <Link key={index} to={`/${item?.slug_sub_title[0]?.text}`}>
-                    {item?.sub_title[0]?.text}
+                  <Link key={index} to={`/${item?.slug_sub_title[0]?.text ? item?.slug_sub_title[0]?.text : ""}`}>
+                    {item?.sub_title[0]?.text ? item?.sub_title[0]?.text : ""}
                   </Link>
                 )): <></>}
               </ListLink>
@@ -433,13 +433,13 @@ export default function Footer({ dataFooter }) {
                   className={index === 0 ? "text-3 editText" : "text-3"}
                 >
                   <Content>
-                    <span>{item?.city[0]?.text}</span>
+                    <span>{item?.city[0]?.text ? item?.city[0]?.text : ""}</span>
                     <p>
-                      {item?.address_detail[0]?.text}
+                      {item?.address_detail[0]?.text ? item?.address_detail[0]?.text : ""}
                       <br />
                       <span className="changes-text">
-                        <a href={`tel: ${item?.phone_office[0]?.text}`}>
-                          {item?.phone_office[0]?.text}
+                        <a href={`tel: ${item?.phone_office[0]?.text ? item?.phone_office[0]?.text : ""}`}>
+                          {item?.phone_office[0]?.text ? item?.phone_office[0]?.text : ""}
                         </a>
                       </span>
                     </p>
@@ -460,12 +460,12 @@ export default function Footer({ dataFooter }) {
                   { dataImg[0] ? dataImg[0]?.fields?.map((item, index) => (
                     <React.Fragment key={index}>
                       <a
-                        target={item?.link_to_social_network?.target}
-                        href={item?.link_to_social_network?.url}
+                        target={item?.link_to_social_network?.target ? item?.link_to_social_network?.target : ""}
+                        href={item?.link_to_social_network?.url ? item?.link_to_social_network?.url : ""}
                       >
                         <img
-                          src={item?.icon_item?.url}
-                          alt={item?.icon_item?.alt}
+                          src={item?.icon_item?.url ? item?.icon_item?.url : ""}
+                          alt={item?.icon_item?.alt ? item?.icon_item?.alt : ""}
                         />
                       </a>
                     </React.Fragment>

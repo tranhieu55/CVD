@@ -6,15 +6,15 @@ export default function TwoColum(props) {
     <Container>
       {props ? 
         <Img
-          alt={props?.input?.primary?.image_side_left?.alt}
-          src={props?.input?.primary?.image_side_left?.url}
+          alt={props?.input?.primary?.image_side_left?.alt ? props?.input?.primary?.image_side_left?.alt : ""}
+          src={props?.input?.primary?.image_side_left?.url ? props?.input?.primary?.image_side_left?.url : ""}
         ></Img>
         :<></>
       }
       {props ?
         <Imgs
-          alt={props?.input?.primary?.image_side_right?.alt}
-          src={props?.input?.primary?.image_side_right?.url}
+          alt={props?.input?.primary?.image_side_right?.alt ? props?.input?.primary?.image_side_right?.alt : ""}
+          src={props?.input?.primary?.image_side_right?.url ? props?.input?.primary?.image_side_right?.url : ""}
         ></Imgs>
         : <></>
       }
