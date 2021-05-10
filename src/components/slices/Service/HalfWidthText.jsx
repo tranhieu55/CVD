@@ -5,14 +5,14 @@ import { RichText } from "prismic-reactjs"
 import { Spacer } from "../../bits"
 
 const HalfWidthText = props => {
-  const fields = props.input.primary
-  const titleLeft = fields.title_left[0]?.text
-  const titleRight = fields.title_right[0]?.text
-  const textLeft = fields.text_left
-  const textRight = fields.text_right
+  const fields = props && props?.input?.primary ?  props?.input?.primary : "";
+  const titleLeft = fields &&  fields.title_left[0]?.text ? fields.title_left[0]?.text : "";
+  const titleRight = fields && fields.title_right[0]?.text ? fields.title_right[0]?.text : "";
+  const textLeft = fields && fields.text_left ? fields.text_left : "";
+  const textRight = fields && fields.text_right ? fields.text_right : "";
 
   return (
-    <Container context={props.context}>
+    <Container context={props?.context ? props?.context : ""}>
       <TextRow>
         <TextCol>
           <Title>{titleLeft}</Title>

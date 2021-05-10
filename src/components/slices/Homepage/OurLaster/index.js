@@ -3,29 +3,28 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const OurLaster = ({ input }) => {
-  const Titles = input.primary.title?.map(item => item.text)
-  const Messaging = input.primary.messaging?.map(item => item.text)
-  console.log({input});
+  const Titles =input ? input.primary?.title?.map(item => item?.text ? item?.text : "") : [];
+  const Messaging = input ? input.primary?.messaging?.map(item => item?.text ? item?.text : "") : [];
 
   return (
     <OurLasters>
       <Title>{Titles}</Title>
       <Messagings>{Messaging}</Messagings>
       <Content>
-        {input.fields?.map((item, index) => (
+        {input ? input.fields?.map((item, index) => (
           <ListPost
             key={index}
             as={Link}
-            to={ item.posts ? `/blog/${item.posts?._meta.uid}` : ``}
+            to={ item?.posts ? `/blog/${item.posts?._meta?.uid ? item.posts?._meta?.uid : ""}` : ``}
             vitri={index}
           >
-            <Img src={item.posts ? item.posts.post_image.url : ''} vitri={index}></Img>
+            <Img src={item?.posts ? item?.posts?.post_image?.url ? item?.posts?.post_image?.url :"" : ''} vitri={index}></Img>
             <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
             <TitlePost vitri={index}>
-              {item.posts ? item.posts.title?.map(item => item.text) : ''}
+              {item?.posts ? item?.posts?.title?.map(item => item?.text ? item?.text : "") : ''}
             </TitlePost>
           </ListPost>
-        ))}
+        )): <></>}
       </Content>
     </OurLasters>
   )

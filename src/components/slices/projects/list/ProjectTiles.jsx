@@ -43,7 +43,7 @@ const ProjectTiles = ({ input }) => {
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
-    if ( data && limit > data.prismic.allHomepages.edges[0]?.node.body[5]?.fields.length) {
+    if ( data && limit > data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length ? data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length : 0) {
       setLimit(4)
       setOrinal(0)
     } else {
@@ -54,7 +54,7 @@ const ProjectTiles = ({ input }) => {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        { data ? data.prismic.allHomepages.edges[0]?.node.body[5]?.fields
+        {data && data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields ? data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields
           .slice(orinal, limit)
           ?.map((edge, index) => (
             <Colum
@@ -91,7 +91,7 @@ const ProjectTiles = ({ input }) => {
             id="loadMore"
             onClick={(orinal, limit) => setMap(orinal, limit)}
           >
-            {data && data.prismic.allHomepages.edges[0]?.node.body[5]?.fields.slice(orinal, limit).length > 3 ? "Load more case studies" : "Load less case studies"}
+            {data && data.prismic.allHomepages.edges[0]?.node.body[5]?.fields ?  data.prismic.allHomepages.edges[0]?.node.body[5]?.fields?.slice(orinal, limit)?.length > 3 ? "Load more case studies" : "Load less case studies" : ""}
           </ButtonCustom>
         </MyBtn>
     </ListBlogStyle>

@@ -400,46 +400,52 @@ export default function Footer({ dataFooter }) {
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
       <IphoneX>
-        <Newletter dataFooter={dataFooter}/>
+        {dataFooter ? 
+          <Newletter dataFooter={dataFooter}/> 
+          : <></>
+        }
         <Container className="container">
           <Row className="row">
-            <BoxImage className="order-1">
-              <img alt={dataLogoAlt} className="img" src={dataLogo} />
-            </BoxImage>
+            {dataLogo && dataLogoAlt ? 
+              <BoxImage className="order-1">
+                <img alt={dataLogoAlt} className="img" src={dataLogo} />
+              </BoxImage>
+              : <></>
+            }
             <BoxOrder className="w-141 order-2"></BoxOrder>
             <BoxTextOrder className="order-3">
               <ListLink>
                 <Link className="none-pd" to="/projects">
                   Our work
                 </Link>
-                {dataLinkPages[0]?.fields?.map((item, index) => (
-                  <Link key={index} to={`/${item.slug_sub_title[0].text}`}>
-                    {item.sub_title[0].text}
+                {dataLinkPages[0] ? dataLinkPages[0]?.fields?.map((item, index) => (
+                  <Link key={index} to={`/${item?.slug_sub_title[0]?.text}`}>
+                    {item?.sub_title[0]?.text}
                   </Link>
-                ))}
+                )): <></>}
               </ListLink>
             </BoxTextOrder>
             <BoxOrder className="w-112 order-4"></BoxOrder>
             <BoxContentDigital className="content-digital order-5">
-              {dataAddress[0]?.fields?.map((item, index) => (
+              { dataAddress[0] ? dataAddress[0]?.fields?.map((item, index) => (
                 <ListContent
                   key={index}
                   className={index === 0 ? "text-3 editText" : "text-3"}
                 >
                   <Content>
-                    <span>{item.city[0]?.text}</span>
+                    <span>{item?.city[0]?.text}</span>
                     <p>
-                      {item.address_detail[0]?.text}
+                      {item?.address_detail[0]?.text}
                       <br />
                       <span className="changes-text">
-                        <a href={`tel: ${item.phone_office[0]?.text}`}>
-                          {item.phone_office[0]?.text}
+                        <a href={`tel: ${item?.phone_office[0]?.text}`}>
+                          {item?.phone_office[0]?.text}
                         </a>
                       </span>
                     </p>
                   </Content>
                 </ListContent>
-              ))}
+              )) : <></>}
             </BoxContentDigital>
           </Row>
           <ListIcon className="style-icon">
@@ -451,19 +457,19 @@ export default function Footer({ dataFooter }) {
               </Order>
               <Order className=" order-2">
                 <Icon>
-                  {dataImg[0]?.fields?.map((item, index) => (
+                  { dataImg[0] ? dataImg[0]?.fields?.map((item, index) => (
                     <React.Fragment key={index}>
                       <a
-                        target={item.link_to_social_network?.target}
-                        href={item.link_to_social_network?.url}
+                        target={item?.link_to_social_network?.target}
+                        href={item?.link_to_social_network?.url}
                       >
                         <img
-                          src={item.icon_item.url}
-                          alt={item.icon_item.alt}
+                          src={item?.icon_item?.url}
+                          alt={item?.icon_item?.alt}
                         />
                       </a>
                     </React.Fragment>
-                  ))}
+                  )): <></>}
                 </Icon>
               </Order>
             </Boxicon>

@@ -12,24 +12,30 @@ CardProject.propTypes = {
 function CardProject(props) {
   const { input, resize } = props
 
-  const inforProject = input.project_item
+  const inforProject = input ?  input?.project_item : []
   return (
     <Colum className="col-md-6" resize={resize}>
-      <DivIMG
-        as={Link}
-        to={`/projects/${inforProject.relationship_to_project_category._meta.uid}/${inforProject._meta.uid}`}
-      >
-        <IMG
-          alt={inforProject.project_header_image.alt}
-          src={inforProject.project_header_image.url}
-          objectFit="cover"
-          h={resize ? "433" : "500"}
-        />
-      </DivIMG>
-      <TitleImageBlog>
-        <Span resize={resize}>{inforProject.name_category_of_project}</Span>
-        <H3 resize={resize}>{inforProject.project_name[0]?.text}</H3>
+     {inforProject ? 
+       <DivIMG
+       as={Link}
+       to={`/projects/${inforProject?.relationship_to_project_category?._meta?.uid}/${inforProject?._meta?.uid}`}
+     >
+       <IMG
+         alt={inforProject?.project_header_image?.alt}
+         src={inforProject?.project_header_image?.url}
+         objectFit="cover"
+         h={resize ? "433" : "500"}
+       />
+     </DivIMG>
+     :<></>
+     }
+      {inforProject ? 
+        <TitleImageBlog>
+        <Span resize={resize}>{inforProject?.name_category_of_project}</Span>
+        <H3 resize={resize}>{inforProject?.project_name[0]?.text}</H3>
       </TitleImageBlog>
+      :<></>
+      }
     </Colum>
   )
 }

@@ -5,12 +5,12 @@ import { RichText } from "prismic-reactjs"
 import { Divider, Spacer } from "../../bits"
 
 const TextWithBulletList = props => {
-  const fields = props.input.fields[0]
-  const title = fields.title[0]?.text
-  const content = fields.content
-  const bulletsLeft = fields.bullet_list_left
-  const bulletsMiddle = fields.bullet_list_middle
-  const bulletsRight = fields.bullet_list_right
+  const fields = props && props.input?.fields[0] ? props.input?.fields[0] : "";
+  const title = fields && fields.title[0]?.text ? fields.title[0]?.text : "";
+  const content = fields && fields.content ? fields.content : "";
+  const bulletsLeft = fields && fields.bullet_list_left ? fields.bullet_list_left : "";
+  const bulletsMiddle = fields &&  fields.bullet_list_middle ? fields.bullet_list_middle : "";
+  const bulletsRight = fields && fields.bullet_list_right ? fields.bullet_list_right : "";
 
   return (
     <Container context={props.context}>

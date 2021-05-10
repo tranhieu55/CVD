@@ -200,13 +200,14 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props ? props?.data?.prismic?.projects : []
+  let dataOurWorkItem = props && props?.data?.prismic?.projects ? props?.data?.prismic?.projects : [] ;
   let nameCategory = props
-    ? props?.pathContext?.dataLayout?.node?.name_category_of_project
+    && props?.pathContext?.dataLayout?.node?.name_category_of_project ?
+    props?.pathContext?.dataLayout?.node?.name_category_of_project
     : []
-  let slugCurrent = props ? props.pathContext.slug : []
+  let slugCurrent = props && props.pathContext?.slug ? props.pathContext?.slug : [];
 
-  let allProjects = props ? props.data.prismic.allProjectss.edges : []
+  let allProjects = props && props.data?.prismic?.allProjectss?.edges ? props.data?.prismic?.allProjectss?.edges : [];
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item?.node?._meta?.uid !== slugCurrent

@@ -30,7 +30,7 @@ const HappyClient = ({ input }) => {
       }
     }
   `)
-  const Titles = input.primary.title_happy_client?.map(item => item.text)
+  const Titles = input ? input.primary?.title_happy_client?.map(item => item?.text ? item?.text : item) : [];
 
   const [indicator, setindicator] = useState(0)
 
@@ -51,22 +51,24 @@ const HappyClient = ({ input }) => {
     <HappyClients>
       <Title>{Titles}</Title>
       <Slides className="md:overflow-scroll" ref={ref}>
-        {input.fields?.map((item, index) => (
+        {input ? input.fields?.map((item, index) => (
           <Slider
             key={index}
             onClick={() => updateSelected(index)}
             indicator={index === indicator}
           >
-            <Img alt={item.logo_client.alt} src={item.logo_client.url}></Img>
+            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
+            src={item.logo_client?.url ? item.logo_client?.url : ""}>
+            </Img>
             <Text>
-              <Content>{item.qoute_of_client?.map(items => items.text)}</Content>
+              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
             </Text>
             <Sub>
-              <SubTilte>{item.title?.map(items => items.text)}</SubTilte>
-              <SubText>{item.sub_title?.map(items => items.text)}</SubText>
+              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
+              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
             </Sub>
           </Slider>
-        ))}
+        )) : <></>}
       </Slides>
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>

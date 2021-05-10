@@ -21,12 +21,12 @@ export default function ListSlider(props) {
         data-sal-duration="1000"
       >
         <Sliders {...settings}>
-          {
-            props.input.fields?.map((item, key) => (
+          {props &&
+            props?.input?.fields?.map((item, key) => (
               <ImageSlider key={key}>
                 <Images
-                  src={item.slider_image.url}
-                  alt={item.slider_image.alt}
+                  src={item?.slider_image?.url ? item?.slider_image?.url : ""}
+                  alt={item?.slider_image?.alt ? item?.slider_image?.alt : ""}
                 ></Images>
               </ImageSlider>
             ))

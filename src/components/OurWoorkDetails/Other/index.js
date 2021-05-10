@@ -15,18 +15,18 @@ export default function Other(arrResult, slugCurrent) {
         <TextOther>Other case studies</TextOther>
       </TitleOther>
       <RowOther>
-        { arrResult ? arrResult.arrResult?.map((item, index) => (
+        { arrResult ? arrResult?.arrResult?.map((item, index) => (
           <ListImageOther
             key={index}
             tabIndex={slugCurrent}
           >
             <DivIMG
               as={Link}
-              to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
+              to={`/projects/${item?.node?.relationship_to_project_category?._meta?.uid}/${item?.node?._meta?.uid}`}
             >
               <IMG
-                alt={item.node.project_header_image.alt}
-                src={item.node.project_header_image.url}
+                alt={item?.node?.project_header_image?.alt ? item?.node?.project_header_image?.alt : ""}
+                src={item?.node?.project_header_image?.url ? item?.node?.project_header_image?.url : ""}
                 objectFit="cover"
                 h="500"
               />
@@ -34,17 +34,17 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
             <TitleImageblock>
               <TextTitleUp>
-                <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
+                <TitleBlock>{item?.node?.name_category_of_project ? item?.node?.name_category_of_project : ""}</TitleBlock>
               </TextTitleUp>
               <TextTitleDown>
-                <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
+                <TextBlock>{item?.node?.project_name?.map(item => item?.text ? item?.text : "")}</TextBlock>
               </TextTitleDown>
             </TitleImageblock>
           </ListImageOther>
         )) : <></>}
       </RowOther>
       <TechSlideShow>
-        { arrResult ? arrResult.arrResult?.map((item, index) => (
+        { arrResult ? arrResult?.arrResult?.map((item, index) => (
           index === 1 ?
           <Slide 
             key={index}
@@ -52,11 +52,11 @@ export default function Other(arrResult, slugCurrent) {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
+              to={`/projects/${item?.node?.relationship_to_project_category?._meta?.uid}/${item?.node?._meta?.uid}`}
             >
               <IMG
-                alt={item.node.project_header_image.alt}
-                src={item.node.project_header_image.url}
+                alt={item?.node?.project_header_image?.alt ? item?.node?.project_header_image?.alt : ""}
+                src={item?.node?.project_header_image?.url ? item?.node?.project_header_image?.url : ""}
                 objectFit="cover"
                 h="206"
               />
@@ -64,10 +64,10 @@ export default function Other(arrResult, slugCurrent) {
             </DivIMG>
               <TitleImageblock>
                 <TextTitleUp>
-                  <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
+                  <TitleBlock>{item?.node?.name_category_of_project ? item?.node?.name_category_of_project : ""}</TitleBlock>
                 </TextTitleUp>
                 <TextTitleDown>
-                  <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
+                  <TextBlock>{item?.node?.project_name?.map(item => item?.text ? item?.text : "")}</TextBlock>
                 </TextTitleDown>
               </TitleImageblock>
           </Slide>
@@ -77,11 +77,11 @@ export default function Other(arrResult, slugCurrent) {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${item.node.relationship_to_project_category._meta.uid}/${item.node._meta.uid}`}
+                to={`/projects/${item?.node?.relationship_to_project_category?._meta?.uid}/${item?.node?._meta?.uid}`}
                 >
                 <IMG
-                  alt={item.node.project_header_image.alt}
-                  src={item.node.project_header_image.url}
+                  alt={item?.node?.project_header_image?.alt ? item?.node?.project_header_image?.alt : ""}
+                  src={item?.node?.project_header_image?.url ? item?.node?.project_header_image?.url : ""}
                   objectFit="cover"
                   h="206"
                 />
@@ -89,10 +89,10 @@ export default function Other(arrResult, slugCurrent) {
               </DivIMG>
               <TitleImageblock>
                 <TextTitleUp>
-                  <TitleBlock>{item.node.name_category_of_project}</TitleBlock>
+                  <TitleBlock>{item?.node?.name_category_of_project ? item?.node?.name_category_of_project : ""}</TitleBlock>
                 </TextTitleUp>
                 <TextTitleDown>
-                  <TextBlock>{item.node.project_name?.map(item => item.text)}</TextBlock>
+                  <TextBlock>{item?.node?.project_name?.map(item => item?.text ? item?.text : "")}</TextBlock>
                 </TextTitleDown>
               </TitleImageblock>
           </Slides>

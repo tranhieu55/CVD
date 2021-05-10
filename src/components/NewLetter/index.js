@@ -5,10 +5,10 @@ export default function NewLetter ({dataFooter}) {
     const data = dataFooter ? dataFooter.edges[0]?.node.body?.filter(item => item.type === "newsletter_signup") : [];
     return(
         <Container>
-            <Title>{data[0]?.primary?.title?.map(item => item.text)}</Title>
-            <Text>{data[0]?.primary?.title_side?.map(item => item.text)}</Text>
-            <Input type="text" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item.text)}></Input>
-            <Submit>{data[0]?.primary?.text_button?.map(item => item.text)}</Submit>
+            <Title>{data[0]?.primary?.title?.map(item => item?.text ? item?.text : item)}</Title>
+            <Text>{data[0]?.primary?.title_side?.map(item => item?.text ? item?.text : item)}</Text>
+            <Input type="text" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item?.text ? item?.text : item)}></Input>
+            <Submit>{data[0]?.primary?.text_button?.map(item => item?.text ? item?.text : item)}</Submit>
         </Container>
     )
 }   

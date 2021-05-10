@@ -1107,7 +1107,7 @@ const Span = styled.span`
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const dataServices = dataServicesMenu ? dataServicesMenu.edges[0].node.body : [];
   const dataMN = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items") : [];
-  const dataMenu = dataMN.filter(item => item.fields);
+  const dataMenu = dataMN ? dataMN.filter(item => item.fields) : [];
   //dulieu icon
   const dataIcon = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "social_icon_header") : [];
 
@@ -1304,7 +1304,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             />
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
-            { dataMenu && dataMenu[0]?.fields.map((item, index) => (
+            { dataMenu && dataMenu[0]?.fields?.map((item, index) => (
               <Li
                 className={`menu-list_item ${
                   location === "/" ||
@@ -1319,14 +1319,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 } ${isDisPlayModalService === true ? "dropdown_services" : ""}`}
                 key={index}
               >
-                { item && item.slug_menu_item[0]?.text === "services" ? (
+                { item && item?.slug_menu_item[0]?.text === "services" ? (
                   <span
                     onClick={handelClickServices}
                     className={`${checkColorText()} colorWhite ${
                       isDisPlayModalService === true ? "test" : ""
                     } `}
                   >
-                    {item.title_menu_item[0]?.text}{" "}
+                    {item?.title_menu_item[0]?.text}{" "}
                     <img
                       className="icon-mobile-right"
                       src={logoIconRight}
@@ -1335,15 +1335,15 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   </span>
                 ) : (
                   <Link
-                    to={`/${item.slug_menu_item[0]?.text}`}
+                    to={`/${item?.slug_menu_item[0]?.text}`}
                     activeClassName="active"
                     className={`${checkColorText()} colorWhite`}
                   >
-                    {item.title_menu_item[0]?.text}
+                    {item?.title_menu_item[0]?.text}
                   </Link>
                 )}
 
-                { item && item.slug_menu_item[0]?.text === "services" ? (
+                { item && item?.slug_menu_item[0]?.text === "services" ? (
                   <ul className="menu-area_services">
                     <hr />
                     <MenuItemServices>
@@ -1389,11 +1389,11 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                               >
                                 <img
                                   className="image-services-item"
-                                  src={item.image_service_item.url}
-                                  alt={item.image_service_item.alt}
+                                  src={item?.image_service_item?.url}
+                                  alt={item?.image_service_item?.alt}
                                 />
                                 <Link className="list-title-services" to="">
-                                  {item.title_service_item[0]?.text}
+                                  {item?.title_service_item[0]?.text}
                                 </Link>
                               </Li>
                               <hr />
@@ -1415,13 +1415,13 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                             lett="1"
                             className="displayMobile"
                           >
-                            {dataServices[1]?.primary.title[0]?.text}
+                            {dataServices[1]?.primary?.title[0]?.text}
                           </P>
                           {dataServices[1]?.fields?.map((item, index) => (
                             <Li key={index} className="list-platforms_Card">
                               <IMG
-                                alt={item.image_platform_item.alt}
-                                src={item.image_platform_item.url}
+                                alt={item?.image_platform_item?.alt}
+                                src={item?.image_platform_item?.url}
                                 w="44"
                                 h="52"
                                 objectFit="contain"
@@ -1435,7 +1435,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                                   fontFamily="Calibre Medium"
                                   className="mobile"
                                 >
-                                  {item.name_service[0]?.text}
+                                  {item?.name_service[0]?.text}
                                 </P>
                                 <P
                                   fontSise="18"
@@ -1444,7 +1444,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                                   fontWeight={theme.fonts.regular}
                                   className="mobile1"
                                 >
-                                  {item.short_description[0]?.text}
+                                  {item?.short_description[0]?.text}
                                 </P>
                               </CardDescription>
                             </Li>
@@ -1465,40 +1465,40 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                           lett="1"
                           className="displayMobile"
                         >
-                          {dataServices[2]?.primary.title[0].text}
+                          {dataServices[2]?.primary?.title[0]?.text}
                         </P>
                         <DivIMG
                           as={Link}
                           className="imagefull mask"
                           to={
                             "projects/" +
-                            `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-                            `${dataServices[2]?.primary.launches_project._meta.uid}`
+                            `${dataServices[2]?.primary?.launches_project?.relationship_to_project_category?._meta?.uid}/` +
+                            `${dataServices[2]?.primary?.launches_project?._meta?.uid}`
                           }
                         >
                           <IMG
                             src={
-                              dataServices[2]?.primary.launches_project
-                                .project_header_image.url
+                              dataServices[2]?.primary?.launches_project
+                                ?.project_header_image?.url
                             }
                             objectFit="cover"
                             heightPercent="60"
                             alt={
-                              dataServices[2]?.primary.launches_project
-                                .project_header_image.alt
+                              dataServices[2]?.primary?.launches_project
+                                ?.project_header_image?.alt
                             }
                           />
                           <TitleImageBlog>
                             <Span>
                               {
-                                dataServices[2]?.primary.launches_project
-                                  .name_category_of_project
+                                dataServices[2]?.primary?.launches_project
+                                  ?.name_category_of_project
                               }
                             </Span>
                             <H3>
                               {
-                                dataServices[2]?.primary.launches_project
-                                  .project_name[0]?.text
+                                dataServices[2]?.primary?.launches_project
+                                  ?.project_name[0]?.text
                               }
                             </H3>
                           </TitleImageBlog>
@@ -1511,7 +1511,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 ) : (
                   <></>
                 )}
-              </Li>
+              </Li> 
             ))}
           </Nav>
           <Form className="my-form">
@@ -1533,16 +1533,16 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
             </Icon>
             : <></>
             }
-              {isShowCTA?.map((item, index) => {
+              { isShowCTA && isShowCTA?.map((item, index) => {
                 return (
                   <ButtonCustom
                     key={index}
-                    isShow={item.primary.display_desktop_or_mobile} // both , mobile. desktop
+                    isShow={item?.primary?.display_desktop_or_mobile} // both , mobile. desktop
                     className={
                       index === 0 ? "mb17 button-header" : "button-header"
                     }
                     w="100"
-                    bgColor={item.primary.background_color_button}
+                    bgColor={item?.primary?.background_color_button}
                     textColor={checkColorTextButton(index)}
                     pd1="13"
                     pd2="19.5"
@@ -1552,15 +1552,15 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       <GetInTouch>
                         <a
                           className="convertColor"
-                          href={`tel: ${item.primary.text_button[0]?.text}`}
+                          href={`tel: ${item?.primary?.text_button[0]?.text}`}
                         >
                           <img className="edit-img" src={logoIconPhone} />
-                          {item.primary.text_button[0]?.text}
+                          {item?.primary?.text_button[0]?.text}
                         </a>
                       </GetInTouch>
                     ) : (
                       <GetInTouch>
-                        {item.primary.text_button[0]?.text}
+                        {item?.primary?.text_button[0]?.text}
                       </GetInTouch>
                     )}
                   </ButtonCustom>

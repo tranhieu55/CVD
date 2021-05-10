@@ -5,11 +5,11 @@ import { RichText } from "prismic-reactjs"
 import { Spacer } from "../../bits"
 
 const ImageWithSideText = props => {
-  const fields = props.input.primary
-  const title = fields.title[0]?.text
-  const content = fields.text
-  const image = fields.image.url
-  const alignImageRight = fields.image_align_right
+  const fields = props && props.input?.primary ? props.input?.primary : " ";
+  const title = fields && fields.title[0]?.text ? fields.title[0]?.text : "";
+  const content = fields && fields.text ? fields.text : "";
+  const image = fields && fields.image?.url ? fields.image?.url : "";
+  const alignImageRight = fields && fields.image_align_right ? fields.image_align_right : "";
 
   return (
     <React.Fragment>

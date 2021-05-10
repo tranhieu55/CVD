@@ -11,18 +11,18 @@ export default function ImageSlider(props) {
       data-sal-duration="1000"
     >
       <ThreeImage>
-        {props.input.fields?.map((item, index) => (
-          props.input.fields.length > 2 ?
+        { props && props?.input?.fields?.map((item, index) => (
+          props?.input?.fields?.length > 2 ?
           <ImageBackground key={index}>
             <Images 
-              src={item.image_item.url}
-              alt={item.image_item.alt}
+              src={item?.image_item?.url ? item?.image_item?.url : ""}
+              alt={item?.image_item?.alt ? item?.image_item?.alt : ""}
             ></Images>
           </ImageBackground>
           : <ImagebackgroundTwo key={index}>
               <Images 
-              src={item.image_item.url}
-              alt={item.image_item.alt}
+              src={item?.image_item?.url ? item?.image_item?.url : ""}
+              alt={item?.image_item?.alt ? item?.image_item?.alt : ""}
             ></Images>
           </ImagebackgroundTwo>
         ))}

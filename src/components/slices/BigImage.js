@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 import { Spacer } from "./../bits"
 
 const BigImage = props => {
-  const src = props.input.primary.big_image.url
+  const src = props && props.input?.primary?.big_image?.url ? props.input?.primary?.big_image?.url : "";
 
   return (
-    <Container context={props.context}>
+    <Container context={props && props.context ? props.context : ""}>
       <ImageContainer src={src}></ImageContainer>
       <Spacer marginBottom="5rem" marginBottomMobile="1.25rem"></Spacer>
     </Container>

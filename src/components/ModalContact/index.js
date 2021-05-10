@@ -49,13 +49,13 @@ const Modals = ({ showModal, setShowModal }) => {
                         <ButtonClose onClick={() => setShowModal(prev => !prev)} src={images}></ButtonClose>
                         {Titles[0] ? 
                             <Content>
-                                <TiTle>{Titles[0].primary.title_contact_form.map(item => item.text)}</TiTle>
-                                {Titles[0].fields.map((item, index) => {
+                                <TiTle>{Titles[0]?.primary?.title_contact_form?.map(item => item?.text ? item?.text : item)}</TiTle>
+                                {Titles[0]?.fields?.map((item, index) => {
                                     if(item.type === 'text') {
                                         return <Inputs>
                                             <Input size="lg" type="text" placeholder=" "/>
                                             <label >
-                                                {item.placeholder.map(item => item.text)}
+                                                {item?.placeholder?.map(item => item?.text ? item?.text : item)}
                                             </label>
                                         </Inputs>
                                     }
@@ -63,7 +63,7 @@ const Modals = ({ showModal, setShowModal }) => {
                                         return <Inputs>
                                         <Textarea size="lg" type="text" placeholder=" "/>
                                         <label >
-                                                {item.placeholder.map(item => item.text)}
+                                                {item?.placeholder?.map(item => item?.text ? item?.text : item)}
                                         </label>
                                     </Inputs>
                                     }

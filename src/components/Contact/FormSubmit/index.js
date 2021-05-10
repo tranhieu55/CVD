@@ -207,25 +207,25 @@ export default function FormSumit({ input }) {
   return (
     <FormSumits>
       <Forms>
-        {data.fields?.map((item, index) => {
-          if (item.type === "text") {
+        { data ? data.fields?.map((item, index) => {
+          if (item?.type === "text") {
             return (
               <Inputs>
                 <Input size="lg" type="text" placeholder=" " />
-                <label>{item.placeholder?.map(item => item.text)}</label>
+                <label>{item?.placeholder?.map(item => item?.text)}</label>
               </Inputs>
             )
           }
-          if (item.type === "textarea") {
+          if (item?.type === "textarea") {
             return (
               <Inputs>
                 <Textarea size="lg" type="text" placeholder=" " />
-                <label>{item.placeholder?.map(item => item.text)}</label>
+                <label>{item?.placeholder?.map(item => item?.text)}</label>
               </Inputs>
             )
           }
           return null
-        })}
+        }) : <></>}
         <a href="#">
           <ButtonForm >Submit</ButtonForm>
         </a>
