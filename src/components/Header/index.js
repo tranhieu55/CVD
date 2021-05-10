@@ -637,15 +637,15 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
-    .mask ::before {
-      position: absolute;
-      content: "";
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-      height: 100%;
-      width: 100%;
-      left: 0;
-      opacity: 30%;
-    }
+    // .mask ::before {
+    //   position: absolute;
+    //   content: "";
+    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    //   height: 100%;
+    //   width: 100%;
+    //   left: 0;
+    //   opacity: 30%;
+    // }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -755,15 +755,15 @@ const WrapperHeader = styled.div`
         font-weight: ${({ show }) => (show > 0 ? "500" : "600")};
       }
     }
-    .mask ::before {
-      position: absolute;
-      content: "";
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-      height: 299px;
-      width: 100%;
-      left: 0;
-      opacity: 30%;
-    }
+    // .mask ::before {
+    //   position: absolute;
+    //   content: "";
+    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    //   height: 299px;
+    //   width: 100%;
+    //   left: 0;
+    //   opacity: 30%;
+    // }
     .wraper-header {
       width: 100vw;
     }
@@ -1068,6 +1068,35 @@ const DivIMG = styled.div`
     }
   }
 `
+const DivIMGA = styled.div`
+  height: 164px;
+  position: absolute;
+  width: 100%;
+  top: 27%;
+  opacity: 0.3;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  @media(max-width: 600px){
+    top: 45%;
+    height: 224px;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  }
+  @media(max-width: 992px){
+    top: 52%;
+    height: 250px;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  }
+  @media(min-width: 993px){
+    height: 164px;
+    position: absolute;
+    width: 100%;
+    top: 27%;
+    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  }
+
+`
 const TitleImageBlog = styled.div`
   position: absolute;
   z-index: 2;
@@ -1365,7 +1394,6 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                         {/* SERVICES */}
                         {dataServices[0] ? (
                           <Ul className="list-services">
-                            \
                             <div className="menu-mobile">
                               <img
                                 className="menu-mobile-iconBack"
@@ -1495,6 +1523,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                                 `${dataServices[2]?.primary.launches_project._meta.uid}`
                               }
                             >
+                              <DivIMGA></DivIMGA>
                               <IMG
                                 src={
                                   dataServices[2]?.primary.launches_project
