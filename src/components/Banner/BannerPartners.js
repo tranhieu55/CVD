@@ -376,9 +376,9 @@ const BannerPartners = () => {
       },
     },
   }
-  const ListCT = listCategoryPartners ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(item => item. type === "lists_category"): [];
+  const ListCT = listCategoryPartners ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === "lists_category" : item): [];
   const listCategories = ListCT ? ListCT[0]?.fields?.filter(
-    x => x?.category_partner
+    x => x?.category_partner ? x?.category_partner : x
   ) : []
 
   const newArr = [cateAll, ...listCategories]
@@ -396,7 +396,7 @@ const BannerPartners = () => {
             coLor={theme.colors.gray1}
             mrb="29"
           >
-            {data?.title[0]?.text}
+            {data?.title[0]?.text ? data?.title[0]?.text : ""}
           </P>
           :<></>
         }
@@ -409,7 +409,7 @@ const BannerPartners = () => {
             lett="-0.5"
             col="#111111"
           >
-            {data?.description[0]?.text}
+            {data?.description[0]?.text ? data?.description[0]?.text : ""}
           </H2>
           :<></>
         }
@@ -422,18 +422,18 @@ const BannerPartners = () => {
                 onClick={() => {
                   dispatch({
                     type: "ADD_FILTER_ITEM",
-                    value: item?.category_partner?._meta?.uid,
+                    value: item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : "",
                   })
                 }}
               >
                 <Link
                   className={
                     [...state.listSelected].includes(
-                      item?.category_partner?._meta?.uid
+                      item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : ""
                     ) && "active"
                   }
                 >
-                  {item?.category_partner?.category_name[0]?.text}
+                  {item?.category_partner?.category_name[0]?.text ? item?.category_partner?.category_name[0]?.text : ""}
                 </Link>
               </CategoryItem>
             ))}

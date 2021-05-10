@@ -449,9 +449,9 @@ const BannerProjects = () => {
       }
     }
   `)
-  const listCT = getListCateProject ? getListCateProject.prismic.allOurwork_pages.edges[0].node.body?.filter(item => item.type === "banner_our_work_page") : [];
-  const listCategories = listCT ? listCT[0]?.fields.filter(
-    x => x.category_project_item
+  const listCT = getListCateProject ? getListCateProject?.prismic?.allOurwork_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === "banner_our_work_page" : "") : [];
+  const listCategories = listCT ? listCT[0]?.fields?.filter(
+    x => x.category_project_item ? x.category_project_item : ""
   ) : [];
 
   const dispatch = useContext(OurWorkDispatchContext);
@@ -490,20 +490,20 @@ const BannerProjects = () => {
                 onClick={() => {
                   dispatch({
                     type: "ADD_FILTER_ITEM",
-                    value: item.category_project_item._meta.uid,
+                    value: item.category_project_item?._meta?.uid ? item.category_project_item?._meta?.uid : "",
                   })
                   setFilters(index)
                 }}
               >
-                {item.category_project_item.category_name[0] ? 
+                {item.category_project_item?.category_name[0] ? 
                 <Link
                   className={
                     [...state.listSelected].includes(
-                      item.category_project_item._meta.uid
+                      item.category_project_item?._meta?.uid ? item.category_project_item?._meta?.uid : ""
                     ) && "active"
                   }
                 >
-                  {item.category_project_item.category_name[0]?.text}
+                  {item.category_project_item?.category_name[0]?.text ? item.category_project_item?.category_name[0]?.text : ""}
                 </Link>
                 : <></>
                 }

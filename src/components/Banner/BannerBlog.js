@@ -555,7 +555,7 @@ const BannerBlog = () => {
           coLor={theme.colors.gray1}
           mrb="35"
         >
-          {data?.title[0]?.text}{" "}
+          {data?.title[0]?.text ? data?.title[0]?.text : ""}{" "}
         </P>
         : <></>
         }
@@ -568,7 +568,7 @@ const BannerBlog = () => {
           lett="-1"
           col="#101010"
         >
-          {data?.big_title[0]?.text}
+          {data?.big_title[0]?.text ? data?.big_title[0]?.text : ""}
         </H2>
         : <></>
         }
@@ -581,7 +581,7 @@ const BannerBlog = () => {
                 onClick={() => {
                   dispatch({
                     type: "ADD_FILTER_ITEM",
-                    value: item?.post_category?._meta?.uid,
+                    value: item?.post_category?._meta?.uid ? item?.post_category?._meta?.uid : "",
                   })
                   setFilter(index)
                 }}
@@ -589,11 +589,11 @@ const BannerBlog = () => {
                 <Link
                   className={
                     [...state.listSelected].includes(
-                      item?.post_category?._meta?.uid
+                      item?.post_category?._meta?.uid ? item?.post_category?._meta?.uid : ""
                     ) && "active"
                   }
                 >
-                  {item?.post_category?.title[0]?.text}
+                  {item?.post_category?.title[0]?.text ? item?.post_category?.title[0]?.text : ""}
                 </Link>
               </CategoryItem>
             ))}
