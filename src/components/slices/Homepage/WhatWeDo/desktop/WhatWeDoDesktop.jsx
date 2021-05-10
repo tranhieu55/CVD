@@ -10,7 +10,7 @@ export default function WhatWeDoDesktop(props) {
   const defaultContent = fields[0]?.content
   const defaultIndicator = 0
 
-  const heading = input.primary.title[0]?.text
+  const heading = input ?  input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : [];
 
   useEffect(() => {
     setTimeout(() => {}, 3000)
@@ -22,31 +22,31 @@ export default function WhatWeDoDesktop(props) {
   const [indicator, setindicator] = useState(defaultIndicator)
 
   function updateSelected(i) {
-    setService(fields[i].service[0].text)
-    setContent(fields[i].content)
+    setService(fields[i]?.service[0]?.text)
+    setContent(fields[i]?.content)
     setindicator(i)
   }
 
   return (
     <>
-    <Image src={input.primary.background_image_what_we_do.url}></Image>
+    <Image src={input ? input?.primary?.background_image_what_we_do?.url ? input?.primary?.background_image_what_we_do?.url : "" : ""}></Image>
     <ContainerDesktop>
       <Contentleft>
         <Left>
           <Title>{heading}</Title>
-          {fields?.map((service, i) => {
-            const title = service.service[0]?.text
+          {fields ? fields?.map((service, i) => {
+            const title = service?.service[0]?.text ? service?.service[0]?.text : ""
             return (
               <React.Fragment key={i}>
                 <Service
                   onClick={() => updateSelected(i)}
                   indicator={i === indicator}
                 >
-                  {title}
+                  {title? title : ""}
                 </Service>
               </React.Fragment>
             )
-          })}
+          }): <></>}
         </Left>
       </Contentleft>
       <ConTentRight>

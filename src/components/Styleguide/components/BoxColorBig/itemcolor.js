@@ -25,7 +25,7 @@ box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.15);
 }
 `
 export default function BoxItem(props) {
-  const {color, name} = props
+  const {color, name} = props ? props : ""
     return (
     <Item color={color} name={name}>
         <div className="color-item"></div>

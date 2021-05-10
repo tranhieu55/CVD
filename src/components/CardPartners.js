@@ -54,33 +54,33 @@ const DivIMG = styled.div`
   }
 `
 export default function CardPartners(props) {
-  const data = props.input.fields
+  const data = props && props.input?.fields ? props.input?.fields : [];
   const state = useContext(OurWorkStateContext)
   const { listSelected } = state
 
   const listPartners = listSelected.includes("all")
     ? data
     : data.filter(x => {
-        return listSelected.includes(x.partner_category?._meta.uid)
+        return listSelected.includes(x.partner_category?._meta?.uid ? x.partner_category?._meta?.uid : "")
       })
   return (
     <Wrapper className="container">
       <div className="row box-list-logo">
-        {listPartners?.map((node, index) => (
+        {listPartners ? listPartners?.map((node, index) => (
           <div className="col-6 col-md-3">
             <DivIMG
               as={Link}
-              to={node.partner_url.url}
-              target={node.partner_url.target}
+              to={node.partner_url?.url ? node.partner_url?.url : ""}
+              target={node.partner_url?.target ? node.partner_url?.target : ""}
             >
               <IMG
                 className="item-image"
-                src={node.partner_logo.url}
-                alt={node.partner_logo.alt}
+                src={node.partner_logo?.url ? node.partner_logo?.url : ""}
+                alt={node.partner_logo?.alt ? node.partner_logo?.alt : ""}
               />
             </DivIMG>
           </div>
-        ))}
+        )): <></>}
       </div>
     </Wrapper>
   )

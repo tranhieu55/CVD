@@ -548,14 +548,18 @@ const BannerBlog = () => {
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
+        {data ? 
         <P
           uppercase={true}
           fontWeight={theme.fonts.bold}
           coLor={theme.colors.gray1}
           mrb="35"
         >
-          {data.title[0]?.text}{" "}
+          {data?.title[0]?.text}{" "}
         </P>
+        : <></>
+        }
+        {data ? 
         <H2
           fz="64"
           mrb_rem="1.5"
@@ -566,7 +570,10 @@ const BannerBlog = () => {
         >
           {data?.big_title[0]?.text}
         </H2>
-        <div className="row ">
+        : <></>
+        }
+        {newArr ? 
+          <div className="row ">
           <ListCategory className="col-md-10" show={filter}>
             {newArr?.map((item, index) => (
               <CategoryItem
@@ -603,6 +610,8 @@ const BannerBlog = () => {
             </CategoryItem>
           </ListCategory>
         </div>
+        : <></>
+        }
       </BannerProjectsContent>
     </WraperBannerProjects>
   )

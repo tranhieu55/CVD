@@ -7,26 +7,29 @@ import styled from 'styled-components';
 export default function ThreeColum (props) {
     return (
         <Box>
-            <Container>
-                <DivImg show={props.input.primary.image_side_left.alt}>
-                    <Img
-                        alt={props.input.primary.image_side_left.alt}
-                        src={props.input.primary.image_side_left.url}
-                    ></Img>
-                </DivImg>
-                <DivImg show={props.input.primary.image_side_left.alt}>
-                    <Img
-                        alt={props.input.primary.image_center.alt}
-                        src={props.input.primary.image_center.url}
-                    ></Img>
-                </DivImg>
-                <DivImg show={props.input.primary.image_side_left.alt}> 
-                    <Img
-                        alt={props.input.primary.image_side_right.alt}
-                        src={props.input.primary.image_side_right.url}
-                    ></Img>
-                </DivImg>
-            </Container>
+            {props ? 
+                <Container>
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt}>
+                        <Img
+                            alt={props?.input?.primary?.image_side_left?.alt}
+                            src={props?.input?.primary?.image_side_left?.url}
+                        ></Img>
+                    </DivImg>
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt}>
+                        <Img
+                            alt={props?.input?.primary?.image_center?.alt}
+                            src={props?.input?.primary?.image_center?.url}
+                        ></Img>
+                    </DivImg>
+                    <DivImg show={props?.input?.primary?.image_side_left?.alt}> 
+                        <Img
+                            alt={props?.input?.primary?.image_side_right?.alt}
+                            src={props?.input?.primary?.image_side_right?.url}
+                        ></Img>
+                    </DivImg>
+                </Container>
+                :<></>
+            }
         </Box>
     )
 }

@@ -6,7 +6,8 @@ export default function BannerContacts({ title, content, button, Phones }) {
   
   return (
     <Banner>
-      <ContentBanner>
+      {title && content && button && Phones ? 
+        <ContentBanner>
         <Title>{title}</Title>
         <Content>{RichText.render(content)}</Content>
         <ButtonBanner>
@@ -16,6 +17,8 @@ export default function BannerContacts({ title, content, button, Phones }) {
           <PhoneNumber>{Phones}</PhoneNumber>
         </ButtonBanner>
       </ContentBanner>
+      : <></>
+      }
     </Banner>
   )
 }

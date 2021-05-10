@@ -30,7 +30,7 @@ export default function GlobalMessage() {
   const dataGlobal = data.prismic.allHeaders.edges[0] ? data.prismic.allHeaders.edges[0].node.body?.filter(
     x => x.primary
   ) : [];
-  const texts = dataGlobal?.map(item => item.primary)
+  const texts = dataGlobal ? dataGlobal?.map(item => item.primary) : [];
 
   const [show, setShow] = useState(true)
   function showGlobal() {
@@ -39,10 +39,13 @@ export default function GlobalMessage() {
 
   return (
     <Container open={show}>
-      <Content>
-        <Text lh={24}>{texts[0]?.message?.map(item => item.text)}. </Text>
-        <LI lh={24}>{texts[0]?.link_title?.map(item => item.text)}</LI>
-      </Content>
+      {texts ? 
+        <Content>
+          <Text lh={24}>{texts[0]?.message?.map(item => item?.text)}. </Text>
+          <LI lh={24}>{texts[0]?.link_title?.map(item => item?.text)}</LI>
+        </Content>
+        :<></>
+      }
       <Close onClick={() => showGlobal()}></Close>
     </Container>
   )

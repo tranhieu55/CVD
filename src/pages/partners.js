@@ -56,7 +56,7 @@ const Partners = () => {
       }
     }
   `)
-  const dataPartners = data ? data.prismic.allPartners_pages.edges?.[0]?.node : [];
+  const dataPartners = data && data.prismic?.allPartners_pages?.edges?.[0]?.node ? data.prismic?.allPartners_pages?.edges?.[0]?.node : [];
 
   return (
     <Layout location="/partners">

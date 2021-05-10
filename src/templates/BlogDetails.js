@@ -9,8 +9,8 @@ const BlogDetails = props => {
   console.log({ props })
 
   const dataIcon = props
-    ? props.data.prismic.post?.body.filter(
-        item => item.type === "socical_icons"
+    ? props.data?.prismic?.post?.body?.filter(
+        item => item?.type ? item?.type === "socical_icons" : ""
       )
     : []
   // const dataIconMap = dataIcon?.map(item =>
@@ -18,42 +18,42 @@ const BlogDetails = props => {
   // )
   // console.log("akvkvkv", dataIconMap)
   const dataText = props
-    ? props.data.prismic.post?.body.filter(item => item.type === "tag_for_post")
+    ? props.data.prismic.post?.body?.filter(item => item?.type ? item?.type === "tag_for_post" : "")
     : []
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
-        titles={props.data.prismic.post.title?.map(item => item.text)}
-        sub={moment(props.data.prismic.post?.date_created).format("LL")}
+        titles={props.data?.prismic?.post?.title?.map(item => item.text ? item.text : item)}
+        sub={moment(props.data?.prismic?.post?.date_created)?.format("LL")}
       ></BannerBlogDetails>
       <Img
-        src={props.data.prismic.post.post_image?.url}
-        alt={props.data.prismic.post.post_image?.alt}
+        src={props.data?.prismic?.post?.post_image?.url ? props.data?.prismic?.post?.post_image?.url : ""}
+        alt={props.data?.prismic?.post.post_image?.alt ? props.data?.prismic?.post.post_image?.alt : ""}
       ></Img>
       <Container>
-        {props.data.prismic.post.contenr_description?.map((item, index) => (
+        { props && props.data?.prismic?.post?.contenr_description?.map((item, index) => (
           <Text key={index}>{item.text}</Text>
         ))}
         <TextImg>
-          <Texxt>{RichText.render(props.data.prismic.post?.content)}</Texxt>
+          <Texxt>{RichText.render(props.data?.prismic?.post?.content ? props.data?.prismic?.post?.content : "")}</Texxt>
         </TextImg>
         <Fotters>
           <DivIcon>
-            {dataIcon?.map((item, key) =>
+            {dataIcon ? dataIcon?.map((item, key) =>
               item?.fields?.map((x, index) => (
                 <Icon
                   key={index}
                   value={index}
-                  src={x?.icon_image?.url}
-                  alt={x?.icon_image?.alt}
+                  src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                  alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
                 />
               ))
-            )}
+            ): <></>}
           </DivIcon>
           <DivText>
             <FirstTexts>Tags</FirstTexts>
             {dataText[0]?.fields?.map((item, index) => (
-              <Texts key={index}>{item.tag_item}</Texts>
+              <Texts key={index}>{item.tag_item ? item.tag_item : ""}</Texts>
             ))}
           </DivText>
         </Fotters>

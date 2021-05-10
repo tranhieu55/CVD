@@ -7,7 +7,8 @@ import { theme } from '../../utils/theme';
 export default function BannerBlogDetails ({titles, sub}) {
     return (
         <Container>
-            <SubTitle>
+            {titles && sub ? 
+                <SubTitle>
                 <Sub>
                     {sub}
                 </Sub>
@@ -15,6 +16,8 @@ export default function BannerBlogDetails ({titles, sub}) {
                     {titles}
                 </Title>
             </SubTitle>
+            : <></>
+            }
         </Container>
     )
 }

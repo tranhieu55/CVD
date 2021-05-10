@@ -6,10 +6,13 @@ import styled from 'styled-components';
 export default function FullColum (props) {
     return (
         <Container>
-            <Img
-                alt={props.input.primary.image_full_banner_a.alt}
-                src={props.input.primary.image_full_banner_a.url}
-            ></Img>
+            {props ? 
+                <Img
+                    alt={props?.input?.primary?.image_full_banner_a?.alt}
+                    src={props?.input?.primary?.image_full_banner_a?.url}
+                ></Img>
+                : <></>
+            }
         </Container>
     )
 }

@@ -170,26 +170,29 @@ export default function Derection ({input}) {
     `
     return(
         <Derections>
-            <Title>{input.primary.title?.map(item => item.text)}</Title>
-            {data?.map((item , index) => (
+            {input ? 
+                <Title>{input?.primary?.title?.map(item => item?.text)}</Title>
+                : <></>
+            }
+            { data ? data?.map((item , index) => (
                 <Content vitri={index}>
                         <Contentleft key={index}>
-                            <TitleLeft>{item.office_title?.map(item => item.text)}</TitleLeft>
-                            <TextLeft>{item.address?.map(item => item.text)}</TextLeft>
-                            <Phone>{item.office_phone_number?.map(item => item.text)}</Phone>
+                            <TitleLeft>{item?.office_title?.map(item => item?.text)}</TitleLeft>
+                            <TextLeft>{item?.address?.map(item => item?.text)}</TextLeft>
+                            <Phone>{item?.office_phone_number?.map(item => item?.text)}</Phone>
                             <DivLink>
                                 <Link href='#'>Call</Link>
                                 <Link href='#'>Directions</Link>
                             </DivLink>
                         </Contentleft>
                     <ContentRight>
-                    <iframe src={item.google_maps_link.url + "&language=iw"} id="serviceFrameSend" 
+                    <iframe src={item?.google_maps_link?.url + "&language=iw"} id="serviceFrameSend" 
                         width="100%" height="100%" className='googole-map' allowfullscreen="" loading="lazy"
                     >
                     </iframe>
                     </ContentRight>
                 </Content>
-            ))}
+            )) : <></>}
         </Derections>
     )
 }
