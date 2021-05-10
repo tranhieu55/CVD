@@ -6,11 +6,9 @@ import moment from "moment"
 import { RichText } from "prismic-reactjs"
 
 const BlogDetails = props => {
-  console.log({ props })
-
   const dataIcon = props
-    ? props.data?.prismic?.post?.body?.filter(
-        item => item?.type ? item?.type === "socical_icons" : ""
+    ? props.data?.prismic?.post?.body?.filter(item =>
+        item?.type ? item?.type === "socical_icons" : ""
       )
     : []
   // const dataIconMap = dataIcon?.map(item =>
@@ -18,37 +16,60 @@ const BlogDetails = props => {
   // )
   // console.log("akvkvkv", dataIconMap)
   const dataText = props
-    ? props.data.prismic.post?.body?.filter(item => item?.type ? item?.type === "tag_for_post" : "")
+    ? props.data.prismic.post?.body?.filter(item =>
+        item?.type ? item?.type === "tag_for_post" : ""
+      )
     : []
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
-        titles={props.data?.prismic?.post?.title?.map(item => item.text ? item.text : item)}
+        titles={props.data?.prismic?.post?.title?.map(item =>
+          item.text ? item.text : item
+        )}
         sub={moment(props.data?.prismic?.post?.date_created)?.format("LL")}
       ></BannerBlogDetails>
       <Img
-        src={props.data?.prismic?.post?.post_image?.url ? props.data?.prismic?.post?.post_image?.url : ""}
-        alt={props.data?.prismic?.post.post_image?.alt ? props.data?.prismic?.post.post_image?.alt : ""}
+        src={
+          props.data?.prismic?.post?.post_image?.url
+            ? props.data?.prismic?.post?.post_image?.url
+            : ""
+        }
+        alt={
+          props.data?.prismic?.post.post_image?.alt
+            ? props.data?.prismic?.post.post_image?.alt
+            : ""
+        }
       ></Img>
       <Container>
-        { props && props.data?.prismic?.post?.contenr_description?.map((item, index) => (
-          <Text key={index}>{item.text}</Text>
-        ))}
+        {props &&
+          props.data?.prismic?.post?.contenr_description?.map((item, index) => (
+            <Text key={index}>{item.text}</Text>
+          ))}
         <TextImg>
-          <Texxt>{RichText.render(props.data?.prismic?.post?.content ? props.data?.prismic?.post?.content : "")}</Texxt>
+          <Texxt>
+            {RichText.render(
+              props.data?.prismic?.post?.content
+                ? props.data?.prismic?.post?.content
+                : ""
+            )}
+          </Texxt>
         </TextImg>
         <Fotters>
           <DivIcon>
-            {dataIcon ? dataIcon?.map((item, key) =>
-              item?.fields?.map((x, index) => (
-                <Icon
-                  key={index}
-                  value={index}
-                  src={x?.icon_image?.url ? x?.icon_image?.url : ""}
-                  alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
-                />
-              ))
-            ): <></>}
+            {dataIcon ? (
+              dataIcon?.map((item, key) =>
+                item?.fields?.map((x, index) => (
+                  <Icon
+                    key={index}
+                    value={index}
+                    src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                    alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                  />
+                ))
+              )
+            ) : (
+              <></>
+            )}
           </DivIcon>
           <DivText>
             <FirstTexts>Tags</FirstTexts>
@@ -177,7 +198,7 @@ const Fotters = styled.div`
   }
 `
 const DivIcon = styled.div`
-  margin-top: 30px;
+  margin-top: 23px;
   @media (max-width: 600px) {
     margin-top: 24px;
   }

@@ -5,9 +5,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const OurWorkItems = path.resolve("./src/templates/OurWorkItems.js")
   const BlogDetails = path.resolve("./src/templates/BlogDetails.js")
   const res = await graphql(`
-  
-  
-
     query IndexQuery {
       prismic {
         allProjectss {
@@ -41,8 +38,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-   
-  console.log('data : ', res);
+
   res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkDetail,
@@ -54,7 +50,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  
   res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkItems,
