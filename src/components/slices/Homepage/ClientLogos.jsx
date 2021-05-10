@@ -3,8 +3,8 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 
 const BigText = ({ input }) => {
-  const heading = input.primary.title[0]?.text
-  const clients = input.fields
+  const heading = input ? input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : "";
+  const clients = input ? input?.fields ? input?.fields : "" : [];
   const Limit = clients.length / 2
   return (
     <Container>
@@ -13,18 +13,18 @@ const BigText = ({ input }) => {
       <Oval></Oval>
       <Clientss>
         <ClientsLeft>
-          {clients?.slice(0, Limit).map((client, i) => {
-            const logo = client.logo.url
+          {clients ? clients?.slice(0, Limit)?.map((client, i) => {
+            const logo = client?.logo?.url ? client?.logo?.url : ""
             return <ClientLogo src={logo} key={i} Margin={i} />
-          })}
+          }) : <></>}
         </ClientsLeft>
         <ClientsRight>
-          {clients
+          {clients ? clients
             ?.slice(clients.length / 2, clients.length)
             ?.map((client, i) => {
-              const logo = client.logo.url
+              const logo = client?.logo?.url ? client?.logo?.url : ""
               return <ClientLogo src={logo} key={i} Margin={i} />
-            })}
+            }): <></>}
         </ClientsRight>
       </Clientss>
     </Container>

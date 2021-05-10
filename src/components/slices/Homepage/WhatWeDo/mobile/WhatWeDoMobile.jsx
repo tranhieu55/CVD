@@ -17,7 +17,7 @@ export default function WhatWeDoMobile(props) {
   const defaultContent = fields[0]?.content
   const defaultIndicator = 0
 
-  const heading = input.primary.title[0]?.text
+  const heading = input ? input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : "";
 
 
   useEffect(() => {
@@ -53,8 +53,8 @@ export default function WhatWeDoMobile(props) {
   return (
       <Container>
           <Title>{heading}</Title>
-          {fields?.map((service, i) => {
-            let title = service.service[0]?.text
+          {fields ? fields?.map((service, i) => {
+            let title = service?.service[0]?.text ? service?.service[0]?.text : ""
             return (
               <React.Fragment key={i}>
                 {isOpen === i ? <Service className={`accordion-title ${isOpen === i ? "open" : ""}`} onClick={() => updateSelected(i)} indicator={i === indicator}>
@@ -75,7 +75,7 @@ export default function WhatWeDoMobile(props) {
                   </Collapse>
               </React.Fragment>
             )
-          })}
+          }): <></>}
       </Container>
   )
 }

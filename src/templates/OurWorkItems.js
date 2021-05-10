@@ -131,10 +131,10 @@ function OurWorkItems(props) {
     <Layout location="/projects">
       <ListBlogStyle className="container-fluid">
         <RowItem>
-          { props && props.data.prismic.allProjectss.edges?.map((edge, index) => (
+          { props && props.data?.prismic?.allProjectss?.edges?.map((edge, index) => (
             <Item
               className={`${
-                props.data.prismic.allProjectss.edges.length === 3
+                props.data?.prismic?.allProjectss?.edges?.length === 3
                   ? "col-md-4"
                   : "col-md-6"
               }`}
@@ -142,18 +142,19 @@ function OurWorkItems(props) {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
+                to={`/projects/${edge?.node?.relationship_to_project_category?._meta?.uid ? edge?.node?.relationship_to_project_category?._meta?.uid : ""}
+                /${edge.node?._meta?.uid ? edge.node?._meta?.uid : ""}`}
               >
                 <IMG
-                  alt={edge.node.project_header_image.alt}
-                  src={edge.node.project_header_image.url}
+                  alt={edge.node?.project_header_image?.alt ? edge.node?.project_header_image?.alt : ""}
+                  src={edge.node?.project_header_image?.url ? edge.node?.project_header_image?.url : ""}
                   objectFit="cover"
                   h="500"
                 />
               </DivIMG>
               <TitleImageBlock>
-                <span>{edge.node.name_category_of_project}</span>
-                <h3>{edge.node.project_name[0]?.text}</h3>
+                <span>{edge.node?.name_category_of_project ? edge.node?.name_category_of_project : ""}</span>
+                <h3>{edge.node?.project_name[0]?.text ? edge.node?.project_name[0]?.text : ""}</h3>
               </TitleImageBlock>
             </Item>
           ))}

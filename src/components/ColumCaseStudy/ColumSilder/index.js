@@ -17,16 +17,19 @@ export default function ColumSilder(props) {
     <>
       <Container>
         <Slider>
-          <Sliders {...settings}>
-            {props.input.fields.map((item, key) => (
-              <ImageSlider key={key}>
-                <Images
-                  src={item.item_image.url}
-                  alt={item.item_image.alt}
-                ></Images>
-              </ImageSlider>
-            ))}
-          </Sliders>
+          {props ? 
+            <Sliders {...settings}>
+              {props?.input?.fields?.map((item, key) => (
+                <ImageSlider key={key}>
+                  <Images
+                    src={item?.item_image?.url}
+                    alt={item?.item_image?.alt}
+                  ></Images>
+                </ImageSlider>
+              ))}
+            </Sliders>
+            : <></>
+          }
         </Slider>
       </Container>
     </>

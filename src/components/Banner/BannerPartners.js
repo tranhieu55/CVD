@@ -377,9 +377,9 @@ const BannerPartners = () => {
     },
   }
   const ListCT = listCategoryPartners ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(item => item. type === "lists_category"): [];
-  const listCategories = ListCT[0]?.fields?.filter(
+  const listCategories = ListCT ? ListCT[0]?.fields?.filter(
     x => x?.category_partner
-  )
+  ) : []
 
   const newArr = [cateAll, ...listCategories]
 
@@ -389,25 +389,32 @@ const BannerPartners = () => {
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
-        <P
-          uppercase={true}
-          fontWeight={theme.fonts.bold}
-          coLor={theme.colors.gray1}
-          mrb="29"
-        >
-          {data?.title[0]?.text}
-        </P>
-        <H2
-          fz="32"
-          mrb_rem="1.5"
-          fontFamily="Calibre Semibold"
-          lineh="36"
-          lett="-0.5"
-          col="#111111"
-        >
-          {data?.description[0]?.text}
-        </H2>
-        <div className="row ">
+        {data ? 
+          <P
+            uppercase={true}
+            fontWeight={theme.fonts.bold}
+            coLor={theme.colors.gray1}
+            mrb="29"
+          >
+            {data?.title[0]?.text}
+          </P>
+          :<></>
+        }
+        {data ? 
+          <H2
+            fz="32"
+            mrb_rem="1.5"
+            fontFamily="Calibre Semibold"
+            lineh="36"
+            lett="-0.5"
+            col="#111111"
+          >
+            {data?.description[0]?.text}
+          </H2>
+          :<></>
+        }
+        {newArr ? 
+          <div className="row ">
           <ListCategory className="col-md-10">
             {newArr?.map((item, index) => (
               <CategoryItem
@@ -432,6 +439,8 @@ const BannerPartners = () => {
             ))}
           </ListCategory>
         </div>
+        : <></>
+        }
       </BannerProjectsContent>
     </WraperBannerProjects>
   )

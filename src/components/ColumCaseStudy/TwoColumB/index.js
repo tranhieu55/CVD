@@ -76,14 +76,20 @@ const IMG = styled.img`
 export default function ColumnB(props) {
   return (
     <Wrapper>
-        <BoxImamgeLeft>
-          <IMG src={props.input.primary.image_sile_left?.url} alt={props.input.primary.image_side_left?.alt}>
-          </IMG>
-        </BoxImamgeLeft>
-        <BoxImamgeRight>
-          <IMG src={props.input.primary.image_side_right?.url} alt={props.input.primary.image_side_right.alt}>
+        {props ? 
+          <BoxImamgeLeft>
+            <IMG src={props?.input?.primary?.image_sile_left?.url} alt={props?.input?.primary?.image_side_left?.alt}>
+            </IMG>
+          </BoxImamgeLeft>
+          : <></>
+        }
+       {props ? 
+         <BoxImamgeRight>
+          <IMG src={props?.input?.primary?.image_side_right?.url} alt={props?.input?.primary?.image_side_right?.alt}>
           </IMG>
         </BoxImamgeRight>
+        : <></>
+       }
     </Wrapper>
   );
 }

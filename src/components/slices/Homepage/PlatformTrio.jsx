@@ -5,9 +5,9 @@ import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
-  const title = input.primary.title[0]?.text
-  const content = input.primary.content
-  const platforms = input.fields
+  const title = input ? input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : "";
+  const content = input ? input.primary?.content ? input.primary?.content : "" : "";
+  const platforms = input ?  input?.fields ? input?.fields : "" : []; 
   const [indicator, setindicator] = useState(0)
 
   function updateSelected(i) {

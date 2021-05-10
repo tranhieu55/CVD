@@ -450,7 +450,7 @@ const BannerProjects = () => {
     }
   `)
   const listCT = getListCateProject ? getListCateProject.prismic.allOurwork_pages.edges[0].node.body?.filter(item => item.type === "banner_our_work_page") : [];
-  const listCategories = getListCateProject ? listCT[0]?.fields.filter(
+  const listCategories = listCT ? listCT[0]?.fields.filter(
     x => x.category_project_item
   ) : [];
 
@@ -475,7 +475,8 @@ const BannerProjects = () => {
         <H2 fz="64" mrb_rem="1" fontFamily="Calibre Bold">
           Our Work
         </H2>
-        <div className="row">
+        {listCategories ? 
+          <div className="row">
           <ListCategory className="col-md-10" show={filter}>
             <CategoryItems
               className="reset_filters_moblie"
@@ -521,6 +522,8 @@ const BannerProjects = () => {
             </CategoryItem>
           </ListCategory>
         </div>
+        : <></>
+        }
       </BannerProjectsContent>
     </WraperBannerProjects>
   )

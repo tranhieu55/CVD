@@ -5,10 +5,10 @@ export default function ContentPercent(props) {
   return (
     <Container>
       <Percent className="plus">
-        {props.input.fields?.map((item, index) => (
+        {props && props?.input?.fields?.map((item, index) => (
           <Content key={index}>
-            <TiTle>{item.number_of_statistical[0]?.text}</TiTle>
-            <TextPercent>{item.description_of_statistical[0]?.text}</TextPercent>
+            <TiTle>{item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : ""}</TiTle>
+            <TextPercent>{item.description_of_statistical[0]?.text ? item.description_of_statistical[0]?.text : ""}</TextPercent>
           </Content>
         ))}
       </Percent>

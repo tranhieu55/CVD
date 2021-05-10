@@ -29,9 +29,9 @@ query whatWeDoQuery {
 }
 `
 const WhatWeDo = props => {
-const data = props ? props.data.prismic.allWhatwedo_pages.edges[0]?.node : [];
+const data = props && props.data?.prismic?.allWhatwedo_pages?.edges[0]?.node ? props.data?.prismic?.allWhatwedo_pages?.edges[0]?.node : [];
 
-const dataSEO = props ? props.data.prismic.allWhatwedo_pages.edges[0]?.node : [];
+const dataSEO = props && props.data?.prismic?.allWhatwedo_pages?.edges[0]?.node ? props.data?.prismic?.allWhatwedo_pages?.edges[0]?.node : [];
 return (
 	<Layout location="/what-we-do">
 	<SEO props={dataSEO} />

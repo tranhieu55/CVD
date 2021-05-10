@@ -7,8 +7,8 @@ import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
-  const data = prismic ? prismic.allHomepages.edges[0]?.node : []
-  const background_image = data.background_image.url
+  const data = prismic && prismic.allHomepages?.edges[0]?.node ? prismic.allHomepages?.edges[0]?.node : [] ;
+  const background_image = data && data.background_image?.url ? data.background_image?.url : ""
 
   return (
     <>

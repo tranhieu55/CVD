@@ -221,8 +221,9 @@ const BannerWhatWeDo = () => {
               <SpanText>What We Do</SpanText>
             </BoxTag>
           </Col>
-          <Col className="col-md-10 offset-1">
-            {data.prismic.allWhatwedo_pages.edges[0] ? 
+          {data ? 
+            <Col className="col-md-10 offset-1">
+            {data?.prismic?.allWhatwedo_pages?.edges[0] ? 
               <P
                 coLor="#111111"
                 fontFamily="Calibre Semibold"
@@ -233,12 +234,14 @@ const BannerWhatWeDo = () => {
                 lett="-0.5"
                 fontWeight="600"
               >
-                {data.prismic.allWhatwedo_pages.edges[0].node.banner_text[0]?.text}
+                {data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text}
               </P>
             : <></>
             }
             
           </Col>
+          : <></>
+          }
         </Row>
       </Container>
     </WraperBannerWhatWeDo>

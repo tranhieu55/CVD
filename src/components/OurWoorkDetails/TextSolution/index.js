@@ -23,11 +23,11 @@ export default function TextSolution(props) {
             coLor={theme.colors.gray1}
             mrb_rem="2"
           >
-            {props.input.primary.title[0]?.text}
+            {props?.input?.primary?.title[0]?.text ? props?.input?.primary?.title[0]?.text : ""}
           </P>
           <MapSolution>
             <>
-              {props.input.fields?.map((item, index) => (
+              {props ? props?.input.fields?.map((item, index) => (
                 <SolutionText
                   key={index}
                   className={
@@ -38,15 +38,15 @@ export default function TextSolution(props) {
                   id={`${index}` === "3" ? "solution-down" : ""}
                 >
                   <H4 fontWeight={theme.fonts.bold}>
-                    {item.title_the_solution[0]?.text}
+                    {item?.title_the_solution[0]?.text ? item?.title_the_solution[0]?.text : ""}
                   </H4>
                 </SolutionText>
-              ))}
+              )) : <></>}
             </>
           </MapSolution>
           <Text>
             <Content>
-              {props.input.primary.text_description[0].text}
+              {props?.input?.primary?.text_description[0]?.text ? props?.input?.primary?.text_description[0]?.text : ""}
             </Content>
           </Text>
         </Solution>

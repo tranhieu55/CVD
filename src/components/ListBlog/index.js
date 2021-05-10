@@ -147,12 +147,12 @@ export default function ListBlog() {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        { data ? data.prismic.allProjectss.edges
-          .slice(orinal, limit)
+        { data ? data?.prismic?.allProjectss?.edges
+          ?.slice(orinal, limit)
           ?.map((edge, index) => (
             <Colum
               className={`${
-                data.prismic.allProjectss.edges.length === 3
+                data?.prismic?.allProjectss?.edges?.length === 3
                   ? "col-md-4"
                   : "col-md-6"
               }`}
@@ -160,18 +160,18 @@ export default function ListBlog() {
             >
               <DivIMG
                 as={Link}
-                to={`/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`}
+                to={`/projects/${edge?.node?.relationship_to_project_category?._meta?.uid}/${edge?.node?._meta?.uid}`}
               >
                 <IMG
-                  alt={edge.node.project_header_image.alt}
-                  src={edge.node.project_header_image.url}
+                  alt={edge?.node?.project_header_image?.alt ? edge?.node?.project_header_image?.alt : ""}
+                  src={edge?.node?.project_header_image?.url ? edge?.node?.project_header_image?.url : ""}
                   objectFit="cover"
                   h="500"
                 />
               </DivIMG>
               <TitleImageBlog>
-                <Span>{edge.node.name_category_of_project}</Span>
-                <H3>{edge.node.project_name?.map(item => item.text)}</H3>
+                <Span>{edge?.node?.name_category_of_project ? edge?.node?.name_category_of_project : ''}</Span>
+                <H3>{edge?.node?.project_name?.map(item => item?.text ? item?.text : item)}</H3>
               </TitleImageBlog>
             </Colum>
           )) : <></>}

@@ -12,16 +12,18 @@ export default function Cardwhatwedo(props) {
           { props ? 
             <BoxStudy
               className={` ${
-                props.input.primary.location_image === "Left" ? "" : "cl-order"
+                props.input?.primary?.location_image ? props.input?.primary?.location_image === "Left" ? "" : "cl-order" : ""
               } ${
-                props.input.primary.location_image === "Right"
+                props.input?.primary?.location_image ? props.input?.primary?.location_image === "Right"
                   ? "box-study-5"
                   : "box-study"
+                  : ""
               }
                 ${
-                  props.input.primary.location_content === "Right"
+                  props.input?.primary?.location_content? props.input?.primary?.location_content === "Right"
                     ? "box-study-5"
                     : "box-study"
+                    : ""
                 }
                 `}
               data-sal="zoom-in"
@@ -32,8 +34,8 @@ export default function Cardwhatwedo(props) {
               <BoxImage className="box-img img-fluid">
                 <IMG
                   objectFit="cover"
-                  src={props.input.primary.what_we_do_image.url}
-                  alt={props.input.primary.what_we_do_image.alt}
+                  src={props.input?.primary?.what_we_do_image?.url ? props.input?.primary?.what_we_do_image?.url : ""}
+                  alt={props.input?.primary?.what_we_do_image?.alt ? props.input?.primary?.what_we_do_image?.alt : ""}
                 />
               </BoxImage>
               <BoxDivStudy className="cl174"></BoxDivStudy>
@@ -42,7 +44,7 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {props.index + 1}/{props.input.total}
+                    {props?.index ? props?.index : 0 + 1}/{props.input?.total ? props.input?.total : 0}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2
@@ -53,7 +55,7 @@ export default function Cardwhatwedo(props) {
                   fz="32"
                   fontFamily="Calibre Semibold"
                 >
-                  {props.input.primary.what_we_do_title[0]?.text}
+                  {props.input?.primary?.what_we_do_title[0]?.text ? props.input?.primary?.what_we_do_title[0]?.text : ""}
                 </H2>
                 <P
                   lineh="28"
@@ -61,7 +63,7 @@ export default function Cardwhatwedo(props) {
                   fontFamily="Calibre Regular"
                   fontSise="20"
                 >
-                  {props.input.primary.what_we_do_description[0]?.text}
+                  {props.input?.primary?.what_we_do_description[0]?.text ? props.input?.primary?.what_we_do_description[0]?.text : ""}
                 </P>
                 <BoxIconStudy className="icon-leadmore">
                   <SpanStudy className="learn-more-title">Learn more</SpanStudy>

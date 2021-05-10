@@ -22,10 +22,13 @@ export default function OneImage(props) {
       >
         <Sliders {...settings}>
               <ImageSlider >
-                <Images
-                  src={props.input.primary.image.url}
-                  alt={props.input.primary.image.alt}
-                ></Images>
+                {props ? 
+                  <Images
+                    src={props?.input?.primary?.image?.url ? props?.input?.primary?.image?.url : ""}
+                    alt={props?.input?.primary?.image?.alt ? props?.input?.primary?.image?.alt : ""}
+                  ></Images>
+                  : <></>
+                }
               </ImageSlider> 
         </Sliders>
       </Slider>

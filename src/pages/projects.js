@@ -7,7 +7,7 @@ import SliceZone from "../utils/SliceZone"
 const Projects = ({ data: { prismic } }) => {
 
   // const {data} = props
-  const data = prismic ? prismic.allOurwork_pages.edges[0]?.node : [] ;
+  const data = prismic && prismic.allOurwork_pages?.edges[0]?.node ? prismic.allOurwork_pages?.edges[0]?.node : [] ;
 
   return (
     <Layout location="/projects">

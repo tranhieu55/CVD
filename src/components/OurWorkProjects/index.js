@@ -19,7 +19,9 @@ function OurWorkProjects(props) {
     ? listProjects
     : listProjects.filter(x => {
         return listSelected.includes(
-          x.project_item?.relationship_to_project_category._meta.uid
+          x.project_item?.relationship_to_project_category?._meta?.uid ?
+          x.project_item?.relationship_to_project_category?._meta?.uid 
+          : x
         )
       })
   const handelClickLoadMore = () => {
@@ -28,9 +30,9 @@ function OurWorkProjects(props) {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {test?.slice(0, toggle ? test.length : 4).map((project, index) => (
+        { test ? test?.slice(0, toggle ? test?.length : 4).map((project, index) => (
           <CardProject key={index} input={project} />
-        ))}
+        )): <></>}
       </Rows>
       <MyBtn className={test.length < 4 ? "none" : ""}>
         <ButtonCustom

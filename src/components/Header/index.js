@@ -1105,6 +1105,7 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
+<<<<<<< HEAD
   const dataServices = dataServicesMenu
     ? dataServicesMenu.edges[0].node.body
     : []
@@ -1112,6 +1113,11 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items")
     : []
   const dataMenu = dataMN.filter(item => item.fields)
+=======
+  const dataServices = dataServicesMenu ? dataServicesMenu.edges[0].node.body : [];
+  const dataMN = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items") : [];
+  const dataMenu = dataMN ? dataMN.filter(item => item.fields) : [];
+>>>>>>> CDNS-16
   //dulieu icon
   const dataIcon = dataMenuHeader
     ? dataMenuHeader.edges[0].node.body.filter(
@@ -1553,11 +1559,11 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
               ) : (
                 <></>
               )}
-              {isShowCTA?.map((item, index) => {
+              {isShowCTA ? isShowCTA?.map((item, index) => {
                 return (
                   <ButtonCustom
                     key={index}
-                    isShow={item.primary.display_desktop_or_mobile} // both , mobile. desktop
+                    isShow={item?.primary?.display_desktop_or_mobile} // both , mobile. desktop
                     className={
                       index === 0 ? "mb17 button-header" : "button-header"
                     }
@@ -1572,20 +1578,20 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       <GetInTouch>
                         <a
                           className="convertColor"
-                          href={`tel: ${item.primary.text_button[0]?.text}`}
+                          href={`tel: ${item?.primary?.text_button[0]?.text}`}
                         >
                           <img className="edit-img" src={logoIconPhone} />
-                          {item.primary.text_button[0]?.text}
+                          {item?.primary?.text_button[0]?.text}
                         </a>
                       </GetInTouch>
                     ) : (
                       <GetInTouch>
-                        {item.primary.text_button[0]?.text}
+                        {item?.primary?.text_button[0]?.text}
                       </GetInTouch>
                     )}
                   </ButtonCustom>
                 )
-              })}
+              }): <></>}
             </>
           </Form>
         </Navbar.Collapse>
