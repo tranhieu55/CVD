@@ -5,7 +5,8 @@ const ButtonCustom = styled.button`
   font-family: "Calibre Semibold";
   border: 2px solid #fecf09;
   border-radius: 3px;
-  background-color: ${({ bgColor }) => bgColor === null ? "transparent" : bgColor};
+  background-color: ${({ bgColor }) =>
+    bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
   font-weight: ${({ fw }) => `${fw}`};
   outline: none;
@@ -30,10 +31,12 @@ const ButtonCustom = styled.button`
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
   @media (max-width: 992px) {
-    display:${({isShow,Block}) => (isShow === "mobile" || isShow === "both" || Block ) ? "block" : "none"}
+    display: ${({ isShow, Block }) =>
+      isShow === "mobile" || isShow === "both" || Block ? "block" : "none"};
   }
   @media (min-width: 992px) {
-    display:${({isShow,Block}) => (isShow === "both" || isShow === "desktop" || Block ) ? "block" : "none"}
+    display: ${({ isShow, Block }) =>
+      isShow === "both" || isShow === "desktop" || Block ? "block" : "none"};
   }
   :hover {
     transition: all 0.6s ease;
