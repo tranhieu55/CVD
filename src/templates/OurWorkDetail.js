@@ -221,9 +221,9 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
   const data = props?.data?.prismic?.projects
-  const dataMapNameProject = dataOurWorkItem?.project_description.map(
-    item => item.text
-  )
+  const dataMapNameProject = dataOurWorkItem ? dataOurWorkItem?.project_description?.map(
+    item => item.text ? item.text : ""
+  ) : []
   return (
     <Layout
       location="/case-study"
