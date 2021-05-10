@@ -1082,7 +1082,7 @@ const DivIMGA = styled.div`
     background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
   }
   @media(max-width: 992px){
-    top: 52%;
+    top: 44%;
     height: 250px;
     opacity: 0.3;
     background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
