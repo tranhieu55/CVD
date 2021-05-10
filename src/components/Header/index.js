@@ -1377,7 +1377,6 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                         {/* SERVICES */}
                         {dataServices[0] ? (
                           <Ul className="list-services">
-                            \
                             <div className="menu-mobile">
                               <img
                                 className="menu-mobile-iconBack"
