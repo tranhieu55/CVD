@@ -1105,28 +1105,23 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
-<<<<<<< HEAD
   const dataServices = dataServicesMenu
-    ? dataServicesMenu.edges[0].node.body
+    && dataServicesMenu?.edges[0]?.node?.body ?
+    dataServicesMenu?.edges[0]?.node?.body
     : []
   const dataMN = dataMenuHeader
-    ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items")
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(el => el.type ? el.type === "menu_items" : "")
     : []
   const dataMenu = dataMN.filter(item => item.fields)
-=======
-  const dataServices = dataServicesMenu ? dataServicesMenu.edges[0].node.body : [];
-  const dataMN = dataMenuHeader ? dataMenuHeader.edges[0].node.body.filter(el => el.type === "menu_items") : [];
-  const dataMenu = dataMN ? dataMN.filter(item => item.fields) : [];
->>>>>>> CDNS-16
   //dulieu icon
   const dataIcon = dataMenuHeader
-    ? dataMenuHeader.edges[0].node.body.filter(
-        el => el.type === "social_icon_header"
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(
+        el => el.type ? el.type === "social_icon_header" : ""
       )
     : []
 
   const isShowCTA = dataMenuHeader
-    ? dataMenuHeader.edges[0].node.body.filter(x => x.type === "cta_buton")
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(x => x.type ? x.type === "cta_buton" : "")
     : []
 
   const [scroll, setScroll] = useState(false)
