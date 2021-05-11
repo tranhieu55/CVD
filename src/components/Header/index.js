@@ -1079,23 +1079,22 @@ const DivIMGA = styled.div`
     top: 45%;
     height: 224px;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     top: 44%;
     height: 250px;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-  @media(min-width: 993px){
+  @media (min-width: 993px) {
     height: 164px;
     position: absolute;
     width: 100%;
     top: 27%;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-
 `
 const TitleImageBlog = styled.div`
   position: absolute;
@@ -1601,7 +1600,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       className={
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
-                      wt="132"
+                      w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"
