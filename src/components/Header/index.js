@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -16,6 +16,7 @@ import P from "../../components/bits/Typography"
 import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import useOnClickOutside from "../../hooks/clickoutside"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -1160,6 +1161,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
   // const [translateHeader, setTranslateHeader] = useState(false)
+  const ref = useRef()
+
+  useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
   let lastScrollTop = 0
   useEffect(() => {
@@ -1200,9 +1204,10 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     }
   }, [])
 
-  const handelClickServices = () => {
-    setIsDisPlayModalService(!isDisPlayModalService)
-  }
+  // const handelClickServices = () => {
+  //   setIsDisPlayModalService(!isDisPlayModalService)
+  // }
+
   const checkColorText = () => {
     if (
       location === "/styleguide" ||
@@ -1372,7 +1377,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 >
                   {item && item.slug_menu_item[0]?.text === "services" ? (
                     <span
-                      onClick={handelClickServices}
+                      onClick={() =>
+                        setIsDisPlayModalService(!isDisPlayModalService)
+                      }
                       className={`${checkColorText()} colorWhite ${
                         isDisPlayModalService === true ? "test" : ""
                       } `}
@@ -1395,7 +1402,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   )}
 
                   {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <ul className="menu-area_services">
+                    <ul ref={ref} className="menu-area_services">
                       <hr />
                       <MenuItemServices>
                         {" "}
