@@ -2,7 +2,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 const SEO = ({ props, location }) => {
-
   const defaultTitle =
     "Magento Developers - Magento Development Melbourne & Sydney"
   const defaultDescription =
