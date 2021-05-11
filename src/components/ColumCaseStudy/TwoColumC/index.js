@@ -83,14 +83,16 @@ export default function ColumnC(props) {
     <Wrapper>
         {props ? 
           <BoxImamgeLeft>
-            <IMG src={props.input.primary.image_side_left.url} alt={props.input.primary.image_side_left?.alt}>
+            <IMG src={props.input.primary.image_side_left.url ? props.input.primary.image_side_left.url : ""} 
+                  alt={props.input.primary.image_side_left?.alt ? props.input.primary.image_side_left?.alt : ""}>
             </IMG>
           </BoxImamgeLeft>
           :<></>
         }
         {props ?
           <BoxImamgeRight>
-            <IMG src={props?.input?.primary?.image_side_right?.url} alt={props?.input?.primary?.image_side_right?.alt}>
+            <IMG src={props?.input?.primary?.image_side_right?.url ? props?.input?.primary?.image_side_right?.url : ""} 
+                alt={props?.input?.primary?.image_side_right?.alt ? props?.input?.primary?.image_side_right?.alt : ""}>
             </IMG>
           </BoxImamgeRight>
           :<></>

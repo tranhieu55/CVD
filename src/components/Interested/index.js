@@ -149,11 +149,18 @@ const BoxInterested = styled.div`
 const BoxBtn = styled.div``
 const H2 = styled.h2``
 export default function Interested({ dataFooter }) {
-  console.log({dataFooter});
-  const dataBTG = dataFooter ? dataFooter.edges[0].node.body.filter(item => item?.type === "cta") : [];
-  const dataBGR = dataBTG[0] ? dataBTG[0]?.primary?.background_color_cta_block : [];
-  const dataInterested = dataBTG[0]?.primary?.subtitle[0]?.text ?  dataBTG[0]?.primary?.subtitle[0]?.text : "";
-  const dataInterestedTitle = dataBTG[0]?.primary?.title[0]?.text ? dataBTG[0]?.primary?.title[0]?.text : "";
+  const dataBTG = dataFooter
+    ? dataFooter.edges[0].node.body.filter(item => item?.type ? item?.type === "cta" :"")
+    : []
+  const dataBGR = dataBTG[0]
+    ? dataBTG[0]?.primary?.background_color_cta_block
+    : []
+  const dataInterested = dataBTG[0]?.primary?.subtitle[0]?.text
+    ? dataBTG[0]?.primary?.subtitle[0]?.text
+    : ""
+  const dataInterestedTitle = dataBTG[0]?.primary?.title[0]?.text
+    ? dataBTG[0]?.primary?.title[0]?.text
+    : ""
 
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
@@ -161,7 +168,7 @@ export default function Interested({ dataFooter }) {
   }
   return (
     <>
-      <InterestedStyle dataBGR={dataBGR ? dataBGR : ''}>
+      <InterestedStyle dataBGR={dataBGR ? dataBGR : ""}>
         <BoxInterested>
           <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
             {dataInterestedTitle ? dataInterestedTitle : ""}

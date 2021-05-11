@@ -234,7 +234,7 @@ const BannerWhatWeDo = () => {
                 lett="-0.5"
                 fontWeight="600"
               >
-                {data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text}
+                {data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text ? data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text : ""}
               </P>
             : <></>
             }
