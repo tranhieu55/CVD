@@ -1074,8 +1074,8 @@ const DivIMGA = styled.div`
   width: 100%;
   top: 27%;
   opacity: 0.3;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
-  @media(max-width: 600px){
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  @media (max-width: 600px) {
     top: 45%;
     height: 224px;
     opacity: 0.3;
@@ -1134,23 +1134,27 @@ const Span = styled.span`
 `
 
 const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
-  const dataServices = dataServicesMenu
-    && dataServicesMenu?.edges[0]?.node?.body ?
-    dataServicesMenu?.edges[0]?.node?.body
-    : []
+  const dataServices =
+    dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
+      ? dataServicesMenu?.edges[0]?.node?.body
+      : []
   const dataMN = dataMenuHeader
-    ? dataMenuHeader.edges[0]?.node?.body?.filter(el => el.type ? el.type === "menu_items" : "")
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(el =>
+        el.type ? el.type === "menu_items" : ""
+      )
     : []
   const dataMenu = dataMN.filter(item => item.fields)
   //dulieu icon
   const dataIcon = dataMenuHeader
-    ? dataMenuHeader.edges[0]?.node?.body?.filter(
-        el => el.type ? el.type === "social_icon_header" : ""
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(el =>
+        el.type ? el.type === "social_icon_header" : ""
       )
     : []
 
   const isShowCTA = dataMenuHeader
-    ? dataMenuHeader.edges[0]?.node?.body?.filter(x => x.type ? x.type === "cta_buton" : "")
+    ? dataMenuHeader.edges[0]?.node?.body?.filter(x =>
+        x.type ? x.type === "cta_buton" : ""
+      )
     : []
 
   const [scroll, setScroll] = useState(false)
@@ -1204,6 +1208,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/404" ||
+      location === "/launches" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1228,6 +1233,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/404" ||
+      location === "/launches" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1245,6 +1251,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/404" ||
+      location === "/launches" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1267,6 +1274,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     if (
       location === "/styleguide" ||
       location === "/404" ||
+      location === "/launches" ||
       location === "/projects" ||
       location === "/what-we-do" ||
       location === "/partners" ||
@@ -1307,6 +1315,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/404" ||
+                  location === "/launches" ||
                   location === "/projects" ||
                   location === "/what-we-do" ||
                   location === "/partners" ||
@@ -1320,7 +1329,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          {location === "/404" ? (
+          {location === "/404" || location === "/launches" ? (
             ""
           ) : (
             <MenuText className={checkTextMenu()}>Menu</MenuText>
@@ -1583,39 +1592,43 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
               ) : (
                 <></>
               )}
-              {isShowCTA ? isShowCTA?.map((item, index) => {
-                return (
-                  <ButtonCustom
-                    key={index}
-                    isShow={item?.primary?.display_desktop_or_mobile} // both , mobile. desktop
-                    className={
-                      index === 0 ? "mb17 button-header" : "button-header"
-                    }
-                    wt="132"
-                    bgColor={item.primary.background_color_button}
-                    textColor={checkColorTextButton(index)}
-                    pd1="9"
-                    pd2="19.5"
-                    lineh="22"
-                  >
-                    {index === 1 ? (
-                      <GetInTouch>
-                        <a
-                          className="convertColor"
-                          href={`tel: ${item?.primary?.text_button[0]?.text}`}
-                        >
-                          <img className="edit-img" src={logoIconPhone} />
+              {isShowCTA ? (
+                isShowCTA?.map((item, index) => {
+                  return (
+                    <ButtonCustom
+                      key={index}
+                      isShow={item?.primary?.display_desktop_or_mobile} // both , mobile. desktop
+                      className={
+                        index === 0 ? "mb17 button-header" : "button-header"
+                      }
+                      wt="132"
+                      bgColor={item.primary.background_color_button}
+                      textColor={checkColorTextButton(index)}
+                      pd1="9"
+                      pd2="19.5"
+                      lineh="22"
+                    >
+                      {index === 1 ? (
+                        <GetInTouch>
+                          <a
+                            className="convertColor"
+                            href={`tel: ${item?.primary?.text_button[0]?.text}`}
+                          >
+                            <img className="edit-img" src={logoIconPhone} />
+                            {item?.primary?.text_button[0]?.text}
+                          </a>
+                        </GetInTouch>
+                      ) : (
+                        <GetInTouch>
                           {item?.primary?.text_button[0]?.text}
-                        </a>
-                      </GetInTouch>
-                    ) : (
-                      <GetInTouch>
-                        {item?.primary?.text_button[0]?.text}
-                      </GetInTouch>
-                    )}
-                  </ButtonCustom>
-                )
-              }): <></>}
+                        </GetInTouch>
+                      )}
+                    </ButtonCustom>
+                  )
+                })
+              ) : (
+                <></>
+              )}
             </>
           </Form>
         </Navbar.Collapse>
