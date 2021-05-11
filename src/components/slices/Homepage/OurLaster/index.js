@@ -3,28 +3,55 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const OurLaster = ({ input }) => {
-  const Titles =input ? input.primary?.title?.map(item => item?.text ? item?.text : "") : [];
-  const Messaging = input ? input.primary?.messaging?.map(item => item?.text ? item?.text : "") : [];
+  const Titles = input
+    ? input.primary?.title?.map(item => (item?.text ? item?.text : ""))
+    : []
+  const Messaging = input
+    ? input.primary?.messaging?.map(item => (item?.text ? item?.text : ""))
+    : []
 
   return (
     <OurLasters>
       <Title>{Titles}</Title>
       <Messagings>{Messaging}</Messagings>
       <Content>
-        {input ? input.fields?.map((item, index) => (
-          <ListPost
-            key={index}
-            as={Link}
-            to={ item?.posts ? `/blog/${item.posts?._meta?.uid ? item.posts?._meta?.uid : ""}` : ``}
-            vitri={index}
-          >
-            <Img src={item?.posts ? item?.posts?.post_image?.url ? item?.posts?.post_image?.url :"" : ''} vitri={index}></Img>
-            <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
-            <TitlePost vitri={index}>
-              {item?.posts ? item?.posts?.title?.map(item => item?.text ? item?.text : "") : ''}
-            </TitlePost>
-          </ListPost>
-        )): <></>}
+        {input ? (
+          input.fields?.map((item, index) => (
+            <ListPost
+              key={index}
+              as={Link}
+              to={
+                item?.posts
+                  ? `/blog/${
+                      item.posts?._meta?.uid ? item.posts?._meta?.uid : ""
+                    }`
+                  : ``
+              }
+              vitri={index}
+            >
+              <Img
+                src={
+                  item?.posts
+                    ? item?.posts?.post_image?.url
+                      ? item?.posts?.post_image?.url
+                      : ""
+                    : ""
+                }
+                vitri={index}
+              ></Img>
+              <SubTitle vitri={index}>JUNE 25, 2019</SubTitle>
+              <TitlePost vitri={index}>
+                {item?.posts
+                  ? item?.posts?.title?.map(item =>
+                      item?.text ? item?.text : ""
+                    )
+                  : ""}
+              </TitlePost>
+            </ListPost>
+          ))
+        ) : (
+          <></>
+        )}
       </Content>
     </OurLasters>
   )
@@ -244,7 +271,7 @@ const SubTitle = styled.h4`
   @media (min-width: 768px) {
     margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
   }
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "32px")};
   }

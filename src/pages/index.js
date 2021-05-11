@@ -8,15 +8,16 @@ import GlobalMessage from "../components/GlobalMessage"
 
 const Index = ({ data: { prismic } }) => {
   const data = prismic && prismic.allHomepages?.edges[0]?.node ? prismic.allHomepages?.edges[0]?.node : [] ;
-  const background_image = data && data.background_image?.url ? data.background_image?.url : ""
-
+  const background_image_desktop = data && data.background_image?.desktop?.url ? data.background_image?.desktop?.url : "" ;
+  const background_image_mobile = data && data.background_image?.mobile?.url ? data.background_image?.mobile?.url : "";
   return (
     <>
       <GlobalMessage />
       <Layout location="/">
         <SEO props={data} location="/" />
         <Container>
-          <ImageBanner src={background_image}></ImageBanner>
+          <ImageBannerDK src={ background_image_desktop}></ImageBannerDK>
+          <ImageBannerMB src={ background_image_mobile}></ImageBannerMB>
           <TextBanner>
             <Title>{data.page_title[0]?.text}</Title>
             <Buttons>
@@ -111,14 +112,25 @@ const Container = styled.div`
     width: 100%;
   }
 `
-const ImageBanner = styled.img`
+const ImageBannerDK = styled.img`
   height: 100%;
   width: 100%;
   z-index: 0;
   object-fit: cover;
   @media (max-width: 600px) {
+    display: none;
+  }
+`
+const ImageBannerMB = styled.img`
+  @media(max-width: 600px){
+    height: 100%;
+    width: 100%;
+    z-index: 0;
     object-fit: cover;
     clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 97%);
+  }
+  @media(min-width: 601px){
+    display: none;
   }
 `
 

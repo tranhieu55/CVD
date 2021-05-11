@@ -16,6 +16,7 @@ const ButtonCustom = styled.button`
   padding-bottom: 0px;
   width: ${({ wt }) => `${wt}px`};
   width: ${({ w }) => `${w}%`};
+  max-width: ${({ mw }) => `${mw}px`};
   height: ${({ ht }) => `${ht}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
   margin: ${({ margin }) => `${margin}`};
