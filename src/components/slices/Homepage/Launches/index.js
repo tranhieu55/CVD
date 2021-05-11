@@ -96,8 +96,8 @@ const Title = styled.h1`
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 56px;
-  padding-bottom: 25px;
-  padding-top: 22px;
+  padding-bottom: 30px;
+  padding-top: 32px;
   padding-left: 228px;
   margin: 0;
   @media (max-width: 992px) {
@@ -108,7 +108,7 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 38px;
-    padding-top: 16px;
+    padding-top: 20px;
     padding-bottom: 14px;
   }
 `
@@ -158,6 +158,7 @@ const ButtonCustom = styled.button`
   line-height: 19px;
   text-align: center;
   margin-bottom: 72px;
+  color: #101010;
 
   :focus {
     outline: none;
@@ -165,7 +166,7 @@ const ButtonCustom = styled.button`
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;
-    color: #000;
+    color: #101010;
   }
 
   @media (max-width: 600px) {
