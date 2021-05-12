@@ -107,13 +107,18 @@ const LI = styled.span`
 `
 const Content = styled.div`
   display: flex;
-  margin: auto 14.5px;
-  width: 100%;
+  margin: auto ;
+  width: 299px;
+  @media(max-width: 600px){
+    margin: auto 14.5px; 
+    width: 100%;
+  }
   @media (max-width: 374px) {
     flex-direction: column;
     margin: auto;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 `
 const Close = styled.div`
