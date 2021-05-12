@@ -107,8 +107,8 @@ const LI = styled.span`
 `
 const Content = styled.div`
   display: flex;
-  margin: auto;
-  width: 299px;
+  margin: 14.5px auto;
+  width: 100%;
   @media (max-width: 374px) {
     flex-direction: column;
     margin: auto;
