@@ -257,7 +257,8 @@ const WrapperHeader = styled.div`
   .dropdown_services {
     .menu-area_services {
       max-height: 100% !important;
-      top: 72px;
+      top: ${({ dataGlobalMessage }) =>
+        dataGlobalMessage === true ? "72px" : "119px"};
     }
   }
 
@@ -1133,7 +1134,12 @@ const Span = styled.span`
   font-size: 18px;
 `
 
-const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
+const Header = ({
+  location,
+  dataMenuHeader,
+  dataServicesMenu,
+  dataGlobalMessage,
+}) => {
   const dataServices =
     dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
       ? dataServicesMenu?.edges[0]?.node?.body
@@ -1294,9 +1300,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       return "menu-nav-white"
     }
   }
-
   return (
     <WrapperHeader
+      dataGlobalMessage={dataGlobalMessage}
       backgroundMobile={backgroundMobile}
       location={location}
       scroll={scroll}

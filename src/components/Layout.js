@@ -167,6 +167,7 @@ const Layout = ({
   descriptionOfWorkItem,
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
+  parentCallback,
 }) => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -362,13 +363,13 @@ const Layout = ({
     overflow-x: hidden;
     position: relative;
   `
-
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <GlobalStyle />
           <Header
+            dataGlobalMessage={parentCallback}
             location={location}
             dataMenuHeader={dataMenuHeader}
             dataServicesMenu={dataServicesMenu}
