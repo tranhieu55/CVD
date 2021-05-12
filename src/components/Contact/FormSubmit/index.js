@@ -56,8 +56,11 @@ export default function FormSumit({ input }) {
       width: 480px;
     }
     @media (min-width: 1444px) {
-      right: 150px;
+      right: 65px;
       width: 604px;
+    }
+    @media(min-width: 1540px){
+      right: 110px;
     }
     @media (min-width: 1600px) {
       right: 180px;
@@ -197,7 +200,7 @@ export default function FormSumit({ input }) {
     letter-spacing: 0;
     line-height: 18px;
     text-align: center;
-    padding: 25px 0px;
+    padding: 27px 0px;
     border-width: 0px;
     @media (max-width: 600px) {
       width: 100%;
