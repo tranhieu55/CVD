@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -16,6 +16,7 @@ import P from "../../components/bits/Typography"
 import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import useOnClickOutside from "../../hooks/clickoutside"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -1079,23 +1080,22 @@ const DivIMGA = styled.div`
     top: 45%;
     height: 224px;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     top: 44%;
     height: 250px;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-  @media(min-width: 993px){
+  @media (min-width: 993px) {
     height: 164px;
     position: absolute;
     width: 100%;
     top: 27%;
     opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   }
-
 `
 const TitleImageBlog = styled.div`
   position: absolute;
@@ -1161,6 +1161,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
   // const [translateHeader, setTranslateHeader] = useState(false)
+  const ref = useRef()
+
+  useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
   let lastScrollTop = 0
   useEffect(() => {
@@ -1201,9 +1204,10 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
     }
   }, [])
 
-  const handelClickServices = () => {
-    setIsDisPlayModalService(!isDisPlayModalService)
-  }
+  // const handelClickServices = () => {
+  //   setIsDisPlayModalService(!isDisPlayModalService)
+  // }
+
   const checkColorText = () => {
     if (
       location === "/styleguide" ||
@@ -1373,7 +1377,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 >
                   {item && item.slug_menu_item[0]?.text === "services" ? (
                     <span
-                      onClick={handelClickServices}
+                      onClick={() =>
+                        setIsDisPlayModalService(!isDisPlayModalService)
+                      }
                       className={`${checkColorText()} colorWhite ${
                         isDisPlayModalService === true ? "test" : ""
                       } `}
@@ -1396,7 +1402,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                   )}
 
                   {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <ul className="menu-area_services">
+                    <ul ref={ref} className="menu-area_services">
                       <hr />
                       <MenuItemServices>
                         {" "}
@@ -1601,7 +1607,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       className={
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
-                      wt="132"
+                      w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"

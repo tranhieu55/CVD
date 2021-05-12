@@ -9,31 +9,59 @@ const OurLaster = ({ input }) => {
     moment(item.post_item?.date_created).format("LL")
   )
 
-  const data = input && input.fields ? input.fields : "";
+  const data = input && input.fields ? input.fields : ""
   const state = useContext(OurWorkStateContext)
   const { listSelected } = state
 
   const listPartners = listSelected.includes("all")
     ? data
     : data.filter(x => {
-        return listSelected.includes(x.post_item?.post_category?._meta?.uid ? x.post_item?.post_category?._meta?.uid : "")
+        return listSelected.includes(
+          x.post_item?.post_category?._meta?.uid
+            ? x.post_item?.post_category?._meta?.uid
+            : ""
+        )
       })
   return (
     <OurLasters>
       {listPartners?.map((item, index) => (
         <ListPost key={index} className={index % 2 === 0 ? "orderleft" : ""}>
-          <Link to={`/blog/${item?.post_item?._meta?.uid ? item?.post_item?._meta?.uid : ""}`}>
+          <Link
+            to={`/blog/${
+              item?.post_item?._meta?.uid ? item?.post_item?._meta?.uid : ""
+            }`}
+          >
             <Img
-              src={item?.post_item?.post_image?.url ? item?.post_item?.post_image?.url : ""}
+              src={
+                item?.post_item?.post_image?.url
+                  ? item?.post_item?.post_image?.url
+                  : ""
+              }
               vitri={index}
-              al={item?.post_item?.post_image?.alt ? item?.post_item?.post_image?.alt : ""}
+              al={
+                item?.post_item?.post_image?.alt
+                  ? item?.post_item?.post_image?.alt
+                  : ""
+              }
             ></Img>
           </Link>
           <SubTitle vitri={index}>
-            {item?.post_item?.date_created ? moment(item?.post_item?.date_created).format("LL") : ""}
+            {item?.post_item?.date_created
+              ? moment(item?.post_item?.date_created).format("LL")
+              : ""}
           </SubTitle>
-          <TitlePost>{item?.post_item?.title[0]?.text ? item?.post_item?.title[0]?.text : ""}</TitlePost>
-          <Read href={`/blog/${item?.post_item?._meta?.uid ? item?.post_item?._meta?.uid : ""}`}>Read more</Read>
+          <TitlePost>
+            {item?.post_item?.title[0]?.text
+              ? item?.post_item?.title[0]?.text
+              : ""}
+          </TitlePost>
+          <Read
+            href={`/blog/${
+              item?.post_item?._meta?.uid ? item?.post_item?._meta?.uid : ""
+            }`}
+          >
+            Read more
+          </Read>
         </ListPost>
       ))}
     </OurLasters>

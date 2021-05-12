@@ -182,11 +182,11 @@ export default function Derection ({input}) {
                             <Phone>{item?.office_phone_number?.map(item => item?.text ? item?.text : item)}</Phone>
                             <DivLink>
                                 <Link href='#'>Call</Link>
-                                <Link href='#'>Directions</Link>
+                                <Link href={item?.google_maps_link?.url ? item?.google_maps_link?.url : ""}>Directions</Link>
                             </DivLink>
                         </Contentleft>
                     <ContentRight>
-                    <iframe src={item?.google_maps_link?.url + "&language=iw"} id="serviceFrameSend" 
+                    <iframe src={item?.google_maps_link?.url ? item?.google_maps_link?.url : ""} id="serviceFrameSend" 
                         width="100%" height="100%" className='googole-map' allowfullscreen="" loading="lazy"
                     >
                     </iframe>

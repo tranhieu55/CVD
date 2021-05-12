@@ -85,7 +85,6 @@ const ProjectTiles = ({ input }) => {
           <ButtonCustom
             wt="212"
             ht="48"
-            fz="18"
             lineh="48"
             className="btn-studies"
             id="loadMore"
@@ -265,7 +264,7 @@ const ButtonCustom = styled.button`
   padding-bottom: 0px;
   width: ${({ wt }) => `${wt}px`};
   height: ${({ ht }) => `${ht}px`};
-  font-size: ${({ fz }) => `${fz}px`};
+  font-size: 18px;
   line-height: ${({ lineh }) => `${lineh}px`};
   position: relative;
   overflow: hidden;
@@ -282,6 +281,7 @@ const ButtonCustom = styled.button`
   @media (max-width: 600px) {
     width: 100%;
     height: 100%;
+    font-size: 16px;
   }
 `
 const Img = styled.img`
