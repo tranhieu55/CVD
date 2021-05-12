@@ -27,10 +27,14 @@ export default function GlobalMessage() {
     }
   `)
 
-  const dataGlobal = data.prismic?.allHeaders?.edges[0] ? data.prismic?.allHeaders?.edges[0]?.node?.body?.filter(
-    x => x.primary ? x.primary : x
-  ) : [];
-  const texts = dataGlobal ? dataGlobal?.map(item => item.primary ? item.primary : "") : [];
+  const dataGlobal = data.prismic?.allHeaders?.edges[0]
+    ? data.prismic?.allHeaders?.edges[0]?.node?.body?.filter(x =>
+        x.primary ? x.primary : x
+      )
+    : []
+  const texts = dataGlobal
+    ? dataGlobal?.map(item => (item.primary ? item.primary : ""))
+    : []
 
   const [show, setShow] = useState(true)
   function showGlobal() {
@@ -39,13 +43,18 @@ export default function GlobalMessage() {
 
   return (
     <Container open={show}>
-      {texts ? 
+      {texts ? (
         <Content>
-          <Text lh={24}>{texts[0]?.message?.map(item => item?.text ? item?.text : "")}. </Text>
-          <LI lh={24}>{texts[0]?.link_title?.map(item => item?.text ? item?.text : "")}</LI>
+          <Text lh={24}>
+            {texts[0]?.message?.map(item => (item?.text ? item?.text : ""))}.{" "}
+          </Text>
+          <LI lh={24}>
+            {texts[0]?.link_title?.map(item => (item?.text ? item?.text : ""))}
+          </LI>
         </Content>
-        :<></>
-      }
+      ) : (
+        <></>
+      )}
       <Close onClick={() => showGlobal()}></Close>
     </Container>
   )
@@ -76,6 +85,7 @@ const Text = styled.span`
   line-height: ${({ lh }) => `${lh}px`};
   margin-bottom: 0px;
   margin-right: 4px;
+  margin-top: 5px;
 `
 const LI = styled.span`
   color: #ffffff;
@@ -89,6 +99,7 @@ const LI = styled.span`
   border-bottom: 1px solid #ffffff;
   height: 18px;
   cursor: pointer;
+  margin-top: 5px;
 `
 const Content = styled.div`
   display: flex;
