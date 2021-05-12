@@ -167,6 +167,7 @@ const Layout = ({
   descriptionOfWorkItem,
   backgroundWorkItemSrc,
   backgroundWorkItemAlt,
+  parentCallback,
 }) => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -350,20 +351,25 @@ const Layout = ({
       }
     }
   `)
-  const dataFooter = data && data.prismic?.allFooters ? data.prismic?.allFooters : [];
-  const dataMenuHeader = data && data.prismic?.allHeaders ? data.prismic?.allHeaders : [];
-  const dataServicesMenu = data && data.prismic?.allService_headers ? data.prismic?.allService_headers : [] ;
+  const dataFooter =
+    data && data.prismic?.allFooters ? data.prismic?.allFooters : []
+  const dataMenuHeader =
+    data && data.prismic?.allHeaders ? data.prismic?.allHeaders : []
+  const dataServicesMenu =
+    data && data.prismic?.allService_headers
+      ? data.prismic?.allService_headers
+      : []
   const BoxLayout = styled.div`
     overflow-x: hidden;
     position: relative;
   `
-
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <GlobalStyle />
           <Header
+            dataGlobalMessage={parentCallback}
             location={location}
             dataMenuHeader={dataMenuHeader}
             dataServicesMenu={dataServicesMenu}
