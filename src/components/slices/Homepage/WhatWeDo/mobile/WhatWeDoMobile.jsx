@@ -126,7 +126,7 @@ const Service = styled.h4`
     color: #FFFFFF;
     font-family: Calibre Bold;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.5px;
     line-height: 26px;
     margin-bottom: 24px;
@@ -200,7 +200,7 @@ opacity: 0.6;
 color: #FFFFFF;
 font-family: Calibre Bold;
 font-size: 22px;
-font-weight: 700;
+font-weight: 500;
 letter-spacing: -0.5px;
 line-height: 26px;
 margin-bottom: 21px;
@@ -300,7 +300,7 @@ const LearnMore = styled.h4`
   font-weight: 500;
   letter-spacing: 0;
   line-height: 20px;
-  border-bottom: 1px solid #FECF09;
+  border-bottom: 2px solid #82722f;
   margin-bottom: 17px;
  
 `

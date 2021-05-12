@@ -99,7 +99,9 @@ const LI = styled.span`
   border-bottom: 1px solid #ffffff;
   height: 18px;
   cursor: pointer;
-  margin-top: 5px;
+  @media(max-width: 600px){
+    line-height: 20px;
+  }
 `
 const Content = styled.div`
   display: flex;
@@ -110,6 +112,10 @@ const Content = styled.div`
     margin: auto;
     align-items: center;
     justify-content: center;
+    line-height: 20px;
+  }
+  @media(max-width: 600px){
+    line-height: 20px;
   }
 `
 const Close = styled.div`
