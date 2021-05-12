@@ -76,6 +76,9 @@ const Text = styled.span`
   line-height: ${({ lh }) => `${lh}px`};
   margin-bottom: 0px;
   margin-right: 4px;
+  @media(max-width: 600px){
+    line-height: 20px;
+  }
 `
 const LI = styled.span`
   color: #ffffff;
@@ -102,10 +105,6 @@ const Content = styled.div`
     margin: auto;
     align-items: center;
     justify-content: center;
-    line-height: 20px;
-  }
-  @media(max-width: 600px){
-    line-height: 20px;
   }
 `
 const Close = styled.div`
