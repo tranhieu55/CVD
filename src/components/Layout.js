@@ -350,9 +350,14 @@ const Layout = ({
       }
     }
   `)
-  const dataFooter = data && data.prismic?.allFooters ? data.prismic?.allFooters : [];
-  const dataMenuHeader = data && data.prismic?.allHeaders ? data.prismic?.allHeaders : [];
-  const dataServicesMenu = data && data.prismic?.allService_headers ? data.prismic?.allService_headers : [] ;
+  const dataFooter =
+    data && data.prismic?.allFooters ? data.prismic?.allFooters : []
+  const dataMenuHeader =
+    data && data.prismic?.allHeaders ? data.prismic?.allHeaders : []
+  const dataServicesMenu =
+    data && data.prismic?.allService_headers
+      ? data.prismic?.allService_headers
+      : []
   const BoxLayout = styled.div`
     overflow-x: hidden;
     position: relative;

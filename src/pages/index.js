@@ -7,6 +7,7 @@ import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 import ModalVideo from "../components/ModalVideo"
 import { useState } from "react"
+import LogosBlock from "../components/TrustLogosBlock"
 
 const Index = ({ data: { prismic } }) => {
   const data =
@@ -58,6 +59,8 @@ const Index = ({ data: { prismic } }) => {
           />
         </Container>
         <SliceZone allSlices={data.body} />
+        {/* thử nhớ */}
+        <LogosBlock />
         <OurServices />
       </Layout>
     </>
