@@ -17,7 +17,10 @@ const ModalVideo = ({ showModal, setShowModal, dataVideo }) => {
       {showModal ? (
         <Container>
           <Modal showModal={showModal}>
-            <div className="close" onClick={() => setShowModal(prev => !prev)}>
+            <div
+              className="close01"
+              onClick={() => setShowModal(prev => !prev)}
+            >
               <ButtonClose src={images}></ButtonClose>
             </div>
             <Content>
@@ -69,7 +72,7 @@ const ButtonClose = styled.img`
     right: 16px;
   }
   @media (min-width: 1200px) {
-    top: 93px;
+    top: 88px;
     right: 38px;
   }
 `
@@ -86,7 +89,14 @@ const Content = styled.div`
   }
 `
 const Modal = styled.div`
-  .close::before {
+  .close01 {
+    cursor: pointer;
+    text-align: right;
+    @media (min-width: 1200px) {
+      margin-bottom: 17px;
+    }
+  }
+  .close01::before {
     content: "CLOSE VIDEO";
     color: white;
     margin-right: 16px;
