@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 
 export default function Derection ({input}) {
+    console.log({input});
     const data = input.fields;
     const DivIMG = styled.div`
     overflow:hidden;
@@ -181,12 +182,12 @@ export default function Derection ({input}) {
                             <TextLeft>{item?.address?.map(item => item?.text ? item?.text : item)}</TextLeft>
                             <Phone>{item?.office_phone_number?.map(item => item?.text ? item?.text : item)}</Phone>
                             <DivLink>
-                                <Link href='#'>Call</Link>
-                                <Link href='#'>Directions</Link>
+                                <Link href="#">Call</Link>
+                                <Link href={input && input?.fields?.map(item => item?.directions_link?.url ? item?.directions_link?.url : item)}>Directions</Link>
                             </DivLink>
                         </Contentleft>
                     <ContentRight>
-                    <iframe src={item?.google_maps_link?.url + "&language=iw"} id="serviceFrameSend" 
+                    <iframe src={item?.google_maps_link?.url ? item?.google_maps_link?.url : ""} id="serviceFrameSend" 
                         width="100%" height="100%" className='googole-map' allowfullscreen="" loading="lazy"
                     >
                     </iframe>

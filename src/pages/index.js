@@ -5,31 +5,57 @@ import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
+import ModalVideo from "../components/ModalVideo"
+import { useState } from "react"
 
 const Index = ({ data: { prismic } }) => {
-  const data = prismic && prismic.allHomepages?.edges[0]?.node ? prismic.allHomepages?.edges[0]?.node : [] ;
-  const background_image_desktop = data && data.background_image?.desktop?.url ? data.background_image?.desktop?.url : "" ;
-  const background_image_mobile = data && data.background_image?.mobile?.url ? data.background_image?.mobile?.url : "";
+  const data =
+    prismic && prismic.allHomepages?.edges[0]?.node
+      ? prismic.allHomepages?.edges[0]?.node
+      : []
+  const background_image_desktop =
+    data && data.background_image?.desktop?.url
+      ? data.background_image?.desktop?.url
+      : ""
+  const background_image_mobile =
+    data && data.background_image?.mobile?.url
+      ? data.background_image?.mobile?.url
+      : ""
+  console.log("hieutt", data.body[0])
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
   return (
     <>
       <GlobalMessage />
       <Layout location="/">
         <SEO props={data} location="/" />
         <Container>
-          <ImageBannerDK src={ background_image_desktop}></ImageBannerDK>
-          <ImageBannerMB src={ background_image_mobile}></ImageBannerMB>
+          <ImageBannerDK src={background_image_desktop}></ImageBannerDK>
+          <ImageBannerMB src={background_image_mobile}></ImageBannerMB>
           <TextBanner>
             <Title>{data.page_title[0]?.text}</Title>
             <Buttons>
-              {data.body[0]?.fields?.map((item, index) => {
+              {data.body[1]?.fields?.map((item, index) => {
                 return (
-                  <ButtonBanner key={index} vitri={index}>
+                  <ButtonBanner
+                    key={index}
+                    vitri={index}
+                    onClick={index === 1 ? openModal : ""}
+                  >
                     {item.text_button[0]?.text}
                   </ButtonBanner>
                 )
               })}
             </Buttons>
           </TextBanner>
+          <ModalVideo
+            showModal={showModal}
+            setShowModal={setShowModal}
+            openModal={openModal}
+            dataVideo={data.body[0]}
+          />
         </Container>
         <SliceZone allSlices={data.body} />
         <OurServices />
@@ -122,14 +148,14 @@ const ImageBannerDK = styled.img`
   }
 `
 const ImageBannerMB = styled.img`
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     height: 100%;
     width: 100%;
     z-index: 0;
     object-fit: cover;
     clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 97%);
   }
-  @media(min-width: 601px){
+  @media (min-width: 601px) {
     display: none;
   }
 `
@@ -231,6 +257,21 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyVideo_modal {
+                type
+                label
+                fields {
+                  video_modal {
+                    _linkType
+                    ... on PRISMIC__FileLink {
+                      url
+                    }
+                  }
+                }
+                primary {
+                  cta_button
+                }
+              }
               ... on PRISMIC_HomepageBodyCta {
                 type
                 label

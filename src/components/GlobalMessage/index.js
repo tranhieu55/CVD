@@ -85,7 +85,9 @@ const Text = styled.span`
   line-height: ${({ lh }) => `${lh}px`};
   margin-bottom: 0px;
   margin-right: 4px;
-  margin-top: 5px;
+  @media(max-width: 600px){
+    line-height: 20px;
+  }
 `
 const LI = styled.span`
   color: #ffffff;
@@ -99,17 +101,24 @@ const LI = styled.span`
   border-bottom: 1px solid #ffffff;
   height: 18px;
   cursor: pointer;
-  margin-top: 5px;
+  @media(max-width: 600px){
+    line-height: 20px;
+  }
 `
 const Content = styled.div`
   display: flex;
-  margin: auto;
+  margin: auto ;
   width: 299px;
+  @media(max-width: 600px){
+    margin: auto 14.5px; 
+    width: 100%;
+  }
   @media (max-width: 374px) {
     flex-direction: column;
     margin: auto;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 `
 const Close = styled.div`

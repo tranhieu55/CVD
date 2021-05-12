@@ -50,7 +50,11 @@ export const pageQuery = graphql`
                   office_phone_number
                   office_title
                   directions_link {
-                    _linkType
+                    ... on PRISMIC__ExternalLink {
+                      target
+                      _linkType
+                      url
+                    }
                   }
                   google_maps_link {
                     ... on PRISMIC__ExternalLink {
