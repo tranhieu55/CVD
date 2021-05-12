@@ -37,6 +37,9 @@ const Title = styled.h4`
 const ListLogo = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 88px;
+  margin-left: 378px;
+  margin-right: 364px;
 `
 
 const BlockLogo = styled.div`
