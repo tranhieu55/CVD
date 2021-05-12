@@ -8,7 +8,7 @@ import GlobalMessage from "../components/GlobalMessage"
 import ModalVideo from "../components/ModalVideo"
 import { useState } from "react"
 
-const Index = ({ data: { prismic } }) => {
+const Index = ({ data: { prismic } }, e) => {
   const data =
     prismic && prismic.allHomepages?.edges[0]?.node
       ? prismic.allHomepages?.edges[0]?.node
@@ -26,10 +26,14 @@ const Index = ({ data: { prismic } }) => {
   const openModal = () => {
     setShowModal(prev => !prev)
   }
+  const [value, setValue] = useState()
+  const parentCallback = data => {
+    setValue(data)
+  }
   return (
     <>
-      <GlobalMessage />
-      <Layout location="/">
+      <GlobalMessage parentCallback={parentCallback} />
+      <Layout location="/" parentCallback={value}>
         <SEO props={data} location="/" />
         <Container>
           <ImageBannerDK src={background_image_desktop}></ImageBannerDK>

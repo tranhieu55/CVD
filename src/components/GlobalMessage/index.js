@@ -3,7 +3,7 @@ import React from "react"
 import { useState } from "react"
 import styled from "styled-components"
 
-export default function GlobalMessage() {
+export default function GlobalMessage({ parentCallback }) {
   const data = useStaticQuery(graphql`
     query GlobalQuery {
       prismic {
@@ -39,8 +39,8 @@ export default function GlobalMessage() {
   const [show, setShow] = useState(true)
   function showGlobal() {
     setShow(!show)
+    parentCallback(show)
   }
-
   return (
     <Container open={show}>
       {texts ? (
