@@ -89,6 +89,7 @@ const Content = styled.div`
     }
     @media (min-width: 1200px) {
       margin-bottom: 62px;
+      height: 869px;
     }
   }
 `
@@ -108,7 +109,7 @@ const Modal = styled.div`
     font-size: 16px;
     z-index: 1123;
     @media (max-width: 600px) {
-      margin-right: 20px;
+      margin-right: 25px;
     }
   }
   width: 100%;
