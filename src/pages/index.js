@@ -6,6 +6,8 @@ import SliceZone from "../utils/SliceZone"
 import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
 import ModalVideo from "../components/ModalVideo"
+import Modal from "../components/ModalContact"
+
 import { useState } from "react"
 
 const Index = ({ data: { prismic } }, e) => {
@@ -30,6 +32,10 @@ const Index = ({ data: { prismic } }, e) => {
   const parentCallback = data => {
     setValue(data)
   }
+  const [showModal01, setShowModal01] = useState(false)
+  const openModal01 = () => {
+    setShowModal01(prev => !prev)
+  }
   return (
     <>
       <GlobalMessage parentCallback={parentCallback} />
@@ -46,7 +52,7 @@ const Index = ({ data: { prismic } }, e) => {
                   <ButtonBanner
                     key={index}
                     vitri={index}
-                    onClick={index === 1 ? openModal : ""}
+                    onClick={index === 1 ? openModal : openModal01}
                   >
                     {item.text_button[0]?.text}
                   </ButtonBanner>
@@ -59,6 +65,11 @@ const Index = ({ data: { prismic } }, e) => {
             setShowModal={setShowModal}
             openModal={openModal}
             dataVideo={data.body[0]}
+          />
+          <Modal
+            showModal={showModal01}
+            setShowModal={setShowModal01}
+            openModal={openModal01}
           />
         </Container>
         <SliceZone allSlices={data.body} />
