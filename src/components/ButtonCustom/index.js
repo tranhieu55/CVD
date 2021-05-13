@@ -31,6 +31,9 @@ const ButtonCustom = styled.button`
   position: relative;
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
+  @media (max-width: 600px) {
+    padding: ${({ pd1Mobile }) => `${pd1Mobile}px`} ${({ pd2Mobile }) => `${pd2Mobile}px`};
+  }
   @media (max-width: 992px) {
     display: ${({ isShow, Block }) =>
       isShow === "mobile" || isShow === "both" || Block ? "block" : "none"};
@@ -39,6 +42,7 @@ const ButtonCustom = styled.button`
     display: ${({ isShow, Block }) =>
       isShow === "both" || isShow === "desktop" || Block ? "block" : "none"};
   }
+
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;
