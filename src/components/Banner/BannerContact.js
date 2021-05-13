@@ -3,22 +3,22 @@ import React from "react"
 import styled from "styled-components"
 
 export default function BannerContacts({ title, content, button, Phones }) {
-  
   return (
     <Banner>
-      {title && content && button && Phones ? 
+      {title && content && button && Phones ? (
         <ContentBanner>
-        <Title>{title}</Title>
-        <Content>{RichText.render(content)}</Content>
-        <ButtonBanner>
-          <a href='#'>
-            <Buttons>{button}</Buttons>
-          </a>
-          <PhoneNumber>{Phones}</PhoneNumber>
-        </ButtonBanner>
-      </ContentBanner>
-      : <></>
-      }
+          <Title>{title}</Title>
+          <Content>{RichText.render(content)}</Content>
+          <ButtonBanner>
+            <a href="#">
+              <Buttons>{button}</Buttons>
+            </a>
+            <PhoneNumber>{Phones}</PhoneNumber>
+          </ButtonBanner>
+        </ContentBanner>
+      ) : (
+        <></>
+      )}
     </Banner>
   )
 }
@@ -109,18 +109,16 @@ const Content = styled.p`
   letter-spacing: 0;
   line-height: 26px;
   margin-top: 10px;
-    p{
-      a{
-        color: #ffffff;
-        border-bottom : 1px solid #888a99;
-        :hover{
-          text-decoration: none;
-        }
-      }
+  p {
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    @media(max-width: 600px){
-      margin-top: 0px;
-    }
+  }
+  @media (max-width: 600px) {
+    margin-top: 0px;
+  }
 `
 const Buttons = styled.button`
   box-sizing: border-box;
@@ -137,7 +135,7 @@ const Buttons = styled.button`
   text-align: center;
   background: transparent;
   padding: 14px 0px;
-  :hover{
+  :hover {
     background: #fecf09;
     color: #101010;
     border: 2px solid #fecf09;

@@ -257,8 +257,8 @@ const WrapperHeader = styled.div`
   .dropdown_services {
     .menu-area_services {
       max-height: 100% !important;
-      top: ${({ dataGlobalMessage }) =>
-        dataGlobalMessage === true ? "72px" : "119px"};
+      top: ${({ dataGlobalMessage, location }) =>
+        dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
     }
   }
 
