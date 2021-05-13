@@ -266,19 +266,13 @@ const WrapperHeader = styled.div`
   .show {
     position: fixed;
     top: 0 !important;
-    height: 100vh;
+    max-height: 100vh;
     z-index: 1000;
     width: 400px;
     max-width: 100%;
-    background-image: url(${({ backgroundMobile }) => backgroundMobile});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     left: 0%;
-    transition: all 0.4s;
     padding: 48px;
   }
   .icon-close {
@@ -640,15 +634,6 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
-    // .mask ::before {
-    //   position: absolute;
-    //   content: "";
-    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    //   height: 100%;
-    //   width: 100%;
-    //   left: 0;
-    //   opacity: 30%;
-    // }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -726,11 +711,15 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      /* background: gray; */
-      transition: all 0.5s ease;
+      /* transition: all 0.5s ease-in; */
       top: 0px;
       position: absolute;
       width: 100vw;
+      padding: 48px;
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
