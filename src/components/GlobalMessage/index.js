@@ -3,7 +3,7 @@ import React from "react"
 import { useState } from "react"
 import styled from "styled-components"
 
-export default function GlobalMessage() {
+export default function GlobalMessage({ parentCallback }) {
   const data = useStaticQuery(graphql`
     query GlobalQuery {
       prismic {
@@ -39,8 +39,8 @@ export default function GlobalMessage() {
   const [show, setShow] = useState(true)
   function showGlobal() {
     setShow(!show)
+    parentCallback(show)
   }
-
   return (
     <Container open={show}>
       {texts ? (
@@ -85,7 +85,8 @@ const Text = styled.span`
   line-height: ${({ lh }) => `${lh}px`};
   margin-bottom: 0px;
   margin-right: 4px;
-  @media(max-width: 600px){
+  margin-top: 3px;
+  @media (max-width: 600px) {
     line-height: 20px;
   }
 `
@@ -101,16 +102,17 @@ const LI = styled.span`
   border-bottom: 1px solid #ffffff;
   height: 18px;
   cursor: pointer;
-  @media(max-width: 600px){
+  margin-top: 3px;
+  @media (max-width: 600px) {
     line-height: 20px;
   }
 `
 const Content = styled.div`
   display: flex;
-  margin: auto ;
+  margin: auto;
   width: 299px;
-  @media(max-width: 600px){
-    margin: auto 14.5px; 
+  @media (max-width: 600px) {
+    margin: auto 14.5px;
     width: 100%;
   }
   @media (max-width: 374px) {

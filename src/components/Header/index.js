@@ -10,13 +10,14 @@ import logoIconBack from "../../images/long-arrow-left@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
 import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
-import { Form, Nav, Navbar } from "react-bootstrap"
+import { Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
 import P from "../../components/bits/Typography"
 import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import useOnClickOutside from "../../hooks/clickoutside"
+import Modal from "../ModalContact/index.js"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -257,26 +258,21 @@ const WrapperHeader = styled.div`
   .dropdown_services {
     .menu-area_services {
       max-height: 100% !important;
-      top: 72px;
+      top: ${({ dataGlobalMessage, location }) =>
+        dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
     }
   }
 
   .show {
     position: fixed;
     top: 0 !important;
-    height: 100vh;
+    max-height: 100vh;
     z-index: 1000;
     width: 400px;
     max-width: 100%;
-    background-image: url(${({ backgroundMobile }) => backgroundMobile});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     left: 0%;
-    transition: all 0.4s;
     padding: 48px;
   }
   .icon-close {
@@ -638,15 +634,6 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
-    // .mask ::before {
-    //   position: absolute;
-    //   content: "";
-    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    //   height: 100%;
-    //   width: 100%;
-    //   left: 0;
-    //   opacity: 30%;
-    // }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -724,11 +711,15 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      /* background: gray; */
-      transition: all 0.5s ease;
+      /* transition: all 0.5s ease-in; */
       top: 0px;
       position: absolute;
       width: 100vw;
+      padding: 48px;
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -1133,7 +1124,12 @@ const Span = styled.span`
   font-size: 18px;
 `
 
-const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
+const Header = ({
+  location,
+  dataMenuHeader,
+  dataServicesMenu,
+  dataGlobalMessage,
+}) => {
   const dataServices =
     dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
       ? dataServicesMenu?.edges[0]?.node?.body
@@ -1160,6 +1156,10 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
 
@@ -1294,9 +1294,9 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
       return "menu-nav-white"
     }
   }
-
   return (
     <WrapperHeader
+      dataGlobalMessage={dataGlobalMessage}
       backgroundMobile={backgroundMobile}
       location={location}
       scroll={scroll}
@@ -1578,7 +1578,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 </Li>
               ))}
           </Nav>
-          <Form className="my-form">
+          <div className="my-form">
             <>
               {dataIcon ? (
                 <Icon>
@@ -1607,12 +1607,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                       className={
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
-                      w="100"
+                      wt="132"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"
                       pd2="19.5"
                       lineh="22"
+                      pd1Mobile="13"
+                      pd2Mobile="19.5"
                     >
                       {index === 1 ? (
                         <GetInTouch>
@@ -1625,7 +1627,7 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                           </a>
                         </GetInTouch>
                       ) : (
-                        <GetInTouch>
+                        <GetInTouch onClick={openModal}>
                           {item?.primary?.text_button[0]?.text}
                         </GetInTouch>
                       )}
@@ -1636,9 +1638,14 @@ const Header = ({ location, dataMenuHeader, dataServicesMenu }) => {
                 <></>
               )}
             </>
-          </Form>
+          </div>
         </Navbar.Collapse>
       </Navbar>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        openModal={openModal}
+      />
     </WrapperHeader>
   )
 }
