@@ -68,7 +68,7 @@ const ButtonClose = styled.img`
     font-size: 10px;
   }
   @media (min-width: 600px) {
-    top: 22px;
+    top: 18px;
     right: 16px;
   }
   @media (min-width: 768px) {
