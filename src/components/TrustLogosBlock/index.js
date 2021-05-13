@@ -1,15 +1,26 @@
 import React from "react"
 import styled from "styled-components"
 
-const LogosBlock = () => {
+const LogosBlock = ({ input }) => {
+  // get data title
+  const dataTitle = input?.primary?.title[0]?.text
+
+  // get data list
+  const dataListBlog = input?.fields
+
   return (
     <Container>
       <Title>Trusted by the best.</Title>
       <Body>
         <ListLogo>
-          <BlockLogo />
-          <BlockLogo />
-          <BlockLogo />
+          {dataListBlog.map(element => {
+            console.log(element)
+            return (
+              <BlockLogo>
+                <IMG src={element?.logo?.url} alt={element?.logo?.alt} />
+              </BlockLogo>
+            )
+          })}
         </ListLogo>
       </Body>
     </Container>
@@ -23,10 +34,13 @@ const Container = styled.div`
   box-sizing: border-box;
   padding-top: 48.35px;
   padding-bottom: 75px;
-
   @media (max-width: 600px) {
     padding-top: 35px;
     padding-bottom: 46px;
+    margin-top: -41px;
+  }
+  @media (min-width: 600px) {
+    margin-top: -81px;
   }
 `
 const Title = styled.h4`
@@ -38,10 +52,10 @@ const Title = styled.h4`
   letter-spacing: -0.5px;
   line-height: 32px;
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 28.8px;
 
   @media (max-width: 600px) {
-    margin-bottom: 32px;
+    margin-bottom: 24.43px;
   }
 `
 const Body = styled.div`
@@ -62,5 +76,10 @@ const ListLogo = styled.div`
 const BlockLogo = styled.div`
   height: 60.86px;
   width: 227px;
-  background-color: gray;
+`
+
+const IMG = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `

@@ -64,6 +64,7 @@ const PageBlog = () => {
     data && data.prismic.allPost_listing_pages.edges[0]?.node
       ? data.prismic.allPost_listing_pages.edges[0]?.node
       : []
+
   return (
     <Layout location="/pageblog">
       <SEO props={data} />

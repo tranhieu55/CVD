@@ -9,7 +9,6 @@ import ModalVideo from "../components/ModalVideo"
 import Modal from "../components/ModalContact"
 
 import { useState } from "react"
-import LogosBlock from "../components/TrustLogosBlock"
 
 const Index = ({ data: { prismic } }, e) => {
   const data =
@@ -74,8 +73,6 @@ const Index = ({ data: { prismic } }, e) => {
           />
         </Container>
         <SliceZone allSlices={data.body} />
-        {/* thử nhớ */}
-        <LogosBlock />
         <OurServices />
       </Layout>
     </>
@@ -275,6 +272,16 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyTrust_logos_block {
+                type
+                label
+                fields {
+                  logo
+                }
+                primary {
+                  title
+                }
+              }
               ... on PRISMIC_HomepageBodyVideo_modal {
                 type
                 label
