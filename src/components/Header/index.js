@@ -10,13 +10,14 @@ import logoIconBack from "../../images/long-arrow-left@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
 import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
-import { Form, Nav, Navbar } from "react-bootstrap"
+import { Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
 import P from "../../components/bits/Typography"
 import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import useOnClickOutside from "../../hooks/clickoutside"
+import Modal from "../ModalContact/index.js"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -1166,6 +1167,10 @@ const Header = ({
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
 
@@ -1584,7 +1589,7 @@ const Header = ({
                 </Li>
               ))}
           </Nav>
-          <Form className="my-form">
+          <div className="my-form">
             <>
               {dataIcon ? (
                 <Icon>
@@ -1619,6 +1624,8 @@ const Header = ({
                       pd1="9"
                       pd2="19.5"
                       lineh="22"
+                      pd1Mobile="13"
+                      pd2Mobile="19.5"
                     >
                       {index === 1 ? (
                         <GetInTouch>
@@ -1631,7 +1638,7 @@ const Header = ({
                           </a>
                         </GetInTouch>
                       ) : (
-                        <GetInTouch>
+                        <GetInTouch onClick={openModal}>
                           {item?.primary?.text_button[0]?.text}
                         </GetInTouch>
                       )}
@@ -1642,9 +1649,14 @@ const Header = ({
                 <></>
               )}
             </>
-          </Form>
+          </div>
         </Navbar.Collapse>
       </Navbar>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        openModal={openModal}
+      />
     </WrapperHeader>
   )
 }
