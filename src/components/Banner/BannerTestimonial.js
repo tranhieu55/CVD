@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components'
 
 
-export default function  BannerTestimonial() {
+export default function  BannerTestimonial({title, subTitle}) {
     return (
         <Container>
             <Content>
-                <Text>TESTIMONIALS</Text>
-                <Title>Happy  clients, happy life.</Title>
+                <Text>{subTitle}</Text>
+                <Title>{title}</Title>
             </Content>
         </Container>
     )
@@ -20,6 +20,7 @@ const Container = styled.div`
     margin-bottom: 78px;
     @media(max-width: 600px){
         height: 209px;
+        margin-bottom: 30px;
     }
 `
 const Content = styled.div`

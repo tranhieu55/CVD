@@ -35,6 +35,7 @@ import Derection from "../components/Contact/Derection/index"
 import OurWorkProjects from "../components/OurWorkProjects/index"
 import CardPartners from "../components/CardPartners"
 import CardPageBlog from "../components/CardPageBlog"
+import ColumTestimonial from "../components/ColumTestimonial/index";
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -121,6 +122,12 @@ const SliceZone = props => {
           return (
             <>
               <HappyClinetssss key={index} input={s} />
+            </>
+          )
+        case "content_section":
+          return (
+            <>
+              <ColumTestimonial key={index} input={s} />
             </>
           )
         case "our_services":
