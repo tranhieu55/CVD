@@ -63,16 +63,20 @@ const ButtonClose = styled.img`
     right: 5px;
   }
   @media (max-width: 600px) {
-    top: 12px;
+    top: 8px;
     right: 5px;
     font-size: 10px;
   }
   @media (min-width: 600px) {
-    top: 22px;
+    top: 18px;
+    right: 16px;
+  }
+  @media (min-width: 768px) {
+    top: 18px;
     right: 16px;
   }
   @media (min-width: 1200px) {
-    top: 88px;
+    top: 72px;
     right: 38px;
   }
 `
@@ -85,6 +89,7 @@ const Content = styled.div`
     }
     @media (min-width: 1200px) {
       margin-bottom: 62px;
+      height: 869px;
     }
   }
 `
@@ -104,10 +109,9 @@ const Modal = styled.div`
     font-size: 16px;
     z-index: 1123;
     @media (max-width: 600px) {
-      margin-right: 20px;
+      margin-right: 25px;
     }
   }
-  height: 100vh;
   width: 100%;
   border-radius: 5px;
   background-color: #ffffff;
@@ -116,8 +120,10 @@ const Modal = styled.div`
   margin: auto;
   background-color: transparent;
   z-index: 1;
+  @media (max-width: 374px) and (max-height: 569px) {
+    height: auto !important;
+  }
   @media (max-width: 600px) {
-    margin-top: 50%;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -127,7 +133,8 @@ const Modal = styled.div`
     padding-right: 16px;
   }
   @media (min-width: 1200px) {
-    padding-top: 80px;
+    height: 869px;
+    padding-top: 63px;
     padding-bottom: 62px;
     padding-left: 38px;
     padding-right: 38px;
