@@ -1,35 +1,8 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
+
 
 const HappyClient = ({ input }) => {
-  const data = useStaticQuery(graphql`
-    query queryHappyClient {
-      prismic {
-        allHomepages {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_HomepageBodyHappy_clients {
-                  type
-                  label
-                  primary {
-                    title_happy_client
-                  }
-                  fields {
-                    logo_client
-                    qoute_of_client
-                    sub_title
-                    title
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
   const Titles = input ? input.primary?.title_happy_client?.map(item => item?.text ? item?.text : item) : [];
 
   const [indicator, setindicator] = useState(0)
