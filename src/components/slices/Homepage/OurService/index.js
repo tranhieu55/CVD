@@ -68,7 +68,11 @@ const Container = styled.div`
   }
   @media (min-width: 1024px) {
     height: 730px;
-    margin: 96px 16px 0px;
+    margin: 96px 0px 0px;
+  }
+  @media(min-width: 1200px){
+    margin: 96px 0px 0px;
+    height: 660px;
   }
   @media (min-width: 1366px) {
     height: 660px;
@@ -99,10 +103,16 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 56px;
-    margin: 88px 0px 0px;
+    margin: 88px 16px 0px;
+  }
+  @media(min-width: 1200px){
+    margin: 88px 56px 0px;
   }
   @media(min-width: 1366px){
-    margin: 0px 16px;
+    margin: 88px 86px 0px;
+  }
+  @media(min-width: 1500px){
+    margin: 96px 116px 37px;
   }
   @media(min-width: 1600px){
     height: 56px;
@@ -156,13 +166,19 @@ const Content = styled.div`
     margin-top: 32px;
   }
   @media(min-width: 1024px){
-    height: 330px;
+    height: auto;
     margin: 0px;
     display: flex;
     margin-top: 32px;
   }
+  @media(min-width: 1200px){
+    margin: 32px 56px 0px;
+  }
   @media(min-width: 1366px){
-    margin: 0px 16px;
+    margin: 32px 86px 0px;
+  }
+  @media(min-width: 1500px){
+    margin: 96px 116px 37px;
   }
   @media(min-width: 1600px){
     height: 330px;

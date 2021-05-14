@@ -110,6 +110,7 @@ const Content = styled.p`
   line-height: 26px;
   margin-top: 10px;
   p {
+    color: #ffffff;
     a {
       color: #ffffff;
       text-decoration: underline;

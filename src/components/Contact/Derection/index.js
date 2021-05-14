@@ -9,19 +9,15 @@ export default function Derection ({input}) {
     overflow:hidden;
     `
     const Derections = styled.div`
-        width: 556px;
         margin: 66px 0px 72px 180px;
         @media(max-width: 600px){
-            margin: 512px auto 24px ;
-            width: 343px;
+            margin: 512px 16px 24px ;
         }
         @media(max-width: 360px){
-            margin: 512px 0px 24px 16px;
-            width: 328px;
+            margin: 512px 16px 24px;
         }
         @media(max-width: 320px){
-            margin: 565px 0px 24px 16px;
-            width: 288px;
+            margin: 565px 16px 24px;
         }
         @media(min-width: 600px){
             margin: 66px 0px 72px 16px;
