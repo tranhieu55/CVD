@@ -1217,7 +1217,8 @@ const Header = ({
       location === "/what-we-do" ||
       location === "/partners" ||
       location === "/pageblog" ||
-      location === "/blog-details"
+      location === "/blog-details" ||
+      location === "/testimonial"
     ) {
       return "menu-list_item_text-black"
     }
@@ -1243,6 +1244,7 @@ const Header = ({
       location === "/partners" ||
       location === "/pageblog" ||
       location === "/blog-details" ||
+      location === "/testimonial" ||
       show > 0 ||
       !!isDisPlayModalService
     ) {
@@ -1260,7 +1262,8 @@ const Header = ({
       location === "/what-we-do" ||
       location === "/partners" ||
       location === "/pageblog" ||
-      location === "/blog-details"
+      location === "/blog-details"||
+      location === "/testimonial"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1283,7 +1286,8 @@ const Header = ({
       location === "/what-we-do" ||
       location === "/partners" ||
       location === "/pageblog" ||
-      location === "/blog-details"
+      location === "/blog-details"||
+      location === "/testimonial"
     ) {
       if (show !== 0) {
         return "menu-nav-white"
@@ -1324,7 +1328,8 @@ const Header = ({
                   location === "/what-we-do" ||
                   location === "/partners" ||
                   location === "/pageblog" ||
-                  location === "/blog-details"
+                  location === "/blog-details"||
+                  location === "/testimonial"
                     ? logoBlack
                     : logoLight
                 }
@@ -1367,7 +1372,8 @@ const Header = ({
                     location === "/proposal" ||
                     location === "/partners" ||
                     location === "/pageblog" ||
-                    location === "/blog-details"
+                    location === "/blog-details"||
+                    location === "/testimonial"
                       ? "menu-list_item_white"
                       : "menu-list_item_gold"
                   } ${
