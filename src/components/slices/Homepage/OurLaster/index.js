@@ -64,19 +64,28 @@ const OurLasters = styled.div`
   position: relative;
   margin: 96px 184px 0px;
   @media (max-width: 600px) {
-    height: 862px;
+    height: auto;
     margin: 32px 16px 37px;
   }
   @media (max-width: 360px) {
     margin: 32px 16px 57px;
   }
   @media (min-width: 600px) {
-    height: 1243px;
+    height: auto;
     margin: 50px 16px 37px;
   }
   @media (min-width: 1024px) {
     height: 716px;
-    margin: 50px 16px 37px;
+    margin: 50px 32px 37px;
+  }
+  @media(min-width : 1200px){
+    margin: 50px 57px 37px;
+  }
+  @media(min-width: 1366px){
+    margin: 50px 87px 37px;
+  }
+  @media(min-width: 1500px){
+    margin: 96px 117px 37px;
   }
   @media (min-width: 1600px) {
     margin: 96px 184px 0px;
@@ -133,7 +142,6 @@ const Messagings = styled.h4`
 const ListPost = styled.div`
   height: 517px;
   width: 606px;
-
   &:hover {
     text-decoration: none;
   }
@@ -211,7 +219,7 @@ const Content = styled.span`
   display: flex;
   /* justify-content: space-between; */
   @media (max-width: 600px) {
-    height: 723px;
+    height: auto;
     width: 100%;
     display: block;
   }

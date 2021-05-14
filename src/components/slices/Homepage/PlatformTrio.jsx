@@ -138,7 +138,7 @@ const Title = styled.h2`
     height: 114px;
     word-spacing: -3.1px;
     padding: 9px 16px 0px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   @media (max-width: 320px) {
     padding: 9px 10px 0px;
