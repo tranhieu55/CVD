@@ -1613,7 +1613,7 @@ const Header = ({
                       className={
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
-                      w="100"
+                      wt="132"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"
