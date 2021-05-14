@@ -150,7 +150,7 @@ const BoxBtn = styled.div``
 const H2 = styled.h2``
 export default function Interested({ dataFooter }) {
   const dataBTG = dataFooter
-    ? dataFooter.edges[0].node.body.filter(item => item?.type ? item?.type === "cta" :"")
+    ? dataFooter.edges[0]?.node?.body?.filter(item => item?.type ? item?.type === "cta" :"")
     : []
   const dataBGR = dataBTG[0]
     ? dataBTG[0]?.primary?.background_color_cta_block
