@@ -3,47 +3,12 @@ import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  const data = useStaticQuery(graphql`
-    query queryListProject {
-      prismic {
-        allHomepages {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_HomepageBodyProject_tilesq {
-                  type
-                  label
-                  fields {
-                    project_item {
-                      ... on PRISMIC_Projects {
-                        name_category_of_project
-                        project_name
-                        _meta {
-                          uid
-                        }
-                        relationship_to_project_category {
-                          ... on PRISMIC_Category_ourwork {
-                            _meta {
-                              uid
-                            }
-                          }
-                        }
-                        project_header_image
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  
+  console.log({input});
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
-    if ( data && limit > data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length ? data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length : 0) {
+    if ( input && limit > input.fields?.length ? input.fields?.length : 0) {
       setLimit(4)
       setOrinal(0)
     } else {
@@ -54,12 +19,12 @@ const ProjectTiles = ({ input }) => {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {data && data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields ? data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields
+        {input && input.fields ? input.fields
           .slice(orinal, limit)
           ?.map((edge, index) => (
             <Colum
               className={`${
-                data.prismic.allHomepages.edges.length === 3
+                input.length === 3
                   ? "col-md-4"
                   : "col-md-6"
               }`}
@@ -90,7 +55,7 @@ const ProjectTiles = ({ input }) => {
             id="loadMore"
             onClick={(orinal, limit) => setMap(orinal, limit)}
           >
-            {data && data.prismic.allHomepages.edges[0]?.node.body[5]?.fields ?  data.prismic.allHomepages.edges[0]?.node.body[5]?.fields?.slice(orinal, limit)?.length > 3 ? "Load more case studies" : "Load less case studies" : ""}
+            {input && input?.fields ?  input?.fields?.slice(orinal, limit)?.length > 3 ? "Load more case studies" : "Load less case studies" : ""}
           </ButtonCustom>
         </MyBtn>
     </ListBlogStyle>
