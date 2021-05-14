@@ -221,10 +221,9 @@ const Content = styled.span`
   }
   @media (min-width: 1024px) {
     height: 520px;
-    width: 96%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
   }
   @media (min-width: 1600px) {
     height: 520px;
