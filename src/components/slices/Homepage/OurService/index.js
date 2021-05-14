@@ -68,7 +68,7 @@ const Container = styled.div`
   }
   @media (min-width: 1024px) {
     height: 730px;
-    margin: 96px 32px 0px;
+    margin: 96px 16px 0px;
   }
   @media (min-width: 1366px) {
     height: 660px;
@@ -81,16 +81,39 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
-  height: 56px;
-  color: #101010;
-  font-family: "Calibre Bold";
-  font-size: 64px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 56px;
-  max-width: 1240px;
-  margin: 0 auto;
-  margin-top: 88px;
+  @media(min-width: 600px){
+    height: 56px;
+    color: #101010;
+    font-family: "Calibre Bold";
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 56px;
+    margin: 88px 0px 0px;
+  }
+  @media(min-width: 1024px){
+    height: 56px;
+    color: #101010;
+    font-family: "Calibre Bold";
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 56px;
+    margin: 88px 0px 0px;
+  }
+  @media(min-width: 1366px){
+    margin: 0px 16px;
+  }
+  @media(min-width: 1600px){
+    height: 56px;
+    color: #101010;
+    font-family: "Calibre Bold";
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 56px;
+    margin: 88px 180px 0px 180px;
+  }
 `
 const Cards = styled.div`
   height: 136px;
@@ -126,11 +149,28 @@ const SubTitle = styled.h4`
   width: 286px;
 `
 const Content = styled.div`
-  height: 330px;
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  margin-top: 32px;
+  @media(min-width: 600px){
+    height: 330px;
+    margin: 0px;
+    display: flex;
+    margin-top: 32px;
+  }
+  @media(min-width: 1024px){
+    height: 330px;
+    margin: 0px;
+    display: flex;
+    margin-top: 32px;
+  }
+  @media(min-width: 1366px){
+    margin: 0px 16px;
+  }
+  @media(min-width: 1600px){
+    height: 330px;
+    margin: 0 180px;
+    display: flex;
+    margin-top: 32px;
+  }
+  
 `
 const SubText = styled.h4`
   color: #262626;

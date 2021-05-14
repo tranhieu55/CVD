@@ -154,6 +154,9 @@ const ClientsLeft = styled.div`
     position: relative;
     margin-right: 30px;
   }
+  @media(min-width: 1600px){
+    margin-right: 80px;
+  }
 `
 
 const Container = styled.div`

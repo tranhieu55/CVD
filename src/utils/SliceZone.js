@@ -35,11 +35,8 @@ import Derection from "../components/Contact/Derection/index"
 import OurWorkProjects from "../components/OurWorkProjects/index"
 import CardPartners from "../components/CardPartners"
 import CardPageBlog from "../components/CardPageBlog"
-<<<<<<< HEAD
 import TrustLogosBlock from "../components/TrustLogosBlock"
-=======
-import ColumTestimonial from "../components/ColumTestimonial/index";
->>>>>>> 4e1d065d5786d7826a1f635ebd50e8fdf67455b4
+import ColumTestimonial from "../components/ColumTestimonial/index"
 
 const SliceZone = props => {
   if (props.allSlices) {
