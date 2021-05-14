@@ -1298,6 +1298,7 @@ const Header = ({
       return "menu-nav-white"
     }
   }
+  console.log("bgr")
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1606,6 +1607,7 @@ const Header = ({
               )}
               {isShowCTA ? (
                 isShowCTA?.map((item, index) => {
+                  console.log("logggg", item.primary.background_color_button)
                   return (
                     <ButtonCustom
                       key={index}
@@ -1614,6 +1616,7 @@ const Header = ({
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
                       wt="132"
+                      w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"

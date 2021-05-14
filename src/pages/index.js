@@ -195,6 +195,8 @@ const ButtonBanner = styled.button`
     background: #fecf09;
     border: 2px solid #fecf09;
   }
+  background-color: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
+  color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
   @media (max-width: 600px) {
     margin-right: ${props => (props.vitri === 0 ? "16px" : "0px")};
     width: ${props => (props.vitri === 1 ? "156px" : "148px")};
@@ -211,9 +213,7 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
     border: 2px solid #fecf09;
-    color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
     border-radius: 3px;
   }
 `
