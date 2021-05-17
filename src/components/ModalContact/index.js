@@ -30,7 +30,7 @@ const Modals = ({ showModal, setShowModal }) => {
         }
     }
     `)
-    const Titles = data.prismic.allContact_pages.edges[0] ?  data.prismic.allContact_pages.edges[0].node.body?.filter(item => item.type === 'form_submit') : [];
+    const Titles = data?.prismic?.allContact_pages?.edges[0] ?  data?.prismic?.allContact_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === 'form_submit' : "") : [];
     const [isOpen, setIsOpen] = useState(null);
     function setLabels(index) {
         if (isOpen === index) {
