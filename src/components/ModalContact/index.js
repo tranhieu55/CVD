@@ -192,6 +192,7 @@ const Input = styled.input`
     border: 2px solid #cccccc;
     border-radius: 3px;
     padding-left: 24px;
+    padding-right: 24px;
     box-shadow: none;
     padding-top: 15px;
     position: relative;
@@ -306,6 +307,7 @@ const Textarea = styled.textarea`
     padding-left: 24px;
     box-shadow: none;
     padding-top: 25px;
+    padding-right: 24px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
