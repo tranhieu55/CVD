@@ -93,18 +93,18 @@ export default function FormSumit({ input }) {
     appearance: none;
     :focus {
       outline: none;
-      border: 2px solid #222222;
+      border: 2px solid #999999;
     }
     :active ~ label,
     :focus ~ label,
     :not(:placeholder-shown) ~ label {
-      color: #b6b6b6;
+      color: #999999;
       font-family: Calibre Semibold;
       font-size: 12px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(11px, -9px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
@@ -201,20 +201,20 @@ export default function FormSumit({ input }) {
     :active ~ label,
     :focus ~ label,
     :not(:placeholder-shown) ~ label {
-      color: #b6b6b6;
+      color: #999999;
       font-family: Calibre Semibold;
       font-size: 12px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(11px, -9px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
     }
     :focus {
       outline: none;
-      border: 2px solid #222222;
+      border: 2px solid #999999
     }
     @media (max-width: 768px) {
       margin-bottom: 10px;
