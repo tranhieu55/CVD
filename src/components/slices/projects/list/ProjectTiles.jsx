@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
@@ -66,7 +65,7 @@ const ProjectTiles = ({ input }) => {
 export default ProjectTiles
 
 const ListBlogStyle = styled.div`
-  margin-top: -71px;
+  // margin-top: -71px;
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
@@ -121,6 +120,7 @@ const Rows = styled.div`
   @media (max-width: 600px) {
     margin-left: 0px;
     margin-right: 0px;
+    margin-top: 67px;
   }
 `
 const Colum = styled.div`

@@ -52,6 +52,16 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyTrust_logos_block {
+                type
+                label
+                fields {
+                  logo
+                }
+                primary {
+                  title
+                }
+              }
               ... on PRISMIC_HomepageBodyVideo_modal {
                 type
                 label
