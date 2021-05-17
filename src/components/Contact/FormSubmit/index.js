@@ -118,7 +118,7 @@ export default function FormSumit({ input }) {
           border: 2px solid #6E6E6E ;
         }
         :focus~label{
-            color: ##999999;
+            color: #999999;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
@@ -132,7 +132,7 @@ export default function FormSumit({ input }) {
             text-transform: uppercase;
         }
         :not(:placeholder-shown) ~ label{
-            color: ##999999;
+            color: #999999;
             font-family: Calibre Semibold;
             font-size: 14px;
             letter-spacing: 1px;
