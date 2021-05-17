@@ -37,7 +37,7 @@ const ButtonCustom = styled.button`
     width: ${({ w }) => `${w}%`};
     display: ${({ isShow, Block }) =>
       isShow === "mobile" || isShow === "both" || Block ? "block" : "none"};
-    width: 100%;
+      
   }
   @media (min-width: 992px) {
     display: ${({ isShow, Block }) =>
