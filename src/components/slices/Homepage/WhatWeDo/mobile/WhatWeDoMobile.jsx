@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { RichText } from "prismic-reactjs"
-import { Link } from "gatsby"
-import Button from "../../../../bits/Button"
 import { Collapse } from "reactstrap"
 
 export default function WhatWeDoMobile(props) {
@@ -11,7 +9,6 @@ export default function WhatWeDoMobile(props) {
 
   const defaultService = JSON.stringify(fields[0]?.service[0]?.text)
   const defaultContent = fields[0]?.content
-  const defaultIndicator = 0
 
   const heading = input
     ? input.primary?.title[0]?.text

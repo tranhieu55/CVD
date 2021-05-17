@@ -63,7 +63,7 @@ const WrapperHeader = styled.div`
   }
   .fixedTop {
     background-color: ${({ show }) =>
-      show !== 0 ? "white !important" : "transparent"};
+      show > 150 ? "white !important" : "transparent"};
   }
   a:hover {
     text-decoration: none;
@@ -1156,6 +1156,7 @@ const Header = ({
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
+  const [checkValueTest, setCheckValueTest] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
@@ -1169,8 +1170,9 @@ const Header = ({
   useEffect(() => {
     window.onscroll = function () {
       var st = window.pageYOffset
+      console.log("data", st)
       if (st > lastScrollTop) {
-        if (window.pageYOffset > 10) {
+        if (window.pageYOffset > 0) {
           setScroll(false)
         } else {
           setScroll(true)
@@ -1189,8 +1191,9 @@ const Header = ({
 
   const handleScroll = () => {
     const _show = window.scrollY
-    if (_show > 0) {
+    if (_show > -1) {
       setIsDisPlayModalService(false)
+      setCheckValueTest(true)
     }
     setShow(_show)
   }
@@ -1225,7 +1228,7 @@ const Header = ({
     if (show === 0 && !!isDisPlayModalService) {
       return "menu-list_item_text-black"
     } else {
-      if (show === 0) {
+      if (show < 150) {
         return "menu-list_item_text-white"
       }
       if (!isDisPlayModalService && !scroll) {
@@ -1245,7 +1248,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
-      show > 0 ||
+      show > 150 ||
       !!isDisPlayModalService
     ) {
       return "#101010"
@@ -1315,7 +1318,7 @@ const Header = ({
       >
         <LogoHeader show={show}>
           <Navbar.Brand as={Link} to="/">
-            {show !== 0 ? (
+            {show > 150 ? (
               <IMG src={logoBlack} />
             ) : (
               <IMG
