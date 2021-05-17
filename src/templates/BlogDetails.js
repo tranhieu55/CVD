@@ -59,12 +59,14 @@ const BlogDetails = props => {
             {dataIcon ? (
               dataIcon?.map((item, key) =>
                 item?.fields?.map((x, index) => (
-                  <Icon
-                    key={index}
-                    value={index}
-                    src={x?.icon_image?.url ? x?.icon_image?.url : ""}
-                    alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
-                  />
+                  <a href="#">
+                    <Icon
+                      key={index}
+                      value={index}
+                      src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                      alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                    />
+                  </a>
                 ))
               )
             ) : (

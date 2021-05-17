@@ -63,7 +63,7 @@ const WrapperHeader = styled.div`
   }
   .fixedTop {
     background-color: ${({ show }) =>
-      show !== 0 ? "white !important" : "transparent"};
+      show > 150 ? "white !important" : "transparent"};
   }
   a:hover {
     text-decoration: none;
@@ -189,6 +189,14 @@ const WrapperHeader = styled.div`
         transition: all 0.5s ease-in-out;
         overflow: hidden;
         height: 405px;
+        @media (max-width: 992px) {
+           top: 0;
+        }
+        @media (min-width: 992px) {
+           top: ${({ dataGlobalMessage, location }) =>
+             dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
+    }
+        }
         & > ul {
           list-style: none;
         }
@@ -266,7 +274,7 @@ const WrapperHeader = styled.div`
   .show {
     position: fixed;
     top: 0 !important;
-    max-height: 100vh;
+    height: 100vh;
     z-index: 1000;
     width: 400px;
     max-width: 100%;
@@ -1158,6 +1166,7 @@ const Header = ({
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
+  const [checkValueTest, setCheckValueTest] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
@@ -1172,7 +1181,7 @@ const Header = ({
     window.onscroll = function () {
       var st = window.pageYOffset
       if (st > lastScrollTop) {
-        if (window.pageYOffset > 10) {
+        if (window.pageYOffset > 0) {
           setScroll(false)
         } else {
           setScroll(true)
@@ -1191,8 +1200,9 @@ const Header = ({
 
   const handleScroll = () => {
     const _show = window.scrollY
-    if (_show > 0) {
+    if (_show > -1) {
       setIsDisPlayModalService(false)
+      setCheckValueTest(true)
     }
     setShow(_show)
   }
@@ -1227,7 +1237,7 @@ const Header = ({
     if (show === 0 && !!isDisPlayModalService) {
       return "menu-list_item_text-black"
     } else {
-      if (show === 0) {
+      if (show < 150) {
         return "menu-list_item_text-white"
       }
       if (!isDisPlayModalService && !scroll) {
@@ -1247,7 +1257,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
-      show > 0 ||
+      show > 150 ||
       !!isDisPlayModalService
     ) {
       return "#101010"
@@ -1317,7 +1327,7 @@ const Header = ({
       >
         <LogoHeader show={show}>
           <Navbar.Brand as={Link} to="/">
-            {show !== 0 ? (
+            {show > 150 ? (
               <IMG src={logoBlack} />
             ) : (
               <IMG
@@ -1345,10 +1355,7 @@ const Header = ({
           ) : (
             <MenuText className={checkTextMenu()}>Menu</MenuText>
           )}
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setShow(!show)}
-          >
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
@@ -1615,6 +1622,7 @@ const Header = ({
                       className={
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
+                      wt="132"
                       w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}

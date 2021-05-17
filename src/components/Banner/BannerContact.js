@@ -101,7 +101,7 @@ const Title = styled.h1`
     font-size: 64px;
   }
 `
-const Content = styled.p`
+const Content = styled.div`
   color: #ffffff;
   font-family: Calibre Medium;
   font-size: 20px;
@@ -110,6 +110,7 @@ const Content = styled.p`
   line-height: 26px;
   margin-top: 10px;
   p {
+    color: #ffffff;
     a {
       color: #ffffff;
       text-decoration: underline;

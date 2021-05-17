@@ -5,7 +5,6 @@ export default function FormSumit({ input }) {
   const data = input;
   const FormSumits = styled.div`
     height: 802px;
-    width: 604px;
     border-radius: 3px;
     background-color: #ffffff;
     box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
@@ -15,24 +14,21 @@ export default function FormSumit({ input }) {
     @media (max-width: 600px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 343px;
+      margin: 0px 16px;
       top: 391px;
       height: 718px;
     }
     @media (max-width: 360px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 320px;
+      margin: 0px 16px;
       top: 391px;
       height: 718px;
     }
     @media (max-width: 320px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 288px;
+      margin: 0px 16px;
       top: 435px;
       height: 718px;
     }
@@ -111,17 +107,58 @@ export default function FormSumit({ input }) {
     }
     @media (max-width: 600px) {
       margin-bottom: 16px;
-    }
-    :focus {
-      outline: none;
-      border: 2px solid #222222;
-    }
+      padding-top: 0px;
+      text-indent: 14px;
+      :focus{
+        outline: none;
+        border: 2px solid #6E6E6E ;
+      }
+      :focus~label{
+          color: ##999999;
+          font-family: Calibre Semibold;
+          font-size: 14px;
+          letter-spacing: 1px;
+          line-height: 24px;
+          position: absolute;
+          transform: translate(11px, -9px) scale(1);
+          top: 0px;
+          left: 0px;
+          background: #ffffff;
+          padding: 0px 5px;
+          text-transform: uppercase;
+      }
+      :not(:placeholder-shown) ~ label{
+          color: ##999999;
+          font-family: Calibre Semibold;
+          font-size: 14px;
+          letter-spacing: 1px;
+          line-height: 24px;
+          position: absolute;
+          transform: translate(11px, -9px) scale(1);
+          top: 0px;
+          left: 0px;
+          background: #ffffff;
+          padding: 0px 5px;
+          text-transform: uppercase;
+      }
+      :not(:placeholder-shown){
+          border: 2px solid #6E6E6E;
+      }
+      }
+      :focus {
+        outline: none;
+        border: 2px solid #222222;
+      }
 
-    color: #222222;
-    font-family: Calibre Regular;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 24px;
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+      height: 62px;
+      div{
+
+      }
   `
   const Inputs = styled.div`
     position: relative;
@@ -138,6 +175,11 @@ export default function FormSumit({ input }) {
       transform: translate(24px, 24px) scale(1);
       top: 0;
       left: 0;
+    }
+    @media(max-width: 600px){
+      label{
+        transform: translate(24px, 22px) scale(1);
+      }
     }
   `
   const Textarea = styled.textarea`
@@ -179,6 +221,45 @@ export default function FormSumit({ input }) {
     }
     @media (max-width: 768px) {
       margin-bottom: 10px;
+    }
+    @media(max-width: 600px){
+      text-indent: 14px;
+      padding-left: 0px;
+      :focus{
+        outline: none;
+        border: 2px solid #6E6E6E ;
+    }
+    :focus~label{
+        color: #999999;
+        font-family: Calibre Semibold;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        position: absolute;
+        transform: translate(11px, -9px) scale(1);
+        top: 0;
+        left: 0px;
+        background: #ffffff;
+        padding: 0px 5px;
+        text-transform: uppercase;
+    }
+    :not(:placeholder-shown) ~ label{
+        color: #999999;
+        font-family: Calibre Semibold;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        position: absolute;
+        transform: translate(11px, -9px) scale(1);
+        top: 0px;
+        left: 0px;
+        background: #ffffff;
+        padding: 0px 5px;
+        text-transform: uppercase;
+    }
+    :not(:placeholder-shown){
+        border: 2px solid #6E6E6E;
+    }
     }
 
     color: #222222;

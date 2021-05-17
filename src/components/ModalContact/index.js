@@ -30,7 +30,7 @@ const Modals = ({ showModal, setShowModal }) => {
         }
     }
     `)
-    const Titles = data.prismic.allContact_pages.edges[0] ?  data.prismic.allContact_pages.edges[0].node.body?.filter(item => item.type === 'form_submit') : [];
+    const Titles = data?.prismic?.allContact_pages?.edges[0] ?  data?.prismic?.allContact_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === 'form_submit' : "") : [];
     const [isOpen, setIsOpen] = useState(null);
     function setLabels(index) {
         if (isOpen === index) {
@@ -192,6 +192,7 @@ const Input = styled.input`
     border: 2px solid #cccccc;
     border-radius: 3px;
     padding-left: 24px;
+    padding-right: 24px;
     box-shadow: none;
     padding-top: 15px;
     position: relative;
@@ -306,6 +307,7 @@ const Textarea = styled.textarea`
     padding-left: 24px;
     box-shadow: none;
     padding-top: 25px;
+    padding-right: 24px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;

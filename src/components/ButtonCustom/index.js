@@ -33,10 +33,11 @@ const ButtonCustom = styled.button`
   white-space: ${({ wspace }) => `${wspace}`};
   @media (max-width: 992px) {
     padding: ${({ pd1Mobile }) => `${pd1Mobile}px`} ${({ pd2Mobile }) => `${pd2Mobile}px`};
-      
-    width: 100%;
+    width: ${({ wt }) => `${wt}px`};
+    width: ${({ w }) => `${w}%`};
     display: ${({ isShow, Block }) =>
       isShow === "mobile" || isShow === "both" || Block ? "block" : "none"};
+      
   }
   @media (min-width: 992px) {
     display: ${({ isShow, Block }) =>
