@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
+  
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
