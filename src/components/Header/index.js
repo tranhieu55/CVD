@@ -1298,7 +1298,6 @@ const Header = ({
       return "menu-nav-white"
     }
   }
-  console.log("bgr")
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1344,10 +1343,7 @@ const Header = ({
           ) : (
             <MenuText className={checkTextMenu()}>Menu</MenuText>
           )}
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setShow(!show)}
-          >
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
@@ -1607,7 +1603,6 @@ const Header = ({
               )}
               {isShowCTA ? (
                 isShowCTA?.map((item, index) => {
-                  console.log("logggg", item.primary.background_color_button)
                   return (
                     <ButtonCustom
                       key={index}
