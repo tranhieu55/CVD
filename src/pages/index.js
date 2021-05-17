@@ -23,7 +23,6 @@ const Index = ({ data: { prismic } }, e) => {
     data && data.background_image?.mobile?.url
       ? data.background_image?.mobile?.url
       : ""
-  console.log("hieutt", data.body[0])
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
