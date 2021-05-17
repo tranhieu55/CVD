@@ -108,6 +108,7 @@ export default function FormSumit({ input }) {
       left: 1px;
       text-transform: uppercase;
       background: #ffffff;
+      padding: 0px 5px;
     }
     @media (max-width: 600px) {
         margin-bottom: 16px;
@@ -212,6 +213,7 @@ export default function FormSumit({ input }) {
       left: 1px;
       text-transform: uppercase;
       background: #ffffff;
+      padding: 0px 5px;
     }
     :focus {
       outline: none;
