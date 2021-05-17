@@ -1611,7 +1611,6 @@ const Header = ({
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
                       wt="132"
-                      w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"
