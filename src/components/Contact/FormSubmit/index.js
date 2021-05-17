@@ -92,7 +92,7 @@ export default function FormSumit({ input }) {
     appearance: none;
     :focus {
       outline: none;
-      border: 2px solid #999999;
+      border: 2px solid #6E6E6E;
     }
     :active ~ label,
     :focus ~ label,
@@ -215,7 +215,7 @@ export default function FormSumit({ input }) {
     }
     :focus {
       outline: none;
-      border: 2px solid #999999
+      border: 2px solid #6E6E6E;
     }
     @media (max-width: 768px) {
       margin-bottom: 10px;
