@@ -82,9 +82,8 @@ export default function FormSumit({ input }) {
     border: 2px solid #cccccc;
     padding: 0px;
     padding-right: 24px;
-    text-indent: 24px;
+    text-indent: 14px;
     box-shadow: none;
-    padding-top: 28px;
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     animation-name: mui-auto-fill-cancel;
@@ -108,6 +107,7 @@ export default function FormSumit({ input }) {
       top: 0;
       left: 1px;
       text-transform: uppercase;
+      background: #ffffff;
     }
     @media (max-width: 600px) {
         margin-bottom: 16px;
@@ -189,8 +189,8 @@ export default function FormSumit({ input }) {
     animation-name: mui-auto-fill-cancel;
     border-radius: 3px;
     border: 2px solid #cccccc;
-    padding-top: 32px;
-    padding-left: 24px;
+    padding-top: 20px;
+    padding-left: 14px;
     padding-right: 24px;
     box-shadow: none;
     position: relative;
@@ -211,6 +211,7 @@ export default function FormSumit({ input }) {
       top: 0;
       left: 1px;
       text-transform: uppercase;
+      background: #ffffff;
     }
     :focus {
       outline: none;
