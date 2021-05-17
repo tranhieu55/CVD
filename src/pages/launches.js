@@ -32,8 +32,6 @@ const Launches = ({ input }) => {
     }
   `)
 
-  console.log({ data })
-
   const dataSEO = data.prismic.allLaunches_pages.edges[0].node
   //   const dataHeading =
   //     data.prismic.allNotfound_pages.edges[0].node.heading_text[0].text

@@ -266,7 +266,7 @@ const WrapperHeader = styled.div`
   .show {
     position: fixed;
     top: 0 !important;
-    max-height: 100vh;
+    height: 100vh;
     z-index: 1000;
     width: 400px;
     max-width: 100%;
@@ -1298,7 +1298,6 @@ const Header = ({
       return "menu-nav-white"
     }
   }
-  console.log("bgr")
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1344,10 +1343,7 @@ const Header = ({
           ) : (
             <MenuText className={checkTextMenu()}>Menu</MenuText>
           )}
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setShow(!show)}
-          >
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
@@ -1607,7 +1603,6 @@ const Header = ({
               )}
               {isShowCTA ? (
                 isShowCTA?.map((item, index) => {
-                  console.log("logggg", item.primary.background_color_button)
                   return (
                     <ButtonCustom
                       key={index}

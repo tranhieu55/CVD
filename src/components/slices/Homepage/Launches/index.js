@@ -2,14 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 function Launches({ input }) {
-  console.log({ input })
-
   // get data heading
   const dataHeading = input?.title[0].text
 
   // get data for list images
   const dataListPost = input.body[0].fields
-  console.log({ dataListPost })
   return (
     <>
       <Container>
