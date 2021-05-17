@@ -155,7 +155,7 @@ const ClientsLeft = styled.div`
     margin-right: 30px;
   }
   @media(min-width: 1600px){
-    margin-right: 56px;
+    margin-right: 80px;
   }
 `
 

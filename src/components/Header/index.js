@@ -1343,10 +1343,7 @@ const Header = ({
           ) : (
             <MenuText className={checkTextMenu()}>Menu</MenuText>
           )}
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setShow(!show)}
-          >
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
@@ -1614,6 +1611,7 @@ const Header = ({
                         index === 0 ? "mb17 button-header" : "button-header"
                       }
                       wt="132"
+                      w="100"
                       bgColor={item.primary.background_color_button}
                       textColor={checkColorTextButton(index)}
                       pd1="9"

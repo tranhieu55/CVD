@@ -3,12 +3,10 @@ import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  
-  console.log({input});
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
-    if ( input && limit > input.fields?.length ? input.fields?.length : 0) {
+    if (input && limit > input.fields?.length ? input.fields?.length : 0) {
       setLimit(4)
       setOrinal(0)
     } else {
@@ -19,15 +17,10 @@ const ProjectTiles = ({ input }) => {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {input && input.fields ? input.fields
-          .slice(orinal, limit)
-          ?.map((edge, index) => (
+        {input && input.fields ? (
+          input.fields.slice(orinal, limit)?.map((edge, index) => (
             <Colum
-              className={`${
-                input.length === 3
-                  ? "col-md-4"
-                  : "col-md-6"
-              }`}
+              className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
               key={index}
             >
               <DivIMG
@@ -44,20 +37,27 @@ const ProjectTiles = ({ input }) => {
                 <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
               </TitleImageBlog>
             </Colum>
-          )) : <></>}
+          ))
+        ) : (
+          <></>
+        )}
       </Rows>
       <MyBtn>
-          <ButtonCustom
-            wt="212"
-            ht="48"
-            lineh="48"
-            className="btn-studies"
-            id="loadMore"
-            onClick={(orinal, limit) => setMap(orinal, limit)}
-          >
-            {input && input?.fields ?  input?.fields?.slice(orinal, limit)?.length > 3 ? "Load more case studies" : "Load less case studies" : ""}
-          </ButtonCustom>
-        </MyBtn>
+        <ButtonCustom
+          wt="212"
+          ht="48"
+          lineh="48"
+          className="btn-studies"
+          id="loadMore"
+          onClick={(orinal, limit) => setMap(orinal, limit)}
+        >
+          {input && input?.fields
+            ? input?.fields?.slice(orinal, limit)?.length > 3
+              ? "Load more case studies"
+              : "Load less case studies"
+            : ""}
+        </ButtonCustom>
+      </MyBtn>
     </ListBlogStyle>
   )
 }
@@ -240,7 +240,7 @@ const ButtonCustom = styled.button`
     background-color: #ffd700;
     color: #000;
   }
-  :focus{
+  :focus {
     outline: none;
   }
   @media (max-width: 600px) {

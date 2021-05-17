@@ -23,7 +23,6 @@ const Index = ({ data: { prismic } }, e) => {
     data && data.background_image?.mobile?.url
       ? data.background_image?.mobile?.url
       : ""
-  console.log("hieutt", data.body[0])
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
@@ -195,6 +194,8 @@ const ButtonBanner = styled.button`
     background: #fecf09;
     border: 2px solid #fecf09;
   }
+  background-color: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
+  color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
   @media (max-width: 600px) {
     margin-right: ${props => (props.vitri === 0 ? "16px" : "0px")};
     width: ${props => (props.vitri === 1 ? "156px" : "148px")};
@@ -211,9 +212,7 @@ const ButtonBanner = styled.button`
     margin-right: 24px;
     height: 48px;
     width: 148px;
-    background: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
     border: 2px solid #fecf09;
-    color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
     border-radius: 3px;
   }
 `
