@@ -120,6 +120,7 @@ const Rows = styled.div`
   @media (max-width: 600px) {
     margin-left: 0px;
     margin-right: 0px;
+    margin-top: 67px;
   }
 `
 const Colum = styled.div`
