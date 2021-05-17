@@ -3,10 +3,6 @@ import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-<<<<<<< HEAD
-  console.log({ input })
-=======
->>>>>>> 7b91f818577ffd7d2bb516c634b11ca4b3eada08
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {

@@ -11,7 +11,6 @@ const ModalVideo = ({ showModal, setShowModal, dataVideo }) => {
       setIsOpen(index)
     }
   }
-  console.log("hello", dataVideo)
   return (
     <>
       {showModal ? (
