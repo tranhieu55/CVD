@@ -266,7 +266,7 @@ const WrapperHeader = styled.div`
   .show {
     position: fixed;
     top: 0 !important;
-    max-height: 100vh;
+    height: 100vh;
     z-index: 1000;
     width: 400px;
     max-width: 100%;
