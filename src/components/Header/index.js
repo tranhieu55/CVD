@@ -742,9 +742,11 @@ const WrapperHeader = styled.div`
   @media only screen and (min-width: 1024px) {
     .button-header {
       h2 {
-        font-family: ${({ show }) =>
-          show > 0 ? "Calibre Medium" : "Calibre Semibold"};
-        font-weight: ${({ show }) => (show > 0 ? "500" : "600")};
+        // font-family: {({ show }) =>
+        //   show > 0 ? "Calibre Medium" : "Calibre Semibold"};
+        // font-weight: {({ show }) => (show > 0 ? "500" : "600")};
+        font-family: Calibre Medium;
+        font-weight: 500;
       }
     }
     // .mask ::before {
