@@ -189,6 +189,12 @@ const WrapperHeader = styled.div`
         transition: all 0.5s ease-in-out;
         overflow: hidden;
         height: 405px;
+        @media (max-width: 992px) {
+          top: 0px;
+        }
+        @media (min-width: 992px) {
+          top: 72px;
+        }
         & > ul {
           list-style: none;
         }
@@ -1172,7 +1178,6 @@ const Header = ({
   useEffect(() => {
     window.onscroll = function () {
       var st = window.pageYOffset
-      console.log("data", st)
       if (st > lastScrollTop) {
         if (window.pageYOffset > 0) {
           setScroll(false)
