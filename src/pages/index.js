@@ -5,7 +5,6 @@ import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import OurServices from "../components/slices/Homepage/OurService"
 import GlobalMessage from "../components/GlobalMessage"
-import BannerHomePage from '../components/Banner/BannerHomePage';
 
 import { useState } from "react"
 import BannerHomepage from "../components/Banner/BannerHomePage"
@@ -52,6 +51,16 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyTrust_logos_block {
+                type
+                label
+                fields {
+                  logo
+                }
+                primary {
+                  title
+                }
+              }
               ... on PRISMIC_HomepageBodyVideo_modal {
                 type
                 label

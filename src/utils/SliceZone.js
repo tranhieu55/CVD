@@ -35,7 +35,8 @@ import Derection from "../components/Contact/Derection/index"
 import OurWorkProjects from "../components/OurWorkProjects/index"
 import CardPartners from "../components/CardPartners"
 import CardPageBlog from "../components/CardPageBlog"
-import ColumTestimonial from "../components/ColumTestimonial/index";
+import TrustLogosBlock from "../components/TrustLogosBlock"
+import ColumTestimonial from "../components/ColumTestimonial/index"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -70,6 +71,12 @@ const SliceZone = props => {
           return (
             <>
               <WhatWeDo key={index} input={s} />
+            </>
+          )
+        case "trust_logos_block":
+          return (
+            <>
+              <TrustLogosBlock key={index} input={s} />
             </>
           )
         case "big_image":

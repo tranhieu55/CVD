@@ -1,21 +1,26 @@
-import React from 'react';
-import Banner from '../components/Banner/BannerTestimonial';
-import Layout from '../components/Layout';
-import ColumTestimonial from '../components/ColumTestimonial/index';
-import SliceZone from '../utils/SliceZone';
-
+import React from "react"
+import Banner from "../components/Banner/BannerTestimonial"
+import Layout from "../components/Layout"
+import SliceZone from "../utils/SliceZone"
 
 export default function Testimonial({ data: { prismic } }) {
-    const data = prismic && prismic.allHappy_client_happy_life_pages?.edges[0]?.node ? prismic.allHappy_client_happy_life_pages?.edges[0]?.node : [];
-    const Title = data ? data.title_description?.map(item => item.text ? item.text : ""): "";
-    const SubTitle = data ? data.small_text?.map(item => item.text ? item.text : "") : "";
+  const data =
+    prismic && prismic.allHappy_client_happy_life_pages?.edges[0]?.node
+      ? prismic.allHappy_client_happy_life_pages?.edges[0]?.node
+      : []
+  const Title = data
+    ? data.title_description?.map(item => (item.text ? item.text : ""))
+    : ""
+  const SubTitle = data
+    ? data.small_text?.map(item => (item.text ? item.text : ""))
+    : ""
 
-    return (
+  return (
     <Layout location="/testimonial">
-        <Banner title={Title} subTitle={SubTitle}></Banner>
-        <SliceZone allSlices={data.body}  />
+      <Banner title={Title} subTitle={SubTitle}></Banner>
+      <SliceZone allSlices={data.body} />
     </Layout>
-    )
+  )
 }
 
 export const pageQuery = graphql`
