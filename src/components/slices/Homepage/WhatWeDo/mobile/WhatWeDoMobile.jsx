@@ -292,7 +292,7 @@ const Content = styled.div`
     width: 311px;
     color: #ffffff;
     font-family: Calibre Regular;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 0;
     line-height: 28px;
     margin-bottom: 10px;
@@ -305,7 +305,7 @@ const Content = styled.div`
 `
 const LearnMore = styled.h4`
   height: 20px;
-  width: 90px;
+  width: 91px;
   color: #fecf09;
   font-family: Calibre Medium;
   font-size: 20px;
