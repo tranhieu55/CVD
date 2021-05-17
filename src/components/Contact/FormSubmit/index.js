@@ -5,7 +5,6 @@ export default function FormSumit({ input }) {
   const data = input;
   const FormSumits = styled.div`
     height: 802px;
-    width: 604px;
     border-radius: 3px;
     background-color: #ffffff;
     box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
@@ -15,24 +14,21 @@ export default function FormSumit({ input }) {
     @media (max-width: 600px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 343px;
+      margin: 0px 16px;
       top: 391px;
       height: 718px;
     }
     @media (max-width: 360px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 320px;
+      margin: 0px 16px;
       top: 391px;
       height: 718px;
     }
     @media (max-width: 320px) {
       left: 0px;
       right: 0px;
-      margin: 0px auto;
-      width: 288px;
+      margin: 0px 16px;
       top: 435px;
       height: 718px;
     }

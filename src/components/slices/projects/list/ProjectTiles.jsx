@@ -3,53 +3,11 @@ import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  const data = useStaticQuery(graphql`
-    query queryListProject {
-      prismic {
-        allHomepages {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_HomepageBodyProject_tilesq {
-                  type
-                  label
-                  fields {
-                    project_item {
-                      ... on PRISMIC_Projects {
-                        name_category_of_project
-                        project_name
-                        _meta {
-                          uid
-                        }
-                        relationship_to_project_category {
-                          ... on PRISMIC_Category_ourwork {
-                            _meta {
-                              uid
-                            }
-                          }
-                        }
-                        project_header_image
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  console.log({ input })
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
   function setMap() {
-    if (
-      data &&
-      limit >
-        data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length
-        ? data?.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields?.length
-        : 0
-    ) {
+    if (input && limit > input.fields?.length ? input.fields?.length : 0) {
       setLimit(4)
       setOrinal(0)
     } else {
@@ -60,35 +18,27 @@ const ProjectTiles = ({ input }) => {
   return (
     <ListBlogStyle>
       <Rows className="row">
-        {data && data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields ? (
-          data.prismic?.allHomepages?.edges[0]?.node?.body[5]?.fields
-            .slice(orinal, limit)
-            ?.map((edge, index) => (
-              <Colum
-                className={`${
-                  data.prismic.allHomepages.edges.length === 3
-                    ? "col-md-4"
-                    : "col-md-6"
-                }`}
-                key={index}
+        {input && input.fields ? (
+          input.fields.slice(orinal, limit)?.map((edge, index) => (
+            <Colum
+              className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
+              key={index}
+            >
+              <DivIMG
+                as={Link}
+                to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
               >
-                <DivIMG
-                  as={Link}
-                  to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
-                >
-                  <Img
-                    alt={edge.project_item.project_header_image.alt}
-                    src={edge.project_item.project_header_image.url}
-                  />
-                </DivIMG>
-                <TitleImageBlog>
-                  <Span>{edge.project_item.name_category_of_project}</Span>
-                  <H3>
-                    {edge.project_item.project_name.map(item => item.text)}
-                  </H3>
-                </TitleImageBlog>
-              </Colum>
-            ))
+                <Img
+                  alt={edge.project_item.project_header_image.alt}
+                  src={edge.project_item.project_header_image.url}
+                />
+              </DivIMG>
+              <TitleImageBlog>
+                <Span>{edge.project_item.name_category_of_project}</Span>
+                <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
+              </TitleImageBlog>
+            </Colum>
+          ))
         ) : (
           <></>
         )}
@@ -102,11 +52,8 @@ const ProjectTiles = ({ input }) => {
           id="loadMore"
           onClick={(orinal, limit) => setMap(orinal, limit)}
         >
-          {data && data.prismic.allHomepages.edges[0]?.node.body[5]?.fields
-            ? data.prismic.allHomepages.edges[0]?.node.body[5]?.fields?.slice(
-                orinal,
-                limit
-              )?.length > 3
+          {input && input?.fields
+            ? input?.fields?.slice(orinal, limit)?.length > 3
               ? "Load more case studies"
               : "Load less case studies"
             : ""}

@@ -10,7 +10,11 @@ export default function WhatWeDoDesktop(props) {
   const defaultContent = fields[0]?.content
   const defaultIndicator = 0
 
-  const heading = input ?  input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : [];
+  const heading = input
+    ? input.primary?.title[0]?.text
+      ? input.primary?.title[0]?.text
+      : ""
+    : []
 
   useEffect(() => {
     setTimeout(() => {}, 3000)
@@ -29,37 +33,52 @@ export default function WhatWeDoDesktop(props) {
 
   return (
     <>
-    <Image src={input ? input?.primary?.background_image_what_we_do?.url ? input?.primary?.background_image_what_we_do?.url : "" : ""}></Image>
-    <ContainerDesktop>
-      <Contentleft>
-        <Left>
-          <Title>{heading}</Title>
-          {fields ? fields?.map((service, i) => {
-            const title = service?.service[0]?.text ? service?.service[0]?.text : ""
-            return (
-              <React.Fragment key={i}>
-                <Service
-                  onClick={() => updateSelected(i)}
-                  indicator={i === indicator}
-                >
-                  {title? title : ""}
-                </Service>
-              </React.Fragment>
-            )
-          }): <></>}
-        </Left>
-      </Contentleft>
-      <ConTentRight>
-        <Right>
-          <UpperContent>
-            <Content>{RichText?.render(content)}</Content>
-            <LearnMore>
-              <span>Learn more</span>
-            </LearnMore>
-          </UpperContent>
-        </Right>
-      </ConTentRight>
-    </ContainerDesktop>
+      <Image
+        src={
+          input
+            ? input?.primary?.background_image_what_we_do?.url
+              ? input?.primary?.background_image_what_we_do?.url
+              : ""
+            : ""
+        }
+      ></Image>
+      <ContainerDesktop>
+        <Contentleft>
+          <Left>
+            <Title>{heading}</Title>
+            {fields ? (
+              fields?.map((service, i) => {
+                const title = service?.service[0]?.text
+                  ? service?.service[0]?.text
+                  : ""
+                return (
+                  <React.Fragment key={i}>
+                    <Service
+                      onClick={() => updateSelected(i)}
+                      indicator={i === indicator}
+                      className={indicator === i ? "editFont" : ""}
+                    >
+                      {title ? title : ""}
+                    </Service>
+                  </React.Fragment>
+                )
+              })
+            ) : (
+              <></>
+            )}
+          </Left>
+        </Contentleft>
+        <ConTentRight>
+          <Right>
+            <UpperContent>
+              <Content>{RichText?.render(content)}</Content>
+              <LearnMore>
+                <span>Learn more</span>
+              </LearnMore>
+            </UpperContent>
+          </Right>
+        </ConTentRight>
+      </ContainerDesktop>
     </>
   )
 }
@@ -78,7 +97,7 @@ const ContainerDesktop = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
-  background: #0F1534;
+  background: #0f1534;
   top: 0;
   left: 0;
   width: 100%;
@@ -111,6 +130,10 @@ const Left = styled.div`
   position: absolute;
   top: 19%;
   left: 17%;
+  .editFont {
+    font-family: "Calibre Bold";
+    font-weight: bold;
+  }
   @media (min-width: 992px) {
     left: 6%;
   }
@@ -138,7 +161,7 @@ const Service = styled.li`
   color: #ffffff;
   font-family: Calibre Medium;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 48px;
   margin-bottom: 14px;
@@ -163,7 +186,7 @@ const Right = styled.div`
   z-index: 999;
   width: 100%;
   height: 100%;
-  background-color: #2A304F;
+  background-color: #2a304f;
 `
 
 const Content = styled.div`
@@ -215,7 +238,7 @@ const Image = styled.img`
   z-index: 10;
   left: -338px;
   display: block;
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     display: none;
   }
 `
@@ -223,9 +246,9 @@ const Contentleft = styled.div`
   z-index: 999;
 `
 const ConTentRight = styled.div`
-  background-color: #2A304F;
+  background-color: #2a304f;
   display: block;
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     display: none;
   }
 `

@@ -5,9 +5,17 @@ import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
 
 const PlatformTrio = ({ input }) => {
-  const title = input ? input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : "";
-  const content = input ? input.primary?.content ? input.primary?.content : "" : "";
-  const platforms = input ?  input?.fields ? input?.fields : "" : []; 
+  const title = input
+    ? input.primary?.title[0]?.text
+      ? input.primary?.title[0]?.text
+      : ""
+    : ""
+  const content = input
+    ? input.primary?.content
+      ? input.primary?.content
+      : ""
+    : ""
+  const platforms = input ? (input?.fields ? input?.fields : "") : []
   const [indicator, setindicator] = useState(0)
 
   function updateSelected(i) {
@@ -130,7 +138,7 @@ const Title = styled.h2`
     height: 114px;
     word-spacing: -3.1px;
     padding: 9px 16px 0px;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
   }
   @media (max-width: 320px) {
     padding: 9px 10px 0px;
@@ -266,7 +274,7 @@ const Platforms = styled.div`
       background: #b30000;
     }
   }
-  @media (min-width: 1600px){
+  @media (min-width: 1600px) {
     margin-top: -28px;
   }
 `
@@ -340,13 +348,12 @@ const PlatformDesc = styled.div`
 `
 const Buttons = styled.div`
   border-color: #fecf09;
-  padding: 11px 15px;
+  padding: 8px 0px;
   text-align: center;
   border-radius: 4px;
   border: solid 2px;
   position: relative;
   box-sizing: border-box;
-  height: 48px;
   width: 148px;
   border: 2px solid #fecf09;
   border-radius: 3px;

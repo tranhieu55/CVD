@@ -65,7 +65,7 @@ const NotFoundPage = ({ input }) => {
       <Wrapper>
         <Heading>{dataHeading}</Heading>
         <HeadingText>{dataHeadingText}</HeadingText>
-        <Button href="#">{dataButton}</Button>
+        <Button href="/">{dataButton}</Button>
         <CaseStudiHeading>Featured case studies</CaseStudiHeading>
         <ListCaseStudy>
           <Row>
