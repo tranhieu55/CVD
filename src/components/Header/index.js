@@ -190,10 +190,12 @@ const WrapperHeader = styled.div`
         overflow: hidden;
         height: 405px;
         @media (max-width: 992px) {
-          top: 0px;
+           top: 0;
         }
         @media (min-width: 992px) {
-          top: 72px;
+           top: ${({ dataGlobalMessage, location }) =>
+             dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
+    }
         }
         & > ul {
           list-style: none;
