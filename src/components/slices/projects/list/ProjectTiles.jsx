@@ -105,7 +105,7 @@ const SubTitle = styled.span`
   height: 16px;
   &::after{position: absolute;
     right: calc(100% + 16px);
-    top: 41%;
+    top: 31%;
     display: block;
     content: "";
     width: 64px;
