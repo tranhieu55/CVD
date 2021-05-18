@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 function ArticleTile({ input }) {
   return (
-    <BlockBlog key={index}>
+    <BlockBlog>
       <IMG>
         <img src="" alt="" />
       </IMG>
