@@ -111,6 +111,7 @@ const Text = styled.p`
     @media(min-width: 992px){
         margin-top: 70px;
         padding: 0px 56px;
+        text-align: left;
     }
     @media(min-width: 1188px){
         margin-top: 70px;
