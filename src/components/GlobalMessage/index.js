@@ -17,6 +17,7 @@ export default function GlobalMessage({ parentCallback }) {
                   primary {
                     link_title
                     message
+                    mobile_message
                   }
                 }
               }
@@ -41,16 +42,31 @@ export default function GlobalMessage({ parentCallback }) {
     setShow(!show)
     parentCallback(show)
   }
+  console.log("data", texts)
   return (
     <Container open={show}>
       {texts ? (
         <Content>
-          <Text lh={24}>
-            {texts[0]?.message?.map(item => (item?.text ? item?.text : ""))}.{" "}
-          </Text>
-          <LI lh={24}>
-            {texts[0]?.link_title?.map(item => (item?.text ? item?.text : ""))}
-          </LI>
+          <Desktop>
+            <Text lh={24}>
+              {texts[0]?.message?.map(item => (item?.text ? item?.text : ""))}.{" "}
+            </Text>
+            <LI lh={24}>
+              {texts[0]?.link_title?.map(item =>
+                item?.text ? item?.text : ""
+              )}
+            </LI>
+          </Desktop>
+          <Mobile>
+            <TextMobile lh={20}>
+              {texts[0]?.mobile_message?.map(item => item?.text)}.{" "}
+              <LI lh={24}>
+                {texts[0]?.link_title?.map(item =>
+                  item?.text ? item?.text : ""
+                )}
+              </LI>
+            </TextMobile>
+          </Mobile>
         </Content>
       ) : (
         <></>
@@ -76,6 +92,40 @@ const Container = styled.div`
     display: ${props => (props.open === true ? "flex" : "none")};
   }
 `
+const Desktop = styled.div`
+  @media (max-width: 992px) {
+    display: none;
+  }
+  @media (min-width: 992px) {
+    display: flex;
+  }
+`
+const Mobile = styled.div`
+  @media (max-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`
+const TextMobile = styled.span`
+  color: #ffffff;
+  font-family: "Calibre Medium";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: ${({ lh }) => `${lh}px`};
+  margin-bottom: 0px;
+  margin-right: 28.5px;
+  margin-top: 3px;
+  @media (max-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`
+
 const Text = styled.span`
   color: #ffffff;
   font-family: "Calibre Medium";
@@ -88,6 +138,12 @@ const Text = styled.span`
   margin-top: 3px;
   @media (max-width: 600px) {
     line-height: 20px;
+  }
+  @media (max-width: 992px) {
+    display: none;
+  }
+  @media (min-width: 992px) {
+    display: block;
   }
 `
 const LI = styled.span`
@@ -103,14 +159,10 @@ const LI = styled.span`
   height: 18px;
   cursor: pointer;
   margin-top: 3px;
-  @media (max-width: 600px) {
-    line-height: 20px;
-  }
 `
 const Content = styled.div`
   display: flex;
   margin: auto;
-  width: 299px;
   @media (max-width: 600px) {
     margin: auto 14.5px;
     width: 100%;
@@ -121,6 +173,7 @@ const Content = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: 0 10px;
   }
 `
 const Close = styled.div`
