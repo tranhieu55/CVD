@@ -93,13 +93,15 @@ const Body = styled.div`
 const Profile = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
-
+  grid-gap: 32px;
+  padding-bottom: 32px;
   @media (max-width: 992px) {
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    grid-gap: 30px;
+    padding-bottom: 30px;
   }
 `
 
