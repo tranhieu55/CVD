@@ -93,6 +93,7 @@ const Text = styled.p`
     margin-top: 78px;
     margin-right: 77px;
     margin-bottom: 0px;
+    text-align: left;
     @media(max-width: 600px){
         margin-top: 0px;
         text-align: center;
