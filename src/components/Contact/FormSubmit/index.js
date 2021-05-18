@@ -99,7 +99,7 @@ export default function FormSumit({ input }) {
     :not(:placeholder-shown) ~ label {
       color: #999999;
       font-family: Calibre Semibold;
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
@@ -207,7 +207,7 @@ export default function FormSumit({ input }) {
     :not(:placeholder-shown) ~ label {
       color: #999999;
       font-family: Calibre Semibold;
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
