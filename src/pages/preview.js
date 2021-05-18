@@ -1,7 +1,7 @@
 import React from "react"
 import ThreeColumnProfile from "../components/ThreeColumnProfile"
 
-function Columns() {
+function Preview() {
   return (
     <>
       <ThreeColumnProfile />
@@ -9,4 +9,4 @@ function Columns() {
   )
 }
 
-export default Columns
+export default Preview
