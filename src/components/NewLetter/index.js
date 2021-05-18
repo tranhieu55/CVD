@@ -7,7 +7,7 @@ export default function NewLetter ({dataFooter}) {
         <Container>
             <Title>{data[0]?.primary?.title?.map(item => item?.text ? item?.text : item)}</Title>
             <Text>{data[0]?.primary?.title_side?.map(item => item?.text ? item?.text : item)}</Text>
-            <Input type="text" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item?.text ? item?.text : item)}></Input>
+            <Input type="email" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item?.text ? item?.text : item)}></Input>
             <Submit>{data[0]?.primary?.text_button?.map(item => item?.text ? item?.text : item)}</Submit>
         </Container>
     )
@@ -148,19 +148,38 @@ const Input = styled.input`
     background: transparent;
     padding: 0px 15px;
     margin-right: 18px;
+    position: relative;
     :focus-visible{
         outline: none;
     }
     ::-webkit-input-placeholder { /* Edge */
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
+        position: absolute;
+        top: 28%;
       }
       
       :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
+        position: absolute;
+        top: 28%;
       }
       
       ::placeholder {
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
+        position: absolute;
+        top: 28%;
+      }
+      div{
+          height: 24px;
       }
       @media(max-width: 600px){
         margin-top: 16px;
@@ -198,15 +217,24 @@ const Input = styled.input`
         outline: none;
     }
     ::-webkit-input-placeholder { /* Edge */
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
       }
       
       :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
       }
       
       ::placeholder {
-        margin-top: 5px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+        color: #BEBFC6;
       }
     }
 `
