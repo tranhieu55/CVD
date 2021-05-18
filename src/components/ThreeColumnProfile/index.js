@@ -105,7 +105,7 @@ const Profile = styled.div`
 
 const BlockProfile = styled.div`
   width: 30vw;
-  max-width: 394px;
+  max-width: 392px;
 
   @media (max-width: 992px) {
     width: 40vw;
@@ -113,13 +113,14 @@ const BlockProfile = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
+    max-width: 374px;
   }
 `
 
 const IMG = styled.div`
   width: 100%;
   height: 508px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   background-color: gray;
 
   img {
@@ -130,6 +131,7 @@ const IMG = styled.div`
 
   @media (max-width: 600px) {
     height: 485px;
+    margin-bottom: 19.1px;
   }
 `
 
@@ -163,7 +165,7 @@ const Position = styled.span`
 `
 
 const Name = styled.h4`
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   margin-top: 8px;
   font-size: 32px;
   line-height: 32px;
@@ -173,8 +175,8 @@ const Name = styled.h4`
   text-align: left;
 
   @media (max-width: 600px) {
-    margin-top: 6px;
-    margin-bottom: 2px;
+    margin-top: 6.19px;
+    margin-bottom: 6.92px;
   }
 `
 
