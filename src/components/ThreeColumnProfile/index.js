@@ -1,50 +1,75 @@
 import React from "react"
+import { createGlobalStyle } from "styled-components"
 import styled from "styled-components"
+import CalibreRegular from "../../assets/fonts/CalibreRegular.woff"
+import CalibreSemibold from "../../assets/fonts/CalibreSemibold.woff"
+import { graphql, useStaticQuery } from "gatsby"
+
+const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: 'Calibre Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Calibre Regular'), url(${CalibreRegular}) format('woff');
+}
+
+@font-face {
+font-family: 'Calibre Semibold';
+font-style: normal;
+font-weight: 600;
+src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
+}
+*,*::after, *::before { 
+  box-sizing : border-box;
+}
+`
 
 const ThreeColumnProfile = ({ input }) => {
+  // get data from graphql
+  const data = useStaticQuery(graphql`
+    query QueryThreeColumnProfile {
+      prismic {
+        allNotfound_pages {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_Notfound_pageBody3_column_profiles {
+                  type
+                  label
+                  fields {
+                    avatar
+                    description
+                    name
+                    position
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  // get data for profiles
+  const dataProfiles =
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.body[1]?.fields
+
   return (
     <Container>
+      <GlobalStyle />
       <Body>
         <Profile>
-          <BlockProfile>
-            <IMG>
-              <img alt="" src="" />
-            </IMG>
-            <Position>Managing Director</Position>
-            <Name>Andrew Waite</Name>
-            <Description>
-              Convert Digital are looking for a Shopify developer who has
-              experience with Shopify Plus, scripts, Flow, app development,
-              systems integration and has the ability to simplify complex
-              problems with best practise solu
-            </Description>
-          </BlockProfile>
-          <BlockProfile>
-            <IMG>
-              <img alt="" src="" />
-            </IMG>
-            <Position>Managing Director</Position>
-            <Name>Andrew Waite</Name>
-            <Description>
-              Convert Digital are looking for a Shopify developer who has
-              experience with Shopify Plus, scripts, Flow, app development,
-              systems integration and has the ability to simplify complex
-              problems with best practise solu
-            </Description>
-          </BlockProfile>
-          <BlockProfile>
-            <IMG>
-              <img alt="" src="" />
-            </IMG>
-            <Position>Managing Director</Position>
-            <Name>Andrew Waite</Name>
-            <Description>
-              Convert Digital are looking for a Shopify developer who has
-              experience with Shopify Plus, scripts, Flow, app development,
-              systems integration and has the ability to simplify complex
-              problems with best practise solu
-            </Description>
-          </BlockProfile>
+          {dataProfiles.map((element, index) => (
+            <BlockProfile key={index}>
+              <IMG>
+                <img src={element?.avatar?.url} alt={element?.avatar?.alt} />
+              </IMG>
+              <Position>{element?.position[0]?.text}</Position>
+              <Name>{element?.name[0]?.text}</Name>
+              <Description>{element?.description[0]?.text}</Description>
+            </BlockProfile>
+          ))}
         </Profile>
       </Body>
     </Container>
@@ -55,9 +80,9 @@ export default ThreeColumnProfile
 
 const Container = styled.div`
   margin-top: 56px;
+
   @media (max-width: 600px) {
-  }
-  @media (min-width: 600px) {
+    margin-top: 29px;
   }
 `
 
@@ -71,30 +96,40 @@ const Profile = styled.div`
   grid-gap: 30px;
 
   @media (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    grid-gap: 24px;
   }
 `
 
 const BlockProfile = styled.div`
   width: 30vw;
+  max-width: 394px;
+
   @media (max-width: 992px) {
     width: 40vw;
   }
-  @media (min-width: 1600px) {
-    width: 394px;
+
+  @media (max-width: 600px) {
+    width: 100%;
   }
 `
 
 const IMG = styled.div`
   width: 100%;
   height: 508px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   background-color: gray;
 
   img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 600px) {
+    height: 485px;
   }
 `
 
@@ -113,27 +148,22 @@ const Position = styled.span`
   &::after {
     position: absolute;
     right: calc(100% + 16px);
-    top: 41%;
+    top: 35%;
     display: block;
     content: "";
     width: 64px;
     height: 2px;
-    background: rgb(254, 207, 9);
+    background: #fecf09;
   }
   @media (max-width: 600px) {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 14px;
-    margin-left: 48px;
     &::after {
-      width: 32px;
+      width: 61.08px;
     }
   }
 `
 
 const Name = styled.h4`
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   margin-top: 8px;
   font-size: 32px;
   line-height: 32px;
@@ -141,6 +171,11 @@ const Name = styled.h4`
   color: #101010;
   font-family: Calibre Semibold;
   text-align: left;
+
+  @media (max-width: 600px) {
+    margin-top: 6px;
+    margin-bottom: 2px;
+  }
 `
 
 const Description = styled.p`
@@ -148,4 +183,5 @@ const Description = styled.p`
   font-family: Calibre Regular;
   font-size: 18px;
   line-height: 24px;
+  margin: 0;
 `
