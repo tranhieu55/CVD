@@ -82,72 +82,76 @@ export default function FormSumit({ input }) {
     border: 2px solid #cccccc;
     padding: 0px;
     padding-right: 24px;
-    text-indent: 24px;
+    text-indent: 14px;
     box-shadow: none;
-    padding-top: 28px;
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     animation-name: mui-auto-fill-cancel;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    :focus {
+      outline: none;
+      border: 2px solid #6E6E6E;
+    }
     :active ~ label,
     :focus ~ label,
     :not(:placeholder-shown) ~ label {
-      color: #b6b6b6;
+      color: #999999;
       font-family: Calibre Semibold;
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(11px, -9px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
+      background: #ffffff;
+      padding: 0px 5px;
+    }
+    :not(:placeholder-shown){
+      border: 2px solid #6E6E6E;
     }
     @media (max-width: 600px) {
-      margin-bottom: 16px;
-      padding-top: 0px;
-      text-indent: 14px;
-      :focus{
-        outline: none;
-        border: 2px solid #6E6E6E ;
-      }
-      :focus~label{
-          color: #6E6E6E;
-          font-family: Calibre Semibold;
-          font-size: 14px;
-          letter-spacing: 1px;
-          line-height: 24px;
-          position: absolute;
-          transform: translate(11px, -9px) scale(1);
-          top: 0px;
-          left: 0px;
-          background: #ffffff;
-          padding: 0px 5px;
-          text-transform: uppercase;
-      }
-      :not(:placeholder-shown) ~ label{
-          color: #6E6E6E;
-          font-family: Calibre Semibold;
-          font-size: 14px;
-          letter-spacing: 1px;
-          line-height: 24px;
-          position: absolute;
-          transform: translate(11px, -9px) scale(1);
-          top: 0px;
-          left: 0px;
-          background: #ffffff;
-          padding: 0px 5px;
-          text-transform: uppercase;
-      }
-      :not(:placeholder-shown){
-          border: 2px solid #6E6E6E;
-      }
-      }
-      :focus {
-        outline: none;
-        border: 2px solid #222222;
+        margin-bottom: 16px;
+        padding-top: 0px;
+        text-indent: 14px;
+        :focus{
+          outline: none;
+          border: 2px solid #6E6E6E ;
+        }
+        :focus~label{
+            color: #999999;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(11px, -9px) scale(1);
+            top: 0px;
+            left: 0px;
+            background: #ffffff;
+            padding: 0px 5px;
+            text-transform: uppercase;
+        }
+        :not(:placeholder-shown) ~ label{
+            color: #999999;
+            font-family: Calibre Semibold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            position: absolute;
+            transform: translate(11px, -9px) scale(1);
+            top: 0px;
+            left: 0px;
+            background: #ffffff;
+            padding: 0px 5px;
+            text-transform: uppercase;
+        }
+        :not(:placeholder-shown){
+            border: 2px solid #6E6E6E;
+        }
       }
 
       color: #222222;
@@ -156,9 +160,6 @@ export default function FormSumit({ input }) {
       letter-spacing: 0;
       line-height: 24px;
       height: 62px;
-      div{
-
-      }
   `
   const Inputs = styled.div`
     position: relative;
@@ -192,8 +193,8 @@ export default function FormSumit({ input }) {
     animation-name: mui-auto-fill-cancel;
     border-radius: 3px;
     border: 2px solid #cccccc;
-    padding-top: 32px;
-    padding-left: 24px;
+    padding-top: 20px;
+    padding-left: 14px;
     padding-right: 24px;
     box-shadow: none;
     position: relative;
@@ -204,20 +205,25 @@ export default function FormSumit({ input }) {
     :active ~ label,
     :focus ~ label,
     :not(:placeholder-shown) ~ label {
-      color: #b6b6b6;
+      color: #999999;
       font-family: Calibre Semibold;
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(11px, -9px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
+      background: #ffffff;
+      padding: 0px 5px;
+    }
+    :not(:placeholder-shown){
+      border: 2px solid #6E6E6E;
     }
     :focus {
       outline: none;
-      border: 2px solid #222222;
+      border: 2px solid #6E6E6E;
     }
     @media (max-width: 768px) {
       margin-bottom: 10px;
@@ -230,7 +236,7 @@ export default function FormSumit({ input }) {
         border: 2px solid #6E6E6E ;
     }
     :focus~label{
-        color: #6E6E6E;
+        color: #999999;
         font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 1px;
@@ -244,7 +250,7 @@ export default function FormSumit({ input }) {
         text-transform: uppercase;
     }
     :not(:placeholder-shown) ~ label{
-        color: #6E6E6E;
+        color: #999999;
         font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 1px;

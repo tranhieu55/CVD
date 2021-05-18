@@ -16,6 +16,8 @@ const ProjectTiles = ({ input }) => {
   }
   return (
     <ListBlogStyle>
+      <SubTitle>OUR WORK</SubTitle>
+      <Title>Case Studies</Title>
       <Rows className="row">
         {input && input.fields ? (
           input.fields.slice(orinal, limit)?.map((edge, index) => (
@@ -65,7 +67,7 @@ const ProjectTiles = ({ input }) => {
 export default ProjectTiles
 
 const ListBlogStyle = styled.div`
-  // margin-top: -71px;
+  margin-top: 48px;
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
@@ -87,7 +89,57 @@ const ListBlogStyle = styled.div`
   }
   @media (max-width: 600px) {
     height: auto;
-    margin: -11px 16px 0px;
+    margin: 48px 16px 0px;
+  }
+`
+const SubTitle = styled.span`
+  margin-top: 28px;
+  color: #999999;
+  font-family: Calibre Semibold;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 16px;
+  position: relative;
+  margin-left: 80px;
+  height: 16px;
+  &::after {
+    position: absolute;
+    right: calc(100% + 16px);
+    top: 31%;
+    display: block;
+    content: "";
+    width: 64px;
+    height: 2px;
+    background: rgb(254, 207, 9);
+  }
+  @media (max-width: 600px) {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 14px;
+    margin-left: 48px;
+    &::after {
+      width: 32px;
+    }
+  }
+`
+const Title = styled.p`
+  color: #101010;
+  font-family: Calibre Bold;
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 56px;
+  margin-bottom: -15px;
+  margin-top: 12px;
+  @media (max-width: 600px) {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 32px;
+    margin-bottom: -2px;
+    margin-top: 6px;
   }
 `
 const DivIMG = styled.div`
@@ -120,7 +172,7 @@ const Rows = styled.div`
   @media (max-width: 600px) {
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: 67px;
+    margin-top: 11px;
   }
 `
 const Colum = styled.div`

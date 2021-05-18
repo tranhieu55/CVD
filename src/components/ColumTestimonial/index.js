@@ -68,7 +68,7 @@ const Slides = styled.div`
 `
 const Slider = styled.div`
   @media(max-width: 600px){
-    margin-bottom: 30px;
+    margin-bottom: 36px;
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -89,8 +89,8 @@ const Slider = styled.div`
 const Img = styled.img`
   height: ${props => props.vitri %2 === 0 ? '24px' : '33px'};
   width: ${props => props.vitri %2 === 0 ? '162px' : '156px'};
-  object-fit: content;
-  margin-bottom: ${props => props.vitri %2 === 0 ? '32px' : '25px'};
+  object-fit: contain;
+  margin-bottom: ${props => props.vitri %2 === 0 ? '32px' : '27px'};
   @media(max-width: 600px){
     margin-bottom: 18px;
   }
@@ -107,6 +107,8 @@ const Content = styled.p`
   margin-bottom: 14px;
   @media(max-width: 600px){
     margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 24px;
   }
 `
 const Sub = styled.div``
@@ -114,6 +116,10 @@ const SubTitle = styled.p`
   color: #222222;
   font-family: Calibre Semibold;
   margin-bottom: 0px;
+  font-size: 20px;
+  @media(max-width: 600px){
+    font-size : 18px;
+  }
 `
 const SubText = styled.p`
   color: #555555;
@@ -122,4 +128,7 @@ const SubText = styled.p`
   letter-spacing: 0;
   line-height: 22px;
   margin-bottom: 0px;
+  @media(max-width: 600px){
+    font-size : 18px;
+  }
 `
