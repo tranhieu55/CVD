@@ -3,8 +3,6 @@ import styled from "styled-components"
 import moment from "moment"
 
 function ArticleTile({ input }) {
-  console.log({ input })
-
   return (
     <BlockBlog>
       <IMG>
@@ -75,8 +73,10 @@ const IMG = styled.div`
   }
 
   @media (max-width: 600px) {
-    height: 357px;
     margin-bottom: 18px;
+  }
+  @media (max-width: 375px) {
+    height: 240px;
   }
 `
 
