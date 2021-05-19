@@ -40,15 +40,13 @@ src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
   box-sizing : border-box;
 }
 `
+
 function BlogArticleTiles() {
   return (
     <Container>
       <GlobalStyle />
       <Body>
-        <Blog>
-          <ArticleTile />
-          <ArticleTile />
-        </Blog>
+        <Blog>{}</Blog>
       </Body>
     </Container>
   )
