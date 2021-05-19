@@ -151,6 +151,7 @@ const Slides = styled.div`
   ::-webkit-scrollbar-thumb {
     background: #bbbbbb;
     border-radius: 10px;
+    width: 30%;
   }
 
   /* Handle on hover */

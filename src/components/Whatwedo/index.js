@@ -116,6 +116,8 @@ const BoxTagStudy = styled.div`
   color: #999999;
   font-size: 14px;
   height: 16px;
+  font-family: Calibre Semibold;
+  font-weight: 600;
   @media only screen and (max-width: 600px) {
     margin-bottom: 10px;
   }
@@ -146,6 +148,8 @@ const BoxIconStudy = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #101010;
+  line-height: 20px;
   svg {
     margin-left: 7px;
     margin-bottom: -2px;
