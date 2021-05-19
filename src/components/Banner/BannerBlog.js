@@ -176,7 +176,7 @@ const BannerProjectsContent = styled.div`
   @media (min-width: 992px) {
     padding-top: 10rem;
     padding-bottom: 45px;
-    padding-left: 30px !important;
+    padding-left: 100.5px !important;
     padding-right: 30px !important;
     .container {
       max-width: 890px;
@@ -191,7 +191,6 @@ const BannerProjectsContent = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    padding-left: 30px !important;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -548,70 +547,79 @@ const BannerBlog = () => {
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
-        {data ? 
-        <P
-          uppercase={true}
-          fontWeight={theme.fonts.bold}
-          coLor={theme.colors.gray1}
-          mrb="35"
-        >
-          {data?.title[0]?.text ? data?.title[0]?.text : ""}{" "}
-        </P>
-        : <></>
-        }
-        {data ? 
-        <H2
-          fz="64"
-          mrb_rem="1.5"
-          fontFamily="Calibre Bold"
-          lineh="56"
-          lett="-1"
-          col="#101010"
-        >
-          {data?.big_title[0]?.text ? data?.big_title[0]?.text : ""}
-        </H2>
-        : <></>
-        }
-        {newArr ? 
+        {data ? (
+          <P
+            uppercase={true}
+            fontWeight={theme.fonts.bold}
+            coLor={theme.colors.gray1}
+            mrb="35"
+          >
+            {data?.title[0]?.text ? data?.title[0]?.text : ""}{" "}
+          </P>
+        ) : (
+          <></>
+        )}
+        {data ? (
+          <H2
+            fz="64"
+            mrb_rem="1.5"
+            fontFamily="Calibre Bold"
+            lineh="56"
+            lett="-1"
+            col="#101010"
+          >
+            {data?.big_title[0]?.text ? data?.big_title[0]?.text : ""}
+          </H2>
+        ) : (
+          <></>
+        )}
+        {newArr ? (
           <div className="row ">
-          <ListCategory className="col-md-10" show={filter}>
-            {newArr?.map((item, index) => (
+            <ListCategory className="col-md-10" show={filter}>
+              {newArr?.map((item, index) => (
+                <CategoryItem
+                  key={index}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_FILTER_ITEM",
+                      value: item?.post_category?._meta?.uid
+                        ? item?.post_category?._meta?.uid
+                        : "",
+                    })
+                    setFilter(index)
+                  }}
+                >
+                  <Link
+                    className={
+                      [...state.listSelected].includes(
+                        item?.post_category?._meta?.uid
+                          ? item?.post_category?._meta?.uid
+                          : ""
+                      ) && "active"
+                    }
+                  >
+                    {item?.post_category?.title[0]?.text
+                      ? item?.post_category?.title[0]?.text
+                      : ""}
+                  </Link>
+                </CategoryItem>
+              ))}
               <CategoryItem
-                key={index}
+                className={`${
+                  filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+                }`}
                 onClick={() => {
-                  dispatch({
-                    type: "ADD_FILTER_ITEM",
-                    value: item?.post_category?._meta?.uid ? item?.post_category?._meta?.uid : "",
-                  })
-                  setFilter(index)
+                  dispatch({ type: "RESET_FILTER" })
+                  setFilters(0)
                 }}
               >
-                <Link
-                  className={
-                    [...state.listSelected].includes(
-                      item?.post_category?._meta?.uid ? item?.post_category?._meta?.uid : ""
-                    ) && "active"
-                  }
-                >
-                  {item?.post_category?.title[0]?.text ? item?.post_category?.title[0]?.text : ""}
-                </Link>
+                <Link className="opacity">Reset Filters</Link>
               </CategoryItem>
-            ))}
-            <CategoryItem
-              className={`${
-                filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
-              }`}
-              onClick={() => {
-                dispatch({ type: "RESET_FILTER" })
-                setFilters(0)
-              }}
-            >
-              <Link className="opacity">Reset Filters</Link>
-            </CategoryItem>
-          </ListCategory>
-        </div>
-        : <></>
-        }
+            </ListCategory>
+          </div>
+        ) : (
+          <></>
+        )}
       </BannerProjectsContent>
     </WraperBannerProjects>
   )

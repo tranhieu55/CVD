@@ -33,12 +33,6 @@ const Launches = ({ input }) => {
   `)
 
   const dataSEO = data.prismic.allLaunches_pages.edges[0].node
-  //   const dataHeading =
-  //     data.prismic.allNotfound_pages.edges[0].node.heading_text[0].text
-  //   const dataHeadingText =
-  //     data.prismic.allNotfound_pages.edges[0].node.paragraph_text[0].text
-  //   const dataButton =
-  //     data.prismic.allNotfound_pages.edges[0].node.url_button[0].text
 
   return (
     <Layout location="/launches">

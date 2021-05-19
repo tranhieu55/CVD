@@ -66,6 +66,9 @@ const SubTitle = styled.h4`
     height: 2px;
     background: #fecf09;
   }
+  @media (max-width: 1440px) {
+    margin-left: 142px;
+  }
   @media (max-width: 992px) {
     margin-left: 82px;
   }
@@ -97,6 +100,9 @@ const Title = styled.h1`
   padding-top: 32px;
   padding-left: 228px;
   margin: 0;
+  @media (max-width: 1440px) {
+    padding-left: 142px;
+  }
   @media (max-width: 992px) {
     padding-left: 0;
   }
