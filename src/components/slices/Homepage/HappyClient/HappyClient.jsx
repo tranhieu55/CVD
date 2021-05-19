@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 
 const HappyClient = ({ input }) => {
@@ -15,12 +15,7 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
-  console.log({ ref })
-  const [width, setWidth] = React.useState(0)
-  console.log({ width })
-  useEffect(() => {
-    // window.addEventListener("resize", () => setWidth(0))
-  }, [])
+  console.log({ref});
 
   function Nextshowslider() {
     return (
@@ -41,40 +36,25 @@ const HappyClient = ({ input }) => {
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      <Slides className="md:overflow-scroll" ref={ref} values={width}>
-        {input ? (
-          input.fields?.map((item, index) => (
-            <Slider
-              key={index}
-              onClick={() => updateSelected(index)}
-              indicator={index === indicator}
-            >
-              <Img
-                alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
-                src={item.logo_client?.url ? item.logo_client?.url : ""}
-              ></Img>
-              <Text>
-                <Content>
-                  {item.qoute_of_client?.map(items =>
-                    items?.text ? items?.text : item
-                  )}
-                </Content>
-              </Text>
-              <Sub>
-                <SubTilte>
-                  {item.title?.map(items => (items?.text ? items?.text : item))}
-                </SubTilte>
-                <SubText>
-                  {item.sub_title?.map(items =>
-                    items?.text ? items?.text : item
-                  )}
-                </SubText>
-              </Sub>
-            </Slider>
-          ))
-        ) : (
-          <></>
-        )}
+      <Slides className="md:overflow-scroll" ref={ref} >
+        {input ? input.fields?.map((item, index) => (
+          <Slider
+            key={index}
+            onClick={() => updateSelected(index)}
+            indicator={index === indicator}
+          >
+            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
+            src={item.logo_client?.url ? item.logo_client?.url : ""}>
+            </Img>
+            <Text>
+              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
+            </Text>
+            <Sub>
+              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
+              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
+            </Sub>
+          </Slider>
+        )) : <></>}
       </Slides>
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>
@@ -163,8 +143,8 @@ const Slides = styled.div`
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #d5d5d5;
     border-radius: 10px;
-    margin-right: ${props => (props.values - 624) / 2}px;
-    margin-left: ${props => (props.values - 624) / 2}px;
+    margin-right: calc((100vw - 624px) / 2);
+    margin-left: calc((100vw - 624px) / 2);
   }
 
   /* Handle */
@@ -242,8 +222,8 @@ const Slides = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624) / 2}px;
-      margin-left: ${props => (props.values - 624) / 2}px;
+      margin-right: calc((100vw - 624px) / 2);
+      margin-left: calc((100vw - 624px) / 2);
     }
   }
   @media (min-width: 1366px) {
@@ -263,8 +243,8 @@ const Slides = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624) / 2}px;
-      margin-left: ${props => (props.values - 624) / 2}px;
+      margin-right: calc((100vw - 624px) / 2);
+      margin-left: calc((100vw - 624px) / 2);
     }
 
     /* Handle */
