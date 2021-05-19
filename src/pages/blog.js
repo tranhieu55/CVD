@@ -18,6 +18,18 @@ const PageBlog = () => {
               meta_description
               keywords
               body {
+                ... on PRISMIC_Post_listing_pageBodyBlog_article_tiles {
+                  type
+                  fields {
+                    post_item {
+                      ... on PRISMIC_Post {
+                        title
+                        post_image
+                        date_created
+                      }
+                    }
+                  }
+                }
                 ... on PRISMIC_Post_listing_pageBodyList_post_category {
                   fields {
                     post_category {

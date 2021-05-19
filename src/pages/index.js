@@ -49,18 +49,6 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
-              ... on PRISMIC_HomepageBodyBlog_article_tiles {
-                type
-                fields {
-                  post_item {
-                    ... on PRISMIC_Post {
-                      title
-                      post_image
-                      date_created
-                    }
-                  }
-                }
-              }
               ... on PRISMIC_HomepageBodyTrust_logos_block {
                 type
                 label
