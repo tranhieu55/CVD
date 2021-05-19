@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 
 
@@ -13,12 +13,6 @@ const HappyClient = ({ input }) => {
 
   const ref = useRef()
   console.log({ref});
-  const [width, setWidth] = React.useState(window.innerWidth);
-  console.log({width})
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-    
-  }, [])
 
   function Nextshowslider() {
     return ( ref.current.scrollLeft = ref.current.clientWidth > 600 ? ref.current.scrollLeft + 750 : ref.current.scrollLeft + 350 , console.log(ref.current.scrollLeft) ) 
@@ -30,7 +24,7 @@ const HappyClient = ({ input }) => {
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      <Slides className="md:overflow-scroll" ref={ref} values={width}>
+      <Slides className="md:overflow-scroll" ref={ref} >
         {input ? input.fields?.map((item, index) => (
           <Slider
             key={index}
@@ -137,8 +131,8 @@ const Slides = styled.div`
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #d5d5d5;
     border-radius: 10px;
-    margin-right: ${props => (props.values - 624)/2}px;
-    margin-left: ${props => (props.values - 624)/2}px;
+    margin-right: calc((100vw - 624px) / 2);
+    margin-left: calc((100vw - 624px) / 2);
   }
 
   /* Handle */
@@ -216,8 +210,8 @@ const Slides = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624)/2}px;
-      margin-left: ${props => (props.values - 624)/2}px;
+      margin-right: calc((100vw - 624px) / 2);
+      margin-left: calc((100vw - 624px) / 2);
     }
   }
   @media (min-width: 1366px) {
@@ -237,8 +231,8 @@ const Slides = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624)/2}px;
-      margin-left: ${props => (props.values - 624)/2}px;
+      margin-right: calc((100vw - 624px) / 2);
+      margin-left: calc((100vw - 624px) / 2);
     }
 
     /* Handle */
