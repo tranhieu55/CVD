@@ -21,7 +21,7 @@ const HappyClient = ({ input }) => {
     return (
       (ref.current.scrollLeft =
         ref.current.clientWidth > 600
-          ? ref.current.scrollLeft + 750
+          ? ref.current.scrollLeft + document.getElementsByClassName("sliders")
           : ref.current.scrollLeft + 350),
       console.log(ref.current.scrollLeft)
     )
@@ -29,7 +29,7 @@ const HappyClient = ({ input }) => {
   function Prevshowslider() {
     return (ref.current.scrollLeft =
       ref.current.clientWidth > 600
-        ? ref.current.scrollLeft - 750
+        ? ref.current.scrollLeft - 650
         : ref.current.scrollLeft - 350)
   }
 
@@ -42,6 +42,7 @@ const HappyClient = ({ input }) => {
             key={index}
             onClick={() => updateSelected(index)}
             indicator={index === indicator}
+            className="sliders"
           >
             <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
             src={item.logo_client?.url ? item.logo_client?.url : ""}>
@@ -219,7 +220,6 @@ const Slides = styled.div`
     }
   }
   @media (min-width: 768px) {
-    right: 48px;
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
