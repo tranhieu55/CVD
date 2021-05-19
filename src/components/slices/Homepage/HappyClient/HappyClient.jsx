@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 
-
 const HappyClient = ({ input }) => {
-  const Titles = input ? input.primary?.title_happy_client?.map(item => item?.text ? item?.text : item) : [];
+  const Titles = input
+    ? input.primary?.title_happy_client?.map(item =>
+        item?.text ? item?.text : item
+      )
+    : []
 
   const [indicator, setindicator] = useState(0)
 
@@ -12,43 +15,66 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
-  console.log({ref});
-  const [width, setWidth] = React.useState(window.innerWidth);
-  console.log({width})
+  console.log({ ref })
+  const [width, setWidth] = React.useState(0)
+  console.log({ width })
   useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-    
+    // window.addEventListener("resize", () => setWidth(0))
   }, [])
 
   function Nextshowslider() {
-    return ( ref.current.scrollLeft = ref.current.clientWidth > 600 ? ref.current.scrollLeft + 750 : ref.current.scrollLeft + 350 , console.log(ref.current.scrollLeft) ) 
+    return (
+      (ref.current.scrollLeft =
+        ref.current.clientWidth > 600
+          ? ref.current.scrollLeft + 750
+          : ref.current.scrollLeft + 350),
+      console.log(ref.current.scrollLeft)
+    )
   }
   function Prevshowslider() {
-    return ref.current.scrollLeft = ref.current.clientWidth > 600 ? ref.current.scrollLeft - 750 : ref.current.scrollLeft - 350
+    return (ref.current.scrollLeft =
+      ref.current.clientWidth > 600
+        ? ref.current.scrollLeft - 750
+        : ref.current.scrollLeft - 350)
   }
 
   return (
     <HappyClients>
       <Title>{Titles}</Title>
       <Slides className="md:overflow-scroll" ref={ref} values={width}>
-        {input ? input.fields?.map((item, index) => (
-          <Slider
-            key={index}
-            onClick={() => updateSelected(index)}
-            indicator={index === indicator}
-          >
-            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
-            src={item.logo_client?.url ? item.logo_client?.url : ""}>
-            </Img>
-            <Text>
-              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
-            </Text>
-            <Sub>
-              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
-              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
-            </Sub>
-          </Slider>
-        )) : <></>}
+        {input ? (
+          input.fields?.map((item, index) => (
+            <Slider
+              key={index}
+              onClick={() => updateSelected(index)}
+              indicator={index === indicator}
+            >
+              <Img
+                alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
+                src={item.logo_client?.url ? item.logo_client?.url : ""}
+              ></Img>
+              <Text>
+                <Content>
+                  {item.qoute_of_client?.map(items =>
+                    items?.text ? items?.text : item
+                  )}
+                </Content>
+              </Text>
+              <Sub>
+                <SubTilte>
+                  {item.title?.map(items => (items?.text ? items?.text : item))}
+                </SubTilte>
+                <SubText>
+                  {item.sub_title?.map(items =>
+                    items?.text ? items?.text : item
+                  )}
+                </SubText>
+              </Sub>
+            </Slider>
+          ))
+        ) : (
+          <></>
+        )}
       </Slides>
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>
@@ -137,8 +163,8 @@ const Slides = styled.div`
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #d5d5d5;
     border-radius: 10px;
-    margin-right: ${props => (props.values - 624)/2}px;
-    margin-left: ${props => (props.values - 624)/2}px;
+    margin-right: ${props => (props.values - 624) / 2}px;
+    margin-left: ${props => (props.values - 624) / 2}px;
   }
 
   /* Handle */
@@ -211,13 +237,13 @@ const Slides = styled.div`
       background: #b30000;
     }
   }
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     right: 48px;
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624)/2}px;
-      margin-left: ${props => (props.values - 624)/2}px;
+      margin-right: ${props => (props.values - 624) / 2}px;
+      margin-left: ${props => (props.values - 624) / 2}px;
     }
   }
   @media (min-width: 1366px) {
@@ -237,8 +263,8 @@ const Slides = styled.div`
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: ${props => (props.values - 624)/2}px;
-      margin-left: ${props => (props.values - 624)/2}px;
+      margin-right: ${props => (props.values - 624) / 2}px;
+      margin-left: ${props => (props.values - 624) / 2}px;
     }
 
     /* Handle */

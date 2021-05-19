@@ -34,7 +34,7 @@ export default function HTML(props) {
         ></iframe>
       </noscript>
 
-      <body {...props.bodyAttributes}>
+      <body {...props.bodyAttributes} style={{ fontFamily: "Calibre Regular" }}>
         {props.preBodyComponents}
         <div
           key={`body`}
