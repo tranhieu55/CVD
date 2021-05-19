@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
 import CardProject from "../components/CardProject"
+import TwoColumnText from "../components/ColumnText"
+import SliceZone from "../utils/SliceZone"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -19,6 +21,14 @@ const NotFoundPage = ({ input }) => {
               keywords
               heading_text
               body {
+                ... on PRISMIC_Notfound_pageBody2_column_text {
+                  type
+                  label
+                  primary {
+                    text_side_left
+                    text_side_right
+                  }
+                }
                 ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
                   type
                   fields {
@@ -58,6 +68,7 @@ const NotFoundPage = ({ input }) => {
     data.prismic.allNotfound_pages.edges[0].node.url_button[0].text
   const dataCaseStudies =
     data.prismic.allNotfound_pages.edges[0].node.body[0].fields
+  const dataTextTwoColumn = data.prismic.allNotfound_pages.edges[0].node
 
   return (
     <Layout location="/404">
@@ -75,6 +86,7 @@ const NotFoundPage = ({ input }) => {
           </Row>
         </ListCaseStudy>
       </Wrapper>
+      <SliceZone allSlices={dataTextTwoColumn.body} />
     </Layout>
   )
 }
