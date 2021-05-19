@@ -206,10 +206,14 @@ const TextBanner = styled.div`
     width: 280px;
   }
   @media (min-width: 600px) {
-    padding-left: 50px;
-    top: 124px;
+    padding-left: 20px;
+    top: 54px;
     height: auto;
-    width: 445px;
+    width: 360px;
+  }
+  @media(min-width: 768px){
+    padding-left: 50px;
+    top: 94px;
   }
   @media (min-width: 1024px) {
     padding-left: 50px;
@@ -221,9 +225,25 @@ const TextBanner = styled.div`
     height: 355px;
     width: 659px;
     position: absolute;
+    top: 173px;
+    padding-left: 67px;
+    z-index: 1;
+  }
+  @media(min-width: 1600px){
+    height: 355px;
+    width: 659px;
+    position: absolute;
     top: 273px;
     padding-left: 167px;
     z-index: 1;
+  }
+  @media(min-width: 1920px){
+    top: 3%;
+    padding-left: 8%;
+  }
+  @media(min-width: 2300px){
+    top: 4%;
+    left: 5%;
   }
 `
 const Buttons = styled.div`
