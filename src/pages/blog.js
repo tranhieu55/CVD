@@ -30,41 +30,6 @@ const PageBlog = () => {
                     }
                   }
                 }
-                ... on PRISMIC_Post_listing_pageBodyList_post_category {
-                  fields {
-                    post_category {
-                      ... on PRISMIC_Post_category {
-                        title
-                        _meta {
-                          uid
-                        }
-                      }
-                    }
-                  }
-                  type
-                }
-                ... on PRISMIC_Post_listing_pageBodyList_post {
-                  type
-                  fields {
-                    post_item {
-                      ... on PRISMIC_Post {
-                        title
-                        post_image
-                        _meta {
-                          uid
-                        }
-                        date_created
-                        post_category {
-                          ... on PRISMIC_Post_category {
-                            _meta {
-                              uid
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           }
