@@ -11,7 +11,7 @@ function ArticleTile({ input }) {
       <Title>
         Five easy tricks to satisfy customers before they ask for help
       </Title>
-      <ReadMore>Read more</ReadMore>
+      <ReadMore href="">Read more</ReadMore>
     </BlockBlog>
   )
 }
@@ -19,22 +19,28 @@ function ArticleTile({ input }) {
 export default ArticleTile
 
 const BlockBlog = styled.div`
-  width: 30vw;
-  max-width: 394px;
+  width: 40vw;
+  max-width: 605px;
 
   @media (max-width: 992px) {
-    width: 40vw;
+    width: 90vw;
   }
 
   @media (max-width: 600px) {
     width: 100%;
+    max-width: 343px;
+  }
+
+  @media (max-width: 350px) {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 `
 
 const IMG = styled.div`
   width: 100%;
-  height: 508px;
-  margin-bottom: 16px;
+  height: 400px;
+  margin-bottom: 33px;
   background-color: gray;
 
   img {
@@ -44,7 +50,8 @@ const IMG = styled.div`
   }
 
   @media (max-width: 600px) {
-    height: 485px;
+    height: 357px;
+    margin-bottom: 18px;
   }
 `
 
@@ -71,32 +78,59 @@ const CreateAt = styled.span`
     background: #fecf09;
   }
   @media (max-width: 600px) {
+    margin-left: 48px;
+
     &::after {
-      width: 61.08px;
+      width: 32px;
     }
   }
 `
 
 const Title = styled.h4`
-  margin-bottom: 4px;
-  margin-top: 8px;
+  margin-bottom: 16px;
+  margin-top: 4px;
   font-size: 32px;
   line-height: 32px;
   letter-spacing: -0.5px;
-  color: #101010;
+  color: #111111;
   font-family: Calibre Semibold;
   text-align: left;
 
   @media (max-width: 600px) {
-    margin-top: 6px;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.25px;
   }
 `
 
-const ReadMore = styled.p`
-  color: #222222;
-  font-family: Calibre Regular;
-  font-size: 18px;
-  line-height: 24px;
+const ReadMore = styled.a`
+  color: #101010;
+  font-family: Calibre Medium;
+  font-size: 20px;
+  line-height: 20px;
   margin: 0;
+  font-weight: 500;
+  letter-spacing: 0;
+  position: relative;
+
+  &:active,
+  &:hover,
+  &:visited {
+    color: #101010;
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "\f178";
+    color: #101010;
+    font-family: "Font Awesome 5 Pro Regular";
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 21px;
+    text-align: center;
+    position: absolute;
+    top: -2px;
+    left: calc(100% + 6px);
+  }
 `
