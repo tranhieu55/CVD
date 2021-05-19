@@ -14,11 +14,11 @@ const Index = ({ data: { prismic } }, e) => {
     prismic && prismic.allHomepages?.edges[0]?.node
       ? prismic.allHomepages?.edges[0]?.node
       : []
-      const [value, setValue] = useState()
-      const parentCallback = data => {
-          setValue(data)
-      }
-  
+  const [value, setValue] = useState()
+  const parentCallback = data => {
+    setValue(data)
+  }
+
   return (
     <>
       <GlobalMessage parentCallback={parentCallback} />
@@ -36,8 +36,6 @@ export default Index
 
 //styles
 
-
-
 export const pageQuery = graphql`
   query IndexQuery {
     prismic {
@@ -51,6 +49,18 @@ export const pageQuery = graphql`
             meta_description
             keywords
             body {
+              ... on PRISMIC_HomepageBodyBlog_article_tiles {
+                type
+                fields {
+                  post_item {
+                    ... on PRISMIC_Post {
+                      title
+                      post_image
+                      date_created
+                    }
+                  }
+                }
+              }
               ... on PRISMIC_HomepageBodyTrust_logos_block {
                 type
                 label

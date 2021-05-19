@@ -39,6 +39,8 @@ import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
 
 const SliceZone = props => {
+  console.log({ props: props.allSlices })
+
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
