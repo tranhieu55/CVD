@@ -41,12 +41,16 @@ src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
 }
 `
 
-function BlogArticleTiles() {
+function BlogArticleTiles({ input }) {
   return (
     <Container>
       <GlobalStyle />
       <Body>
-        <Blog>{}</Blog>
+        <Blog>
+          {input?.fields.map((element, index) => (
+            <ArticleTile key={index} input={element} />
+          ))}
+        </Blog>
       </Body>
     </Container>
   )
@@ -56,9 +60,11 @@ export default BlogArticleTiles
 
 const Container = styled.div`
   margin-top: 48px;
+  margin-bottom: 48px;
 
   @media (max-width: 600px) {
     margin-top: 30px;
+    margin-bottom: 30px;
   }
 `
 
@@ -71,7 +77,10 @@ const Blog = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 26px;
 
-  @media (max-width: 992px) {
+  @media (max-width: 1366px) {
+    grid-column-gap: 14px;
+  }
+  @media (max-width: 1211px) {
     grid-template-columns: 1fr;
   }
   @media (max-width: 600px) {

@@ -37,6 +37,7 @@ import CardPartners from "../components/CardPartners"
 import CardPageBlog from "../components/CardPageBlog"
 import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
+import BlogArticleTiles from "../components/BlogArticleTiles"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -266,6 +267,8 @@ const SliceZone = props => {
           return <OurWorkProjects key={index} input={s} />
         case "partner_details":
           return <CardPartners key={index} input={s} />
+        case "blog_article_tiles":
+          return <BlogArticleTiles key={index} input={s} />
         default:
           return <></>
       }

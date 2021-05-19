@@ -1,15 +1,35 @@
 import React from "react"
 import styled from "styled-components"
+import moment from "moment"
 
 function ArticleTile({ input }) {
+  console.log({ input })
+
   return (
     <BlockBlog>
       <IMG>
-        <img src="" alt="" />
+        <img
+          src={
+            input?.post_item?.post_image?.url
+              ? input?.post_item?.post_image?.url
+              : ""
+          }
+          alt={
+            input?.post_item?.post_image?.alt
+              ? input?.post_item?.post_image?.alt
+              : ""
+          }
+        />
       </IMG>
-      <CreateAt>June 25, 2019</CreateAt>
+      <CreateAt>
+        {input?.post_item?.date_created
+          ? moment(input?.post_item?.date_created).format("LL")
+          : ""}
+      </CreateAt>
       <Title>
-        Five easy tricks to satisfy customers before they ask for help
+        {input?.post_item?.title[0]?.text
+          ? input?.post_item?.title[0]?.text
+          : ""}
       </Title>
       <ReadMore href="">Read more</ReadMore>
     </BlockBlog>
@@ -19,16 +39,21 @@ function ArticleTile({ input }) {
 export default ArticleTile
 
 const BlockBlog = styled.div`
-  width: 40vw;
+  width: 50vw;
   max-width: 605px;
 
-  @media (max-width: 992px) {
+  @media (max-width: 1211px) {
     width: 90vw;
   }
 
   @media (max-width: 600px) {
     width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media (max-width: 375px) {
     max-width: 343px;
+    padding: 0;
   }
 
   @media (max-width: 350px) {
@@ -97,6 +122,7 @@ const Title = styled.h4`
   text-align: left;
 
   @media (max-width: 600px) {
+    margin-top: 7px;
     margin-bottom: 8px;
     font-size: 24px;
     line-height: 24px;
