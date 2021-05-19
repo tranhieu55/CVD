@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 
 
@@ -12,18 +12,25 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
+  console.log({ref});
+  const [width, setWidth] = React.useState(window.innerWidth);
+  console.log({width})
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    
+  }, [])
 
   function Nextshowslider() {
-    ref.current.scrollLeft = ref.current.scrollLeft + 100
+    return ( ref.current.scrollLeft = ref.current.clientWidth > 600 ? ref.current.scrollLeft + 750 : ref.current.scrollLeft + 350 , console.log(ref.current.scrollLeft) ) 
   }
   function Prevshowslider() {
-    ref.current.scrollLeft = ref.current.scrollLeft - 100
+    return ref.current.scrollLeft = ref.current.clientWidth > 600 ? ref.current.scrollLeft - 750 : ref.current.scrollLeft - 350
   }
 
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      <Slides className="md:overflow-scroll" ref={ref}>
+      <Slides className="md:overflow-scroll" ref={ref} values={width}>
         {input ? input.fields?.map((item, index) => (
           <Slider
             key={index}
@@ -104,6 +111,7 @@ const Slider = styled.div`
   width: 548px;
   margin-right: 72px;
   margin-top: 47px;
+  overflow: none;
   @media (max-width: 600px) {
     margin-top: 0px;
     margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
@@ -122,14 +130,15 @@ const Slides = styled.div`
   -ms-overflow-style: -ms-autohiding-scrollbar;
   width: 100%;
   ::-webkit-scrollbar {
+    -webkit-appearance: none;
     height: 4px;
-    width: 50%;
+    width: 624px;
   }
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #d5d5d5;
     border-radius: 10px;
-    margin-right: 480px;
-    margin-left: 280px;
+    margin-right: ${props => (props.values - 624)/2}px;
+    margin-left: ${props => (props.values - 624)/2}px;
   }
 
   /* Handle */
@@ -152,6 +161,7 @@ const Slides = styled.div`
     width: 100%;
     position: relative;
     ::-webkit-scrollbar {
+      -webkit-appearance: none;
       height: 4px;
       width: 50%;
     }
@@ -201,6 +211,15 @@ const Slides = styled.div`
       background: #b30000;
     }
   }
+  @media(min-width: 768px){
+    right: 48px;
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #d5d5d5;
+      border-radius: 10px;
+      margin-right: ${props => (props.values - 624)/2}px;
+      margin-left: ${props => (props.values - 624)/2}px;
+    }
+  }
   @media (min-width: 1366px) {
     height: 406px;
     margin-top: 145px;
@@ -211,14 +230,15 @@ const Slides = styled.div`
     -ms-overflow-style: -ms-autohiding-scrollbar;
     width: 100%;
     ::-webkit-scrollbar {
+      -webkit-appearance: none;
       height: 4px;
-      width: 50%;
+      width: 624px;
     }
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
-      margin-right: 480px;
-      margin-left: 280px;
+      margin-right: ${props => (props.values - 624)/2}px;
+      margin-left: ${props => (props.values - 624)/2}px;
     }
 
     /* Handle */

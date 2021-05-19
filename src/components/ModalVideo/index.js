@@ -88,6 +88,9 @@ const Content = styled.div`
     }
     @media (min-width: 1200px) {
       margin-bottom: 62px;
+    }
+    @media (min-width: 1600px) {
+      margin-bottom: 62px;
       height: 869px;
     }
   }

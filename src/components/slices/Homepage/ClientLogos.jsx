@@ -152,7 +152,7 @@ const ClientsLeft = styled.div`
     max-width: 100%;
     height: 38px;
     position: relative;
-    margin-right: 30px;
+    margin-right: 80px;
   }
   @media(min-width: 1600px){
     margin-right: 80px;
