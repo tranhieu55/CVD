@@ -33,6 +33,7 @@ const ProjectTiles = ({ input }) => {
                   alt={edge.project_item.project_header_image.alt}
                   src={edge.project_item.project_header_image.url}
                 />
+                <Phur></Phur>
               </DivIMG>
               <TitleImageBlog>
                 <Span>{edge.project_item.name_category_of_project}</Span>
@@ -103,21 +104,23 @@ const SubTitle = styled.span`
   position: relative;
   margin-left: 80px;
   height: 16px;
-  &::after{position: absolute;
+  &::after {
+    position: absolute;
     right: calc(100% + 16px);
     top: 31%;
     display: block;
     content: "";
     width: 64px;
     height: 2px;
-    background: rgb(254, 207, 9);}
-  @media(max-width: 600px){
+    background: rgb(254, 207, 9);
+  }
+  @media (max-width: 600px) {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
     line-height: 14px;
     margin-left: 48px;
-    &::after{
+    &::after {
       width: 32px;
     }
   }
@@ -129,14 +132,14 @@ const Title = styled.p`
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 56px;
-  margin-bottom : -15px;
+  margin-bottom: -15px;
   margin-top: 12px;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 32px;
-    margin-bottom : -2px;
+    margin-bottom: -2px;
     margin-top: 6px;
   }
 `
@@ -165,6 +168,14 @@ const DivIMG = styled.div`
     width: 100%;
     height: 100%;
   }
+`
+const Phur = styled.div`
+  position: absolute;
+  opacity: 0.3;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  height: 50%;
+  width: 100%;
+  bottom : 0;
 `
 const Rows = styled.div`
   @media (max-width: 600px) {

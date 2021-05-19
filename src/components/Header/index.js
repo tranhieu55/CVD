@@ -193,8 +193,10 @@ const WrapperHeader = styled.div`
            top: 0;
         }
         @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location }) =>
-             dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
+           top: ${({ dataGlobalMessage, location, show }) =>
+             dataGlobalMessage === true || location !== "/" || show > 100
+               ? "72px"
+               : "119px"};
     }
         }
         & > ul {
