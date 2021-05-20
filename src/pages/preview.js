@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import SliceZone from "../utils/SliceZone"
+import PartnerFeatureTiles from "../components/PartnerFeatureTile"
 import { graphql, useStaticQuery } from "gatsby"
 
 function Preview() {
@@ -37,6 +38,7 @@ function Preview() {
 
   return (
     <>
+      <PartnerFeatureTiles />
       <SliceZone allSlices={data.body} />
     </>
   )
