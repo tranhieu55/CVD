@@ -75,7 +75,7 @@ const IMG = styled.div`
   @media (max-width: 600px) {
     margin-bottom: 18px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     height: 240px;
   }
 `
@@ -83,10 +83,10 @@ const IMG = styled.div`
 const CreateAt = styled.span`
   color: #999999;
   font-family: Calibre Semibold;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
-  line-height: 16px;
+  line-height: 14px;
   position: relative;
   margin-left: 80px;
   height: 16px;
@@ -117,9 +117,10 @@ const Title = styled.h4`
   font-size: 32px;
   line-height: 32px;
   letter-spacing: -0.5px;
-  color: #111111;
+  color: #101010;
   font-family: Calibre Semibold;
   text-align: left;
+  font-weight: 600;
 
   @media (max-width: 600px) {
     margin-top: 7px;
