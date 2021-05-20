@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SliceZone from "../utils/SliceZone"
 import { graphql, useStaticQuery } from "gatsby"
+import Accordion from '../components/Accordion/index';
 
 function Preview() {
   // get data from graphql
@@ -38,6 +39,7 @@ function Preview() {
   return (
     <>
       <SliceZone allSlices={data.body} />
+      <Accordion />
     </>
   )
 }
