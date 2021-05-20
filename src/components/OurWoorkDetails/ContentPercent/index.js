@@ -20,7 +20,6 @@ export default function ContentPercent(props) {
   )
 }
 const TiTle = styled.div`
-  font-weight: bold;
   font-size: 64px;
   text-align: center;
   font-family: "Calibre Semibold";
@@ -40,7 +39,7 @@ const TextPercent = styled.h5`
   height: 26px;
   font-family: "Calibre Regular";
   color: #222222;
-  line-height: 20px;
+  line-height: 24px;
   @media only screen and (max-width: 600px){
     line-height: 32px;
     margin-bottom: 0px;
