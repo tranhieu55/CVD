@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components"
 import styled from "styled-components"
 import CalibreRegular from "../../assets/fonts/CalibreRegular.woff"
 import CalibreSemibold from "../../assets/fonts/CalibreSemibold.woff"
-import { graphql, useStaticQuery } from "gatsby"
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -25,49 +24,30 @@ src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
 `
 
 const ThreeColumnProfile = ({ input }) => {
-  // get data from graphql
-  const data = useStaticQuery(graphql`
-    query QueryThreeColumnProfile {
-      prismic {
-        allNotfound_pages {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_Notfound_pageBody3_column_profiles {
-                  type
-                  label
-                  fields {
-                    avatar
-                    description
-                    name
-                    position
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  // get data for profiles
-  const dataProfiles =
-    data?.prismic?.allNotfound_pages?.edges[0]?.node?.body[1]?.fields
-
   return (
     <Container>
       <GlobalStyle />
       <Body>
         <Profile>
-          {dataProfiles.map((element, index) => (
+          {input?.fields.map((element, index) => (
             <BlockProfile key={index}>
               <IMG>
-                <img src={element?.avatar?.url} alt={element?.avatar?.alt} />
+                <img
+                  src={element?.avatar?.url ? element?.avatar?.url : ""}
+                  alt={element?.avatar?.alt ? element?.avatar?.alt : ""}
+                />
               </IMG>
-              <Position>{element?.position[0]?.text}</Position>
-              <Name>{element?.name[0]?.text}</Name>
-              <Description>{element?.description[0]?.text}</Description>
+              <Position>
+                {element?.position[0]?.text ? element?.position[0]?.text : ""}
+              </Position>
+              <Name>
+                {element?.name[0]?.text ? element?.name[0]?.text : ""}
+              </Name>
+              <Description>
+                {element?.description[0]?.text
+                  ? element?.description[0]?.text
+                  : ""}
+              </Description>
             </BlockProfile>
           ))}
         </Profile>
