@@ -101,14 +101,14 @@ const Container = styled.div`
     }
   }
   @media (min-width: 1366px) {
-    margin-top: -70px;
+    margin-top: -83px;
     :before {
       height: 146px;
     }
   }
   @media (min-width: 1600px) {
     height: 1000px;
-    margin-top: -70px;
+    margin-top: -83px;
     :before {
       height: 146px;
     }
