@@ -80,7 +80,7 @@ export default function Cardwhatwedo(props) {
 }
 const Container = styled.div`
   margin-bottom: 115px;
-  max-width: 1240px !important;
+  max-width: 1145px !important;
   @media only screen and (max-width: 600px) {
     margin-bottom: 25px;
   }
@@ -101,7 +101,8 @@ const IphoneX = styled.div`
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 `
-const BoxStudy = styled.div``
+const BoxStudy = styled.div`
+`
 const BoxImage = styled.div``
 const BoxContentStudy = styled.div`
   width: 446px;
@@ -170,7 +171,9 @@ const BoxIconStudy = styled.div`
   }
 `
 const SpanStudy = styled.span``
-const BoxDivStudy = styled.div``
+const BoxDivStudy = styled.div`
+  
+`
 const Study = styled.div`
   .box-study-5 {
     display: flex;
@@ -187,6 +190,12 @@ const Study = styled.div`
   }
   .cl-order {
     flex-direction: row-reverse;
+    .cl174{
+      width : 162px !important;
+    }
+    .cl80{
+      width: 0px !important;
+    }
   }
 
   .icon-leadmore span {
@@ -213,7 +222,7 @@ const Study = styled.div`
     padding-right: 0 !important;
   }
   .cl174 {
-    width: 174px;
+    width: 127px
   }
   .cl80 {
     width: 80px;
@@ -253,7 +262,7 @@ const Study = styled.div`
     .box-img {
       padding-left: 16px !important;
       padding-right: 16px !important;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
       width: 100% !important;
       height: 100% !important;
     }
@@ -285,14 +294,14 @@ const Study = styled.div`
       font-size: 22px;
     }
     p {
-      font-size: 16px;
+      font-size: 20px;
     }
     .box-img {
       width: 100%;
       height: 100%;
     }
     .cl174 {
-      width: 100px;
+      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
     }
     .cl80 {
       display: none;
@@ -309,7 +318,7 @@ const Study = styled.div`
       font-size: 26px;
     }
     p {
-      font-size: 16px;
+      font-size: 20px;
     }
     .box-study-5 {
       margin-bottom: 40px;
@@ -323,7 +332,7 @@ const Study = styled.div`
       font-size: 20px;
     }
     .cl174 {
-      width: 150px;
+      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
     }
     .cl80 {
       width: 20px;
@@ -334,10 +343,11 @@ const Study = styled.div`
   }
   @media only screen and (min-width: 1200px) {
     .cl174 {
-      width: 130px;
+      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
     }
     .box-study-5 {
       margin-bottom: 96px;
+      
     }
   }
   @media only screen and (min-width: 1366px) {
@@ -346,7 +356,7 @@ const Study = styled.div`
       padding-right: 0 !important;
     }
     .cl174 {
-      width: 174px;
+      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
     }
     .cl80 {
       display: block;
@@ -362,9 +372,9 @@ const Study = styled.div`
     &::after {
       content: "\f178";
       font-family: "Font Awesome 5 Pro Regular";
-      height: 18px;
+      height: 21px;
       line-height: 0px;
-      font-size: 18px;
+      font-size: 20px;
       color: #101010;
       padding: 0px 0.6rem;
     }

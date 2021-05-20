@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import CountUp from 'react-countup'
 
 export default function ContentPercent(props) {
   return (
@@ -7,7 +8,10 @@ export default function ContentPercent(props) {
       <Percent className="plus">
         {props && props?.input?.fields?.map((item, index) => (
           <Content key={index}>
-            <TiTle>{item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : ""}</TiTle>
+            {index != 0 ?
+              <TiTle><CountUp end = {item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : 0} duration= {1.5}/>%</TiTle>
+              : <TiTle><CountUp end = {item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : 0} duration= {1.5}/>+</TiTle>
+            }
             <TextPercent>{item.description_of_statistical[0]?.text ? item.description_of_statistical[0]?.text : ""}</TextPercent>
           </Content>
         ))}
@@ -15,15 +19,14 @@ export default function ContentPercent(props) {
     </Container>
   )
 }
-const TiTle = styled.h1`
-  font-weight: bold;
+const TiTle = styled.div`
   font-size: 64px;
   text-align: center;
   font-family: "Calibre Semibold";
   line-height: 56px;
   color: #101010;
   font-weight: 600;
-  margin-bottom: 0px;
+  margin-bottom: -6px;
   @media only screen and (max-width: 600px){
     font-size: 48px;
     color: #101010;
@@ -36,7 +39,7 @@ const TextPercent = styled.h5`
   height: 26px;
   font-family: "Calibre Regular";
   color: #222222;
-  line-height: 20px;
+  line-height: 24px;
   @media only screen and (max-width: 600px){
     line-height: 32px;
     margin-bottom: 0px;
