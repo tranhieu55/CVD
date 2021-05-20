@@ -1,27 +1,17 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import CountUp from 'react-countup'
 
 export default function ContentPercent(props) {
-  // useEffect(() => {
-  //   document.getElementsByClassName('.count').each(function () {
-  //     $(this).prop('Counter',0).animate({
-  //         Counter: $(this).text()
-  //     }, {
-  //         duration: 3000,
-  //         easing: 'swing',
-  //         step: function (now) {
-  //             $(this).text(Math.ceil(now));
-  //         }
-  //     });
-  // });
-  // })
   return (
     <Container>
       <Percent className="plus">
         {props && props?.input?.fields?.map((item, index) => (
           <Content key={index}>
-            <TiTle className='count'>{item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : ""}</TiTle>
+            {index != 0 ?
+              <TiTle><CountUp end = {item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : 0} duration= {1.5}/>%</TiTle>
+              : <TiTle><CountUp end = {item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : 0} duration= {1.5}/>+</TiTle>
+            }
             <TextPercent>{item.description_of_statistical[0]?.text ? item.description_of_statistical[0]?.text : ""}</TextPercent>
           </Content>
         ))}
@@ -29,7 +19,7 @@ export default function ContentPercent(props) {
     </Container>
   )
 }
-const TiTle = styled.h1`
+const TiTle = styled.div`
   font-weight: bold;
   font-size: 64px;
   text-align: center;
@@ -37,7 +27,7 @@ const TiTle = styled.h1`
   line-height: 56px;
   color: #101010;
   font-weight: 600;
-  margin-bottom: 0px;
+  margin-bottom: -6px;
   @media only screen and (max-width: 600px){
     font-size: 48px;
     color: #101010;
