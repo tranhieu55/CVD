@@ -39,8 +39,11 @@ import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
 import BlogArticleTiles from "../components/BlogArticleTiles"
 import TwoColumnText from "../components/ColumnText"
+import ThreeColumnProfile from "../components/ThreeColumnProfile"
 
 const SliceZone = props => {
+  console.log({ props: props.allSlices })
+
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
@@ -266,12 +269,18 @@ const SliceZone = props => {
           )
         case "list_projects_to_show":
           return <OurWorkProjects key={index} input={s} />
+
         case "partner_details":
           return <CardPartners key={index} input={s} />
+
         case "blog_article_tiles":
           return <BlogArticleTiles key={index} input={s} />
         case "2_column_text":
           return <TwoColumnText key={index} input={s} />
+
+        case "3_column_profiles":
+          return <ThreeColumnProfile key={index} input={s} />
+
         default:
           return <></>
       }

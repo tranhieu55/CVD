@@ -1,11 +1,43 @@
 import React from "react"
-import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import styled from "styled-components"
+import SliceZone from "../utils/SliceZone"
+import { graphql, useStaticQuery } from "gatsby"
 
 function Preview() {
+  // get data from graphql
+  const dataGraphql = useStaticQuery(graphql`
+    query QueryThreeColumnProfile {
+      prismic {
+        allNotfound_pages {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_Notfound_pageBody3_column_profiles {
+                  type
+                  label
+                  fields {
+                    avatar
+                    description
+                    name
+                    position
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  // get data
+  const data = dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
+    ? dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
+    : []
+
   return (
     <>
-      <ThreeColumnProfile />
+      <SliceZone allSlices={data.body} />
     </>
   )
 }
