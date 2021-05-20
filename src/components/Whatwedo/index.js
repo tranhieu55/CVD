@@ -294,7 +294,7 @@ const Study = styled.div`
       font-size: 22px;
     }
     p {
-      font-size: 16px;
+      font-size: 20px;
     }
     .box-img {
       width: 100%;
@@ -318,7 +318,7 @@ const Study = styled.div`
       font-size: 26px;
     }
     p {
-      font-size: 16px;
+      font-size: 20px;
     }
     .box-study-5 {
       margin-bottom: 40px;
@@ -372,9 +372,9 @@ const Study = styled.div`
     &::after {
       content: "\f178";
       font-family: "Font Awesome 5 Pro Regular";
-      height: 20px;
+      height: 21px;
       line-height: 0px;
-      font-size: 18px;
+      font-size: 20px;
       color: #101010;
       padding: 0px 0.6rem;
     }
