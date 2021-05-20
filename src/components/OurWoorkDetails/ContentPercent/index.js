@@ -1,13 +1,27 @@
 import React from 'react'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 export default function ContentPercent(props) {
+  // useEffect(() => {
+  //   document.getElementsByClassName('.count').each(function () {
+  //     $(this).prop('Counter',0).animate({
+  //         Counter: $(this).text()
+  //     }, {
+  //         duration: 3000,
+  //         easing: 'swing',
+  //         step: function (now) {
+  //             $(this).text(Math.ceil(now));
+  //         }
+  //     });
+  // });
+  // })
   return (
     <Container>
       <Percent className="plus">
         {props && props?.input?.fields?.map((item, index) => (
           <Content key={index}>
-            <TiTle>{item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : ""}</TiTle>
+            <TiTle className='count'>{item?.number_of_statistical[0]?.text ? item?.number_of_statistical[0]?.text : ""}</TiTle>
             <TextPercent>{item.description_of_statistical[0]?.text ? item.description_of_statistical[0]?.text : ""}</TextPercent>
           </Content>
         ))}
