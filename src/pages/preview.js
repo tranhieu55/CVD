@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SliceZone from "../utils/SliceZone"
 import PartnerFeatureTiles from "../components/PartnerFeatureTile"
+import ClientLogoBlock from "../components/ClientLogoBlock"
 import { graphql, useStaticQuery } from "gatsby"
 
 function Preview() {
@@ -39,6 +40,7 @@ function Preview() {
   return (
     <>
       <PartnerFeatureTiles />
+      <ClientLogoBlock />
       <SliceZone allSlices={data.body} />
     </>
   )
