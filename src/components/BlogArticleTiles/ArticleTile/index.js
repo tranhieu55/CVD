@@ -54,6 +54,10 @@ const BlockBlog = styled.div`
     padding: 0;
   }
 
+  @media (max-width: 370px) {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+  }
   @media (max-width: 350px) {
     padding-left: 14px;
     padding-right: 14px;
@@ -83,10 +87,10 @@ const IMG = styled.div`
 const CreateAt = styled.span`
   color: #999999;
   font-family: Calibre Semibold;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
-  line-height: 14px;
+  line-height: 16px;
   position: relative;
   margin-left: 80px;
   height: 16px;
@@ -104,6 +108,8 @@ const CreateAt = styled.span`
   }
   @media (max-width: 600px) {
     margin-left: 48px;
+    font-size: 12px;
+    line-height: 14px;
 
     &::after {
       width: 32px;
@@ -117,7 +123,7 @@ const Title = styled.h4`
   font-size: 32px;
   line-height: 32px;
   letter-spacing: -0.5px;
-  color: #101010;
+  color: #111111;
   font-family: Calibre Semibold;
   text-align: left;
   font-weight: 600;
@@ -128,6 +134,7 @@ const Title = styled.h4`
     font-size: 24px;
     line-height: 24px;
     letter-spacing: -0.25px;
+    color: #101010;
   }
 `
 
