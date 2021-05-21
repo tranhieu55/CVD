@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useMemo } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -1168,7 +1168,6 @@ const Header = ({
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
-  const [checkValueTest, setCheckValueTest] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
@@ -1204,7 +1203,6 @@ const Header = ({
     const _show = window.scrollY
     if (_show > -1) {
       setIsDisPlayModalService(false)
-      setCheckValueTest(true)
     }
     setShow(_show)
   }
@@ -1312,7 +1310,12 @@ const Header = ({
       return "menu-nav-white"
     }
   }
-  console.log("run....")
+  const dataUseMemo = useMemo(() => {
+    console.log("abc ", dataMenuHeader)
+    return dataMenuHeader
+  }, [])
+  // console.log("run....", dataUseMemo)
+
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
