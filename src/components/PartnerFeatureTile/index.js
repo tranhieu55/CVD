@@ -1,28 +1,32 @@
 import React from "react"
 import styled from "styled-components"
 
-function PartnerFeatureTile() {
+function PartnerFeatureTile({ input }) {
+  console.log({ input })
+
   return (
     <Container>
       <Body>
-        <Grid>
-          <IMG>
-            <img src="" alt="" />
-          </IMG>
-          <BlockText>
-            <Title>We are Shopify Plus partners</Title>
-            <Description>
-              Shopify Plus is an omni-channel platform providing enterprise
-              level scalability, within the cloud – so you can continue focusing
-              on growing your business, rather than worrying about your website.
-              Convert Digital are the leading Shopify Plus expert partners in
-              Melbourne and Sydney. We can provide expert advice and the perfect
-              solution for your web store.
-            </Description>
+        {input?.fields?.map((element, index) => (
+          <Grid>
+            <IMG>
+              <img
+                src={element?.logo?.url ? element?.logo?.url : ""}
+                alt={element?.logo?.alt ? element?.logo?.alt : ""}
+              />
+            </IMG>
+            <BlockText>
+              <Title>
+                {element?.subtitle[0]?.text ? element?.subtitle[0]?.text : ""}
+              </Title>
+              <Description>
+                {element?.text[0]?.text ? element?.text[0]?.text : ""}
+              </Description>
 
-            <ReadMore>View Shopify Portfolio</ReadMore>
-          </BlockText>
-        </Grid>
+              <ReadMore>View Shopify Portfolio</ReadMore>
+            </BlockText>
+          </Grid>
+        ))}
       </Body>
     </Container>
   )
@@ -36,7 +40,7 @@ const Container = styled.div`
   background-color: #f8f8f8;
 
   @media (max-width: 992px) {
-    padding-top: 58px;
+    padding-top: 68px;
     padding-bottom: 58px;
   }
 `
@@ -64,8 +68,6 @@ const IMG = styled.div`
   max-width: 324px;
   height: 67px;
 
-  background-color: gray;
-
   img {
     width: 100%;
     height: 100%;
@@ -75,6 +77,7 @@ const IMG = styled.div`
   @media (max-width: 992px) {
     height: 51px;
     max-width: 256px;
+    margin-top: 0;
   }
 `
 
@@ -98,6 +101,7 @@ const Title = styled.h4`
 
   @media (max-width: 992px) {
     margin-bottom: 8px;
+    max-width: 235px;
   }
 `
 
@@ -109,8 +113,11 @@ const Description = styled.p`
   letter-spacing: 0;
   margin-bottom: 9px;
 
-  @media (max-width: 8px) {
+  @media (max-width: 992px) {
     margin-bottom: 8px;
+  }
+  @media (max-width: 600px) {
+    max-width: 298px;
   }
 `
 
