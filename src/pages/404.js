@@ -6,6 +6,7 @@ import SEO from "../components/utilities/SEO"
 import CardProject from "../components/CardProject"
 import TwoColumnText from "../components/ColumnText"
 import SliceZone from "../utils/SliceZone"
+import SliderIntagram from "../components/SilderIntagram"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -21,6 +22,13 @@ const NotFoundPage = ({ input }) => {
               keywords
               heading_text
               body {
+                ... on PRISMIC_Notfound_pageBodyInstagram_launch {
+                  type
+                  label
+                  fields {
+                    image_slice
+                  }
+                }
                 ... on PRISMIC_Notfound_pageBody2_column_text {
                   type
                   label
@@ -69,7 +77,6 @@ const NotFoundPage = ({ input }) => {
   const dataCaseStudies =
     data.prismic.allNotfound_pages.edges[0].node.body[0].fields
   const dataTextTwoColumn = data.prismic.allNotfound_pages.edges[0].node
-
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />

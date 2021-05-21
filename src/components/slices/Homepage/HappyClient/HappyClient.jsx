@@ -136,12 +136,12 @@ const Slides = styled.div`
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   width: 100%;
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     -webkit-appearance: none;
     height: 4px;
     width: 624px;
   }
-  ::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #d5d5d5;
     border-radius: 10px;
     margin-right: calc((100vw - 624px) / 2);
@@ -149,14 +149,14 @@ const Slides = styled.div`
   }
 
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background: #bbbbbb;
     border-radius: 10px;
     width: 30%;
   }
 
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     background: #b30000;
   }
 
@@ -168,12 +168,12 @@ const Slides = styled.div`
     overflow-x: auto;
     width: 100%;
     position: relative;
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       -webkit-appearance: none;
       height: 4px;
       width: 50%;
     }
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
       margin-right: 80px;
@@ -181,13 +181,13 @@ const Slides = styled.div`
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       background: #bbbbbb;
       border-radius: 10px;
     }
 
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover {
       background: #b30000;
     }
   }
@@ -197,11 +197,11 @@ const Slides = styled.div`
     overflow-x: auto;
     width: 100%;
     position: relative;
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       height: 4px;
       width: 50%;
     }
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
       margin-right: 80px;
@@ -209,18 +209,18 @@ const Slides = styled.div`
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       background: #bbbbbb;
       border-radius: 10px;
     }
 
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover {
       background: #b30000;
     }
   }
   @media (min-width: 768px) {
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
       margin-right: calc((100vw - 624px) / 2);
@@ -236,12 +236,12 @@ const Slides = styled.div`
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     width: 100%;
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       -webkit-appearance: none;
       height: 4px;
       width: 624px;
     }
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px #d5d5d5;
       border-radius: 10px;
       margin-right: calc((100vw - 624px) / 2);
@@ -249,13 +249,13 @@ const Slides = styled.div`
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       background: #bbbbbb;
       border-radius: 10px;
     }
 
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover {
       background: #b30000;
     }
   }

@@ -89,29 +89,29 @@ const Container = styled.div`
   margin-top: 60px;
   margin-left: 260px;
   margin-bottom: 80px;
-  width: 716px;
+  width: 100%;
 
   @media (max-width: 600px) {
-    width: 343px;
+    max-width: 343px;
     margin: 16px auto 32px;
   }
   @media (max-width: 360px) {
-    width: 300px;
+    max-width: 300px;
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
-    width: 586px;
+    max-width: 586px;
     margin: 20px auto 40px;
   }
   @media (min-width: 768px) {
-    width: 716px;
+    max-width: 716px;
     margin: 20px auto 40px;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
     margin-left: 260px;
     margin-bottom: 80px;
-    width: 716px;
+    max-width: 716px;
   }
 `
 const Img = styled.img`

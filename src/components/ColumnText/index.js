@@ -23,6 +23,9 @@ const Wrapper = styled.div`
   @media (min-width: 600px) {
     padding: 0 32px;
   }
+  @media (min-width: 1200px) {
+    padding: 0px;
+  }
   @media (min-width: 1600px) {
     padding: 0 15px;
   }
