@@ -1312,6 +1312,7 @@ const Header = ({
       return "menu-nav-white"
     }
   }
+  console.log("run....")
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1668,7 +1669,7 @@ const Header = ({
   )
 }
 
-export default Header
+export default React.memo(Header)
 
 export const query = graphql`
   query QueryHearder {

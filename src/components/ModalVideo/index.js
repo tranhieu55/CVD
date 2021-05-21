@@ -62,20 +62,20 @@ const ButtonClose = styled.img`
     right: 5px;
   }
   @media (max-width: 600px) {
-    top: 8px;
+    top: 5px;
     right: 5px;
     font-size: 10px;
   }
   @media (min-width: 600px) {
-    top: 18px;
+    top: 15px;
     right: 16px;
   }
   @media (min-width: 768px) {
-    top: 18px;
+    top: 15px;
     right: 16px;
   }
   @media (min-width: 1200px) {
-    top: 72px;
+    top: 68px;
     right: 38px;
   }
 `
