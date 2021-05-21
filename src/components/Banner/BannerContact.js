@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 export default function BannerContacts({ title, content, button, Phones }) {
+  console.log("render chikld")
   return (
     <Banner>
       {title && content && button && Phones ? (
@@ -22,6 +23,12 @@ export default function BannerContacts({ title, content, button, Phones }) {
     </Banner>
   )
 }
+
+const Test = styled.div`
+  color: red;
+  font-size: 30px;
+  font-family: Calibre Bold;
+`
 
 const Banner = styled.div`
   height: 614px;
