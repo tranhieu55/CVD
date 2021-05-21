@@ -41,6 +41,8 @@ import BlogArticleTiles from "../components/BlogArticleTiles"
 import TwoColumnText from "../components/ColumnText"
 import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import PartnerFeatureTile from "../components/PartnerFeatureTile"
+import SliderIntagram from "../components/SilderIntagram"
+import ClientLogoBlock from "../components/ClientLogoBlock"
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -279,9 +281,14 @@ const SliceZone = props => {
 
         case "3_column_profiles":
           return <ThreeColumnProfile key={index} input={s} />
+        case "instagram_launch":
+          return <SliderIntagram key={index} input={s} />
 
         case "_partner_feature_tile":
           return <PartnerFeatureTile key={index} input={s} />
+
+        case "client_logo_grid":
+          return <ClientLogoBlock key={index} input={s} />
 
         default:
           return <></>

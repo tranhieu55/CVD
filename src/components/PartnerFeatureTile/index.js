@@ -2,13 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 function PartnerFeatureTile({ input }) {
-  console.log({ input })
-
   return (
     <Container>
       <Body>
         {input?.fields?.map((element, index) => (
-          <Grid>
+          <Grid key={index}>
             <IMG>
               <img
                 src={element?.logo?.url ? element?.logo?.url : ""}
@@ -23,7 +21,7 @@ function PartnerFeatureTile({ input }) {
                 {element?.text[0]?.text ? element?.text[0]?.text : ""}
               </Description>
 
-              <ReadMore>View Shopify Portfolio</ReadMore>
+              <ReadMore href="#">View Shopify Portfolio</ReadMore>
             </BlockText>
           </Grid>
         ))}
@@ -117,6 +115,9 @@ const Description = styled.p`
     margin-bottom: 8px;
   }
   @media (max-width: 600px) {
+    max-width: 327px;
+  }
+  @media (max-width: 370px) {
     max-width: 298px;
   }
 `
