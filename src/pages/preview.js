@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SliceZone from "../utils/SliceZone"
 import { graphql, useStaticQuery } from "gatsby"
-import Accordion from '../components/Accordion/index';
+import Accordion from "../components/Accordion/index"
 
 import { createGlobalStyle } from "styled-components"
 import CalibreRegular from "../assets/fonts/CalibreRegular.woff"
@@ -164,6 +164,12 @@ function Preview() {
           edges {
             node {
               body {
+                ... on PRISMIC_Notfound_pageBodyClient_logo_grid {
+                  type
+                  fields {
+                    images
+                  }
+                }
                 ... on PRISMIC_Notfound_pageBody_partner_feature_tile {
                   type
                   fields {

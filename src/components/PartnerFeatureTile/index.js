@@ -2,13 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 function PartnerFeatureTile({ input }) {
-  console.log({ input })
-
   return (
     <Container>
       <Body>
         {input?.fields?.map((element, index) => (
-          <Grid>
+          <Grid key={index}>
             <IMG>
               <img
                 src={element?.logo?.url ? element?.logo?.url : ""}
