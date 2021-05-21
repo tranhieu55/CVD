@@ -6,46 +6,16 @@ const ClientLogoBlock = ({ input }) => {
     <Container>
       <Body>
         <Logoes>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
-          <BlockLogo>
-            <IMG>
-              <img src="" alt="" />
-            </IMG>
-          </BlockLogo>
+          {input?.fields?.map((element, index) => (
+            <BlockLogo key={index}>
+              <IMG>
+                <img
+                  src={element?.images?.url ? element?.images?.url : ""}
+                  alt={element?.images?.alt ? element?.images?.alt : ""}
+                />
+              </IMG>
+            </BlockLogo>
+          ))}
         </Logoes>
       </Body>
     </Container>
@@ -59,7 +29,8 @@ const Container = styled.div`
   margin-bottom: 147px;
 
   @media (max-width: 600px) {
-    margin-top: 29px;
+    margin-top: 54px;
+    margin-bottom: 111.5px;
   }
 `
 
@@ -103,7 +74,7 @@ const BlockLogo = styled.div`
 const IMG = styled.div`
   width: 100%;
   height: 122px;
-  background-color: #e8e8e8;
+  // background-color: #e8e8e8;
 
   img {
     width: 100%;

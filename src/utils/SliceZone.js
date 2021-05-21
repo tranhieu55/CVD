@@ -42,6 +42,8 @@ import TwoColumnText from "../components/ColumnText"
 import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
+import ClientLogoBlock from "../components/ClientLogoBlock"
+
 const SliceZone = props => {
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
@@ -284,6 +286,9 @@ const SliceZone = props => {
 
         case "_partner_feature_tile":
           return <PartnerFeatureTile key={index} input={s} />
+
+        case "client_logo_grid":
+          return <ClientLogoBlock key={index} input={s} />
 
         default:
           return <></>
