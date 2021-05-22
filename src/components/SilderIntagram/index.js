@@ -3,7 +3,6 @@ import Sliders from "react-slick"
 import styled from "styled-components"
 
 export default function SliderIntagram({ input }) {
-  console.log("object123", input)
   var settings = {
     dots: true,
     infinite: true,
@@ -43,7 +42,7 @@ const Slider = styled.div`
     height: 52px;
     background-color: white;
     border-radius: 50%;
-    opacity: 0.6;
+    opacity: 0.5;
     &:hover {
       background-color: white;
       opacity: 1;
@@ -51,6 +50,16 @@ const Slider = styled.div`
     &:focus {
       background-color: white;
       opacity: 1;
+    }
+  }
+  @media (max-width:992px) {
+    button {
+      display: none!important;
+    }
+  }
+  @media (min-width:992px) {
+    button {
+      display: block!important;
     }
   }
   width: 100%;
@@ -174,15 +183,10 @@ const Slider = styled.div`
       }
     }
   }
-  @media (min-width: 768px) {
-    margin-bottom: 50px;
-    height: 500px;
-  }
-  @media (min-width: 890px) {
+  @media (max-width: 1024px) {
     .slick-dots {
-      bottom: 15px;
-    }
-    height: 650px;
+     display:none !important;
+
   }
   @media (min-width: 1024px) {
     .slick-dots {
@@ -204,7 +208,7 @@ const Slider = styled.div`
     height: 800px;
     div {
       margin: 0 auto;
-      height: 100%;
+      height: 780px !important;
     }
   }
 `

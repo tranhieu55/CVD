@@ -200,7 +200,7 @@ function Preview() {
   const data = dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
     ? dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
     : []
-
+  console.log("data", data)
   return (
     <>
       <GlobalStyle />
