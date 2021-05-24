@@ -188,6 +188,21 @@ function Preview() {
                     position
                   }
                 }
+                ... on PRISMIC_Notfound_pageBody_accordion {
+                  type
+                  label
+                  fields {
+                    content_text
+                    footer
+                    sub_title
+                    text
+                    textFoodter
+                    text_center
+                    text_li
+                    text_li_after
+                    title
+                  }
+                }
               }
             }
           }

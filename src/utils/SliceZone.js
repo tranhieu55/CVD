@@ -43,6 +43,7 @@ import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
+import Accordion from '../components/Accordion'
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -289,6 +290,9 @@ const SliceZone = props => {
 
         case "client_logo_grid":
           return <ClientLogoBlock key={index} input={s} />
+
+        case "_accordion" : 
+            return < Accordion key={index} input ={s} />
 
         default:
           return <></>
