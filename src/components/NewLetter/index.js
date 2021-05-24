@@ -321,9 +321,13 @@ const DivInput = styled.div`
     display: block;
 `
 const Errors = styled.p`
-    color: red;
-    padding-top: ${props => props.hienthi === '' ? "0px" : '15px'};;
+    color: #F10909;;
+    padding-top: ${props => props.hienthi === '' ? "0px" : '10px'};
     text-align : center;
     display: ${props => props.hienthi === '' ? "none" : 'block'};
     margin-bottom: 0px;
+    line-height: 24px;
+    font-size: 18px;
+    font-family: Calibre Regular;
+
 `

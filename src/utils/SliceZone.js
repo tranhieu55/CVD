@@ -292,7 +292,7 @@ const SliceZone = props => {
           return <ClientLogoBlock key={index} input={s} />
 
         case "_accordion" : 
-            return < Accordion key={index} input ={s} />
+            return (<Accordion key={index} input={s} />)
 
         default:
           return <></>
