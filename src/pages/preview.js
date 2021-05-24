@@ -156,12 +156,12 @@ src: local('Font Awesome 5 Brands Regular'), url(${FontAwesome5BrandsRegular}) f
 `
 
 function Preview({ data: { prismic } }) {
-
   // get data
-  const data = prismic && prismic?.allNotfound_pages?.edges[0]?.node
-    ? prismic?.allNotfound_pages?.edges[0]?.node
-    : []
-  console.log("data", data.body)
+  const data =
+    prismic && prismic?.allNotfound_pages?.edges[0]?.node
+      ? prismic?.allNotfound_pages?.edges[0]?.node
+      : []
+  // console.log("data", data.body)
   return (
     <>
       <GlobalStyle />
@@ -173,49 +173,35 @@ function Preview({ data: { prismic } }) {
 export default Preview
 
 export const pageQuery = graphql`
-query QueryThreeColumnProfile {
-  prismic {
-    allNotfound_pages {
-      edges {
-        node {
-          body {
-            ... on PRISMIC_Notfound_pageBodyClient_logo_grid {
-              type
-              fields {
-                images
+  query QueryThreeColumnProfile {
+    prismic {
+      allNotfound_pages {
+        edges {
+          node {
+            body {
+              ... on PRISMIC_Notfound_pageBodyClient_logo_grid {
+                type
+                fields {
+                  images
+                }
               }
-            }
-            ... on PRISMIC_Notfound_pageBody_partner_feature_tile {
-              type
-              fields {
-                logo
-                subtitle
-                text
+              ... on PRISMIC_Notfound_pageBody_partner_feature_tile {
+                type
+                fields {
+                  logo
+                  subtitle
+                  text
+                }
               }
-            }
-            ... on PRISMIC_Notfound_pageBody3_column_profiles {
-              type
-              label
-              fields {
-                avatar
-                description
-                name
-                position
-              }
-            }
-            ... on PRISMIC_Notfound_pageBody_accordion {
-              type
-              label
-              fields {
-                content_text
-                footer
-                sub_title
-                text
-                textFoodter
-                text_center
-                text_li
-                text_li_after
-                title
+              ... on PRISMIC_Notfound_pageBody3_column_profiles {
+                type
+                label
+                fields {
+                  avatar
+                  description
+                  name
+                  position
+                }
               }
             }
           }
@@ -223,5 +209,4 @@ query QueryThreeColumnProfile {
       }
     }
   }
-}
 `

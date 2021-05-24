@@ -7,7 +7,7 @@ import { RichText } from "prismic-reactjs"
 import {
   FacebookShareButton,
   TwitterShareButton,
-  MailruShareButton,
+  EmailShareButton,
 } from "react-share"
 
 const BlogDetails = props => {
@@ -92,13 +92,13 @@ const BlogDetails = props => {
                       )
                     case 2:
                       return (
-                        <MailruShareButton key={index} url={location.href}>
+                        <EmailShareButton key={index} url={location.href}>
                           <Icon
                             value={index}
                             src={x?.icon_image?.url ? x?.icon_image?.url : ""}
                             alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
                           />
-                        </MailruShareButton>
+                        </EmailShareButton>
                       )
                     default:
                       return (
