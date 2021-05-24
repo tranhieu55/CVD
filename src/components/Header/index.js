@@ -284,6 +284,7 @@ const WrapperHeader = styled.div`
     overflow-y: auto;
     left: 0%;
     padding: 48px;
+    transition: all 0.4s ease-in;
   }
   .icon-close {
     position: absolute;

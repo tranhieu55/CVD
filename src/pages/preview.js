@@ -188,6 +188,21 @@ function Preview() {
                     position
                   }
                 }
+                ... on PRISMIC_Notfound_pageBody_accordion {
+                  type
+                  label
+                  fields {
+                    content_text
+                    footer
+                    sub_title
+                    text
+                    textFoodter
+                    text_center
+                    text_li
+                    text_li_after
+                    title
+                  }
+                }
               }
             }
           }
@@ -200,7 +215,7 @@ function Preview() {
   const data = dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
     ? dataGraphql?.prismic?.allNotfound_pages?.edges[0]?.node
     : []
-
+  console.log("data", data)
   return (
     <>
       <GlobalStyle />
