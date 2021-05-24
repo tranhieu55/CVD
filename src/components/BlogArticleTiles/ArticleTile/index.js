@@ -1,35 +1,57 @@
 import React from "react"
 import styled from "styled-components"
 import moment from "moment"
+import { Link } from "gatsby"
 
 function ArticleTile({ input }) {
+  console.log({ input_article: input })
+
   return (
     <BlockBlog>
-      <IMG>
-        <img
-          src={
-            input?.post_item?.post_image?.url
-              ? input?.post_item?.post_image?.url
-              : ""
-          }
-          alt={
-            input?.post_item?.post_image?.alt
-              ? input?.post_item?.post_image?.alt
-              : ""
-          }
-        />
-      </IMG>
+      <Link
+        to={`/blog/${
+          input?.post_item?._meta.uid ? input?.post_item?._meta.uid : ""
+        }`}
+      >
+        <IMG>
+          <img
+            src={
+              input?.post_item?.post_image?.url
+                ? input?.post_item?.post_image?.url
+                : ""
+            }
+            alt={
+              input?.post_item?.post_image?.alt
+                ? input?.post_item?.post_image?.alt
+                : ""
+            }
+          />
+        </IMG>
+      </Link>
       <CreateAt>
         {input?.post_item?.date_created
           ? moment(input?.post_item?.date_created).format("LL")
           : ""}
       </CreateAt>
-      <Title>
-        {input?.post_item?.title[0]?.text
-          ? input?.post_item?.title[0]?.text
-          : ""}
-      </Title>
-      <ReadMore href="">Read more</ReadMore>
+      <Link
+        to={`/blog/${
+          input?.post_item?._meta.uid ? input?.post_item?._meta.uid : ""
+        }`}
+      >
+        <Title>
+          {input?.post_item?.title[0]?.text
+            ? input?.post_item?.title[0]?.text
+            : ""}
+        </Title>
+      </Link>
+
+      <ReadMore
+        href={`/blog/${
+          input?.post_item?._meta.uid ? input?.post_item?._meta.uid : ""
+        }`}
+      >
+        Read more
+      </ReadMore>
     </BlockBlog>
   )
 }
@@ -39,6 +61,13 @@ export default ArticleTile
 const BlockBlog = styled.div`
   width: 50vw;
   max-width: 605px;
+
+  a,
+  a:visited,
+  a:focus,
+  a:active {
+    text-decoration: none;
+  }
 
   @media (max-width: 1211px) {
     width: 90vw;
