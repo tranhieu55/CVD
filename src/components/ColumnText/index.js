@@ -8,7 +8,9 @@ export default function TwoColumnText({ input }) {
         <Title mrr="24">{input.primary?.text_side_left[0]?.text}</Title>
       </Row>
       <Row>
-        <Title mrl="24">{input.primary?.text_side_right[0]?.text}</Title>
+        <Title mrl="24" mrb="66">
+          {input.primary?.text_side_right[0]?.text}
+        </Title>
       </Row>
     </Wrapper>
   )
@@ -19,12 +21,15 @@ const Wrapper = styled.div`
   display: flex;
   @media (max-width: 600px) {
     display: unset;
+    margin-top: 30px;
   }
   @media (min-width: 600px) {
     padding: 0 32px;
   }
   @media (min-width: 1200px) {
     padding: 0px;
+    margin-top: 31px;
+    margin-bottom: 90px;
   }
   @media (min-width: 1600px) {
     padding: 0 15px;
@@ -43,7 +48,8 @@ const Title = styled.p`
   @media (max-width: 600px) {
     margin: 0;
     padding: 0 16px;
-    margin-top: 27px;
+    margin-top: 30px;
+    margin-bottom: ${({ mrb }) => `${mrb}px`};
   }
 `
 const Row = styled.div`

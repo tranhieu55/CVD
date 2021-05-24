@@ -7,6 +7,7 @@ export default function SliderIntagram({ input }) {
     dots: true,
     infinite: true,
     speed: 500,
+    fade: true,
     slidesToShow: 1,
     slidesToScroll: 1,
   }
@@ -51,15 +52,9 @@ const Slider = styled.div`
       background-color: white;
       opacity: 1;
     }
-  }
-  @media (max-width: 992px) {
-    button {
-      display: none !important;
-    }
-  }
-  @media (min-width: 992px) {
-    button {
-      display: block !important;
+    @media (max-width: 600px) {
+      width: 35px;
+      height: 35px;
     }
   }
   width: 100%;
@@ -75,6 +70,9 @@ const Slider = styled.div`
     color: #101010;
     font-size: 18px;
     opacity: 1;
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
   }
   .slick-prev:before {
     content: "\f060";
@@ -82,6 +80,9 @@ const Slider = styled.div`
     color: #101010;
     font-size: 18px;
     opacity: 1;
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
   }
   .slick-dots {
     display: block !important;
@@ -100,16 +101,6 @@ const Slider = styled.div`
     padding: 0;
     height: 4px;
   }
-
-  .blog__main .slick-dots li.slick-active {
-    background: #ffd717;
-  }
-  .blog__main .slick-dots li {
-    width: 33.333%;
-    height: 7px;
-    border-radius: 15px;
-    margin: 0;
-  }
   .slick-dots li {
     position: relative;
     display: inline-block;
@@ -117,6 +108,7 @@ const Slider = styled.div`
     padding: 0;
     cursor: pointer;
     width: 100%;
+    margin: 0;
   }
   .slick-dots li button {
     display: none !important;
@@ -124,6 +116,12 @@ const Slider = styled.div`
   ul {
     .slick-active {
       background-color: #bbbbbb;
+      border-radius: 15px;
+    }
+  }
+  @media (max-width: 768px) {
+    ul {
+      max-width: 302px !important;
     }
   }
 `
@@ -135,7 +133,7 @@ const ImageSlider = styled.div`
     height: 100%;
   }
   @media (min-width: 1600px) {
-    height: 649px;
+    height: 780px;
   }
 `
 const Images = styled.img`
@@ -175,7 +173,9 @@ const Images = styled.img`
 const Container = styled.div`
   max-width: 1240px;
   margin: 0 auto;
+
   @media only screen and (max-width: 600px) {
+    margin-bottom: 66px;
   }
   @media (min-width: 601px) {
     .wrap-header {
