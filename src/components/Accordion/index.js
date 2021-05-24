@@ -4,14 +4,15 @@ import imagePlus from "../../images/pluscopy@2x.png"
 import imageMinus from "../../images/minus@2x.png"
 import { useState } from "react"
 import { RichText } from "prismic-reactjs"
+import { useStaticQuery } from "gatsby"
 
 export default function Accordion({input}) {
   console.log({input});
-  const data = input
   const [checkToggle, setCheckToggle] = useState(false)
   const handelClick = () => {
     setCheckToggle(!checkToggle)
   }
+  const data = input.fields.map(item => item);
   return (
     <Container>
       {data.map((item, index) => (
@@ -27,9 +28,9 @@ export default function Accordion({input}) {
                 problems with best practise solutions.
                 <br></br>Why work at Convert Digital:
               </Text>
-              {input.fields.map((item , index) => (
+              {item.text_li.map((item , index) => (
                 <TextLi key={index}>
-                  {RichText.render(item.text_li.map(item => item.text))}
+                  {item.text}
                 </TextLi>
               ))}
             </ContentSub>
