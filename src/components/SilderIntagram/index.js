@@ -173,6 +173,8 @@ const Images = styled.img`
 const Container = styled.div`
   max-width: 1240px;
   margin: 0 auto;
+  margin-top: 48px;
+  margin-bottom: 140px;
 
   @media only screen and (max-width: 600px) {
     margin-bottom: 66px;
