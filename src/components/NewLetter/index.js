@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export default function NewLetter ({dataFooter}) {
     const data = dataFooter ? dataFooter.edges[0]?.node.body?.filter(item => item.type === "newsletter_signup") : [];
+    const [errors, setError] = useState('')
+    const [vali, setVali] = useState('');
+    console.log(vali);
+    const validateEmail = (e) => {
+        var email = e.target.value
+    
+        if (email.length > 0) {
+            setError('')
+            setVali(email)
+        } else {
+            setError('This field is required')
+            setVali(email)
+        }
+    }
+    const ValiButton = (vali) => {
+        if(vali !== ''){
+            setError('')
+        } else {
+            setError('This field is required')
+        }
+    }
     return(
         <Container>
             <Title>{data[0]?.primary?.title?.map(item => item?.text ? item?.text : item)}</Title>
             <Text>{data[0]?.primary?.title_side?.map(item => item?.text ? item?.text : item)}</Text>
-            <Input type="email" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item?.text ? item?.text : item)}></Input>
-            <Submit>{data[0]?.primary?.text_button?.map(item => item?.text ? item?.text : item)}</Submit>
+            <DivInput>
+                <Input onChange={(e) => validateEmail(e)} type="email" placeholder={data[0]?.primary?.form_submit_placeholder?.map(item => item?.text ? item?.text : item)}></Input>
+                <Errors hienthi={errors}>{errors}</Errors>
+            </DivInput>
+            <Submit onClick={() => ValiButton(vali)}>{data[0]?.primary?.text_button?.map(item => item?.text ? item?.text : item)}</Submit>
         </Container>
     )
 }   
@@ -259,6 +283,9 @@ const Submit = styled.button`
         background: #fecf09;
         border: 2px solid #FECF09;
     }
+    :focus{
+        outline: none;
+    }
     @media(max-width: 600px){
         margin-top: 16px;
         width: 100%;
@@ -289,4 +316,14 @@ const Submit = styled.button`
         margin-top: 78px;
         padding: 14px 45px;
     }
+`
+const DivInput = styled.div`
+    display: block;
+`
+const Errors = styled.p`
+    color: red;
+    padding-top: ${props => props.hienthi === '' ? "0px" : '15px'};;
+    text-align : center;
+    display: ${props => props.hienthi === '' ? "none" : 'block'};
+    margin-bottom: 0px;
 `

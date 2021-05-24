@@ -313,6 +313,7 @@ const Textarea = styled.textarea`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    resize: none;
     :active~label,
     :focus~label,
         :not(:placeholder-shown) ~ label{
