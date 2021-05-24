@@ -4,8 +4,16 @@ import BannerBlogDetails from "../components/Banner/BannerBlogDetails"
 import Layout from "../components/Layout"
 import moment from "moment"
 import { RichText } from "prismic-reactjs"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  MailruShareButton,
+} from "react-share"
 
 const BlogDetails = props => {
+  // get location
+  const location = window.location.href
+
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
         item?.type ? item?.type === "socical_icons" : ""
@@ -21,7 +29,6 @@ const BlogDetails = props => {
       )
     : []
 
-  console.log({ dataIcon })
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
@@ -60,16 +67,51 @@ const BlogDetails = props => {
           <DivIcon>
             {dataIcon ? (
               dataIcon?.map((item, key) =>
-                item?.fields?.map((x, index) => (
-                  <a href="#">
-                    <Icon
-                      key={index}
-                      value={index}
-                      src={x?.icon_image?.url ? x?.icon_image?.url : ""}
-                      alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
-                    />
-                  </a>
-                ))
+                item?.fields?.map((x, index) => {
+                  switch (index * 1) {
+                    case 0:
+                      return (
+                        <FacebookShareButton key={index} url={location}>
+                          <Icon
+                            key={index}
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </FacebookShareButton>
+                      )
+                    case 1:
+                      return (
+                        <TwitterShareButton key={index} url={location}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </TwitterShareButton>
+                      )
+                    case 2:
+                      return (
+                        <MailruShareButton key={index} url={location}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </MailruShareButton>
+                      )
+                    default:
+                      return (
+                        <FacebookShareButton key={index} url={location}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </FacebookShareButton>
+                      )
+                  }
+                })
               )
             ) : (
               <></>
@@ -203,12 +245,18 @@ const Fotters = styled.div`
 `
 const DivIcon = styled.div`
   margin-top: 23px;
+  button {
+    margin-right: 16.5px;
+    &:focus {
+      outline: none;
+    }
+  }
+
   @media (max-width: 600px) {
     margin-top: 24px;
   }
 `
 const Icon = styled.img`
-  margin-right: 16.5px;
   width: ${({ value }) => (value === 0 ? "12.5px" : "")};
   width: ${({ value }) => (value === 1 ? "21.5px" : "")};
   width: ${({ value }) => (value === 2 ? "18px" : "")};
