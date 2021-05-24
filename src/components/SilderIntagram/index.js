@@ -174,7 +174,7 @@ const Container = styled.div`
   max-width: 1240px;
   margin: 0 auto;
   margin-top: 48px;
-  margin-bottom: 140px;
+  margin-bottom: 150px;
 
   @media only screen and (max-width: 600px) {
     margin-bottom: 66px;
@@ -183,5 +183,8 @@ const Container = styled.div`
     .wrap-header {
       width: 100vw;
     }
+  }
+  @media (min-width: 1600px) {
+    padding: 0 15px;
   }
 `
