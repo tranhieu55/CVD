@@ -12,7 +12,7 @@ import {
 
 const BlogDetails = props => {
   // get location
-  const location = window.location.href
+  const location = ""
 
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
