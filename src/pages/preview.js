@@ -207,14 +207,12 @@ query QueryThreeColumnProfile {
               type
               label
               fields {
+                content_footer
                 content_text
-                footer
+                content_text_after
+                content_title
+                content_title_center
                 sub_title
-                text
-                textFoodter
-                text_center
-                text_li
-                text_li_after
                 title
               }
             }
