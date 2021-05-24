@@ -26,6 +26,9 @@ const PageBlog = () => {
                         title
                         post_image
                         date_created
+                        _meta {
+                          uid
+                        }
                       }
                     }
                   }

@@ -6,42 +6,45 @@ import { useState } from "react"
 import { RichText } from "prismic-reactjs"
 
 export default function Accordion({input}) {
+  console.log({input});
+  const data = input
   const [checkToggle, setCheckToggle] = useState(false)
   const handelClick = () => {
     setCheckToggle(!checkToggle)
   }
-  console.log({input})
   return (
     <Container>
-      <Content>
-        <SubTitle>CLIENT SUCCESS TEAM</SubTitle>
-        <Title>Digital Ecommerce Account Manager</Title>
-        {checkToggle === true ? (
-          <ContentSub>
-            <Text>
-              Convert Digital are looking for a Shopify developer who has
-              experience with Shopify Plus, scripts, Flow, app development,
-              systems integration and has the ability to simplify complex
-              problems with best practise solutions.
-              <br></br>Why work at Convert Digital:
-            </Text>
-            {input.fields.map((item , index) => (
-              <TextLi>
-                {RichText.render(item.text_li.map(item => item.text))}
-              </TextLi>
-            ))}
-          </ContentSub>
-        ) : (
-          ""
-        )}
+      {data.map((item, index) => (
+        <Content key={index}>
+          <SubTitle>{item.sub_title.map(item => item.text)}</SubTitle>
+          <Title>{item.title.map(item => item.text)}</Title>
+          {checkToggle === true ? (
+            <ContentSub>
+              <Text>
+                Convert Digital are looking for a Shopify developer who has
+                experience with Shopify Plus, scripts, Flow, app development,
+                systems integration and has the ability to simplify complex
+                problems with best practise solutions.
+                <br></br>Why work at Convert Digital:
+              </Text>
+              {input.fields.map((item , index) => (
+                <TextLi key={index}>
+                  {RichText.render(item.text_li.map(item => item.text))}
+                </TextLi>
+              ))}
+            </ContentSub>
+          ) : (
+            <></>
+          )}
 
-        <DivImg onClick={handelClick} checkToggle={checkToggle}>
-          <img
-            src={checkToggle === true ? imageMinus : imagePlus}
-            className={checkToggle === true ? "minus" : " plus"}
-          />
-        </DivImg>
-      </Content>
+          <DivImg onClick={handelClick} checkToggle={checkToggle}>
+            <img
+              src={checkToggle === true ? imageMinus : imagePlus}
+              className={checkToggle === true ? "minus" : " plus"}
+            />
+          </DivImg>
+        </Content>
+      ))}
     </Container>
   )
 }

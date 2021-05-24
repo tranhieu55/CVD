@@ -20,6 +20,8 @@ const BlogDetails = props => {
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
+
+  console.log({ dataIcon })
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
