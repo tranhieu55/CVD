@@ -104,6 +104,7 @@ export default NotFoundPage
 
 const Wrapper = styled.div`
   padding-top: 247px;
+  background-color: #f8f8f8;
 
   @media (max-width: 600px) {
     padding-top: 109px;
@@ -191,23 +192,23 @@ const CaseStudiHeading = styled.h4`
 const ListCaseStudy = styled.div`
   height: auto;
   margin: 0 180px;
-  margin-bottom: 130px;
+  padding-bottom: 130px;
 
   @media (max-width: 1366px) {
     margin: 0 100px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
   @media (max-width: 1200px) {
     margin: 0 40px;
-    margin-bottom: 80px;
+    padding-bottom: 80px;
   }
   @media (max-width: 768px) {
     margin: 0 20px;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
   @media (max-width: 600px) {
     margin: 0 16px;
-    margin-bottom: 55px;
+    padding-bottom: 55px;
     height: auto;
   }
 `
