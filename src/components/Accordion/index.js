@@ -3,12 +3,14 @@ import styled from "styled-components"
 import imagePlus from "../../images/pluscopy@2x.png"
 import imageMinus from "../../images/minus@2x.png"
 import { useState } from "react"
+import { RichText } from "prismic-reactjs"
 
-export default function Accordion() {
+export default function Accordion({input}) {
   const [checkToggle, setCheckToggle] = useState(false)
   const handelClick = () => {
     setCheckToggle(!checkToggle)
   }
+  console.log({input})
   return (
     <Container>
       <Content>
@@ -23,21 +25,11 @@ export default function Accordion() {
               problems with best practise solutions.
               <br></br>Why work at Convert Digital:
             </Text>
-            <TextLi>
-              One of a select group of Shopify Plus Partners in Australia
-            </TextLi>
-            <TextLi>
-              One of a select group of Shopify Plus Partners in Australia
-            </TextLi>
-            <TextLi>
-              One of a select group of Shopify Plus Partners in Australia
-            </TextLi>
-            <TextLi>
-              One of a select group of Shopify Plus Partners in Australia
-            </TextLi>
-            <TextLi>
-              One of a select group of Shopify Plus Partners in Australia
-            </TextLi>
+            {input.fields.map((item , index) => (
+              <TextLi>
+                {RichText.render(item.text_li.map(item => item.text))}
+              </TextLi>
+            ))}
           </ContentSub>
         ) : (
           ""
