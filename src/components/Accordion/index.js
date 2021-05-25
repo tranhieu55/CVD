@@ -175,7 +175,7 @@ const TextCT = styled.p`
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
     margin-left: 10px;
@@ -185,10 +185,19 @@ const TextCT = styled.p`
       margin-bottom: 4px;
       color: #222222;
       font-family: Calibre Regular;
-      // font-size: 18px;
+      font-size: 18px;
       letter-spacing: 0;
       line-height: 24px;
       padding-left: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      font-size: 16px;
+      li {
+        font-size: 16px;
+      }
     }
   }
 `
