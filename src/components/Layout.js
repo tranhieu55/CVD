@@ -52,7 +52,10 @@ const Layout = ({
                     title
                   }
                 }
+<<<<<<< Updated upstream
                 
+=======
+>>>>>>> Stashed changes
               }
             }
           }
