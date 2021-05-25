@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 export default function BannerContacts({ title, content, button, Phones }) {
-  console.log("render chikld")
+  console.log({content})
   return (
     <Banner>
       {title && content && button && Phones ? (

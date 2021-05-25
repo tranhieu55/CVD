@@ -7,12 +7,12 @@ import { RichText } from "prismic-reactjs"
 import {
   FacebookShareButton,
   TwitterShareButton,
-  MailruShareButton,
+  EmailShareButton,
 } from "react-share"
 
 const BlogDetails = props => {
   // get location
-  const location = window.location.href
+  const { location } = props
 
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
@@ -71,7 +71,7 @@ const BlogDetails = props => {
                   switch (index * 1) {
                     case 0:
                       return (
-                        <FacebookShareButton key={index} url={location}>
+                        <FacebookShareButton key={index} url={location.href}>
                           <Icon
                             key={index}
                             value={index}
@@ -82,7 +82,7 @@ const BlogDetails = props => {
                       )
                     case 1:
                       return (
-                        <TwitterShareButton key={index} url={location}>
+                        <TwitterShareButton key={index} url={location.href}>
                           <Icon
                             value={index}
                             src={x?.icon_image?.url ? x?.icon_image?.url : ""}
@@ -92,17 +92,17 @@ const BlogDetails = props => {
                       )
                     case 2:
                       return (
-                        <MailruShareButton key={index} url={location}>
+                        <EmailShareButton key={index} url={location.href}>
                           <Icon
                             value={index}
                             src={x?.icon_image?.url ? x?.icon_image?.url : ""}
                             alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
                           />
-                        </MailruShareButton>
+                        </EmailShareButton>
                       )
                     default:
                       return (
-                        <FacebookShareButton key={index} url={location}>
+                        <FacebookShareButton key={index} url={location.href}>
                           <Icon
                             value={index}
                             src={x?.icon_image?.url ? x?.icon_image?.url : ""}

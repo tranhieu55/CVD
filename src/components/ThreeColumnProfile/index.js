@@ -73,6 +73,7 @@ const BlockProfile = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     max-width: 374px;
+    padding: 0 12px;
   }
 `
 

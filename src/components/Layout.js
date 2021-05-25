@@ -52,33 +52,7 @@ const Layout = ({
                     title
                   }
                 }
-                ... on PRISMIC_Service_headerBodyOur_launches {
-                  type
-                  label
-                  primary {
-                    title
-                    launches_project {
-                      ... on PRISMIC_Projects {
-                        name_category_of_project
-                        project_name
-                        _meta {
-                          uid
-                        }
-                        project_header_image
-                        project_header_imageSharp {
-                          uid
-                        }
-                        relationship_to_project_category {
-                          ... on PRISMIC_Category_ourwork {
-                            _meta {
-                              uid
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+                
               }
             }
           }
