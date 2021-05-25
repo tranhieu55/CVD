@@ -151,7 +151,7 @@ const TextTitle = styled.div`
     line-height: 24px;
   }
 `
-const TextCT = styled.li`
+const TextCT = styled.p`
   margin-bottom: 10px;
   p{
     margin-bottom: 4px;
@@ -174,7 +174,7 @@ const TextCTC = styled.div`
     line-height: 24px;
   }
 `
-const TextCTA = styled.li`
+const TextCTA = styled.p`
   margin-bottom: 32px;
   p{
     margin-bottom: 4px;
