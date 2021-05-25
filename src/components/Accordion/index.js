@@ -138,7 +138,7 @@ const Title = styled.h1`
 const ContentSub = styled.div`
   margin-bottom: 55px;
   transition: all 0.4s ease-in;
-  width: 86%;
+  width: 87%;
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
@@ -153,14 +153,18 @@ const TextTitle = styled.div`
 `
 const TextCT = styled.p`
   margin-bottom: 10px;
-  p{
-    margin-bottom: 4px;
-    color: #222222;
-    font-family: Calibre Regular;
-    font-size: 18px;
-    letter-spacing: 0;
-    line-height: 24px;
+  ul{
     margin-left: 10px;
+    padding-left: 20px;
+    li{
+      margin-bottom: 4px;
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+      padding-left: 5px;
+    }
   }
 `
 const TextCTC = styled.div`
@@ -176,14 +180,18 @@ const TextCTC = styled.div`
 `
 const TextCTA = styled.p`
   margin-bottom: 32px;
-  p{
-    margin-bottom: 4px;
-    color: #222222;
-    font-family: Calibre Regular;
-    font-size: 18px;
-    letter-spacing: 0;
-    line-height: 24px;
+  ul{
     margin-left: 10px;
+    padding-left: 20px;
+    li{
+      margin-bottom: 4px;
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+      padding-left: 5px;
+    }
   }
 `
 const TextF = styled.div`
