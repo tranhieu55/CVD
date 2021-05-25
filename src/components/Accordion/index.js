@@ -59,8 +59,14 @@ export default function Accordion({ input }) {
 }
 const Container = styled.div`
   @media (max-width: 600px) {
-    margin: 0 16px;
+    margin: 0 auto;
     height: auto;
+    width: 343px
+  }
+  @media(max-width: 360px){
+    margin : 0 auto;
+    height: auto;
+    width: 298px;
   }
   @media (min-width: 600px) {
     margin: 0 32px;
@@ -103,7 +109,7 @@ const Content = styled.div`
 const Contents = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 `
 const SubTitle = styled.p`
   color: #999999;
@@ -137,7 +143,7 @@ const Title = styled.h1`
   @media (max-width: 600px) {
     font-size: 24px;
     line-height: 24px;
-    width: 99%;
+    width: 90%;
   }
 `
 const ContentSub = styled.div`
@@ -202,7 +208,7 @@ const TextCTA = styled.p`
 const TextF = styled.div`
   p {
     margin-bottom: 4px;
-    color: #222222;
+    color: #000000;
     font-family: Calibre Regular;
     font-size: 18px;
     letter-spacing: 0;
