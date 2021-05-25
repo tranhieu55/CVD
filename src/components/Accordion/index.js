@@ -8,7 +8,10 @@ import { Collapse } from "reactstrap"
 
 export default function Accordion({ input }) {
   const data = input.fields.map(item => item)
+<<<<<<< HEAD
   console.log({ data })
+=======
+>>>>>>> 211cee5a689de38c4e227e67041d04b123f44f23
   const [isOpen, setIsOpen] = useState(null)
   const [indicator, setindicator] = useState(null)
   const [status, setStatus] = useState("Closed")
@@ -63,8 +66,14 @@ export default function Accordion({ input }) {
 }
 const Container = styled.div`
   @media (max-width: 600px) {
-    margin: 0 16px;
+    margin: 0 auto;
     height: auto;
+    width: 343px
+  }
+  @media(max-width: 360px){
+    margin : 0 auto;
+    height: auto;
+    width: 298px;
   }
   @media (min-width: 600px) {
     margin: 0 32px;
@@ -107,7 +116,7 @@ const Content = styled.div`
 const Contents = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 `
 const SubTitle = styled.p`
   color: #999999;
@@ -141,13 +150,13 @@ const Title = styled.h1`
   @media (max-width: 600px) {
     font-size: 24px;
     line-height: 24px;
-    width: 99%;
+    width: 90%;
   }
 `
 const ContentSub = styled.div`
   margin-bottom: 55px;
   transition: all 0.4s ease-in;
-  width: 86%;
+  width: 87%;
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
@@ -162,6 +171,7 @@ const TextTitle = styled.div`
 `
 const TextCT = styled.p`
   margin-bottom: 10px;
+<<<<<<< HEAD
   p {
     margin-bottom: 4px;
     color: #222222;
@@ -169,7 +179,20 @@ const TextCT = styled.p`
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
+=======
+  ul {
+>>>>>>> 211cee5a689de38c4e227e67041d04b123f44f23
     margin-left: 10px;
+    padding-left: 20px;
+    li {
+      margin-bottom: 4px;
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+      padding-left: 5px;
+    }
   }
 `
 const TextCTC = styled.div`
@@ -185,6 +208,7 @@ const TextCTC = styled.div`
 `
 const TextCTA = styled.p`
   margin-bottom: 32px;
+<<<<<<< HEAD
   p {
     margin-bottom: 4px;
     color: #222222;
@@ -192,13 +216,26 @@ const TextCTA = styled.p`
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
+=======
+  ul {
+>>>>>>> 211cee5a689de38c4e227e67041d04b123f44f23
     margin-left: 10px;
+    padding-left: 20px;
+    li {
+      margin-bottom: 4px;
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 24px;
+      padding-left: 5px;
+    }
   }
 `
 const TextF = styled.div`
   p {
     margin-bottom: 4px;
-    color: #222222;
+    color: #000000;
     font-family: Calibre Regular;
     font-size: 18px;
     letter-spacing: 0;
