@@ -6,9 +6,9 @@ import { useState } from "react"
 import { RichText } from "prismic-reactjs"
 import { Collapse } from "reactstrap"
 
-export default function Accordion({input}) {
-  const data = input.fields.map(item => item);
-  console.log({data})
+export default function Accordion({ input }) {
+  const data = input.fields.map(item => item)
+  console.log({ data })
   const [isOpen, setIsOpen] = useState(null)
   const [indicator, setindicator] = useState(null)
   const [status, setStatus] = useState("Closed")
@@ -21,33 +21,41 @@ export default function Accordion({input}) {
       setIsOpen(i)
     }
   }
+
+  console.log({ data: RichText.render(data[2]?.content_text[0]?.text) })
+
   return (
     <Container>
       {data.map((item, i) => (
         <Contents>
-        <Content key={i} onClick={() => updateSelected(i)} className={
-                    isOpen === i ? "open" : ""
-                  } indicator={i === indicator}>
-          <SubTitle>{item.sub_title.map(item => item.text)}</SubTitle>
-          <Title>{item.title.map(item => item.text)}</Title>
-          <DivImg onClick={() => updateSelected(i)} >
-            <img
-              src={isOpen === i ? imageMinus : imagePlus}
-              className={isOpen === i ? "minus" : " plus"}
-              onClick={() => updateSelected(i)}
-              indicator={i === indicator}
-            />
-          </DivImg>
-        </Content>
-        <Collapse isOpen={isOpen === i} onExited={onExited}>
-          <ContentSub>
-            <TextTitle key={i}>{RichText.render(item.content_title)}</TextTitle>
-            <TextCT>{RichText.render(item.content_text)}</TextCT>
-            <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
-            <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
-            <TextF>{RichText.render(item.content_footer)}</TextF>
-          </ContentSub>
-        </Collapse>
+          <Content
+            key={i}
+            onClick={() => updateSelected(i)}
+            className={isOpen === i ? "open" : ""}
+            indicator={i === indicator}
+          >
+            <SubTitle>{item.sub_title.map(item => item.text)}</SubTitle>
+            <Title>{item.title.map(item => item.text)}</Title>
+            <DivImg onClick={() => updateSelected(i)}>
+              <img
+                src={isOpen === i ? imageMinus : imagePlus}
+                className={isOpen === i ? "minus" : " plus"}
+                onClick={() => updateSelected(i)}
+                indicator={i === indicator}
+              />
+            </DivImg>
+          </Content>
+          <Collapse isOpen={isOpen === i} onExited={onExited}>
+            <ContentSub>
+              <TextTitle key={i}>
+                {RichText.render(item.content_title)}
+              </TextTitle>
+              <TextCT>{RichText.render(item.content_text)}</TextCT>
+              <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
+              <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
+              <TextF>{RichText.render(item.content_footer)}</TextF>
+            </ContentSub>
+          </Collapse>
         </Contents>
       ))}
     </Container>
@@ -92,7 +100,8 @@ const DivImg = styled.div`
 const Content = styled.div`
   width: 100%;
   height: auto;
-  border-bottom: ${props => props.className === 'open' ? 'none' : '1px solid #e4e4e4'};
+  border-bottom: ${props =>
+    props.className === "open" ? "none" : "1px solid #e4e4e4"};
   position: relative;
 `
 const Contents = styled.div`
@@ -142,7 +151,7 @@ const ContentSub = styled.div`
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
-  p{
+  p {
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
@@ -153,7 +162,7 @@ const TextTitle = styled.div`
 `
 const TextCT = styled.p`
   margin-bottom: 10px;
-  p{
+  p {
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
@@ -165,7 +174,7 @@ const TextCT = styled.p`
 `
 const TextCTC = styled.div`
   margin-bottom: 16px;
-  p{
+  p {
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
@@ -176,7 +185,7 @@ const TextCTC = styled.div`
 `
 const TextCTA = styled.p`
   margin-bottom: 32px;
-  p{
+  p {
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
@@ -187,7 +196,7 @@ const TextCTA = styled.p`
   }
 `
 const TextF = styled.div`
-  p{
+  p {
     margin-bottom: 4px;
     color: #222222;
     font-family: Calibre Regular;
@@ -196,4 +205,3 @@ const TextF = styled.div`
     line-height: 24px;
   }
 `
-
