@@ -193,15 +193,28 @@ export const pageQuery = graphql`
                   text
                 }
               }
-              ... on PRISMIC_Notfound_pageBody3_column_profiles {
-                type
-                label
-                fields {
-                  avatar
-                  description
-                  name
-                  position
-                }
+            }
+            ... on PRISMIC_Notfound_pageBody3_column_profiles {
+              type
+              label
+              fields {
+                avatar
+                description
+                name
+                position
+              }
+            }
+            ... on PRISMIC_Notfound_pageBody_accordion {
+              type
+              label
+              fields {
+                content_footer
+                content_text
+                content_text_after
+                content_title
+                content_title_center
+                sub_title
+                title
               }
             }
           }
