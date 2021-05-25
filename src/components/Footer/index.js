@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Newletter from "../NewLetter/index"
+import Modal from "../ModalContact/index"
 
 const FooterStyle = styled.div`
   background-color: ${({ dataBGR }) => dataBGR};
@@ -10,9 +11,12 @@ const FooterStyle = styled.div`
   .row {
     margin: 0;
   }
-  img {
+  .img {
     width: 202px;
     height: 38px;
+  }
+  .hover-get-in-touch {
+    cursor: pointer;
   }
   .style-icon {
     padding-top: 80px;
@@ -421,6 +425,10 @@ export default function Footer({ dataFooter }) {
   const dataImg = dataFooter
     ? dataIMAGE.filter(item => (item.fields ? item.fields : ""))
     : []
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
 
   return (
     <FooterStyle dataBGR={dataBGR} className="container-fulid">
@@ -442,18 +450,38 @@ export default function Footer({ dataFooter }) {
                   Our work
                 </Link>
                 {dataLinkPages[0] ? (
-                  dataLinkPages[0]?.fields?.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={`/${
-                        item?.slug_sub_title[0]?.text
-                          ? item?.slug_sub_title[0]?.text
-                          : ""
-                      }`}
-                    >
-                      {item?.sub_title[0]?.text ? item?.sub_title[0]?.text : ""}
-                    </Link>
-                  ))
+                  dataLinkPages[0]?.fields?.map((item, index) => {
+                    console.log(
+                      "item?.slug_sub_title[0]?.text",
+                      item?.slug_sub_title[0]?.text
+                    )
+                    return (
+                      <>
+                        {item &&
+                        item?.slug_sub_title[0]?.text === "get-in-touch" ? (
+                          <span
+                            onClick={openModal}
+                            className="hover-get-in-touch"
+                          >
+                            {item?.sub_title[0]?.text}{" "}
+                          </span>
+                        ) : (
+                          <Link
+                            key={index}
+                            to={`/${
+                              item?.slug_sub_title[0]?.text
+                                ? item?.slug_sub_title[0]?.text
+                                : ""
+                            }`}
+                          >
+                            {item?.sub_title[0]?.text
+                              ? item?.sub_title[0]?.text
+                              : ""}
+                          </Link>
+                        )}
+                      </>
+                    )
+                  })
                 ) : (
                   <></>
                 )}
@@ -541,6 +569,11 @@ export default function Footer({ dataFooter }) {
             </Boxicon>
           </ListIcon>
         </Container>
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          openModal={openModal}
+        />
       </IphoneX>
     </FooterStyle>
   )
