@@ -295,6 +295,10 @@ const FirstTexts = styled.p`
   line-height: 16px;
   text-transform: uppercase;
   padding-top: 4px;
+
+  @media (max-width: 375px) {
+    margin-right: 16px;
+  }
 `
 const Texts = styled.p`
   margin-left: 16px;
@@ -305,6 +309,10 @@ const Texts = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
+  @media (max-width: 375px) {
+    margin: 0;
+    margin-right: 16px;
+  }
 `
 
 export const query = graphql`
