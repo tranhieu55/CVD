@@ -21,8 +21,6 @@ export default function Accordion({ input }) {
     }
   }
 
-  console.log({ data })
-
   return (
     <Container>
       {data.map((item, i) => (
