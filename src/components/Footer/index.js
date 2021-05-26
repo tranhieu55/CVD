@@ -451,10 +451,6 @@ export default function Footer({ dataFooter }) {
                 </Link>
                 {dataLinkPages[0] ? (
                   dataLinkPages[0]?.fields?.map((item, index) => {
-                    console.log(
-                      "item?.slug_sub_title[0]?.text",
-                      item?.slug_sub_title[0]?.text
-                    )
                     return (
                       <>
                         {item &&
