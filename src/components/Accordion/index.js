@@ -70,23 +70,28 @@ const Container = styled.div`
     margin: 0 auto;
     height: auto;
     width: 343px;
+    margin-top: 23px;
   }
   @media (max-width: 360px) {
     margin: 0 auto;
     height: auto;
     width: 298px;
+    margin-top: 23px;
   }
   @media (min-width: 600px) {
     margin: 0 32px;
     height: auto;
+    margin-top: 60px;
   }
   @media (min-width: 768px) {
     margin: 0 48px;
+    margin-top: 60px;
   }
   @media (min-width: 992px) {
     width: 900px;
     margin: 0 auto;
     height: auto;
+    margin-top: 60px;
   }
 `
 const DivImg = styled.div`
@@ -118,6 +123,10 @@ const Contents = styled.div`
   width: 100%;
   height: auto;
   margin-bottom: 30px;
+
+  @media (max-width: 600px) {
+    margin-bottom: 18px;
+  }
 `
 const SubTitle = styled.p`
   color: #999999;
@@ -147,11 +156,13 @@ const Title = styled.h1`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+
   @media (max-width: 600px) {
     font-size: 24px;
     line-height: 24px;
     width: 90%;
+    margin-bottom: 19px;
   }
 `
 const ContentSub = styled.div`
@@ -257,7 +268,9 @@ const TextF = styled.div`
   }
 
   @media (max-width: 600px) {
-    font-size: 16px;
+    p {
+      font-size: 16px;
+    }
   }
 
   a {
