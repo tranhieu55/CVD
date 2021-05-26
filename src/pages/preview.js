@@ -207,13 +207,16 @@ export const pageQuery = graphql`
                 type
                 label
                 fields {
-                  content_footer
-                  content_text
-                  content_text_after
-                  content_title
-                  content_title_center
-                  sub_title
                   title
+                  sub_title
+                  email
+                  content_title_center
+                  content_title
+                  content_text_after
+                  content_text
+                  content_footer2
+                  content_footer
+                  application
                 }
               }
             }

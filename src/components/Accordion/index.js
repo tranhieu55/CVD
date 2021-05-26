@@ -20,6 +20,9 @@ export default function Accordion({ input }) {
       setIsOpen(i)
     }
   }
+
+  console.log({ data })
+
   return (
     <Container>
       {data.map((item, i) => (
@@ -49,7 +52,12 @@ export default function Accordion({ input }) {
               <TextCT>{RichText.render(item.content_text)}</TextCT>
               <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
               <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
-              <TextF>{RichText.render(item.content_footer)}</TextF>
+              <TextF>
+                {RichText.render(item.application)}
+                {RichText.render(item.content_footer)}&nbsp;
+                <a href="#">{RichText.render(item.email)}</a>&nbsp;
+                {RichText.render(item.content_footer2)}
+              </TextF>
             </ContentSub>
           </Collapse>
         </Contents>
@@ -59,8 +67,14 @@ export default function Accordion({ input }) {
 }
 const Container = styled.div`
   @media (max-width: 600px) {
-    margin: 0 16px;
+    margin: 0 auto;
     height: auto;
+    width: 343px;
+  }
+  @media (max-width: 360px) {
+    margin: 0 auto;
+    height: auto;
+    width: 298px;
   }
   @media (min-width: 600px) {
     margin: 0 32px;
@@ -103,7 +117,7 @@ const Content = styled.div`
 const Contents = styled.div`
   width: 100%;
   height: auto;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 `
 const SubTitle = styled.p`
   color: #999999;
@@ -137,13 +151,13 @@ const Title = styled.h1`
   @media (max-width: 600px) {
     font-size: 24px;
     line-height: 24px;
-    width: 99%;
+    width: 90%;
   }
 `
 const ContentSub = styled.div`
   margin-bottom: 55px;
   transition: all 0.4s ease-in;
-  width: 87%;
+  // width: 87%;
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
@@ -155,12 +169,25 @@ const TextTitle = styled.div`
     letter-spacing: 0;
     line-height: 24px;
   }
+
+  @media (max-width: 600px) {
+    p {
+      font-size: 16px;
+    }
+  }
 `
 const TextCT = styled.p`
   margin-bottom: 10px;
   ul {
+    margin-bottom: 4px;
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
     margin-left: 10px;
     padding-left: 20px;
+
     li {
       margin-bottom: 4px;
       color: #222222;
@@ -169,6 +196,15 @@ const TextCT = styled.p`
       letter-spacing: 0;
       line-height: 24px;
       padding-left: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      font-size: 16px;
+      li {
+        font-size: 16px;
+      }
     }
   }
 `
@@ -202,10 +238,41 @@ const TextCTA = styled.p`
 const TextF = styled.div`
   p {
     margin-bottom: 4px;
-    color: #222222;
+    color: #000000;
     font-family: Calibre Regular;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
   }
+  p:first-child {
+    font-weight: 700;
+  }
+
+  p:not(:first-child) {
+    display: inline-block;
+  }
+
+  p:last-child {
+    min-width: 327px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+
+    p:first-child {
+      font-weight: 400;
+      display: inline;
+    }
+
+    @media (max-width: 600px) {
+      text-decoration: underline;
+    }
+  }
 `
+const TextRender = styled.div``
