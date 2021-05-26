@@ -65,12 +65,9 @@ const WrapperHeader = styled.div`
   .fixedTop {
     background-color: ${({ show }) =>
       show > 101 ? "white !important" : "transparent"};
-    /* display: ${({ show }) =>
-      show > 100 ? "flex !important" : "none !important"};
-     display:  ${({ show }) => show < 90 && "flex !important"}; */
      @media (max-width:992px) {
        background-color: ${({ show }) =>
-         show > 65 ? "white !important" : "transparent"};
+         show > 30 ? "white !important" : "transparent"};
      }
   }
     
@@ -840,6 +837,22 @@ const LogoHeader = styled.div`
     padding-bottom: 0px;
     margin-right: 0px;
   }
+  .desktop {
+    @media (max-width: 992px) {
+      display: none;
+    }
+    @media (min-width: 992px) {
+      display: block;
+    }
+  }
+  .mobile {
+    @media (max-width: 992px) {
+      display: block;
+    }
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
   @media (max-width: 600px) {
     padding-left: ${({ show }) =>
       show > 0 ? "18px !important" : "16px !important"};
@@ -1210,7 +1223,7 @@ const Header = ({
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
-    if (show < 101) {
+    if (show < 30) {
       return <img className="image-buger" src={logoBuger} alt="logo" />
     } else {
       if (!!scroll) {
@@ -1228,6 +1241,11 @@ const Header = ({
     setStateMenu(!stateMenu)
     document.body.style.overflow = "scroll"
   }
+  const handelClickCheckOverflow = () => {
+    document.body.style.overflow = "scroll"
+    setIsDisPlayModalService(false)
+  }
+  console.log("run", show)
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1244,8 +1262,30 @@ const Header = ({
         `}
       >
         <LogoHeader show={show}>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/" className="desktop">
             {show > 101 ? (
+              <IMG src={logoBlack} />
+            ) : (
+              <IMG
+                src={
+                  isDisPlayModalService === true ||
+                  location === "/styleguide" ||
+                  location === "/404" ||
+                  location === "/launches" ||
+                  location === "/projects" ||
+                  location === "/what-we-do" ||
+                  location === "/partners" ||
+                  location === "/pageblog" ||
+                  location === "/blog-details" ||
+                  location === "/testimonial"
+                    ? logoBlack
+                    : logoLight
+                }
+              />
+            )}
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" className="mobile">
+            {show > 30 ? (
               <IMG src={logoBlack} />
             ) : (
               <IMG
@@ -1330,6 +1370,7 @@ const Header = ({
                       to={`/${item.slug_menu_item[0]?.text}`}
                       activeClassName="active"
                       className={`${checkColorText()} colorWhite`}
+                      onClick={() => (document.body.style.overflow = "scroll")}
                     >
                       {item.title_menu_item[0]?.text}
                     </Link>
@@ -1364,9 +1405,7 @@ const Header = ({
                               <Navbar.Toggle>
                                 <img
                                   className="menu-mobile-iconClose"
-                                  onClick={() =>
-                                    setIsDisPlayModalService(false)
-                                  }
+                                  onClick={() => handelClickCheckOverflow()}
                                   src={logoIconClosBlack}
                                   alt="close"
                                 />
