@@ -61,10 +61,19 @@ const WrapperHeader = styled.div`
   .navbar-light .navbar-toggler {
     outline: none;
   }
+  /* check  background */
   .fixedTop {
     background-color: ${({ show }) =>
-      show > 150 ? "white !important" : "transparent"};
+      show > 101 ? "white !important" : "transparent"};
+    /* display: ${({ show }) =>
+      show > 100 ? "flex !important" : "none !important"};
+     display:  ${({ show }) => show < 90 && "flex !important"}; */
+     @media (max-width:992px) {
+       background-color: ${({ show }) =>
+         show > 65 ? "white !important" : "transparent"};
+     }
   }
+    
   a:hover {
     text-decoration: none;
   }
@@ -194,7 +203,7 @@ const WrapperHeader = styled.div`
         }
         @media (min-width: 992px) {
            top: ${({ dataGlobalMessage, location, show }) =>
-             dataGlobalMessage === true || location !== "/" || show > 100
+             dataGlobalMessage === true || location !== "/" || show > 0
                ? "72px"
                : "119px"};
     }
@@ -229,8 +238,8 @@ const WrapperHeader = styled.div`
         }
 
         ul.list-platforms {
-          flex-basis: 32%;
-          li.list-platforms_Card {
+          flex-basis: 60%;
+          div.list-platforms_Card {
             display: flex;
             align-items: center;
             background-color: #f6f6f6;
@@ -272,7 +281,9 @@ const WrapperHeader = styled.div`
         dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
     }
   }
-
+.hover-ed:hover{
+  display:block;
+}
   .show {
     position: fixed;
     top: 0 !important;
@@ -874,7 +885,11 @@ const MenuItemServices = styled.div`
   margin-right: 120px;
   margin-top: 35px;
   display: flex;
-  justify-content: space-between;
+  .service-123 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
   ul {
     flex-basis: none;
   }
@@ -1051,91 +1066,6 @@ const Icon = styled.div`
     display: none;
   }
 `
-const DivIMG = styled.div`
-  overflow: hidden;
-  transition: all 200ms ease-in;
-  position: relative;
-  display: inline-block;
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 0%;
-    content: ".";
-    background-color: #fecf09;
-    height: 5px;
-    transition: all 0.4s ease-in;
-  }
-  :hover {
-    ::after {
-      width: 100%;
-    }
-  }
-`
-const DivIMGA = styled.div`
-  height: 164px;
-  position: absolute;
-  width: 100%;
-  top: 27%;
-  opacity: 0.3;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  @media (max-width: 600px) {
-    top: 45%;
-    height: 224px;
-    opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  }
-  @media (max-width: 992px) {
-    top: 44%;
-    height: 250px;
-    opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  }
-  @media (min-width: 993px) {
-    height: 164px;
-    position: absolute;
-    width: 100%;
-    top: 27%;
-    opacity: 0.3;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  }
-`
-const TitleImageBlog = styled.div`
-  position: absolute;
-  z-index: 2;
-  bottom: 5rem;
-  left: 6rem;
-  cursor: pointer;
-  @media only screen and (max-width: 600px) {
-    bottom: 0rem;
-    left: 1rem;
-  }
-  @media (max-width: 991px) and (max-height: 450px) {
-    bottom: 1rem;
-    left: 3rem;
-  }
-  @media only screen and (min-width: 992px) {
-    bottom: 13rem;
-    left: 2rem;
-  }
-  @media only screen and (min-width: 1366px) {
-    top: 223px;
-    left: 27px;
-  }
-`
-const H3 = styled.h3`
-  color: white;
-  font-size: 48px;
-  font-family: "Calibre Bold";
-  margin: 0;
-  padding: 0;
-`
-const Span = styled.span`
-  font-weight: bold;
-  color: #fecf09 !important;
-  font-size: 18px;
-`
 
 const Header = ({
   location,
@@ -1165,10 +1095,10 @@ const Header = ({
         x.type ? x.type === "cta_buton" : ""
       )
     : []
-
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
+  const [stateMenu, setStateMenu] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const openModal = () => {
     setShowModal(prev => !prev)
@@ -1238,7 +1168,7 @@ const Header = ({
     if (show === 0 && !!isDisPlayModalService) {
       return "menu-list_item_text-black"
     } else {
-      if (show < 150) {
+      if (show < 101) {
         return "menu-list_item_text-white"
       }
       if (!isDisPlayModalService && !scroll) {
@@ -1258,7 +1188,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
-      show > 150 ||
+      show > 101 ||
       !!isDisPlayModalService
     ) {
       return "#101010"
@@ -1280,7 +1210,7 @@ const Header = ({
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
-    if (show === 0) {
+    if (show < 101) {
       return <img className="image-buger" src={logoBuger} alt="logo" />
     } else {
       if (!!scroll) {
@@ -1289,34 +1219,15 @@ const Header = ({
       return <img className="image-buger" src={logoBuger} alt="logo" />
     }
   }
-
-  const checkTextMenu = () => {
-    if (
-      location === "/styleguide" ||
-      location === "/404" ||
-      location === "/launches" ||
-      location === "/projects" ||
-      location === "/what-we-do" ||
-      location === "/partners" ||
-      location === "/pageblog" ||
-      location === "/blog-details" ||
-      location === "/testimonial"
-    ) {
-      if (show !== 0) {
-        return "menu-nav-white"
-      } else {
-        return "menu-nav"
-      }
-    } else {
-      return "menu-nav-white"
-    }
+  const handelClickDataMenu = () => {
+    setStateMenu(!stateMenu)
+    document.body.style.overflow = "hidden"
   }
-  const dataUseMemo = useMemo(() => {
-    // console.log("abc ", dataMenuHeader)
-    return dataMenuHeader
-  }, [])
-  // console.log("run....", dataUseMemo)
-
+  const handelClickDataMenuButton = () => {
+    setIsDisPlayModalService(false)
+    setStateMenu(!stateMenu)
+    document.body.style.overflow = "scroll"
+  }
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1334,7 +1245,7 @@ const Header = ({
       >
         <LogoHeader show={show}>
           <Navbar.Brand as={Link} to="/">
-            {show > 150 ? (
+            {show > 101 ? (
               <IMG src={logoBlack} />
             ) : (
               <IMG
@@ -1357,12 +1268,10 @@ const Header = ({
           </Navbar.Brand>
         </LogoHeader>
         <MenuColor>
-          {location === "/404" || location === "/launches" ? (
-            ""
-          ) : (
-            <MenuText className={checkTextMenu()}>Menu</MenuText>
-          )}
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() => handelClickDataMenu()}
+          >
             {checkIconMenu()}
           </Navbar.Toggle>
         </MenuColor>
@@ -1372,7 +1281,7 @@ const Header = ({
         >
           <Navbar.Toggle>
             <img
-              onClick={() => setIsDisPlayModalService(false)}
+              onClick={() => handelClickDataMenuButton()}
               src={logoIconClose}
               className="icon-close"
             />
@@ -1399,12 +1308,15 @@ const Header = ({
                 >
                   {item && item.slug_menu_item[0]?.text === "services" ? (
                     <span
-                      onClick={() =>
+                      onClick={() => {
+                        setIsDisPlayModalService(!isDisPlayModalService)
+                      }}
+                      onMouseEnter={() =>
                         setIsDisPlayModalService(!isDisPlayModalService)
                       }
                       className={`${checkColorText()} colorWhite ${
                         isDisPlayModalService === true ? "test" : ""
-                      } `}
+                      }  hover-ed`}
                     >
                       {item.title_menu_item[0]?.text}{" "}
                       <img
@@ -1500,94 +1412,43 @@ const Header = ({
                             >
                               {dataServices[1]?.primary.title[0]?.text}
                             </P>
-                            {dataServices[1]?.fields?.map((item, index) => (
-                              <Li key={index} className="list-platforms_Card">
-                                <IMG
-                                  alt={item.image_platform_item.alt}
-                                  src={item.image_platform_item.url}
-                                  w="44"
-                                  h="52"
-                                  objectFit="contain"
-                                  mr="25"
-                                ></IMG>
-                                <CardDescription>
-                                  <P
-                                    fontSise="20"
-                                    coLor="#101010"
-                                    fontWeight="500"
-                                    fontFamily="Calibre Medium"
-                                    className="mobile"
-                                  >
-                                    {item.name_service[0]?.text}
-                                  </P>
-                                  <P
-                                    fontSise="18"
-                                    fontFamily="Calibre Regular"
-                                    coLor="#222222"
-                                    fontWeight={theme.fonts.regular}
-                                    className="mobile1"
-                                  >
-                                    {item.short_description[0]?.text}
-                                  </P>
-                                </CardDescription>
-                              </Li>
-                            ))}
-                          </Ul>
-                        ) : (
-                          <></>
-                        )}
-                        {/* LAUNCHES */}
-                        {dataServices[2] ? (
-                          <Ul className="launches">
-                            <P
-                              uppercase={true}
-                              fontSise="14"
-                              coLor={theme.colors.black4}
-                              fontWeight="600"
-                              mrb="10"
-                              fontFamily="Calibre Semibold"
-                              lett="1"
-                              className="displayMobile"
-                            >
-                              {dataServices[2]?.primary.title[0].text}
-                            </P>
-                            <DivIMG
-                              as={Link}
-                              className="imagefull mask"
-                              to={
-                                "projects/" +
-                                `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-                                `${dataServices[2]?.primary.launches_project._meta.uid}`
-                              }
-                            >
-                              <DivIMGA></DivIMGA>
-                              <IMG
-                                src={
-                                  dataServices[2]?.primary.launches_project
-                                    .project_header_image.url
-                                }
-                                objectFit="cover"
-                                heightPercent="60"
-                                alt={
-                                  dataServices[2]?.primary.launches_project
-                                    .project_header_image.alt
-                                }
-                              />
-                              <TitleImageBlog>
-                                <Span>
-                                  {
-                                    dataServices[2]?.primary.launches_project
-                                      .name_category_of_project
-                                  }
-                                </Span>
-                                <H3>
-                                  {
-                                    dataServices[2]?.primary.launches_project
-                                      .project_name[0]?.text
-                                  }
-                                </H3>
-                              </TitleImageBlog>
-                            </DivIMG>
+                            <div className="service-123">
+                              {dataServices[1]?.fields?.map((item, index) => (
+                                <div
+                                  key={index}
+                                  className="list-platforms_Card"
+                                >
+                                  <IMG
+                                    alt={item.image_platform_item.alt}
+                                    src={item.image_platform_item.url}
+                                    w="44"
+                                    h="52"
+                                    objectFit="contain"
+                                    mr="25"
+                                  ></IMG>
+                                  <CardDescription>
+                                    <P
+                                      fontSise="20"
+                                      coLor="#101010"
+                                      fontWeight="500"
+                                      fontFamily="Calibre Medium"
+                                      className="mobile"
+                                    >
+                                      {item.name_service[0]?.text}
+                                    </P>
+                                    <P
+                                      fontSise="18"
+                                      fontFamily="Calibre Regular"
+                                      coLor="#222222"
+                                      fontWeight={theme.fonts.regular}
+                                      className="mobile1"
+                                    >
+                                      {item.short_description[0]?.text}
+                                    </P>
+                                  </CardDescription>
+                                </div>
+                              ))}
+                            </div>
                           </Ul>
                         ) : (
                           <></>

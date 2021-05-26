@@ -100,7 +100,7 @@ const Modal = styled.div`
     cursor: pointer;
     text-align: right;
     @media (min-width: 1200px) {
-      margin-bottom: 17px;
+      margin-bottom: 5px;
     }
   }
   .close01::before {
