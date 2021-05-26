@@ -65,12 +65,9 @@ const WrapperHeader = styled.div`
   .fixedTop {
     background-color: ${({ show }) =>
       show > 101 ? "white !important" : "transparent"};
-    /* display: ${({ show }) =>
-      show > 100 ? "flex !important" : "none !important"};
-     display:  ${({ show }) => show < 90 && "flex !important"}; */
      @media (max-width:992px) {
        background-color: ${({ show }) =>
-         show > 65 ? "white !important" : "transparent"};
+         show > 30 ? "white !important" : "transparent"};
      }
   }
     
@@ -238,11 +235,9 @@ const WrapperHeader = styled.div`
         }
 
         ul.list-platforms {
-          flex-basis: 60%;
+          flex-basis: 75%;
           div.list-platforms_Card {
             display: flex;
-            align-items: center;
-            background-color: #f6f6f6;
             &:last-child {
               margin-bottom: unset;
             }
@@ -840,6 +835,22 @@ const LogoHeader = styled.div`
     padding-bottom: 0px;
     margin-right: 0px;
   }
+  .desktop {
+    @media (max-width: 992px) {
+      display: none;
+    }
+    @media (min-width: 992px) {
+      display: block;
+    }
+  }
+  .mobile {
+    @media (max-width: 992px) {
+      display: block;
+    }
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
   @media (max-width: 600px) {
     padding-left: ${({ show }) =>
       show > 0 ? "18px !important" : "16px !important"};
@@ -864,6 +875,24 @@ const MenuColor = styled.div`
   height: 16px;
 `
 const CardDescription = styled.div`
+  .learn-more {
+    color: #101010 !important;
+    font-family: "Calibre Medium" !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    line-height: 20px;
+    position: relative;
+
+    :after {
+      content: "\f178";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 18px;
+      line-height: 18px;
+      text-align: center;
+      margin-left: 8px;
+      position: absolute;
+    }
+  }
   @media (max-width: 600px) {
     .mobile {
       margin-top: 12px;
@@ -885,9 +914,8 @@ const MenuItemServices = styled.div`
   margin-right: 120px;
   margin-top: 35px;
   display: flex;
-  .service-123 {
+  .service {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   ul {
@@ -971,11 +999,8 @@ const MenuItemServices = styled.div`
       font-weight: 400 !important;
     }
     .list-platforms_Card {
-      padding: 10px;
       border-radius: 10px;
       margin-bottom: 25px;
-      padding-bottom: 10px;
-      padding-top: 10px;
       img {
         margin-right: 15px !important;
       }
@@ -990,9 +1015,10 @@ const MenuItemServices = styled.div`
     margin-left: 120px;
     margin-right: 120px;
     .list-platforms_Card {
-      padding: 10px 20px;
+      max-width: 421px;
+      margin-right: 110px;
       img {
-        margin-right: 25px !important;
+        margin-right: 24px !important;
       }
     }
   }
@@ -1007,26 +1033,19 @@ const MenuItemServices = styled.div`
       font-weight: 400 !important;
     }
     .list-platforms_Card {
-      height: 88px;
-      width: 390px;
-      padding: 24px;
       border-radius: 10px;
-      margin-bottom: 16px;
-      .mobile {
-        height: 25px;
-      }
-      .mobile1 {
-        height: 35px;
-      }
+      margin-bottom: 36px;
       img {
-        margin-right: 25px !important;
+        margin-right: 24px !important;
       }
       div {
         .mobile {
-          font-size: 20px;
+          font-size: 22px;
+          line-height: 26px;
         }
         p {
-          font-size: 18px;
+          font-size: 16px;
+          line-height: 20px;
         }
       }
     }
@@ -1210,7 +1229,7 @@ const Header = ({
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
-    if (show < 101) {
+    if (show < 30) {
       return <img className="image-buger" src={logoBuger} alt="logo" />
     } else {
       if (!!scroll) {
@@ -1228,6 +1247,11 @@ const Header = ({
     setStateMenu(!stateMenu)
     document.body.style.overflow = "scroll"
   }
+  const handelClickCheckOverflow = () => {
+    document.body.style.overflow = "scroll"
+    setIsDisPlayModalService(false)
+  }
+  console.log("run data", dataServices)
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1244,8 +1268,30 @@ const Header = ({
         `}
       >
         <LogoHeader show={show}>
-          <Navbar.Brand as={Link} to="/">
-            {show > 101 ? (
+          <Navbar.Brand as={Link} to="/" className="desktop">
+            {show > 130 ? (
+              <IMG src={logoBlack} />
+            ) : (
+              <IMG
+                src={
+                  isDisPlayModalService === true ||
+                  location === "/styleguide" ||
+                  location === "/404" ||
+                  location === "/launches" ||
+                  location === "/projects" ||
+                  location === "/what-we-do" ||
+                  location === "/partners" ||
+                  location === "/pageblog" ||
+                  location === "/blog-details" ||
+                  location === "/testimonial"
+                    ? logoBlack
+                    : logoLight
+                }
+              />
+            )}
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" className="mobile">
+            {show > 30 ? (
               <IMG src={logoBlack} />
             ) : (
               <IMG
@@ -1330,6 +1376,7 @@ const Header = ({
                       to={`/${item.slug_menu_item[0]?.text}`}
                       activeClassName="active"
                       className={`${checkColorText()} colorWhite`}
+                      onClick={() => (document.body.style.overflow = "scroll")}
                     >
                       {item.title_menu_item[0]?.text}
                     </Link>
@@ -1364,9 +1411,7 @@ const Header = ({
                               <Navbar.Toggle>
                                 <img
                                   className="menu-mobile-iconClose"
-                                  onClick={() =>
-                                    setIsDisPlayModalService(false)
-                                  }
+                                  onClick={() => handelClickCheckOverflow()}
                                   src={logoIconClosBlack}
                                   alt="close"
                                 />
@@ -1412,7 +1457,7 @@ const Header = ({
                             >
                               {dataServices[1]?.primary.title[0]?.text}
                             </P>
-                            <div className="service-123">
+                            <div className="service">
                               {dataServices[1]?.fields?.map((item, index) => (
                                 <div
                                   key={index}
@@ -1428,10 +1473,10 @@ const Header = ({
                                   ></IMG>
                                   <CardDescription>
                                     <P
-                                      fontSise="20"
+                                      fontSise="22"
                                       coLor="#101010"
-                                      fontWeight="500"
-                                      fontFamily="Calibre Medium"
+                                      fontWeight="600"
+                                      fontFamily="Calibre Semibold"
                                       className="mobile"
                                     >
                                       {item.name_service[0]?.text}
@@ -1445,6 +1490,9 @@ const Header = ({
                                     >
                                       {item.short_description[0]?.text}
                                     </P>
+                                    <span className="learn-more" href="#">
+                                      Learn more{" "}
+                                    </span>
                                   </CardDescription>
                                 </div>
                               ))}
