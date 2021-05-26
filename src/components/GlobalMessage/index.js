@@ -42,7 +42,6 @@ export default function GlobalMessage({ parentCallback }) {
     setShow(!show)
     parentCallback(show)
   }
-  console.log("data", texts)
   return (
     <Container open={show}>
       {texts ? (

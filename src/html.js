@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default function HTML(props) {
+  console.log("123", props)
   return (
     <html {...props.htmlAttributes}>
       <script

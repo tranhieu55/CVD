@@ -240,12 +240,14 @@ const Fotters = styled.div`
   height: 52px;
   border-top: 1px solid #e4e4e4;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   @media (max-width: 600px) {
     margin-top: 24px;
     width: 100%;
-    height: 47px;
+    height: auto;
+    min-height: 47px;
     border-top: 1px solid #e4e4e4;
     display: flex;
     justify-content: space-between;
@@ -253,6 +255,7 @@ const Fotters = styled.div`
 `
 const DivIcon = styled.div`
   margin-top: 23px;
+  min-width: 105px;
   button {
     margin-right: 16.5px;
     &:focus {
@@ -278,6 +281,7 @@ const DivText = styled.div`
   @media (max-width: 600px) {
     margin-top: 23px;
     display: flex;
+    flex-wrap: wrap;
   }
 `
 const FirstTexts = styled.p`
@@ -291,6 +295,10 @@ const FirstTexts = styled.p`
   line-height: 16px;
   text-transform: uppercase;
   padding-top: 4px;
+
+  @media (max-width: 375px) {
+    margin-right: 16px;
+  }
 `
 const Texts = styled.p`
   margin-left: 16px;
@@ -301,6 +309,10 @@ const Texts = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
+  @media (max-width: 375px) {
+    margin: 0;
+    margin-right: 16px;
+  }
 `
 
 export const query = graphql`
