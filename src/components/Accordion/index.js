@@ -20,7 +20,7 @@ export default function Accordion({ input }) {
       setIsOpen(i)
     }
   }
-
+  // test build
   return (
     <Container>
       {data.map((item, i) => (
@@ -286,4 +286,3 @@ const TextF = styled.div`
     }
   }
 `
-const TextRender = styled.div``
