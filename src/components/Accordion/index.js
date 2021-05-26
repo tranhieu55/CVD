@@ -228,7 +228,7 @@ const TextCTC = styled.div`
     line-height: 24px;
   }
 `
-const TextCTA = styled.p`
+const TextCTA = styled.div`
   margin-bottom: 32px;
   ul {
     margin-left: 10px;
