@@ -21,6 +21,8 @@ export default function Accordion({ input }) {
     }
   }
 
+  console.log({ data })
+
   return (
     <Container>
       {data.map((item, i) => (
@@ -50,7 +52,12 @@ export default function Accordion({ input }) {
               <TextCT>{RichText.render(item.content_text)}</TextCT>
               <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
               <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
-              <TextF>{RichText.render(item.content_footer)}</TextF>
+              <TextF>
+                {RichText.render(item.application)}
+                {RichText.render(item.content_footer)}&nbsp;
+                <a href="#">{RichText.render(item.email)}</a>&nbsp;
+                {RichText.render(item.content_footer2)}
+              </TextF>
             </ContentSub>
           </Collapse>
         </Contents>
@@ -150,7 +157,7 @@ const Title = styled.h1`
 const ContentSub = styled.div`
   margin-bottom: 55px;
   transition: all 0.4s ease-in;
-  width: 87%;
+  // width: 87%;
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
@@ -241,6 +248,10 @@ const TextF = styled.div`
     font-weight: 700;
   }
 
+  p:not(:first-child) {
+    display: inline-block;
+  }
+
   p:last-child {
     min-width: 327px;
   }
@@ -248,4 +259,20 @@ const TextF = styled.div`
   @media (max-width: 600px) {
     font-size: 16px;
   }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+
+    p:first-child {
+      font-weight: 400;
+      display: inline;
+    }
+
+    @media (max-width: 600px) {
+      text-decoration: underline;
+    }
+  }
 `
+const TextRender = styled.div``
