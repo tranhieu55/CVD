@@ -191,7 +191,7 @@ const Input = styled.input`
   border-radius: 3px;
   box-sizing: border-box;
   background: transparent;
-  padding: 0px 15px;
+  padding: 15px 15px 12px 15px;
   margin-right: 18px;
   position: relative;
   :focus-visible {
@@ -230,13 +230,11 @@ const Input = styled.input`
   }
   @media (max-width: 600px) {
     margin-top: 16px;
-    padding: 13px 15px;
     width: 100%;
     margin-right: 0px;
   }
   @media (min-width: 600px) {
     margin-top: 16px;
-    padding: 13px 15px;
     width: 100%;
     margin-right: 0px;
   }
