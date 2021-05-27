@@ -219,6 +219,7 @@ const Texxt = styled.div`
         height: 204px;
         margin-top: 6px;
         object-fit: cover;
+        margin-bottom: 24px;
       }
     }
   }
