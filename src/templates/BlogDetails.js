@@ -187,6 +187,8 @@ const TextImg = styled.div`
   margin-top: 22px;
 `
 const Texxt = styled.div`
+  font-family: Calibre Regular;
+
   p {
     margin-bottom: 0px;
     color: #222222;
@@ -203,41 +205,49 @@ const Texxt = styled.div`
       line-height: 20px;
     }
   }
+  h2 {
+    margin-top: 40px;
+  }
   .block-img {
     img {
       width: 100%;
       height: 428px;
       margin-top: 17px;
-      margin-bottom: 40px;
       object-fit: cover;
     }
     @media (max-width: 600px) {
       img {
         height: 204px;
         margin-top: 6px;
-        margin-bottom: 24px;
         object-fit: cover;
       }
     }
   }
   @media (max-width: 600px) {
+    h2 {
+      margin-top: 24px;
+    }
     img {
       height: 204px;
       margin-top: 6px;
-      margin-bottom: 24px;
       object-fit: cover;
     }
   }
 `
 const Fotters = styled.div`
+  margin-top: 23px;
   width: 100%;
   height: 52px;
   border-top: 1px solid #e4e4e4;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
   @media (max-width: 600px) {
+    margin-top: 24px;
     width: 100%;
-    height: 47px;
+    height: auto;
+    min-height: 47px;
     border-top: 1px solid #e4e4e4;
     display: flex;
     justify-content: space-between;
@@ -245,6 +255,7 @@ const Fotters = styled.div`
 `
 const DivIcon = styled.div`
   margin-top: 23px;
+  min-width: 105px;
   button {
     margin-right: 16.5px;
     &:focus {
@@ -270,6 +281,7 @@ const DivText = styled.div`
   @media (max-width: 600px) {
     margin-top: 23px;
     display: flex;
+    flex-wrap: wrap;
   }
 `
 const FirstTexts = styled.p`
@@ -283,6 +295,10 @@ const FirstTexts = styled.p`
   line-height: 16px;
   text-transform: uppercase;
   padding-top: 4px;
+
+  @media (max-width: 375px) {
+    margin-right: 16px;
+  }
 `
 const Texts = styled.p`
   margin-left: 16px;
@@ -293,6 +309,10 @@ const Texts = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
+  @media (max-width: 375px) {
+    margin: 0;
+    margin-right: 16px;
+  }
 `
 
 export const query = graphql`

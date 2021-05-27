@@ -78,7 +78,7 @@ const IMG = styled.div`
 
   img {
     width: 100%;
-    height: 100%;
+    height: 113%;
     object-fit: cover;
   }
 

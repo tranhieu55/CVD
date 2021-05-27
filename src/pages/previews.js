@@ -203,6 +203,22 @@ export const pageQuery = graphql`
                   position
                 }
               }
+              ... on PRISMIC_Notfound_pageBody_accordion {
+                type
+                label
+                fields {
+                  title
+                  sub_title
+                  email
+                  content_title_center
+                  content_title
+                  content_text_after
+                  content_text
+                  content_footer2
+                  content_footer
+                  application
+                }
+              }
             }
           }
         }

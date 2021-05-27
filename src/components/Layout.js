@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
@@ -185,12 +185,10 @@ const Layout = ({
     data && data.prismic?.allService_headers
       ? data.prismic?.allService_headers
       : []
-  const BoxLayout = styled.div`
-    overflow-x: hidden;
-    position: relative;
-  `
+  const [checkMenu, setCheckMenu] = useState()
+
   return (
-    <BoxLayout>
+    <BoxLayout checkMenu={checkMenu}>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <Header
@@ -217,4 +215,9 @@ const Layout = ({
   )
 }
 
+const BoxLayout = styled.div`
+  overflow-x: hidden;
+  position: relative;
+  overflow: ${({ checkMenu }) => (checkMenu === false ? "hidden" : "show")};
+`
 export default Layout

@@ -60,9 +60,21 @@ const Slider = styled.div`
   width: 100%;
   .slick-next {
     right: 0px;
+    @media (max-width: 768px) {
+      top: 45%;
+    }
+    @media (max-width: 1440px) {
+      top: 48%;
+    }
   }
   .slick-prev {
     left: 0;
+    @media (max-width: 768px) {
+      top: 45%;
+    }
+    @media (max-width: 1440px) {
+      top: 48%;
+    }
   }
   .slick-next:before {
     content: "\f061";
