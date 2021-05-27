@@ -1063,6 +1063,17 @@ const MenuItemServices = styled.div`
     }
   }
 `
+const TitleA = styled.a`
+  color: ${({ textColor }) => textColor};
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active {
+    color: ${({ textColor }) => textColor};
+  }
+`
 
 const MenuText = styled.div``
 const Li = styled.li``
@@ -1571,8 +1582,16 @@ const Header = ({
                           </a>
                         </GetInTouch>
                       ) : (
-                        <GetInTouch onClick={openModal}>
-                          {item?.primary?.text_button[0]?.text}
+                        // <GetInTouch onClick={openModal}>
+                        //   {item?.primary?.text_button[0]?.text}
+                        // </GetInTouch>
+                        <GetInTouch>
+                          <TitleA
+                            href="/contact"
+                            textColor={checkColorTextButton(index)}
+                          >
+                            {item?.primary?.text_button[0]?.text}
+                          </TitleA>
                         </GetInTouch>
                       )}
                     </ButtonCustom>
