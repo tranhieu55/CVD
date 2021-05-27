@@ -38,14 +38,20 @@ import CardPageBlog from "../components/CardPageBlog"
 import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
 import BlogArticleTiles from "../components/BlogArticleTiles"
+<<<<<<< Updated upstream
 import TwoColumnText from "../components/ColumnText"
 import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from '../components/Accordion'
+=======
+import ThreeColumnProfile from "../components/ThreeColumnProfile"
+>>>>>>> Stashed changes
 
 const SliceZone = props => {
+  console.log({ props: props.allSlices })
+
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
@@ -277,6 +283,7 @@ const SliceZone = props => {
 
         case "blog_article_tiles":
           return <BlogArticleTiles key={index} input={s} />
+<<<<<<< Updated upstream
         case "2_column_text":
           return <TwoColumnText key={index} input={s} />
 
@@ -293,6 +300,11 @@ const SliceZone = props => {
 
         case "_accordion" : 
             return (<Accordion key={index} input={s} />)
+=======
+
+        case "3_column_profiles":
+          return <ThreeColumnProfile key={index} input={s} />
+>>>>>>> Stashed changes
 
         default:
           return <></>

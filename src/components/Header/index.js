@@ -1063,6 +1063,17 @@ const MenuItemServices = styled.div`
     }
   }
 `
+const TitleA = styled.a`
+  color: ${({ textColor }) => textColor};
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active {
+    color: ${({ textColor }) => textColor};
+  }
+`
 
 const MenuText = styled.div``
 const Li = styled.li``
@@ -1079,9 +1090,6 @@ const GetInTouch = styled.h2`
   margin-bottom: 0px;
   @media (min-width: 992px) {
     font-size: 18px;
-  }
-  a {
-    color: ;
   }
 `
 const Icon = styled.div`
@@ -1565,25 +1573,25 @@ const Header = ({
                     >
                       {index === 1 ? (
                         <GetInTouch>
-                          <Link
-                            // chỗ này có hàm check màu rồi
-                            // bạn thêm class rồi vứt cái hàm  đó vào
-                            // className={}
-                            to={`tel: ${item?.primary?.text_button[0]?.text}`}
+                          <a
+                            className="convertColor"
+                            href={`tel: ${item?.primary?.text_button[0]?.text}`}
                           >
                             <img className="edit-img" src={logoIconPhone} />
                             {item?.primary?.text_button[0]?.text}
-                          </Link>
+                          </a>
                         </GetInTouch>
                       ) : (
                         // <GetInTouch onClick={openModal}>
                         //   {item?.primary?.text_button[0]?.text}
                         // </GetInTouch>
-
                         <GetInTouch>
-                          <Link to="/contact">
+                          <TitleA
+                            href="/contact"
+                            textColor={checkColorTextButton(index)}
+                          >
                             {item?.primary?.text_button[0]?.text}
-                          </Link>
+                          </TitleA>
                         </GetInTouch>
                       )}
                     </ButtonCustom>
