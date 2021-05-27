@@ -205,15 +205,14 @@ const Texxt = styled.div`
       line-height: 20px;
     }
   }
-  h2 {
-    margin-top: 40px;
-  }
+
   .block-img {
     img {
       width: 100%;
       height: 428px;
       margin-top: 17px;
       object-fit: cover;
+      margin-bottom: 23px;
     }
     @media (max-width: 600px) {
       img {
@@ -224,9 +223,9 @@ const Texxt = styled.div`
     }
   }
   @media (max-width: 600px) {
-    h2 {
-      margin-top: 24px;
-    }
+    // h2 {
+    //   margin-top: 24px;
+    // }
     img {
       height: 204px;
       margin-top: 6px;
