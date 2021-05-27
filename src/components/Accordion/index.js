@@ -154,7 +154,7 @@ const Title = styled.h1`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 25px;
 
   @media (max-width: 600px) {
     font-size: 24px;
@@ -245,6 +245,9 @@ const TextCTA = styled.div`
   }
 `
 const TextF = styled.div`
+  padding-bottom: 48px;
+  border-bottom: 1px solid #e4e4e4;
+
   p {
     margin-bottom: 4px;
     color: #000000;
@@ -252,9 +255,6 @@ const TextF = styled.div`
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
-  }
-  p:first-child {
-    font-weight: 700;
   }
 
   p:not(:first-child) {
@@ -266,8 +266,13 @@ const TextF = styled.div`
   }
 
   @media (max-width: 600px) {
+    padding-bottom: 44px;
+
     p {
       font-size: 16px;
+    }
+    p:first-child {
+      font-weight: 700;
     }
   }
 
