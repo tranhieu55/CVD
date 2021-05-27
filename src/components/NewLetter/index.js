@@ -9,7 +9,6 @@ export default function NewLetter({ dataFooter }) {
     : []
   const [errors, setError] = useState("")
   const [vali, setVali] = useState("")
-  console.log(vali)
   const validateEmail = e => {
     var email = e.target.value
 
@@ -40,6 +39,7 @@ export default function NewLetter({ dataFooter }) {
       </Text>
       <DivInput>
         <Input
+          boder = {errors}
           onChange={e => validateEmail(e)}
           type="email"
           placeholder={data[0]?.primary?.form_submit_placeholder?.map(item =>
@@ -187,7 +187,7 @@ const Input = styled.input`
   letter-spacing: 0;
   line-height: 30px;
   margin-top: 78px;
-  border: 1px solid #92939b;
+  border: ${props => props.boder === "This field is required" ? '1px solid #f10909' :  '1px solid #92939b'};
   border-radius: 3px;
   box-sizing: border-box;
   background: transparent;
@@ -196,6 +196,9 @@ const Input = styled.input`
   position: relative;
   :focus-visible {
     outline: none;
+  }
+  :not(:placeholder-shown):invalid{
+    border: 2px solid #F10909;
   }
   ::-webkit-input-placeholder {
     /* Edge */
@@ -252,7 +255,7 @@ const Input = styled.input`
     letter-spacing: 0;
     line-height: 24px;
     margin-top: 78px;
-    border: 1px solid #92939b;
+    border: ${props => props.boder === "This field is required" ? '1px solid #f10909' :  '1px solid #92939b'};
     border-radius: 3px;
     box-sizing: border-box;
     background: transparent;
@@ -345,7 +348,7 @@ const DivInput = styled.div`
 const Errors = styled.p`
   color: #f10909;
   padding-top: ${props => (props.hienthi === "" ? "0px" : "10px")};
-  text-align: center;
+  text-align: left;
   display: ${props => (props.hienthi === "" ? "none" : "block")};
   margin-bottom: 0px;
   line-height: 24px;
