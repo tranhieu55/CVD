@@ -1080,6 +1080,9 @@ const GetInTouch = styled.h2`
   @media (min-width: 992px) {
     font-size: 18px;
   }
+  a {
+    color: ;
+  }
 `
 const Icon = styled.div`
   display: flex;
@@ -1562,17 +1565,25 @@ const Header = ({
                     >
                       {index === 1 ? (
                         <GetInTouch>
-                          <a
-                            className="convertColor"
-                            href={`tel: ${item?.primary?.text_button[0]?.text}`}
+                          <Link
+                            // chỗ này có hàm check màu rồi
+                            // bạn thêm class rồi vứt cái hàm  đó vào
+                            // className={}
+                            to={`tel: ${item?.primary?.text_button[0]?.text}`}
                           >
                             <img className="edit-img" src={logoIconPhone} />
                             {item?.primary?.text_button[0]?.text}
-                          </a>
+                          </Link>
                         </GetInTouch>
                       ) : (
-                        <GetInTouch onClick={openModal}>
-                          {item?.primary?.text_button[0]?.text}
+                        // <GetInTouch onClick={openModal}>
+                        //   {item?.primary?.text_button[0]?.text}
+                        // </GetInTouch>
+
+                        <GetInTouch>
+                          <Link to="/contact">
+                            {item?.primary?.text_button[0]?.text}
+                          </Link>
                         </GetInTouch>
                       )}
                     </ButtonCustom>
