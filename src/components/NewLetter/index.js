@@ -258,7 +258,7 @@ const Input = styled.input`
     border-radius: 3px;
     box-sizing: border-box;
     background: transparent;
-    padding: 0px 15px;
+    padding: 15px 15px 12px 15px;
     margin-right: 18px;
     :focus-visible {
       outline: none;
