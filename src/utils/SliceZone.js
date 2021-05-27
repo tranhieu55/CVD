@@ -38,16 +38,12 @@ import CardPageBlog from "../components/CardPageBlog"
 import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
 import BlogArticleTiles from "../components/BlogArticleTiles"
-<<<<<<< Updated upstream
 import TwoColumnText from "../components/ColumnText"
 import ThreeColumnProfile from "../components/ThreeColumnProfile"
 import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
-import Accordion from '../components/Accordion'
-=======
-import ThreeColumnProfile from "../components/ThreeColumnProfile"
->>>>>>> Stashed changes
+import Accordion from "../components/Accordion"
 
 const SliceZone = props => {
   console.log({ props: props.allSlices })
@@ -283,7 +279,6 @@ const SliceZone = props => {
 
         case "blog_article_tiles":
           return <BlogArticleTiles key={index} input={s} />
-<<<<<<< Updated upstream
         case "2_column_text":
           return <TwoColumnText key={index} input={s} />
 
@@ -298,13 +293,8 @@ const SliceZone = props => {
         case "client_logo_grid":
           return <ClientLogoBlock key={index} input={s} />
 
-        case "_accordion" : 
-            return (<Accordion key={index} input={s} />)
-=======
-
-        case "3_column_profiles":
-          return <ThreeColumnProfile key={index} input={s} />
->>>>>>> Stashed changes
+        case "_accordion":
+          return <Accordion key={index} input={s} />
 
         default:
           return <></>
