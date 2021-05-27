@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     margin: 0 20px;
     margin-top: 30px;
+    padding: 0 15px;
   }
   @media (min-width: 1200px) {
     margin: 0 100px;
