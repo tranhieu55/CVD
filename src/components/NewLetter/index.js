@@ -39,7 +39,7 @@ export default function NewLetter({ dataFooter }) {
       </Text>
       <DivInput>
         <Input
-          boder = {errors}
+          boder={errors}
           onChange={e => validateEmail(e)}
           type="email"
           placeholder={data[0]?.primary?.form_submit_placeholder?.map(item =>
@@ -187,7 +187,10 @@ const Input = styled.input`
   letter-spacing: 0;
   line-height: 30px;
   margin-top: 78px;
-  border: ${props => props.boder === "This field is required" ? '1px solid #f10909' :  '1px solid #92939b'};
+  border: ${props =>
+    props.boder === "This field is required"
+      ? "1px solid #f10909"
+      : "1px solid #92939b"};
   border-radius: 3px;
   box-sizing: border-box;
   background: transparent;
@@ -197,8 +200,8 @@ const Input = styled.input`
   :focus-visible {
     outline: none;
   }
-  :not(:placeholder-shown):invalid{
-    border: 2px solid #F10909;
+  :not(:placeholder-shown):invalid {
+    border: 1px solid #f10909;
   }
   ::-webkit-input-placeholder {
     /* Edge */
@@ -255,7 +258,10 @@ const Input = styled.input`
     letter-spacing: 0;
     line-height: 24px;
     margin-top: 78px;
-    border: ${props => props.boder === "This field is required" ? '1px solid #f10909' :  '1px solid #92939b'};
+    border: ${props =>
+      props.boder === "This field is required"
+        ? "1px solid #f10909"
+        : "1px solid #92939b"};
     border-radius: 3px;
     box-sizing: border-box;
     background: transparent;
