@@ -68,7 +68,7 @@ const Container = styled.div`
     margin: 0 auto;
     height: auto;
     width: 343px;
-    margin-top: 23px;
+    margin-top: 33px;
   }
   @media (max-width: 360px) {
     margin: 0 auto;
