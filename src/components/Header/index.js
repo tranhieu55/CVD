@@ -234,6 +234,7 @@ const WrapperHeader = styled.div`
           }
         }
 
+        
         ul.list-platforms {
           flex-basis: 75%;
           div.list-platforms_Card {
@@ -508,7 +509,8 @@ const WrapperHeader = styled.div`
     position: absolute;
     top: 0px;
   }
-  @media (max-width: 991px) and (max-height: 450px) {
+
+  @media (max-width: 991px)  {
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -527,13 +529,15 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-    .dropdown_services .menu-area_services {
-      max-width: 100% !important;
-      z-index: 1;
-      height: auto !important;
-      top: 0% !important;
-      overflow-y: scroll !important;
-    }
+
+    // .dropdown_services .menu-area_services {
+    //   max-width: 100% !important;
+    //   z-index: 1;
+    //   height: auto !important;
+    //   top: 0% !important;
+    //   overflow-y: scroll !important;
+    // }
+    
     .displayMobile {
       display: none;
     }
@@ -580,6 +584,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
+  
   @media (min-width: 767.1px) and (max-width: 768.5px) {
     .icon-mobile-right {
       display: inline-block;
@@ -602,12 +607,7 @@ const WrapperHeader = styled.div`
     .displayMobile {
       display: none;
     }
-    .menu-area_services {
-      top: 0 !important;
-      height: 100vh !important;
-      z-index: 123;
-      overflow: scroll !important;
-    }
+
     .menu-mobile {
       display: flex;
       justify-content: space-between;
@@ -651,6 +651,12 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
+    .menu-area_services {
+      top: 0 !important;
+      height: 100vh !important;
+      z-index: 123;
+      overflow-y: scroll !important;
+    }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -921,6 +927,11 @@ const MenuItemServices = styled.div`
   ul {
     flex-basis: none;
   }
+  @media (max-width: 800px) {
+    .service {
+      grid-template-columns: 1fr;
+    }
+  }
   @media (max-width: 600px) {
     display: block;
     max-width: 100%;
@@ -932,9 +943,6 @@ const MenuItemServices = styled.div`
       padding-left: 0;
       margin-bottom: 18px;
     }
-    .service {
-      grid-template-columns: 1fr;
-    }
 
     .list-platforms {
       padding-left: 12px !important;
@@ -945,7 +953,7 @@ const MenuItemServices = styled.div`
       padding-right: 12px !important;
     }
   }
-  @media (max-width: 991px) and (max-height: 450px) {
+  @media (max-width: 991px) {
     display: block;
     max-width: 100%;
     flex-wrap: wrap;
