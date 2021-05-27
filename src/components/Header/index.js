@@ -895,7 +895,7 @@ const CardDescription = styled.div`
   }
   @media (max-width: 600px) {
     .mobile {
-      margin-top: 12px;
+      // margin-top: 12px;
       margin-bottom: -7px;
       letter-spacing: -0.5px;
     }
@@ -915,8 +915,8 @@ const MenuItemServices = styled.div`
   margin-top: 35px;
   display: flex;
   .service {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   ul {
     flex-basis: none;
@@ -932,6 +932,10 @@ const MenuItemServices = styled.div`
       padding-left: 0;
       margin-bottom: 18px;
     }
+    .service {
+      grid-template-columns: 1fr;
+    }
+
     .list-platforms {
       padding-left: 12px !important;
       padding-right: 12px !important;
@@ -1016,7 +1020,7 @@ const MenuItemServices = styled.div`
     margin-right: 120px;
     .list-platforms_Card {
       max-width: 421px;
-      margin-right: 110px;
+      // margin-right: 110px;
       img {
         margin-right: 24px !important;
       }
