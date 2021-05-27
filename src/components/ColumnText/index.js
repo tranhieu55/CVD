@@ -27,8 +27,20 @@ const Wrapper = styled.div`
     padding: 0 32px;
     margin-top: 30px;
   }
+  @media (min-width: 768px) {
+    margin: 0 20px;
+    margin-top: 30px;
+    padding: 0 15px;
+  }
   @media (min-width: 1200px) {
-    padding: 0px;
+    margin: 0 100px;
+    padding: 0px 15px;
+    margin-top: 31px;
+    margin-bottom: 90px;
+  }
+  @media (min-width: 1366px) {
+    margin: 0 180px;
+    padding: 0 15px;
     margin-top: 31px;
     margin-bottom: 90px;
   }

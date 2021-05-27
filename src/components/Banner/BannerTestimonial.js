@@ -25,6 +25,7 @@ const Container = styled.div`
 const Content = styled.div`
   padding-top: 158px;
   padding-left: 260px;
+
   @media (max-width: 600px) {
     padding-top: 85px;
     padding-left: 17px;
@@ -33,6 +34,9 @@ const Content = styled.div`
   @media (min-width: 600px) {
     padding-left: 45px;
     width: 100%;
+  }
+  @media (min-width: 600px) and (max-width: 700px) {
+    padding-top: 100px;
   }
   @media (min-width: 768px) {
     padding-left: 100px;

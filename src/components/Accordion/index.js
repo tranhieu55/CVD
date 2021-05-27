@@ -286,3 +286,4 @@ const TextF = styled.div`
     }
   }
 `
+const TextRender = styled.div``
