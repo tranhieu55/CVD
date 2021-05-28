@@ -46,6 +46,10 @@ const Container = styled.div`
     max-width: 343px;
     margin: 0 auto;
   }
+  @media (min-width: 340px) and (max-width: 425px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 `
 
 const Body = styled.div`
