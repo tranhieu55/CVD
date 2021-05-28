@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
@@ -17,7 +17,6 @@ import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import useOnClickOutside from "../../hooks/clickoutside"
-import Modal from "../ModalContact/index.js"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -202,7 +201,7 @@ const WrapperHeader = styled.div`
            top: ${({ dataGlobalMessage, location, show }) =>
              dataGlobalMessage === true || location !== "/" || show > 0
                ? "72px"
-               : "119px"};
+               : "120px"};
     }
         }
         & > ul {
@@ -243,10 +242,6 @@ const WrapperHeader = styled.div`
               margin-bottom: unset;
             }
           }
-        }
-
-        ul.launches {
-          flex-basis: 42%;
         }
       }
     }
@@ -948,10 +943,6 @@ const MenuItemServices = styled.div`
       padding-left: 12px !important;
       padding-right: 12px !important;
     }
-    .launches {
-      padding-left: 12px !important;
-      padding-right: 12px !important;
-    }
   }
   @media (max-width: 991px) {
     display: block;
@@ -965,10 +956,6 @@ const MenuItemServices = styled.div`
       margin-bottom: 20px;
     }
     .list-platforms {
-      padding-left: 20px !important;
-      padding-right: 20px !important;
-    }
-    .launches {
       padding-left: 20px !important;
       padding-right: 20px !important;
     }
@@ -1108,7 +1095,17 @@ const Icon = styled.div`
     display: none;
   }
 `
+const TextBtn = styled.span`
+  color: ${({ textColor }) => textColor};
+  text-decoration: none;
 
+  &:hover,
+  &:active,
+  &:focus,
+  &:active {
+    color: ${({ textColor }) => textColor};
+  }
+`
 const Header = ({
   location,
   dataMenuHeader,
@@ -1141,14 +1138,12 @@ const Header = ({
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const openModal = () => {
-    setShowModal(prev => !prev)
-  }
+
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
 
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
+  console.log("21322313112", isDisPlayModalService)
 
   let lastScrollTop = 0
   useEffect(() => {
@@ -1357,180 +1352,203 @@ const Header = ({
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
             {dataMenu &&
-              dataMenu[0]?.fields.map((item, index) => (
-                <Li
-                  className={`menu-list_item ${
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal" ||
-                    location === "/partners" ||
-                    location === "/pageblog" ||
-                    location === "/blog-details" ||
-                    location === "/testimonial"
-                      ? "menu-list_item_white"
-                      : "menu-list_item_gold"
-                  } ${
-                    isDisPlayModalService === true ? "dropdown_services" : ""
-                  }`}
-                  key={index}
-                >
-                  {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <span
-                      onClick={() => {
-                        setIsDisPlayModalService(!isDisPlayModalService)
-                      }}
-                      onMouseEnter={() =>
-                        setIsDisPlayModalService(!isDisPlayModalService)
-                      }
-                      className={`${checkColorText()} colorWhite ${
-                        isDisPlayModalService === true ? "test" : ""
-                      }  hover-ed`}
-                    >
-                      {item.title_menu_item[0]?.text}{" "}
-                      <img
-                        className="icon-mobile-right"
-                        src={logoIconRight}
-                        alt=""
-                      />{" "}
-                    </span>
-                  ) : (
-                    <Link
-                      to={`/${item.slug_menu_item[0]?.text}`}
-                      activeClassName="active"
-                      className={`${checkColorText()} colorWhite`}
-                      onClick={() => (document.body.style.overflow = "scroll")}
-                    >
-                      {item.title_menu_item[0]?.text}
-                    </Link>
-                  )}
-
-                  {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <ul ref={ref} className="menu-area_services">
-                      <hr />
-                      <MenuItemServices>
-                        {" "}
-                        {/* SERVICES */}
-                        {dataServices[0] ? (
-                          <Ul className="list-services">
-                            <div className="menu-mobile">
-                              <img
-                                className="menu-mobile-iconBack"
-                                onClick={() => setIsDisPlayModalService(false)}
-                                src={logoIconBack}
-                                alt="back"
-                              />
+              dataMenu[0]?.fields.map((item, index) => {
+                {
+                  /* const data = item.slug_menu_item.console.log("data", data) */
+                }
+                return (
+                  <Li
+                    className={`menu-list_item ${
+                      location === "/" ||
+                      location === "/contact" ||
+                      location === "/case-study" ||
+                      location === "/proposal" ||
+                      location === "/partners" ||
+                      location === "/pageblog" ||
+                      location === "/blog-details" ||
+                      location === "/testimonial"
+                        ? "menu-list_item_white"
+                        : "menu-list_item_gold"
+                    } ${
+                      isDisPlayModalService === true ? "dropdown_services" : ""
+                    }`}
+                    key={index}
+                  >
+                    {/* {item && item.slug_menu_item[0]?.text === "projects" ? (
+                      <span
+                        className={`${checkColorText()} colorWhite ${
+                          isDisPlayModalService === true ? "test" : ""
+                        }  hover-ed`}
+                      >
+                        {item.title_menu_item[0]?.text}{" "}
+                        <img
+                          className="icon-mobile-right"
+                          src={logoIconRight}
+                          alt=""
+                        />{" "}
+                      </span>
+                    ) : (
+                      ""
+                    )} */}
+                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                      <span
+                        onClick={() => {
+                          setIsDisPlayModalService(!isDisPlayModalService)
+                        }}
+                        onMouseEnter={() => setIsDisPlayModalService(true)}
+                        className={`${checkColorText()} colorWhite ${
+                          isDisPlayModalService === true ? "test" : ""
+                        }  hover-ed`}
+                      >
+                        {item.title_menu_item[0]?.text}{" "}
+                        <img
+                          className="icon-mobile-right"
+                          src={logoIconRight}
+                          alt=""
+                        />{" "}
+                      </span>
+                    ) : (
+                      <Link
+                        to={`/${item.slug_menu_item[0]?.text}`}
+                        activeClassName="active"
+                        className={`${checkColorText()} colorWhite`}
+                        onClick={() =>
+                          (document.body.style.overflow = "scroll")
+                        }
+                        onMouseEnter={() => setIsDisPlayModalService(false)}
+                      >
+                        {item.title_menu_item[0]?.text}
+                      </Link>
+                    )}
+                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                      <ul ref={ref} className="menu-area_services">
+                        <hr />
+                        <MenuItemServices>
+                          {" "}
+                          {/* SERVICES */}
+                          {dataServices[0] ? (
+                            <Ul className="list-services">
+                              <div className="menu-mobile">
+                                <img
+                                  className="menu-mobile-iconBack"
+                                  onClick={() =>
+                                    setIsDisPlayModalService(false)
+                                  }
+                                  src={logoIconBack}
+                                  alt="back"
+                                />
+                                <P
+                                  uppercase={true}
+                                  fontSise="14"
+                                  coLor={theme.colors.black4}
+                                  fontWeight="600"
+                                  mrb="19"
+                                  fontFamily="Calibre Semibold"
+                                  lett="1"
+                                >
+                                  {dataServices[0]?.primary?.title[0]?.text}
+                                </P>
+                                <Navbar.Toggle>
+                                  <img
+                                    className="menu-mobile-iconClose"
+                                    onClick={() => handelClickCheckOverflow()}
+                                    src={logoIconClosBlack}
+                                    alt="close"
+                                  />
+                                </Navbar.Toggle>
+                              </div>
+                              {dataServices[0]?.fields?.map((item, index) => (
+                                <React.Fragment key={index}>
+                                  <Li
+                                    className={`${
+                                      index === 0
+                                        ? "mt0 list-services_Item"
+                                        : "list-services_Item"
+                                    }`}
+                                  >
+                                    <img
+                                      className="image-services-item"
+                                      src={item.image_service_item.url}
+                                      alt={item.image_service_item.alt}
+                                    />
+                                    <Link className="list-title-services" to="">
+                                      {item.title_service_item[0]?.text}
+                                    </Link>
+                                  </Li>
+                                  <hr />
+                                </React.Fragment>
+                              ))}
+                            </Ul>
+                          ) : (
+                            <></>
+                          )}
+                          {/* PLATFORMS */}
+                          {dataServices[1] ? (
+                            <Ul className="list-platforms">
                               <P
                                 uppercase={true}
                                 fontSise="14"
                                 coLor={theme.colors.black4}
                                 fontWeight="600"
-                                mrb="19"
                                 fontFamily="Calibre Semibold"
+                                mrb="10"
                                 lett="1"
+                                className="displayMobile"
                               >
-                                {dataServices[0]?.primary?.title[0]?.text}
+                                {dataServices[1]?.primary.title[0]?.text}
                               </P>
-                              <Navbar.Toggle>
-                                <img
-                                  className="menu-mobile-iconClose"
-                                  onClick={() => handelClickCheckOverflow()}
-                                  src={logoIconClosBlack}
-                                  alt="close"
-                                />
-                              </Navbar.Toggle>
-                            </div>
-                            {dataServices[0]?.fields?.map((item, index) => (
-                              <React.Fragment key={index}>
-                                <Li
-                                  className={`${
-                                    index === 0
-                                      ? "mt0 list-services_Item"
-                                      : "list-services_Item"
-                                  }`}
-                                >
-                                  <img
-                                    className="image-services-item"
-                                    src={item.image_service_item.url}
-                                    alt={item.image_service_item.alt}
-                                  />
-                                  <Link className="list-title-services" to="">
-                                    {item.title_service_item[0]?.text}
-                                  </Link>
-                                </Li>
-                                <hr />
-                              </React.Fragment>
-                            ))}
-                          </Ul>
-                        ) : (
-                          <></>
-                        )}
-                        {/* PLATFORMS */}
-                        {dataServices[1] ? (
-                          <Ul className="list-platforms">
-                            <P
-                              uppercase={true}
-                              fontSise="14"
-                              coLor={theme.colors.black4}
-                              fontWeight="600"
-                              fontFamily="Calibre Semibold"
-                              mrb="10"
-                              lett="1"
-                              className="displayMobile"
-                            >
-                              {dataServices[1]?.primary.title[0]?.text}
-                            </P>
-                            <div className="service">
-                              {dataServices[1]?.fields?.map((item, index) => (
-                                <div
-                                  key={index}
-                                  className="list-platforms_Card"
-                                >
-                                  <IMG
-                                    alt={item.image_platform_item.alt}
-                                    src={item.image_platform_item.url}
-                                    w="44"
-                                    h="52"
-                                    objectFit="contain"
-                                    mr="25"
-                                  ></IMG>
-                                  <CardDescription>
-                                    <P
-                                      fontSise="22"
-                                      coLor="#101010"
-                                      fontWeight="600"
-                                      fontFamily="Calibre Semibold"
-                                      className="mobile"
-                                    >
-                                      {item.name_service[0]?.text}
-                                    </P>
-                                    <P
-                                      fontSise="18"
-                                      fontFamily="Calibre Regular"
-                                      coLor="#222222"
-                                      fontWeight={theme.fonts.regular}
-                                      className="mobile1"
-                                    >
-                                      {item.short_description[0]?.text}
-                                    </P>
-                                    <span className="learn-more" href="#">
-                                      Learn more{" "}
-                                    </span>
-                                  </CardDescription>
-                                </div>
-                              ))}
-                            </div>
-                          </Ul>
-                        ) : (
-                          <></>
-                        )}
-                      </MenuItemServices>
-                    </ul>
-                  ) : (
-                    <></>
-                  )}
-                </Li>
-              ))}
+                              <div className="service">
+                                {dataServices[1]?.fields?.map((item, index) => (
+                                  <div
+                                    key={index}
+                                    className="list-platforms_Card"
+                                  >
+                                    <IMG
+                                      alt={item.image_platform_item.alt}
+                                      src={item.image_platform_item.url}
+                                      w="44"
+                                      h="52"
+                                      objectFit="contain"
+                                      mr="25"
+                                    ></IMG>
+                                    <CardDescription>
+                                      <P
+                                        fontSise="22"
+                                        coLor="#101010"
+                                        fontWeight="600"
+                                        fontFamily="Calibre Semibold"
+                                        className="mobile"
+                                      >
+                                        {item.name_service[0]?.text}
+                                      </P>
+                                      <P
+                                        fontSise="18"
+                                        fontFamily="Calibre Regular"
+                                        coLor="#222222"
+                                        fontWeight={theme.fonts.regular}
+                                        className="mobile1"
+                                      >
+                                        {item.short_description[0]?.text}
+                                      </P>
+                                      <span className="learn-more" href="#">
+                                        Learn more{" "}
+                                      </span>
+                                    </CardDescription>
+                                  </div>
+                                ))}
+                              </div>
+                            </Ul>
+                          ) : (
+                            <></>
+                          )}
+                        </MenuItemServices>
+                      </ul>
+                    ) : (
+                      <></>
+                    )}
+                  </Li>
+                )
+              })}
           </Nav>
           <div className="my-form">
             <>
@@ -1573,25 +1591,22 @@ const Header = ({
                     >
                       {index === 1 ? (
                         <GetInTouch>
-                          <a
-                            className="convertColor"
-                            href={`tel: ${item?.primary?.text_button[0]?.text}`}
+                          <Link
+                            to={`tel: ${item?.primary?.text_button[0]?.text}`}
                           >
-                            <img className="edit-img" src={logoIconPhone} />
-                            {item?.primary?.text_button[0]?.text}
-                          </a>
+                            <TextBtn textColor={checkColorTextButton}>
+                              <img className="edit-img" src={logoIconPhone} />
+                              {item?.primary?.text_button[0]?.text}
+                            </TextBtn>
+                          </Link>
                         </GetInTouch>
                       ) : (
-                        // <GetInTouch onClick={openModal}>
-                        //   {item?.primary?.text_button[0]?.text}
-                        // </GetInTouch>
                         <GetInTouch>
-                          <TitleA
-                            href="/contact"
-                            textColor={checkColorTextButton(index)}
-                          >
-                            {item?.primary?.text_button[0]?.text}
-                          </TitleA>
+                          <Link to="/contact">
+                            <TextBtn textColor={checkColorTextButton}>
+                              {item?.primary?.text_button[0]?.text}
+                            </TextBtn>
+                          </Link>
                         </GetInTouch>
                       )}
                     </ButtonCustom>
@@ -1604,11 +1619,6 @@ const Header = ({
           </div>
         </Navbar.Collapse>
       </Navbar>
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        openModal={openModal}
-      />
     </WrapperHeader>
   )
 }
