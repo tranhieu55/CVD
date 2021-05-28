@@ -145,11 +145,11 @@ const Container = styled.div`
   }
   @media (min-width: 600px) {
     max-width: 586px;
-    margin: 20px auto 40px;
+    margin: 40px auto 40px;
   }
   @media (min-width: 768px) {
     max-width: 716px;
-    margin: 20px auto 40px;
+    margin: 40px auto 40px;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
