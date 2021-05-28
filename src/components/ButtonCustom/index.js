@@ -32,12 +32,12 @@ const ButtonCustom = styled.button`
   overflow: hidden;
   white-space: ${({ wspace }) => `${wspace}`};
   @media (max-width: 992px) {
-    padding: ${({ pd1Mobile }) => `${pd1Mobile}px`} ${({ pd2Mobile }) => `${pd2Mobile}px`};
+    padding: ${({ pd1Mobile }) => `${pd1Mobile}px`}
+      ${({ pd2Mobile }) => `${pd2Mobile}px`};
     width: ${({ wt }) => `${wt}px`};
     width: ${({ w }) => `${w}%`};
     display: ${({ isShow, Block }) =>
       isShow === "mobile" || isShow === "both" || Block ? "block" : "none"};
-      
   }
   @media (min-width: 992px) {
     display: ${({ isShow, Block }) =>
@@ -48,6 +48,9 @@ const ButtonCustom = styled.button`
     transition: all 0.6s ease;
     background-color: #ffd700;
     color: #000;
+  }
+  &:focus {
+    outline: none;
   }
 `
 export default ButtonCustom
