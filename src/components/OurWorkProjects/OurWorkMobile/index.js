@@ -25,19 +25,21 @@ const OurWorkMobile = () => (
           <Link href="#">Testimonials</Link>
         </OurWork>
       </ListOurWork>
-      <ListCaseStudy>
-        <SubTitle>FEAUTURED</SubTitle>
-        <CaseStudy>{/* <CardProject /> */}</CaseStudy>
-      </ListCaseStudy>
-      <ListImage>
-        <SubTitle>FEAUTURED</SubTitle>
-        <BlockImage>
-          <IMG></IMG>
-          <IMG></IMG>
-          <IMG></IMG>
-          <IMG></IMG>
-        </BlockImage>
-      </ListImage>
+      <Grid>
+        <ListCaseStudy>
+          <SubTitle>FEAUTURED</SubTitle>
+          <CaseStudy>{/* <CardProject /> */}</CaseStudy>
+        </ListCaseStudy>
+        <ListImage>
+          <SubTitle>FEAUTURED</SubTitle>
+          <BlockImage>
+            <IMG></IMG>
+            <IMG></IMG>
+            <IMG></IMG>
+            <IMG></IMG>
+          </BlockImage>
+        </ListImage>
+      </Grid>
     </Body>
   </Container>
 )
@@ -47,6 +49,10 @@ export default OurWorkMobile
 const Container = styled.div`
   padding: 26px 0 42px 0;
   max-width: 374px;
+
+  @media (min-width: 376px) and (max-width: 992px) {
+    max-width: 100%;
+  }
 `
 const Head = styled.div`
   position: relative;
@@ -112,18 +118,46 @@ const SubTitle = styled.h6`
   text-transform: uppercase;
   margin-bottom: 0;
 `
+const Grid = styled.div`
+  @media (min-width: 601px) and (max-width: 992px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 31px;
+  }
+`
 const ListCaseStudy = styled.div`
   padding: 20px 31.47px 28px 26px;
+
+  @media (min-width: 601px) and (max-width: 992px) {
+    padding: 0;
+    padding-top: 31px;
+    padding-left: 26px;
+  }
 `
 const CaseStudy = styled.div`
   width: 317.53px;
   height: 202px;
   background-color: lightgray;
   margin-top: 2px;
+
+  @media (min-width: 376px) {
+    width: 100%;
+  }
+  @media (min-width: 601px) and (max-width: 992px) {
+    width: 100%;
+    min-height: 299px;
+    margin-top: 8px;
+  }
 `
 const ListImage = styled.div`
   padding-left: 26px;
   padding-right: 29.34px;
+
+  @media (min-width: 601px) and (max-width: 992px) {
+    padding: 0;
+    padding-top: 31px;
+    padding-right: 31.4px;
+  }
 `
 const BlockImage = styled.div`
   display: grid;
@@ -131,11 +165,29 @@ const BlockImage = styled.div`
   grid-column-gap: 9.38px;
   grid-row-gap: 12.48px;
   margin-top: 5px;
+
+  @media (min-width: 601px) and (max-width: 992px) {
+    grid-column-gap: 12px;
+    grid-row-gap: 7px;
+    margin-top: 13px;
+    min-height: 299px;
+  }
 `
 const IMG = styled.div`
   width: 155.14px;
   height: 111.76px;
   background-color: lightgray;
+
+  @media (min-width: 376px) {
+    width: 100%;
+  }
+  @media (min-width: 601px) and (max-width: 992px) {
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 374px) {
+    width: 100%;
+  }
 
   img {
     height: 100%;
