@@ -52,7 +52,7 @@ const TiTle = styled.div`
   line-height: 56px;
   color: #101010;
   font-weight: 600;
-  margin-bottom: -6px;
+  // margin-bottom: -6px;
   @media only screen and (max-width: 600px) {
     // font-size: 48px;
     color: #101010;
@@ -77,7 +77,7 @@ const Content = styled.div`
     margin-left: 0px !important;
     width: 100%;
     height: 80px;
-    margin-bottom: 24px;
+    margin-bottom: 35px;
   }
   @media (min-width: 1024px) {
     width: 100%;
