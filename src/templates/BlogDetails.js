@@ -233,6 +233,35 @@ const Texxt = styled.div`
       object-fit: cover;
     }
   }
+
+  ol {
+    padding-left: 20px;
+    li {
+      strong {
+        color: #101010;
+        font-family: Calibre Medium;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 28px;
+      padding-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ol {
+      li {
+        padding-bottom: 7px;
+      }
+    }
+  }
 `
 const Fotters = styled.div`
   margin-top: 23px;
@@ -276,10 +305,10 @@ const Icon = styled.img`
   height: ${({ value }) => (value === 2 ? "14px" : "")};
 `
 const DivText = styled.div`
-  margin-top: 31px;
+  margin-top: 27px;
   display: flex;
   @media (max-width: 600px) {
-    margin-top: 23px;
+    margin-top: 28pxpx;
     display: flex;
     flex-wrap: wrap;
   }
