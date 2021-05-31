@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -33,10 +33,24 @@ const HappyClient = ({ input }) => {
         ? ref.current.scrollLeft - 650
         : ref.current.scrollLeft - 350)
   }
-
+  const [hienthi, setHienThi] = useState(false)
+  const delay= 5;
+  const isBrowser = typeof window !== "undefined";
+  
+  useEffect(() => {
+    if(isBrowser){
+      setHienThi(!hienthi)
+    }else setHienThi(hienthi)
+    let timer1 = setTimeout(() => setHienThi(!hienthi), delay * 1000);
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, [])
+  console.log(hienthi);
   return (
     <HappyClients>
       <Title>{Titles}</Title>
+      {hienthi === 'false' ? <></> : 
         <OwlCarousel margin={72} responsive={false} autoWidth={true} items={2} className="owl-theme" ref={ref} >
         {input ? input.fields?.map((item, index) => (
           <Slider
@@ -58,7 +72,7 @@ const HappyClient = ({ input }) => {
           </Slider>
         )) : <></>}
       </OwlCarousel>
-      
+      }
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>
       <Buttons onClick={() => Nextshowslider()}></Buttons>
