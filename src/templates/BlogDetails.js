@@ -29,8 +29,6 @@ const BlogDetails = props => {
       )
     : []
 
-  console.log({ blog: RichText.render(props.data?.prismic?.post?.content) })
-
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
