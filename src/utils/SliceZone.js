@@ -21,7 +21,7 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
 import Instagram from "../components/slices/Homepage/Instargram"
-import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClient"
+// import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClient"
 import OurServicesss from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
@@ -132,12 +132,12 @@ const SliceZone = props => {
               <ProjectTiles key={index} input={s} />
             </>
           )
-        case "happy_clients":
-          return (
-            <>
-              <HappyClinetssss key={index} input={s} />
-            </>
-          )
+        // case "happy_clients":
+        //   return (
+        //     <>
+        //       <HappyClinetssss key={index} input={s} />
+        //     </>
+        //   )
         case "content_section":
           return (
             <>
