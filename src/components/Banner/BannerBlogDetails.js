@@ -21,16 +21,16 @@ export default function BannerBlogDetails({ titles, sub }) {
 const Container = styled.div`
   width: 100%;
   height: 365px;
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   @media (max-width: 600px) {
     width: 100%;
     height: 282px;
-    background-color: #ffffff;
+    background-color: #f8f8f8;
   }
   @media (min-width: 600px) {
     width: 100%;
     height: 365px;
-    background-color: #ffffff;
+    background-color: #f8f8f8;
   }
   @media (min-width: 1040px) and (max-width: 1366px) {
     height: 337px;
@@ -85,7 +85,7 @@ const Sub = styled.p`
   letter-spacing: 1px;
   line-height: 16px;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   text-transform: uppercase;
   &::before {
     position: absolute;
