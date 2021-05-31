@@ -144,6 +144,7 @@ const Container = styled.div`
   @media (min-width: 600px) {
     max-width: 535px;
     margin: 40px auto 40px;
+    margin-left: 68px;
   }
   @media (min-width: 768px) {
     max-width: 734px;
@@ -155,6 +156,7 @@ const Container = styled.div`
 
     margin-bottom: 80px;
     max-width: 716px;
+    margin-left: 160px;
   }
   @media (min-width: 1372px) {
     margin-left: 220px;

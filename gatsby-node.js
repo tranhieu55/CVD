@@ -97,7 +97,7 @@ exports.onCreateWebpackConfig = ({
         module: {
           rules: [
             {
-              test: /bad-module/,
+              test: /react-owl-carousel/,
               use: loaders.null(),
             },
           ],
