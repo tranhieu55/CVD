@@ -97,7 +97,7 @@ exports.onCreateWebpackConfig = ({
   //       module: {
   //         rules: [
   //           {
-  //             test: react-owl-carousel/,
+  //             test: /react-owl-carousel/,
   //             use: loaders.null(),
   //           },
   //         ],
