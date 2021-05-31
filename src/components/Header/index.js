@@ -198,7 +198,7 @@ const WrapperHeader = styled.div`
           max-height: 0;
           transition: all 0.5s ease-in-out;
           overflow: hidden;
-          height: 405px;
+          height: 420px;
           @media (max-width: 992px) {
             top: 0;
           }
@@ -217,7 +217,7 @@ const WrapperHeader = styled.div`
           max-height: 0;
           transition: all 0.5s ease-in-out;
           overflow: hidden;
-          height: 405px;
+          height: 378px;
           @media (max-width: 992px) {
             top: 0;
           }
@@ -236,12 +236,18 @@ const WrapperHeader = styled.div`
           display: flex;
           flex-direction: column;
           flex-basis: 25%;
+          @media (min-width: 992px) {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+          @media (min-width: 1440px) {
+            padding-left: 42px;
+            padding-right: 0px;
+          }
           li.list-services_Item {
-            margin-bottom: 16px;
             padding-left: 10px;
             display: block;
             display: flex;
-            align-items: center;
             .image-services-item {
               width: 24px;
               height: 24px;
@@ -260,8 +266,30 @@ const WrapperHeader = styled.div`
         
         ul.list-platforms {
           flex-basis: 75%;
+          @media (min-width: 992px) {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+          @media (min-width: 1440px) {
+            padding-left: 48px;
+            padding-right: 48px;
+          }
+          .list-platforms_Card:nth-child(2) {
+            @media(min-width: 992px) {
+              margin-right: 0px;
+              max-width:421px;
+            }
+          }
+          .list-platforms_Card:nth-child(4) {
+            @media(min-width: 992px) {
+              margin-right: 0px;
+            }
+          }
           div.list-platforms_Card {
             display: flex;
+            @media(min-width: 992px) {
+              margin-right: 110px;
+            }
             &:last-child {
               margin-bottom: unset;
             }
@@ -335,7 +363,7 @@ const WrapperHeader = styled.div`
     font-weight: 400 !important;
   }
   .list-services_Item {
-    margin-top: 15px;
+    margin-top: 19px;
     .list-title-services:hover {
       color: #fecf09 !important;
     }
@@ -492,7 +520,7 @@ const WrapperHeader = styled.div`
       }
     }
     li.list-services_Item {
-      margin-left: 22px;
+      margin-left: 0px;
       img {
         margin-right: 15px !important;
       }
@@ -501,25 +529,24 @@ const WrapperHeader = styled.div`
       }
     }
     .list-services_Item {
-      margin-top: 25px !important;
-      margin-bottom: 17px !important;
+      margin-top: 22px !important;
+      margin-bottom: 3px !important;
     }
     .mt0 {
       margin-top: 0px !important;
     }
-    .displayMobile {
-      display: none;
-    }
+    
     .list-platforms_Card {
-      padding-left: 20px !important;
       padding-right: 0px !important;
       padding-bottom: 0px !important;
       padding-top: 5px !important;
       margin-bottom: 10px;
       border-radius: 6px;
       img {
-        margin-right: 23px;
+        margin-right: 20px;
         margin-top: -8px;
+        width: 30px;
+        height: 35px;
       }
     }
   }
@@ -551,30 +578,29 @@ const WrapperHeader = styled.div`
       position: absolute;
       content: "";
       left: 0;
-      top: 58px;
+      top: 50px;
       width: 100%;
       height: 0.5px;
       background-color: #eeeeee;
     }
     
-    .displayMobile {
-      display: none;
-    }
     .menu-mobile {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 45px !important;
-      margin-left: 20px;
       margin-right: 4px;
+      button {
+        margin-right: 10px;
+      }
       p {
         color: #101010;
-        font-size: 32px;
+        font-size: 28px;
         font-family: "Calibre Bold";
         margin-bottom: 0px;
         text-transform: none;
-        height: 32px;
-        letter-spacing: 0px;
+        height: 28px;
+        letter-spacing: -0.5px;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -588,9 +614,8 @@ const WrapperHeader = styled.div`
       }
     }
     .list-platforms_Card {
-      margin-bottom: 20px;
+      margin-bottom: 32px;
       border-radius: 6px;
-      padding: 10px 15px;
     }
     .list-services_Item {
       padding-left: 25px !important;
@@ -619,9 +644,7 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-    .displayMobile {
-      display: none;
-    }
+    
 
     .menu-mobile {
       display: flex;
@@ -652,7 +675,6 @@ const WrapperHeader = styled.div`
     .list-platforms_Card {
       margin-bottom: 20px;
       border-radius: 6px;
-      padding: 10px 15px;
     }
     .list-services_Item {
       padding-left: 38px !important;
@@ -909,12 +931,14 @@ const CardDescription = styled.div`
   }
   @media (max-width: 600px) {
     .mobile {
-      // margin-top: 12px;
       margin-bottom: -7px;
       letter-spacing: -0.5px;
     }
     .mobile1 {
-      margin-top: 3px;
+      margin-top: 5px;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 11px;
     }
   }
   @media (min-width: 600px) {
@@ -926,18 +950,20 @@ const CardDescription = styled.div`
 const MenuItemServices = styled.div`
   margin-left: 120px;
   margin-right: 120px;
-  margin-top: 35px;
+  margin-top: 32px;
   display: flex;
   .service {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    margin-left: 25px;
+    margin-top: 25px;
+    flex-wrap: wrap;
   }
   ul {
     flex-basis: none;
   }
   @media (max-width: 800px) {
     .service {
-      grid-template-columns: 1fr;
+      margin: 0;
     }
   }
   @media (max-width: 600px) {
@@ -966,7 +992,7 @@ const MenuItemServices = styled.div`
     margin-top: 20px;
     ul {
       padding-left: 0;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .list-platforms {
       padding-left: 20px !important;
@@ -1017,18 +1043,23 @@ const MenuItemServices = styled.div`
         margin-right: 15px !important;
       }
       div {
-        p {
-          font-size: 14px;
+        .mobile {
+          font-size: 22px;
+          line-height: 26px;
+        }
+        .mobile1 {
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 11px;
         }
       }
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 1366px) {
     margin-left: 120px;
     margin-right: 120px;
     .list-platforms_Card {
       max-width: 421px;
-      // margin-right: 110px;
       img {
         margin-right: 24px !important;
       }
@@ -1058,6 +1089,7 @@ const MenuItemServices = styled.div`
         p {
           font-size: 16px;
           line-height: 20px;
+          margin-bottom: 7px;
         }
       }
     }
@@ -1120,6 +1152,22 @@ const TextBtn = styled.span`
   }
   @media (max-width: 992px) {
     color: #fff;
+  }
+`
+const HrMobile = styled.div`
+  @media (max-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`
+const HrDesktop = styled.div`
+  @media (min-width: 992px) {
+    display: block;
+  }
+  @media (max-width: 992px) {
+    display: none;
   }
 `
 const Header = ({
@@ -1516,27 +1564,42 @@ const Header = ({
                                   />
                                 </Navbar.Toggle>
                               </div>
-                              {dataServices[0]?.fields?.map((item, index) => (
-                                <React.Fragment key={index}>
-                                  <Li
-                                    className={`${
-                                      index === 0
-                                        ? "mt0 list-services_Item"
-                                        : "list-services_Item"
-                                    }`}
-                                  >
-                                    <img
-                                      className="image-services-item"
-                                      src={item.image_service_item.url}
-                                      alt={item.image_service_item.alt}
-                                    />
-                                    <Link className="list-title-services" to="">
-                                      {item.title_service_item[0]?.text}
-                                    </Link>
-                                  </Li>
-                                  <hr />
-                                </React.Fragment>
-                              ))}
+                              {dataServices[0]?.fields?.map((item, index) => {
+                                return (
+                                  <React.Fragment key={index}>
+                                    <Li
+                                      className={`${
+                                        index === 0
+                                          ? "mt0 list-services_Item"
+                                          : "list-services_Item"
+                                      }`}
+                                    >
+                                      <img
+                                        className="image-services-item"
+                                        src={item.image_service_item.url}
+                                        alt={item.image_service_item.alt}
+                                      />
+                                      <Link
+                                        className="list-title-services"
+                                        to=""
+                                      >
+                                        {item.title_service_item[0]?.text}
+                                      </Link>
+                                    </Li>
+                                    <HrMobile>
+                                      <hr />
+                                    </HrMobile>
+                                    <HrDesktop>
+                                      {dataServices[0]?.fields?.length - 1 ===
+                                        index || index === 0 ? (
+                                        ""
+                                      ) : (
+                                        <hr />
+                                      )}
+                                    </HrDesktop>
+                                  </React.Fragment>
+                                )
+                              })}
                             </Ul>
                           ) : (
                             <></>

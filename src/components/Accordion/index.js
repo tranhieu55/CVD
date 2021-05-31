@@ -53,7 +53,8 @@ export default function Accordion({ input }) {
               <TextF>
                 {RichText.render(item.application)}
                 {RichText.render(item.content_footer)}&nbsp;
-                <a href="#">{RichText.render(item.email)}</a>&nbsp;
+                {RichText.render(item.email)}
+                &nbsp;
                 {RichText.render(item.content_footer2)}
               </TextF>
             </ContentSub>
@@ -160,16 +161,20 @@ const Title = styled.h1`
     font-size: 24px;
     line-height: 24px;
     width: 90%;
-    margin-bottom: 19px;
+    margin-bottom: 15px;
   }
 `
 const ContentSub = styled.div`
-  margin-bottom: 55px;
+  margin-bottom: 31px;
   transition: all 0.4s ease-in;
   // width: 87%;
+  @media (max-width: 600px) {
+    margin-bottom: 18px;
+  }
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
+  width: 87%;
   p {
     margin-bottom: 4px;
     color: #222222;
@@ -187,6 +192,7 @@ const TextTitle = styled.div`
 `
 const TextCT = styled.p`
   margin-bottom: 10px;
+  width: 87%;
   ul {
     margin-bottom: -6px;
     color: #222222;
@@ -219,6 +225,7 @@ const TextCT = styled.p`
 `
 const TextCTC = styled.div`
   margin-bottom: 16px;
+  width: 87%;
   p {
     margin-bottom: 4px;
     color: #222222;
@@ -230,6 +237,7 @@ const TextCTC = styled.div`
 `
 const TextCTA = styled.div`
   margin-bottom: 32px;
+  width: 87%;
   ul {
     margin-left: 10px;
     padding-left: 20px;
@@ -259,20 +267,26 @@ const TextF = styled.div`
 
   p:not(:first-child) {
     display: inline-block;
+    margin: 0;
   }
 
-  p:last-child {
-    min-width: 327px;
+  p:first-child {
+    margin-bottom: 10px;
   }
 
   @media (max-width: 600px) {
     padding-bottom: 44px;
+
+    p:last-child {
+      min-width: 327px;
+    }
 
     p {
       font-size: 16px;
     }
     p:first-child {
       font-weight: 700;
+      margin-bottom: 6px;
     }
   }
 
@@ -284,6 +298,7 @@ const TextF = styled.div`
     p:first-child {
       font-weight: 400;
       display: inline;
+      padding: 0;
     }
 
     @media (max-width: 600px) {

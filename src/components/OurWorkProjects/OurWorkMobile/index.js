@@ -193,7 +193,7 @@ const SubTitle = styled.h6`
   letter-spacing: 1px;
   line-height: 16px;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 `
 const Grid = styled.div`
   @media (min-width: 601px) and (max-width: 992px) {
@@ -240,7 +240,7 @@ const BlockImage = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 9.38px;
   grid-row-gap: 12.48px;
-  margin-top: 5px;
+  margin-top: 8px;
 
   @media (min-width: 601px) and (max-width: 992px) {
     grid-column-gap: 12px;

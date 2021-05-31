@@ -15,7 +15,9 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
             {data[0]?.fields[0]?.content?.map((item, key) => {
               return (
                 <OurWork key={key}>
-                  <Link href="#">{item?.text}</Link>
+                  {/* <Link href="#">{item?.text}</Link>
+                  <hr /> */}
+                  {"demo"}
                 </OurWork>
               )
             })}
@@ -118,7 +120,8 @@ const OurWork = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 57px;
-  border-top: 1px solid #eeeeee;
+  /* border-top: 1px solid #eeeeee; */
+  margin-bottom: 0;
 
   a,
   a:focus,
@@ -130,7 +133,7 @@ const OurWork = styled.p`
   }
 `
 const SubTitle = styled.h6`
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: #999999;
   font-family: Calibre Semibold;
   font-size: 14px;
@@ -182,7 +185,7 @@ const BlockImage = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 12px;
   grid-row-gap: 7px;
-  margin-top: 20px;
+  margin-top: 15px;
 `
 const Img = styled.img`
   width: 198.5px;

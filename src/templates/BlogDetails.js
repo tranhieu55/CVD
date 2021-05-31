@@ -146,7 +146,7 @@ const Container = styled.div`
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
-    max-width: 586px;
+    max-width: 535px;
     margin: 40px auto 40px;
   }
   @media (min-width: 768px) {
@@ -244,6 +244,8 @@ const Texxt = styled.div`
 
   ol {
     padding-left: 20px;
+    margin-bottom: 0;
+
     li {
       strong {
         color: #101010;
