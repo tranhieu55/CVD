@@ -4,9 +4,9 @@ import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
 import logoBugerBlack from "../../images/burger-menu@2x.png"
 import logoIconClose from "../../images/iconclose.png"
-import logoIconClosBlack from "../../images/cancelBack.png"
+import logoIconClosBlack from "../../images/close-3_b7489140-dbd1-403b-a115-babae5e8c8fc@2x.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
-import logoIconBack from "../../images/long-arrow-left@2x.png"
+import logoIconBack from "../../images/Arrow_Left_V2@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
 import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
@@ -17,6 +17,8 @@ import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import useOnClickOutside from "../../hooks/clickoutside"
+import OurWorkMobile from "../OurWorkProjects/OurWorkMobile"
+import OurWorkDesktop from "../OurWorkProjects/OurWorkDesktop"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -51,6 +53,9 @@ const WrapperHeader = styled.div`
     background-color: white !important;
   }
   .menu-area_services {
+    padding-left: 0;
+  }
+  .menu-area_ourwork {
     padding-left: 0;
   }
   hr {
@@ -167,7 +172,7 @@ const WrapperHeader = styled.div`
     width: 457px;
     li.menu-list_item {
       padding: 10px 16px;
-      a {
+      .edit-item-a {
         font-family: "Calibre Semibold";
         display: block;
         font-weight: 600;
@@ -185,24 +190,43 @@ const WrapperHeader = styled.div`
           color: #0e0e0e;
         }
       }
-      ul.menu-area_services {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        background-color: white;
-        max-height: 0;
-        transition: all 0.5s ease-in-out;
-        overflow: hidden;
-        height: 405px;
-        @media (max-width: 992px) {
-           top: 0;
-        }
-        @media (min-width: 992px) {
+      ul.menu-area_ourwork {
+          position: fixed;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          max-height: 0;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
+          height: 405px;
+          @media (max-width: 992px) {
+            top: 0;
+          }
+          @media (min-width: 992px) {
            top: ${({ dataGlobalMessage, location, show }) =>
              dataGlobalMessage === true || location !== "/" || show > 0
                ? "72px"
                : "120px"};
-    }
+        }
+      }
+      ul.menu-area_services {
+          position: fixed;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          max-height: 0;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
+          height: 405px;
+          @media (max-width: 992px) {
+            top: 0;
+          }
+          @media (min-width: 992px) {
+           top: ${({ dataGlobalMessage, location, show }) =>
+             dataGlobalMessage === true || location !== "/" || show > 0
+               ? "72px"
+               : "120px"};
+          }
         }
         & > ul {
           list-style: none;
@@ -269,7 +293,14 @@ const WrapperHeader = styled.div`
     .menu-area_services {
       max-height: 100% !important;
       top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
+        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+    }
+  }
+  .dropdown_ourwork {
+    .menu-area_ourwork {
+      max-height: 100% !important;
+      top: ${({ dataGlobalMessage, location }) =>
+        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
     }
   }
 .hover-ed:hover{
@@ -295,10 +326,7 @@ const WrapperHeader = styled.div`
     width: 20px;
     height: 20px;
   }
-  .imagefull {
-    height: 500px !important;
-    width: 88%;
-  }
+  
   .list-title-services {
     font-family: "Calibre Regular" !important;
     font-size: 18px !important;
@@ -380,11 +408,11 @@ const WrapperHeader = styled.div`
       font-size: 32px !important;
       line-height: 56px !important;
     }
-    .navbar-collapse {
+    /* .navbar-collapse {
       div {
         margin-bottom: 20px;
       }
-    }
+    } */
     .menu-nav {
       height: 11px;
       width: 32px;
@@ -416,6 +444,14 @@ const WrapperHeader = styled.div`
       top: 0% !important;
       overflow-y: scroll !important;
     }
+    .dropdown_ourwork .menu-area_ourwork {
+      max-width: 100% !important;
+      z-index: 1;
+      height: auto !important;
+      top: 0% !important;
+      overflow-y: scroll !important;
+    }
+
     .list-services {
       position: relative;
     }
@@ -486,10 +522,6 @@ const WrapperHeader = styled.div`
         margin-top: -8px;
       }
     }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
-    }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     body {
@@ -524,14 +556,6 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-
-    // .dropdown_services .menu-area_services {
-    //   max-width: 100% !important;
-    //   z-index: 1;
-    //   height: auto !important;
-    //   top: 0% !important;
-    //   overflow-y: scroll !important;
-    // }
     
     .displayMobile {
       display: none;
@@ -567,10 +591,6 @@ const WrapperHeader = styled.div`
       margin-bottom: 20px;
       border-radius: 6px;
       padding: 10px 15px;
-    }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
     }
     .list-services_Item {
       padding-left: 25px !important;
@@ -634,10 +654,6 @@ const WrapperHeader = styled.div`
       border-radius: 6px;
       padding: 10px 15px;
     }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
-    }
     .list-services_Item {
       padding-left: 38px !important;
       img {
@@ -647,6 +663,12 @@ const WrapperHeader = styled.div`
   }
   @media (max-width: 991px) {
     .menu-area_services {
+      top: 0 !important;
+      height: 100vh !important;
+      z-index: 123;
+      overflow-y: scroll !important;
+    }
+    .menu-area_ourwork {
       top: 0 !important;
       height: 100vh !important;
       z-index: 123;
@@ -680,7 +702,7 @@ const WrapperHeader = styled.div`
     .menu-list li.menu-list_item a.menu-list_item_text-black {
       text-align: left;
     }
-    .menu-list li.menu-list_item a {
+    .menu-list li.menu-list_item .edit-item-a {
       text-align: left;
     }
     .wraper-header {
@@ -767,15 +789,6 @@ const WrapperHeader = styled.div`
         font-weight: 500;
       }
     }
-    // .mask ::before {
-    //   position: absolute;
-    //   content: "";
-    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    //   height: 299px;
-    //   width: 100%;
-    //   left: 0;
-    //   opacity: 30%;
-    // }
     .wraper-header {
       width: 100vw;
     }
@@ -1105,12 +1118,16 @@ const TextBtn = styled.span`
   &:active {
     color: ${({ textColor }) => textColor};
   }
+  @media (max-width: 992px) {
+    color: #fff;
+  }
 `
 const Header = ({
   location,
   dataMenuHeader,
   dataServicesMenu,
   dataGlobalMessage,
+  dataHeaderOurwork,
 }) => {
   const dataServices =
     dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
@@ -1136,14 +1153,14 @@ const Header = ({
     : []
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
+  const [isDisPlayModalOurwork, setIsDisPlayModalOurwork] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
 
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
-
+  useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
-  console.log("21322313112", isDisPlayModalService)
 
   let lastScrollTop = 0
   useEffect(() => {
@@ -1169,24 +1186,20 @@ const Header = ({
 
   const handleScroll = () => {
     const _show = window.scrollY
-    if (_show > -1) {
+    if (_show > 0) {
       setIsDisPlayModalService(false)
+      setIsDisPlayModalOurwork(false)
     }
     setShow(_show)
   }
 
   useEffect(() => {
     !!window && window.addEventListener("scroll", handleScroll)
-    // window.addEventListener("click", () => handleOutsideClick());
     return () => {
       !!window && window.removeEventListener("scroll", handleScroll)
-      // window.removeEventListener("click", () => handleOutsideClick());
     }
   }, [])
-
-  // const handelClickServices = () => {
-  //   setIsDisPlayModalService(!isDisPlayModalService)
-  // }
+  console.log("taii sao the ", isDisPlayModalOurwork)
 
   const checkColorText = () => {
     if (
@@ -1202,13 +1215,16 @@ const Header = ({
     ) {
       return "menu-list_item_text-black"
     }
-    if (show === 0 && !!isDisPlayModalService) {
+    if ((show === 0 && !!isDisPlayModalService) || !!isDisPlayModalOurwork) {
       return "menu-list_item_text-black"
     } else {
       if (show < 101) {
         return "menu-list_item_text-white"
       }
       if (!isDisPlayModalService && !scroll) {
+        return "menu-list_item_text-white"
+      }
+      if (!isDisPlayModalOurwork && !scroll) {
         return "menu-list_item_text-white"
       }
       return "menu-list_item_text-black"
@@ -1226,7 +1242,8 @@ const Header = ({
       location === "/blog-details" ||
       location === "/testimonial" ||
       show > 101 ||
-      !!isDisPlayModalService
+      !!isDisPlayModalService ||
+      !!isDisPlayModalOurwork
     ) {
       return "#101010"
     }
@@ -1269,7 +1286,26 @@ const Header = ({
     document.body.style.overflow = "scroll"
     setIsDisPlayModalService(false)
   }
-  console.log("run data", dataServices)
+  const handelHover = () => {
+    setIsDisPlayModalService(false)
+    setIsDisPlayModalOurwork(false)
+  }
+  const handelHoverService = () => {
+    setIsDisPlayModalService(true)
+    setIsDisPlayModalOurwork(false)
+  }
+  const handelHoverOurwork = () => {
+    setIsDisPlayModalService(false)
+    setIsDisPlayModalOurwork(true)
+  }
+  const checkValueOurwork = data => {
+    setIsDisPlayModalOurwork(data)
+  }
+  const checkValueClose = data => {
+    setIsDisPlayModalOurwork(data)
+    document.body.style.overflow = "scroll"
+  }
+  // console.log("rundata", dataHeaderOurwork)
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1278,11 +1314,13 @@ const Header = ({
       scroll={scroll}
       show={show}
       isDisPlayModalService={isDisPlayModalService}
+      isDisPlayModalOurwork={isDisPlayModalOurwork}
     >
       <Navbar
         expand="lg"
         className={`wraper-header fixedTop
         ${isDisPlayModalService === true ? "backgroundServiecs" : ""}
+        ${isDisPlayModalOurwork === true ? "backgroundServiecs" : ""}
         `}
       >
         <LogoHeader show={show}>
@@ -1292,6 +1330,7 @@ const Header = ({
             ) : (
               <IMG
                 src={
+                  isDisPlayModalOurwork == true ||
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/404" ||
@@ -1353,9 +1392,6 @@ const Header = ({
           <Nav className="mr-auto menu-list">
             {dataMenu &&
               dataMenu[0]?.fields.map((item, index) => {
-                {
-                  /* const data = item.slug_menu_item.console.log("data", data) */
-                }
                 return (
                   <Li
                     className={`menu-list_item ${
@@ -1371,31 +1407,17 @@ const Header = ({
                         : "menu-list_item_gold"
                     } ${
                       isDisPlayModalService === true ? "dropdown_services" : ""
+                    } ${
+                      isDisPlayModalOurwork === true ? "dropdown_ourwork" : ""
                     }`}
                     key={index}
                   >
-                    {/* {item && item.slug_menu_item[0]?.text === "projects" ? (
-                      <span
-                        className={`${checkColorText()} colorWhite ${
-                          isDisPlayModalService === true ? "test" : ""
-                        }  hover-ed`}
-                      >
-                        {item.title_menu_item[0]?.text}{" "}
-                        <img
-                          className="icon-mobile-right"
-                          src={logoIconRight}
-                          alt=""
-                        />{" "}
-                      </span>
-                    ) : (
-                      ""
-                    )} */}
                     {item && item.slug_menu_item[0]?.text === "services" ? (
                       <span
                         onClick={() => {
                           setIsDisPlayModalService(!isDisPlayModalService)
                         }}
-                        onMouseEnter={() => setIsDisPlayModalService(true)}
+                        onMouseEnter={() => handelHoverService()}
                         className={`${checkColorText()} colorWhite ${
                           isDisPlayModalService === true ? "test" : ""
                         }  hover-ed`}
@@ -1407,21 +1429,58 @@ const Header = ({
                           alt=""
                         />{" "}
                       </span>
+                    ) : item && item.slug_menu_item[0]?.text === "projects" ? (
+                      <>
+                        <span
+                          onClick={() => {
+                            setIsDisPlayModalOurwork(!isDisPlayModalOurwork)
+                          }}
+                          className={`${checkColorText()} colorWhite `}
+                          onMouseEnter={() => handelHoverOurwork()}
+                        >
+                          {item.title_menu_item[0]?.text}{" "}
+                          <img
+                            className="icon-mobile-right"
+                            src={logoIconRight}
+                            alt=""
+                          />{" "}
+                        </span>
+                      </>
                     ) : (
                       <Link
                         to={`/${item.slug_menu_item[0]?.text}`}
                         activeClassName="active"
-                        className={`${checkColorText()} colorWhite`}
+                        className={`${checkColorText()} colorWhite edit-item-a`}
                         onClick={() =>
                           (document.body.style.overflow = "scroll")
                         }
-                        onMouseEnter={() => setIsDisPlayModalService(false)}
+                        onMouseEnter={() => handelHover()}
                       >
-                        {item.title_menu_item[0]?.text}
+                        {item.title_menu_item[0]?.text === "projects"
+                          ? ""
+                          : item.title_menu_item[0]?.text}
                       </Link>
                     )}
+                    {item && item.slug_menu_item[0]?.text === "projects" && (
+                      <ul
+                        ref={isDisPlayModalOurwork === true ? ref : null}
+                        className="menu-area_ourwork"
+                      >
+                        <hr />
+                        <OurWorkMobile
+                          dataHeaderOurwork={dataHeaderOurwork}
+                          checkValue={() => checkValueOurwork()}
+                          checkClose={() => checkValueClose()}
+                        />
+                        <OurWorkDesktop dataHeaderOurwork={dataHeaderOurwork} />
+                      </ul>
+                    )}
+
                     {item && item.slug_menu_item[0]?.text === "services" ? (
-                      <ul ref={ref} className="menu-area_services">
+                      <ul
+                        ref={isDisPlayModalService === true ? ref : null}
+                        className="menu-area_services"
+                      >
                         <hr />
                         <MenuItemServices>
                           {" "}
@@ -1591,14 +1650,13 @@ const Header = ({
                     >
                       {index === 1 ? (
                         <GetInTouch>
-                          <Link
-                            to={`tel: ${item?.primary?.text_button[0]?.text}`}
+                          <a
+                            className="convertColor"
+                            href={`tel: ${item?.primary?.text_button[0]?.text}`}
                           >
-                            <TextBtn textColor={checkColorTextButton}>
-                              <img className="edit-img" src={logoIconPhone} />
-                              {item?.primary?.text_button[0]?.text}
-                            </TextBtn>
-                          </Link>
+                            <img className="edit-img" src={logoIconPhone} />
+                            {item?.primary?.text_button[0]?.text}
+                          </a>
                         </GetInTouch>
                       ) : (
                         <GetInTouch>

@@ -1,46 +1,70 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import IMG from "../../Image"
 
-const OurWorkDesktop = () => (
-  <Container>
-    <Body>
-      <ListOurWork>
-        <SubTitle>PORTFOLIO</SubTitle>
-        <OurWorks>
-          <OurWork>
-            <Link href="#">Case Studies</Link>
-          </OurWork>
-          <OurWork>
-            <Link href="#">Launches</Link>
-          </OurWork>
-          <OurWork>
-            <Link href="#">Who we work with</Link>
-          </OurWork>
-          <OurWork>
-            <Link href="#">Testimonials</Link>
-          </OurWork>
-        </OurWorks>
-      </ListOurWork>
+const OurWorkDesktop = ({ dataHeaderOurwork }) => {
+  console.log("du lieu truyen sang", dataHeaderOurwork)
+  const data = dataHeaderOurwork.edges[0]?.node?.body
+  return (
+    <Container>
+      <Body>
+        <ListOurWork>
+          <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
+          <OurWorks>
+            {data[0]?.fields[0]?.content?.map((item, key) => {
+              return (
+                <OurWork key={key}>
+                  <Link href="#">{item?.text}</Link>
+                </OurWork>
+              )
+            })}
+          </OurWorks>
+        </ListOurWork>
 
-      <Grid>
-        <ListCaseStudy>
-          <SubTitle>FEAUTURED</SubTitle>
-          <CaseStudy>{/* <CardProject /> */}</CaseStudy>
-        </ListCaseStudy>
-        <ListImage>
-          <SubTitle>FEAUTURED</SubTitle>
-          <BlockImage>
-            <IMG></IMG>
-            <IMG></IMG>
-            <IMG></IMG>
-            <IMG></IMG>
-          </BlockImage>
-        </ListImage>
-      </Grid>
-    </Body>
-  </Container>
-)
+        <Grid>
+          <ListCaseStudy>
+            <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
+            <DivIMG
+              as={Link}
+              className="imagefull mask"
+              // to={
+              //   "projects/" +
+              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
+              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
+              // }
+            >
+              <IMG
+                src={data[1]?.fields[0]?.image_feautured?.url}
+                objectFit="cover"
+                heightPercent="100"
+                alt={data[1]?.fields[0]?.image_feautured?.alt}
+              />
+              <TitleImageBlog>
+                <Span>{data[1]?.fields[0]?.sub_image[0]?.text}</Span>
+                <H3>{data[1]?.fields[0]?.title_image[0]?.text}</H3>
+              </TitleImageBlog>
+            </DivIMG>
+          </ListCaseStudy>
+          <ListImage>
+            <SubTitle>{data[2]?.primary?.title[0]?.text}</SubTitle>
+            <BlockImage>
+              {data[2]?.fields?.map((item, index) => {
+                return (
+                  <Img
+                    key={index}
+                    src={item?.image_launched?.url}
+                    alt={item?.image_launched?.alt}
+                  />
+                )
+              })}
+            </BlockImage>
+          </ListImage>
+        </Grid>
+      </Body>
+    </Container>
+  )
+}
 
 export default OurWorkDesktop
 
@@ -49,6 +73,14 @@ const Container = styled.div`
   justify-content: center;
   padding-bottom: 59px;
   padding-top: 31px;
+  @media (min-width: 992px) {
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media (max-width: 992px) {
+    display: none;
+  }
 `
 
 const Body = styled.div`
@@ -60,14 +92,13 @@ const Body = styled.div`
     grid-gap: 24px;
   }
   @media (max-width: 1300px) {
-    grid-template-columns: 1fr;
     grid-gap: 24px;
   }
 `
 const ListOurWork = styled.div`
   min-width: 300px;
 `
-const OurWorks = styled.ul`
+const OurWorks = styled.div`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -81,7 +112,7 @@ const OurWorks = styled.ul`
   }
 `
 
-const OurWork = styled.li`
+const OurWork = styled.p`
   color: #222222;
   font-family: Calibre Regular;
   font-size: 18px;
@@ -99,6 +130,7 @@ const OurWork = styled.li`
   }
 `
 const SubTitle = styled.h6`
+  margin-bottom: 14px;
   color: #999999;
   font-family: Calibre Semibold;
   font-size: 14px;
@@ -106,7 +138,6 @@ const SubTitle = styled.h6`
   letter-spacing: 1px;
   line-height: 16px;
   text-transform: uppercase;
-  margin-bottom: 0;
 `
 const Grid = styled.div`
   display: grid;
@@ -119,13 +150,29 @@ const Grid = styled.div`
 `
 
 const ListCaseStudy = styled.div`
-  min-width: 470px;
+  max-width: 470px;
+  .imagefull {
+    height: 300px !important;
+    width: 100%;
+    cursor: pointer;
+  }
+  .mask ::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    height: 300px;
+    width: 100%;
+    left: 0;
+    opacity: 30%;
+  }
 `
 const CaseStudy = styled.div`
   width: 100%;
-  min-height: 300px;
-  background-color: lightgray;
   margin-top: 8px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
 const ListImage = styled.div`
   min-width: 409px;
@@ -135,16 +182,63 @@ const BlockImage = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 12px;
   grid-row-gap: 7px;
-  margin-top: 13px;
+  margin-top: 20px;
 `
-const IMG = styled.div`
+const Img = styled.img`
   width: 198.5px;
   height: 143px;
-  background-color: lightgray;
-
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  object-fit: cover;
+`
+const DivIMG = styled.div`
+  overflow: hidden;
+  transition: all 200ms ease-in;
+  position: relative;
+  display: inline-block;
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: ".";
+    background-color: #fecf09;
+    height: 5px;
+    transition: all 0.4s ease-in;
   }
+  :hover {
+    ::after {
+      width: 100%;
+    }
+  }
+`
+const TitleImageBlog = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: 5rem;
+  left: 6rem;
+  cursor: pointer;
+
+  @media only screen and (min-width: 992px) {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  @media only screen and (min-width: 1366px) {
+    top: 223px;
+    left: 27px;
+  }
+`
+const H3 = styled.h3`
+  color: white;
+  font-size: 48px;
+  font-family: "Calibre Bold";
+  margin: 0;
+  padding: 0;
+  @media (max-width: 1200px) {
+    font-size: 32px;
+  }
+`
+const Span = styled.span`
+  font-weight: bold;
+  color: #fecf09 !important;
+  font-size: 18px;
 `
