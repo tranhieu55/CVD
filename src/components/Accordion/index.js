@@ -188,7 +188,7 @@ const TextTitle = styled.div`
 const TextCT = styled.p`
   margin-bottom: 10px;
   ul {
-    margin-bottom: 4px;
+    margin-bottom: -6px;
     color: #222222;
     font-family: Calibre Regular;
     font-size: 18px;
