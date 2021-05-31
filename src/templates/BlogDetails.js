@@ -151,9 +151,15 @@ const Container = styled.div`
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
-    margin-left: 260px;
+
     margin-bottom: 80px;
     max-width: 716px;
+  }
+  @media (min-width: 1372px) {
+    margin-left: 220px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 260px;
   }
 `
 const Img = styled.img`
