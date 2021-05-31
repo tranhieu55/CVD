@@ -229,9 +229,14 @@ const Texxt = styled.div`
     }
   }
   @media (max-width: 600px) {
-    .block-img {
+    <<<<<<< Updated upstream .block-img {
       margin-bottom: 24px;
     }
+    =======
+    // h2 {
+    //   margin-top: 24px;
+    // }
+>>>>>>> Stashed changes
     p {
       margin-bottom: 6px;
     }
