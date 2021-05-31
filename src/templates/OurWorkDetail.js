@@ -177,7 +177,7 @@ export const query = graphql`
           ... on PRISMIC_ProjectsBodyOne_image {
             primary {
               image
-              fullScreen
+              full_screen
             }
             label
             type
@@ -200,14 +200,21 @@ export const query = graphql`
   }
 `
 const OurWorkDetail = props => {
-  let dataOurWorkItem = props && props?.data?.prismic?.projects ? props?.data?.prismic?.projects : [] ;
-  let nameCategory = props
-    && props?.pathContext?.dataLayout?.node?.name_category_of_project ?
-    props?.pathContext?.dataLayout?.node?.name_category_of_project
-    : []
-  let slugCurrent = props && props.pathContext?.slug ? props.pathContext?.slug : [];
+  let dataOurWorkItem =
+    props && props?.data?.prismic?.projects
+      ? props?.data?.prismic?.projects
+      : []
+  let nameCategory =
+    props && props?.pathContext?.dataLayout?.node?.name_category_of_project
+      ? props?.pathContext?.dataLayout?.node?.name_category_of_project
+      : []
+  let slugCurrent =
+    props && props.pathContext?.slug ? props.pathContext?.slug : []
 
-  let allProjects = props && props.data?.prismic?.allProjectss?.edges ? props.data?.prismic?.allProjectss?.edges : [];
+  let allProjects =
+    props && props.data?.prismic?.allProjectss?.edges
+      ? props.data?.prismic?.allProjectss?.edges
+      : []
 
   let removeProjectInPageCurrent = allProjects.filter(
     item => item?.node?._meta?.uid !== slugCurrent
@@ -221,9 +228,11 @@ const OurWorkDetail = props => {
   const arrResult = arrRandom?.map(x => removeProjectInPageCurrent[x])
 
   const data = props?.data?.prismic?.projects
-  const dataMapNameProject = dataOurWorkItem ? dataOurWorkItem?.project_description?.map(
-    item => item.text ? item.text : ""
-  ) : []
+  const dataMapNameProject = dataOurWorkItem
+    ? dataOurWorkItem?.project_description?.map(item =>
+        item.text ? item.text : ""
+      )
+    : []
   return (
     <Layout
       location="/case-study"

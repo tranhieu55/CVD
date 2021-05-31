@@ -56,7 +56,7 @@ const Logoes = styled.div`
   }
   @media (max-width: 768px) {
     grid-column-gap: 17px;
-    grid-row-gap: 14.5px;
+    grid-row-gap: 16px;
   }
 `
 
