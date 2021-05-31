@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const HappyClient = ({ input }) => {
   const Titles = input
@@ -15,15 +18,13 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
-  console.log({ref});
 
   function Nextshowslider() {
     return (
       (ref.current.scrollLeft =
         ref.current.clientWidth > 600
           ? ref.current.scrollLeft + document.getElementsByClassName("sliders")
-          : ref.current.scrollLeft + 350),
-      console.log(ref.current.scrollLeft)
+          : ref.current.scrollLeft + 350)
     )
   }
   function Prevshowslider() {
@@ -36,13 +37,13 @@ const HappyClient = ({ input }) => {
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      <Slides className="md:overflow-scroll" ref={ref} >
+        <OwlCarousel margin={72} responsive={false} autoWidth={true} items={2} className="owl-theme" ref={ref} >
         {input ? input.fields?.map((item, index) => (
           <Slider
             key={index}
             onClick={() => updateSelected(index)}
             indicator={index === indicator}
-            className="sliders"
+            className="sliders item"
           >
             <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
             src={item.logo_client?.url ? item.logo_client?.url : ""}>
@@ -56,7 +57,8 @@ const HappyClient = ({ input }) => {
             </Sub>
           </Slider>
         )) : <></>}
-      </Slides>
+      </OwlCarousel>
+      
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>
       <Buttons onClick={() => Nextshowslider()}></Buttons>
@@ -79,6 +81,111 @@ const HappyClients = styled.div`
   }
   @media (min-width: 600px) {
     clip-path: polygon(0px 0%, 100% 2px, 100% 95%, 0% 100%);
+  }
+  .owl-carousel{
+    position: initial;
+  }
+  .owl-carousel .owl-stage-outer{
+    position : absolute;
+  }
+  .owl-theme .owl-nav.disabled + .owl-dots{
+    margin-top: 10px;
+    height: 20px;
+    bottom: 19.2%;
+    position: absolute;
+    left: 30%;
+    width: 624px;
+    @media(max-width: 767px){
+      width: 200px;
+      margin: auto;
+      bottom: 19.5%;
+    }
+    @media(max-width: 320px){
+      margin-auto;
+    }
+    @media(min-width: 768px){
+      left: 15%;
+      width: 350px;
+    }
+    @media(min-width: 992px){
+      left: 10%;
+      width: 624px;
+      bottom: 19.2%;
+    }
+    @media (min-width: 1366px){
+      left: 30%;
+      bottom: 19.2%;
+    }
+  }
+  .owl-theme .owl-dots .owl-dot {
+    width: 86px;
+    span{
+      width: 100%;
+      height: 4px;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #EEEEEE;
+      border-radius: 2px;
+    }
+    @media(max-width: 767px){
+      width: 16px;
+    }
+    @media(min-width: 768px){
+      width: 32px;
+    }
+    @media(min-width: 992px){
+      width: 46px;
+    }
+    @media (min-width: 1366px){
+      width: 86px;
+    }
+  }
+  .owl-theme .owl-dots .owl-dot.active{
+    width: 450px;
+    span{
+      background-color: #BBBBBB;
+    }
+    @media(max-width: 767px){
+      width: 150px
+    }
+    @media(min-width: 768px){
+      width: 250px;
+    }
+    @media(min-width: 992px){
+      width: 450px;
+    }
+    @media (min-width: 1366px){
+      width: 450px;
+    }
+  }
+  .owl-carousel.owl-loaded{
+    height: 406px;
+    margin-top: 145px;
+    padding-left: 180px;
+    @media (max-width: 600px) {
+      // margin-top: 64px;
+      margin-top: 32px;
+      padding-left: 48px;
+      height: 354px;
+    }
+    @media (min-width: 600px) {
+      padding-left: 48px;
+      height: 354px;
+      width: 100%;
+    }
+    @media (min-width: 1366px) {
+      height: 406px;
+      margin-top: 145px;
+      padding-left: 180px;
+    }
+    img{
+      height: 24px;
+      width: 162px;
+      @media (max-width: 600px) {
+        height: 24px;
+        width: 162px;
+      }
+    }
   }
 `
 
@@ -114,28 +221,21 @@ const Title = styled.h1`
   }
 `
 const Slider = styled.div`
-  height: 254px;
-  width: 548px;
-  margin-right: 72px;
-  margin-top: 47px;
-  overflow: none;
-  @media (max-width: 600px) {
-    margin-top: 0px;
-    margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
-  }
-  @media (max-width: 320px) {
-    width: 265px;
-  }
+  // height: 254px;
+  // width: 548px;
+  // margin-right: 72px;
+  // margin-top: 47px;
+  // overflow: none;
+  // @media (max-width: 600px) {
+  //   margin-top: 0px;
+  //   margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
+  // }
+  // @media (max-width: 320px) {
+  //   width: 265px;
+  // }
 `
 const Slides = styled.div`
-  height: 406px;
-  margin-top: 145px;
-  display: flex;
-  padding-left: 180px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  width: 100%;
+  
   &::-webkit-scrollbar {
     -webkit-appearance: none;
     height: 4px;
@@ -160,105 +260,7 @@ const Slides = styled.div`
     background: #b30000;
   }
 
-  @media (max-width: 600px) {
-    // margin-top: 64px;
-    margin-top: 32px;
-    padding-left: 48px;
-    height: 354px;
-    overflow-x: auto;
-    width: 100%;
-    position: relative;
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-      height: 4px;
-      width: 50%;
-    }
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
-  @media (min-width: 600px) {
-    padding-left: 48px;
-    height: 354px;
-    overflow-x: auto;
-    width: 100%;
-    position: relative;
-    &::-webkit-scrollbar {
-      height: 4px;
-      width: 50%;
-    }
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
-  @media (min-width: 768px) {
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: calc((100vw - 624px) / 2);
-      margin-left: calc((100vw - 624px) / 2);
-    }
-  }
-  @media (min-width: 1366px) {
-    height: 406px;
-    margin-top: 145px;
-    display: flex;
-    padding-left: 180px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    width: 100%;
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-      height: 4px;
-      width: 624px;
-    }
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: calc((100vw - 624px) / 2);
-      margin-left: calc((100vw - 624px) / 2);
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
+  
 `
 const Img = styled.img`
   height: 24px;
@@ -364,7 +366,10 @@ const Buttons = styled.div`
     }
   }
   @media (min-width: 600px) {
-    right: 46%;
+    right: 23%;
+  }
+  @media(min-width: 992px){
+    right: 14%
   }
   @media (min-width: 1366px) {
     position: absolute;
@@ -412,7 +417,10 @@ const Buttonss = styled.div`
     }
   }
   @media (min-width: 600px) {
-    right: 53%;
+    right: 30%;
+  }
+  @media(min-width: 992px){
+    right: 20%
   }
   @media (min-width: 1366px) {
     position: absolute;
