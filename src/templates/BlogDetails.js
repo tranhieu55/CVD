@@ -22,15 +22,11 @@ const BlogDetails = props => {
   // const dataIconMap = dataIcon?.map(item =>
   //   item?.fields?.map(item => item?.icon_image.url)
   // )
-  // console.log("akvkvkv", dataIconMap)
   const dataText = props
     ? props.data.prismic.post?.body?.filter(item =>
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
-
-  console.log({ blog: RichText.render(props.data?.prismic?.post?.content) })
-
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
