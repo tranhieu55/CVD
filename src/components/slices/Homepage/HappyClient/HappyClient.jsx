@@ -24,7 +24,11 @@ const HappyClient = ({ input }) => {
       (ref.current.scrollLeft =
         ref.current.clientWidth > 600
           ? ref.current.scrollLeft + document.getElementsByClassName("sliders")
+<<<<<<< Updated upstream
           : ref.current.scrollLeft + 350)
+=======
+          : ref.current.scrollLeft + 350),
+>>>>>>> Stashed changes
     )
   }
   function Prevshowslider() {
