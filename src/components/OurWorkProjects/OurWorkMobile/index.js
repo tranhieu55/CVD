@@ -7,7 +7,7 @@ import logoIconBack from "../../../images/Arrow_Left_V2@2x.png"
 import IMG from "../../Image"
 
 const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
-  const data = dataHeaderOurwork.edges[0]?.node?.body
+  const data = dataHeaderOurwork?.edges[0]?.node?.body
   const [value, setValue] = useState(false)
   const [close, setClose] = useState(false)
   const functionCheckValue = () => {
@@ -18,12 +18,13 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
     setClose(!close)
     checkClose(close)
   }
-  console.log(dataHeaderOurwork)
+  console.log({ dataHeaderOurwork })
+  console.log({ data })
   return (
     <Container>
       <Head>
         <TitleHead>
-          {dataHeaderOurwork.edges[0].node.title_ourwork[0].text}
+          {dataHeaderOurwork?.edges[0]?.node.title_ourwork[0]?.text}
         </TitleHead>
         <ArrowLeft>
           <img

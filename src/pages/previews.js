@@ -1,8 +1,7 @@
 import React from "react"
 import SliceZone from "../utils/SliceZone"
 import { graphql, useStaticQuery } from "gatsby"
-import OurWorkMobile from "../components/OurWorkProjects/OurWorkMobile"
-import OurWorkDesktop from "../components/OurWorkProjects/OurWorkDesktop"
+
 import { createGlobalStyle } from "styled-components"
 import CalibreRegular from "../assets/fonts/CalibreRegular.woff"
 import CalibreRegularItalic from "../assets/fonts/CalibreRegularItalic.woff"
@@ -165,8 +164,6 @@ function Preview({ data: { prismic } }) {
     <>
       <GlobalStyle />
       <SliceZone allSlices={data.body} />
-      <OurWorkMobile />
-      <OurWorkDesktop />
     </>
   )
 }
