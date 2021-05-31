@@ -4,29 +4,12 @@ import { Link } from "gatsby"
 import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork }) => {
-<<<<<<< Updated upstream
-  // console.log("du lieu truyen sang", dataHeaderOurwork)
-=======
->>>>>>> Stashed changes
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
       <Body>
         <ListOurWork>
           <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
-<<<<<<< Updated upstream
-          <OurWorks>
-            {data[0]?.fields[0]?.content?.map((item, key) => {
-              return (
-                <OurWork key={key}>
-                  <Link href="#">{item?.text}</Link>
-                  <hr />
-                  {/* {"demo"} */}
-                </OurWork>
-              )
-            })}
-          </OurWorks>
-=======
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
               <OurWork key={key}>
@@ -35,7 +18,6 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
               </OurWork>
             )
           })}
->>>>>>> Stashed changes
         </ListOurWork>
         <Grid>
           <ListCaseStudy>

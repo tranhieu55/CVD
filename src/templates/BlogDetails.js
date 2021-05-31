@@ -27,10 +27,6 @@ const BlogDetails = props => {
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
