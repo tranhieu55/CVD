@@ -14,7 +14,6 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
             return (
               <OurWork key={key}>
                 <Link href="#">{item?.text}</Link>
-                <hr />
               </OurWork>
             )
           })}
