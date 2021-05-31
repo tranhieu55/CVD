@@ -217,7 +217,7 @@ const Texxt = styled.div`
     @media (max-width: 600px) {
       img {
         height: 204px;
-        margin-top: 6px;
+        margin-top: 13px;
         object-fit: cover;
         margin-bottom: 24px;
       }
