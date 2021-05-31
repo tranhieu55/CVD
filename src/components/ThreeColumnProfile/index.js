@@ -75,6 +75,12 @@ const BlockProfile = styled.div`
     max-width: 374px;
     padding: 0 12px;
   }
+
+  @media (min-width: 345px) and (max-width: 375px) {
+    width: 100%;
+    max-width: 343px;
+    padding: 0;
+  }
 `
 
 const IMG = styled.div`

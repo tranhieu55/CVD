@@ -27,12 +27,12 @@ const Wrapper = styled.div`
     padding: 0 32px;
     margin-top: 30px;
   }
-  @media (min-width: 768px) {
-    margin: 0 20px;
+  @media (min-width: 769px) {
+    margin: 0 40px;
     margin-top: 30px;
     padding: 0 15px;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 1201px) {
     margin: 0 100px;
     padding: 0px 15px;
     margin-top: 31px;

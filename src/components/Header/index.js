@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef, useMemo } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import logoLight from "../../images/convertdigital-logo-light.png"
 import logoBlack from "../../images/CD Logo_icon-black.png"
 import logoBuger from "../../images/burger-menu@2x-1.png"
 import logoBugerBlack from "../../images/burger-menu@2x.png"
 import logoIconClose from "../../images/iconclose.png"
-import logoIconClosBlack from "../../images/cancelBack.png"
+import logoIconClosBlack from "../../images/close-3_b7489140-dbd1-403b-a115-babae5e8c8fc@2x.png"
 import logoIconPhone from "../../images/phone-black@2x.png"
-import logoIconBack from "../../images/long-arrow-left@2x.png"
+import logoIconBack from "../../images/Arrow_Left_V2@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
 import backgroundMobile from "../../images/Background.png"
 import IMG from "../Image"
@@ -17,7 +17,8 @@ import ButtonCustom from "../ButtonCustom"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import useOnClickOutside from "../../hooks/clickoutside"
-import Modal from "../ModalContact/index.js"
+import OurWorkMobile from "../OurWorkProjects/OurWorkMobile"
+import OurWorkDesktop from "../OurWorkProjects/OurWorkDesktop"
 
 const WrapperHeader = styled.div`
   position: absolute;
@@ -52,6 +53,9 @@ const WrapperHeader = styled.div`
     background-color: white !important;
   }
   .menu-area_services {
+    padding-left: 0;
+  }
+  .menu-area_ourwork {
     padding-left: 0;
   }
   hr {
@@ -168,7 +172,7 @@ const WrapperHeader = styled.div`
     width: 457px;
     li.menu-list_item {
       padding: 10px 16px;
-      a {
+      .edit-item-a {
         font-family: "Calibre Semibold";
         display: block;
         font-weight: 600;
@@ -186,24 +190,43 @@ const WrapperHeader = styled.div`
           color: #0e0e0e;
         }
       }
-      ul.menu-area_services {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        background-color: white;
-        max-height: 0;
-        transition: all 0.5s ease-in-out;
-        overflow: hidden;
-        height: 405px;
-        @media (max-width: 992px) {
-           top: 0;
-        }
-        @media (min-width: 992px) {
+      ul.menu-area_ourwork {
+          position: fixed;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          max-height: 0;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
+          height: 420px;
+          @media (max-width: 992px) {
+            top: 0;
+          }
+          @media (min-width: 992px) {
            top: ${({ dataGlobalMessage, location, show }) =>
              dataGlobalMessage === true || location !== "/" || show > 0
                ? "72px"
-               : "119px"};
-    }
+               : "120px"};
+        }
+      }
+      ul.menu-area_services {
+          position: fixed;
+          width: 100%;
+          left: 0;
+          background-color: white;
+          max-height: 0;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
+          height: 378px;
+          @media (max-width: 992px) {
+            top: 0;
+          }
+          @media (min-width: 992px) {
+           top: ${({ dataGlobalMessage, location, show }) =>
+             dataGlobalMessage === true || location !== "/" || show > 0
+               ? "72px"
+               : "120px"};
+          }
         }
         & > ul {
           list-style: none;
@@ -213,12 +236,18 @@ const WrapperHeader = styled.div`
           display: flex;
           flex-direction: column;
           flex-basis: 25%;
+          @media (min-width: 992px) {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+          @media (min-width: 1440px) {
+            padding-left: 42px;
+            padding-right: 0px;
+          }
           li.list-services_Item {
-            margin-bottom: 16px;
             padding-left: 10px;
             display: block;
             display: flex;
-            align-items: center;
             .image-services-item {
               width: 24px;
               height: 24px;
@@ -234,18 +263,37 @@ const WrapperHeader = styled.div`
           }
         }
 
+        
         ul.list-platforms {
           flex-basis: 75%;
+          @media (min-width: 992px) {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+          @media (min-width: 1440px) {
+            padding-left: 48px;
+            padding-right: 48px;
+          }
+          .list-platforms_Card:nth-child(2) {
+            @media(min-width: 992px) {
+              margin-right: 0px;
+              max-width:421px;
+            }
+          }
+          .list-platforms_Card:nth-child(4) {
+            @media(min-width: 992px) {
+              margin-right: 0px;
+            }
+          }
           div.list-platforms_Card {
             display: flex;
+            @media(min-width: 992px) {
+              margin-right: 110px;
+            }
             &:last-child {
               margin-bottom: unset;
             }
           }
-        }
-
-        ul.launches {
-          flex-basis: 42%;
         }
       }
     }
@@ -273,7 +321,14 @@ const WrapperHeader = styled.div`
     .menu-area_services {
       max-height: 100% !important;
       top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "119px"};
+        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+    }
+  }
+  .dropdown_ourwork {
+    .menu-area_ourwork {
+      max-height: 100% !important;
+      top: ${({ dataGlobalMessage, location }) =>
+        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
     }
   }
 .hover-ed:hover{
@@ -299,10 +354,7 @@ const WrapperHeader = styled.div`
     width: 20px;
     height: 20px;
   }
-  .imagefull {
-    height: 500px !important;
-    width: 88%;
-  }
+  
   .list-title-services {
     font-family: "Calibre Regular" !important;
     font-size: 18px !important;
@@ -311,7 +363,7 @@ const WrapperHeader = styled.div`
     font-weight: 400 !important;
   }
   .list-services_Item {
-    margin-top: 15px;
+    margin-top: 19px;
     .list-title-services:hover {
       color: #fecf09 !important;
     }
@@ -384,11 +436,11 @@ const WrapperHeader = styled.div`
       font-size: 32px !important;
       line-height: 56px !important;
     }
-    .navbar-collapse {
+    /* .navbar-collapse {
       div {
         margin-bottom: 20px;
       }
-    }
+    } */
     .menu-nav {
       height: 11px;
       width: 32px;
@@ -420,6 +472,14 @@ const WrapperHeader = styled.div`
       top: 0% !important;
       overflow-y: scroll !important;
     }
+    .dropdown_ourwork .menu-area_ourwork {
+      max-width: 100% !important;
+      z-index: 1;
+      height: auto !important;
+      top: 0% !important;
+      overflow-y: scroll !important;
+    }
+
     .list-services {
       position: relative;
     }
@@ -460,7 +520,7 @@ const WrapperHeader = styled.div`
       }
     }
     li.list-services_Item {
-      margin-left: 22px;
+      margin-left: 0px;
       img {
         margin-right: 15px !important;
       }
@@ -469,30 +529,25 @@ const WrapperHeader = styled.div`
       }
     }
     .list-services_Item {
-      margin-top: 25px !important;
-      margin-bottom: 17px !important;
+      margin-top: 22px !important;
+      margin-bottom: 3px !important;
     }
     .mt0 {
       margin-top: 0px !important;
     }
-    .displayMobile {
-      display: none;
-    }
+    
     .list-platforms_Card {
-      padding-left: 20px !important;
       padding-right: 0px !important;
       padding-bottom: 0px !important;
       padding-top: 5px !important;
       margin-bottom: 10px;
       border-radius: 6px;
       img {
-        margin-right: 23px;
+        margin-right: 20px;
         margin-top: -8px;
+        width: 30px;
+        height: 35px;
       }
-    }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
     }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -508,7 +563,8 @@ const WrapperHeader = styled.div`
     position: absolute;
     top: 0px;
   }
-  @media (max-width: 991px) and (max-height: 450px) {
+
+  @media (max-width: 991px)  {
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -522,36 +578,29 @@ const WrapperHeader = styled.div`
       position: absolute;
       content: "";
       left: 0;
-      top: 58px;
+      top: 50px;
       width: 100%;
       height: 0.5px;
       background-color: #eeeeee;
     }
-    .dropdown_services .menu-area_services {
-      max-width: 100% !important;
-      z-index: 1;
-      height: auto !important;
-      top: 0% !important;
-      overflow-y: scroll !important;
-    }
-    .displayMobile {
-      display: none;
-    }
+    
     .menu-mobile {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 45px !important;
-      margin-left: 20px;
       margin-right: 4px;
+      button {
+        margin-right: 10px;
+      }
       p {
         color: #101010;
-        font-size: 32px;
+        font-size: 28px;
         font-family: "Calibre Bold";
         margin-bottom: 0px;
         text-transform: none;
-        height: 32px;
-        letter-spacing: 0px;
+        height: 28px;
+        letter-spacing: -0.5px;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -565,13 +614,8 @@ const WrapperHeader = styled.div`
       }
     }
     .list-platforms_Card {
-      margin-bottom: 20px;
+      margin-bottom: 32px;
       border-radius: 6px;
-      padding: 10px 15px;
-    }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
     }
     .list-services_Item {
       padding-left: 25px !important;
@@ -580,6 +624,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
+  
   @media (min-width: 767.1px) and (max-width: 768.5px) {
     .icon-mobile-right {
       display: inline-block;
@@ -599,15 +644,8 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-    .displayMobile {
-      display: none;
-    }
-    .menu-area_services {
-      top: 0 !important;
-      height: 100vh !important;
-      z-index: 123;
-      overflow: scroll !important;
-    }
+    
+
     .menu-mobile {
       display: flex;
       justify-content: space-between;
@@ -637,11 +675,6 @@ const WrapperHeader = styled.div`
     .list-platforms_Card {
       margin-bottom: 20px;
       border-radius: 6px;
-      padding: 10px 15px;
-    }
-    .imagefull {
-      width: 100% !important;
-      height: 100% !important;
     }
     .list-services_Item {
       padding-left: 38px !important;
@@ -651,6 +684,18 @@ const WrapperHeader = styled.div`
     }
   }
   @media (max-width: 991px) {
+    .menu-area_services {
+      top: 0 !important;
+      height: 100vh !important;
+      z-index: 123;
+      overflow-y: scroll !important;
+    }
+    .menu-area_ourwork {
+      top: 0 !important;
+      height: 100vh !important;
+      z-index: 123;
+      overflow-y: scroll !important;
+    }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -679,7 +724,7 @@ const WrapperHeader = styled.div`
     .menu-list li.menu-list_item a.menu-list_item_text-black {
       text-align: left;
     }
-    .menu-list li.menu-list_item a {
+    .menu-list li.menu-list_item .edit-item-a {
       text-align: left;
     }
     .wraper-header {
@@ -766,15 +811,6 @@ const WrapperHeader = styled.div`
         font-weight: 500;
       }
     }
-    // .mask ::before {
-    //   position: absolute;
-    //   content: "";
-    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-    //   height: 299px;
-    //   width: 100%;
-    //   left: 0;
-    //   opacity: 30%;
-    // }
     .wraper-header {
       width: 100vw;
     }
@@ -895,12 +931,14 @@ const CardDescription = styled.div`
   }
   @media (max-width: 600px) {
     .mobile {
-      // margin-top: 12px;
       margin-bottom: -7px;
       letter-spacing: -0.5px;
     }
     .mobile1 {
-      margin-top: 3px;
+      margin-top: 5px;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 11px;
     }
   }
   @media (min-width: 600px) {
@@ -912,14 +950,21 @@ const CardDescription = styled.div`
 const MenuItemServices = styled.div`
   margin-left: 120px;
   margin-right: 120px;
-  margin-top: 35px;
+  margin-top: 32px;
   display: flex;
   .service {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    margin-left: 25px;
+    margin-top: 25px;
+    flex-wrap: wrap;
   }
   ul {
     flex-basis: none;
+  }
+  @media (max-width: 800px) {
+    .service {
+      margin: 0;
+    }
   }
   @media (max-width: 600px) {
     display: block;
@@ -932,20 +977,13 @@ const MenuItemServices = styled.div`
       padding-left: 0;
       margin-bottom: 18px;
     }
-    .service {
-      grid-template-columns: 1fr;
-    }
 
     .list-platforms {
       padding-left: 12px !important;
       padding-right: 12px !important;
     }
-    .launches {
-      padding-left: 12px !important;
-      padding-right: 12px !important;
-    }
   }
-  @media (max-width: 991px) and (max-height: 450px) {
+  @media (max-width: 991px) {
     display: block;
     max-width: 100%;
     flex-wrap: wrap;
@@ -954,13 +992,9 @@ const MenuItemServices = styled.div`
     margin-top: 20px;
     ul {
       padding-left: 0;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .list-platforms {
-      padding-left: 20px !important;
-      padding-right: 20px !important;
-    }
-    .launches {
       padding-left: 20px !important;
       padding-right: 20px !important;
     }
@@ -1009,18 +1043,23 @@ const MenuItemServices = styled.div`
         margin-right: 15px !important;
       }
       div {
-        p {
-          font-size: 14px;
+        .mobile {
+          font-size: 22px;
+          line-height: 26px;
+        }
+        .mobile1 {
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 11px;
         }
       }
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 1366px) {
     margin-left: 120px;
     margin-right: 120px;
     .list-platforms_Card {
       max-width: 421px;
-      // margin-right: 110px;
       img {
         margin-right: 24px !important;
       }
@@ -1050,9 +1089,21 @@ const MenuItemServices = styled.div`
         p {
           font-size: 16px;
           line-height: 20px;
+          margin-bottom: 7px;
         }
       }
     }
+  }
+`
+const TitleA = styled.a`
+  color: ${({ textColor }) => textColor};
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active {
+    color: ${({ textColor }) => textColor};
   }
 `
 
@@ -1089,12 +1140,42 @@ const Icon = styled.div`
     display: none;
   }
 `
+const TextBtn = styled.span`
+  color: ${({ textColor }) => textColor};
+  text-decoration: none;
 
+  &:hover,
+  &:active,
+  &:focus,
+  &:active {
+    color: ${({ textColor }) => textColor};
+  }
+  @media (max-width: 992px) {
+    color: #fff;
+  }
+`
+const HrMobile = styled.div`
+  @media (max-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`
+const HrDesktop = styled.div`
+  @media (min-width: 992px) {
+    display: block;
+  }
+  @media (max-width: 992px) {
+    display: none;
+  }
+`
 const Header = ({
   location,
   dataMenuHeader,
   dataServicesMenu,
   dataGlobalMessage,
+  dataHeaderOurwork,
 }) => {
   const dataServices =
     dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
@@ -1120,15 +1201,13 @@ const Header = ({
     : []
   const [scroll, setScroll] = useState(false)
   const [isDisPlayModalService, setIsDisPlayModalService] = useState(false)
+  const [isDisPlayModalOurwork, setIsDisPlayModalOurwork] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const openModal = () => {
-    setShowModal(prev => !prev)
-  }
+
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
-
+  useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
   let lastScrollTop = 0
@@ -1155,24 +1234,20 @@ const Header = ({
 
   const handleScroll = () => {
     const _show = window.scrollY
-    if (_show > -1) {
+    if (_show > 0) {
       setIsDisPlayModalService(false)
+      setIsDisPlayModalOurwork(false)
     }
     setShow(_show)
   }
 
   useEffect(() => {
     !!window && window.addEventListener("scroll", handleScroll)
-    // window.addEventListener("click", () => handleOutsideClick());
     return () => {
       !!window && window.removeEventListener("scroll", handleScroll)
-      // window.removeEventListener("click", () => handleOutsideClick());
     }
   }, [])
-
-  // const handelClickServices = () => {
-  //   setIsDisPlayModalService(!isDisPlayModalService)
-  // }
+  console.log("taii sao the ", isDisPlayModalOurwork)
 
   const checkColorText = () => {
     if (
@@ -1188,13 +1263,16 @@ const Header = ({
     ) {
       return "menu-list_item_text-black"
     }
-    if (show === 0 && !!isDisPlayModalService) {
+    if ((show === 0 && !!isDisPlayModalService) || !!isDisPlayModalOurwork) {
       return "menu-list_item_text-black"
     } else {
       if (show < 101) {
         return "menu-list_item_text-white"
       }
       if (!isDisPlayModalService && !scroll) {
+        return "menu-list_item_text-white"
+      }
+      if (!isDisPlayModalOurwork && !scroll) {
         return "menu-list_item_text-white"
       }
       return "menu-list_item_text-black"
@@ -1212,7 +1290,8 @@ const Header = ({
       location === "/blog-details" ||
       location === "/testimonial" ||
       show > 101 ||
-      !!isDisPlayModalService
+      !!isDisPlayModalService ||
+      !!isDisPlayModalOurwork
     ) {
       return "#101010"
     }
@@ -1255,7 +1334,26 @@ const Header = ({
     document.body.style.overflow = "scroll"
     setIsDisPlayModalService(false)
   }
-  console.log("run data", dataServices)
+  const handelHover = () => {
+    setIsDisPlayModalService(false)
+    setIsDisPlayModalOurwork(false)
+  }
+  const handelHoverService = () => {
+    setIsDisPlayModalService(true)
+    setIsDisPlayModalOurwork(false)
+  }
+  const handelHoverOurwork = () => {
+    setIsDisPlayModalService(false)
+    setIsDisPlayModalOurwork(true)
+  }
+  const checkValueOurwork = data => {
+    setIsDisPlayModalOurwork(data)
+  }
+  const checkValueClose = data => {
+    setIsDisPlayModalOurwork(data)
+    document.body.style.overflow = "scroll"
+  }
+  // console.log("rundata", dataHeaderOurwork)
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
@@ -1264,11 +1362,13 @@ const Header = ({
       scroll={scroll}
       show={show}
       isDisPlayModalService={isDisPlayModalService}
+      isDisPlayModalOurwork={isDisPlayModalOurwork}
     >
       <Navbar
         expand="lg"
         className={`wraper-header fixedTop
         ${isDisPlayModalService === true ? "backgroundServiecs" : ""}
+        ${isDisPlayModalOurwork === true ? "backgroundServiecs" : ""}
         `}
       >
         <LogoHeader show={show}>
@@ -1278,6 +1378,7 @@ const Header = ({
             ) : (
               <IMG
                 src={
+                  isDisPlayModalOurwork == true ||
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/404" ||
@@ -1338,180 +1439,238 @@ const Header = ({
           </Navbar.Toggle>
           <Nav className="mr-auto menu-list">
             {dataMenu &&
-              dataMenu[0]?.fields.map((item, index) => (
-                <Li
-                  className={`menu-list_item ${
-                    location === "/" ||
-                    location === "/contact" ||
-                    location === "/case-study" ||
-                    location === "/proposal" ||
-                    location === "/partners" ||
-                    location === "/pageblog" ||
-                    location === "/blog-details" ||
-                    location === "/testimonial"
-                      ? "menu-list_item_white"
-                      : "menu-list_item_gold"
-                  } ${
-                    isDisPlayModalService === true ? "dropdown_services" : ""
-                  }`}
-                  key={index}
-                >
-                  {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <span
-                      onClick={() => {
-                        setIsDisPlayModalService(!isDisPlayModalService)
-                      }}
-                      onMouseEnter={() =>
-                        setIsDisPlayModalService(!isDisPlayModalService)
-                      }
-                      className={`${checkColorText()} colorWhite ${
-                        isDisPlayModalService === true ? "test" : ""
-                      }  hover-ed`}
-                    >
-                      {item.title_menu_item[0]?.text}{" "}
-                      <img
-                        className="icon-mobile-right"
-                        src={logoIconRight}
-                        alt=""
-                      />{" "}
-                    </span>
-                  ) : (
-                    <Link
-                      to={`/${item.slug_menu_item[0]?.text}`}
-                      activeClassName="active"
-                      className={`${checkColorText()} colorWhite`}
-                      onClick={() => (document.body.style.overflow = "scroll")}
-                    >
-                      {item.title_menu_item[0]?.text}
-                    </Link>
-                  )}
+              dataMenu[0]?.fields.map((item, index) => {
+                return (
+                  <Li
+                    className={`menu-list_item ${
+                      location === "/" ||
+                      location === "/contact" ||
+                      location === "/case-study" ||
+                      location === "/proposal" ||
+                      location === "/partners" ||
+                      location === "/pageblog" ||
+                      location === "/blog-details" ||
+                      location === "/testimonial"
+                        ? "menu-list_item_white"
+                        : "menu-list_item_gold"
+                    } ${
+                      isDisPlayModalService === true ? "dropdown_services" : ""
+                    } ${
+                      isDisPlayModalOurwork === true ? "dropdown_ourwork" : ""
+                    }`}
+                    key={index}
+                  >
+                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                      <span
+                        onClick={() => {
+                          setIsDisPlayModalService(!isDisPlayModalService)
+                        }}
+                        onMouseEnter={() => handelHoverService()}
+                        className={`${checkColorText()} colorWhite ${
+                          isDisPlayModalService === true ? "test" : ""
+                        }  hover-ed`}
+                      >
+                        {item.title_menu_item[0]?.text}{" "}
+                        <img
+                          className="icon-mobile-right"
+                          src={logoIconRight}
+                          alt=""
+                        />{" "}
+                      </span>
+                    ) : item && item.slug_menu_item[0]?.text === "projects" ? (
+                      <>
+                        <span
+                          onClick={() => {
+                            setIsDisPlayModalOurwork(!isDisPlayModalOurwork)
+                          }}
+                          className={`${checkColorText()} colorWhite `}
+                          onMouseEnter={() => handelHoverOurwork()}
+                        >
+                          {item.title_menu_item[0]?.text}{" "}
+                          <img
+                            className="icon-mobile-right"
+                            src={logoIconRight}
+                            alt=""
+                          />{" "}
+                        </span>
+                      </>
+                    ) : (
+                      <Link
+                        to={`/${item.slug_menu_item[0]?.text}`}
+                        activeClassName="active"
+                        className={`${checkColorText()} colorWhite edit-item-a`}
+                        onClick={() =>
+                          (document.body.style.overflow = "scroll")
+                        }
+                        onMouseEnter={() => handelHover()}
+                      >
+                        {item.title_menu_item[0]?.text === "projects"
+                          ? ""
+                          : item.title_menu_item[0]?.text}
+                      </Link>
+                    )}
+                    {item && item.slug_menu_item[0]?.text === "projects" && (
+                      <ul
+                        ref={isDisPlayModalOurwork === true ? ref : null}
+                        className="menu-area_ourwork"
+                      >
+                        <hr />
+                        <OurWorkMobile
+                          dataHeaderOurwork={dataHeaderOurwork}
+                          checkValue={() => checkValueOurwork()}
+                          checkClose={() => checkValueClose()}
+                        />
+                        <OurWorkDesktop dataHeaderOurwork={dataHeaderOurwork} />
+                      </ul>
+                    )}
 
-                  {item && item.slug_menu_item[0]?.text === "services" ? (
-                    <ul ref={ref} className="menu-area_services">
-                      <hr />
-                      <MenuItemServices>
-                        {" "}
-                        {/* SERVICES */}
-                        {dataServices[0] ? (
-                          <Ul className="list-services">
-                            <div className="menu-mobile">
-                              <img
-                                className="menu-mobile-iconBack"
-                                onClick={() => setIsDisPlayModalService(false)}
-                                src={logoIconBack}
-                                alt="back"
-                              />
+                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                      <ul
+                        ref={isDisPlayModalService === true ? ref : null}
+                        className="menu-area_services"
+                      >
+                        <hr />
+                        <MenuItemServices>
+                          {" "}
+                          {/* SERVICES */}
+                          {dataServices[0] ? (
+                            <Ul className="list-services">
+                              <div className="menu-mobile">
+                                <img
+                                  className="menu-mobile-iconBack"
+                                  onClick={() =>
+                                    setIsDisPlayModalService(false)
+                                  }
+                                  src={logoIconBack}
+                                  alt="back"
+                                />
+                                <P
+                                  uppercase={true}
+                                  fontSise="14"
+                                  coLor={theme.colors.black4}
+                                  fontWeight="600"
+                                  mrb="19"
+                                  fontFamily="Calibre Semibold"
+                                  lett="1"
+                                >
+                                  {dataServices[0]?.primary?.title[0]?.text}
+                                </P>
+                                <Navbar.Toggle>
+                                  <img
+                                    className="menu-mobile-iconClose"
+                                    onClick={() => handelClickCheckOverflow()}
+                                    src={logoIconClosBlack}
+                                    alt="close"
+                                  />
+                                </Navbar.Toggle>
+                              </div>
+                              {dataServices[0]?.fields?.map((item, index) => {
+                                return (
+                                  <React.Fragment key={index}>
+                                    <Li
+                                      className={`${
+                                        index === 0
+                                          ? "mt0 list-services_Item"
+                                          : "list-services_Item"
+                                      }`}
+                                    >
+                                      <img
+                                        className="image-services-item"
+                                        src={item.image_service_item.url}
+                                        alt={item.image_service_item.alt}
+                                      />
+                                      <Link
+                                        className="list-title-services"
+                                        to=""
+                                      >
+                                        {item.title_service_item[0]?.text}
+                                      </Link>
+                                    </Li>
+                                    <HrMobile>
+                                      <hr />
+                                    </HrMobile>
+                                    <HrDesktop>
+                                      {dataServices[0]?.fields?.length - 1 ===
+                                        index || index === 0 ? (
+                                        ""
+                                      ) : (
+                                        <hr />
+                                      )}
+                                    </HrDesktop>
+                                  </React.Fragment>
+                                )
+                              })}
+                            </Ul>
+                          ) : (
+                            <></>
+                          )}
+                          {/* PLATFORMS */}
+                          {dataServices[1] ? (
+                            <Ul className="list-platforms">
                               <P
                                 uppercase={true}
                                 fontSise="14"
                                 coLor={theme.colors.black4}
                                 fontWeight="600"
-                                mrb="19"
                                 fontFamily="Calibre Semibold"
+                                mrb="10"
                                 lett="1"
+                                className="displayMobile"
                               >
-                                {dataServices[0]?.primary?.title[0]?.text}
+                                {dataServices[1]?.primary.title[0]?.text}
                               </P>
-                              <Navbar.Toggle>
-                                <img
-                                  className="menu-mobile-iconClose"
-                                  onClick={() => handelClickCheckOverflow()}
-                                  src={logoIconClosBlack}
-                                  alt="close"
-                                />
-                              </Navbar.Toggle>
-                            </div>
-                            {dataServices[0]?.fields?.map((item, index) => (
-                              <React.Fragment key={index}>
-                                <Li
-                                  className={`${
-                                    index === 0
-                                      ? "mt0 list-services_Item"
-                                      : "list-services_Item"
-                                  }`}
-                                >
-                                  <img
-                                    className="image-services-item"
-                                    src={item.image_service_item.url}
-                                    alt={item.image_service_item.alt}
-                                  />
-                                  <Link className="list-title-services" to="">
-                                    {item.title_service_item[0]?.text}
-                                  </Link>
-                                </Li>
-                                <hr />
-                              </React.Fragment>
-                            ))}
-                          </Ul>
-                        ) : (
-                          <></>
-                        )}
-                        {/* PLATFORMS */}
-                        {dataServices[1] ? (
-                          <Ul className="list-platforms">
-                            <P
-                              uppercase={true}
-                              fontSise="14"
-                              coLor={theme.colors.black4}
-                              fontWeight="600"
-                              fontFamily="Calibre Semibold"
-                              mrb="10"
-                              lett="1"
-                              className="displayMobile"
-                            >
-                              {dataServices[1]?.primary.title[0]?.text}
-                            </P>
-                            <div className="service">
-                              {dataServices[1]?.fields?.map((item, index) => (
-                                <div
-                                  key={index}
-                                  className="list-platforms_Card"
-                                >
-                                  <IMG
-                                    alt={item.image_platform_item.alt}
-                                    src={item.image_platform_item.url}
-                                    w="44"
-                                    h="52"
-                                    objectFit="contain"
-                                    mr="25"
-                                  ></IMG>
-                                  <CardDescription>
-                                    <P
-                                      fontSise="22"
-                                      coLor="#101010"
-                                      fontWeight="600"
-                                      fontFamily="Calibre Semibold"
-                                      className="mobile"
-                                    >
-                                      {item.name_service[0]?.text}
-                                    </P>
-                                    <P
-                                      fontSise="18"
-                                      fontFamily="Calibre Regular"
-                                      coLor="#222222"
-                                      fontWeight={theme.fonts.regular}
-                                      className="mobile1"
-                                    >
-                                      {item.short_description[0]?.text}
-                                    </P>
-                                    <span className="learn-more" href="#">
-                                      Learn more{" "}
-                                    </span>
-                                  </CardDescription>
-                                </div>
-                              ))}
-                            </div>
-                          </Ul>
-                        ) : (
-                          <></>
-                        )}
-                      </MenuItemServices>
-                    </ul>
-                  ) : (
-                    <></>
-                  )}
-                </Li>
-              ))}
+                              <div className="service">
+                                {dataServices[1]?.fields?.map((item, index) => (
+                                  <div
+                                    key={index}
+                                    className="list-platforms_Card"
+                                  >
+                                    <IMG
+                                      alt={item.image_platform_item.alt}
+                                      src={item.image_platform_item.url}
+                                      w="44"
+                                      h="52"
+                                      objectFit="contain"
+                                      mr="25"
+                                    ></IMG>
+                                    <CardDescription>
+                                      <P
+                                        fontSise="22"
+                                        coLor="#101010"
+                                        fontWeight="600"
+                                        fontFamily="Calibre Semibold"
+                                        className="mobile"
+                                      >
+                                        {item.name_service[0]?.text}
+                                      </P>
+                                      <P
+                                        fontSise="18"
+                                        fontFamily="Calibre Regular"
+                                        coLor="#222222"
+                                        fontWeight={theme.fonts.regular}
+                                        className="mobile1"
+                                      >
+                                        {item.short_description[0]?.text}
+                                      </P>
+                                      <span className="learn-more" href="#">
+                                        Learn more{" "}
+                                      </span>
+                                    </CardDescription>
+                                  </div>
+                                ))}
+                              </div>
+                            </Ul>
+                          ) : (
+                            <></>
+                          )}
+                        </MenuItemServices>
+                      </ul>
+                    ) : (
+                      <></>
+                    )}
+                  </Li>
+                )
+              })}
           </Nav>
           <div className="my-form">
             <>
@@ -1563,8 +1722,12 @@ const Header = ({
                           </a>
                         </GetInTouch>
                       ) : (
-                        <GetInTouch onClick={openModal}>
-                          {item?.primary?.text_button[0]?.text}
+                        <GetInTouch>
+                          <Link to="/contact">
+                            <TextBtn textColor={checkColorTextButton}>
+                              {item?.primary?.text_button[0]?.text}
+                            </TextBtn>
+                          </Link>
                         </GetInTouch>
                       )}
                     </ButtonCustom>
@@ -1577,11 +1740,6 @@ const Header = ({
           </div>
         </Navbar.Collapse>
       </Navbar>
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        openModal={openModal}
-      />
     </WrapperHeader>
   )
 }

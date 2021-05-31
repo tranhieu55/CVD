@@ -56,7 +56,7 @@ const Logoes = styled.div`
   }
   @media (max-width: 768px) {
     grid-column-gap: 17px;
-    grid-row-gap: 14.5px;
+    grid-row-gap: 16px;
   }
 `
 
@@ -78,8 +78,8 @@ const IMG = styled.div`
 
   img {
     width: 100%;
-    height: 113%;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
   }
 
   @media (max-width: 600px) {

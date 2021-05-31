@@ -144,12 +144,12 @@ const Container = styled.div`
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
-    max-width: 586px;
-    margin: 20px auto 40px;
+    max-width: 535px;
+    margin: 40px auto 40px;
   }
   @media (min-width: 768px) {
-    max-width: 716px;
-    margin: 20px auto 40px;
+    max-width: 734px;
+    margin: 40px auto 40px;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
@@ -190,7 +190,7 @@ const Texxt = styled.div`
   font-family: Calibre Regular;
 
   p {
-    margin-bottom: 0px;
+    margin-bottom: 17px;
     color: #222222;
     font-family: Calibre Regular;
     font-size: 20px;
@@ -207,35 +207,71 @@ const Texxt = styled.div`
   }
 
   .block-img {
+    margin-bottom: 41px;
     img {
       width: 100%;
       height: 428px;
-      margin-top: 17px;
+      // margin-top: 17px;
       object-fit: cover;
-      margin-bottom: 23px;
     }
     @media (max-width: 600px) {
+      margin-bottom: 24px;
+      p {
+        margin-bottom: 6px;
+      }
       img {
         height: 204px;
-        margin-top: 6px;
+        // margin-top: 6px;
         object-fit: cover;
-        margin-bottom: 24px;
       }
     }
   }
   @media (max-width: 600px) {
-    // h2 {
-    //   margin-top: 24px;
-    // }
+    .block-img {
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 6px;
+    }
     img {
       height: 204px;
-      margin-top: 6px;
+      // margin-top: 6px;
       object-fit: cover;
+    }
+  }
+
+  ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+
+    li {
+      strong {
+        color: #101010;
+        font-family: Calibre Medium;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 28px;
+      padding-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ol {
+      li {
+      }
     }
   }
 `
 const Fotters = styled.div`
-  margin-top: 23px;
+  // margin-top: 23px;
   width: 100%;
   height: 52px;
   border-top: 1px solid #e4e4e4;
@@ -276,10 +312,10 @@ const Icon = styled.img`
   height: ${({ value }) => (value === 2 ? "14px" : "")};
 `
 const DivText = styled.div`
-  margin-top: 31px;
+  margin-top: 27px;
   display: flex;
   @media (max-width: 600px) {
-    margin-top: 23px;
+    margin-top: 28pxpx;
     display: flex;
     flex-wrap: wrap;
   }

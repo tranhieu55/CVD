@@ -1,8 +1,6 @@
 import React from "react"
-import styled from "styled-components"
 import SliceZone from "../utils/SliceZone"
 import { graphql, useStaticQuery } from "gatsby"
-import Accordion from "../components/Accordion/index"
 
 import { createGlobalStyle } from "styled-components"
 import CalibreRegular from "../assets/fonts/CalibreRegular.woff"

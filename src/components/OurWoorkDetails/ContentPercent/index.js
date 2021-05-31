@@ -52,8 +52,8 @@ const TiTle = styled.div`
   line-height: 56px;
   color: #101010;
   font-weight: 600;
-  margin-bottom: -6px;
   @media only screen and (max-width: 600px) {
+    margin-bottom: -6px;
     // font-size: 48px;
     color: #101010;
     // line-height: 36px;
@@ -77,7 +77,7 @@ const Content = styled.div`
     margin-left: 0px !important;
     width: 100%;
     height: 80px;
-    margin-bottom: 24px;
+    margin-bottom: 35px;
   }
   @media (min-width: 1024px) {
     width: 100%;
@@ -96,7 +96,7 @@ const Percent = styled.div`
   margin-right: 128px;
   height: 86px;
   @media only screen and (max-width: 600px) {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     display: block !important;
     text-align: center;
     margin-left: 37px;
