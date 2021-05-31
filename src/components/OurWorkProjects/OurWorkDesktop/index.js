@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork }) => {
-  console.log("du lieu truyen sang", dataHeaderOurwork)
+  // console.log("du lieu truyen sang", dataHeaderOurwork)
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
@@ -15,9 +15,9 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
             {data[0]?.fields[0]?.content?.map((item, key) => {
               return (
                 <OurWork key={key}>
-                  {/* <Link href="#">{item?.text}</Link>
-                  <hr /> */}
-                  {"demo"}
+                  <Link href="#">{item?.text}</Link>
+                  <hr />
+                  {/* {"demo"} */}
                 </OurWork>
               )
             })}
