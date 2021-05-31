@@ -53,9 +53,7 @@ export default function Accordion({ input }) {
               <TextF>
                 {RichText.render(item.application)}
                 {RichText.render(item.content_footer)}&nbsp;
-                <a href={`mailto:${RichText.render(item.email)}`}>
-                  {RichText.render(item.email)}
-                </a>
+                {RichText.render(item.email)}
                 &nbsp;
                 {RichText.render(item.content_footer2)}
               </TextF>
@@ -169,7 +167,7 @@ const Title = styled.h1`
 const ContentSub = styled.div`
   margin-bottom: 55px;
   transition: all 0.4s ease-in;
-  // width: 87%;
+  width: 87%;
 `
 const TextTitle = styled.div`
   margin-bottom: 18px;
@@ -269,12 +267,12 @@ const TextF = styled.div`
     margin-bottom: 10px;
   }
 
-  p:last-child {
-    min-width: 327px;
-  }
-
   @media (max-width: 600px) {
     padding-bottom: 44px;
+
+    p:last-child {
+      min-width: 327px;
+    }
 
     p {
       font-size: 16px;
