@@ -25,6 +25,47 @@ const Layout = ({
   const data = useStaticQuery(graphql`
     query MyQuery {
       prismic {
+        allOurwork_headers {
+          edges {
+            node {
+              title_ourwork
+              body {
+                ... on PRISMIC_Ourwork_headerBodyPortfolio {
+                  type
+                  label
+                  fields {
+                    content
+                  }
+                  primary {
+                    title
+                  }
+                }
+                ... on PRISMIC_Ourwork_headerBodyFeautured_ {
+                  type
+                  label
+                  primary {
+                    title
+                  }
+                  fields {
+                    title_image
+                    image_feautured
+                    sub_image
+                  }
+                }
+                ... on PRISMIC_Ourwork_headerBodyJust_launched {
+                  type
+                  label
+                  fields {
+                    image_launched
+                  }
+                  primary {
+                    title
+                  }
+                }
+              }
+            }
+          }
+        }
         allService_headers {
           edges {
             node {
@@ -185,10 +226,10 @@ const Layout = ({
     data && data.prismic?.allService_headers
       ? data.prismic?.allService_headers
       : []
-  const [checkMenu, setCheckMenu] = useState()
+  const dataHeaderOurwork = data.prismic?.allOurwork_headers
 
   return (
-    <BoxLayout checkMenu={checkMenu}>
+    <BoxLayout>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
           <Header
@@ -196,6 +237,7 @@ const Layout = ({
             location={location}
             dataMenuHeader={dataMenuHeader}
             dataServicesMenu={dataServicesMenu}
+            dataHeaderOurwork={dataHeaderOurwork}
           />
           <Banner
             location={location}
