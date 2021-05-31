@@ -4,8 +4,6 @@ import moment from "moment"
 import { Link } from "gatsby"
 
 function ArticleTile({ input }) {
-  console.log({ input_article: input })
-
   return (
     <BlockBlog>
       <Link

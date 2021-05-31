@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousel from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
 
 const HappyClient = ({ input }) => {
   const Titles = input
@@ -20,12 +20,10 @@ const HappyClient = ({ input }) => {
   const ref = useRef()
 
   function Nextshowslider() {
-    return (
-      (ref.current.scrollLeft =
-        ref.current.clientWidth > 600
-          ? ref.current.scrollLeft + document.getElementsByClassName("sliders")
-          : ref.current.scrollLeft + 350)
-    )
+    return (ref.current.scrollLeft =
+      ref.current.clientWidth > 600
+        ? ref.current.scrollLeft + document.getElementsByClassName("sliders")
+        : ref.current.scrollLeft + 350)
   }
   function Prevshowslider() {
     return (ref.current.scrollLeft =
@@ -37,28 +35,50 @@ const HappyClient = ({ input }) => {
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-        <OwlCarousel margin={72} responsive={false} autoWidth={true} items={2} className="owl-theme" ref={ref} >
-        {input ? input.fields?.map((item, index) => (
-          <Slider
-            key={index}
-            onClick={() => updateSelected(index)}
-            indicator={index === indicator}
-            className="sliders item"
-          >
-            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
-            src={item.logo_client?.url ? item.logo_client?.url : ""}>
-            </Img>
-            <Text>
-              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
-            </Text>
-            <Sub>
-              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
-              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
-            </Sub>
-          </Slider>
-        )) : <></>}
+      <OwlCarousel
+        margin={72}
+        responsive={false}
+        autoWidth={true}
+        items={2}
+        className="owl-theme"
+        ref={ref}
+      >
+        {input ? (
+          input.fields?.map((item, index) => (
+            <Slider
+              key={index}
+              onClick={() => updateSelected(index)}
+              indicator={index === indicator}
+              className="sliders item"
+            >
+              <Img
+                alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
+                src={item.logo_client?.url ? item.logo_client?.url : ""}
+              ></Img>
+              <Text>
+                <Content>
+                  {item.qoute_of_client?.map(items =>
+                    items?.text ? items?.text : item
+                  )}
+                </Content>
+              </Text>
+              <Sub>
+                <SubTilte>
+                  {item.title?.map(items => (items?.text ? items?.text : item))}
+                </SubTilte>
+                <SubText>
+                  {item.sub_title?.map(items =>
+                    items?.text ? items?.text : item
+                  )}
+                </SubText>
+              </Sub>
+            </Slider>
+          ))
+        ) : (
+          <></>
+        )}
       </OwlCarousel>
-      
+
       <Opaci></Opaci>
       <Buttonss onClick={() => Prevshowslider()}></Buttonss>
       <Buttons onClick={() => Nextshowslider()}></Buttons>
@@ -235,7 +255,6 @@ const Slider = styled.div`
   // }
 `
 const Slides = styled.div`
-  
   &::-webkit-scrollbar {
     -webkit-appearance: none;
     height: 4px;
@@ -259,8 +278,6 @@ const Slides = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #b30000;
   }
-
-  
 `
 const Img = styled.img`
   height: 24px;
@@ -368,8 +385,8 @@ const Buttons = styled.div`
   @media (min-width: 600px) {
     right: 23%;
   }
-  @media(min-width: 992px){
-    right: 14%
+  @media (min-width: 992px) {
+    right: 14%;
   }
   @media (min-width: 1366px) {
     position: absolute;
@@ -419,8 +436,8 @@ const Buttonss = styled.div`
   @media (min-width: 600px) {
     right: 30%;
   }
-  @media(min-width: 992px){
-    right: 20%
+  @media (min-width: 992px) {
+    right: 20%;
   }
   @media (min-width: 1366px) {
     position: absolute;

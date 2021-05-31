@@ -1247,7 +1247,6 @@ const Header = ({
       !!window && window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-  console.log("taii sao the ", isDisPlayModalOurwork)
 
   const checkColorText = () => {
     if (
@@ -1353,7 +1352,6 @@ const Header = ({
     setIsDisPlayModalOurwork(data)
     document.body.style.overflow = "scroll"
   }
-  // console.log("rundata", dataHeaderOurwork)
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}

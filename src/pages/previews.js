@@ -154,12 +154,10 @@ src: local('Font Awesome 5 Brands Regular'), url(${FontAwesome5BrandsRegular}) f
 `
 
 function Preview({ data: { prismic } }) {
-  // get data
   const data =
     prismic && prismic?.allNotfound_pages?.edges[0]?.node
       ? prismic?.allNotfound_pages?.edges[0]?.node
       : []
-  // console.log("data", data.body)
   return (
     <>
       <GlobalStyle />

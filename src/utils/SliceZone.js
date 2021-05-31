@@ -46,8 +46,6 @@ import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
 
 const SliceZone = props => {
-  // console.log({ props: props.allSlices })
-
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
