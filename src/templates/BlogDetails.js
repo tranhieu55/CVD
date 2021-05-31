@@ -29,6 +29,8 @@ const BlogDetails = props => {
       )
     : []
 
+  console.log({ blog: RichText.render(props.data?.prismic?.post?.content) })
+
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
@@ -148,7 +150,7 @@ const Container = styled.div`
     margin: 40px auto 40px;
   }
   @media (min-width: 768px) {
-    max-width: 716px;
+    max-width: 734px;
     margin: 40px auto 40px;
   }
   @media (min-width: 1200px) {
@@ -190,7 +192,7 @@ const Texxt = styled.div`
   font-family: Calibre Regular;
 
   p {
-    margin-bottom: 0px;
+    margin-bottom: 17px;
     color: #222222;
     font-family: Calibre Regular;
     font-size: 20px;
@@ -207,29 +209,35 @@ const Texxt = styled.div`
   }
 
   .block-img {
+    margin-bottom: 41px;
     img {
       width: 100%;
       height: 428px;
-      margin-top: 17px;
+      // margin-top: 17px;
       object-fit: cover;
-      margin-bottom: 23px;
     }
     @media (max-width: 600px) {
+      margin-bottom: 24px;
+      p {
+        margin-bottom: 6px;
+      }
       img {
         height: 204px;
-        margin-top: 6px;
+        // margin-top: 6px;
         object-fit: cover;
-        margin-bottom: 24px;
       }
     }
   }
   @media (max-width: 600px) {
-    // h2 {
-    //   margin-top: 24px;
-    // }
+    .block-img {
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 6px;
+    }
     img {
       height: 204px;
-      margin-top: 6px;
+      // margin-top: 6px;
       object-fit: cover;
     }
   }
@@ -258,13 +266,12 @@ const Texxt = styled.div`
   @media (max-width: 600px) {
     ol {
       li {
-        padding-bottom: 7px;
       }
     }
   }
 `
 const Fotters = styled.div`
-  margin-top: 23px;
+  // margin-top: 23px;
   width: 100%;
   height: 52px;
   border-top: 1px solid #e4e4e4;
