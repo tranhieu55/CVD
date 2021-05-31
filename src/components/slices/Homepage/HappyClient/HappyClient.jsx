@@ -4,6 +4,8 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
+const isBrowser = typeof window !== "undefined";
+
 const HappyClient = ({ input }) => {
   const Titles = input
     ? input.primary?.title_happy_client?.map(item =>
@@ -35,7 +37,6 @@ const HappyClient = ({ input }) => {
   }
   const [hienthi, setHienThi] = useState(false)
   const delay= 5;
-  const isBrowser = typeof window !== "undefined";
   
   useEffect(() => {
     if(isBrowser){
