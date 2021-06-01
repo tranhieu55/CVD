@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousel from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
 
-const isBrowser = typeof window !== "undefined";
+const isBrowser = typeof window !== "undefined"
 
 const HappyClient = ({ input }) => {
   const Titles = input
@@ -19,8 +19,8 @@ const HappyClient = ({ input }) => {
     setindicator(index)
   }
 
-  const ref = useRef();
-  console.log(ref);
+  const ref = useRef()
+  console.log(ref)
 
   // function Nextshowslider() {
   //   return (ref.current.container.scrollLeft =
@@ -35,39 +35,66 @@ const HappyClient = ({ input }) => {
   //       : ref.current.container.scrollLeft - 350)
   // }
   const [hienthi, setHienThi] = useState(false)
-  
+
   useEffect(() => {
-    if(isBrowser){
+    if (isBrowser) {
       setHienThi(!hienthi)
-    }else setHienThi(hienthi)
+    } else setHienThi(hienthi)
   }, [])
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      {hienthi === 'false' ? <></> : 
-        <OwlCarousel margin={72} responsive={false} autoWidth={true} items={2} nav={true} navContainerClass={'demo'}  className="owl-theme" ref={ref}>
-        {input ? input.fields?.map((item, index) => (
-          <Slider
-            key={index}
-            onClick={() => updateSelected(index)}
-            indicator={index === indicator}
-            className="sliders item"
-          >
-            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
-            src={item.logo_client?.url ? item.logo_client?.url : ""}>
-            </Img>
-            <Text>
-              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
-            </Text>
-            <Sub>
-              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
-              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
-            </Sub>
-          </Slider>
-        )) : <></>}
-      </OwlCarousel>
-      }
-      <Opaci></Opaci>
+      {hienthi === "false" ? (
+        <></>
+      ) : (
+        <OwlCarousel
+          margin={72}
+          responsive={false}
+          autoWidth={true}
+          items={2}
+          nav={true}
+          navContainerClass={"demo"}
+          className="owl-theme"
+          ref={ref}
+        >
+          {input ? (
+            input.fields?.map((item, index) => (
+              <Slider
+                key={index}
+                onClick={() => updateSelected(index)}
+                indicator={index === indicator}
+                className="sliders item"
+              >
+                <Img
+                  alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
+                  src={item.logo_client?.url ? item.logo_client?.url : ""}
+                ></Img>
+                <Text>
+                  <Content>
+                    {item.qoute_of_client?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </Content>
+                </Text>
+                <Sub>
+                  <SubTilte>
+                    {item.title?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </SubTilte>
+                  <SubText>
+                    {item.sub_title?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </SubText>
+                </Sub>
+              </Slider>
+            ))
+          ) : (
+            <></>
+          )}
+        </OwlCarousel>
+      )}
     </HappyClients>
   )
 }
@@ -150,7 +177,10 @@ const HappyClients = styled.div`
     @media(max-width: 767px){
       width: 200px;
       margin: auto;
-      bottom: 19.5%;
+      bottom: 19.2%;
+    }
+    @media(max-width: 600px){
+      bottom: 14.5%;
     }
     @media(max-width: 320px){
       margin-auto;
@@ -183,9 +213,9 @@ const HappyClients = styled.div`
       left: 70%
     }
     @media(max-width: 600px){
-      bottom: 10%;
+      bottom: 6%;
       width: 120px;
-      left: 37%;
+      left: 34%;
     }
     @media(max-width: 320px){
       margin: 0 auto;
@@ -310,18 +340,7 @@ const Title = styled.h1`
   }
 `
 const Slider = styled.div`
-  height: 254px;
-  width: 548px;
-  margin-right: 72px;
   margin-top: 47px;
-  overflow: none;
-  @media (max-width: 600px) {
-    margin-top: 0px;
-    margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
-  }
-  @media (max-width: 320px) {
-    width: 265px;
-  }
 `
 
 const Img = styled.img`
@@ -398,4 +417,3 @@ const Opaci = styled.div`
     display: none;
   }
 `
-
