@@ -294,14 +294,16 @@ const Input = styled.input`
       border: 2px solid #6e6e6e;
     }
   }
-  @media (min-width: 768px) {
-    height: 48px;
-    padding-top: 29px;
+  @media (min-width: 601px) {
     color: #222222;
     font-family: Calibre Regular;
     font-size: 20px;
     letter-spacing: 0;
     line-height: 24px;
+  }
+  @media (min-width: 768px) {
+    height: 48px;
+    padding-top: 29px;
 
     :not(:placeholder-shown) ~ label {
       left: 1px;
@@ -393,7 +395,7 @@ const Textarea = styled.textarea`
     height: 138px;
     color: #222222;
     font-family: Calibre Regular;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 0;
     line-height: 24px;
   }
