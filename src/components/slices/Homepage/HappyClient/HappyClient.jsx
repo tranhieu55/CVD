@@ -118,7 +118,7 @@ const HappyClients = styled.div`
   .owl-prev{
     color: #d3d3d3;
     border: none;
-    background-color: #ffffff;
+    background-color: rgb(248, 248, 248);
     padding: 0px 13px;
     :focus{
       outline: none;
@@ -141,7 +141,7 @@ const HappyClients = styled.div`
   .owl-next{
     color: #d3d3d3;
     border: none;
-    background-color: #ffffff;
+    background-color: rgb(248, 248, 248);
     padding: 0px 13px;
     :focus{
       outline: none;
