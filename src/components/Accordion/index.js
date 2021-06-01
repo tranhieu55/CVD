@@ -109,7 +109,10 @@ const DivImg = styled.div`
   }
   right: 0;
   margin-right: 9px;
-  top: 10px;
+  top: 15px;
+  @media (max-width: 600px) {
+    top: 10px;
+  }
 `
 const Content = styled.div`
   width: 100%;
