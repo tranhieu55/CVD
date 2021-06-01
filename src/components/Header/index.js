@@ -238,6 +238,10 @@ const WrapperHeader = styled.div`
           flex-basis: 25%;
           @media (min-width: 992px) {
             padding-left: 25px;
+            padding-right: 0px;
+          }
+          @media (min-width:1200px) {
+            padding-left: 25px;
             padding-right: 25px;
           }
           @media (min-width: 1440px) {
@@ -277,6 +281,9 @@ const WrapperHeader = styled.div`
           .list-platforms_Card:nth-child(2) {
             @media(min-width: 992px) {
               margin-right: 0px;
+              max-width:330px;
+            }
+            @media(min-width: 1200px) {
               max-width:421px;
             }
           }
@@ -288,6 +295,12 @@ const WrapperHeader = styled.div`
           div.list-platforms_Card {
             display: flex;
             @media(min-width: 992px) {
+              margin-right: 50px;
+            }
+            @media(min-width: 1200px) {
+              margin-right: 55px;
+            }
+            @media(min-width: 1600px) {
               margin-right: 110px;
             }
             &:last-child {
@@ -506,7 +519,6 @@ const WrapperHeader = styled.div`
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;
-        letter-spacing: 0px !important;
       }
       .menu-mobile-iconBack {
         display: block;
@@ -932,18 +944,12 @@ const CardDescription = styled.div`
   @media (max-width: 600px) {
     .mobile {
       margin-bottom: -7px;
-      letter-spacing: -0.5px;
     }
     .mobile1 {
       margin-top: 5px;
       font-size: 16px;
       line-height: 20px;
       margin-bottom: 11px;
-    }
-  }
-  @media (min-width: 600px) {
-    .mobile {
-      letter-spacing: -0.5px !important;
     }
   }
 `
@@ -961,9 +967,10 @@ const MenuItemServices = styled.div`
   ul {
     flex-basis: none;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 992px) {
     .service {
       margin: 0;
+      display: unset;
     }
   }
   @media (max-width: 600px) {
@@ -1046,6 +1053,7 @@ const MenuItemServices = styled.div`
         .mobile {
           font-size: 22px;
           line-height: 26px;
+          letter-spacing: 0.39px;
         }
         .mobile1 {
           font-size: 16px;
