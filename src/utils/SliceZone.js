@@ -43,9 +43,11 @@ import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
-import loadable from '@loadable/component'
+// import loadable from "@loadable/component"
 
-const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
+// const HappyClinetssss = loadable(() =>
+//   import("../components/slices/Homepage/HappyClient/HappyClient")
+// )
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -134,12 +136,12 @@ const SliceZone = props => {
               <ProjectTiles key={index} input={s} />
             </>
           )
-        case "happy_clients":
-          return (
-            <>
-              <HappyClinetssss key={index} input={s} />
-            </>
-          )
+        // case "happy_clients":
+        //   return (
+        //     <>
+        //       <HappyClinetssss key={index} input={s} />
+        //     </>
+        //   )
         case "content_section":
           return (
             <>
