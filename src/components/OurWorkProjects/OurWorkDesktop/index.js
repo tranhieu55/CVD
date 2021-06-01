@@ -107,7 +107,7 @@ const OurWork = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 57px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   a,
   a:focus,
   a:active,
@@ -229,5 +229,6 @@ const H3 = styled.h3`
 const Span = styled.span`
   font-weight: bold;
   color: #fecf09 !important;
-  font-size: 18px;
+  font-size: 18px !important;
+  margin-bottom: 5px;
 `

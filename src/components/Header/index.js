@@ -294,6 +294,12 @@ const WrapperHeader = styled.div`
           }
           div.list-platforms_Card {
             display: flex;
+            @media(max-width: 600px) {
+              margin-right: 0px !important;
+            }
+            @media(max-width: 992px) {
+              /* margin-right: 50px; */
+            }
             @media(min-width: 992px) {
               margin-right: 50px;
             }
@@ -509,9 +515,6 @@ const WrapperHeader = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 45px !important;
-      padding-left: 24px;
-      padding-right: 10px;
       p {
         color: #101010;
         font-size: 32px;
@@ -551,12 +554,10 @@ const WrapperHeader = styled.div`
     .list-platforms_Card {
       padding-right: 0px !important;
       padding-bottom: 0px !important;
-      padding-top: 5px !important;
       margin-bottom: 10px;
       border-radius: 6px;
       img {
         margin-right: 20px;
-        margin-top: -8px;
         width: 30px;
         height: 35px;
       }
@@ -601,7 +602,8 @@ const WrapperHeader = styled.div`
       justify-content: space-between;
       align-items: center;
       margin-bottom: 45px !important;
-      margin-right: 4px;
+      padding-left: 24px;
+      padding-right: 10px;
       button {
         margin-right: 10px;
       }
@@ -967,12 +969,6 @@ const MenuItemServices = styled.div`
   ul {
     flex-basis: none;
   }
-  @media (max-width: 992px) {
-    .service {
-      margin: 0;
-      display: unset;
-    }
-  }
   @media (max-width: 600px) {
     display: block;
     max-width: 100%;
@@ -988,6 +984,9 @@ const MenuItemServices = styled.div`
     .list-platforms {
       padding-left: 12px !important;
       padding-right: 12px !important;
+      .displayMobile {
+        margin-bottom: 5px;
+      }
     }
   }
   @media (max-width: 991px) {
@@ -997,6 +996,22 @@ const MenuItemServices = styled.div`
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 20px;
+    .service {
+      margin: 0;
+      flex-direction: column;
+    }
+    .offset1 {
+      order: 1 !important;
+      max-width: 360px;
+    }
+    .offset0 {
+      order: 2 !important;
+    }
+    .offset2 {
+      order: 3;
+      margin-bottom: 32px;
+      display: flex;
+    }
     ul {
       padding-left: 0;
       margin-bottom: 25px;
@@ -1006,7 +1021,7 @@ const MenuItemServices = styled.div`
       padding-right: 20px !important;
     }
   }
-  @media (min-width: 767.1px) and (max-width: 768.5px) {
+  @media (min-width: 650.1px) and (max-width: 899.5px) {
     margin-left: 0px;
     margin-right: 0px;
     flex-wrap: wrap;
@@ -1059,6 +1074,7 @@ const MenuItemServices = styled.div`
           font-size: 16px;
           line-height: 20px;
           margin-bottom: 11px;
+          margin-top: -1px;
         }
       }
     }
@@ -1103,19 +1119,6 @@ const MenuItemServices = styled.div`
     }
   }
 `
-const TitleA = styled.a`
-  color: ${({ textColor }) => textColor};
-  text-decoration: none;
-
-  &:hover,
-  &:active,
-  &:focus,
-  &:active {
-    color: ${({ textColor }) => textColor};
-  }
-`
-
-const MenuText = styled.div``
 const Li = styled.li``
 const Ul = styled.ul``
 const GetInTouch = styled.h2`
@@ -1629,7 +1632,11 @@ const Header = ({
                                 {dataServices[1]?.fields?.map((item, index) => (
                                   <div
                                     key={index}
-                                    className="list-platforms_Card"
+                                    className={`offset2 ${
+                                      index === 0 && "offset0"
+                                    } ${
+                                      index === 1 && "offset1"
+                                    } list-platforms_Card`}
                                   >
                                     <IMG
                                       alt={item.image_platform_item.alt}
