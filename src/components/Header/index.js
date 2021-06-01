@@ -554,12 +554,10 @@ const WrapperHeader = styled.div`
     .list-platforms_Card {
       padding-right: 0px !important;
       padding-bottom: 0px !important;
-      padding-top: 5px !important;
       margin-bottom: 10px;
       border-radius: 6px;
       img {
         margin-right: 20px;
-        margin-top: -8px;
         width: 30px;
         height: 35px;
       }
@@ -986,6 +984,9 @@ const MenuItemServices = styled.div`
     .list-platforms {
       padding-left: 12px !important;
       padding-right: 12px !important;
+      .displayMobile {
+        margin-bottom: 5px;
+      }
     }
   }
   @media (max-width: 991px) {
@@ -997,7 +998,7 @@ const MenuItemServices = styled.div`
     margin-top: 20px;
     .service {
       margin: 0;
-      justify-content: space-between;
+      flex-direction: column;
     }
     .offset1 {
       order: 1 !important;
