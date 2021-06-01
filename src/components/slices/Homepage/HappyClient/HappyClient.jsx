@@ -15,6 +15,10 @@ const HappyClient = ({ input }) => {
 
   const [indicator, setindicator] = useState(0)
 
+  function updateSelected(index) {
+    setindicator(index)
+  }
+
   const ref = useRef();
   console.log(ref);
 
@@ -272,6 +276,126 @@ const HappyClients = styled.div`
         width: 162px;
       }
     }
+  }
+`
+const Title = styled.h1`
+  height: 72px;
+  color: #101010;
+  font-family: Calibre Bold;
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: -2px;
+  line-height: 72px;
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 0px;
+  @media (max-width: 600px) {
+    height: 121px;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 38px;
+    text-align: center;
+    padding: 52px 32px 0px;
+  }
+  @media (max-width: 320px) {
+    font-size: 40px;
+    padding: 52px 47px 0px;
+  }
+  @media (min-width: 601px) {
+    padding: 100px 32px 0px;
+  }
+  @media (min-width: 768px) {
+    padding: 100px 0px 0px;
+  }
+`
+const Slider = styled.div`
+  height: 254px;
+  width: 548px;
+  margin-right: 72px;
+  margin-top: 47px;
+  overflow: none;
+  @media (max-width: 600px) {
+    margin-top: 0px;
+    margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
+  }
+  @media (max-width: 320px) {
+    width: 265px;
+  }
+`
+
+const Img = styled.img`
+  height: 24px;
+  width: 162px;
+  @media (max-width: 600px) {
+    height: 24px;
+    width: 162px;
+  }
+`
+const Text = styled.div`
+  width: 548px;
+  padding-top: 32px;
+  padding-bottom: 14px;
+  @media (max-width: 600px) {
+    width: 282px;
+    padding-top: 14px;
+    padding-bottom: 16px;
+  }
+  @media (max-width: 320px) {
+    width: 265px;
+    padding-right: 15px;
+  }
+`
+const Content = styled.span`
+  color: #222222;
+  font-family: Calibre Regular;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28px;
+  @media (max-width: 600px) {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+`
+
+const SubTilte = styled.div`
+  color: #222222;
+  font-family: Calibre Semibold;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 22px;
+  @media (max-width: 600px) {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+`
+const SubText = styled.div`
+  color: #555555;
+  font-family: Calibre Regular;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 22px;
+  @media (max-width: 600px) {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+`
+const Sub = styled.div`
+  height: 44px;
+  width: 121px;
+`
+const Opaci = styled.div`
+  height: 348px;
+  width: 248px;
+  background: linear-gradient(90deg, rgba(252, 252, 252, 0) 0%, #f8f8f8 100%);
+  position: absolute;
+  top: 238px;
+  right: 0px;
+  @media (max-width: 992px) {
+    display: none;
   }
 `
 
