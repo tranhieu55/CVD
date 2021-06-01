@@ -116,6 +116,7 @@ const OurWork = styled.p`
     color: #222222;
     text-decoration: none;
   }
+  border-bottom: 1px solid #eeeeee;
 `
 const SubTitle = styled.h6`
   margin-bottom: 10px;
