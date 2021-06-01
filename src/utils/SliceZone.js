@@ -1,6 +1,5 @@
 import React from "react"
 import BigText from "../components/slices/BigText"
-import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
 import BigImage from "../components/slices/BigImage"
 import {
@@ -43,9 +42,10 @@ import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
 import loadable from '@loadable/component'
+import ClientLogos from "../components/slices/Homepage/ClientLogos";
 
 const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
-const ClientLogos = loadable(() => import("../components/slices/Homepage/ClientLogos"))
+const PlatformTrio = loadable(() => import("../components/slices/Homepage/PlatformTrio"))
 
 const SliceZone = props => {
   if (props.allSlices) {
