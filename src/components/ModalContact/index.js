@@ -107,7 +107,7 @@ const TiTle = styled.h1`
   font-weight: 600;
   letter-spacing: 0;
   line-height: 52px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   @media (max-width: 600px) {
     letter-spacing: -0.5px;
     font-size: 32px;
@@ -231,6 +231,7 @@ const Input = styled.input`
     top: 0;
     left: 0;
     text-transform: uppercase;
+    font-weight: 600;
   }
   :focus {
     outline: none;
@@ -245,9 +246,16 @@ const Input = styled.input`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 20px;
-    padding-top: 0px;
+    padding-top: 6px;
     height: 48px;
-    padding-left: 16px;
+    padding-left: 14px;
+
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+
     :focus {
       outline: none;
       border: 2px solid #6e6e6e;
@@ -286,7 +294,13 @@ const Input = styled.input`
   }
   @media (min-width: 768px) {
     height: 48px;
-    padding-top: 26px;
+    padding-top: 29px;
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 24px;
+
     :not(:placeholder-shown) ~ label {
       left: 1px;
       transform: translate(24px, 6px) scale(1);
@@ -300,12 +314,12 @@ const Input = styled.input`
   @media (min-width: 768px) {
     height: 64px;
     :focus ~ label {
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(24px, 17px) scale(1);
       text-transform: uppercase;
     }
     :not(:placeholder-shown) ~ label {
       left: 1px;
-      transform: translate(24px, 12px) scale(1);
+      transform: translate(24px, 17px) scale(1);
       text-transform: uppercase;
     }
   }
@@ -324,7 +338,7 @@ const Textarea = styled.textarea`
   padding-top: 24px;
   padding-left: 24px;
   box-shadow: none;
-  padding-top: 25px;
+  padding-top: 32px;
   padding-right: 24px;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -332,16 +346,24 @@ const Textarea = styled.textarea`
   -moz-appearance: none;
   appearance: none;
   resize: none;
+
+  color: #222222;
+  font-family: Calibre Regular;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 24px;
+
   :active ~ label,
   :focus ~ label,
   :not(:placeholder-shown) ~ label {
     color: #b6b6b6;
     font-family: Calibre Semibold;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
-    line-height: 24px;
+    line-height: 14px;
     position: absolute;
-    transform: translate(26px, 12px) scale(1);
+    transform: translate(26px, 17px) scale(1);
+    font-weight: 600;
     top: 0;
     left: 0;
     text-transform: uppercase;
@@ -434,7 +456,8 @@ const Submit = styled.button`
   }
 `
 const Content = styled.div`
-  margin: 46px 48px;
+  margin: 59px 48px 48px 48px;
+
   @media (max-width: 768px) {
     margin: 26px 24px;
   }
