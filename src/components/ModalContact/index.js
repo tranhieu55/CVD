@@ -396,11 +396,17 @@ const Textarea = styled.textarea`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 12px;
-    padding-left: 16px;
+    padding-left: 14px;
     padding-top: 12px;
     height: 158px;
     outline: none;
     -webkit-outline: none;
+
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
 
     :focus {
       outline: none;
