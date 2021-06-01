@@ -223,9 +223,9 @@ const Input = styled.input`
   :not(:placeholder-shown) ~ label {
     color: #b6b6b6;
     font-family: Calibre Semibold;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
-    line-height: 24px;
+    line-height: 14px;
     position: absolute;
     transform: translate(26px, 12px) scale(1);
     top: 0;
