@@ -290,10 +290,8 @@ const DivIMG = styled.div`
 const TitleImageBlog = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 5rem;
-  left: 6rem;
   cursor: pointer;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 992px) {
     bottom: 0rem;
     left: 1rem;
   }
