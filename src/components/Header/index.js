@@ -1113,7 +1113,6 @@ const MenuItemServices = styled.div`
         p {
           font-size: 16px;
           line-height: 20px;
-          margin-bottom: 7px;
         }
       }
     }
