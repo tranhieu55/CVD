@@ -145,11 +145,21 @@ const Container = styled.div`
     max-width: 535px;
     margin: 40px auto 40px;
     margin-left: 68px;
+    margin-right: 0;
+    padding-right: 68px;
+  }
+  @media (min-width: 650px) {
+    padding-right: 0px;
   }
   @media (min-width: 768px) {
     max-width: 734px;
     margin: 40px auto 40px;
     margin-left: 77px;
+    margin-right: 0;
+    padding-right: 120px;
+  }
+  @media (min-width: 850px) {
+    padding-right: 0;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
@@ -160,9 +170,11 @@ const Container = styled.div`
   }
   @media (min-width: 1372px) {
     margin-left: 220px;
+    margin-right: 220px;
   }
   @media (min-width: 1600px) {
     margin-left: 260px;
+    margin-right: 260px;
   }
 `
 const Img = styled.img`
