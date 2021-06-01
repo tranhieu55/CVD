@@ -393,7 +393,7 @@ const Textarea = styled.textarea`
     height: 138px;
     color: #222222;
     font-family: Calibre Regular;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 0;
     line-height: 24px;
   }
