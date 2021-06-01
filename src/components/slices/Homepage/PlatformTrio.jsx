@@ -1,8 +1,14 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
+import OwlCarousels from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
+const isBrowser = typeof window !== "undefined";
 
 const PlatformTrio = ({ input }) => {
   const title = input
@@ -21,13 +27,26 @@ const PlatformTrio = ({ input }) => {
   function updateSelected(i) {
     setindicator(i)
   }
-
+  const [width,setWindowSize] = useState(window.innerWidth);
+  console.log(width)
+  useEffect(()=> {
+    if(isBrowser){
+      function handleResize() {
+        setWindowSize(
+           window.innerWidth
+        );
+      }
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [])
   return (
     <Container>
       <Title>{title}</Title>
       <Content className="content">{RichText.render(content)}</Content>
-
-      <Platforms className="md:overflow-scroll">
+      {width >= 992 ?
+        <Platforms className="md:overflow-scroll">
         {platforms?.map((platform, i) => {
           const name = platform.platform[0]?.text
           const desc = platform.description
@@ -37,6 +56,8 @@ const PlatformTrio = ({ input }) => {
               key={i}
               onClick={() => updateSelected(i)}
               indicator={i === indicator}
+              vitri={i}
+              length={platforms.length}
             >
               <div className="white"></div>
               <Inner>
@@ -53,6 +74,36 @@ const PlatformTrio = ({ input }) => {
           )
         })}
       </Platforms>
+      :
+        <OwlCarousels margin={26} responsive={false} autoWidth={true} items={2} className="owl-theme" >
+          {platforms?.map((platform, i) => {
+          const name = platform.platform[0]?.text
+          const desc = platform.description
+          const logo = platform.logo.url
+          return (
+            <Platform
+              key={i}
+              onClick={() => updateSelected(i)}
+              indicator={i === indicator}
+              vitri={i}
+              length={platforms.length}
+            >
+              <div className="white"></div>
+              <Inner>
+                <PlatformLogo src={logo} />
+                {/* <PlatformTitle>{name}</PlatformTitle> */}
+                <PlatformDesc className="content">
+                  {RichText.render(desc)}
+                </PlatformDesc>
+                <Buttons>
+                  <ButtonText> Learn more</ButtonText>
+                </Buttons>
+              </Inner>
+            </Platform>
+          )
+        })}
+        </OwlCarousels>
+      }
     </Container>
   )
 }
@@ -111,6 +162,71 @@ const Container = styled.div`
     margin-top: -83px;
     :before {
       height: 146px;
+    }
+  }
+  .owl-carousel.owl-loaded {
+    height: 375px;
+  }
+  .owl-carousel.owl-drag .owl-item{
+    @media(max-width: 600px){
+      margin-right: 0px !important;
+    }
+  }
+  .owl-carousel .owl-stage{
+    padding-left: 48px;
+  }
+  .owl-theme .owl-nav.disabled + .owl-dots{
+    width: 400px;
+    margin: 46px auto 0px;
+    @media(max-width: 768px){
+      width: 300px;
+    }
+    @media(max-width: 600px){
+      width: 200px;
+      margin: 86px auto 0px;
+    }
+  }
+  .owl-carousel .owl-item img{
+    width: auto;
+  }
+  .owl-theme .owl-dots .owl-dot{
+    width: 100px;
+    span{
+      width: 100%;
+      height: 4px;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #EEEEEE;
+      border-radius: 2px;
+    }
+    @media(max-width: 768px){
+      width: 20px;
+    }
+    @media(max-width: 600px){
+      width: 16px;
+      span{
+        width: 100%;
+        height: 4px;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #EEEEEE;
+        border-radius: 2px;
+      }
+    }
+  }
+  .owl-theme .owl-dots .owl-dot.active{
+    width: 300px;
+    span{
+      background-color: #BBBBBB;
+    }
+    @media(max-width: 768px){
+      width: 240px;
+    }
+    @media(max-width: 600px){
+      width: 150px;
+    span{
+      background-color: #BBBBBB;
+    }
     }
   }
 `
@@ -210,69 +326,11 @@ const Platforms = styled.div`
   position: relative;
   max-width: 1240px;
   height: 299px;
-  @media (max-width: 600px) {
-    $color: white;
-    margin-top: 23px;
-    padding-left: 49px;
-    height: 343px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    width: 100%;
-    position: relative;
-    ::-webkit-scrollbar {
-      height: 3px;
-      width: 50%;
-    }
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 100px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 100px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
+  @media(min-width: 1015px){
+    padding-left: 40px;
   }
-  @media (min-width: 600px) {
-    $color: white;
-    margin-top: -53px;
-    padding-left: 49px;
-    height: 343px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    width: 100%;
-    position: relative;
-    ::-webkit-scrollbar {
-      height: 3px;
-      width: 50%;
-    }
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
+  @media(min-width: 1366px){
+    padding-left: 0px;
   }
   @media (min-width: 1600px) {
     margin-top: -28px;
@@ -287,7 +345,8 @@ const Platform = styled.div`
   @media (max-width: 600px) {
     height: 274px;
     width: 216px;
-    margin-right: ${props => (props.indicator === 0 ? "0px" : "64px")};
+    margin-right: ${props => (props.vitri === props.length-1 ? "0px" : "64px")};
+    right: ${props => (props.vitri === props.length-1 ? "-20px" : "0px")};
   }
   @media (min-width: 600px) {
     margin-right: 16px;
