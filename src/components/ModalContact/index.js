@@ -349,6 +349,8 @@ const Textarea = styled.textarea`
   -moz-appearance: none;
   appearance: none;
   resize: none;
+  outline: none;
+  -webkit-outline: none;
 
   color: #222222;
   font-family: Calibre Regular;
@@ -378,6 +380,7 @@ const Textarea = styled.textarea`
   :focus {
     border: 2px solid #222222;
     -webkit-outline: none;
+    outline: none;
   }
   :not(:placeholder-shown) {
     border: 2px solid #222222;
@@ -396,8 +399,12 @@ const Textarea = styled.textarea`
     padding-left: 16px;
     padding-top: 12px;
     height: 158px;
+    outline: none;
+    -webkit-outline: none;
+
     :focus {
       outline: none;
+      -webkit-outline: none;
       border: 2px solid #6e6e6e;
     }
     :focus ~ label {
