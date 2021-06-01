@@ -1074,6 +1074,7 @@ const MenuItemServices = styled.div`
           font-size: 16px;
           line-height: 20px;
           margin-bottom: 11px;
+          margin-top: -1px;
         }
       }
     }
