@@ -391,6 +391,11 @@ const Textarea = styled.textarea`
   }
   @media (max-width: 768px) {
     height: 138px;
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
   }
 
   @media (max-width: 600px) {
