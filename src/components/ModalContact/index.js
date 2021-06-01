@@ -222,12 +222,9 @@ const Input = styled.input`
   :focus ~ label,
   :not(:placeholder-shown) ~ label {
     color: #b6b6b6;
-    font-family: Calibre Semibold;
-    font-size: 12px;
-    letter-spacing: 1px;
-    line-height: 14px;
+
     position: absolute;
-    transform: translate(26px, 12px) scale(1);
+    // transform: translate(26px, 12px) scale(1);s
     top: 0;
     left: 0;
     text-transform: uppercase;
@@ -294,7 +291,7 @@ const Input = styled.input`
       border: 2px solid #6e6e6e;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     height: 48px;
     padding-top: 29px;
     color: #222222;
@@ -307,11 +304,19 @@ const Input = styled.input`
       left: 1px;
       transform: translate(24px, 6px) scale(1);
       text-transform: uppercase;
+      font-family: Calibre Semibold;
+      font-size: 12px;
+      letter-spacing: 1px;
+      line-height: 14px;
     }
     :focus ~ label {
       transform: translate(24px, 6px) scale(1);
       -webkit-transform: translate(24px, 6px) scale(1);
       text-transform: uppercase;
+      font-family: Calibre Semibold;
+      font-size: 12px;
+      letter-spacing: 1px;
+      line-height: 14px;
     }
   }
   @media (min-width: 768px) {
@@ -363,9 +368,6 @@ const Textarea = styled.textarea`
   :not(:placeholder-shown) ~ label {
     color: #b6b6b6;
     font-family: Calibre Semibold;
-    font-size: 12px;
-    letter-spacing: 1px;
-    line-height: 14px;
     position: absolute;
     transform: translate(26px, 17px) scale(1);
     font-weight: 600;
@@ -437,6 +439,23 @@ const Textarea = styled.textarea`
     }
     :not(:placeholder-shown) {
       border: 2px solid #6e6e6e;
+    }
+  }
+  @media (min-width: 600px) {
+    :active ~ label,
+    :focus ~ label,
+    :not(:placeholder-shown) ~ label {
+      color: #b6b6b6;
+      font-family: Calibre Semibold;
+      font-size: 12px;
+      letter-spacing: 1px;
+      line-height: 14px;
+      position: absolute;
+      transform: translate(26px, 17px) scale(1);
+      font-weight: 600;
+      top: 0;
+      left: 0;
+      text-transform: uppercase;
     }
   }
 `
