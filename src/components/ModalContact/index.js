@@ -389,7 +389,7 @@ const Textarea = styled.textarea`
     margin-bottom: 20px;
     padding-top: 12px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 138px;
     color: #222222;
     font-family: Calibre Regular;
