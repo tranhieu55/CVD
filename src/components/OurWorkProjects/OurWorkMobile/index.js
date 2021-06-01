@@ -215,7 +215,9 @@ const ListCaseStudy = styled.div`
     left: 0;
     opacity: 30%;
   }
-
+  @media (max-width: 600px) {
+    padding-bottom: 15px;
+  }
   @media (min-width: 601px) and (max-width: 992px) {
     padding: 0;
     padding-top: 31px;

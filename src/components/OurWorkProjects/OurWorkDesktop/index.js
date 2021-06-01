@@ -230,4 +230,5 @@ const Span = styled.span`
   font-weight: bold;
   color: #fecf09 !important;
   font-size: 18px !important;
+  margin-bottom: 5px;
 `
