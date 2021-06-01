@@ -14,7 +14,6 @@ const LogosBlock = ({ input }) => {
       <Body>
         <ListLogo>
           {dataListBlog.map(element => {
-            console.log(element)
             return (
               <BlockLogo>
                 <IMG src={element?.logo?.url} alt={element?.logo?.alt} />

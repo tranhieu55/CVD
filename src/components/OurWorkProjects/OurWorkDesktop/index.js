@@ -4,26 +4,20 @@ import { Link } from "gatsby"
 import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork }) => {
-  console.log("du lieu truyen sang", dataHeaderOurwork)
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
       <Body>
         <ListOurWork>
           <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
-          <OurWorks>
-            {data[0]?.fields[0]?.content?.map((item, key) => {
-              return (
-                <OurWork key={key}>
-                  {/* <Link href="#">{item?.text}</Link>
-                  <hr /> */}
-                  {"demo"}
-                </OurWork>
-              )
-            })}
-          </OurWorks>
+          {data[0]?.fields[0]?.content?.map((item, key) => {
+            return (
+              <OurWork key={key}>
+                <Link href="#">{item?.text}</Link>
+              </OurWork>
+            )
+          })}
         </ListOurWork>
-
         <Grid>
           <ListCaseStudy>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
@@ -105,13 +99,6 @@ const OurWorks = styled.div`
   padding: 0;
   margin: 0;
   margin-top: 8px;
-
-  li:last-child {
-    border-bottom: 1px solid #eeeeee;
-  }
-  li:first-child {
-    border-top: none;
-  }
 `
 
 const OurWork = styled.p`
@@ -120,9 +107,7 @@ const OurWork = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 57px;
-  /* border-top: 1px solid #eeeeee; */
-  margin-bottom: 0;
-
+  margin-bottom: 5px;
   a,
   a:focus,
   a:active,
@@ -131,6 +116,7 @@ const OurWork = styled.p`
     color: #222222;
     text-decoration: none;
   }
+  border-bottom: 1px solid #eeeeee;
 `
 const SubTitle = styled.h6`
   margin-bottom: 10px;
@@ -243,5 +229,6 @@ const H3 = styled.h3`
 const Span = styled.span`
   font-weight: bold;
   color: #fecf09 !important;
-  font-size: 18px;
+  font-size: 18px !important;
+  margin-bottom: 5px;
 `

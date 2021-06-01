@@ -18,8 +18,6 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
     setClose(!close)
     checkClose(close)
   }
-  console.log({ dataHeaderOurwork })
-  console.log({ data })
   return (
     <Container>
       <Head>
@@ -175,7 +173,6 @@ const OurWork = styled.li`
   line-height: 68px;
   border-top: 1px solid #eeeeee;
   padding-left: 25px;
-
   a,
   a:focus,
   a:active,
@@ -218,7 +215,9 @@ const ListCaseStudy = styled.div`
     left: 0;
     opacity: 30%;
   }
-
+  @media (max-width: 600px) {
+    padding-bottom: 15px;
+  }
   @media (min-width: 601px) and (max-width: 992px) {
     padding: 0;
     padding-top: 31px;
@@ -291,10 +290,8 @@ const DivIMG = styled.div`
 const TitleImageBlog = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 5rem;
-  left: 6rem;
   cursor: pointer;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 992px) {
     bottom: 0rem;
     left: 1rem;
   }
