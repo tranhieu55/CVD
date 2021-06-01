@@ -1,7 +1,6 @@
 import React from "react"
 import BigText from "../components/slices/BigText"
 import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
-import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
 import BigImage from "../components/slices/BigImage"
 import {
@@ -46,6 +45,7 @@ import Accordion from "../components/Accordion"
 import loadable from '@loadable/component'
 
 const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
+const ClientLogos = loadable(() => import("../components/slices/Homepage/ClientLogos"))
 
 const SliceZone = props => {
   if (props.allSlices) {

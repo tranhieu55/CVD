@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 export default function FormSumit({ input }) {
-  const data = input;
+  const data = input
   const FormSumits = styled.div`
     height: 802px;
     border-radius: 3px;
@@ -55,13 +55,13 @@ export default function FormSumit({ input }) {
       right: 65px;
       width: 604px;
     }
-    @media(min-width: 1540px){
+    @media (min-width: 1540px) {
       right: 110px;
     }
     @media (min-width: 1600px) {
       right: 180px;
     }
-  `;
+  `
   const Forms = styled.div`
     padding: 48px 48px;
     @media (max-width: 600px) {
@@ -92,7 +92,7 @@ export default function FormSumit({ input }) {
     appearance: none;
     :focus {
       outline: none;
-      border: 2px solid #6E6E6E;
+      border: 2px solid #6e6e6e;
     }
     :active ~ label,
     :focus ~ label,
@@ -110,60 +110,172 @@ export default function FormSumit({ input }) {
       background: #ffffff;
       padding: 0px 5px;
     }
-    :not(:placeholder-shown){
-      border: 2px solid #6E6E6E;
+    :not(:placeholder-shown) {
+      border: 2px solid #6e6e6e;
     }
     @media (max-width: 600px) {
-        margin-bottom: 16px;
-        padding-top: 0px;
-        text-indent: 14px;
-        :focus{
-          outline: none;
-          border: 2px solid #6E6E6E ;
-        }
-        :focus~label{
-            color: #999999;
-            font-family: Calibre Semibold;
-            font-size: 14px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            position: absolute;
-            transform: translate(11px, -9px) scale(1);
-            top: 0px;
-            left: 0px;
-            background: #ffffff;
-            padding: 0px 5px;
-            text-transform: uppercase;
-        }
-        :not(:placeholder-shown) ~ label{
-            color: #999999;
-            font-family: Calibre Semibold;
-            font-size: 14px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            position: absolute;
-            transform: translate(11px, -9px) scale(1);
-            top: 0px;
-            left: 0px;
-            background: #ffffff;
-            padding: 0px 5px;
-            text-transform: uppercase;
-        }
-        :not(:placeholder-shown){
-            border: 2px solid #6E6E6E;
-        }
+      margin-bottom: 16px;
+      padding-top: 0px;
+      text-indent: 14px;
+      :focus {
+        outline: none;
+        border: 2px solid #6e6e6e;
       }
+      :focus ~ label {
+        color: #999999;
+        font-family: Calibre Semibold;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        position: absolute;
+        transform: translate(11px, -9px) scale(1);
+        top: 0px;
+        left: 0px;
+        background: #ffffff;
+        padding: 0px 5px;
+        text-transform: uppercase;
+      }
+      :not(:placeholder-shown) ~ label {
+        color: #999999;
+        font-family: Calibre Semibold;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        position: absolute;
+        transform: translate(11px, -9px) scale(1);
+        top: 0px;
+        left: 0px;
+        background: #ffffff;
+        padding: 0px 5px;
+        text-transform: uppercase;
+      }
+      :not(:placeholder-shown) {
+        border: 2px solid #6e6e6e;
+      }
+    }
 
-      color: #222222;
-      font-family: Calibre Regular;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: 24px;
-      height: 62px;
+    color: #222222;
+    font-family: Calibre Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    height: 62px;
   `
   const Inputs = styled.div`
     position: relative;
     width: 100%;
+    input {
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      background-color: #ffffff;
+    }
+
+    label {
+      color: #b6b6b6;
+      font-family: Calibre Semibold;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 24px;
+      position: absolute;
+      left: 14px;
+      top: 30px;
+      transition: 0.2s;
+      pointer-events: none;
+    }
+
+    input:active ~ label {
+      top: 0;
+      color: #6e6e6e;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+    }
+
+    input:focus ~ label {
+      color: #6e6e6e;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+      top: 0;
+      text-transform: uppercase;
+    }
+
+    input:not(:placeholder-shown) ~ label {
+      color: #999999;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+      top: 0;
+      text-transform: uppercase;
+    }
+
+    input:not(:placeholder-shown) {
+      border: 2px solid #cccccc;
+    }
+
+    //12312
+
+    textarea {
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      background-color: #ffffff;
+      min-height: 178px;
+    }
+
+    label {
+      color: #b6b6b6;
+      font-family: Calibre Semibold;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 24px;
+      position: absolute;
+      left: 14px;
+      top: 30px;
+      transition: 0.2s;
+      pointer-events: none;
+    }
+
+    textarea:active ~ label {
+      top: 0;
+      color: #6e6e6e;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+    }
+
+    textarea:focus ~ label {
+      color: #6e6e6e;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+      top: 0;
+      text-transform: uppercase;
+    }
+
+    textarea:not(:placeholder-shown) ~ label {
+      color: #999999;
+      font-family: Calibre Semibold;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 16px;
+      top: 0;
+      text-transform: uppercase;
+    }
+
+    textarea:not(:placeholder-shown) {
+      border: 2px solid #cccccc;
+    }
     label {
       color: #b6b6b6;
       font-family: Calibre Regular;
@@ -177,8 +289,8 @@ export default function FormSumit({ input }) {
       top: 0;
       left: 0;
     }
-    @media(max-width: 600px){
-      label{
+    @media (max-width: 600px) {
+      label {
         transform: translate(24px, 22px) scale(1);
       }
     }
@@ -218,24 +330,24 @@ export default function FormSumit({ input }) {
       background: #ffffff;
       padding: 0px 5px;
     }
-    :not(:placeholder-shown){
-      border: 2px solid #6E6E6E;
+    :not(:placeholder-shown) {
+      border: 2px solid #6e6e6e;
     }
     :focus {
       outline: none;
-      border: 2px solid #6E6E6E;
+      border: 2px solid #6e6e6e;
     }
     @media (max-width: 768px) {
       margin-bottom: 10px;
     }
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       text-indent: 14px;
       padding-left: 0px;
-      :focus{
+      :focus {
         outline: none;
-        border: 2px solid #6E6E6E ;
-    }
-    :focus~label{
+        border: 2px solid #6e6e6e;
+      }
+      :focus ~ label {
         color: #999999;
         font-family: Calibre Semibold;
         font-size: 14px;
@@ -248,8 +360,8 @@ export default function FormSumit({ input }) {
         background: #ffffff;
         padding: 0px 5px;
         text-transform: uppercase;
-    }
-    :not(:placeholder-shown) ~ label{
+      }
+      :not(:placeholder-shown) ~ label {
         color: #999999;
         font-family: Calibre Semibold;
         font-size: 14px;
@@ -262,10 +374,10 @@ export default function FormSumit({ input }) {
         background: #ffffff;
         padding: 0px 5px;
         text-transform: uppercase;
-    }
-    :not(:placeholder-shown){
-        border: 2px solid #6E6E6E;
-    }
+      }
+      :not(:placeholder-shown) {
+        border: 2px solid #6e6e6e;
+      }
     }
 
     color: #222222;
@@ -297,27 +409,39 @@ export default function FormSumit({ input }) {
   return (
     <FormSumits>
       <Forms>
-        { data ? data.fields?.map((item, index) => {
-          if (item?.type === "text") {
-            return (
-              <Inputs>
-                <Input size="lg" type="text" placeholder=" " />
-                <label>{item?.placeholder?.map(item => item?.text ? item?.text : item)}</label>
-              </Inputs>
-            )
-          }
-          if (item?.type === "textarea") {
-            return (
-              <Inputs>
-                <Textarea size="lg" type="text" placeholder=" " />
-                <label>{item?.placeholder?.map(item => item?.text ? item?.text : item)}</label>
-              </Inputs>
-            )
-          }
-          return null
-        }) : <></>}
+        {data ? (
+          data.fields?.map((item, index) => {
+            if (item?.type === "text") {
+              return (
+                <Inputs>
+                  <Input size="lg" type="text" placeholder=" " />
+                  <label>
+                    {item?.placeholder?.map(item =>
+                      item?.text ? item?.text : item
+                    )}
+                  </label>
+                </Inputs>
+              )
+            }
+            if (item?.type === "textarea") {
+              return (
+                <Inputs>
+                  <Textarea size="lg" type="text" placeholder=" " />
+                  <label>
+                    {item?.placeholder?.map(item =>
+                      item?.text ? item?.text : item
+                    )}
+                  </label>
+                </Inputs>
+              )
+            }
+            return null
+          })
+        ) : (
+          <></>
+        )}
         <a href="#">
-          <ButtonForm >Submit</ButtonForm>
+          <ButtonForm>Submit</ButtonForm>
         </a>
       </Forms>
     </FormSumits>
