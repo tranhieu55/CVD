@@ -18,8 +18,6 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
     setClose(!close)
     checkClose(close)
   }
-  console.log({ dataHeaderOurwork })
-  console.log({ data })
   return (
     <Container>
       <Head>
@@ -175,7 +173,6 @@ const OurWork = styled.li`
   line-height: 68px;
   border-top: 1px solid #eeeeee;
   padding-left: 25px;
-
   a,
   a:focus,
   a:active,

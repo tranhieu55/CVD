@@ -22,15 +22,11 @@ const BlogDetails = props => {
   // const dataIconMap = dataIcon?.map(item =>
   //   item?.fields?.map(item => item?.icon_image.url)
   // )
-  // console.log("akvkvkv", dataIconMap)
   const dataText = props
     ? props.data.prismic.post?.body?.filter(item =>
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
-
-  console.log({ blog: RichText.render(props.data?.prismic?.post?.content) })
-
   return (
     <Layout location="/blog-details">
       <BannerBlogDetails
@@ -148,16 +144,25 @@ const Container = styled.div`
   @media (min-width: 600px) {
     max-width: 535px;
     margin: 40px auto 40px;
+    margin-left: 68px;
   }
   @media (min-width: 768px) {
     max-width: 734px;
     margin: 40px auto 40px;
+    margin-left: 77px;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
-    margin-left: 260px;
+
     margin-bottom: 80px;
     max-width: 716px;
+    margin-left: 160px;
+  }
+  @media (min-width: 1372px) {
+    margin-left: 220px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 260px;
   }
 `
 const Img = styled.img`

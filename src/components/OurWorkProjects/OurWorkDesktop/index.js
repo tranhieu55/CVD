@@ -4,26 +4,20 @@ import { Link } from "gatsby"
 import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork }) => {
-  // console.log("du lieu truyen sang", dataHeaderOurwork)
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
       <Body>
         <ListOurWork>
           <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
-          <OurWorks>
-            {data[0]?.fields[0]?.content?.map((item, key) => {
-              return (
-                <OurWork key={key}>
-                  <Link href="#">{item?.text}</Link>
-                  <hr />
-                  {/* {"demo"} */}
-                </OurWork>
-              )
-            })}
-          </OurWorks>
+          {data[0]?.fields[0]?.content?.map((item, key) => {
+            return (
+              <OurWork key={key}>
+                <Link href="#">{item?.text}</Link>
+              </OurWork>
+            )
+          })}
         </ListOurWork>
-
         <Grid>
           <ListCaseStudy>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
@@ -105,13 +99,6 @@ const OurWorks = styled.div`
   padding: 0;
   margin: 0;
   margin-top: 8px;
-
-  li:last-child {
-    border-bottom: 1px solid #eeeeee;
-  }
-  li:first-child {
-    border-top: none;
-  }
 `
 
 const OurWork = styled.p`
@@ -120,9 +107,7 @@ const OurWork = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 57px;
-  /* border-top: 1px solid #eeeeee; */
   margin-bottom: 0;
-
   a,
   a:focus,
   a:active,

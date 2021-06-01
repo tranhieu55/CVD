@@ -21,7 +21,6 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
 import Instagram from "../components/slices/Homepage/Instargram"
-import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClient"
 import OurServicesss from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
@@ -44,10 +43,11 @@ import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
+import loadable from '@loadable/component'
+
+const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
 
 const SliceZone = props => {
-  // console.log({ props: props.allSlices })
-
   if (props.allSlices) {
     const slice = props.allSlices.map((s, index) => {
       switch (s.type || s.__typename) {
