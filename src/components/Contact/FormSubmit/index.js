@@ -168,8 +168,6 @@ export default function FormSumit({ input }) {
       border: 1px solid #cccccc;
       border-radius: 3px;
       background-color: #ffffff;
-      height: 64px;
-      width: 509px;
     }
 
     label {
@@ -228,7 +226,6 @@ export default function FormSumit({ input }) {
       border-radius: 3px;
       background-color: #ffffff;
       min-height: 178px;
-      width: 509px;
     }
 
     label {
