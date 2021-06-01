@@ -177,7 +177,10 @@ const HappyClients = styled.div`
     @media(max-width: 767px){
       width: 200px;
       margin: auto;
-      bottom: 19.5%;
+      bottom: 19.2%;
+    }
+    @media(max-width: 600px){
+      bottom: 14.5%;
     }
     @media(max-width: 320px){
       margin-auto;
@@ -210,9 +213,9 @@ const HappyClients = styled.div`
       left: 70%
     }
     @media(max-width: 600px){
-      bottom: 10%;
+      bottom: 6%;
       width: 120px;
-      left: 37%;
+      left: 34%;
     }
     @media(max-width: 320px){
       margin: 0 auto;
@@ -337,18 +340,7 @@ const Title = styled.h1`
   }
 `
 const Slider = styled.div`
-  height: 254px;
-  width: 548px;
-  margin-right: 72px;
   margin-top: 47px;
-  overflow: none;
-  @media (max-width: 600px) {
-    margin-top: 0px;
-    margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
-  }
-  @media (max-width: 320px) {
-    width: 265px;
-  }
 `
 
 const Img = styled.img`
