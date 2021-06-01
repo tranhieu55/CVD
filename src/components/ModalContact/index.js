@@ -268,6 +268,7 @@ const Input = styled.input`
       line-height: 24px;
       position: absolute;
       transform: translate(12px, -9px) scale(1);
+      -webkit-transform: translate(12px, -9px) scale(1);
       top: 0px;
       left: 0px;
       background: #ffffff;
@@ -282,6 +283,7 @@ const Input = styled.input`
       line-height: 24px;
       position: absolute;
       transform: translate(12px, -9px) scale(1);
+      -webkit-transform: translate(12px, -9px) scale(1);
       top: 0px;
       left: 0px;
       background: #ffffff;
@@ -308,6 +310,7 @@ const Input = styled.input`
     }
     :focus ~ label {
       transform: translate(24px, 6px) scale(1);
+      -webkit-transform: translate(24px, 6px) scale(1);
       text-transform: uppercase;
     }
   }
@@ -370,9 +373,11 @@ const Textarea = styled.textarea`
   }
   :focus-visible {
     outline: none;
+    -webkit-outline: none;
   }
   :focus {
     border: 2px solid #222222;
+    -webkit-outline: none;
   }
   :not(:placeholder-shown) {
     border: 2px solid #222222;
