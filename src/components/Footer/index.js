@@ -251,8 +251,8 @@ export const Icon = styled.div`
   cursor: pointer;
   img {
     width: 21px;
-    height: 20px;
-    margin-right: 24px;
+    height: 21px;
+    margin-left: 24px;
     &:hover {
       transition: all 1s ease;
       color: gold;
@@ -261,6 +261,10 @@ export const Icon = styled.div`
   }
   @media only screen and (max-width: 600px) {
     text-align: left;
+    img {
+      margin-right: 24px;
+      margin-left: 0;
+    }
   }
 `
 const Boxicon = styled.div`
