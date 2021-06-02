@@ -4,6 +4,8 @@ import OwlCarousel from "react-owl-carousel"
 import "owl.carousel/dist/assets/owl.carousel.css"
 import "owl.carousel/dist/assets/owl.theme.default.css"
 
+const isBrowser = typeof window !== "undefined"
+
 const HappyClient = ({ input }) => {
   const Titles = input
     ? input.primary?.title_happy_client?.map(item =>
@@ -32,22 +34,21 @@ const HappyClient = ({ input }) => {
   //       ? ref.current.container.scrollLeft - 650
   //       : ref.current.container.scrollLeft - 350)
   // }
-  // const [hienthi, setHienThi] = useState(false)
+  const [hienthi, setHienThi] = useState(false)
 
-  // useEffect(() => {
-  //   if (isBrowser) {
-  //     setHienThi(!hienthi)
-  //   } else setHienThi(hienthi)
-  // }, [])
+  useEffect(() => {
+    if (isBrowser) {
+      setHienThi(!hienthi)
+    } else setHienThi(hienthi)
+  }, [])
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      {/* {hienthi === "false" ? (
+      {hienthi === "false" ? (
         <></>
-      ) : ( */}
+      ) : (
         <OwlCarousel
           margin={72}
-          responsive={false}
           autoWidth={true}
           items={2}
           navContainerClass={"demo"}
@@ -93,7 +94,7 @@ const HappyClient = ({ input }) => {
             <></>
           )}
         </OwlCarousel>
-      {/* )} */}
+      )}
       <Opaci></Opaci>
     </HappyClients>
   )
@@ -257,7 +258,7 @@ const HappyClients = styled.div`
       width: 16px;
     }
     @media(min-width: 768px){
-      width: 50px;
+      width: 33px;
     }
     @media(min-width: 992px){
       width: 58px;
