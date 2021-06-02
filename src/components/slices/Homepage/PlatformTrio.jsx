@@ -75,7 +75,7 @@ const PlatformTrio = ({ input }) => {
         })}
       </Platforms>
       :
-        <OwlCarousels margin={26} responsive={false} autoWidth={true} items={2} className="owl-theme" >
+        <OwlCarousels margin={26} autoWidth={true} items={2} className="owl-theme" >
           {platforms?.map((platform, i) => {
           const name = platform.platform[0]?.text
           const desc = platform.description
