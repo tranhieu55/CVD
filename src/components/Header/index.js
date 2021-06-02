@@ -8,7 +8,7 @@ import logoIconClosBlack from "../../images/close-3_b7489140-dbd1-403b-a115-baba
 import logoIconPhone from "../../images/phone-black@2x.png"
 import logoIconBack from "../../images/Arrow_Left_V2@2x.png"
 import logoIconRight from "../../images/long-arrow-right@2x.png"
-import backgroundMobile from "../../images/Background.png"
+import backgroundMobile from "../../images/BackgroundMobile.png"
 import IMG from "../Image"
 import { Nav, Navbar } from "react-bootstrap"
 import { theme } from "../../utils/theme"
@@ -788,14 +788,17 @@ const WrapperHeader = styled.div`
 
     #basic-navbar-nav {
       /* transition: all 0.5s ease-in; */
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});
+      
+      /* background-image: url("../../images/Background.png" ); */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       top: 0px;
       position: absolute;
       width: 100vw;
       padding: 48px;
-      background-image: url(${({ backgroundMobile }) => backgroundMobile});
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -1220,6 +1223,7 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
+  const linkBackground = backgroundMobile
   let lastScrollTop = 0
   useEffect(() => {
     window.onscroll = function () {
@@ -1365,7 +1369,7 @@ const Header = ({
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
-      backgroundMobile={backgroundMobile}
+      backgroundMobile={linkBackground}
       location={location}
       scroll={scroll}
       show={show}
@@ -1505,7 +1509,6 @@ const Header = ({
                     ) : (
                       <Link
                         to={`/${item.slug_menu_item[0]?.text}`}
-                        activeClassName="active"
                         className={`${checkColorText()} colorWhite edit-item-a`}
                         onClick={() =>
                           (document.body.style.overflow = "scroll")
