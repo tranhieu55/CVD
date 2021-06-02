@@ -269,7 +269,7 @@ const H3 = styled.h3`
   }
 `
 const MyBtn = styled.div`
-  margin: 32px auto 0px;
+  margin: 22px auto 0px;
   width: 212px;
   @media (max-width: 600px) {
     margin: 16px 0px;
