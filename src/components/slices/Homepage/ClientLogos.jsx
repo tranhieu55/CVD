@@ -120,7 +120,7 @@ const ClientsRight = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    height: 164px;
+    height: 144px;
     width: 113.5px;
     margin-left: 50px;
   }
@@ -153,7 +153,7 @@ const ClientsLeft = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    height: 164px;
+    height: 144px;
     width: 113.5px;
     margin-right: 50px;
   }
@@ -201,8 +201,9 @@ const ClientLogo = styled.div`
   height: auto;
   filter: grayscale(1);
   display: block;
+  position:relative;
   @media (max-width: 600px) {
-    height: 36px;
+    height: 30px;
     margin-bottom: 30px;
     width: 100%;
   }
