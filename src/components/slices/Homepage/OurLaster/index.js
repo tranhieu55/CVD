@@ -65,7 +65,7 @@ const OurLasters = styled.div`
   margin: 96px 184px 0px;
   @media (max-width: 600px) {
     height: auto;
-    margin: 32px 16px 37px;
+    margin: 32px 16px 27px;
   }
   @media (max-width: 360px) {
     margin: 32px 16px 57px;
@@ -78,13 +78,13 @@ const OurLasters = styled.div`
     height: 716px;
     margin: 50px 32px 37px;
   }
-  @media(min-width : 1200px){
+  @media (min-width: 1200px) {
     margin: 50px 57px 37px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     margin: 50px 87px 37px;
   }
-  @media(min-width: 1500px){
+  @media (min-width: 1500px) {
     margin: 96px 117px 37px;
   }
   @media (min-width: 1600px) {

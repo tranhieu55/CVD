@@ -1,59 +1,60 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react"
+import styled from "styled-components"
 import ModalVideo from "../ModalVideo/index"
 import Modal from "../ModalContact/index"
 
-export default function BannerHomepage (data) {
-    const [showModal, setShowModal] = useState(false)
-    const openModal = () => {
-        setShowModal(prev => !prev)
-    }
-    const [showModal01, setShowModal01] = useState(false)
-    const openModal01 = () => {
-        setShowModal01(prev => !prev)
-    }
-    const background_image_desktop =
-        data && data.data?.background_image?.desktop?.url
-        ? data.data?.background_image?.desktop?.url
-        : ""
-    const background_image_mobile =
-        data && data.data?.background_image?.mobile?.url
-        ? data.data?.background_image?.mobile?.url
-        : ""
-    return (
-        <Container>
-          <ImageBannerDK src={background_image_desktop}></ImageBannerDK>
-          <ImageBannerMB src={background_image_mobile}></ImageBannerMB>
-          <TextBanner>
-            <Title>{data && data.data?.page_title[0]?.text}</Title>
-            <Buttons>
-              {data && data.data?.body[1]?.fields?.map((item, index) => {
-                return (
-                  <ButtonBanner
-                    key={index}
-                    vitri={index}
-                    onClick={index === 1 ? openModal : openModal01}
-                  >
-                    {item.text_button[0]?.text}
-                  </ButtonBanner>
-                )
-              })}
-            </Buttons>
-          </TextBanner>
-          <ModalVideo
-                showModal={showModal}
-                setShowModal={setShowModal}
-                openModal={openModal}
-                dataVideo={data.data?.body[0]}
-              />
-              <Modal
-                showModal={showModal01}
-                setShowModal={setShowModal01}
-                openModal={openModal01}
-              />
-        </Container>
-    )
-} 
+export default function BannerHomepage(data) {
+  const [showModal, setShowModal] = useState(false)
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
+  const [showModal01, setShowModal01] = useState(false)
+  const openModal01 = () => {
+    setShowModal01(prev => !prev)
+  }
+  const background_image_desktop =
+    data && data.data?.background_image?.desktop?.url
+      ? data.data?.background_image?.desktop?.url
+      : ""
+  const background_image_mobile =
+    data && data.data?.background_image?.mobile?.url
+      ? data.data?.background_image?.mobile?.url
+      : ""
+  return (
+    <Container>
+      <ImageBannerDK src={background_image_desktop}></ImageBannerDK>
+      <ImageBannerMB src={background_image_mobile}></ImageBannerMB>
+      <TextBanner>
+        <Title>{data && data.data?.page_title[0]?.text}</Title>
+        <Buttons>
+          {data &&
+            data.data?.body[1]?.fields?.map((item, index) => {
+              return (
+                <ButtonBanner
+                  key={index}
+                  vitri={index}
+                  onClick={index === 1 ? openModal : openModal01}
+                >
+                  {item.text_button[0]?.text}
+                </ButtonBanner>
+              )
+            })}
+        </Buttons>
+      </TextBanner>
+      <ModalVideo
+        showModal={showModal}
+        setShowModal={setShowModal}
+        openModal={openModal}
+        dataVideo={data.data?.body[0]}
+      />
+      <Modal
+        showModal={showModal01}
+        setShowModal={setShowModal01}
+        openModal={openModal01}
+      />
+    </Container>
+  )
+}
 
 const Title = styled.h1`
   height: 275px;
@@ -73,7 +74,7 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 44px;
-    padding-top: 11px;
+    padding-top: 24px;
   }
   @media (min-width: 768px) {
     font-size: 52px;
@@ -211,7 +212,7 @@ const TextBanner = styled.div`
     height: auto;
     width: 360px;
   }
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     padding-left: 50px;
     top: 94px;
   }
@@ -229,7 +230,7 @@ const TextBanner = styled.div`
     padding-left: 67px;
     z-index: 1;
   }
-  @media(min-width: 1600px){
+  @media (min-width: 1600px) {
     height: 355px;
     width: 659px;
     position: absolute;
@@ -237,11 +238,11 @@ const TextBanner = styled.div`
     padding-left: 167px;
     z-index: 1;
   }
-  @media(min-width: 1920px){
+  @media (min-width: 1920px) {
     top: 3%;
     padding-left: 8%;
   }
-  @media(min-width: 2300px){
+  @media (min-width: 2300px) {
     top: 4%;
     left: 5%;
   }
