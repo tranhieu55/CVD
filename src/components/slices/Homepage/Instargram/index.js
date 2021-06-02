@@ -95,7 +95,8 @@ const Container = styled.div`
     height: auto;
   }
   @media (min-width: 1600px) {
-    margin: 96px 32px 0px;
+    margin: 96px auto 0px;
+    width: 1536px;
   }
 `
 const ListPost = styled.div`
@@ -119,7 +120,7 @@ const ListPost = styled.div`
     margin-bottom: 14px;
   }
   @media (min-width: 1366px) {
-    width: 24%;
+    width: 23.4%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -157,7 +158,7 @@ const List = styled.div`
     height: auto;
   }
   @media (min-width: 1366px) {
-    height: auto;
+    height: 360px;
     display: flex;
   }
 `

@@ -52,7 +52,6 @@ const HappyClient = ({ input }) => {
           responsive={false}
           autoWidth={true}
           items={2}
-          nav={true}
           navContainerClass={"demo"}
           className="owl-theme"
           ref={ref}
@@ -120,6 +119,9 @@ const HappyClients = styled.div`
     border: none;
     background-color: rgb(248, 248, 248);
     padding: 0px 13px;
+    span{
+      display: none;
+    }
     :focus{
       outline: none;
     }
@@ -143,6 +145,9 @@ const HappyClients = styled.div`
     border: none;
     background-color: rgb(248, 248, 248);
     padding: 0px 13px;
+    span{
+      display: none;
+    }
     :focus{
       outline: none;
     }
@@ -195,7 +200,7 @@ const HappyClients = styled.div`
       bottom: 19.2%;
     }
     @media (min-width: 1366px){
-      left: 21%;
+      left: 28.5%;
       bottom: 19.2%;
     }
   }
@@ -233,12 +238,12 @@ const HappyClients = styled.div`
       left: 70%;
     }
     @media (min-width: 1366px){
-      left: 84%;
+      left: 83%;
       bottom: 20%;
     }
   }
   .owl-theme .owl-dots .owl-dot {
-    width: 86px;
+    width: 58px;
     span{
       width: 100%;
       height: 4px;
@@ -257,7 +262,7 @@ const HappyClients = styled.div`
       width: 46px;
     }
     @media (min-width: 1366px){
-      width: 86px;
+      width: 58px;
     }
   }
   .owl-theme .owl-dots .owl-dot.active{
