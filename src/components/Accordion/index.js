@@ -111,7 +111,7 @@ const DivImg = styled.div`
   margin-right: 9px;
   top: 15px;
   @media (max-width: 600px) {
-    top: 10px;
+    top: 14px;
   }
 `
 const Content = styled.div`
