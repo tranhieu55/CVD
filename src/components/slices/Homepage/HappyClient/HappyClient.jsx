@@ -95,6 +95,7 @@ const HappyClient = ({ input }) => {
           )}
         </OwlCarousel>
       )}
+      <Opaci></Opaci>
     </HappyClients>
   )
 }

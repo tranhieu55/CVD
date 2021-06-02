@@ -294,14 +294,16 @@ const Input = styled.input`
       border: 2px solid #6e6e6e;
     }
   }
-  @media (min-width: 768px) {
-    height: 48px;
-    padding-top: 29px;
+  @media (min-width: 601px) {
     color: #222222;
     font-family: Calibre Regular;
     font-size: 20px;
     letter-spacing: 0;
     line-height: 24px;
+  }
+  @media (min-width: 768px) {
+    height: 48px;
+    padding-top: 29px;
 
     :not(:placeholder-shown) ~ label {
       left: 1px;
@@ -389,11 +391,11 @@ const Textarea = styled.textarea`
     margin-bottom: 20px;
     padding-top: 12px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 138px;
     color: #222222;
     font-family: Calibre Regular;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 0;
     line-height: 24px;
   }
