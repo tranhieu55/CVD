@@ -291,7 +291,7 @@ const HappyClients = styled.div`
     padding-left: 180px;
     @media (max-width: 600px) {
       // margin-top: 64px;
-      margin-top: 32px;
+      margin-top: 9px;
       padding-left: 48px;
       height: 354px;
     }
@@ -339,15 +339,17 @@ const Title = styled.h1`
   }
 `
 const Slider = styled.div`
-  margin-top: ${props => props.dieukien === 'logo client' ? '47px' : '40px'};;
+  margin-top: ${props => (props.dieukien === "logo client" ? "47px" : "40px")};
 `
 
 const Img = styled.img`
-  height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
-  width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
+  height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+  width: ${props =>
+    props.dieukien === "logo client" ? "162px" : "156px"} !important;
   @media (max-width: 600px) {
-    height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
-    width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
+    height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+    width: ${props =>
+      props.dieukien === "logo client" ? "162px" : "156px"} !important;
   }
 `
 const Text = styled.div`
