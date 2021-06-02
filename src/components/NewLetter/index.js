@@ -73,7 +73,7 @@ const Container = styled.div`
   }
   @media (min-width: 992px) {
     display: flex;
-    margin: 0px 16px;
+    margin: 0px 15px;
     border-bottom: 1px solid #92939b;
     padding: 0 0px;
     height: 208px;
