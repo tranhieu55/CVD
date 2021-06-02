@@ -263,7 +263,7 @@ const HappyClients = styled.div`
     @media(min-width: 992px){
       width: 58px;
     }
-    @media (min-width: 1366px){
+    @media (min-width: 1216px){
       width: 87px;
     }
   }
