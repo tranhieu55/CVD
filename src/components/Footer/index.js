@@ -292,7 +292,7 @@ const IphoneX = styled.div`
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 `
 const Container = styled.div`
-  max-width: 1260px;
+  max-width: 1240px;
   @media only screen and (max-width: 600px) {
     padding-top: 48px !important;
     padding-left: 16px;
