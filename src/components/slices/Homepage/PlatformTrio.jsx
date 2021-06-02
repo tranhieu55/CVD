@@ -326,8 +326,16 @@ const Platforms = styled.div`
   position: relative;
   max-width: 1240px;
   height: 299px;
-  @media(min-width: 1015px){
+  @media(min-width: 600px){
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  @media(min-width: 768px){
+    max-width: 900px;
+  }
+  @media(min-width: 992px){
     padding-left: 40px;
+    max-width: 1240px;
   }
   @media(min-width: 1366px){
     padding-left: 0px;
