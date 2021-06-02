@@ -49,7 +49,6 @@ const HappyClient = ({ input }) => {
       ) : (
         <OwlCarousel
           margin={72}
-          responsive={false}
           autoWidth={true}
           items={2}
           navContainerClass={"demo"}
@@ -63,10 +62,12 @@ const HappyClient = ({ input }) => {
                 onClick={() => updateSelected(index)}
                 indicator={index === indicator}
                 className="sliders item"
+                dieukien={item.logo_client?.alt ? item.logo_client?.alt : ""}
               >
                 <Img
                   alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
                   src={item.logo_client?.url ? item.logo_client?.url : ""}
+                  dieukien={item.logo_client?.alt ? item.logo_client?.alt : ""}
                 ></Img>
                 <Text>
                   <Content>
@@ -257,13 +258,13 @@ const HappyClients = styled.div`
       width: 16px;
     }
     @media(min-width: 768px){
-      width: 32px;
+      width: 33px;
     }
     @media(min-width: 992px){
-      width: 46px;
-    }
-    @media (min-width: 1366px){
       width: 58px;
+    }
+    @media (min-width: 1216px){
+      width: 87px;
     }
   }
   .owl-theme .owl-dots .owl-dot.active{
@@ -304,14 +305,6 @@ const HappyClients = styled.div`
       margin-top: 145px;
       padding-left: 180px;
     }
-    img{
-      height: 24px;
-      width: 162px;
-      @media (max-width: 600px) {
-        height: 24px;
-        width: 162px;
-      }
-    }
   }
 `
 const Title = styled.h1`
@@ -346,15 +339,15 @@ const Title = styled.h1`
   }
 `
 const Slider = styled.div`
-  margin-top: 47px;
+  margin-top: ${props => props.dieukien === 'logo client' ? '47px' : '40px'};;
 `
 
 const Img = styled.img`
-  height: 24px;
-  width: 162px;
+  height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
+  width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
   @media (max-width: 600px) {
-    height: 24px;
-    width: 162px;
+    height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
+    width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
   }
 `
 const Text = styled.div`

@@ -75,7 +75,7 @@ const PlatformTrio = ({ input }) => {
         })}
       </Platforms>
       :
-        <OwlCarousels margin={26} responsive={false} autoWidth={true} items={2} className="owl-theme" >
+        <OwlCarousels margin={26} autoWidth={true} items={2} className="owl-theme" >
           {platforms?.map((platform, i) => {
           const name = platform.platform[0]?.text
           const desc = platform.description
@@ -166,15 +166,14 @@ const Container = styled.div`
   }
   .owl-carousel.owl-loaded {
     height: 375px;
+    padding-left: 48px;
   }
   .owl-carousel.owl-drag .owl-item{
     @media(max-width: 600px){
       margin-right: 0px !important;
     }
   }
-  .owl-carousel .owl-stage{
-    padding-left: 48px;
-  }
+  
   .owl-theme .owl-nav.disabled + .owl-dots{
     width: 400px;
     margin: 46px auto 0px;
@@ -326,8 +325,16 @@ const Platforms = styled.div`
   position: relative;
   max-width: 1240px;
   height: 299px;
-  @media(min-width: 1015px){
+  @media(min-width: 600px){
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  @media(min-width: 768px){
+    max-width: 900px;
+  }
+  @media(min-width: 992px){
     padding-left: 40px;
+    max-width: 1240px;
   }
   @media(min-width: 1366px){
     padding-left: 0px;
