@@ -56,8 +56,8 @@ const ProjectTiles = ({ input }) => {
         >
           {input && input?.fields
             ? input?.fields?.slice(orinal, limit)?.length > 3
-              ? "Load more case studies"
-              : "Load less case studies"
+              ? "View Case Studies"
+              : "View Case Studies"
             : ""}
         </ButtonCustom>
       </MyBtn>
