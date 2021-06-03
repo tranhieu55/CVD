@@ -138,6 +138,9 @@ const Container = styled.div`
       transform: skewY(3.7deg);
     }
   }
+  @media (min-width: 601px) and (max-width: 768px) {
+    height: 923px;
+  }
   @media (max-width: 600px) {
     position: relative;
     margin-top: 10px;
@@ -325,8 +328,11 @@ const Content = styled.div`
     padding: 0px 32px 0px;
     height: 180px;
   }
-  @media (min-width: 600px) and (max-width: 768px) {
+  @media (min-width: 600px) and (max-width: 666px) {
     margin-bottom: 50px;
+  }
+  @media (min-width: 667px) and (max-width: 768px) {
+    margin-bottom: 0;
   }
   @media (min-width: 1024px) {
     padding: 0px 0px;
