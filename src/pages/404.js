@@ -67,16 +67,17 @@ const NotFoundPage = ({ input }) => {
     }
   `)
 
-  const dataSEO = data.prismic.allNotfound_pages.edges[0].node
+  const dataSEO = data?.prismic?.allNotfound_pages?.edges[0]?.node
   const dataHeading =
-    data.prismic.allNotfound_pages.edges[0].node.heading_text[0].text
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.heading_text[0]?.text
   const dataHeadingText =
-    data.prismic.allNotfound_pages.edges[0].node.paragraph_text[0].text
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.paragraph_text[0]?.text
   const dataButton =
-    data.prismic.allNotfound_pages.edges[0].node.url_button[0].text
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.url_button[0]?.text
   const dataCaseStudies =
-    data.prismic.allNotfound_pages.edges[0].node.body[0].fields
-  const dataTextTwoColumn = data.prismic.allNotfound_pages.edges[0].node
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.body[0]?.fields
+  const dataTextTwoColumn = data?.prismic?.allNotfound_pages?.edges[0]?.node
+
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
@@ -87,7 +88,7 @@ const NotFoundPage = ({ input }) => {
         <CaseStudiHeading>Featured case studies</CaseStudiHeading>
         <ListCaseStudy>
           <Row>
-            {dataCaseStudies.map((element, index) => (
+            {dataCaseStudies?.map((element, index) => (
               <CardProject key={index} resize={true} input={element} />
             ))}
           </Row>
