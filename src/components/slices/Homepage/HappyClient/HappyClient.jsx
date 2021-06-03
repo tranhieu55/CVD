@@ -20,7 +20,6 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
-  console.log(ref)
 
   // function Nextshowslider() {
   //   return (ref.current.container.scrollLeft =

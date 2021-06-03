@@ -405,6 +405,9 @@ export default function FormSumit({ input }) {
       width: 100%;
       font-size: 20px;
     }
+    :focus {
+      outline: none;
+    }
   `
   return (
     <FormSumits>
