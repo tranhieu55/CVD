@@ -504,9 +504,9 @@ const Modal = styled.div`
   margin: auto;
 
   @media (max-width: 768px) {
-    height: 780px;
+    height: auto;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 599px) {
     height: 667px;
   }
 `

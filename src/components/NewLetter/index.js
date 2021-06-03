@@ -264,7 +264,7 @@ const Input = styled.input`
     margin-right: 0px;
   }
   @media (min-width: 992px) {
-    width: 93%;
+    width: 393px;
     margin-right: 18px;
     margin-top: 73px;
   }
