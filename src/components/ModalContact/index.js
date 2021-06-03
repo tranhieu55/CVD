@@ -227,7 +227,7 @@ const Input = styled.input`
     letter-spacing: 1px;
     line-height: 14px;
     position: absolute;
-    transform: translate(26px, 12px) scale(1);
+    transform: translate(24px, 12px) scale(1);
     top: 0;
     left: 0;
     text-transform: uppercase;
@@ -246,7 +246,7 @@ const Input = styled.input`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 20px;
-    padding-top: 8px;
+    padding-top: 9px;
     height: 48px;
     padding-left: 14px;
 
@@ -306,7 +306,7 @@ const Input = styled.input`
     padding-top: 29px;
 
     :not(:placeholder-shown) ~ label {
-      left: 1px;
+      left: 0px;
       transform: translate(24px, 6px) scale(1);
       text-transform: uppercase;
     }
@@ -323,7 +323,7 @@ const Input = styled.input`
       text-transform: uppercase;
     }
     :not(:placeholder-shown) ~ label {
-      left: 1px;
+      left: 0px;
       transform: translate(24px, 17px) scale(1);
       text-transform: uppercase;
     }
