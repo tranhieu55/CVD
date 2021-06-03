@@ -379,4 +379,9 @@ const Errors = styled.p`
   line-height: 24px;
   font-size: 18px;
   font-family: "Calibre Regular";
+  max-width: 380px;
+
+  @media (max-width: 992px) {
+    max-width: 100%;
+  }
 `
