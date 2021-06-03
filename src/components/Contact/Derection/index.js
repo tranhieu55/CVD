@@ -164,8 +164,6 @@ export default function Derection({ input }) {
     }
   `
 
-  console.log({ input })
-
   return (
     <Derections>
       {input ? (
@@ -193,7 +191,15 @@ export default function Derection({ input }) {
                 )}
               </Phone>
               <DivLink>
-                <Link href="#">Call</Link>
+                <Link
+                  href={`tel: ${
+                    item?.office_phone_number[0]?.text
+                      ? item?.office_phone_number[0]?.text
+                      : ""
+                  }`}
+                >
+                  Call
+                </Link>
                 <Link
                   href={
                     input &&

@@ -147,6 +147,9 @@ const Buttons = styled.button`
     color: #101010;
     border: 2px solid #fecf09;
   }
+  :focus {
+    outline: none;
+  }
 `
 const PhoneNumber = styled.h4`
   width: 135px;

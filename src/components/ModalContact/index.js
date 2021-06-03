@@ -469,6 +469,10 @@ const Submit = styled.button`
   text-align: center;
   padding: 25px 0px;
   border-width: 0px;
+  :focus {
+    outline: none;
+  }
+
   @media (max-width: 600px) {
     width: 100%;
     height: 48px;
