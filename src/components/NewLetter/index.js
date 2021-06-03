@@ -141,6 +141,7 @@ const Title = styled.h1`
     margin-top: 80px;
     margin-right: 86px;
     margin-bottom: 0px;
+    white-space: nowrap;
   }
 `
 const Text = styled.p`

@@ -163,7 +163,7 @@ export default function Derection({ input }) {
       color: #555555;
     }
   `
-
+  console.log({ input })
   return (
     <Derections>
       {input ? (
@@ -200,18 +200,7 @@ export default function Derection({ input }) {
                 >
                   Call
                 </Link>
-                <Link
-                  href={
-                    input &&
-                    input?.fields?.map(item =>
-                      item?.directions_link?.url
-                        ? item?.directions_link?.url
-                        : item
-                    )
-                  }
-                >
-                  Directions
-                </Link>
+                <Link href={item?.directions_link?.url}>Directions</Link>
               </DivLink>
             </Contentleft>
             <ContentRight>

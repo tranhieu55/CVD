@@ -382,7 +382,7 @@ export default function FormSumit({ input }) {
 
     color: #222222;
     font-family: Calibre Regular;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
     resize: none;
