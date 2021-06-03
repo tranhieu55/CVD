@@ -246,7 +246,7 @@ const Input = styled.input`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 20px;
-    padding-top: 9px;
+    padding-top: 10px;
     height: 48px;
     padding-left: 14px;
 
