@@ -1475,7 +1475,7 @@ const Header = ({
                     {item && item.slug_menu_item[0]?.text === "services" ? (
                       <span
                         onClick={() => {
-                          setIsDisPlayModalService(!isDisPlayModalService)
+                          setIsDisPlayModalService(true)
                         }}
                         onMouseEnter={() => handelHoverService()}
                         className={`${checkColorText()} colorWhite ${
@@ -1493,7 +1493,7 @@ const Header = ({
                       <>
                         <span
                           onClick={() => {
-                            setIsDisPlayModalOurwork(!isDisPlayModalOurwork)
+                            setIsDisPlayModalOurwork(true)
                           }}
                           className={`${checkColorText()} colorWhite `}
                           onMouseEnter={() => handelHoverOurwork()}
