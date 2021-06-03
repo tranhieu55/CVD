@@ -210,7 +210,7 @@ const Input = styled.input`
   border: 2px solid #cccccc;
   border-radius: 3px;
   padding-left: 24px;
-  padding-right: 24px;
+  padding-right: 22px;
   box-shadow: none;
   padding-top: 15px;
   position: relative;
@@ -246,7 +246,7 @@ const Input = styled.input`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 20px;
-    padding-top: 6px;
+    padding-top: 8px;
     height: 48px;
     padding-left: 14px;
 
