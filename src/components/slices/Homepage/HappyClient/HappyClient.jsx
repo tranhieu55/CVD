@@ -109,7 +109,7 @@ const HappyClients = styled.div`
   margin-top: 96px;
   clip-path: polygon(0px 0%, 100% 2px, 100% 87%, 0% 100%);
   @media (max-width: 600px) {
-    height: 653px;
+    height: 633px;
     margin-top: 24px;
     clip-path: polygon(0px 0%, 100% 2px, 100% 96%, 0% 100%);
   }
