@@ -209,8 +209,8 @@ const Input = styled.input`
   box-sizing: border-box;
   border: 2px solid #cccccc;
   border-radius: 3px;
-  padding-left: 24px;
-  padding-right: 22px;
+  padding-right: 24px;
+  padding-left: 22px;
   box-shadow: none;
   padding-top: 15px;
   position: relative;
