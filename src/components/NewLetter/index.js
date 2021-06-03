@@ -10,7 +10,7 @@ export default function NewLetter({ dataFooter }) {
   const [errors, setError] = useState("")
   const [vali, setVali] = useState("")
   const validateEmail = e => {
-    var email = e.target.value
+    const email = e.target.value
 
     if (email.length > 0) {
       setError("")
@@ -21,10 +21,28 @@ export default function NewLetter({ dataFooter }) {
     }
   }
   const ValiButton = vali => {
+    const at = vali.indexOf("@")
+    const dot = vali.lastIndexOf(".")
+    const space = vali.indexOf(" ")
+
     if (vali !== "") {
       setError("")
     } else {
       setError("This field is required")
+      return
+    }
+
+    if (
+      at != -1 &&
+      at != 0 &&
+      dot != -1 &&
+      dot > at + 1 &&
+      dot < vali.length - 1 &&
+      space == -1
+    ) {
+      setError("")
+    } else {
+      setError("Please enter a valid email address (Ex: example@domain.com)")
     }
   }
   return (
