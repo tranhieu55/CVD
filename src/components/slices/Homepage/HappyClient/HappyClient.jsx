@@ -116,6 +116,9 @@ const HappyClients = styled.div`
   @media (min-width: 600px) {
     clip-path: polygon(0px 0%, 100% 2px, 100% 95%, 0% 100%);
   }
+  @media (min-width: 601px) and (max-width: 768px) {
+    height: 675px;
+  }
   .owl-prev{
     color: #d3d3d3;
     border: none;
@@ -300,6 +303,9 @@ const HappyClients = styled.div`
       height: 354px;
       width: 100%;
     }
+    @media (min-width: 601px) and (max-width: 768px) {
+      margin-top: 70px;
+    }
     @media (min-width: 1366px) {
       height: 406px;
       margin-top: 145px;
@@ -333,6 +339,9 @@ const Title = styled.h1`
   }
   @media (min-width: 601px) {
     padding: 100px 32px 0px;
+  }
+  @media (min-width: 601px) and (max-width: 768px) {
+    font-size: 56px;
   }
   @media (min-width: 768px) {
     padding: 100px 0px 0px;
