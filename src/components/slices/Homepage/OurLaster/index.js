@@ -200,7 +200,7 @@ const TitlePost = styled.h4`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+  margin-left: ${props => (props.vitri === 1 ? "48px" : "30px")};
   @media (max-width: 600px) {
     height: 72px;
     font-size: 24px;
@@ -250,7 +250,7 @@ const SubTitle = styled.h4`
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 16px;
-  margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+  margin-left: ${props => (props.vitri === 1 ? "48px" : "113px")};
   margin-top: 33px;
   &::after {
     position: absolute;
@@ -277,14 +277,14 @@ const SubTitle = styled.h4`
     }
   }
   @media (min-width: 768px) {
-    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "113px")};
   }
   @media (min-width: 1024px) {
-    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "113px")};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "32px")};
   }
   @media (min-width: 1366px) {
-    margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "48px" : "113px")};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "33px")};
   }
 `
