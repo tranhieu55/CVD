@@ -50,7 +50,7 @@ export default function Accordion({ input }) {
               <TextCT>{RichText.render(item.content_text)}</TextCT>
               <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
               <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
-              <TextF>
+              <TextF className={isOpen === i ? "openF" : ""}>
                 {RichText.render(item.application)}
                 {RichText.render(item.content_footer)}&nbsp;
                 {RichText.render(item.email)}
@@ -121,12 +121,12 @@ const Content = styled.div`
   position: relative;
 
   animation-name: ${props => (props.className === "open" ? "false" : "border")};
-  animation-duration: 0.8s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 
   @keyframes border {
     from {
-      border-bottom: none;
+      border-bottom: 1px solid transparent;
     }
     to {
       border-bottom: 1px solid #e4e4e4;
@@ -269,7 +269,8 @@ const TextCTA = styled.div`
 `
 const TextF = styled.div`
   padding-bottom: 48px;
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: ${props =>
+    props.className !== "openF" ? "none" : "1px solid #e4e4e4"};
 
   p {
     margin-bottom: 4px;

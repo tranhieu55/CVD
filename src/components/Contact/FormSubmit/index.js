@@ -90,6 +90,9 @@ export default function FormSumit({ input }) {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    padding-top: 7px;
+
     :focus {
       outline: none;
       border: 2px solid #6e6e6e;
