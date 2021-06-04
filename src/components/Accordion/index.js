@@ -117,9 +117,21 @@ const DivImg = styled.div`
 const Content = styled.div`
   width: 100%;
   height: auto;
-  border-bottom: ${props =>
-    props.className === "open" ? "none" : "1px solid #e4e4e4"};
+  border-bottom: none;
   position: relative;
+
+  animation-name: ${props => (props.className === "open" ? "false" : "border")};
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+
+  @keyframes border {
+    from {
+      border-bottom: none;
+    }
+    to {
+      border-bottom: 1px solid #e4e4e4;
+    }
+  }
 `
 const Contents = styled.div`
   width: 100%;
