@@ -223,11 +223,7 @@ export default function FormSumit({ input }) {
     }
 
     input:not(:placeholder-shown) {
-<<<<<<< Updated upstream
       border: 1px solid #6e6e6e;
-=======
-      // border: 2px solid #cccccc;
->>>>>>> Stashed changes
     }
     textarea {
       border: 2px solid #cccccc;
