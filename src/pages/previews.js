@@ -363,6 +363,16 @@ export const pageQuery = graphql`
                   image_case_study
                 }
               }
+              ... on PRISMIC_Notfound_pageBody3_column_profiles {
+                type
+                label
+                fields {
+                  avatar
+                  description
+                  name
+                  position
+                }
+              }
             }
           }
         }
