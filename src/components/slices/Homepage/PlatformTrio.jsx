@@ -64,7 +64,7 @@ const PlatformTrio = ({ input }) => {
                     {RichText.render(desc)}
                   </PlatformDesc>
                   <Buttons>
-                    <ButtonText> Learn more</ButtonText>
+                    <ButtonText href="#"> Learn more</ButtonText>
                   </Buttons>
                 </Inner>
               </Platform>
@@ -98,7 +98,7 @@ const PlatformTrio = ({ input }) => {
                     {RichText.render(desc)}
                   </PlatformDesc>
                   <Buttons>
-                    <ButtonText> Learn more</ButtonText>
+                    <ButtonText href="#"> Learn more</ButtonText>
                   </Buttons>
                 </Inner>
               </Platform>
@@ -446,6 +446,12 @@ const Buttons = styled.div`
   border: 2px solid #fecf09;
   border-radius: 3px;
   cursor: pointer;
+
+  :hover {
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    background-color: #ffd700;
+  }
 `
 const ButtonText = styled(Link)`
   font-family: Calibre Medium;
