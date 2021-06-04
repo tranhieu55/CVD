@@ -121,14 +121,20 @@ const Content = styled.div`
   position: relative;
 
   animation-name: ${props => (props.className === "open" ? "false" : "border")};
-  animation-duration: 1s;
+  animation-duration: 0.6s;
   animation-fill-mode: forwards;
 
   @keyframes border {
-    from {
+    0% {
       border-bottom: 1px solid transparent;
     }
-    to {
+    25% {
+      border-bottom: 1px solid transparent;
+    }
+    50% {
+      border-bottom: 1px solid transparent;
+    }
+    100% {
       border-bottom: 1px solid #e4e4e4;
     }
   }
