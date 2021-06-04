@@ -16,7 +16,7 @@ export default function FormSumit({ input }) {
       right: 0px;
       margin: 0px 16px;
       top: 391px;
-      height: 718px;
+      height: auto;
     }
     @media (max-width: 360px) {
       left: 0px;
@@ -39,7 +39,7 @@ export default function FormSumit({ input }) {
     }
     @media (min-width: 768px) {
       width: 340px;
-      right: 20px;
+      right: 30px;
       height: 770px;
     }
     @media (min-width: 1024px) {
@@ -65,7 +65,7 @@ export default function FormSumit({ input }) {
   const Forms = styled.div`
     padding: 48px 48px;
     @media (max-width: 600px) {
-      padding: 30px 24px;
+      padding: 33px 24px 27px;
     }
     @media (min-width: 600px) {
       padding: 30px 24px;
@@ -91,7 +91,7 @@ export default function FormSumit({ input }) {
     -moz-appearance: none;
     appearance: none;
 
-    padding-top: 7px;
+    padding-top: 6.5px;
 
     :focus {
       outline: none;
@@ -106,7 +106,7 @@ export default function FormSumit({ input }) {
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(11px, -9px) scale(1);
+      transform: translate(11px, -6px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
@@ -114,7 +114,11 @@ export default function FormSumit({ input }) {
       padding: 0px 5px;
     }
     :not(:placeholder-shown) {
-      border: 2px solid #6e6e6e;
+      border: 1px solid #6e6e6e;
+    }
+
+    :focus ~ label {
+      color: #6e6e6e;
     }
     @media (max-width: 600px) {
       margin-bottom: 16px;
@@ -125,13 +129,13 @@ export default function FormSumit({ input }) {
         border: 2px solid #6e6e6e;
       }
       :focus ~ label {
-        color: #999999;
+        color: #6e6e6e;
         font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 1px;
         line-height: 24px;
         position: absolute;
-        transform: translate(11px, -9px) scale(1);
+        transform: translate(11px, -6px) scale(1);
         top: 0px;
         left: 0px;
         background: #ffffff;
@@ -145,7 +149,7 @@ export default function FormSumit({ input }) {
         letter-spacing: 1px;
         line-height: 24px;
         position: absolute;
-        transform: translate(11px, -9px) scale(1);
+        transform: translate(11px, -6px) scale(1);
         top: 0px;
         left: 0px;
         background: #ffffff;
@@ -222,7 +226,7 @@ export default function FormSumit({ input }) {
       border: 1px solid #6e6e6e;
     }
     textarea {
-      border: 1px solid #cccccc;
+      border: 2px solid #cccccc;
       border-radius: 3px;
       background-color: #ffffff;
       min-height: 178px;
@@ -274,7 +278,11 @@ export default function FormSumit({ input }) {
     }
 
     textarea:not(:placeholder-shown) {
+<<<<<<< Updated upstream
       border: 1px solid #6e6e6e;
+=======
+      // border: 2px solid #cccccc;
+>>>>>>> Stashed changes
     }
     label {
       color: #b6b6b6;
@@ -314,6 +322,7 @@ export default function FormSumit({ input }) {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
     :active ~ label,
     :focus ~ label,
     :not(:placeholder-shown) ~ label {
@@ -323,38 +332,44 @@ export default function FormSumit({ input }) {
       letter-spacing: 1px;
       line-height: 15px;
       position: absolute;
-      transform: translate(11px, -9px) scale(1);
+      transform: translate(11px, -6px) scale(1);
       top: 0;
       left: 1px;
       text-transform: uppercase;
       background: #ffffff;
       padding: 0px 5px;
     }
-    :not(:placeholder-shown) {
-      border: 2px solid #6e6e6e;
+    :focus ~ label {
+      color: #6e6e6e;
     }
     :focus {
       outline: none;
       border: 2px solid #6e6e6e;
     }
+    :not(:placeholder-shown) {
+      border: 1px solid #6e6e6e;
+    }
+
     @media (max-width: 768px) {
       margin-bottom: 10px;
     }
     @media (max-width: 600px) {
       text-indent: 14px;
       padding-left: 0px;
+      margin-bottom: 6px;
+
       :focus {
         outline: none;
         border: 2px solid #6e6e6e;
       }
       :focus ~ label {
-        color: #999999;
+        color: #6e6e6e;
         font-family: Calibre Semibold;
         font-size: 14px;
         letter-spacing: 1px;
         line-height: 24px;
         position: absolute;
-        transform: translate(11px, -9px) scale(1);
+        transform: translate(11px, -6px) scale(1);
         top: 0;
         left: 0px;
         background: #ffffff;
@@ -368,7 +383,7 @@ export default function FormSumit({ input }) {
         letter-spacing: 1px;
         line-height: 24px;
         position: absolute;
-        transform: translate(11px, -9px) scale(1);
+        transform: translate(11px, -6px) scale(1);
         top: 0px;
         left: 0px;
         background: #ffffff;
