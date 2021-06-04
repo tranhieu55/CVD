@@ -168,7 +168,7 @@ export default function FormSumit({ input }) {
     position: relative;
     width: 100%;
     input {
-      border: 1px solid #cccccc;
+      border: 2px solid #cccccc;
       border-radius: 3px;
       background-color: #ffffff;
     }
@@ -219,11 +219,8 @@ export default function FormSumit({ input }) {
     }
 
     input:not(:placeholder-shown) {
-      border: 2px solid #cccccc;
+      border: 1px solid #6e6e6e;
     }
-
-    //12312
-
     textarea {
       border: 1px solid #cccccc;
       border-radius: 3px;
@@ -277,7 +274,7 @@ export default function FormSumit({ input }) {
     }
 
     textarea:not(:placeholder-shown) {
-      border: 2px solid #cccccc;
+      border: 1px solid #6e6e6e;
     }
     label {
       color: #b6b6b6;
@@ -324,7 +321,7 @@ export default function FormSumit({ input }) {
       font-family: Calibre Semibold;
       font-size: 14px;
       letter-spacing: 1px;
-      line-height: 24px;
+      line-height: 15px;
       position: absolute;
       transform: translate(11px, -9px) scale(1);
       top: 0;

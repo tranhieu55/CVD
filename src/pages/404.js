@@ -4,9 +4,6 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
 import CardProject from "../components/CardProject"
-import TwoColumnText from "../components/ColumnText"
-import SliceZone from "../utils/SliceZone"
-import SliderIntagram from "../components/SilderIntagram"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -75,9 +72,7 @@ const NotFoundPage = ({ input }) => {
   const dataButton =
     data?.prismic?.allNotfound_pages?.edges[0]?.node?.url_button[0]?.text
   const dataCaseStudies =
-    data?.prismic?.allNotfound_pages?.edges[0]?.node?.body[0]?.fields
-  const dataTextTwoColumn = data?.prismic?.allNotfound_pages?.edges[0]?.node
-
+    data.prismic.allNotfound_pages.edges[0].node.body[11].fields
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
@@ -94,7 +89,6 @@ const NotFoundPage = ({ input }) => {
           </Row>
         </ListCaseStudy>
       </Wrapper>
-      <SliceZone allSlices={dataTextTwoColumn.body} />
     </Layout>
   )
 }
