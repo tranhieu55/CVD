@@ -15,24 +15,31 @@ function OurWorkProjects(props) {
   const state = useContext(OurWorkStateContext)
   const { listSelected } = state
   const [toggle, setToggle] = useState(false)
-  let test = listSelected.includes("all")
+  let test = listSelected?.includes("all")
     ? listProjects
     : listProjects.filter(x => {
-        return listSelected.includes(
-          x.project_item?.relationship_to_project_category?._meta?.uid ?
-          x.project_item?.relationship_to_project_category?._meta?.uid 
-          : x
+        return listSelected?.includes(
+          x.project_item?.relationship_to_project_category?._meta?.uid
+            ? x.project_item?.relationship_to_project_category?._meta?.uid
+            : x
         )
       })
   const handelClickLoadMore = () => {
     setToggle(!toggle)
   }
+  console.log("==========", listSelected)
   return (
     <ListBlogStyle>
       <Rows className="row">
-        { test ? test?.slice(0, toggle ? test?.length : 4).map((project, index) => (
-          <CardProject key={index} input={project} />
-        )): <></>}
+        {test ? (
+          test
+            ?.slice(0, toggle ? test?.length : 4)
+            .map((project, index) => (
+              <CardProject key={index} input={project} />
+            ))
+        ) : (
+          <></>
+        )}
       </Rows>
       <MyBtn className={test.length < 4 ? "none" : ""}>
         <ButtonCustom
@@ -84,7 +91,7 @@ const ListBlogStyle = styled.div`
     margin-right: 0px;
     margin-left: 0px;
   }
-  .none{
+  .none {
     display: none;
   }
 `

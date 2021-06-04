@@ -41,11 +41,15 @@ import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
-import loadable from '@loadable/component'
-import ClientLogos from "../components/slices/Homepage/ClientLogos";
+import loadable from "@loadable/component"
+import ClientLogos from "../components/slices/Homepage/ClientLogos"
 
-const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
-const PlatformTrio = loadable(() => import("../components/slices/Homepage/PlatformTrio"))
+const HappyClinetssss = loadable(() =>
+  import("../components/slices/Homepage/HappyClient/HappyClient")
+)
+const PlatformTrio = loadable(() =>
+  import("../components/slices/Homepage/PlatformTrio")
+)
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -178,6 +182,12 @@ const SliceZone = props => {
               <TextSolution key={index} input={s} />
             </>
           )
+        case "section_solution":
+          return (
+            <>
+              <TextSolution key={index} input={s} />
+            </>
+          )
         case "statistical_ourwork_item_":
           return (
             <>
@@ -263,7 +273,7 @@ const SliceZone = props => {
               <CardPageBlog key={index} input={s} />
             </>
           )
-        case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
+        case "what_we_do_item":
           return (
             <Cardwhatwedo
               key={index}
