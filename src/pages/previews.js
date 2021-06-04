@@ -343,9 +343,8 @@ export const pageQuery = graphql`
                 type
                 label
                 primary {
-                  name_of_the_author
-                  portrait_author
-                  quote
+                  title_quote
+                  author_of_quote
                 }
               }
               ... on PRISMIC_Notfound_pageBodyImage_grid_landscape {

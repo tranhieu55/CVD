@@ -168,6 +168,12 @@ const SliceZone = props => {
               <TextBackground key={index} input={s} />
             </>
           )
+        case "title_with_description":
+          return (
+            <>
+              <TextBackground key={index} input={s} />
+            </>
+          )
         case "one_image":
           return <OneImage key={index} input={s} />
         case "list_image":
@@ -194,6 +200,12 @@ const SliceZone = props => {
               <ContentPercent key={index} input={s} />
             </>
           )
+        case "statistical_project":
+          return (
+            <>
+              <ContentPercent key={index} input={s} />
+            </>
+          )
         case "slider_image":
           return (
             <>
@@ -201,6 +213,12 @@ const SliceZone = props => {
             </>
           )
         case "text_quote":
+          return (
+            <>
+              <TextQoute key={index} input={s} />
+            </>
+          )
+        case "quote":
           return (
             <>
               <TextQoute key={index} input={s} />
