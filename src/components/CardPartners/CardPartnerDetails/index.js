@@ -1,30 +1,35 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import ButtonCustom from "../../ButtonCustom"
 
-function CardPartnerDetails({ showDetails }) {
+function CardPartnerDetails({ setShowDetails, data }) {
+  console.log({ data })
+
+  // get data from props
+  const dataButton = data && data !== null ? data?.button_popup[0]?.text : ""
+  const dataButtonUrl = data && data !== null ? data.partner_url?.url : ""
+  const dataButtonTarget = data && data !== null ? data.partner_url?.target : ""
+  const dataDescription =
+    data && data !== null ? data?.description1[0]?.text : ""
+  const dataLogoUrl = data && data !== null ? data?.partner_logo?.url : ""
+  const dataLogoAlt = data && data !== null ? data?.partner_logo?.alt : ""
+  const dataTitle = data && data !== null ? data?.partner_name[0]?.text : ""
+
   return (
     <>
-      {showDetails ? (
+      {data && data !== null ? (
         <Wrapper>
           <Container>
-            <Close></Close>
-            <DivIMG></DivIMG>
-            <Title>Online Marketing Gurus</Title>
-            <Descriptions>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-              velit, sed quia non numquam eius modi tempora incidunt ut labore
-              et dolore magnam aliquam quaerat voluptatem.
-            </Descriptions>
-            <ViewMore>
+            <Close onClick={() => setShowDetails()}>X</Close>
+            <DivIMG>
+              <img src={dataLogoUrl} alt={dataLogoAlt} />
+            </DivIMG>
+            <Title>{dataTitle}</Title>
+            <Descriptions>{dataDescription}</Descriptions>
+            <ViewMore as={Link} to={dataButtonUrl} target={dataButtonTarget}>
               <ButtonCustom wt={180} cc={64} bgColor={"#FECF09"} Block={true}>
-                <LabelButton>LabelButton</LabelButton>
+                <LabelButton>{dataButton}</LabelButton>
               </ButtonCustom>
             </ViewMore>
           </Container>
@@ -47,6 +52,13 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 10000;
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
 `
 
 const Container = styled.div`
@@ -56,6 +68,20 @@ const Container = styled.div`
   padding: 36px 61px 41px 48px;
   min-width: 605px;
   position: relative;
+
+  @media (max-width: 600px) {
+    min-width: 339px;
+    padding-top: 18px;
+    padding-right: 24px;
+    padding-left: 18px;
+    padding-bottom: 154px;
+    border-radius: 0;
+  }
+
+  @media (max-width: 340px) {
+    width: 100%;
+    min-width: 100px;
+  }
 `
 const Close = styled.span`
   background-color: green;
@@ -64,12 +90,26 @@ const Close = styled.span`
   right: 26.33px;
   width: 18.67px;
   height: 20px;
+  cursor: pointer;
+
+  @media (max-width: 600px) {
+    top: 29px;
+  }
 `
 const DivIMG = styled.div`
   width: 244px;
   height: 122px;
-  background-color: gray;
   margin-bottom: 13px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 12px;
+  }
 `
 
 const Title = styled.h5`
@@ -90,8 +130,21 @@ const Descriptions = styled.p`
   letter-spacing: 0;
   line-height: 24px;
   margin-bottom: 22px;
+
+  @media (max-width: 600px) {
+    max-width: 297px;
+    margin-bottom: 27px;
+  }
 `
-const ViewMore = styled.div``
+const ViewMore = styled.div`
+  text-decoration: none;
+
+  :active,
+  :focus,
+  :visited {
+    text-decoration: none;
+  }
+`
 const LabelButton = styled.h6`
   color: #101010;
   font-family: Calibre Semibold;
