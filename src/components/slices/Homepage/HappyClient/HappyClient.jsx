@@ -118,6 +118,9 @@ const HappyClients = styled.div`
   @media (min-width: 601px) and (max-width: 768px) {
     height: 675px;
   }
+  @media (min-width: 992px) and (max-width: 1366px) {
+    height: 760px;
+  }
   .owl-prev{
     color: #d3d3d3;
     border: none;
@@ -201,9 +204,9 @@ const HappyClients = styled.div`
     @media(min-width: 992px){
       left: 10%;
       width: 624px;
-      bottom: 19.2%;
+      bottom: 15%;
     }
-    @media (min-width: 1366px){
+    @media (min-width: 1367px){
       left: 28.5%;
       bottom: 19.2%;
     }
@@ -236,12 +239,13 @@ const HappyClients = styled.div`
     @media(min-width: 992px){
       left: 80%;
       width: 120px;
-      bottom: 20%;
+      bottom: 16%;
     }
     @media(min-width: 1200px){
       left: 70%;
+
     }
-    @media (min-width: 1366px){
+    @media (min-width: 1367px){
       left: 83%;
       bottom: 20%;
     }
