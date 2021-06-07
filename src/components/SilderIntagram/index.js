@@ -13,7 +13,7 @@ export default function SliderIntagram({ input }) {
     rows: 1,
     slidesPerRow: 1,
     dots: true,
-  };
+  }
   return (
     <Container>
       <Slider>
@@ -35,6 +35,21 @@ export default function SliderIntagram({ input }) {
     </Container>
   )
 }
+const Container = styled.div`
+  max-width: 1240px;
+  margin: 0 auto;
+  margin-top: 48px;
+  max-height: 780px;
+  margin-bottom: 150px;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 66px;
+  }
+  @media (min-width: 601px) {
+    .wrap-header {
+      width: 100vw;
+    }
+  }
+`
 const Slider = styled.div`
   div {
     z-index: 1;
@@ -79,7 +94,8 @@ const Slider = styled.div`
       top: 48%;
     }
   }
-  .slick-slider .slick-track, .slick-slider .slick-list{
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
     padding-left: 0px !important;
   }
   .slick-next:before {
@@ -186,20 +202,5 @@ const Images = styled.img`
     height: 100%;
     width: 100%;
     padding: 0px !important;
-  }
-`
-const Container = styled.div`
-  max-width: 1240px;
-  margin: 0 auto;
-  margin-top: 48px;
-  margin-bottom: 150px;
-  height: 780px;
-  @media only screen and (max-width: 600px) {
-    margin-bottom: 66px;
-  }
-  @media (min-width: 601px) {
-    .wrap-header {
-      width: 100vw;
-    }
   }
 `
