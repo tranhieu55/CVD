@@ -60,17 +60,15 @@ const NotFoundPage = ({ input }) => {
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
-      <Wrapper>
-        <Heading>{dataHeading}</Heading>
-        <HeadingText>{dataHeadingText}</HeadingText>
-        <Button href="/">{dataButton}</Button>
-        <CaseStudiHeading>Featured case studies</CaseStudiHeading>
-        <ListCaseStudy>
-          <Row>
-            <SliceZone allSlices={dataCaseStudies} />
-          </Row>
-        </ListCaseStudy>
-      </Wrapper>
+      <Box>
+        <Wrapper>
+          <Heading>{dataHeading}</Heading>
+          <HeadingText>{dataHeadingText}</HeadingText>
+          <Button href="/">{dataButton}</Button>
+          <CaseStudiHeading>Featured case studies</CaseStudiHeading>
+        </Wrapper>
+        <SliceZone allSlices={dataCaseStudies} />
+      </Box>
     </Layout>
   )
 }
@@ -78,7 +76,9 @@ const NotFoundPage = ({ input }) => {
 export default NotFoundPage
 
 // style
-
+const Box = styled.div`
+  background-color: #f8f8f8;
+`
 const Wrapper = styled.div`
   padding-top: 247px;
   background-color: #f8f8f8;

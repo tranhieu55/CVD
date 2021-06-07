@@ -158,7 +158,6 @@ function Preview({ data: { prismic } }) {
     prismic && prismic?.allNotfound_pages?.edges[0]?.node
       ? prismic?.allNotfound_pages?.edges[0]?.node
       : []
-  console.log("123", data)
   return (
     <>
       <GlobalStyle />
