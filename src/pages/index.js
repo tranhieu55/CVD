@@ -7,7 +7,6 @@ import GlobalMessage from "../components/GlobalMessage"
 
 import { useState } from "react"
 import BannerHomepage from "../components/Banner/BannerHomePage"
-import DemoSlider from '../components/DemoSlider';
 
 const Index = ({ data: { prismic } }, e) => {
   const data =
@@ -27,7 +26,6 @@ const Index = ({ data: { prismic } }, e) => {
         <BannerHomepage data={data} />
         <SliceZone allSlices={data.body} />
         <OurServices />
-        <DemoSlider />
       </Layout>
     </>
   )
