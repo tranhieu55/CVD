@@ -3,13 +3,16 @@ import Sliders from "react-slick"
 import styled from "styled-components"
 
 export default function SliderIntagram({ input }) {
-  var settings = {
-    dots: true,
+  const settings = {
+    className: "left",
+    centerMode: true,
     infinite: true,
-    speed: 500,
-    fade: true,
+    centerPadding: "160px",
     slidesToShow: 1,
-    slidesToScroll: 1,
+    speed: 500,
+    rows: 1,
+    slidesPerRow: 1,
+    dots: true,
   }
   return (
     <Container>
@@ -32,6 +35,21 @@ export default function SliderIntagram({ input }) {
     </Container>
   )
 }
+const Container = styled.div`
+  max-width: 1240px;
+  margin: 0 auto;
+  margin-top: 48px;
+  max-height: 780px;
+  margin-bottom: 150px;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 66px;
+  }
+  @media (min-width: 601px) {
+    .wrap-header {
+      width: 100vw;
+    }
+  }
+`
 const Slider = styled.div`
   div {
     z-index: 1;
@@ -75,6 +93,10 @@ const Slider = styled.div`
     @media (max-width: 1440px) {
       top: 48%;
     }
+  }
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
+    padding-left: 0px !important;
   }
   .slick-next:before {
     content: "\f061";
@@ -180,23 +202,5 @@ const Images = styled.img`
     height: 100%;
     width: 100%;
     padding: 0px !important;
-  }
-`
-const Container = styled.div`
-  max-width: 1240px;
-  margin: 0 auto;
-  margin-top: 48px;
-  margin-bottom: 150px;
-
-  @media only screen and (max-width: 600px) {
-    margin-bottom: 66px;
-  }
-  @media (min-width: 601px) {
-    .wrap-header {
-      width: 100vw;
-    }
-  }
-  @media (min-width: 1600px) {
-    padding: 0 15px;
   }
 `
