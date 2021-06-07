@@ -159,7 +159,12 @@ const DivIMG = styled.div`
     height: 6px;
     transition: all 0.4s ease-in;
   }
+
   :hover {
+    img {
+      transition: all 0.4s ease-in;
+      transform: scale(1.05);
+    }
     ::after {
       width: 100%;
     }
@@ -320,10 +325,6 @@ const Img = styled.img`
   width: 100%;
   object-fit: cover;
   transition: all 0.4s ease-in;
-  :hover {
-    transition: all 0.4s ease-in;
-    transform: scale(1.05);
-  }
 
   @media (max-width: 600px) {
     width: 100%;
