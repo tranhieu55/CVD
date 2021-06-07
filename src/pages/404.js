@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
-import CardProject from "../components/CardProject"
+import SliceZone from "../utils/SliceZone"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -19,21 +19,6 @@ const NotFoundPage = ({ input }) => {
               keywords
               heading_text
               body {
-                ... on PRISMIC_Notfound_pageBodyInstagram_launch {
-                  type
-                  label
-                  fields {
-                    image_slice
-                  }
-                }
-                ... on PRISMIC_Notfound_pageBody2_column_text {
-                  type
-                  label
-                  primary {
-                    text_side_left
-                    text_side_right
-                  }
-                }
                 ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
                   type
                   fields {
@@ -71,8 +56,7 @@ const NotFoundPage = ({ input }) => {
     data?.prismic?.allNotfound_pages?.edges[0]?.node?.paragraph_text[0]?.text
   const dataButton =
     data?.prismic?.allNotfound_pages?.edges[0]?.node?.url_button[0]?.text
-  const dataCaseStudies =
-    data.prismic.allNotfound_pages.edges[0].node.body[11].fields
+  const dataCaseStudies = data.prismic.allNotfound_pages.edges[0].node.body
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
@@ -83,9 +67,7 @@ const NotFoundPage = ({ input }) => {
         <CaseStudiHeading>Featured case studies</CaseStudiHeading>
         <ListCaseStudy>
           <Row>
-            {dataCaseStudies?.map((element, index) => (
-              <CardProject key={index} resize={true} input={element} />
-            ))}
+            <SliceZone allSlices={dataCaseStudies} />
           </Row>
         </ListCaseStudy>
       </Wrapper>

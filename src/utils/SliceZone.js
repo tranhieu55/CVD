@@ -43,6 +43,7 @@ import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
 import loadable from "@loadable/component"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
+import CardProjectItem from "../components/CardProjectItem"
 
 const HappyClinetssss = loadable(() =>
   import("../components/slices/Homepage/HappyClient/HappyClient")
@@ -323,6 +324,9 @@ const SliceZone = props => {
 
         case "_accordion":
           return <Accordion key={index} input={s} />
+
+        case "case_studies_are_shown":
+          return <CardProjectItem key={index} input={s} />
 
         default:
           return <></>
