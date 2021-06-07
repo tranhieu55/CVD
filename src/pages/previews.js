@@ -354,13 +354,26 @@ export const pageQuery = graphql`
                   image_grid
                 }
               }
-              ... on PRISMIC_Notfound_pageBodyCase_study_tiles {
+              ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
                 type
-                label
                 fields {
-                  title
-                  sub_title
-                  image_case_study
+                  project_item {
+                    ... on PRISMIC_Projects {
+                      name_category_of_project
+                      project_name
+                      project_header_image
+                      relationship_to_project_category {
+                        ... on PRISMIC_Category_ourwork {
+                          _meta {
+                            uid
+                          }
+                        }
+                      }
+                      _meta {
+                        uid
+                      }
+                    }
+                  }
                 }
               }
               ... on PRISMIC_Notfound_pageBody3_column_profiles {

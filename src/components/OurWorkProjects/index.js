@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import CardProject from "../CardProject"
 import { OurWorkStateContext } from "../../context/ourwork/OurWorkContextProvider"
+import SliceZone from "../../utils/SliceZone"
 
 OurWorkProjects.propTypes = {
   input: PropTypes.object,
@@ -27,7 +28,7 @@ function OurWorkProjects(props) {
   const handelClickLoadMore = () => {
     setToggle(!toggle)
   }
-  console.log("==========", listSelected)
+  console.log("==========", test)
   return (
     <ListBlogStyle>
       <Rows className="row">
