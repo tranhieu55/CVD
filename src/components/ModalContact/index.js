@@ -238,7 +238,7 @@ const Input = styled.input`
     border: 2px solid #222222;
   }
   :not(:placeholder-shown) {
-    border: 2px solid #222222;
+    border: 1px solid #6e6e6e;
   }
   @media (max-width: 320px) {
     margin-bottom: 20px;

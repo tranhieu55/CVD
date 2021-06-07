@@ -6,57 +6,55 @@ import { Link } from "gatsby"
 function CardProjectItem(props) {
   const { input, resize } = props
   return (
-    <>
-      <Wrapper>
-        <ListCaseStudy>
-          <Row>
-            {input?.fields?.map((item, key) => (
-              <Colum className="col-md-6" key={key}>
-                {item ? (
-                  <DivIMG
-                    as={Link}
-                    to={`/projects/${item?.project_item?.relationship_to_project_category?._meta?.uid}/${item?.project_item?._meta?.uid}`}
-                  >
-                    <IMG
-                      alt={
-                        item?.project_item?.project_header_image?.alt
-                          ? item?.project_item?.project_header_image?.alt
-                          : ""
-                      }
-                      src={
-                        item?.project_item?.project_header_image?.url
-                          ? item?.project_item?.project_header_image?.url
-                          : ""
-                      }
-                      objectFit="cover"
-                      h={resize ? "433" : "500"}
-                    />
-                  </DivIMG>
-                ) : (
-                  <></>
-                )}
-                {item ? (
-                  <TitleImageBlog>
-                    <Span>
-                      {item?.project_item?.name_category_of_project
-                        ? item?.project_item?.name_category_of_project
-                        : ""}
-                    </Span>
-                    <H3>
-                      {item?.project_item?.project_name[0]?.text
-                        ? item?.project_item?.project_name[0]?.text
-                        : ""}
-                    </H3>
-                  </TitleImageBlog>
-                ) : (
-                  <></>
-                )}
-              </Colum>
-            ))}
-          </Row>
-        </ListCaseStudy>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <ListCaseStudy>
+        <Row>
+          {input?.fields?.map((item, key) => (
+            <Colum className="col-md-6" key={key}>
+              {item ? (
+                <DivIMG
+                  as={Link}
+                  to={`/projects/${item?.project_item?.relationship_to_project_category?._meta?.uid}/${item?.project_item?._meta?.uid}`}
+                >
+                  <IMG
+                    alt={
+                      item?.project_item?.project_header_image?.alt
+                        ? item?.project_item?.project_header_image?.alt
+                        : ""
+                    }
+                    src={
+                      item?.project_item?.project_header_image?.url
+                        ? item?.project_item?.project_header_image?.url
+                        : ""
+                    }
+                    objectFit="cover"
+                    h={resize ? "433" : "500"}
+                  />
+                </DivIMG>
+              ) : (
+                <></>
+              )}
+              {item ? (
+                <TitleImageBlog>
+                  <Span>
+                    {item?.project_item?.name_category_of_project
+                      ? item?.project_item?.name_category_of_project
+                      : ""}
+                  </Span>
+                  <H3>
+                    {item?.project_item?.project_name[0]?.text
+                      ? item?.project_item?.project_name[0]?.text
+                      : ""}
+                  </H3>
+                </TitleImageBlog>
+              ) : (
+                <></>
+              )}
+            </Colum>
+          ))}
+        </Row>
+      </ListCaseStudy>
+    </Wrapper>
   )
 }
 
@@ -66,11 +64,11 @@ const Wrapper = styled.div``
 const ListCaseStudy = styled.div`
   height: auto;
   margin: 0 180px;
-  padding-bottom: 130px;
+  padding-bottom: 96px;
 
   @media (max-width: 1366px) {
     margin: 0 100px;
-    padding-bottom: 100px;
+    padding-bottom: 96px;
   }
   @media (max-width: 1200px) {
     margin: 0 40px;
