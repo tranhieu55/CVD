@@ -172,10 +172,10 @@ const DivIMG = styled.div`
 const Phur = styled.div`
   position: absolute;
   opacity: 0.3;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   height: 50%;
   width: 100%;
-  bottom : 0;
+  bottom: 0;
 `
 const Rows = styled.div`
   @media (max-width: 600px) {
@@ -185,6 +185,9 @@ const Rows = styled.div`
   }
 `
 const Colum = styled.div`
+  a {
+    width: 100%;
+  }
   @media (max-width: 600px) {
     height: 245px;
     padding-left: 0px;

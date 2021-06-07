@@ -223,7 +223,7 @@ export default function FormSumit({ input }) {
     }
 
     input:not(:placeholder-shown) {
-      border: 1px solid #6e6e6e;
+      // border: 2px solid #cccccc;
     }
     textarea {
       border: 2px solid #cccccc;
@@ -279,7 +279,11 @@ export default function FormSumit({ input }) {
 
     textarea:not(:placeholder-shown) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       border: 1px solid #6e6e6e;
+=======
+      // border: 2px solid #cccccc;
+>>>>>>> Stashed changes
 =======
       // border: 2px solid #cccccc;
 >>>>>>> Stashed changes
