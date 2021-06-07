@@ -3,10 +3,7 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
-import CardProject from "../components/CardProject"
-import TwoColumnText from "../components/ColumnText"
 import SliceZone from "../utils/SliceZone"
-import SliderIntagram from "../components/SilderIntagram"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
@@ -22,21 +19,6 @@ const NotFoundPage = ({ input }) => {
               keywords
               heading_text
               body {
-                ... on PRISMIC_Notfound_pageBodyInstagram_launch {
-                  type
-                  label
-                  fields {
-                    image_slice
-                  }
-                }
-                ... on PRISMIC_Notfound_pageBody2_column_text {
-                  type
-                  label
-                  primary {
-                    text_side_left
-                    text_side_right
-                  }
-                }
                 ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
                   type
                   fields {
@@ -67,33 +49,26 @@ const NotFoundPage = ({ input }) => {
     }
   `)
 
-  const dataSEO = data.prismic.allNotfound_pages.edges[0].node
+  const dataSEO = data?.prismic?.allNotfound_pages?.edges[0]?.node
   const dataHeading =
-    data.prismic.allNotfound_pages.edges[0].node.heading_text[0].text
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.heading_text[0]?.text
   const dataHeadingText =
-    data.prismic.allNotfound_pages.edges[0].node.paragraph_text[0].text
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.paragraph_text[0]?.text
   const dataButton =
-    data.prismic.allNotfound_pages.edges[0].node.url_button[0].text
-  const dataCaseStudies =
-    data.prismic.allNotfound_pages.edges[0].node.body[0].fields
-  const dataTextTwoColumn = data.prismic.allNotfound_pages.edges[0].node
+    data?.prismic?.allNotfound_pages?.edges[0]?.node?.url_button[0]?.text
+  const dataCaseStudies = data.prismic.allNotfound_pages.edges[0].node.body
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
-      <Wrapper>
-        <Heading>{dataHeading}</Heading>
-        <HeadingText>{dataHeadingText}</HeadingText>
-        <Button href="/">{dataButton}</Button>
-        <CaseStudiHeading>Featured case studies</CaseStudiHeading>
-        <ListCaseStudy>
-          <Row>
-            {dataCaseStudies.map((element, index) => (
-              <CardProject key={index} resize={true} input={element} />
-            ))}
-          </Row>
-        </ListCaseStudy>
-      </Wrapper>
-      <SliceZone allSlices={dataTextTwoColumn.body} />
+      <Box>
+        <Wrapper>
+          <Heading>{dataHeading}</Heading>
+          <HeadingText>{dataHeadingText}</HeadingText>
+          <Button href="/">{dataButton}</Button>
+          <CaseStudiHeading>Featured case studies</CaseStudiHeading>
+        </Wrapper>
+        <SliceZone allSlices={dataCaseStudies} />
+      </Box>
     </Layout>
   )
 }
@@ -101,7 +76,9 @@ const NotFoundPage = ({ input }) => {
 export default NotFoundPage
 
 // style
-
+const Box = styled.div`
+  background-color: #f8f8f8;
+`
 const Wrapper = styled.div`
   padding-top: 247px;
   background-color: #f8f8f8;

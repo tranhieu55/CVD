@@ -1,6 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Layout from "../components/Layout"
-import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import OurServices from "../components/slices/Homepage/OurService"
@@ -8,6 +7,7 @@ import GlobalMessage from "../components/GlobalMessage"
 
 import { useState } from "react"
 import BannerHomepage from "../components/Banner/BannerHomePage"
+import DemoSlider from '../components/DemoSlider';
 
 const Index = ({ data: { prismic } }, e) => {
   const data =
@@ -27,6 +27,7 @@ const Index = ({ data: { prismic } }, e) => {
         <BannerHomepage data={data} />
         <SliceZone allSlices={data.body} />
         <OurServices />
+        <DemoSlider />
       </Layout>
     </>
   )

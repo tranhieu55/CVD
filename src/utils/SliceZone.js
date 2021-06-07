@@ -41,11 +41,16 @@ import PartnerFeatureTile from "../components/PartnerFeatureTile"
 import SliderIntagram from "../components/SilderIntagram"
 import ClientLogoBlock from "../components/ClientLogoBlock"
 import Accordion from "../components/Accordion"
-import loadable from '@loadable/component'
-import ClientLogos from "../components/slices/Homepage/ClientLogos";
+import loadable from "@loadable/component"
+import ClientLogos from "../components/slices/Homepage/ClientLogos"
+import CardProjectItem from "../components/CardProjectItem"
 
-const HappyClinetssss = loadable(() => import('../components/slices/Homepage/HappyClient/HappyClient'))
-const PlatformTrio = loadable(() => import("../components/slices/Homepage/PlatformTrio"))
+const HappyClinetssss = loadable(() =>
+  import("../components/slices/Homepage/HappyClient/HappyClient")
+)
+const PlatformTrio = loadable(() =>
+  import("../components/slices/Homepage/PlatformTrio")
+)
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -164,6 +169,12 @@ const SliceZone = props => {
               <TextBackground key={index} input={s} />
             </>
           )
+        case "title_with_description":
+          return (
+            <>
+              <TextBackground key={index} input={s} />
+            </>
+          )
         case "one_image":
           return <OneImage key={index} input={s} />
         case "list_image":
@@ -178,7 +189,19 @@ const SliceZone = props => {
               <TextSolution key={index} input={s} />
             </>
           )
+        case "section_solution":
+          return (
+            <>
+              <TextSolution key={index} input={s} />
+            </>
+          )
         case "statistical_ourwork_item_":
+          return (
+            <>
+              <ContentPercent key={index} input={s} />
+            </>
+          )
+        case "statistical_project":
           return (
             <>
               <ContentPercent key={index} input={s} />
@@ -191,6 +214,12 @@ const SliceZone = props => {
             </>
           )
         case "text_quote":
+          return (
+            <>
+              <TextQoute key={index} input={s} />
+            </>
+          )
+        case "quote":
           return (
             <>
               <TextQoute key={index} input={s} />
@@ -263,7 +292,7 @@ const SliceZone = props => {
               <CardPageBlog key={index} input={s} />
             </>
           )
-        case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
+        case "what_we_do_item":
           return (
             <Cardwhatwedo
               key={index}
@@ -295,6 +324,9 @@ const SliceZone = props => {
 
         case "_accordion":
           return <Accordion key={index} input={s} />
+
+        case "case_studies_are_shown":
+          return <CardProjectItem key={index} input={s} />
 
         default:
           return <></>

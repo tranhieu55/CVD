@@ -20,7 +20,6 @@ const HappyClient = ({ input }) => {
   }
 
   const ref = useRef()
-  console.log(ref)
 
   // function Nextshowslider() {
   //   return (ref.current.container.scrollLeft =
@@ -109,12 +108,18 @@ const HappyClients = styled.div`
   margin-top: 96px;
   clip-path: polygon(0px 0%, 100% 2px, 100% 87%, 0% 100%);
   @media (max-width: 600px) {
-    height: 653px;
+    height: 633px;
     margin-top: 24px;
     clip-path: polygon(0px 0%, 100% 2px, 100% 96%, 0% 100%);
   }
   @media (min-width: 600px) {
     clip-path: polygon(0px 0%, 100% 2px, 100% 95%, 0% 100%);
+  }
+  @media (min-width: 601px) and (max-width: 768px) {
+    height: 675px;
+  }
+  @media (min-width: 992px) and (max-width: 1366px) {
+    height: 785px;
   }
   .owl-prev{
     color: #d3d3d3;
@@ -199,9 +204,9 @@ const HappyClients = styled.div`
     @media(min-width: 992px){
       left: 10%;
       width: 624px;
-      bottom: 19.2%;
+      bottom: 15%;
     }
-    @media (min-width: 1366px){
+    @media (min-width: 1367px){
       left: 28.5%;
       bottom: 19.2%;
     }
@@ -234,12 +239,13 @@ const HappyClients = styled.div`
     @media(min-width: 992px){
       left: 80%;
       width: 120px;
-      bottom: 20%;
+      bottom: 16%;
     }
     @media(min-width: 1200px){
       left: 70%;
+
     }
-    @media (min-width: 1366px){
+    @media (min-width: 1367px){
       left: 83%;
       bottom: 20%;
     }
@@ -291,7 +297,7 @@ const HappyClients = styled.div`
     padding-left: 180px;
     @media (max-width: 600px) {
       // margin-top: 64px;
-      margin-top: 32px;
+      margin-top: 9px;
       padding-left: 48px;
       height: 354px;
     }
@@ -299,6 +305,9 @@ const HappyClients = styled.div`
       padding-left: 48px;
       height: 354px;
       width: 100%;
+    }
+    @media (min-width: 601px) and (max-width: 768px) {
+      margin-top: 70px;
     }
     @media (min-width: 1366px) {
       height: 406px;
@@ -334,20 +343,25 @@ const Title = styled.h1`
   @media (min-width: 601px) {
     padding: 100px 32px 0px;
   }
+  @media (min-width: 601px) and (max-width: 768px) {
+    font-size: 56px;
+  }
   @media (min-width: 768px) {
-    padding: 100px 0px 0px;
+    padding: 110px 0px 0px;
   }
 `
 const Slider = styled.div`
-  margin-top: ${props => props.dieukien === 'logo client' ? '47px' : '40px'};;
+  margin-top: ${props => (props.dieukien === "logo client" ? "47px" : "40px")};
 `
 
 const Img = styled.img`
-  height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
-  width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
+  height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+  width: ${props =>
+    props.dieukien === "logo client" ? "162px" : "156px"} !important;
   @media (max-width: 600px) {
-    height: ${props => props.dieukien === 'logo client' ? '24px' : '33px'};
-    width: ${props => props.dieukien === "logo client" ? '162px' : '156px'} !important;
+    height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+    width: ${props =>
+      props.dieukien === "logo client" ? "162px" : "156px"} !important;
   }
 `
 const Text = styled.div`

@@ -165,7 +165,6 @@ function Preview({ data: { prismic } }) {
     </>
   )
 }
-
 export default Preview
 
 export const pageQuery = graphql`
@@ -175,6 +174,22 @@ export const pageQuery = graphql`
         edges {
           node {
             body {
+              ... on PRISMIC_Notfound_pageBodyBlog_article_tiles {
+                type
+                label
+                fields {
+                  post_item {
+                    ... on PRISMIC_Post {
+                      title
+                      post_image
+                      _meta {
+                        uid
+                      }
+                      date_created
+                    }
+                  }
+                }
+              }
               ... on PRISMIC_Notfound_pageBodyClient_logo_grid {
                 type
                 fields {
@@ -187,16 +202,6 @@ export const pageQuery = graphql`
                   logo
                   subtitle
                   text
-                }
-              }
-              ... on PRISMIC_Notfound_pageBody3_column_profiles {
-                type
-                label
-                fields {
-                  avatar
-                  description
-                  name
-                  position
                 }
               }
               ... on PRISMIC_Notfound_pageBody_accordion {
@@ -213,6 +218,171 @@ export const pageQuery = graphql`
                   content_footer2
                   content_footer
                   application
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
+                type
+                label
+                fields {
+                  project_item {
+                    ... on PRISMIC_Post {
+                      title
+                      post_image
+                      _meta {
+                        uid
+                      }
+                    }
+                  }
+                }
+                primary {
+                  title
+                }
+              }
+              ... on PRISMIC_Notfound_pageBody2_column_text {
+                type
+                label
+                primary {
+                  text_side_left
+                  text_side_right
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyInstagram_launch {
+                type
+                label
+                fields {
+                  image_slice
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyImage_slideshow {
+                type
+                label
+                fields {
+                  image
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyFull_width_image {
+                type
+                label
+                fields {
+                  image
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyImage_grid_portrait {
+                type
+                label
+                fields {
+                  image_grid_portrait
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyWhat_we_do_item {
+                type
+                label
+                primary {
+                  location_content
+                  location_image
+                  what_we_do_description
+                  what_we_do_image
+                  what_we_do_title
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyList_projects_to_show {
+                type
+                label
+                fields {
+                  project_item {
+                    ... on PRISMIC_Projects {
+                      name_category_of_project
+                      project_name
+                      _meta {
+                        uid
+                      }
+                      project_header_image
+                      relationship_to_project_category {
+                        ... on PRISMIC_Category_ourwork {
+                          _meta {
+                            uid
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                primary {
+                  number_projects_want_show
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyTitle_with_description {
+                type
+                label
+                primary {
+                  text_description
+                  title
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodySection_solution {
+                type
+                label
+                fields {
+                  title_the_solution
+                }
+                primary {
+                  text_description
+                  title
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyStatistical_project {
+                type
+                label
+                fields {
+                  description_of_statistical
+                  number_of_statistical
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyQuote {
+                type
+                label
+                primary {
+                  title_quote
+                  author_of_quote
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyImage_grid_landscape {
+                type
+                label
+                fields {
+                  image_grid
+                }
+              }
+              ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
+                type
+                fields {
+                  project_item {
+                    ... on PRISMIC_Projects {
+                      name_category_of_project
+                      project_name
+                      project_header_image
+                      relationship_to_project_category {
+                        ... on PRISMIC_Category_ourwork {
+                          _meta {
+                            uid
+                          }
+                        }
+                      }
+                      _meta {
+                        uid
+                      }
+                    }
+                  }
+                }
+              }
+              ... on PRISMIC_Notfound_pageBody3_column_profiles {
+                type
+                label
+                fields {
+                  avatar
+                  description
+                  name
+                  position
                 }
               }
             }

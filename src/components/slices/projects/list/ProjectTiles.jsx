@@ -159,7 +159,12 @@ const DivIMG = styled.div`
     height: 6px;
     transition: all 0.4s ease-in;
   }
+
   :hover {
+    img {
+      transition: all 0.4s ease-in;
+      transform: scale(1.05);
+    }
     ::after {
       width: 100%;
     }
@@ -172,10 +177,10 @@ const DivIMG = styled.div`
 const Phur = styled.div`
   position: absolute;
   opacity: 0.3;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   height: 50%;
   width: 100%;
-  bottom : 0;
+  bottom: 0;
 `
 const Rows = styled.div`
   @media (max-width: 600px) {
@@ -185,6 +190,9 @@ const Rows = styled.div`
   }
 `
 const Colum = styled.div`
+  a {
+    width: 100%;
+  }
   @media (max-width: 600px) {
     height: 245px;
     padding-left: 0px;
@@ -205,11 +213,11 @@ const TitleImageBlog = styled.div`
     left: 24px;
   }
   @media only screen and (min-width: 600px) {
-    bottom: 20px;
+    bottom: 35px;
     left: 60px;
   }
   @media only screen and (min-width: 768px) {
-    bottom: 10px;
+    bottom: 30px;
     left: 40px;
   }
   @media only screen and (min-width: 992px) {
@@ -317,10 +325,6 @@ const Img = styled.img`
   width: 100%;
   object-fit: cover;
   transition: all 0.4s ease-in;
-  :hover {
-    transition: all 0.4s ease-in;
-    transform: scale(1.05);
-  }
 
   @media (max-width: 600px) {
     width: 100%;

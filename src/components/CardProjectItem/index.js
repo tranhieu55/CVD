@@ -1,64 +1,107 @@
 import React from "react"
 import styled from "styled-components"
-import PropTypes from "prop-types"
 import IMG from "../Image"
 import { Link } from "gatsby"
 
-CardProject.propTypes = {
-  input: PropTypes.object,
-}
-
-function CardProject(props) {
+function CardProjectItem(props) {
   const { input, resize } = props
-
-  const inforProject = input ? input?.project_item : []
   return (
-    <Colum className="col-md-6" resize={resize}>
-      {inforProject ? (
-        <DivIMG
-          as={Link}
-          to={`/projects/${inforProject?.relationship_to_project_category?._meta?.uid}/${inforProject?._meta?.uid}`}
-        >
-          <IMG
-            alt={
-              inforProject?.project_header_image?.alt
-                ? inforProject?.project_header_image?.alt
-                : ""
-            }
-            src={
-              inforProject?.project_header_image?.url
-                ? inforProject?.project_header_image?.url
-                : ""
-            }
-            objectFit="cover"
-            h={resize ? "433" : "500"}
-          />
-        </DivIMG>
-      ) : (
-        <></>
-      )}
-      {inforProject ? (
-        <TitleImageBlog>
-          <Span resize={resize}>
-            {inforProject?.name_category_of_project
-              ? inforProject?.name_category_of_project
-              : ""}
-          </Span>
-          <H3 resize={resize}>
-            {inforProject?.project_name[0]?.text
-              ? inforProject?.project_name[0]?.text
-              : ""}
-          </H3>
-        </TitleImageBlog>
-      ) : (
-        <></>
-      )}
-    </Colum>
+    <Wrapper>
+      <ListCaseStudy>
+        <Row>
+          {input?.fields?.map((item, key) => (
+            <Colum className="col-md-6" key={key}>
+              {item ? (
+                <DivIMG
+                  as={Link}
+                  to={`/projects/${item?.project_item?.relationship_to_project_category?._meta?.uid}/${item?.project_item?._meta?.uid}`}
+                >
+                  <IMG
+                    alt={
+                      item?.project_item?.project_header_image?.alt
+                        ? item?.project_item?.project_header_image?.alt
+                        : ""
+                    }
+                    src={
+                      item?.project_item?.project_header_image?.url
+                        ? item?.project_item?.project_header_image?.url
+                        : ""
+                    }
+                    objectFit="cover"
+                    h={resize ? "433" : "500"}
+                  />
+                </DivIMG>
+              ) : (
+                <></>
+              )}
+              {item ? (
+                <TitleImageBlog>
+                  <Span>
+                    {item?.project_item?.name_category_of_project
+                      ? item?.project_item?.name_category_of_project
+                      : ""}
+                  </Span>
+                  <H3>
+                    {item?.project_item?.project_name[0]?.text
+                      ? item?.project_item?.project_name[0]?.text
+                      : ""}
+                  </H3>
+                </TitleImageBlog>
+              ) : (
+                <></>
+              )}
+            </Colum>
+          ))}
+        </Row>
+      </ListCaseStudy>
+    </Wrapper>
   )
 }
 
-export default CardProject
+export default CardProjectItem
 
+const Wrapper = styled.div``
+const ListCaseStudy = styled.div`
+  height: auto;
+  margin: 0 180px;
+  padding-bottom: 96px;
+
+  @media (max-width: 1366px) {
+    margin: 0 100px;
+    padding-bottom: 96px;
+  }
+  @media (max-width: 1200px) {
+    margin: 0 40px;
+    padding-bottom: 80px;
+  }
+  @media (max-width: 768px) {
+    margin: 0 20px;
+    padding-bottom: 60px;
+  }
+  @media (max-width: 600px) {
+    margin: 0 16px;
+    padding-bottom: 55px;
+    height: auto;
+  }
+`
+const Row = styled.div`
+  display: flex;
+  height: 100%;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+  @media (max-width: 600px) {
+    display: block;
+    margin-toop: 16px;
+  }
+  @media (min-width: 600px) {
+    display: flex;
+    margin-top: 16px;
+  }
+`
 const DivIMG = styled.div`
   overflow: hidden;
   transition: all 200ms ease-in;

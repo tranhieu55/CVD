@@ -115,7 +115,6 @@ const FooterStyle = styled.div`
     }
     .text-3 span {
       font-size: 18px !important;
-      padding-bottom: 0px;
     }
 
     .convert-2020 {
@@ -133,6 +132,10 @@ const FooterStyle = styled.div`
     }
     .row {
       line-height: 24px;
+
+      padding-top: 15px;
+      border-top: 1px solid #92939b;
+      margin-top: 29px;
     }
   }
 
@@ -298,7 +301,7 @@ const IphoneX = styled.div`
 const Container = styled.div`
   max-width: 1240px;
   @media only screen and (max-width: 600px) {
-    padding-top: 48px !important;
+    padding-top: 0 !important;
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 31px !important;
@@ -321,7 +324,6 @@ const Order = styled.div``
 const Row = styled.div``
 const BoxImage = styled.div`
   @media only screen and (max-width: 600px) {
-    margin: auto;
   }
   @media only screen and (min-width: 600px) {
     margin: auto;

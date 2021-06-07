@@ -209,8 +209,8 @@ const Input = styled.input`
   box-sizing: border-box;
   border: 2px solid #cccccc;
   border-radius: 3px;
-  padding-left: 24px;
   padding-right: 24px;
+  padding-left: 22px;
   box-shadow: none;
   padding-top: 15px;
   position: relative;
@@ -227,7 +227,7 @@ const Input = styled.input`
     letter-spacing: 1px;
     line-height: 14px;
     position: absolute;
-    transform: translate(26px, 12px) scale(1);
+    transform: translate(24px, 12px) scale(1);
     top: 0;
     left: 0;
     text-transform: uppercase;
@@ -238,7 +238,7 @@ const Input = styled.input`
     border: 2px solid #222222;
   }
   :not(:placeholder-shown) {
-    border: 2px solid #222222;
+    border: 1px solid #6e6e6e;
   }
   @media (max-width: 320px) {
     margin-bottom: 20px;
@@ -246,7 +246,8 @@ const Input = styled.input`
   @media (max-width: 600px) {
     border: 1px solid #6e6e6e;
     margin-bottom: 20px;
-    padding-top: 6px;
+    padding-top: 10px;
+    padding-bottom: 5.4px !important;
     height: 48px;
     padding-left: 14px;
 
@@ -306,7 +307,7 @@ const Input = styled.input`
     padding-top: 29px;
 
     :not(:placeholder-shown) ~ label {
-      left: 1px;
+      left: 0px;
       transform: translate(24px, 6px) scale(1);
       text-transform: uppercase;
     }
@@ -323,7 +324,7 @@ const Input = styled.input`
       text-transform: uppercase;
     }
     :not(:placeholder-shown) ~ label {
-      left: 1px;
+      left: 0px;
       transform: translate(24px, 17px) scale(1);
       text-transform: uppercase;
     }
@@ -469,6 +470,10 @@ const Submit = styled.button`
   text-align: center;
   padding: 25px 0px;
   border-width: 0px;
+  :focus {
+    outline: none;
+  }
+
   @media (max-width: 600px) {
     width: 100%;
     height: 48px;
@@ -500,9 +505,9 @@ const Modal = styled.div`
   margin: auto;
 
   @media (max-width: 768px) {
-    height: 780px;
+    height: auto;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 599px) {
     height: 667px;
   }
 `

@@ -50,7 +50,7 @@ export default function Accordion({ input }) {
               <TextCT>{RichText.render(item.content_text)}</TextCT>
               <TextCTC>{RichText.render(item.content_title_center)}</TextCTC>
               <TextCTA>{RichText.render(item.content_text_after)}</TextCTA>
-              <TextF>
+              <TextF className={isOpen === i ? "openF" : ""}>
                 {RichText.render(item.application)}
                 {RichText.render(item.content_footer)}&nbsp;
                 {RichText.render(item.email)}
@@ -117,9 +117,27 @@ const DivImg = styled.div`
 const Content = styled.div`
   width: 100%;
   height: auto;
-  border-bottom: ${props =>
-    props.className === "open" ? "none" : "1px solid #e4e4e4"};
+  border-bottom: none;
   position: relative;
+
+  animation-name: ${props => (props.className === "open" ? "false" : "border")};
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+
+  @keyframes border {
+    0% {
+      border-bottom: 1px solid transparent;
+    }
+    25% {
+      border-bottom: 1px solid transparent;
+    }
+    50% {
+      border-bottom: 1px solid transparent;
+    }
+    100% {
+      border-bottom: 1px solid #e4e4e4;
+    }
+  }
 `
 const Contents = styled.div`
   width: 100%;
@@ -257,7 +275,8 @@ const TextCTA = styled.div`
 `
 const TextF = styled.div`
   padding-bottom: 48px;
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: ${props =>
+    props.className !== "openF" ? "none" : "1px solid #e4e4e4"};
 
   p {
     margin-bottom: 4px;

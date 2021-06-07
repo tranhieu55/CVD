@@ -65,10 +65,10 @@ const OurLasters = styled.div`
   margin: 96px 184px 0px;
   @media (max-width: 600px) {
     height: auto;
-    margin: 32px 16px 37px;
+    margin: 32px 16px 27px;
   }
   @media (max-width: 360px) {
-    margin: 32px 16px 57px;
+    margin: 32px 16px 27px;
   }
   @media (min-width: 600px) {
     height: auto;
@@ -78,13 +78,13 @@ const OurLasters = styled.div`
     height: 716px;
     margin: 50px 32px 37px;
   }
-  @media(min-width : 1200px){
+  @media (min-width: 1200px) {
     margin: 50px 57px 37px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     margin: 50px 87px 37px;
   }
-  @media(min-width: 1500px){
+  @media (min-width: 1500px) {
     margin: 96px 117px 37px;
   }
   @media (min-width: 1600px) {
@@ -200,7 +200,7 @@ const TitlePost = styled.h4`
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 32px;
-  margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+  margin-left: ${props => (props.vitri === 1 ? "48px" : "30px")};
   @media (max-width: 600px) {
     height: 72px;
     font-size: 24px;
@@ -250,7 +250,7 @@ const SubTitle = styled.h4`
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 16px;
-  margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+  margin-left: ${props => (props.vitri === 1 ? "48px" : "113px")};
   margin-top: 33px;
   &::after {
     position: absolute;
@@ -277,14 +277,14 @@ const SubTitle = styled.h4`
     }
   }
   @media (min-width: 768px) {
-    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "113px")};
   }
   @media (min-width: 1024px) {
-    margin-left: ${props => (props.vitri === 1 ? "49px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "49px" : "113px")};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "32px")};
   }
   @media (min-width: 1366px) {
-    margin-left: ${props => (props.vitri === 1 ? "48px" : "80px")};
+    margin-left: ${props => (props.vitri === 1 ? "48px" : "113px")};
     margin-top: ${props => (props.vitri === 1 ? "53px" : "33px")};
   }
 `

@@ -3,12 +3,11 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { RichText } from "prismic-reactjs"
 import { Link } from "gatsby"
-import OwlCarousels from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousels from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
 
-
-const isBrowser = typeof window !== "undefined";
+const isBrowser = typeof window !== "undefined"
 
 const PlatformTrio = ({ input }) => {
   const title = input
@@ -27,83 +26,86 @@ const PlatformTrio = ({ input }) => {
   function updateSelected(i) {
     setindicator(i)
   }
-  const [width,setWindowSize] = useState(window.innerWidth);
+  const [width, setWindowSize] = useState(window.innerWidth)
   console.log(width)
-  useEffect(()=> {
-    if(isBrowser){
+  useEffect(() => {
+    if (isBrowser) {
       function handleResize() {
-        setWindowSize(
-           window.innerWidth
-        );
+        setWindowSize(window.innerWidth)
       }
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      return () => window.removeEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize)
+      handleResize()
+      return () => window.removeEventListener("resize", handleResize)
     }
   }, [])
   return (
     <Container>
       <Title>{title}</Title>
       <Content className="content">{RichText.render(content)}</Content>
-      {width >= 992 ?
+      {width >= 992 ? (
         <Platforms className="md:overflow-scroll">
-        {platforms?.map((platform, i) => {
-          const name = platform.platform[0]?.text
-          const desc = platform.description
-          const logo = platform.logo.url
-          return (
-            <Platform
-              key={i}
-              onClick={() => updateSelected(i)}
-              indicator={i === indicator}
-              vitri={i}
-              length={platforms.length}
-            >
-              <div className="white"></div>
-              <Inner>
-                <PlatformLogo src={logo} />
-                {/* <PlatformTitle>{name}</PlatformTitle> */}
-                <PlatformDesc className="content">
-                  {RichText.render(desc)}
-                </PlatformDesc>
-                <Buttons>
-                  <ButtonText> Learn more</ButtonText>
-                </Buttons>
-              </Inner>
-            </Platform>
-          )
-        })}
-      </Platforms>
-      :
-        <OwlCarousels margin={26} autoWidth={true} items={2} className="owl-theme" >
           {platforms?.map((platform, i) => {
-          const name = platform.platform[0]?.text
-          const desc = platform.description
-          const logo = platform.logo.url
-          return (
-            <Platform
-              key={i}
-              onClick={() => updateSelected(i)}
-              indicator={i === indicator}
-              vitri={i}
-              length={platforms.length}
-            >
-              <div className="white"></div>
-              <Inner>
-                <PlatformLogo src={logo} />
-                {/* <PlatformTitle>{name}</PlatformTitle> */}
-                <PlatformDesc className="content">
-                  {RichText.render(desc)}
-                </PlatformDesc>
-                <Buttons>
-                  <ButtonText> Learn more</ButtonText>
-                </Buttons>
-              </Inner>
-            </Platform>
-          )
-        })}
+            const name = platform.platform[0]?.text
+            const desc = platform.description
+            const logo = platform.logo.url
+            return (
+              <Platform
+                key={i}
+                onClick={() => updateSelected(i)}
+                indicator={i === indicator}
+                vitri={i}
+                length={platforms.length}
+              >
+                <div className="white"></div>
+                <Inner>
+                  <PlatformLogo src={logo} />
+                  {/* <PlatformTitle>{name}</PlatformTitle> */}
+                  <PlatformDesc className="content">
+                    {RichText.render(desc)}
+                  </PlatformDesc>
+                  <Buttons>
+                    <ButtonText href="#"> Learn more</ButtonText>
+                  </Buttons>
+                </Inner>
+              </Platform>
+            )
+          })}
+        </Platforms>
+      ) : (
+        <OwlCarousels
+          margin={26}
+          autoWidth={true}
+          items={2}
+          className="owl-theme"
+        >
+          {platforms?.map((platform, i) => {
+            const name = platform.platform[0]?.text
+            const desc = platform.description
+            const logo = platform.logo.url
+            return (
+              <Platform
+                key={i}
+                onClick={() => updateSelected(i)}
+                indicator={i === indicator}
+                vitri={i}
+                length={platforms.length}
+              >
+                <div className="white"></div>
+                <Inner>
+                  <PlatformLogo src={logo} />
+                  {/* <PlatformTitle>{name}</PlatformTitle> */}
+                  <PlatformDesc className="content">
+                    {RichText.render(desc)}
+                  </PlatformDesc>
+                  <Buttons>
+                    <ButtonText href="#"> Learn more</ButtonText>
+                  </Buttons>
+                </Inner>
+              </Platform>
+            )
+          })}
         </OwlCarousels>
-      }
+      )}
     </Container>
   )
 }
@@ -136,15 +138,27 @@ const Container = styled.div`
       transform: skewY(3.7deg);
     }
   }
+  @media (min-width: 601px) and (max-width: 768px) {
+    height: 923px;
+  }
   @media (max-width: 600px) {
     position: relative;
     margin-top: 10px;
-    height: 825px;
+    height: 819px;
     :before {
       top: -25px;
       height: 61px;
       transform: skewY(3.7deg);
     }
+  }
+  @media (min-width: 540px) and (max-width: 600px) {
+    height: 747px;
+  }
+  @media (min-width: 500px) and (max-width: 540px) {
+    height: 797px;
+  }
+  @media (max-width: 360px) {
+    height: 839px;
   }
   @media (min-width: 1024px) {
     :before {
@@ -167,66 +181,66 @@ const Container = styled.div`
   .owl-carousel.owl-loaded {
     height: 375px;
   }
-  .owl-carousel.owl-drag .owl-item{
-    @media(max-width: 600px){
+  .owl-carousel.owl-drag .owl-item {
+    @media (max-width: 600px) {
       margin-right: 0px !important;
     }
   }
-  .owl-carousel .owl-stage-outer{
+  .owl-carousel .owl-stage-outer {
     padding-left: 48px;
   }
-  .owl-theme .owl-nav.disabled + .owl-dots{
+  .owl-theme .owl-nav.disabled + .owl-dots {
     width: 400px;
     margin: 46px auto 0px;
-    @media(max-width: 768px){
+    @media (max-width: 768px) {
       width: 300px;
     }
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       width: 200px;
-      margin: 86px auto 0px;
+      margin: 59px auto 0px;
     }
   }
-  .owl-carousel .owl-item img{
+  .owl-carousel .owl-item img {
     width: auto;
   }
-  .owl-theme .owl-dots .owl-dot{
+  .owl-theme .owl-dots .owl-dot {
     width: 100px;
-    span{
+    span {
       width: 100%;
       height: 4px;
       margin-left: 0px;
       margin-right: 0px;
-      background-color: #EEEEEE;
+      background-color: #eeeeee;
       border-radius: 2px;
     }
-    @media(max-width: 768px){
+    @media (max-width: 768px) {
       width: 20px;
     }
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       width: 16px;
-      span{
+      span {
         width: 100%;
         height: 4px;
         margin-left: 0px;
         margin-right: 0px;
-        background-color: #EEEEEE;
+        background-color: #eeeeee;
         border-radius: 2px;
       }
     }
   }
-  .owl-theme .owl-dots .owl-dot.active{
+  .owl-theme .owl-dots .owl-dot.active {
     width: 300px;
-    span{
-      background-color: #BBBBBB;
+    span {
+      background-color: #bbbbbb;
     }
-    @media(max-width: 768px){
+    @media (max-width: 768px) {
       width: 240px;
     }
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       width: 150px;
-    span{
-      background-color: #BBBBBB;
-    }
+      span {
+        background-color: #bbbbbb;
+      }
     }
   }
 `
@@ -295,6 +309,8 @@ const Content = styled.div`
     top: -35px;
     height: 192px;
     margin: 0 16px;
+    margin-bottom: 22px;
+
     p {
       width: 100%;
       margin-bottom: 23px;
@@ -306,13 +322,17 @@ const Content = styled.div`
   }
   @media (max-width: 360px) {
     margin: 10px 16px 0px;
+    margin-bottom: 40px;
   }
   @media (min-width: 600px) {
     padding: 0px 32px 0px;
     height: 180px;
   }
-  @media (min-width: 600px) and (max-width: 768px) {
+  @media (min-width: 600px) and (max-width: 666px) {
     margin-bottom: 50px;
+  }
+  @media (min-width: 667px) and (max-width: 768px) {
+    margin-bottom: 0;
   }
   @media (min-width: 1024px) {
     padding: 0px 0px;
@@ -326,18 +346,18 @@ const Platforms = styled.div`
   position: relative;
   max-width: 1240px;
   height: 299px;
-  @media(min-width: 600px){
+  @media (min-width: 600px) {
     max-width: 580px;
     margin: 0 auto;
   }
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     max-width: 900px;
   }
-  @media(min-width: 992px){
+  @media (min-width: 992px) {
     padding-left: 40px;
     max-width: 1240px;
   }
-  @media(min-width: 1366px){
+  @media (min-width: 1366px) {
     padding-left: 0px;
   }
   @media (min-width: 1600px) {
@@ -353,8 +373,9 @@ const Platform = styled.div`
   @media (max-width: 600px) {
     height: 274px;
     width: 216px;
-    margin-right: ${props => (props.vitri === props.length-1 ? "0px" : "64px")};
-    right: ${props => (props.vitri === props.length-1 ? "-20px" : "0px")};
+    margin-right: ${props =>
+      props.vitri === props.length - 1 ? "0px" : "64px"};
+    right: ${props => (props.vitri === props.length - 1 ? "-20px" : "0px")};
   }
   @media (min-width: 600px) {
     margin-right: 16px;
@@ -425,6 +446,12 @@ const Buttons = styled.div`
   border: 2px solid #fecf09;
   border-radius: 3px;
   cursor: pointer;
+
+  :hover {
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    background-color: #ffd700;
+  }
 `
 const ButtonText = styled(Link)`
   font-family: Calibre Medium;
