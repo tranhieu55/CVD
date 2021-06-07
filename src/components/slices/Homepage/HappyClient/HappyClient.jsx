@@ -119,7 +119,7 @@ const HappyClients = styled.div`
     height: 675px;
   }
   @media (min-width: 992px) and (max-width: 1366px) {
-    height: 760px;
+    height: 785px;
   }
   .owl-prev{
     color: #d3d3d3;
@@ -347,7 +347,7 @@ const Title = styled.h1`
     font-size: 56px;
   }
   @media (min-width: 768px) {
-    padding: 100px 0px 0px;
+    padding: 110px 0px 0px;
   }
 `
 const Slider = styled.div`
