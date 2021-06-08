@@ -61,7 +61,6 @@ const Wrapper = styled.div`
     align-items: flex-start;
   }
 `
-
 const Container = styled.div`
   background-color: #ffffff;
   border-radius: 5px;
@@ -126,7 +125,6 @@ const Title = styled.h5`
   line-height: 34px;
   margin-bottom: 7px;
 `
-
 const Descriptions = styled.p`
   max-width: 496px;
   color: #222222;
