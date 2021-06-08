@@ -23,6 +23,12 @@ export default function BannerContacts({ title, content, button, Phones }) {
   )
 }
 
+const Test = styled.div`
+  color: red;
+  font-size: 30px;
+  font-family: Calibre Bold;
+`
+
 const Banner = styled.div`
   height: 614px;
   width: 100%;
@@ -43,9 +49,12 @@ const ContentBanner = styled.div`
   @media (max-width: 600px) {
     left: 0px;
     right: 0px;
-    margin: 0 auto;
-    width: 330px;
+    margin: 0 16px;
+    width: 94%;
     top: 84px;
+  }
+  @media (max-width: 375px) {
+    max-width: 330px;
   }
   @media (max-width: 320px) {
     left: 0px;
@@ -64,6 +73,9 @@ const ContentBanner = styled.div`
     left: 30px;
     width: 330px;
     margin: 0;
+  }
+  @media (min-width: 992px) {
+    width: 430px;
   }
   @media (min-width: 1024px) {
     left: 50px;
@@ -115,6 +127,7 @@ const Content = styled.div`
       color: #ffffff;
       text-decoration: underline;
       text-underline-offset: 3px;
+      text-decoration-color: #ffffff9e;
     }
   }
   @media (max-width: 600px) {
@@ -140,6 +153,9 @@ const Buttons = styled.button`
     background: #fecf09;
     color: #101010;
     border: 2px solid #fecf09;
+  }
+  :focus {
+    outline: none;
   }
 `
 const PhoneNumber = styled.h4`

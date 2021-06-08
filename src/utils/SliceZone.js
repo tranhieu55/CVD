@@ -1,7 +1,5 @@
 import React from "react"
 import BigText from "../components/slices/BigText"
-import PlatformTrio from "../components/slices/Homepage/PlatformTrio"
-import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import WhatWeDo from "../components/slices/Homepage/WhatWeDo/WhatWeDo"
 import BigImage from "../components/slices/BigImage"
 import {
@@ -21,7 +19,6 @@ import TextQoute from "../components/OurWoorkDetails/TextQoute"
 import Cardwhatwedo from "../components/Whatwedo"
 import OneImage from "../components/OurWoorkDetails/OneImage"
 import Instagram from "../components/slices/Homepage/Instargram"
-import HappyClinetssss from "../components/slices/Homepage/HappyClient/HappyClient"
 import OurServicesss from "../components/slices/Homepage/OurService/index"
 import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
@@ -37,6 +34,23 @@ import CardPartners from "../components/CardPartners"
 import CardPageBlog from "../components/CardPageBlog"
 import TrustLogosBlock from "../components/TrustLogosBlock"
 import ColumTestimonial from "../components/ColumTestimonial/index"
+import BlogArticleTiles from "../components/BlogArticleTiles"
+import TwoColumnText from "../components/ColumnText"
+import ThreeColumnProfile from "../components/ThreeColumnProfile"
+import PartnerFeatureTile from "../components/PartnerFeatureTile"
+import SliderIntagram from "../components/SilderIntagram"
+import ClientLogoBlock from "../components/ClientLogoBlock"
+import Accordion from "../components/Accordion"
+import loadable from "@loadable/component"
+import ClientLogos from "../components/slices/Homepage/ClientLogos"
+import CardProjectItem from "../components/CardProjectItem"
+
+const HappyClinetssss = loadable(() =>
+  import("../components/slices/Homepage/HappyClient/HappyClient")
+)
+const PlatformTrio = loadable(() =>
+  import("../components/slices/Homepage/PlatformTrio")
+)
 
 const SliceZone = props => {
   if (props.allSlices) {
@@ -155,6 +169,12 @@ const SliceZone = props => {
               <TextBackground key={index} input={s} />
             </>
           )
+        case "title_with_description":
+          return (
+            <>
+              <TextBackground key={index} input={s} />
+            </>
+          )
         case "one_image":
           return <OneImage key={index} input={s} />
         case "list_image":
@@ -169,7 +189,19 @@ const SliceZone = props => {
               <TextSolution key={index} input={s} />
             </>
           )
+        case "section_solution":
+          return (
+            <>
+              <TextSolution key={index} input={s} />
+            </>
+          )
         case "statistical_ourwork_item_":
+          return (
+            <>
+              <ContentPercent key={index} input={s} />
+            </>
+          )
+        case "statistical_project":
           return (
             <>
               <ContentPercent key={index} input={s} />
@@ -182,6 +214,12 @@ const SliceZone = props => {
             </>
           )
         case "text_quote":
+          return (
+            <>
+              <TextQoute key={index} input={s} />
+            </>
+          )
+        case "quote":
           return (
             <>
               <TextQoute key={index} input={s} />
@@ -254,7 +292,7 @@ const SliceZone = props => {
               <CardPageBlog key={index} input={s} />
             </>
           )
-        case "PRISMIC_Whatwedo_pageBodyWhat_we_do_item":
+        case "what_we_do_item":
           return (
             <Cardwhatwedo
               key={index}
@@ -264,8 +302,32 @@ const SliceZone = props => {
           )
         case "list_projects_to_show":
           return <OurWorkProjects key={index} input={s} />
+
         case "partner_details":
           return <CardPartners key={index} input={s} />
+
+        case "blog_article_tiles":
+          return <BlogArticleTiles key={index} input={s} />
+        case "2_column_text":
+          return <TwoColumnText key={index} input={s} />
+
+        case "3_column_profiles":
+          return <ThreeColumnProfile key={index} input={s} />
+        case "instagram_launch":
+          return <SliderIntagram key={index} input={s} />
+
+        case "_partner_feature_tile":
+          return <PartnerFeatureTile key={index} input={s} />
+
+        case "client_logo_grid":
+          return <ClientLogoBlock key={index} input={s} />
+
+        case "_accordion":
+          return <Accordion key={index} input={s} />
+
+        case "case_study_tiles":
+          return <CardProjectItem key={index} input={s} />
+
         default:
           return <></>
       }

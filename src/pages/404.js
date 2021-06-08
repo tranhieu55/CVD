@@ -3,26 +3,34 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
-import CardProject from "../components/CardProject"
+import SliceZone from "../utils/SliceZone"
 
 const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
     query QueryNotFound {
       prismic {
-        allNotfound_pages {
+        allPage_404s {
           edges {
             node {
-              url_button
-              paragraph_text
-              meta_title
-              meta_description
-              keywords
-              heading_text
+              _meta {
+                uid
+              }
               body {
-                ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
+                ... on PRISMIC_Page_404BodyTitle {
                   type
+                  label
+                  primary {
+                    heading_text
+                    paragraph_text
+                    text_featured
+                    url_button
+                  }
+                }
+                ... on PRISMIC_Page_404BodyCase_study_tiles {
+                  type
+                  label
                   fields {
-                    project_item {
+                    case_study {
                       ... on PRISMIC_Projects {
                         name_category_of_project
                         project_name
@@ -49,32 +57,23 @@ const NotFoundPage = ({ input }) => {
     }
   `)
 
-  const dataSEO = data.prismic.allNotfound_pages.edges[0].node
-  const dataHeading =
-    data.prismic.allNotfound_pages.edges[0].node.heading_text[0].text
-  const dataHeadingText =
-    data.prismic.allNotfound_pages.edges[0].node.paragraph_text[0].text
-  const dataButton =
-    data.prismic.allNotfound_pages.edges[0].node.url_button[0].text
-  const dataCaseStudies =
-    data.prismic.allNotfound_pages.edges[0].node.body[0].fields
+  const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
+  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
+  
+  const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
 
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
-      <Wrapper>
-        <Heading>{dataHeading}</Heading>
-        <HeadingText>{dataHeadingText}</HeadingText>
-        <Button href="/">{dataButton}</Button>
-        <CaseStudiHeading>Featured case studies</CaseStudiHeading>
-        <ListCaseStudy>
-          <Row>
-            {dataCaseStudies.map((element, index) => (
-              <CardProject key={index} resize={true} input={element} />
-            ))}
-          </Row>
-        </ListCaseStudy>
-      </Wrapper>
+      <Box>
+        <Wrapper>
+          <Heading>{dataTitle?.map(item => item.primary.heading_text?.map(el => el.text ? el.text : ''))}</Heading>
+          <HeadingText>{dataTitle?.map(item => item.primary.paragraph_text?.map(el => el.text ? el.text : ''))}</HeadingText>
+          <Button href="/">{dataTitle?.map(item => item.primary.url_button?.map(el => el.text ? el.text : ''))}</Button>
+          <CaseStudiHeading>{dataTitle?.map(item => item.primary.text_featured?.map(el => el.text ? el.text : ''))}</CaseStudiHeading>
+        </Wrapper>
+        <SliceZone allSlices={dataCaseStudies} />
+      </Box>
     </Layout>
   )
 }
@@ -82,9 +81,12 @@ const NotFoundPage = ({ input }) => {
 export default NotFoundPage
 
 // style
-
+const Box = styled.div`
+  background-color: #f8f8f8;
+`
 const Wrapper = styled.div`
   padding-top: 247px;
+  background-color: #f8f8f8;
 
   @media (max-width: 600px) {
     padding-top: 109px;
@@ -172,23 +174,23 @@ const CaseStudiHeading = styled.h4`
 const ListCaseStudy = styled.div`
   height: auto;
   margin: 0 180px;
-  margin-bottom: 130px;
+  padding-bottom: 130px;
 
   @media (max-width: 1366px) {
     margin: 0 100px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
   @media (max-width: 1200px) {
     margin: 0 40px;
-    margin-bottom: 80px;
+    padding-bottom: 80px;
   }
   @media (max-width: 768px) {
     margin: 0 20px;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
   @media (max-width: 600px) {
     margin: 0 16px;
-    margin-bottom: 55px;
+    padding-bottom: 55px;
     height: auto;
   }
 `

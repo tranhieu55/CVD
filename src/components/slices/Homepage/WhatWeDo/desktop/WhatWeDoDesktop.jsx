@@ -72,9 +72,12 @@ export default function WhatWeDoDesktop(props) {
           <Right>
             <UpperContent>
               <Content>{RichText?.render(content)}</Content>
-              <LearnMore>
-                <span>Learn more</span>
-              </LearnMore>
+
+              <a href="#">
+                <LearnMore>
+                  <span>Learn more</span>
+                </LearnMore>
+              </a>
             </UpperContent>
           </Right>
         </ConTentRight>
@@ -91,6 +94,13 @@ const UpperContent = styled.div`
   max-width: 444px;
   height: 241px;
   top: 38%;
+  a,
+  a:visited,
+  a:active,
+  a:focus,
+  a:hover {
+    text-decoration: none;
+  }
 `
 const ContainerDesktop = styled.div`
   position: absolute;
@@ -216,6 +226,7 @@ const LearnMore = styled.h4`
     letter-spacing: 0;
     line-height: 20px;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   &::after {

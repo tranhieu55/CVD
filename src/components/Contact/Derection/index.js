@@ -51,7 +51,6 @@ export default function Derection({ input }) {
       border-bottom: 1px solid #e4e4e4;
     }
     @media (min-width: 600px) {
-      height: 59px;
       width: 100%;
       color: #101010;
       font-family: Calibre Semibold;
@@ -61,6 +60,7 @@ export default function Derection({ input }) {
       line-height: 52px;
       border-bottom: 1px solid #e4e4e4;
       margin-bottom: 32px;
+      padding-bottom: 10px;
     }
   `
   const Contentleft = styled.div`
@@ -190,15 +190,18 @@ export default function Derection({ input }) {
                 )}
               </Phone>
               <DivLink>
-                <Link href="#">Call</Link>
+                <Link
+                  href={`tel: ${
+                    item?.office_phone_number[0]?.text
+                      ? item?.office_phone_number[0]?.text
+                      : ""
+                  }`}
+                >
+                  Call
+                </Link>
                 <Link
                   href={
-                    input &&
-                    input?.fields?.map(item =>
-                      item?.directions_link?.url
-                        ? item?.directions_link?.url
-                        : item
-                    )
+                    item?.directions_link?.url ? item?.directions_link?.url : ""
                   }
                 >
                   Directions
@@ -208,7 +211,10 @@ export default function Derection({ input }) {
             <ContentRight>
               <iframe
                 src={
-                  item?.google_maps_link?.url ? item?.google_maps_link?.url : ""
+                  item?.google_maps_link?.url
+                    ? item?.google_maps_link?.url +
+                      "5e0!3m2!1sen!2s!4v1604548971410!5m2!1sen!2s"
+                    : ""
                 }
                 id="serviceFrameSend"
                 width="100%"

@@ -14,7 +14,6 @@ const LogosBlock = ({ input }) => {
       <Body>
         <ListLogo>
           {dataListBlog.map(element => {
-            console.log(element)
             return (
               <BlockLogo>
                 <IMG src={element?.logo?.url} alt={element?.logo?.alt} />
@@ -32,8 +31,9 @@ export default LogosBlock
 const Container = styled.div`
   background-color: #f8f8f8;
   box-sizing: border-box;
-  padding-top: 48.35px;
-  padding-bottom: 75px;
+  padding-top: 47px;
+  padding-bottom: 69.14px;
+
   @media (max-width: 600px) {
     padding-top: 35px;
     padding-bottom: 46px;
@@ -52,7 +52,7 @@ const Title = styled.h4`
   letter-spacing: -0.5px;
   line-height: 32px;
   text-align: center;
-  margin-bottom: 28.8px;
+  margin-bottom: 36.02px;
 
   @media (max-width: 600px) {
     margin-bottom: 24.43px;

@@ -3,8 +3,12 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 
 const BigText = ({ input }) => {
-  const heading = input ? input.primary?.title[0]?.text ? input.primary?.title[0]?.text : "" : "";
-  const clients = input ? input?.fields ? input?.fields : "" : [];
+  const heading = input
+    ? input.primary?.title[0]?.text
+      ? input.primary?.title[0]?.text
+      : ""
+    : ""
+  const clients = input ? (input?.fields ? input?.fields : "") : []
   const Limit = clients.length / 2
   return (
     <Container>
@@ -13,18 +17,50 @@ const BigText = ({ input }) => {
       <Oval></Oval>
       <Clientss>
         <ClientsLeft>
-          {clients ? clients?.slice(0, Limit)?.map((client, i) => {
-            const logo = client?.logo?.url ? client?.logo?.url : ""
-            return <ClientLogo src={logo} key={i} Margin={i} />
-          }) : <></>}
+          {clients ? (
+            clients?.slice(0, Limit)?.map((client, i) => {
+              const logo = client?.logo?.url ? client?.logo?.url : ""
+              const logo1 = client?.logo?.fade?.url
+                ? client?.logo?.fade?.url
+                : ""
+              const logo2 = client?.logo?.images?.url
+                ? client?.logo?.images?.url
+                : ""
+              return (
+                <ClientLogo key={i} Margin={i}>
+                  <Images id="f3" src={logo}></Images>
+                  <Images id="f2" src={logo1}></Images>
+                  <Images id="f1" src={logo2}></Images>
+                </ClientLogo>
+              )
+            })
+          ) : (
+            <></>
+          )}
         </ClientsLeft>
         <ClientsRight>
-          {clients ? clients
-            ?.slice(clients.length / 2, clients.length)
-            ?.map((client, i) => {
-              const logo = client?.logo?.url ? client?.logo?.url : ""
-              return <ClientLogo src={logo} key={i} Margin={i} />
-            }): <></>}
+          {clients ? (
+            clients
+              ?.slice(clients.length / 2, clients.length)
+              ?.map((client, i) => {
+                const logo = client?.logo?.url ? client?.logo?.url : ""
+                const logo1 = client?.logo?.fade?.url
+                  ? client?.logo?.fade?.url
+                  : ""
+                const logo2 = client?.logo?.images?.url
+                  ? client?.logo?.images?.url
+                  : ""
+                return (
+                  <ClientLogo key={i} Margin={i}>
+                    <Images id="f3" src={logo}></Images>
+                    <Images id="f2" src={logo1}></Images>
+                    <Images id="f1" src={logo2}></Images>
+                  </ClientLogo>
+                )
+              })
+          ) : (
+            <></>
+          )}
         </ClientsRight>
       </Clientss>
     </Container>
@@ -108,7 +144,7 @@ const ClientsRight = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    height: 164px;
+    height: 144px;
     width: 113.5px;
     margin-left: 50px;
   }
@@ -141,7 +177,7 @@ const ClientsLeft = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    height: 164px;
+    height: 144px;
     width: 113.5px;
     margin-right: 50px;
   }
@@ -152,10 +188,10 @@ const ClientsLeft = styled.div`
     max-width: 100%;
     height: 38px;
     position: relative;
-    margin-right: 30px;
-  }
-  @media(min-width: 1600px){
     margin-right: 80px;
+  }
+  @media (min-width: 1600px) {
+    margin-right: 96px;
   }
 `
 
@@ -185,12 +221,13 @@ const Container = styled.div`
     height: 308px;
   }
 `
-const ClientLogo = styled.img`
+const ClientLogo = styled.div`
   height: auto;
   filter: grayscale(1);
   display: block;
+  position: relative;
   @media (max-width: 600px) {
-    height: 36px;
+    height: 30px;
     margin-bottom: 30px;
     width: 100%;
   }
@@ -201,6 +238,68 @@ const ClientLogo = styled.img`
   }
   @media (min-width: 1024px) {
     width: 15%;
+  }
+  #f1 {
+    background-color: white;
+  }
+  #f2 {
+    -webkit-animation-delay: -4s;
+    background-color: white;
+  }
+  #f3 {
+    -webkit-animation-delay: -2s;
+    background-color: white;
+  }
+`
+const Images = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  -webkit-animation-name: fade;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 6s;
+  animation-name: fade;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  @-webkit-keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 1;
+    }
+    53% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 1;
+    }
+    53% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    object-fit: contain;
   }
 `
 const Socke = styled.div`

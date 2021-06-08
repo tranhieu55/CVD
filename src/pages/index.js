@@ -1,6 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Layout from "../components/Layout"
-import styled from "styled-components"
 import SEO from "../components/utilities/SEO"
 import SliceZone from "../utils/SliceZone"
 import OurServices from "../components/slices/Homepage/OurService"
@@ -14,11 +13,11 @@ const Index = ({ data: { prismic } }, e) => {
     prismic && prismic.allHomepages?.edges[0]?.node
       ? prismic.allHomepages?.edges[0]?.node
       : []
-      const [value, setValue] = useState()
-      const parentCallback = data => {
-          setValue(data)
-      }
-  
+  const [value, setValue] = useState()
+  const parentCallback = data => {
+    setValue(data)
+  }
+
   return (
     <>
       <GlobalMessage parentCallback={parentCallback} />
@@ -35,8 +34,6 @@ const Index = ({ data: { prismic } }, e) => {
 export default Index
 
 //styles
-
-
 
 export const pageQuery = graphql`
   query IndexQuery {

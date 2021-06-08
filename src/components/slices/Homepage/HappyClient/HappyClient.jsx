@@ -1,9 +1,17 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
+import OwlCarousel from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
 
+const isBrowser = typeof window !== "undefined"
 
 const HappyClient = ({ input }) => {
-  const Titles = input ? input.primary?.title_happy_client?.map(item => item?.text ? item?.text : item) : [];
+  const Titles = input
+    ? input.primary?.title_happy_client?.map(item =>
+        item?.text ? item?.text : item
+      )
+    : []
 
   const [indicator, setindicator] = useState(0)
 
@@ -13,39 +21,80 @@ const HappyClient = ({ input }) => {
 
   const ref = useRef()
 
-  function Nextshowslider() {
-    ref.current.scrollLeft = ref.current.scrollLeft + 100
-  }
-  function Prevshowslider() {
-    ref.current.scrollLeft = ref.current.scrollLeft - 100
-  }
+  // function Nextshowslider() {
+  //   return (ref.current.container.scrollLeft =
+  //     ref.current.container.clientWidth > 600
+  //       ? ref.current.container.scrollLeft + 650
+  //       : ref.current.container.scrollLeft + 350)
+  // }
+  // function Prevshowslider() {
+  //   return (ref.current.container.scrollLeft =
+  //     ref.current.container.clientWidth > 600
+  //       ? ref.current.container.scrollLeft - 650
+  //       : ref.current.container.scrollLeft - 350)
+  // }
+  const [hienthi, setHienThi] = useState(false)
 
+  useEffect(() => {
+    if (isBrowser) {
+      setHienThi(!hienthi)
+    } else setHienThi(hienthi)
+  }, [])
   return (
     <HappyClients>
       <Title>{Titles}</Title>
-      <Slides className="md:overflow-scroll" ref={ref}>
-        {input ? input.fields?.map((item, index) => (
-          <Slider
-            key={index}
-            onClick={() => updateSelected(index)}
-            indicator={index === indicator}
-          >
-            <Img alt={item.logo_client?.alt ? item.logo_client?.alt : ""} 
-            src={item.logo_client?.url ? item.logo_client?.url : ""}>
-            </Img>
-            <Text>
-              <Content>{item.qoute_of_client?.map(items => items?.text ? items?.text : item)}</Content>
-            </Text>
-            <Sub>
-              <SubTilte>{item.title?.map(items => items?.text ? items?.text : item)}</SubTilte>
-              <SubText>{item.sub_title?.map(items => items?.text ? items?.text : item)}</SubText>
-            </Sub>
-          </Slider>
-        )) : <></>}
-      </Slides>
+      {hienthi === "false" ? (
+        <></>
+      ) : (
+        <OwlCarousel
+          margin={72}
+          autoWidth={true}
+          items={2}
+          navContainerClass={"demo"}
+          className="owl-theme"
+          ref={ref}
+        >
+          {input ? (
+            input.fields?.map((item, index) => (
+              <Slider
+                key={index}
+                onClick={() => updateSelected(index)}
+                indicator={index === indicator}
+                className="sliders item"
+                dieukien={item.logo_client?.alt ? item.logo_client?.alt : ""}
+              >
+                <Img
+                  alt={item.logo_client?.alt ? item.logo_client?.alt : ""}
+                  src={item.logo_client?.url ? item.logo_client?.url : ""}
+                  dieukien={item.logo_client?.alt ? item.logo_client?.alt : ""}
+                ></Img>
+                <Text>
+                  <Content>
+                    {item.qoute_of_client?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </Content>
+                </Text>
+                <Sub>
+                  <SubTilte>
+                    {item.title?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </SubTilte>
+                  <SubText>
+                    {item.sub_title?.map(items =>
+                      items?.text ? items?.text : item
+                    )}
+                  </SubText>
+                </Sub>
+              </Slider>
+            ))
+          ) : (
+            <></>
+          )}
+        </OwlCarousel>
+      )}
       <Opaci></Opaci>
-      <Buttonss onClick={() => Prevshowslider()}></Buttonss>
-      <Buttons onClick={() => Nextshowslider()}></Buttons>
     </HappyClients>
   )
 }
@@ -59,15 +108,214 @@ const HappyClients = styled.div`
   margin-top: 96px;
   clip-path: polygon(0px 0%, 100% 2px, 100% 87%, 0% 100%);
   @media (max-width: 600px) {
-    height: 653px;
+    height: 633px;
     margin-top: 24px;
     clip-path: polygon(0px 0%, 100% 2px, 100% 96%, 0% 100%);
   }
   @media (min-width: 600px) {
     clip-path: polygon(0px 0%, 100% 2px, 100% 95%, 0% 100%);
   }
-`
+  @media (min-width: 601px) and (max-width: 768px) {
+    height: 675px;
+  }
+  @media (min-width: 992px) and (max-width: 1366px) {
+    height: 785px;
+  }
+  .owl-prev{
+    color: #d3d3d3;
+    border: none;
+    background-color: rgb(248, 248, 248);
+    padding: 0px 13px;
+    span{
+      display: none;
+    }
+    :focus{
+      outline: none;
+    }
+    :hover {
+      color: #aaabab;
+    }
+    &::before {
+      content: "\f177";
+      height: 24px;
+      width: 28px;
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 24px;
+      text-align: center;
+    }
+  }
+  .owl-next{
+    color: #d3d3d3;
+    border: none;
+    background-color: rgb(248, 248, 248);
+    padding: 0px 13px;
+    span{
+      display: none;
+    }
+    :focus{
+      outline: none;
+    }
+    :hover {
+      color: #aaabab;
+    }
+    &::before {
+      content: "\f178";
+      height: 24px;
+      width: 28px;
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 24px;
+      text-align: center;
+    }
+  }
+  .owl-carousel{
+    position: initial;
+  }
+  .owl-carousel .owl-stage-outer{
+    position : absolute;
+  }
+  .owl-theme .owl-dots{
+    margin-top: 10px;
+    height: 20px;
+    bottom: 19.2%;
+    position: absolute;
+    left: 21%;
+    width: 624px;
+    @media(max-width: 767px){
+      width: 200px;
+      margin: auto;
+      bottom: 19.2%;
+    }
+    @media(max-width: 600px){
+      bottom: 14.5%;
+    }
+    @media(max-width: 320px){
+      margin-auto;
+    }
+    @media(min-width: 768px){
+      left: 15%;
+      width: 350px;
+    }
+    @media(min-width: 992px){
+      left: 10%;
+      width: 624px;
+      bottom: 15%;
+    }
+    @media (min-width: 1367px){
+      left: 28.5%;
+      bottom: 19.2%;
+    }
+  }
+  .demo{
+    margin-top: 10px;
+    height: 20px;
+    bottom: 20%;
+    position: absolute;
+    left: 30%;
+    width: 120px;
+    @media(max-width: 767px){
+      width: 120px;
+      margin: auto;
+      bottom: 20%;
+      left: 70%
+    }
+    @media(max-width: 600px){
+      bottom: 6%;
+      width: 120px;
+      left: 34%;
+    }
+    @media(max-width: 320px){
+      margin: 0 auto;
+    }
+    @media(min-width: 768px){
+      left: 70%;
+      width: 120px;
+    }
+    @media(min-width: 992px){
+      left: 80%;
+      width: 120px;
+      bottom: 16%;
+    }
+    @media(min-width: 1200px){
+      left: 70%;
 
+    }
+    @media (min-width: 1367px){
+      left: 83%;
+      bottom: 20%;
+    }
+  }
+  .owl-theme .owl-dots .owl-dot {
+    width: 58px;
+    span{
+      width: 100%;
+      height: 4px;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #EEEEEE;
+      border-radius: 2px;
+    }
+    @media(max-width: 767px){
+      width: 16px;
+    }
+    @media(min-width: 768px){
+      width: 33px;
+    }
+    @media(min-width: 992px){
+      width: 58px;
+    }
+    @media (min-width: 1216px){
+      width: 87px;
+    }
+  }
+  .owl-theme .owl-dots .owl-dot.active{
+    width: 450px;
+    span{
+      background-color: #BBBBBB;
+    }
+    @media(max-width: 767px){
+      width: 150px
+    }
+    @media(min-width: 768px){
+      width: 250px;
+    }
+    @media(min-width: 992px){
+      width: 450px;
+    }
+    @media (min-width: 1366px){
+      width: 450px;
+    }
+  }
+  .owl-carousel.owl-loaded{
+    height: 406px;
+    margin-top: 145px;
+    padding-left: 180px;
+    @media (max-width: 600px) {
+      // margin-top: 64px;
+      margin-top: 9px;
+      padding-left: 48px;
+      height: 354px;
+    }
+    @media (min-width: 600px) {
+      padding-left: 48px;
+      height: 354px;
+      width: 100%;
+    }
+    @media (min-width: 601px) and (max-width: 768px) {
+      margin-top: 70px;
+    }
+    @media (min-width: 1366px) {
+      height: 406px;
+      margin-top: 145px;
+      padding-left: 180px;
+    }
+  }
+`
 const Title = styled.h1`
   height: 72px;
   color: #101010;
@@ -95,150 +343,25 @@ const Title = styled.h1`
   @media (min-width: 601px) {
     padding: 100px 32px 0px;
   }
+  @media (min-width: 601px) and (max-width: 768px) {
+    font-size: 56px;
+  }
   @media (min-width: 768px) {
-    padding: 100px 0px 0px;
+    padding: 110px 0px 0px;
   }
 `
 const Slider = styled.div`
-  height: 254px;
-  width: 548px;
-  margin-right: 72px;
-  margin-top: 47px;
-  @media (max-width: 600px) {
-    margin-top: 0px;
-    margin-right: ${props => (props.indicator === 4 ? "0px" : "64px")};
-  }
-  @media (max-width: 320px) {
-    width: 265px;
-  }
+  margin-top: ${props => (props.dieukien === "logo client" ? "47px" : "40px")};
 `
-const Slides = styled.div`
-  height: 406px;
-  margin-top: 145px;
-  display: flex;
-  padding-left: 180px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  width: 100%;
-  ::-webkit-scrollbar {
-    height: 4px;
-    width: 50%;
-  }
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #d5d5d5;
-    border-radius: 10px;
-    margin-right: 480px;
-    margin-left: 280px;
-  }
 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #bbbbbb;
-    border-radius: 10px;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
-  }
-
-  @media (max-width: 600px) {
-    // margin-top: 64px;
-    margin-top: 32px;
-    padding-left: 48px;
-    height: 354px;
-    overflow-x: auto;
-    width: 100%;
-    position: relative;
-    ::-webkit-scrollbar {
-      height: 4px;
-      width: 50%;
-    }
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
-  @media (min-width: 600px) {
-    padding-left: 48px;
-    height: 354px;
-    overflow-x: auto;
-    width: 100%;
-    position: relative;
-    ::-webkit-scrollbar {
-      height: 4px;
-      width: 50%;
-    }
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 80px;
-      margin-left: 90px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
-  @media (min-width: 1366px) {
-    height: 406px;
-    margin-top: 145px;
-    display: flex;
-    padding-left: 180px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    width: 100%;
-    ::-webkit-scrollbar {
-      height: 4px;
-      width: 50%;
-    }
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #d5d5d5;
-      border-radius: 10px;
-      margin-right: 480px;
-      margin-left: 280px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #bbbbbb;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b30000;
-    }
-  }
-`
 const Img = styled.img`
-  height: 24px;
-  width: 162px;
+  height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+  width: ${props =>
+    props.dieukien === "logo client" ? "162px" : "156px"} !important;
   @media (max-width: 600px) {
-    height: 24px;
-    width: 162px;
+    height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
+    width: ${props =>
+      props.dieukien === "logo client" ? "162px" : "156px"} !important;
   }
 `
 const Text = styled.div`
@@ -305,102 +428,5 @@ const Opaci = styled.div`
   right: 0px;
   @media (max-width: 992px) {
     display: none;
-  }
-`
-
-const Buttons = styled.div`
-  position: absolute;
-  top: 636px;
-  right: 171px;
-  color: #d3d3d3;
-  :hover {
-    color: #aaabab;
-  }
-  &::after {
-    content: "\f178";
-    font-family: "Font Awesome 5 Pro Regular";
-    height: 24px;
-    width: 28px;
-    font-size: 32px;
-    font-weight: 300;
-    letter-spacing: 0;
-    line-height: 24px;
-    text-align: center;
-    margin-left: 24px;
-  }
-  @media (max-width: 600px) {
-    top: 570px;
-    right: 40%;
-    &::after {
-      height: 24px;
-      width: 28px;
-    }
-  }
-  @media (min-width: 600px) {
-    right: 46%;
-  }
-  @media (min-width: 1366px) {
-    position: absolute;
-    top: 636px;
-    right: 171px;
-    &::after {
-      content: "\f178";
-      font-family: "Font Awesome 5 Pro Regular";
-      height: 24px;
-      width: 28px;
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: 0;
-      line-height: 24px;
-      text-align: center;
-      margin-left: 24px;
-    }
-  }
-`
-const Buttonss = styled.div`
-  position: absolute;
-  top: 636px;
-  right: 217px;
-  color: #d3d3d3;
-  :hover {
-    color: #aaabab;
-  }
-  &::before {
-    content: "\f177";
-    height: 24px;
-    width: 28px;
-    font-family: "Font Awesome 5 Pro Regular";
-    font-size: 32px;
-    font-weight: 300;
-    letter-spacing: 0;
-    line-height: 24px;
-    text-align: center;
-  }
-  @media (max-width: 600px) {
-    top: 570px;
-    right: 54%;
-    &::before {
-      height: 24px;
-      width: 28px;
-    }
-  }
-  @media (min-width: 600px) {
-    right: 53%;
-  }
-  @media (min-width: 1366px) {
-    position: absolute;
-    top: 636px;
-    right: 217px;
-    &::before {
-      content: "\f177";
-      height: 24px;
-      width: 28px;
-      font-family: "Font Awesome 5 Pro Regular";
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: 0;
-      line-height: 24px;
-      text-align: center;
-    }
   }
 `

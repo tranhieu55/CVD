@@ -103,7 +103,7 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 56px;
-    margin: 88px 16px 0px;
+    margin: 88px 32px 0px;
   }
   @media(min-width: 1200px){
     margin: 88px 56px 0px;
@@ -170,6 +170,7 @@ const Content = styled.div`
     margin: 0px;
     display: flex;
     margin-top: 32px;
+    margin-left: 32px;
   }
   @media(min-width: 1200px){
     margin: 32px 56px 0px;

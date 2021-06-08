@@ -1,163 +1,16 @@
-import React from "react"
-import { createGlobalStyle, ThemeProvider } from "styled-components"
+import React, { useState } from "react"
+import { ThemeProvider } from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
 import Footer from "./Footer"
 import { theme } from "../assets/global/Theme"
 import Banner from "./Banner/Banner"
-import CalibreRegular from "../assets/fonts/CalibreRegular.woff"
-import CalibreRegularItalic from "../assets/fonts/CalibreRegularItalic.woff"
-import CalibreThin from "../assets/fonts/CalibreThin.woff"
-import CalibreThinItalic from "../assets/fonts/CalibreThinItalic.woff"
-import CalibreLight from "../assets/fonts/CalibreLight.woff"
-import CalibreLightItalic from "../assets/fonts/CalibreLightItalic.woff"
-import CalibreMedium from "../assets/fonts/CalibreMedium.woff"
-import CalibreMediumItalic from "../assets/fonts/CalibreMediumItalic.woff"
-import CalibreSemibold from "../assets/fonts/CalibreSemibold.woff"
-import CalibreSemiboldItalic from "../assets/fonts/CalibreSemiboldItalic.woff"
-import CalibreBlack from "../assets/fonts/CalibreBlack.woff"
-import CalibreBlackItalic from "../assets/fonts/CalibreBlackItalic.woff"
-import CalibreBold from "../assets/fonts/CalibreBold.woff"
-import CalibreBoldItalic from "../assets/fonts/CalibreBoldItalic.woff"
-import HelveticaNeue_Regular from "../assets/fonts/HelveticaNeue-Regular.ttf"
-import FontAwesome5ProRegular from "../assets/fonts/FontAwesome5Pro-Regular.woff"
-import FontAwesome5BrandsRegular from "../assets/fonts/FontAwesome5Brands-Regular.woff"
 import "bootstrap/dist/css/bootstrap.min.css"
 import styled from "styled-components"
 import Interested from "../components/Interested"
 import OurWorkContextProvider from "../context/ourwork/OurWorkContextProvider"
+import "../components/styles.css"
 
-const GlobalStyle = createGlobalStyle`
-@font-face {
-    font-family: 'Calibre Regular';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Calibre Regular'), url(${CalibreRegular}) format('woff');
-}
-@font-face {
-font-family: 'Calibre Regular Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Regular Italic'), url(${CalibreRegularItalic}) format('woff');
-}
-
-@font-face {
-font-family: 'Calibre Thin';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Thin'), url(${CalibreThin}) format('woff');
-}
-
-@font-face {
-font-family: 'Calibre Thin Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Thin Italic'), url(${CalibreThinItalic}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Light';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Light'), url(${CalibreLight}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Light Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Light Italic'), url(${CalibreLightItalic}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Medium';
-font-style: normal;
-font-weight: 500;
-src: local('Calibre Medium'), url(${CalibreMedium}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Medium Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Medium Italic'), url(${CalibreMediumItalic}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Semibold';
-font-style: normal;
-font-weight: 600;
-src: local('Calibre Semibold'), url(${CalibreSemibold}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Semibold Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Semibold Italic'), url(${CalibreSemiboldItalic}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Bold';
-font-style: normal;
-font-weight: bold;
-src: local('Calibre Bold'), url(${CalibreBold}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Bold Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Bold Italic'), url(${CalibreBoldItalic}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Calibre Black';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Black'), url(${CalibreBlack}) format('woff');
-}
-
-
-@font-face {
-font-family: 'Helvetica Neue Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Helvetica Neue Regular'), url(${HelveticaNeue_Regular}) format('ttf');
-}
-
-
-@font-face {
-font-family: 'Calibre Black Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Black Italic'), url(${CalibreBlackItalic}) format('woff');
-}
-@font-face {
-font-family: 'Font Awesome 5 Pro Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Font Awesome 5 Pro Regular'), url(${FontAwesome5ProRegular}) format('woff');
-}
-@font-face {
-font-family: 'Font Awesome 5 Brands Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Font Awesome 5 Brands Regular'), url(${FontAwesome5BrandsRegular}) format('woff');
-}
-*,*::after, *::before { 
-  box-sizing : border-box;
-}
-`
 const Layout = ({
   location,
   children,
@@ -172,6 +25,47 @@ const Layout = ({
   const data = useStaticQuery(graphql`
     query MyQuery {
       prismic {
+        allOurwork_headers {
+          edges {
+            node {
+              title_ourwork
+              body {
+                ... on PRISMIC_Ourwork_headerBodyPortfolio {
+                  type
+                  label
+                  fields {
+                    content
+                  }
+                  primary {
+                    title
+                  }
+                }
+                ... on PRISMIC_Ourwork_headerBodyFeautured_ {
+                  type
+                  label
+                  primary {
+                    title
+                  }
+                  fields {
+                    title_image
+                    image_feautured
+                    sub_image
+                  }
+                }
+                ... on PRISMIC_Ourwork_headerBodyJust_launched {
+                  type
+                  label
+                  fields {
+                    image_launched
+                  }
+                  primary {
+                    title
+                  }
+                }
+              }
+            }
+          }
+        }
         allService_headers {
           edges {
             node {
@@ -199,33 +93,6 @@ const Layout = ({
                     title
                   }
                 }
-                # ... on PRISMIC_Service_headerBodyOur_launches {
-                #   type
-                #   label
-                #   primary {
-                #     title
-                #     launches_project {
-                #       ... on PRISMIC_Projects {
-                #         name_category_of_project
-                #         project_name
-                #         _meta {
-                #           uid
-                #         }
-                #         project_header_image
-                #         project_header_imageSharp {
-                #           uid
-                #         }
-                #         relationship_to_project_category {
-                #           ... on PRISMIC_Category_ourwork {
-                #             _meta {
-                #               uid
-                #             }
-                #           }
-                #         }
-                #       }
-                #     }
-                #   }
-                # }
               }
             }
           }
@@ -359,20 +226,18 @@ const Layout = ({
     data && data.prismic?.allService_headers
       ? data.prismic?.allService_headers
       : []
-  const BoxLayout = styled.div`
-    overflow-x: hidden;
-    position: relative;
-  `
+  const dataHeaderOurwork = data.prismic?.allOurwork_headers
+
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
         <OurWorkContextProvider>
-          <GlobalStyle />
           <Header
             dataGlobalMessage={parentCallback}
             location={location}
             dataMenuHeader={dataMenuHeader}
             dataServicesMenu={dataServicesMenu}
+            dataHeaderOurwork={dataHeaderOurwork}
           />
           <Banner
             location={location}
@@ -392,4 +257,9 @@ const Layout = ({
   )
 }
 
+const BoxLayout = styled.div`
+  overflow-x: hidden;
+  position: relative;
+  overflow: ${({ checkMenu }) => (checkMenu === false ? "hidden" : "show")};
+`
 export default Layout

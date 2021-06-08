@@ -79,7 +79,6 @@ export default function Instagram({ input }) {
 }
 
 const Container = styled.div`
-  height: 466px;
   margin: 96px 32px 0px;
   @media (max-width: 600px) {
     margin: 40px 16px 0px;
@@ -87,16 +86,17 @@ const Container = styled.div`
   }
   @media (max-width: 320px) {
     margin: 40px 16px 0px;
-    height: 405px;
+    height: 348px;
   }
   @media (min-width: 1024px) {
-    height: 620px;
+    height: auto;
   }
   @media (min-width: 1366px) {
-    height: 466px;
+    height: auto;
   }
   @media (min-width: 1600px) {
-    margin: 96px 32px 0px;
+    margin: 96px auto 0px;
+    width: 1536px;
   }
 `
 const ListPost = styled.div`
@@ -120,7 +120,7 @@ const ListPost = styled.div`
     margin-bottom: 14px;
   }
   @media (min-width: 1366px) {
-    width: 24%;
+    width: 23.4%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -141,7 +141,6 @@ const Img = styled.img`
   }
 `
 const List = styled.div`
-  height: 360px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -156,7 +155,7 @@ const List = styled.div`
     height: 285px;
   }
   @media (min-width: 1024px) {
-    height: 520px;
+    height: auto;
   }
   @media (min-width: 1366px) {
     height: 360px;

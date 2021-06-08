@@ -4,8 +4,16 @@ import BannerBlogDetails from "../components/Banner/BannerBlogDetails"
 import Layout from "../components/Layout"
 import moment from "moment"
 import { RichText } from "prismic-reactjs"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} from "react-share"
 
 const BlogDetails = props => {
+  // get location
+  const { location } = props
+
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
         item?.type ? item?.type === "socical_icons" : ""
@@ -14,7 +22,6 @@ const BlogDetails = props => {
   // const dataIconMap = dataIcon?.map(item =>
   //   item?.fields?.map(item => item?.icon_image.url)
   // )
-  // console.log("akvkvkv", dataIconMap)
   const dataText = props
     ? props.data.prismic.post?.body?.filter(item =>
         item?.type ? item?.type === "tag_for_post" : ""
@@ -58,16 +65,51 @@ const BlogDetails = props => {
           <DivIcon>
             {dataIcon ? (
               dataIcon?.map((item, key) =>
-                item?.fields?.map((x, index) => (
-                  <a href="#">
-                    <Icon
-                      key={index}
-                      value={index}
-                      src={x?.icon_image?.url ? x?.icon_image?.url : ""}
-                      alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
-                    />
-                  </a>
-                ))
+                item?.fields?.map((x, index) => {
+                  switch (index * 1) {
+                    case 0:
+                      return (
+                        <FacebookShareButton key={index} url={location.href}>
+                          <Icon
+                            key={index}
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </FacebookShareButton>
+                      )
+                    case 1:
+                      return (
+                        <TwitterShareButton key={index} url={location.href}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </TwitterShareButton>
+                      )
+                    case 2:
+                      return (
+                        <EmailShareButton key={index} url={location.href}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </EmailShareButton>
+                      )
+                    default:
+                      return (
+                        <FacebookShareButton key={index} url={location.href}>
+                          <Icon
+                            value={index}
+                            src={x?.icon_image?.url ? x?.icon_image?.url : ""}
+                            alt={x?.icon_image?.alt ? x?.icon_image?.alt : ""}
+                          />
+                        </FacebookShareButton>
+                      )
+                  }
+                })
               )
             ) : (
               <></>
@@ -89,29 +131,50 @@ const Container = styled.div`
   margin-top: 60px;
   margin-left: 260px;
   margin-bottom: 80px;
-  width: 716px;
+  width: 100%;
 
   @media (max-width: 600px) {
-    width: 343px;
+    max-width: 343px;
     margin: 16px auto 32px;
   }
   @media (max-width: 360px) {
-    width: 300px;
+    max-width: 300px;
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
-    width: 586px;
-    margin: 20px auto 40px;
+    max-width: 535px;
+    margin: 40px auto 40px;
+    margin-left: 68px;
+    margin-right: 0;
+    padding-right: 68px;
+  }
+  @media (min-width: 650px) {
+    padding-right: 0px;
   }
   @media (min-width: 768px) {
-    width: 716px;
-    margin: 20px auto 40px;
+    max-width: 734px;
+    margin: 40px auto 40px;
+    margin-left: 77px;
+    margin-right: 0;
+    padding-right: 120px;
+  }
+  @media (min-width: 850px) {
+    padding-right: 0;
   }
   @media (min-width: 1200px) {
     margin-top: 60px;
-    margin-left: 260px;
+
     margin-bottom: 80px;
-    width: 716px;
+    max-width: 716px;
+    margin-left: 160px;
+  }
+  @media (min-width: 1372px) {
+    margin-left: 220px;
+    margin-right: 220px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 260px;
+    margin-right: 260px;
   }
 `
 const Img = styled.img`
@@ -143,8 +206,10 @@ const TextImg = styled.div`
   margin-top: 22px;
 `
 const Texxt = styled.div`
+  font-family: Calibre Regular;
+
   p {
-    margin-bottom: 0px;
+    margin-bottom: 17px;
     color: #222222;
     font-family: Calibre Regular;
     font-size: 20px;
@@ -159,41 +224,85 @@ const Texxt = styled.div`
       line-height: 20px;
     }
   }
+
   .block-img {
+    margin-bottom: 41px;
     img {
       width: 100%;
       height: 428px;
-      margin-top: 17px;
-      margin-bottom: 40px;
+      // margin-top: 17px;
       object-fit: cover;
     }
     @media (max-width: 600px) {
+      margin-bottom: 24px;
+      p {
+        margin-bottom: 6px;
+      }
       img {
         height: 204px;
-        margin-top: 6px;
-        margin-bottom: 24px;
+        // margin-top: 6px;
         object-fit: cover;
       }
     }
   }
   @media (max-width: 600px) {
+    .block-img {
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 6px;
+    }
     img {
       height: 204px;
-      margin-top: 6px;
-      margin-bottom: 24px;
+      // margin-top: 6px;
       object-fit: cover;
+    }
+  }
+
+  ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+
+    li {
+      strong {
+        color: #101010;
+        font-family: Calibre Medium;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      color: #222222;
+      font-family: Calibre Regular;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 28px;
+      padding-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ol {
+      li {
+      }
     }
   }
 `
 const Fotters = styled.div`
+  // margin-top: 23px;
   width: 100%;
   height: 52px;
   border-top: 1px solid #e4e4e4;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
   @media (max-width: 600px) {
+    margin-top: 24px;
     width: 100%;
-    height: 47px;
+    height: auto;
+    min-height: 47px;
     border-top: 1px solid #e4e4e4;
     display: flex;
     justify-content: space-between;
@@ -201,12 +310,19 @@ const Fotters = styled.div`
 `
 const DivIcon = styled.div`
   margin-top: 23px;
+  min-width: 105px;
+  button {
+    margin-right: 16.5px;
+    &:focus {
+      outline: none;
+    }
+  }
+
   @media (max-width: 600px) {
     margin-top: 24px;
   }
 `
 const Icon = styled.img`
-  margin-right: 16.5px;
   width: ${({ value }) => (value === 0 ? "12.5px" : "")};
   width: ${({ value }) => (value === 1 ? "21.5px" : "")};
   width: ${({ value }) => (value === 2 ? "18px" : "")};
@@ -215,11 +331,12 @@ const Icon = styled.img`
   height: ${({ value }) => (value === 2 ? "14px" : "")};
 `
 const DivText = styled.div`
-  margin-top: 31px;
+  margin-top: 27px;
   display: flex;
   @media (max-width: 600px) {
-    margin-top: 23px;
+    margin-top: 28pxpx;
     display: flex;
+    flex-wrap: wrap;
   }
 `
 const FirstTexts = styled.p`
@@ -233,6 +350,10 @@ const FirstTexts = styled.p`
   line-height: 16px;
   text-transform: uppercase;
   padding-top: 4px;
+
+  @media (max-width: 375px) {
+    margin-right: 16px;
+  }
 `
 const Texts = styled.p`
   margin-left: 16px;
@@ -243,6 +364,10 @@ const Texts = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
+  @media (max-width: 375px) {
+    margin: 0;
+    margin-right: 16px;
+  }
 `
 
 export const query = graphql`
