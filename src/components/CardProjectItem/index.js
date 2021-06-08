@@ -5,53 +5,57 @@ import { Link } from "gatsby"
 
 function CardProjectItem(props) {
   const { input, resize } = props
+
   return (
     <Wrapper>
       <ListCaseStudy>
         <Row>
-          {input?.fields?.map((item, key) => (
-            <Colum className="col-md-6" key={key}>
-              {item ? (
-                <DivIMG
-                  as={Link}
-                  to={`/projects/${item?.project_item?.relationship_to_project_category?._meta?.uid}/${item?.project_item?._meta?.uid}`}
-                >
-                  <IMG
-                    alt={
-                      item?.project_item?.project_header_image?.alt
-                        ? item?.project_item?.project_header_image?.alt
-                        : ""
-                    }
-                    src={
-                      item?.project_item?.project_header_image?.url
-                        ? item?.project_item?.project_header_image?.url
-                        : ""
-                    }
-                    objectFit="cover"
-                    h={resize ? "433" : "500"}
-                  />
-                </DivIMG>
-              ) : (
-                <></>
-              )}
-              {item ? (
-                <TitleImageBlog>
-                  <Span>
-                    {item?.project_item?.name_category_of_project
-                      ? item?.project_item?.name_category_of_project
-                      : ""}
-                  </Span>
-                  <H3>
-                    {item?.project_item?.project_name[0]?.text
-                      ? item?.project_item?.project_name[0]?.text
-                      : ""}
-                  </H3>
-                </TitleImageBlog>
-              ) : (
-                <></>
-              )}
-            </Colum>
-          ))}
+          {input?.fields?.map((item, key) => {
+
+            return (
+              <Colum className="col-md-6" key={key}>
+                {item ? (
+                  <DivIMG
+                    as={Link}
+                    to={`/projects/${item?.case_study?.relationship_to_project_category?._meta?.uid}/${item?.case_study?._meta?.uid}`}
+                  >
+                    <IMG
+                      alt={
+                        item?.case_study?.project_header_image?.alt
+                          ? item?.case_study?.project_header_image?.alt
+                          : ""
+                      }
+                      src={
+                        item?.case_study?.project_header_image?.url
+                          ? item?.case_study?.project_header_image?.url
+                          : ""
+                      }
+                      objectFit="cover"
+                      h={resize ? "433" : "500"}
+                    />
+                  </DivIMG>
+                ) : (
+                  <></>
+                )}
+                {item ? (
+                  <TitleImageBlog>
+                    <Span>
+                      {item?.case_study?.name_category_of_project
+                        ? item?.case_study?.name_category_of_project
+                        : ""}
+                    </Span>
+                    <H3>
+                      {item?.case_study?.project_name[0]?.text
+                        ? item?.case_study?.project_name[0]?.text
+                        : ""}
+                    </H3>
+                  </TitleImageBlog>
+                ) : (
+                  <></>
+                )}
+              </Colum>
+            )
+          })}
         </Row>
       </ListCaseStudy>
     </Wrapper>
