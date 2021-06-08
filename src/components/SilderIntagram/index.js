@@ -4,6 +4,8 @@ import styled from "styled-components"
 
 export default function SliderIntagram({ input }) {
   const settings = {
+    slidesToScroll: 1,
+    initialSlide: 0,
     className: "left",
     centerMode: true,
     infinite: true,
@@ -13,6 +15,35 @@ export default function SliderIntagram({ input }) {
     rows: 1,
     slidesPerRow: 1,
     dots: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          centerPadding: "0px",
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          centerPadding: "0px",
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          centerPadding: "0px",
+        },
+      },
+    ],
   }
   return (
     <Container>
@@ -39,10 +70,15 @@ const Container = styled.div`
   max-width: 1240px;
   margin: 0 auto;
   margin-top: 48px;
-  max-height: 780px;
   margin-bottom: 150px;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     margin-bottom: 66px;
+    .slick-track {
+      display: flex;
+      div {
+        width: 100% !important;
+      }
+    }
   }
   @media (min-width: 601px) {
     .wrap-header {
