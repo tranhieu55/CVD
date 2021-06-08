@@ -536,9 +536,12 @@ const BannerBlog = () => {
     : []
 
   const listCategories = listCategoryPartners
-    ? list.filter(x => x.post_category)
+    ? list.filter(x => x.type && x.type === "list_post_category")
     : []
-  const newArr = [cateAll, ...listCategories]
+
+  const dataTiles = listCategories.length > 0 ? listCategories[0]?.fields : []
+
+  const newArr = [cateAll, ...dataTiles]
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
