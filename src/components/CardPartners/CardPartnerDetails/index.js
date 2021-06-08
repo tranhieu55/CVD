@@ -6,7 +6,7 @@ import ButtonCustom from "../../ButtonCustom"
 function CardPartnerDetails({ setShowDetails, data }) {
   // get data from props
   const dataButton = data && data !== null ? data?.button_popup[0]?.text : ""
-  const dataButtonUrl = data && data !== null ? data.partner_url?.url : ""
+  const dataButtonUrl = data && data !== null ? data.partner_url?.url : "#"
   const dataButtonTarget = data && data !== null ? data.partner_url?.target : ""
   const dataDescription =
     data && data !== null ? data?.description1[0]?.text : ""
