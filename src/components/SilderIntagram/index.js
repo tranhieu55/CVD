@@ -91,7 +91,7 @@ const Slider = styled.div`
     z-index: 1;
   }
   button {
-    margin: 0 12px;
+    margin: 0 16px;
     z-index: 100;
     width: 52px;
     height: 52px;

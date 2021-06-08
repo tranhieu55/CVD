@@ -420,6 +420,9 @@ const WrapperHeader = styled.div`
     .menu-list_item_text-white {
       font-family: "Calibre Bold" !important;
     }
+    .menu-list_item_text-black {
+      font-family: "Calibre Bold" !important;
+    }
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
