@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { memo } from "react"
-
 import Layout from "../components/Layout"
 import SliceZone from "../utils/SliceZone"
 import SEO from "../components/utilities/SEO"
@@ -17,6 +16,10 @@ const Partners = () => {
                   type
                   label
                   fields {
+                    button_popup
+                    description1
+                    partner_logo
+                    partner_name
                     partner_category {
                       ... on PRISMIC_Partner_category {
                         category_name
@@ -56,7 +59,10 @@ const Partners = () => {
       }
     }
   `)
-  const dataPartners = data && data.prismic?.allPartners_pages?.edges?.[0]?.node ? data.prismic?.allPartners_pages?.edges?.[0]?.node : [];
+  const dataPartners =
+    data && data.prismic?.allPartners_pages?.edges?.[0]?.node
+      ? data.prismic?.allPartners_pages?.edges?.[0]?.node
+      : []
 
   return (
     <Layout location="/partners">

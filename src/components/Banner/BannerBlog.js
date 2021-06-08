@@ -529,13 +529,17 @@ const BannerBlog = () => {
       },
     },
   }
+  console.log({data})
+  const list = listCategoryPartners 
+  ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node?.body.filter(item => item.type ? item.type === "list_post_category" : []) 
+  : []
+  console.log({list});
 
   const listCategories = listCategoryPartners
-    ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node?.body[0]?.fields?.filter(
+    ? list.filter(
         x => x.post_category
       )
     : []
-
   const newArr = [cateAll, ...listCategories]
 
   const dispatch = useContext(OurWorkDispatchContext)
