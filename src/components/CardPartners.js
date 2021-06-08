@@ -59,7 +59,7 @@ const DivIMG = styled.div`
       box-shadow: 8px 8px 30px 0 rgb(0 0 0 / 7%);
 
       .learn-more {
-        display: block;
+        display: inline-block;
       }
     }
   }
