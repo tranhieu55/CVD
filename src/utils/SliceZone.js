@@ -326,7 +326,6 @@ const SliceZone = props => {
           return <Accordion key={index} input={s} />
 
         case "case_study_tiles":
-          console.log('run --------');
           return <CardProjectItem key={index} input={s} />
 
         default:

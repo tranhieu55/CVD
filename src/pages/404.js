@@ -59,26 +59,18 @@ const NotFoundPage = ({ input }) => {
 
   const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
   const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
-  const dataHeading =
-    dataTitle?.map(item => item.primary.heading_text)
-  const dataHeadingText =
-    dataTitle?.map(item => item.primary.paragraph_text)
-  const dataButton =
-    dataTitle?.map(item => item.primary.url_button)
-  const dataFeatured = 
-    dataTitle?.map(item => item.primary.text_featured)
+  
   const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
 
-  console.log({dataCaseStudies})
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
       <Box>
         <Wrapper>
-          <Heading>{dataHeading?.map(el => el.text ? el.text : '')}</Heading>
-          <HeadingText>{dataHeadingText?.map(el => el.text ? el.text : '')}</HeadingText>
-          <Button href="/">{dataButton?.map(el => el.text ? el.text : '')}</Button>
-          <CaseStudiHeading>{dataFeatured?.map(el => el.text ? el.text : '')}</CaseStudiHeading>
+          <Heading>{dataTitle?.map(item => item.primary.heading_text?.map(el => el.text ? el.text : ''))}</Heading>
+          <HeadingText>{dataTitle?.map(item => item.primary.paragraph_text?.map(el => el.text ? el.text : ''))}</HeadingText>
+          <Button href="/">{dataTitle?.map(item => item.primary.url_button?.map(el => el.text ? el.text : ''))}</Button>
+          <CaseStudiHeading>{dataTitle?.map(item => item.primary.text_featured?.map(el => el.text ? el.text : ''))}</CaseStudiHeading>
         </Wrapper>
         <SliceZone allSlices={dataCaseStudies} />
       </Box>

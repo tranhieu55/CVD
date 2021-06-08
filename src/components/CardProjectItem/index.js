@@ -6,15 +6,11 @@ import { Link } from "gatsby"
 function CardProjectItem(props) {
   const { input, resize } = props
 
-  // console.log("input : ", input)
-
   return (
     <Wrapper>
       <ListCaseStudy>
         <Row>
           {input?.fields?.map((item, key) => {
-
-            console.log('item project :', item);
 
             return (
               <Colum className="col-md-6" key={key}>
