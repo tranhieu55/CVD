@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import ButtonCustom from "../../ButtonCustom"
+import Image01 from "../../../images/cancel@2x.png"
 
 function CardPartnerDetails({ setShowDetails, data }) {
   // get data from props
@@ -19,7 +20,9 @@ function CardPartnerDetails({ setShowDetails, data }) {
       {data && data !== null ? (
         <Wrapper>
           <Container>
-            <Close onClick={() => setShowDetails()}></Close>
+            <Close onClick={() => setShowDetails()}>
+              <img src={Image01} />
+            </Close>
             <DivIMG>
               <img src={dataLogoUrl} alt={dataLogoAlt} />
             </DivIMG>
@@ -66,11 +69,12 @@ const Container = styled.div`
   border-radius: 5px;
   box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
   padding: 36px 61px 41px 48px;
-  min-width: 605px;
+  width: 100%;
+  max-width: 605px;
   position: relative;
 
   @media (max-width: 600px) {
-    min-width: 339px;
+    width: 339px;
     padding-top: 18px;
     padding-right: 24px;
     padding-left: 18px;
@@ -80,7 +84,6 @@ const Container = styled.div`
 
   @media (max-width: 340px) {
     width: 100%;
-    min-width: 100px;
   }
 `
 const Close = styled.span`
@@ -88,12 +91,12 @@ const Close = styled.span`
   top: 26px;
   right: 26.33px;
   cursor: pointer;
-  ::after {
-    content: "\f00d";
-    font-family: "Font Awesome 5 Pro Regular";
-    width: 18.67px;
-    height: 20px;
-    font-size: 20px;
+  width: 18.67px;
+  height: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   @media (max-width: 600px) {
@@ -136,7 +139,7 @@ const Descriptions = styled.p`
 
   @media (max-width: 600px) {
     max-width: 297px;
-    margin-bottom: 27px;
+    margin-bottom: 29px;
   }
 `
 const ViewMore = styled.div`
