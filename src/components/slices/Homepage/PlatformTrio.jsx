@@ -27,7 +27,6 @@ const PlatformTrio = ({ input }) => {
     setindicator(i)
   }
   const [width, setWindowSize] = useState(window.innerWidth)
-  console.log(width)
   useEffect(() => {
     if (isBrowser) {
       function handleResize() {

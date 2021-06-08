@@ -286,31 +286,31 @@ const Input = styled.input`
     background: transparent;
     padding: 15px 15px 12px 15px;
     margin-right: 18px;
-    :focus-visible {
-      outline: none;
-    }
-    ::-webkit-input-placeholder {
-      /* Edge */
-      height: 24px;
-      line-height: 24px;
-      font-size: 18px;
-      color: #bebfc6;
-    }
+    // :focus-visible {
+    //   outline: none;
+    // }
+    // ::-webkit-input-placeholder {
+    //   /* Edge */
+    //   height: 24px;
+    //   line-height: 24px;
+    //   font-size: 18px;
+    //   color: #bebfc6;
+    // }
 
-    :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      height: 24px;
-      line-height: 24px;
-      font-size: 18px;
-      color: #bebfc6;
-    }
+    // :-ms-input-placeholder {
+    //   /* Internet Explorer 10-11 */
+    //   height: 24px;
+    //   line-height: 24px;
+    //   font-size: 18px;
+    //   color: #bebfc6;
+    // }
 
-    ::placeholder {
-      height: 24px;
-      line-height: 26px;
-      font-size: 18px;
-      color: #bebfc6;
-    }
+    // ::placeholder {
+    //   height: 24px;
+    //   line-height: 26px;
+    //   font-size: 18px;
+    //   color: #bebfc6;
+    // }
   }
 `
 const Submit = styled.button`
