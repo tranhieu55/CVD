@@ -4,8 +4,6 @@ import styled from "styled-components"
 import ButtonCustom from "../../ButtonCustom"
 
 function CardPartnerDetails({ setShowDetails, data }) {
-  console.log({ data })
-
   // get data from props
   const dataButton = data && data !== null ? data?.button_popup[0]?.text : ""
   const dataButtonUrl = data && data !== null ? data.partner_url?.url : ""
@@ -21,7 +19,7 @@ function CardPartnerDetails({ setShowDetails, data }) {
       {data && data !== null ? (
         <Wrapper>
           <Container>
-            <Close onClick={() => setShowDetails()}>X</Close>
+            <Close onClick={() => setShowDetails()}></Close>
             <DivIMG>
               <img src={dataLogoUrl} alt={dataLogoAlt} />
             </DivIMG>
@@ -52,12 +50,15 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 10000;
+  overflow: scroll;
+  overflow-x: hidden;
 
   @media (max-width: 600px) {
     justify-content: flex-start;
     align-items: flex-start;
-    overflow: scroll;
-    overflow-x: hidden;
+  }
+  @media (max-height: 500px) {
+    align-items: flex-start;
   }
 `
 
@@ -84,13 +85,17 @@ const Container = styled.div`
   }
 `
 const Close = styled.span`
-  background-color: green;
   position: absolute;
   top: 26px;
   right: 26.33px;
-  width: 18.67px;
-  height: 20px;
   cursor: pointer;
+  ::after {
+    content: "\f00d";
+    font-family: "Font Awesome 5 Pro Regular";
+    width: 18.67px;
+    height: 20px;
+    font-size: 20px;
+  }
 
   @media (max-width: 600px) {
     top: 29px;
