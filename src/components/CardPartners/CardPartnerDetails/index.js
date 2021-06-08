@@ -141,7 +141,8 @@ const Descriptions = styled.p`
 `
 const ViewMore = styled.div`
   text-decoration: none;
-
+  display: inline-block;
+  :hover,
   :active,
   :focus,
   :visited {
