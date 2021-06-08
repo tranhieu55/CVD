@@ -387,9 +387,6 @@ export const query = graphql`
             label
             fields {
               icon_image
-              icon_imageSharp {
-                uid
-              }
             }
           }
         }
