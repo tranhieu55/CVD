@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { memo } from "react"
-
 import Layout from "../components/Layout"
 import SliceZone from "../utils/SliceZone"
 import SEO from "../components/utilities/SEO"
