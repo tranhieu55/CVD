@@ -9,20 +9,28 @@ const NotFoundPage = ({ input }) => {
   const data = useStaticQuery(graphql`
     query QueryNotFound {
       prismic {
-        allNotfound_pages {
+        allPage_404s {
           edges {
             node {
-              url_button
-              paragraph_text
-              meta_title
-              meta_description
-              keywords
-              heading_text
+              _meta {
+                uid
+              }
               body {
-                ... on PRISMIC_Notfound_pageBodyCase_studies_are_shown {
+                ... on PRISMIC_Page_404BodyTitle {
                   type
+                  label
+                  primary {
+                    heading_text
+                    paragraph_text
+                    text_featured
+                    url_button
+                  }
+                }
+                ... on PRISMIC_Page_404BodyCase_study_tiles {
+                  type
+                  label
                   fields {
-                    project_item {
+                    case_study {
                       ... on PRISMIC_Projects {
                         name_category_of_project
                         project_name
@@ -49,23 +57,28 @@ const NotFoundPage = ({ input }) => {
     }
   `)
 
-  const dataSEO = data?.prismic?.allNotfound_pages?.edges[0]?.node
+  const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
+  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
   const dataHeading =
-    data?.prismic?.allNotfound_pages?.edges[0]?.node?.heading_text[0]?.text
+    dataTitle?.map(item => item.primary.heading_text)
   const dataHeadingText =
-    data?.prismic?.allNotfound_pages?.edges[0]?.node?.paragraph_text[0]?.text
+    dataTitle?.map(item => item.primary.paragraph_text)
   const dataButton =
-    data?.prismic?.allNotfound_pages?.edges[0]?.node?.url_button[0]?.text
-  const dataCaseStudies = data.prismic.allNotfound_pages.edges[0].node.body
+    dataTitle?.map(item => item.primary.url_button)
+  const dataFeatured = 
+    dataTitle?.map(item => item.primary.text_featured)
+  const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
+
+  console.log({dataCaseStudies})
   return (
     <Layout location="/404">
       <SEO props={dataSEO} />
       <Box>
         <Wrapper>
-          <Heading>{dataHeading}</Heading>
-          <HeadingText>{dataHeadingText}</HeadingText>
-          <Button href="/">{dataButton}</Button>
-          <CaseStudiHeading>Featured case studies</CaseStudiHeading>
+          <Heading>{dataHeading?.map(el => el.text ? el.text : '')}</Heading>
+          <HeadingText>{dataHeadingText?.map(el => el.text ? el.text : '')}</HeadingText>
+          <Button href="/">{dataButton?.map(el => el.text ? el.text : '')}</Button>
+          <CaseStudiHeading>{dataFeatured?.map(el => el.text ? el.text : '')}</CaseStudiHeading>
         </Wrapper>
         <SliceZone allSlices={dataCaseStudies} />
       </Box>
