@@ -18,7 +18,7 @@ export default function WhatWeDoMobile(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(`You clicked imes`)
+      // console.log(`You clicked imes`)
     }, 3000)
   })
 
@@ -28,7 +28,6 @@ export default function WhatWeDoMobile(props) {
   const [indicator, setindicator] = useState(null)
 
   function updateSelected(i) {
-    console.log(i)
     setService(fields[i].service[0].text)
     setContent(fields[i].content)
     setindicator(i)

@@ -529,16 +529,14 @@ const BannerBlog = () => {
       },
     },
   }
-  console.log({data})
-  const list = listCategoryPartners 
-  ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node?.body.filter(item => item.type ? item.type === "list_post_category" : []) 
-  : []
-  console.log({list});
+  const list = listCategoryPartners
+    ? listCategoryPartners.prismic?.allPost_listing_pages?.edges[0]?.node?.body.filter(
+        item => (item.type ? item.type === "list_post_category" : [])
+      )
+    : []
 
   const listCategories = listCategoryPartners
-    ? list.filter(
-        x => x.post_category
-      )
+    ? list.filter(x => x.post_category)
     : []
   const newArr = [cateAll, ...listCategories]
 
