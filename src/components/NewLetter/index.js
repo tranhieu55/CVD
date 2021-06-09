@@ -219,6 +219,9 @@ const Input = styled.input`
   :focus-visible {
     outline: none;
   }
+  :focus {
+    outline: none;
+  }
   :not(:placeholder-shown):invalid {
     border: 1px solid #f10909;
   }
@@ -262,6 +265,11 @@ const Input = styled.input`
         position: static;
       }
     }
+    @media (min-width: 768px) and (max-width: 992px) {
+      ::-webkit-input-placeholder {
+        transform: translateY(1px);
+      }
+    }
   }
 
   // only safari (ver 10+);
@@ -269,6 +277,11 @@ const Input = styled.input`
     @media {
       ::-webkit-input-placeholder {
         position: static;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+      ::-webkit-input-placeholder {
+        transform: translateY(1px);
       }
     }
   }
