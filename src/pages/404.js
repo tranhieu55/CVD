@@ -59,6 +59,7 @@ const NotFoundPage = ({ input }) => {
 
   const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
   const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
+  console.log({dataTitle})
   
   const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
 
