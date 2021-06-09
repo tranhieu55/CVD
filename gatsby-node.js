@@ -47,6 +47,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
         allPages {
           edges {
             node {
+              page_name
+              _meta {
+                uid
+              }
+              meta_title
+              meta_description
+              keywords
               body {
                 ... on PRISMIC_PageBody_accordion {
                   type
@@ -294,12 +301,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   }
                   primary {
                     title
-                  }
-                }
-                ... on PRISMIC_PageBodyBig_text {
-                  type
-                  primary {
-                    text
                   }
                 }
                 ... on PRISMIC_PageBodyWhat_we_do {
@@ -606,22 +607,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     }
                   }
                 }
-                ... on PRISMIC_PageBodyBlog_article_tiles {
-                  type
-                  label
-                  fields {
-                    post_item {
-                      ... on PRISMIC_Post {
-                        title
-                        post_image
-                        _meta {
-                          uid
-                        }
-                        date_created
-                      }
-                    }
-                  }
-                }
                 ... on PRISMIC_PageBodyClient_logo_grid {
                   type
                   fields {
@@ -680,13 +665,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   }
                   primary {
                     title
-                  }
-                }
-                ... on PRISMIC_PageBodyImage_slideshow {
-                  type
-                  label
-                  fields {
-                    image
                   }
                 }
                 ... on PRISMIC_PageBodyFull_width_image {
@@ -890,13 +868,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-              meta_title
-              meta_description
-              keywords
-              page_name
-              _meta {
-                uid
-              }
             }
           }
         }
@@ -904,51 +875,49 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // console.log("dataa pages  :", res)
+  pagesResult?.data?.prismic?.allPages?.edges?.map(page => {
+    createPage({
+      component: PageTemplate,
+      path: `/${page.node._meta.uid}`,
+      context: {
+        slug: page.node._meta.uid,
+        dataLayout: page.node,
+      },
+    })
+  })
 
-  // pagesResult.data.prismic.allPages.edges.map(page => {
-  //   createPage({
-  //     component: PageTemplate,
-  //     path: `/${page.node._meta.uid}`,
-  //     context: {
-  //       slug: page.node._meta.uid,
-  //       dataLayout: page.node,
-  //     },
-  //   })
-  // })
+  res.data.prismic.allProjectss.edges.forEach(edge => {
+    createPage({
+      component: OurWorkDetail,
+      path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
+      context: {
+        slug: edge.node._meta.uid,
+        dataLayout: edge,
+      },
+    })
+  })
 
-  // res.data.prismic.allProjectss.edges.forEach(edge => {
-  //   createPage({
-  //     component: OurWorkDetail,
-  //     path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
-  //     context: {
-  //       slug: edge.node._meta.uid,
-  //       dataLayout: edge,
-  //     },
-  //   })
-  // })
-
-  // res.data.prismic.allProjectss.edges.forEach(edge => {
-  //   createPage({
-  //     component: OurWorkItems,
-  //     path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,
-  //     context: {
-  //       // slug: edge.node.relationship_to_categoryourwork._meta.uid,
-  //       slug: edge.node.name_category_of_project,
-  //       dataLayout: edge,
-  //     },
-  //   })
-  // })
-  // res.data.prismic.allPosts.edges.forEach(edge => {
-  //   createPage({
-  //     component: BlogDetails,
-  //     path: `/blog/${edge.node._meta.uid}`,
-  //     context: {
-  //       slug: edge.node._meta.uid,
-  //       dataLayout: edge,
-  //     },
-  //   })
-  // })
+  res.data.prismic.allProjectss.edges.forEach(edge => {
+    createPage({
+      component: OurWorkItems,
+      path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,
+      context: {
+        // slug: edge.node.relationship_to_categoryourwork._meta.uid,
+        slug: edge.node.name_category_of_project,
+        dataLayout: edge,
+      },
+    })
+  })
+  res.data.prismic.allPosts.edges.forEach(edge => {
+    createPage({
+      component: BlogDetails,
+      path: `/blog/${edge.node._meta.uid}`,
+      context: {
+        slug: edge.node._meta.uid,
+        dataLayout: edge,
+      },
+    })
+  })
 }
 
 const webpack = require("webpack")
