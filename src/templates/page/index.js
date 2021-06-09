@@ -3,8 +3,7 @@ import Layout from '../../components/Layout';
 import SEO from '../../components/utilities/SEO';
 import SliceZone from '../../utils/SliceZone';
 
-function CustomPage(props){
-    console.log('props :', props);
+function PageTemplate(props){
     const data = props;
   return (
     <Layout>
@@ -14,4 +13,5 @@ function CustomPage(props){
   )
 
 }
-export default CustomPage
+export default PageTemplate
+
