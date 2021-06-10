@@ -47,7 +47,7 @@ const ButtonCustom = styled.button`
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;
-    color: #000;
+    // color: #000;
   }
   &:focus {
     outline: none;

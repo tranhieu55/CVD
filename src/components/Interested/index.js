@@ -146,7 +146,13 @@ const BoxInterested = styled.div`
     padding-bottom: 108px;
   }
 `
-const BoxBtn = styled.div``
+const BoxBtn = styled.div`
+  button:hover {
+    .get-in-touch {
+      color: #101010; // task CDNS-102: hover state button name should NOT change to white when hovering
+    }
+  }
+`
 const H2 = styled.h2``
 export default function Interested({ dataFooter }) {
   const dataBTG = dataFooter

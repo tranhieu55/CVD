@@ -219,6 +219,9 @@ const Input = styled.input`
   :focus-visible {
     outline: none;
   }
+  :focus {
+    outline: none;
+  }
   :not(:placeholder-shown):invalid {
     border: 1px solid #f10909;
   }
@@ -228,6 +231,7 @@ const Input = styled.input`
     line-height: 24px;
     font-size: 18px;
     color: #bebfc6;
+
     position: absolute;
     top: 30%;
   }
@@ -238,6 +242,7 @@ const Input = styled.input`
     line-height: 24px;
     font-size: 18px;
     color: #bebfc6;
+
     position: absolute;
     top: 30%;
   }
@@ -247,12 +252,44 @@ const Input = styled.input`
     line-height: 24px;
     font-size: 18px;
     color: #bebfc6;
+
     position: absolute;
     top: 30%;
   }
+
+  // only safari (ver 6.1 to 10);
+
+  @media screen and (min-color-index: 0) and(-webkit-min-device-pixel-ratio:0) {
+    @media {
+      ::-webkit-input-placeholder {
+        position: static;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+      ::-webkit-input-placeholder {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  // only safari (ver 10+);
+  @media not all and (min-resolution: 0.001dpcm) {
+    @media {
+      ::-webkit-input-placeholder {
+        position: static;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+      ::-webkit-input-placeholder {
+        transform: translateY(1px);
+      }
+    }
+  }
+
   div {
     height: 24px;
   }
+
   @media (max-width: 600px) {
     margin-top: 16px;
     width: 100%;
@@ -286,31 +323,31 @@ const Input = styled.input`
     background: transparent;
     padding: 15px 15px 12px 15px;
     margin-right: 18px;
-    // :focus-visible {
-    //   outline: none;
-    // }
-    // ::-webkit-input-placeholder {
-    //   /* Edge */
-    //   height: 24px;
-    //   line-height: 24px;
-    //   font-size: 18px;
-    //   color: #bebfc6;
-    // }
+    :focus-visible {
+      outline: none;
+    }
+    ::-webkit-input-placeholder {
+      /* Edge */
+      height: 24px;
+      line-height: 24px;
+      font-size: 18px;
+      color: #bebfc6;
+    }
 
-    // :-ms-input-placeholder {
-    //   /* Internet Explorer 10-11 */
-    //   height: 24px;
-    //   line-height: 24px;
-    //   font-size: 18px;
-    //   color: #bebfc6;
-    // }
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      height: 24px;
+      line-height: 24px;
+      font-size: 18px;
+      color: #bebfc6;
+    }
 
-    // ::placeholder {
-    //   height: 24px;
-    //   line-height: 26px;
-    //   font-size: 18px;
-    //   color: #bebfc6;
-    // }
+    ::placeholder {
+      height: 24px;
+      line-height: 24px;
+      font-size: 18px;
+      color: #bebfc6;
+    }
   }
 `
 const Submit = styled.button`

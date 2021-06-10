@@ -86,7 +86,7 @@ const ListBlogStyle = styled.div`
   }
   .btn-studies:hover {
     background-color: #fecf09;
-    color: white;
+    color: #101010;
   }
   @media (max-width: 600px) {
     height: auto;
@@ -308,7 +308,7 @@ const ButtonCustom = styled.button`
   :hover {
     transition: all 0.6s ease;
     background-color: #ffd700;
-    color: #000;
+    color: #101010;
   }
   :focus {
     outline: none;

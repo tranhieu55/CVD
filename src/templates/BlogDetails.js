@@ -128,53 +128,25 @@ const BlogDetails = props => {
 }
 export default BlogDetails
 const Container = styled.div`
-  margin-top: 60px;
-  margin-left: 260px;
-  margin-bottom: 80px;
-  width: 100%;
-
+  max-width: 716px;
   @media (max-width: 600px) {
-    max-width: 343px;
+    width: 100%;
     margin: 16px auto 32px;
+    padding: 0 16px;
   }
   @media (max-width: 360px) {
-    max-width: 300px;
     margin: 16px auto 32px;
   }
   @media (min-width: 600px) {
-    max-width: 535px;
-    margin: 40px auto 40px;
-    margin-left: 68px;
-    margin-right: 0;
-    padding-right: 68px;
-  }
-  @media (min-width: 650px) {
-    padding-right: 0px;
+    padding: 0 16px;
+    margin: 40px 0;
   }
   @media (min-width: 768px) {
-    max-width: 734px;
+    padding: 0;
     margin: 40px auto 40px;
-    margin-left: 77px;
-    margin-right: 0;
-    padding-right: 120px;
-  }
-  @media (min-width: 850px) {
-    padding-right: 0;
   }
   @media (min-width: 1200px) {
-    margin-top: 60px;
-
-    margin-bottom: 80px;
-    max-width: 716px;
-    margin-left: 160px;
-  }
-  @media (min-width: 1372px) {
-    margin-left: 220px;
-    margin-right: 220px;
-  }
-  @media (min-width: 1600px) {
     margin-left: 260px;
-    margin-right: 260px;
   }
 `
 const Img = styled.img`

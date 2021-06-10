@@ -298,9 +298,7 @@ const Images = styled.img`
     }
   }
 
-  @media (max-width: 1024px) {
-    object-fit: contain;
-  }
+  object-fit: contain;
 `
 const Socke = styled.div`
   height: 264px;

@@ -44,14 +44,60 @@ const Wrapper = styled.div`
       margin-bottom: 72px;
     }
     .col-md-3 {
-      margin-bottom: 40px;
+      margin-bottom: 25px;
     }
   }
 `
 const DivIMG = styled.div`
   overflow: hidden;
-  img:hover {
-    opacity: 0.5;
+
+  @media (min-width: 1200px) {
+    width: 246px;
+    height: 164px;
+
+    :hover {
+      box-shadow: 8px 8px 30px 0 rgb(0 0 0 / 7%);
+
+      .learn-more {
+        display: inline-block;
+      }
+    }
+  }
+`
+
+const LearnMore = styled.div`
+  text-align: center;
+  margin-top: 8px;
+  cursor: pointer;
+
+  a {
+    :hover,
+    :active,
+    :focus,
+    :visited {
+      text-decoration: none;
+    }
+  }
+
+  a {
+    display: none;
+    color: #101010;
+    font-family: Calibre Medium;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+
+    :after {
+      content: "\f178";
+      font-family: "Font Awesome 5 Pro Regular";
+      color: #101010;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 21px;
+      text-align: center;
+      padding-left: 9px;
+    }
   }
 `
 export default function CardPartners(props) {
@@ -86,19 +132,24 @@ export default function CardPartners(props) {
           {listPartners ? (
             listPartners?.map((node, index) => (
               <div className="col-6 col-md-3" key={index}>
-                <DivIMG
-                  // as={Link}
-                  // to={node.partner_url?.url ? node.partner_url?.url : ""}
-                  // target={
-                  //   node.partner_url?.target ? node.partner_url?.target : ""
-                  // }
-                  onClick={() => setUidDetail(index)}
-                >
+                <DivIMG>
                   <IMG
+                    onClick={() => setUidDetail(index)}
                     className="item-image"
                     src={node.partner_logo?.url ? node.partner_logo?.url : ""}
                     alt={node.partner_logo?.alt ? node.partner_logo?.alt : ""}
                   />
+                  <LearnMore>
+                    <Link
+                      className="learn-more"
+                      to={node.partner_url?.url ? node.partner_url?.url : ""}
+                      target={
+                        node.partner_url?.target ? node.partner_url?.target : ""
+                      }
+                    >
+                      Learn more
+                    </Link>
+                  </LearnMore>
                 </DivIMG>
               </div>
             ))

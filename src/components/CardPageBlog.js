@@ -51,8 +51,8 @@ const OurLaster = ({ input }) => {
               : ""}
           </SubTitle>
           <TitlePost>
-            {item?.post_item?.title[0]?.text
-              ? item?.post_item?.title[0]?.text
+            {item?.post_item?.title?.map(item => item.text)
+              ? item?.post_item?.title?.map(item => item.text)
               : ""}
           </TitlePost>
           <Read
