@@ -15,6 +15,7 @@ export default function GlobalMessage({ parentCallback }) {
                   type
                   label
                   primary {
+                    check_show
                     link_title
                     message
                     mobile_message
@@ -37,41 +38,66 @@ export default function GlobalMessage({ parentCallback }) {
     ? dataGlobal?.map(item => (item.primary ? item.primary : ""))
     : []
 
+  // condition show global message
+  const dataBody = data.prismic?.allHeaders?.edges.map(
+    element => element?.node?.body
+  )
+  const dataFilter =
+    dataBody && dataBody?.length > 0
+      ? dataBody[0].filter(
+          elementFilter =>
+            elementFilter?.type && elementFilter.type === "global_messing_bar"
+        )
+      : []
+  const isDisplay =
+    dataFilter && dataFilter?.length > 0
+      ? dataFilter[0]?.primary?.check_show
+      : false
+
   const [show, setShow] = useState(true)
   function showGlobal() {
     setShow(!show)
     parentCallback(show)
   }
   return (
-    <Container open={show}>
-      {texts ? (
-        <Content>
-          <Desktop>
-            <Text lh={24}>
-              {texts[0]?.message?.map(item => (item?.text ? item?.text : ""))}.{" "}
-            </Text>
-            <LI lh={24}>
-              {texts[0]?.link_title?.map(item =>
-                item?.text ? item?.text : ""
-              )}
-            </LI>
-          </Desktop>
-          <Mobile>
-            <TextMobile lh={20}>
-              {texts[0]?.mobile_message?.map(item => item?.text)}.{" "}
-              <LI lh={24}>
-                {texts[0]?.link_title?.map(item =>
-                  item?.text ? item?.text : ""
-                )}
-              </LI>
-            </TextMobile>
-          </Mobile>
-        </Content>
+    <>
+      {isDisplay ? (
+        <Container open={show}>
+          {texts ? (
+            <Content>
+              <Desktop>
+                <Text lh={24}>
+                  {texts[0]?.message?.map(item =>
+                    item?.text ? item?.text : ""
+                  )}
+                  .{" "}
+                </Text>
+                <LI lh={24}>
+                  {texts[0]?.link_title?.map(item =>
+                    item?.text ? item?.text : ""
+                  )}
+                </LI>
+              </Desktop>
+              <Mobile>
+                <TextMobile lh={20}>
+                  {texts[0]?.mobile_message?.map(item => item?.text)}.{" "}
+                  <LI lh={24}>
+                    {texts[0]?.link_title?.map(item =>
+                      item?.text ? item?.text : ""
+                    )}
+                  </LI>
+                </TextMobile>
+              </Mobile>
+            </Content>
+          ) : (
+            <></>
+          )}
+          <Close onClick={() => showGlobal()}></Close>
+        </Container>
       ) : (
-        <></>
+        ""
       )}
-      <Close onClick={() => showGlobal()}></Close>
-    </Container>
+    </>
   )
 }
 
