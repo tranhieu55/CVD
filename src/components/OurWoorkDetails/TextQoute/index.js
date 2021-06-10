@@ -14,14 +14,14 @@ export default function TextQoute(props) {
         >
           <TypeAliquam>
             “
-            {props?.input?.primary?.title_quote[0]?.text
-              ? props?.input?.primary?.title_quote[0]?.text
+            {props?.input?.primary?.title_quote?.map(item => item.text)
+              ? props?.input?.primary?.title_quote?.map(item => item.text)
               : ""}
             ”
           </TypeAliquam>
           <TypeAliquams>
-            {props?.input?.primary?.author_of_quote[0]?.text
-              ? props?.input?.primary?.author_of_quote[0]?.text
+            {props?.input?.primary?.author_of_quote?.map(item => item.text)
+              ? props?.input?.primary?.author_of_quote?.map(item => item.text)
               : ""}
           </TypeAliquams>
         </Qoute>
