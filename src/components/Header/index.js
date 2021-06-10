@@ -1393,7 +1393,7 @@ const Header = ({
             ) : (
               <IMG
                 src={
-                  isDisPlayModalOurwork == true ||
+                  isDisPlayModalOurwork === true ||
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/404" ||
@@ -1523,22 +1523,28 @@ const Header = ({
                           : item.title_menu_item[0]?.text}
                       </Link>
                     )}
-                    {item && item.slug_menu_item[0]?.text === "projects" && (
-                      <ul
-                        ref={isDisPlayModalOurwork === true ? ref : null}
-                        className="menu-area_ourwork"
-                      >
-                        <hr />
-                        <OurWorkMobile
-                          dataHeaderOurwork={dataHeaderOurwork}
-                          checkValue={() => checkValueOurwork()}
-                          checkClose={() => checkValueClose()}
-                        />
-                        <OurWorkDesktop dataHeaderOurwork={dataHeaderOurwork} />
-                      </ul>
-                    )}
+                    {item &&
+                      item.slug_menu_item[0]?.text === "projects" &&
+                      isDisPlayModalOurwork === true && (
+                        <ul
+                          ref={isDisPlayModalOurwork === true ? ref : null}
+                          className="menu-area_ourwork"
+                        >
+                          <hr />
+                          <OurWorkMobile
+                            dataHeaderOurwork={dataHeaderOurwork}
+                            checkValue={() => checkValueOurwork()}
+                            checkClose={() => checkValueClose()}
+                          />
+                          <OurWorkDesktop
+                            dataHeaderOurwork={dataHeaderOurwork}
+                          />
+                        </ul>
+                      )}
 
-                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                    {item &&
+                    item.slug_menu_item[0]?.text === "services" &&
+                    isDisPlayModalService === true ? (
                       <ul
                         ref={isDisPlayModalService === true ? ref : null}
                         className="menu-area_services"
