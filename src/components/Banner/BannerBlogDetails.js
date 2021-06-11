@@ -1,15 +1,20 @@
-import { func } from "prop-types"
+import moment from "moment"
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
-export default function BannerBlogDetails({ titles, sub }) {
+export default function BannerBlogDetails(props) {
+  const data = props ? props?.input?.primary : []
   return (
     <Container>
-      {titles && sub ? (
+      {data?.image_banner ?
+        <Image>{data?.image_banner?.url}</Image>
+        :<></>
+      }
+      {data ? (
         <SubTitle>
-          <Sub>{sub}</Sub>
-          <Title>{titles}</Title>
+          <Sub>{moment(data?.date_created1)?.format("LL")}</Sub>
+          <Title>{data?.title_banner?.map(item => item.text)}</Title>
         </SubTitle>
       ) : (
         <></>
@@ -36,7 +41,13 @@ const Container = styled.div`
     height: 337px;
   }
 `
+const Image = styled.img`
+  width : 100%;
+  height : 100%;
+  position : realtive;
+`
 const SubTitle = styled.div`
+  position : absolute;
   @media (max-width: 600px) {
     padding-top: 90px;
     width: 343px;

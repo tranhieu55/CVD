@@ -1275,7 +1275,8 @@ const Header = ({
       location === "/partners" ||
       location === "/pageblog" ||
       location === "/blog-details" ||
-      location === "/testimonial"
+      location === "/testimonial" ||
+      location === "/banner"
     ) {
       return "menu-list_item_text-black"
     }
@@ -1305,6 +1306,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
+      location === "/banner"||
       show > 101 ||
       !!isDisPlayModalService ||
       !!isDisPlayModalOurwork
@@ -1324,7 +1326,8 @@ const Header = ({
       location === "/partners" ||
       location === "/pageblog" ||
       location === "/blog-details" ||
-      location === "/testimonial"
+      location === "/testimonial" ||
+      location === "/banner"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1403,7 +1406,8 @@ const Header = ({
                   location === "/partners" ||
                   location === "/pageblog" ||
                   location === "/blog-details" ||
-                  location === "/testimonial"
+                  location === "/testimonial" ||
+                  location === "/banner"
                     ? logoBlack
                     : logoLight
                 }
@@ -1425,7 +1429,8 @@ const Header = ({
                   location === "/partners" ||
                   location === "/pageblog" ||
                   location === "/blog-details" ||
-                  location === "/testimonial"
+                  location === "/testimonial" ||
+                  location === "/banner"
                     ? logoBlack
                     : logoLight
                 }
@@ -1465,7 +1470,8 @@ const Header = ({
                       location === "/partners" ||
                       location === "/pageblog" ||
                       location === "/blog-details" ||
-                      location === "/testimonial"
+                      location === "/testimonial" ||
+                      location === "/banner"
                         ? "menu-list_item_white"
                         : "menu-list_item_gold"
                     } ${
