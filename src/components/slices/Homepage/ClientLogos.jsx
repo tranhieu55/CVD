@@ -341,6 +341,7 @@ const Images = styled.img`
   }
 
   object-fit: contain;
+  height: 50px;
 `
 const Socke = styled.div`
   height: 264px;
