@@ -211,6 +211,12 @@ const Layout = ({
                     social_icon_item
                   }
                 }
+                ... on PRISMIC_HeaderBodyGlobal_messing_bar {
+                  type
+                  primary {
+                    check_show
+                  }
+                }
               }
             }
           }
