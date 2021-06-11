@@ -433,7 +433,6 @@ export default function FormSumit({ input }) {
       name="lpsurveyform"
       ng-controller="landingpage.surveysFormCtrl as formCtrl"
       ng-submit="onSubmit($event)"
-      class="surveys-forms"
       method="post"
       novalidate=""
       action="/Response/SurveyLP/54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb?pUrl=https%3A%2F%2Fr1.dotmailer-surveys.com%2F54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb"
