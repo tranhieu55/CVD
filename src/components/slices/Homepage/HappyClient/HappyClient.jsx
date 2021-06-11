@@ -356,12 +356,10 @@ const Slider = styled.div`
 
 const Img = styled.img`
   height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
-  width: ${props =>
-    props.dieukien === "logo client" ? "162px" : "156px"} !important;
+  width: ${props => props.dieukien === "logo client" ? "162px" : "156px"} !important;
   @media (max-width: 600px) {
     height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
-    width: ${props =>
-      props.dieukien === "logo client" ? "162px" : "156px"} !important;
+    width: ${props => props.dieukien === "logo client" ? "162px" : "156px"} !important;
   }
 `
 const Text = styled.div`

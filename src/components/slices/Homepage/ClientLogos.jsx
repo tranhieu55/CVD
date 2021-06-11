@@ -10,6 +10,9 @@ const BigText = ({ input }) => {
     : ""
   const clients = input ? (input?.fields ? input?.fields : "") : []
   const Limit = clients.length / 2
+  const left = clients?.slice(0, Limit)
+  const right = clients?.slice(clients.length / 2, clients.length)
+  console.log({ clients })
   return (
     <Container>
       <Heading>{heading}</Heading>
@@ -18,7 +21,7 @@ const BigText = ({ input }) => {
       <Clientss>
         <ClientsLeft>
           {clients ? (
-            clients?.slice(0, Limit)?.map((client, i) => {
+            left?.map((client, i) => {
               const logo = client?.logo?.url ? client?.logo?.url : ""
               const logo1 = client?.logo?.fade?.url
                 ? client?.logo?.fade?.url
@@ -26,11 +29,28 @@ const BigText = ({ input }) => {
               const logo2 = client?.logo?.images?.url
                 ? client?.logo?.images?.url
                 : ""
+              const width = client?.width[0].text?.split(" ")
+              const height = client?.height[0]?.text?.split(" ")
               return (
                 <ClientLogo key={i} Margin={i}>
-                  <Images id="f3" src={logo}></Images>
-                  <Images id="f2" src={logo1}></Images>
-                  <Images id="f1" src={logo2}></Images>
+                  <Images
+                    id="f3"
+                    width={`${Number(width[0])}px`}
+                    height={`${Number(height[0])}px`}
+                    src={logo}
+                  ></Images>
+                  <Images
+                    id="f2"
+                    src={logo1}
+                    width={`${Number(width[1])}px`}
+                    height={`${Number(height[1])}px`}
+                  ></Images>
+                  <Images
+                    width={`${Number(width[2])}px`}
+                    height={`${Number(height[2])}px`}
+                    id="f1"
+                    src={logo2}
+                  ></Images>
                 </ClientLogo>
               )
             })
@@ -40,24 +60,39 @@ const BigText = ({ input }) => {
         </ClientsLeft>
         <ClientsRight>
           {clients ? (
-            clients
-              ?.slice(clients.length / 2, clients.length)
-              ?.map((client, i) => {
-                const logo = client?.logo?.url ? client?.logo?.url : ""
-                const logo1 = client?.logo?.fade?.url
-                  ? client?.logo?.fade?.url
-                  : ""
-                const logo2 = client?.logo?.images?.url
-                  ? client?.logo?.images?.url
-                  : ""
-                return (
-                  <ClientLogo key={i} Margin={i}>
-                    <Images id="f3" src={logo}></Images>
-                    <Images id="f2" src={logo1}></Images>
-                    <Images id="f1" src={logo2}></Images>
-                  </ClientLogo>
-                )
-              })
+            right?.map((client, i) => {
+              const logo = client?.logo?.url ? client?.logo?.url : ""
+              const logo1 = client?.logo?.fade?.url
+                ? client?.logo?.fade?.url
+                : ""
+              const logo2 = client?.logo?.images?.url
+                ? client?.logo?.images?.url
+                : ""
+              const width = client?.width[0].text?.split(" ")
+              const height = client?.height[0]?.text?.split(" ")
+              return (
+                <ClientLogo key={i} Margin={i}>
+                  <Images
+                    id="f3"
+                    width={`${Number(width[0])}px`}
+                    height={`${Number(height[0])}px`}
+                    src={logo}
+                  ></Images>
+                  <Images
+                    id="f2"
+                    src={logo1}
+                    width={`${Number(width[1])}px`}
+                    height={`${Number(height[1])}px`}
+                  ></Images>
+                  <Images
+                    width={`${Number(width[2])}px`}
+                    height={`${Number(height[2])}px`}
+                    id="f1"
+                    src={logo2}
+                  ></Images>
+                </ClientLogo>
+              )
+            })
           ) : (
             <></>
           )}
@@ -98,13 +133,13 @@ const Clientss = styled.div`
   @media (min-width: 1024px) {
     margin: 80px auto 0px;
     width: 980px;
-    height: 38px;
+    height: 48px;
     display: flex;
   }
   @media (min-width: 1366px) {
     margin: 100px auto 0px;
     width: 1137px;
-    height: 38px;
+    height: 48px;
     display: flex;
     position: relative;
   }
@@ -237,7 +272,7 @@ const ClientLogo = styled.div`
     width: 100%;
   }
   @media (min-width: 1024px) {
-    width: 15%;
+    width: 25%;
   }
   #f1 {
     background-color: white;

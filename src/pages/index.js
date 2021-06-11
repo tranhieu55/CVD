@@ -98,6 +98,8 @@ export const pageQuery = graphql`
                 type
                 fields {
                   logo
+                  height
+                  width
                 }
                 primary {
                   title

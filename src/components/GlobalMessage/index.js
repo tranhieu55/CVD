@@ -104,7 +104,6 @@ export default function GlobalMessage({ parentCallback }) {
 const Container = styled.div`
   @media (max-width: 600px) {
     height: 64px;
-    position: absolute;
     z-index: 9999;
     width: 100%;
     background-color: #2a304f;
