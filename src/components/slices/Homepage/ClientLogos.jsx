@@ -12,7 +12,7 @@ const BigText = ({ input }) => {
   const Limit = clients.length / 2
   const left = clients?.slice(0, Limit)
   const right = clients?.slice(clients.length / 2, clients.length)
-  console.log({ clients })
+  // console.log({ clients })
   return (
     <Container>
       <Heading>{heading}</Heading>
@@ -265,8 +265,8 @@ const ClientLogo = styled.div`
   }
 `
 const Images = styled.img`
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   position: absolute;
   left: 0px;
   top: 0;
