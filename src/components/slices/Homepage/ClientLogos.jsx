@@ -68,7 +68,7 @@ const BigText = ({ input }) => {
               const logo2 = client?.logo?.images?.url
                 ? client?.logo?.images?.url
                 : ""
-              const width = client?.width[0].text?.split(" ")
+              const width = client?.width[0]?.text?.split(" ")
               const height = client?.height[0]?.text?.split(" ")
               return (
                 <ClientLogo key={i} Margin={i}>
