@@ -22,6 +22,13 @@ const Launches = ({ input }) => {
                   type
                   fields {
                     image_item
+                    link_details {
+                      ... on PRISMIC_Page_404 {
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
                   }
                 }
               }

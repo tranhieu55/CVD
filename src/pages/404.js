@@ -58,9 +58,10 @@ const NotFoundPage = ({ input }) => {
   `)
 
   const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
-  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
-  console.log({dataTitle})
-  
+  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(
+    item => (item.type ? item.type === "title" : [])
+  )
+
   const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
 
   return (
@@ -68,10 +69,26 @@ const NotFoundPage = ({ input }) => {
       <SEO props={dataSEO} />
       <Box>
         <Wrapper>
-          <Heading>{dataTitle?.map(item => item.primary.heading_text?.map(el => el.text ? el.text : ''))}</Heading>
-          <HeadingText>{dataTitle?.map(item => item.primary.paragraph_text?.map(el => el.text ? el.text : ''))}</HeadingText>
-          <Button href="/">{dataTitle?.map(item => item.primary.url_button?.map(el => el.text ? el.text : ''))}</Button>
-          <CaseStudiHeading>{dataTitle?.map(item => item.primary.text_featured?.map(el => el.text ? el.text : ''))}</CaseStudiHeading>
+          <Heading>
+            {dataTitle?.map(item =>
+              item.primary.heading_text?.map(el => (el.text ? el.text : ""))
+            )}
+          </Heading>
+          <HeadingText>
+            {dataTitle?.map(item =>
+              item.primary.paragraph_text?.map(el => (el.text ? el.text : ""))
+            )}
+          </HeadingText>
+          <Button href="/">
+            {dataTitle?.map(item =>
+              item.primary.url_button?.map(el => (el.text ? el.text : ""))
+            )}
+          </Button>
+          <CaseStudiHeading>
+            {dataTitle?.map(item =>
+              item.primary.text_featured?.map(el => (el.text ? el.text : ""))
+            )}
+          </CaseStudiHeading>
         </Wrapper>
         <SliceZone allSlices={dataCaseStudies} />
       </Box>

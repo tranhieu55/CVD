@@ -1,8 +1,10 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
 function Launches({ input }) {
   // get data heading
+  console.log({input})
   const dataHeading = input?.title[0].text
 
   // get data for list images
@@ -15,11 +17,13 @@ function Launches({ input }) {
       </Container>
       <ListPost>
         {dataListPost?.map((element, index) => (
-          <Img
-            key={index}
-            src={element?.image_item.url}
-            alt={element?.image_item.alt}
-          ></Img>
+          <a href={`/${element?.link_details?._meta?.uid}`} >
+            <Img
+              key={index}
+              src={element?.image_item.url}
+              alt={element?.image_item.alt}
+            ></Img>
+          </a>
         ))}
       </ListPost>
       <LinkCustom href="#">

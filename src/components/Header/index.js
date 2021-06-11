@@ -219,8 +219,11 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location, show }) =>
-             dataGlobalMessage === true || location !== "/" || show > 0
+           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+             dataGlobalMessage === true ||
+             checkIsMessage !== true ||
+             location !== "/" ||
+             show > 0
                ? "72px"
                : "120px"};
         }
@@ -238,8 +241,11 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location, show }) =>
-             dataGlobalMessage === true || location !== "/" || show > 0
+           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+             dataGlobalMessage === true ||
+             checkIsMessage !== true ||
+             location !== "/" ||
+             show > 0
                ? "72px"
                : "120px"};
           }
@@ -355,15 +361,23 @@ const WrapperHeader = styled.div`
   .dropdown_services {
     .menu-area_services {
       max-height: 100% !important;
-      top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+      top: ${({ dataGlobalMessage, location, checkIsMessage }) =>
+        dataGlobalMessage === true ||
+        checkIsMessage !== true ||
+        location !== "/"
+          ? "72px"
+          : "120px"};
     }
   }
   .dropdown_ourwork {
     .menu-area_ourwork {
       max-height: 100% !important;
-      top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+      top: ${({ dataGlobalMessage, location, checkIsMessage }) =>
+        dataGlobalMessage === true ||
+        checkIsMessage !== true ||
+        location !== "/"
+          ? "72px"
+          : "120px"};
     }
   }
 .hover-ed:hover{
@@ -1264,7 +1278,8 @@ const Header = ({
       }
     }
   }, [])
-
+  const checkIsMessage =
+    dataMenuHeader.edges[0]?.node?.body[0]?.primary?.check_show
   const handleScroll = () => {
     const _show = window.scrollY
     if (_show > 0) {
@@ -1388,6 +1403,7 @@ const Header = ({
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
+      checkIsMessage={checkIsMessage}
       backgroundMobile={linkBackground}
       location={location}
       scroll={scroll}
