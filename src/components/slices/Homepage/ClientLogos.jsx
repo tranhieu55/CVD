@@ -29,14 +29,18 @@ const BigText = ({ input }) => {
               const logo2 = client?.logo?.images?.url
                 ? client?.logo?.images?.url
                 : ""
-              const width = client?.width[0].text?.split(" ")
-              const height = client?.height[0]?.text?.split(" ")
+              const width = client?.width
+                ? client?.width[0].text?.split(" ")
+                : []
+              const height = client?.height
+                ? client?.height[0]?.text?.split(" ")
+                : []
               return (
                 <ClientLogo key={i} Margin={i}>
                   <Images
                     id="f3"
-                    width={`${Number(width[0])}px`}
-                    height={`${Number(height[0])}px`}
+                    width={`${Number(width?.length > 0 ? width[0] : 0)}px`}
+                    height={`${Number(height?.length > 0 ? height[0] : 0)}px`}
                     src={logo}
                   ></Images>
                   <Images
