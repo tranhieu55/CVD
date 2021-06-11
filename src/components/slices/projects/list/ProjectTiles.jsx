@@ -5,6 +5,8 @@ import { Link } from "gatsby"
 const ProjectTiles = ({ input }) => {
   const [limit, setLimit] = useState(4)
   const [orinal, setOrinal] = useState(0)
+  const [toggle, setToggle] = useState(false)
+
   function setMap() {
     if (input && limit > input.fields?.length ? input.fields?.length : 0) {
       setLimit(4)
@@ -14,13 +16,17 @@ const ProjectTiles = ({ input }) => {
       setLimit(limit + 4)
     }
   }
+  const handelClickLoadMore = () => {
+    setToggle(!toggle)
+  }
   return (
     <ListBlogStyle>
       <SubTitle>OUR WORK</SubTitle>
       <Title>Case Studies</Title>
       <Rows className="row">
-        {input && input.fields ? (
-          input.fields.slice(orinal, limit)?.map((edge, index) => (
+        {input.fields
+          ?.slice(0, toggle ? input?.length : 4)
+          ?.map((edge, index) => (
             <Colum
               className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
               key={index}
@@ -40,10 +46,7 @@ const ProjectTiles = ({ input }) => {
                 <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
               </TitleImageBlog>
             </Colum>
-          ))
-        ) : (
-          <></>
-        )}
+          ))}
       </Rows>
       <MyBtn>
         <ButtonCustom
@@ -52,13 +55,9 @@ const ProjectTiles = ({ input }) => {
           lineh="48"
           className="btn-studies"
           id="loadMore"
-          onClick={(orinal, limit) => setMap(orinal, limit)}
+          onClick={handelClickLoadMore}
         >
-          {input && input?.fields
-            ? input?.fields?.slice(orinal, limit)?.length > 3
-              ? "View Case Studies"
-              : "View Case Studies"
-            : ""}
+          {toggle === false ? "Load more project" : "Load less project"}
         </ButtonCustom>
       </MyBtn>
     </ListBlogStyle>

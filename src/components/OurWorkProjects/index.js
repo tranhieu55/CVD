@@ -28,7 +28,6 @@ function OurWorkProjects(props) {
   const handelClickLoadMore = () => {
     setToggle(!toggle)
   }
-  console.log("==========", test)
   return (
     <ListBlogStyle>
       <Rows className="row">

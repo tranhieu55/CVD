@@ -171,6 +171,22 @@ const WrapperHeader = styled.div`
     display: flex;
     width: 457px;
     li.menu-list_item {
+      @media (max-width: 992px) {
+      .mobileService {
+        display: block;
+      }
+      .desktopService {
+        display: none;
+      }
+    }
+    @media (min-width: 992px) {
+      .mobileService {
+        display: none;
+      }
+      .desktopService {
+        display: block;
+      }
+    }
       padding: 10px 16px;
       .edit-item-a {
         font-family: "Calibre Semibold";
@@ -1393,7 +1409,7 @@ const Header = ({
             ) : (
               <IMG
                 src={
-                  isDisPlayModalOurwork == true ||
+                  isDisPlayModalOurwork === true ||
                   isDisPlayModalService === true ||
                   location === "/styleguide" ||
                   location === "/404" ||
@@ -1476,22 +1492,31 @@ const Header = ({
                     key={index}
                   >
                     {item && item.slug_menu_item[0]?.text === "services" ? (
-                      <span
-                        onClick={() => {
-                          setIsDisPlayModalService(true)
-                        }}
-                        onMouseEnter={() => handelHoverService()}
-                        className={`${checkColorText()} colorWhite ${
-                          isDisPlayModalService === true ? "test" : ""
-                        }  hover-ed`}
-                      >
-                        {item.title_menu_item[0]?.text}{" "}
-                        <img
-                          className="icon-mobile-right"
-                          src={logoIconRight}
-                          alt=""
-                        />{" "}
-                      </span>
+                      <>
+                        <span
+                          onMouseEnter={() => handelHoverService()}
+                          className={`${checkColorText()} colorWhite ${
+                            isDisPlayModalService === true ? "test" : ""
+                          }  hover-ed desktopService`}
+                        >
+                          {item.title_menu_item[0]?.text}{" "}
+                        </span>
+                        <span
+                          onClick={() => {
+                            setIsDisPlayModalService(true)
+                          }}
+                          className={`${checkColorText()} colorWhite ${
+                            isDisPlayModalService === true ? "test" : ""
+                          }  hover-ed mobileService`}
+                        >
+                          {item.title_menu_item[0]?.text}{" "}
+                          <img
+                            className="icon-mobile-right"
+                            src={logoIconRight}
+                            alt=""
+                          />{" "}
+                        </span>
+                      </>
                     ) : item && item.slug_menu_item[0]?.text === "projects" ? (
                       <>
                         <span
@@ -1523,22 +1548,28 @@ const Header = ({
                           : item.title_menu_item[0]?.text}
                       </Link>
                     )}
-                    {item && item.slug_menu_item[0]?.text === "projects" && (
-                      <ul
-                        ref={isDisPlayModalOurwork === true ? ref : null}
-                        className="menu-area_ourwork"
-                      >
-                        <hr />
-                        <OurWorkMobile
-                          dataHeaderOurwork={dataHeaderOurwork}
-                          checkValue={() => checkValueOurwork()}
-                          checkClose={() => checkValueClose()}
-                        />
-                        <OurWorkDesktop dataHeaderOurwork={dataHeaderOurwork} />
-                      </ul>
-                    )}
+                    {item &&
+                      item.slug_menu_item[0]?.text === "projects" &&
+                      isDisPlayModalOurwork === true && (
+                        <ul
+                          ref={isDisPlayModalOurwork === true ? ref : null}
+                          className="menu-area_ourwork"
+                        >
+                          <hr />
+                          <OurWorkMobile
+                            dataHeaderOurwork={dataHeaderOurwork}
+                            checkValue={() => checkValueOurwork()}
+                            checkClose={() => checkValueClose()}
+                          />
+                          <OurWorkDesktop
+                            dataHeaderOurwork={dataHeaderOurwork}
+                          />
+                        </ul>
+                      )}
 
-                    {item && item.slug_menu_item[0]?.text === "services" ? (
+                    {item &&
+                    item.slug_menu_item[0]?.text === "services" &&
+                    isDisPlayModalService === true ? (
                       <ul
                         ref={isDisPlayModalService === true ? ref : null}
                         className="menu-area_services"
