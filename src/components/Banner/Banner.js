@@ -38,8 +38,8 @@ function Banner({
       return <BannerWhatWeDo />
     case "/styleguide":
       return <BannerStyleguide />
-    case "/partners":
-      return <BannerPartners />
+    // case "/partners":
+    //   return <BannerPartners />
     case "/pageblog":
       return <BannerBlog />
     default:

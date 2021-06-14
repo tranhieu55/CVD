@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { useContext, memo } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
@@ -8,6 +8,115 @@ import {
   OurWorkDispatchContext,
   OurWorkStateContext,
 } from "../../context/ourwork/OurWorkContextProvider"
+
+const BannerPartners = ({ input }) => {
+  const dataInput = input ? input : []
+  const data = dataInput?.primary
+
+  const cateAll = {
+    category_partner_banner: {
+      category_name: [
+        {
+          spans: [],
+          text: "All",
+          type: "heading1",
+        },
+      ],
+      __typename: "PRISMIC_Partner_category",
+      _meta: {
+        uid: "all",
+      },
+    },
+  }
+
+  const listCategories = input ? input?.fields : []
+
+  const newArr = [cateAll, ...listCategories]
+
+  const dispatch = useContext(OurWorkDispatchContext)
+  const state = useContext(OurWorkStateContext)
+
+  return (
+    <WraperBannerProjects>
+      <BannerProjectsContent className="container">
+        {data ? (
+          <P
+            uppercase={true}
+            fontWeight={theme.fonts.bold}
+            coLor={theme.colors.gray1}
+            mrb="29"
+          >
+            {data.title_banner
+              ? data?.title_banner.map(element =>
+                  element.text ? element.text : ""
+                )
+              : ""}
+          </P>
+        ) : (
+          <></>
+        )}
+        {data ? (
+          <H2
+            fz="32"
+            mrb_rem="1.5"
+            fontFamily="Calibre Semibold"
+            lineh="36"
+            lett="-0.5"
+            col="#111111"
+          >
+            {data.description_banner && data.description_banner.length > 0
+              ? data.description_banner.map(element =>
+                  element.text ? element.text : ""
+                )
+              : ""}
+          </H2>
+        ) : (
+          <></>
+        )}
+        {newArr ? (
+          <div className="row ">
+            <ListCategory className="col-md-10">
+              {newArr?.map((item, index) => (
+                <CategoryItem
+                  key={index}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_FILTER_ITEM",
+                      value: item?.category_partner_banner?._meta?.uid
+                        ? item?.category_partner_banner?._meta?.uid
+                        : "",
+                    })
+                  }}
+                >
+                  <Link
+                    className={
+                      [...state.listSelected].includes(
+                        item?.category_partner_banner?._meta?.uid
+                          ? item?.category_partner_banner?._meta?.uid
+                          : ""
+                      ) && "active"
+                    }
+                  >
+                    {item &&
+                    item.category_partner_banner.category_name &&
+                    item.category_partner_banner.category_name.length > 0
+                      ? item.category_partner_banner?.category_name?.map(
+                          element => (element.text ? element.text : "")
+                        )
+                      : ""}
+                  </Link>
+                </CategoryItem>
+              ))}
+            </ListCategory>
+          </div>
+        ) : (
+          <></>
+        )}
+      </BannerProjectsContent>
+    </WraperBannerProjects>
+  )
+}
+export default memo(BannerPartners)
 
 const WraperBannerProjects = styled.div`
   background-color: #f8f8f8;
@@ -325,124 +434,3 @@ const CategoryItem = styled.li`
     }
   }
 `
-const BannerPartners = () => {
-  const listCategoryPartners = useStaticQuery(graphql`
-    query {
-      prismic {
-        allPartners_pages {
-          edges {
-            node {
-              description
-              title
-              _meta {
-                uid
-              }
-              body {
-                ... on PRISMIC_Partners_pageBodyLists_category {
-                  fields {
-                    category_partner {
-                      ... on PRISMIC_Partner_category {
-                        category_name
-                        _meta {
-                          uid
-                        }
-                      }
-                    }
-                  }
-                  type
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const data = listCategoryPartners.prismic.allPartners_pages?.edges[0]?.node
-
-  const cateAll = {
-    category_partner: {
-      category_name: [
-        {
-          spans: [],
-          text: "All",
-          type: "heading1",
-        },
-      ],
-      __typename: "PRISMIC_Partner_category",
-      _meta: {
-        uid: "all",
-      },
-    },
-  }
-  const ListCT = listCategoryPartners ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === "lists_category" : item): [];
-  const listCategories = ListCT ? ListCT[0]?.fields?.filter(
-    x => x?.category_partner ? x?.category_partner : x
-  ) : []
-
-  const newArr = [cateAll, ...listCategories]
-
-  const dispatch = useContext(OurWorkDispatchContext)
-  const state = useContext(OurWorkStateContext)
-
-  return (
-    <WraperBannerProjects>
-      <BannerProjectsContent className="container">
-        {data ? 
-          <P
-            uppercase={true}
-            fontWeight={theme.fonts.bold}
-            coLor={theme.colors.gray1}
-            mrb="29"
-          >
-            {data?.title[0]?.text ? data?.title[0]?.text : ""}
-          </P>
-          :<></>
-        }
-        {data ? 
-          <H2
-            fz="32"
-            mrb_rem="1.5"
-            fontFamily="Calibre Semibold"
-            lineh="36"
-            lett="-0.5"
-            col="#111111"
-          >
-            {data?.description[0]?.text ? data?.description[0]?.text : ""}
-          </H2>
-          :<></>
-        }
-        {newArr ? 
-          <div className="row ">
-          <ListCategory className="col-md-10">
-            {newArr?.map((item, index) => (
-              <CategoryItem
-                key={index}
-                onClick={() => {
-                  dispatch({
-                    type: "ADD_FILTER_ITEM",
-                    value: item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : "",
-                  })
-                }}
-              >
-                <Link
-                  className={
-                    [...state.listSelected].includes(
-                      item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : ""
-                    ) && "active"
-                  }
-                >
-                  {item?.category_partner?.category_name[0]?.text ? item?.category_partner?.category_name[0]?.text : ""}
-                </Link>
-              </CategoryItem>
-            ))}
-          </ListCategory>
-        </div>
-        : <></>
-        }
-      </BannerProjectsContent>
-    </WraperBannerProjects>
-  )
-}
-export default memo(BannerPartners)

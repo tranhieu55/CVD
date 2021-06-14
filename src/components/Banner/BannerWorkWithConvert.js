@@ -1,68 +1,60 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-import P from "../../components/bits/Typography"
+import P from "../bits/Typography"
 import { theme } from "../../utils/theme"
 
-const BannerWhatWeDo = () => {
-  const data = useStaticQuery(graphql`
-    query queryBannerWhatWeDo {
-      prismic {
-        allWhatwedo_pages {
-          edges {
-            node {
-              banner_text
-            }
-          }
-        }
-      }
-    }
-  `)
+const BannerWorkWithConvert = ({ input }) => {
+  const dataInput = input ? input?.primary : []
+
+  console.log({ dataInput })
 
   return (
-    <WraperBannerWhatWeDo className="contrainer-fluid">
+    <WrapperWorkWithConvert className="contrainer-fluid">
       <Container className="container">
         <Row className="row">
           <Col className="col-md">
-            <BoxTag>
+            <SubTitle>
               <SpanBorder></SpanBorder>
-              <SpanText>What We Do</SpanText>
-            </BoxTag>
+              <SpanText>
+                {dataInput.sub_title_banner &&
+                dataInput.sub_title_banner.length > 0
+                  ? dataInput.sub_title_banner[0].text
+                  : ""}
+              </SpanText>
+            </SubTitle>
+            <Title>
+              {dataInput.title_banner && dataInput.title_banner.length > 0
+                ? dataInput.title_banner[0].text
+                : ""}
+            </Title>
           </Col>
-          {data ? (
+          {dataInput ? (
             <Col className="col-md-10 offset-1">
-              {data?.prismic?.allWhatwedo_pages?.edges[0] ? (
-                <P
-                  coLor="#111111"
-                  fontFamily="Calibre Semibold"
-                  mt="24"
-                  fontSise="32"
-                  pdb="96"
-                  lineh="36"
-                  lett="-0.5"
-                  fontWeight="600"
-                >
-                  {data.prismic?.allWhatwedo_pages?.edges[0]?.node
-                    ?.banner_text[0]?.text
-                    ? data.prismic?.allWhatwedo_pages?.edges[0]?.node
-                        ?.banner_text[0]?.text
-                    : ""}
-                </P>
-              ) : (
-                <></>
-              )}
+              <P
+                coLor="#222222"
+                fontFamily="Calibre Regular"
+                fontSise="20"
+                pdb="96"
+                lineh="28"
+                lett="0"
+              >
+                {dataInput.description_banner &&
+                dataInput.description_banner.length > 0
+                  ? dataInput.description_banner[0].text
+                  : ""}
+              </P>
             </Col>
           ) : (
             <></>
           )}
         </Row>
       </Container>
-    </WraperBannerWhatWeDo>
+    </WrapperWorkWithConvert>
   )
 }
-export default BannerWhatWeDo
+export default BannerWorkWithConvert
 
-const WraperBannerWhatWeDo = styled.div`
+const WrapperWorkWithConvert = styled.div`
   width: 100%;
   background-color: ${theme.colors.lightGray};
   span {
@@ -77,11 +69,7 @@ const WraperBannerWhatWeDo = styled.div`
       font-size: 12px !important;
     }
     p {
-      font-size: 24px;
-      margin-top: 14px;
-      padding-bottom: 16px;
-      line-height: 26px;
-      word-spacing: 1.3px;
+      padding-bottom: 21px;
     }
     .offset-1 {
       margin-left: 0 !important;
@@ -97,8 +85,6 @@ const WraperBannerWhatWeDo = styled.div`
       margin: 0 !important;
     }
     p {
-      font-size: 24px;
-      margin-top: 24px;
       padding-bottom: 30px;
     }
     .offset-1 {
@@ -107,8 +93,6 @@ const WraperBannerWhatWeDo = styled.div`
   }
   @media only screen and (min-width: 768px) {
     p {
-      font-size: 24px;
-      margin-top: 24px;
       padding-bottom: 30px;
     }
     .offset-1 {
@@ -147,8 +131,7 @@ const WraperBannerWhatWeDo = styled.div`
         padding-left: 0 !important;
       }
       p {
-        font-size: 32px;
-        max-width: 825px;
+        max-width: 770px;
       }
       .row {
         margin-right: -15px !important;
@@ -171,28 +154,28 @@ const Container = styled.div`
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
   @media only screen and (max-width: 600px) {
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
     padding-right: 16px !important;
     padding-left: 16px !important;
   }
-  @media only screen and (min-width: 600px) {
-    margin-bottom: 30px;
-  }
-  @media only screen and (min-width: 768px) {
-    margin-bottom: 30px;
-  }
+  // @media only screen and (min-width: 600px) {
+  //   margin-bottom: 30px;
+  // }
+  // @media only screen and (min-width: 768px) {
+  //   margin-bottom: 30px;
+  // }
 
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    margin-bottom: 30px;
-  }
-  @media only screen and (min-width: 1200px) {
-    margin-bottom: 96px;
-  }
+  // /* Large devices (laptops/desktops, 992px and up) */
+  // @media only screen and (min-width: 992px) {
+  //   margin-bottom: 30px;
+  // }
+  // @media only screen and (min-width: 1200px) {
+  //   margin-bottom: 96px;
+  // }
 `
 const Row = styled.div``
 const Col = styled.div``
-const BoxTag = styled.div`
+const SubTitle = styled.div`
   margin-top: 158px;
   display: flex;
   align-items: center;
@@ -247,4 +230,38 @@ const SpanText = styled.span`
   letter-spacing: 1px;
   line-height: 16px;
   font-family: "Calibre Semibold";
+`
+const Title = styled.h2`
+  margin: 0;
+  margin-top: 24px;
+  margin-left: 103px;
+  color: #101010;
+  font-family: Calibre Bold;
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 56px;
+
+  @media (max-width: 600px) {
+    color: #101010;
+    font-family: Calibre Bold;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 38px;
+    margin-left: 0;
+    margin-top: 6px;
+  }
+  @media (min-width: 600px) {
+    margin-left: 0;
+  }
+  @media (min-width: 768px) {
+    margin-left: 70px;
+  }
+  @media (min-width: 992px) {
+    margin-left: 84px;
+  }
+  @media (min-width: 1200px) {
+    margin-left: 103px;
+  }
 `
