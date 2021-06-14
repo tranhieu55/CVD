@@ -47,6 +47,7 @@ const BigText = ({ input }) => {
                     id="f2"
                     width={`${Number(width?.length > 0 ? width[1] : 0)}px`}
                     height={`${Number(height?.length > 0 ? height[1] : 0)}px`}
+                    src={logo1}
                   ></Images>
                   <Images
                     width={`${Number(width?.length > 0 ? width[2] : 0)}px`}
@@ -190,6 +191,9 @@ const ClientsRight = styled.div`
     width: 113.5px;
     margin-left: 50px;
   }
+  @media (max-width: 374px) {
+    margin-left: 20px;
+  }
   @media (min-width: 1024px) {
     display: flex;
     margin: auto;
@@ -222,6 +226,9 @@ const ClientsLeft = styled.div`
     height: 144px;
     width: 113.5px;
     margin-right: 50px;
+  }
+  @media (max-width: 374px) {
+    margin-right: 20px;
   }
   @media (min-width: 1024px) {
     display: flex;
