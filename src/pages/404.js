@@ -26,24 +26,23 @@ const NotFoundPage = ({ input }) => {
                     url_button
                   }
                 }
-                ... on PRISMIC_Page_404BodyCase_study_tiles {
+                ... on PRISMIC_Page_404BodyCase_studi_tiles_404 {
                   type
                   label
                   fields {
-                    case_study {
+                    link_case_study {
                       ... on PRISMIC_Projects {
                         name_category_of_project
                         project_name
                         project_header_image
                         relationship_to_project_category {
                           ... on PRISMIC_Category_ourwork {
+                            category_name
+                            oder_in_menu
                             _meta {
                               uid
                             }
                           }
-                        }
-                        _meta {
-                          uid
                         }
                       }
                     }
