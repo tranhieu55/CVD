@@ -376,10 +376,16 @@ const BannerPartners = () => {
       },
     },
   }
-  const ListCT = listCategoryPartners ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === "lists_category" : item): [];
-  const listCategories = ListCT ? ListCT[0]?.fields?.filter(
-    x => x?.category_partner ? x?.category_partner : x
-  ) : []
+  const ListCT = listCategoryPartners
+    ? listCategoryPartners.prismic?.allPartners_pages?.edges[0]?.node?.body?.filter(
+        item => (item.type ? item.type === "lists_category" : item)
+      )
+    : []
+  const listCategories = ListCT
+    ? ListCT[1]?.fields?.filter(x =>
+        x?.category_partner ? x?.category_partner : x
+      )
+    : []
 
   const newArr = [cateAll, ...listCategories]
 
@@ -389,7 +395,7 @@ const BannerPartners = () => {
   return (
     <WraperBannerProjects>
       <BannerProjectsContent className="container">
-        {data ? 
+        {data ? (
           <P
             uppercase={true}
             fontWeight={theme.fonts.bold}
@@ -398,9 +404,10 @@ const BannerPartners = () => {
           >
             {data?.title[0]?.text ? data?.title[0]?.text : ""}
           </P>
-          :<></>
-        }
-        {data ? 
+        ) : (
+          <></>
+        )}
+        {data ? (
           <H2
             fz="32"
             mrb_rem="1.5"
@@ -411,36 +418,44 @@ const BannerPartners = () => {
           >
             {data?.description[0]?.text ? data?.description[0]?.text : ""}
           </H2>
-          :<></>
-        }
-        {newArr ? 
+        ) : (
+          <></>
+        )}
+        {newArr ? (
           <div className="row ">
-          <ListCategory className="col-md-10">
-            {newArr?.map((item, index) => (
-              <CategoryItem
-                key={index}
-                onClick={() => {
-                  dispatch({
-                    type: "ADD_FILTER_ITEM",
-                    value: item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : "",
-                  })
-                }}
-              >
-                <Link
-                  className={
-                    [...state.listSelected].includes(
-                      item?.category_partner?._meta?.uid ? item?.category_partner?._meta?.uid : ""
-                    ) && "active"
-                  }
+            <ListCategory className="col-md-10">
+              {newArr?.map((item, index) => (
+                <CategoryItem
+                  key={index}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_FILTER_ITEM",
+                      value: item?.category_partner?._meta?.uid
+                        ? item?.category_partner?._meta?.uid
+                        : "",
+                    })
+                  }}
                 >
-                  {item?.category_partner?.category_name[0]?.text ? item?.category_partner?.category_name[0]?.text : ""}
-                </Link>
-              </CategoryItem>
-            ))}
-          </ListCategory>
-        </div>
-        : <></>
-        }
+                  <Link
+                    className={
+                      [...state.listSelected].includes(
+                        item?.category_partner?._meta?.uid
+                          ? item?.category_partner?._meta?.uid
+                          : ""
+                      ) && "active"
+                    }
+                  >
+                    {item?.category_partner?.category_name[0]?.text
+                      ? item?.category_partner?.category_name[0]?.text
+                      : ""}
+                  </Link>
+                </CategoryItem>
+              ))}
+            </ListCategory>
+          </div>
+        ) : (
+          <></>
+        )}
       </BannerProjectsContent>
     </WraperBannerProjects>
   )
