@@ -2,17 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import BannerBlogDetails from "../components/Banner/BannerBlogDetails"
 import Layout from "../components/Layout"
-import moment from "moment"
 import { RichText } from "prismic-reactjs"
 import {
   FacebookShareButton,
   TwitterShareButton,
   EmailShareButton,
 } from "react-share"
+import SliceZone from "../utils/SliceZone"
 
 const BlogDetails = props => {
   // get location
   const { location } = props
+  console.log({props})
 
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
@@ -27,14 +28,14 @@ const BlogDetails = props => {
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
+  const dataBanner = props 
+  ? props.data.prismic.post.body?.filter(item => 
+      item?.type ? item?.type === "banner_post_details" : ""
+    )
+  : []
   return (
-    <Layout location="/blog-details">
-      <BannerBlogDetails
-        titles={props.data?.prismic?.post?.title?.map(item =>
-          item.text ? item.text : item
-        )}
-        sub={moment(props.data?.prismic?.post?.date_created)?.format("LL")}
-      ></BannerBlogDetails>
+    <Layout location="/blog-details" > 
+      <SliceZone allSlices={dataBanner}></SliceZone> 
       <Img
         src={
           props.data?.prismic?.post?.post_image?.url
@@ -359,6 +360,15 @@ export const query = graphql`
             label
             fields {
               icon_image
+            }
+          }
+          ... on PRISMIC_PostBodyBanner_post_details {
+            type
+            label
+            primary {
+              date_created1
+              title_banner
+              image_banner
             }
           }
         }

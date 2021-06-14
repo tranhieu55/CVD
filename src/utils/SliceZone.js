@@ -44,6 +44,8 @@ import Accordion from "../components/Accordion"
 import loadable from "@loadable/component"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import CardProjectItem from "../components/CardProjectItem"
+import BannerBlogDetails from '../components/Banner/BannerBlogDetails'
+import BannerOurWorkPage from '../components/Banner/BannerOurWorkPage'
 
 const HappyClinetssss = loadable(() =>
   import("../components/slices/Homepage/HappyClient/HappyClient")
@@ -327,6 +329,10 @@ const SliceZone = props => {
 
         case "case_study_tiles":
           return <CardProjectItem key={index} input={s} />
+        case "banner_post_details" : 
+          return <BannerBlogDetails key={index} input={s} />
+        case "banner_project_detail":
+          return <BannerOurWorkPage key={index} input={s} />
 
         default:
           return <></>

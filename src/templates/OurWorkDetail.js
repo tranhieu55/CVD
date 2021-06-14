@@ -233,6 +233,12 @@ const OurWorkDetail = props => {
         item.text ? item.text : ""
       )
     : []
+  // const dataBanner = props 
+  // ? props.data.prismic.post.body?.filter(item => 
+  //     item?.type ? item?.type === "banner_post_details" : ""
+  //   )
+  // : []
+  console.log({props})
   return (
     <Layout
       location="/case-study"
