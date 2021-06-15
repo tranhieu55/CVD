@@ -1,23 +1,74 @@
+import { element } from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
 const BannerLogo = ({ input }) => {
   const data = input ? input : []
 
-  console.log({ DataLogoBanner: data })
+  // declare new array
+  const newDatatop =
+    data && data?.fields.length >= 2 ? data.fields.slice(0, 2) : []
+
   return (
-    <Container>
-      <FlexContent>
-        <LogoFirst></LogoFirst>
-        <LogoLast>
-          <LogoLastImg></LogoLastImg>
-          <LogoLastContent>
-            <TitleName></TitleName>
-            <ViewMore></ViewMore>
-          </LogoLastContent>
-        </LogoLast>
-      </FlexContent>
-    </Container>
+    <>
+      <Container>
+        <FlexContent>
+          {newDatatop.map(element =>
+            element?.sub_title ? (
+              <LogoLast>
+                <LogoLastImg>
+                  <IMG
+                    src={element?.image_banner?.url}
+                    alt={element?.image_banner?.alt}
+                  />
+                </LogoLastImg>
+                <LogoLastContent>
+                  <TitleName>
+                    {element?.title.map(item => (item ? item?.text : ""))}
+                  </TitleName>
+                  <ViewMore>
+                    {element?.sub_title.map(item => (item ? item?.text : ""))}
+                  </ViewMore>
+                </LogoLastContent>
+              </LogoLast>
+            ) : (
+              <LogoFirst>
+                <IMG
+                  src={element?.image_banner?.url}
+                  alt={element?.image_banner?.alt}
+                />
+              </LogoFirst>
+            )
+          )}
+        </FlexContent>
+      </Container>
+      <ContainerDesktop>
+        <LogoDesktop>
+          {data?.fields?.map((element, index) =>
+            index >= 2 && element?.sub_title ? (
+              <LogoLast>
+                <LogoLastImg>
+                  <IMG
+                    src={element?.image_banner?.url}
+                    alt={element?.image_banner?.alt}
+                  />
+                </LogoLastImg>
+                <LogoLastContent>
+                  <TitleName>
+                    {element?.title.map(item => (item ? item?.text : ""))}
+                  </TitleName>
+                  <ViewMore>
+                    {element?.sub_title.map(item => (item ? item?.text : ""))}
+                  </ViewMore>
+                </LogoLastContent>
+              </LogoLast>
+            ) : (
+              ""
+            )
+          )}
+        </LogoDesktop>
+      </ContainerDesktop>
+    </>
   )
 }
 
@@ -34,23 +85,22 @@ const FlexContent = styled.div`
   height: 70px;
 `
 const LogoFirst = styled.div`
-  background-color: gray;
-  width: 96px;
-  height: 100%;
+  height: 70px;
 `
 const LogoLast = styled.div`
-  background-color: gray;
-  width: 254px;
   height: 53px;
   display: grid;
-  grid-tempalte-column: 46px auto;
+  grid-template-columns: auto auto;
   grid-gap: 16px;
 `
 const LogoLastImg = styled.div`
-  width: 46px;
-  height: 100%;
+  height: 53px;
+  max-width: 70px;
+  overflow: hidden;
 `
-const LogoLastContent = styled.div``
+const LogoLastContent = styled.div`
+  margin-top: 6px;
+`
 const TitleName = styled.p`
   color: #101010;
   font-family: Calibre Medium;
@@ -58,6 +108,8 @@ const TitleName = styled.p`
   font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 20px;
+  padding: 0;
+  margin: 0;
 `
 const ViewMore = styled.p`
   color: #222222;
@@ -65,9 +117,22 @@ const ViewMore = styled.p`
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;
+  padding: 0;
+  margin: 0;
 `
 const IMG = styled.img`
-  width: 100%;
   height: 100%;
   object-fit: contain;
+`
+const ContainerDesktop = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 180px;
+  padding-top: 30px;
+  margin-bottom: 40px;
+`
+const LogoDesktop = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 54px;
 `
