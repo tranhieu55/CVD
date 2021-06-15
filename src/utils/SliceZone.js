@@ -337,28 +337,54 @@ const SliceZone = props => {
           return <CardProjectItem key={index} input={s} />
 
         case "banner_post_details":
-          return <BannerBlogDetails key={index} input={s} />
+          return (
+            <BannerBlogDetails
+              key={index}
+              location={props.location}
+              input={s}
+            />
+          )
 
         case "banner_project_detail":
-          return <BannerOurWorkPage key={index} input={s} />
+          return (
+            <BannerOurWorkPage
+              key={index}
+              input={s}
+              location={props.location}
+            />
+          )
 
         case "banner_partner_page":
-          return <BannerPartners key={index} input={s} />
+          return (
+            <BannerPartners key={index} input={s} location={props.location} />
+          )
 
         case "banner_what_we_do":
-          return <BannerWhatWeDo2 key={index} input={s} />
+          return (
+            <BannerWhatWeDo2 key={index} input={s} location={props.location} />
+          )
 
         case "banner_casestudy":
-          return <BannerCaseStudy2 key={index} input={s} />
+          return (
+            <BannerCaseStudy2 key={index} input={s} location={props.location} />
+          )
 
         case "banner_about":
-          return <BannerAboutUs key={index} input={s} />
+          return (
+            <BannerAboutUs key={index} input={s} location={props.location} />
+          )
 
         case "banner_work_with_convert":
-          return <BannerWorkWithConvert key={index} input={s} />
+          return (
+            <BannerWorkWithConvert
+              key={index}
+              input={s}
+              location={props.location}
+            />
+          )
 
         case "banner_icon":
-          return <BannerLogo key={index} input={s} />
+          return <BannerLogo key={index} input={s} location={props.location} />
 
         default:
           return <></>

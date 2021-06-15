@@ -7,10 +7,10 @@ function Banner({ data: { prismic } }) {
     prismic && prismic?.allPage_headerss?.edges[0]?.node
       ? prismic?.allPage_headerss?.edges[0]?.node
       : []
-  console.log({ data })
+
   return (
     <Layout location="/banner">
-      <SliceZone allSlices={data.body} />
+      <SliceZone allSlices={data.body} location={"/banner"} />
     </Layout>
   )
 }

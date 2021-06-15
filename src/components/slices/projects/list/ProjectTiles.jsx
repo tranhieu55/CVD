@@ -71,8 +71,8 @@ const ListBlogStyle = styled.div`
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
-    margin-top: 30px;
-    /* height: 500px; */
+    margin-bottom: 22px;
+    padding: 0 16px;
   }
   .img {
     width: 100%;
@@ -133,12 +133,16 @@ const Title = styled.p`
   line-height: 56px;
   margin-bottom: -15px;
   margin-top: 12px;
+  margin-bottom: 30px;
+  @media (max-width: 1024px) {
+    margin-bottom: 10px;
+  }
   @media (max-width: 600px) {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 32px;
-    margin-bottom: -2px;
+    margin-bottom: -10px;
     margin-top: 6px;
   }
 `
@@ -183,8 +187,6 @@ const Phur = styled.div`
 `
 const Rows = styled.div`
   @media (max-width: 600px) {
-    margin-left: 0px;
-    margin-right: 0px;
     margin-top: 11px;
   }
 `
@@ -196,8 +198,7 @@ const Colum = styled.div`
     height: 245px;
     padding-left: 0px;
     padding-right: 0px;
-    margin-bottom: 8px;
-    margin-top: 0px !important;
+    margin-bottom: 8px !important;
   }
 `
 const TitleImageBlog = styled.div`
@@ -206,7 +207,6 @@ const TitleImageBlog = styled.div`
   bottom: 5rem;
   left: 6rem;
   cursor: pointer;
-  /* color:red; */
   @media only screen and (max-width: 600px) {
     bottom: 25px;
     left: 24px;

@@ -9,7 +9,7 @@ import {
   OurWorkStateContext,
 } from "../../context/ourwork/OurWorkContextProvider"
 
-const BannerPartners = ({ input }) => {
+const BannerPartners = ({ input, location }) => {
   const dataInput = input ? input : []
   const data = dataInput?.primary
 
@@ -37,7 +37,9 @@ const BannerPartners = ({ input }) => {
   const state = useContext(OurWorkStateContext)
 
   return (
-    <WraperBannerPartners>
+    <WraperBannerPartners
+      bottom={location && location === "/banner" ? true : false}
+    >
       <BannerPartnersContent className="container">
         {data ? (
           <P
@@ -120,12 +122,13 @@ export default memo(BannerPartners)
 
 const WraperBannerPartners = styled.div`
   background-color: #f8f8f8;
-  margin-bottom: 40px;
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
   h2 {
     letter-spacing: -0.5px;
   }
   @media only screen and (max-width: 600px) {
     margin-bottom: 0px;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
     h2 {
       font-size: 24px;
       color: #222222;

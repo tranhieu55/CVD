@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
-export default function BannerWorkWithConvert(props) {
-  const data = props ? props?.input?.primary : []
+export default function BannerWorkWithConvert({ input, location }) {
+  const data = input ? input?.primary : []
 
   return (
-    <Container>
+    <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       <SubTitle>
         <Sub>
@@ -36,13 +36,14 @@ export default function BannerWorkWithConvert(props) {
 const Container = styled.div`
   width: 100%;
   background-color: #f8f8f8;
-  margin-bottom: 40px;
   height: 354px;
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
 
   @media (max-width: 600px) {
     width: 100%;
     height: 250px;
     background-color: #f8f8f8;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
   }
 
   @media (min-width: 600px) and (max-width: 1366px) {

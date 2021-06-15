@@ -9,7 +9,7 @@ export default function SliderIntagram({ input }) {
     className: "left",
     centerMode: true,
     infinite: true,
-    centerPadding: "160px",
+    centerPadding: "230px",
     slidesToShow: 1,
     speed: 500,
     rows: 1,
@@ -71,6 +71,13 @@ const Container = styled.div`
   margin: 0 auto;
   margin-top: 48px;
   margin-bottom: 150px;
+  .slick-track {
+    div {
+      @media (min-width: 1200px) {
+        height: 780px;
+      }
+    }
+  }
   @media (max-width: 600px) {
     margin-bottom: 66px;
     .slick-track {
@@ -166,7 +173,7 @@ const Slider = styled.div`
     left: 0;
     right: 0;
     position: absolute;
-    bottom: -10px;
+    bottom: -20px;
     list-style: none;
     padding: 0;
     height: 4px;

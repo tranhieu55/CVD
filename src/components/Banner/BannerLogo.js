@@ -1,8 +1,7 @@
-import { element } from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-const BannerLogo = ({ input }) => {
+const BannerLogo = ({ input, location }) => {
   const data = input ? input : []
 
   // declare new array
@@ -11,7 +10,7 @@ const BannerLogo = ({ input }) => {
 
   return (
     <>
-      <Container>
+      <Container bottom={location && location === "/banner" ? true : false}>
         <FlexContent>
           {newDatatop.map(element =>
             element?.sub_title ? (
@@ -42,7 +41,9 @@ const BannerLogo = ({ input }) => {
           )}
         </FlexContent>
       </Container>
-      <ContainerDesktop>
+      <ContainerDesktop
+        bottom={location && location === "/banner" ? true : false}
+      >
         <LogoDesktop>
           {data?.fields?.map((element, index) =>
             index >= 2 && element?.sub_title ? (
@@ -78,15 +79,18 @@ const Container = styled.div`
   height: 354px;
   padding-top: 244px;
   padding-bottom: 40px;
-
   background-color: #f8f8f8;
 
+  @media (max-width: 1240px) {
+    margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
+  }
   @media (max-width: 600px) {
     height: 202px;
     padding-left: 18px;
     padding-right: 18px;
     padding-top: 72px;
     padding-bottom: 15px;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
   }
 
   @media (min-width: 601px) {
@@ -199,6 +203,8 @@ const ContainerDesktop = styled.div`
   padding-right: 180px;
   padding-top: 30px;
   margin-bottom: 40px;
+
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
 
   @media (max-width: 1240px) {
     display: none;
