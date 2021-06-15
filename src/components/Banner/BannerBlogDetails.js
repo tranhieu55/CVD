@@ -49,13 +49,18 @@ const SubTitle = styled.div`
   position: absolute;
   @media (max-width: 600px) {
     padding-top: 90px;
+    width: 100%;
+    margin: 0px;
+    margin-left: 16px;
+    padding-right: 20px;
+  }
+  @media (max-width: 375px) {
     width: 343px;
-    margin: 0 auto;
   }
   @media (max-width: 360px) {
     padding-top: 90px;
+    padding-right: 0;
     width: 292px;
-    margin: 0 auto;
   }
   @media (min-width: 600px) {
     padding-top: 86px;
