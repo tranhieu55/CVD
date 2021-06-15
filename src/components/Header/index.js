@@ -319,11 +319,9 @@ const WrapperHeader = styled.div`
             @media(max-width: 600px) {
               margin-right: 0px !important;
             }
-            @media(max-width: 992px) {
-              /* margin-right: 50px; */
-            }
+
             @media(min-width: 992px) {
-              margin-right: 50px;
+              margin-right: 20px;
             }
             @media(min-width: 1200px) {
               margin-right: 55px;
@@ -1337,7 +1335,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
-      location === "/banner"||
+      location === "/banner" ||
       show > 101 ||
       !!isDisPlayModalService ||
       !!isDisPlayModalOurwork
