@@ -44,8 +44,14 @@ import Accordion from "../components/Accordion"
 import loadable from "@loadable/component"
 import ClientLogos from "../components/slices/Homepage/ClientLogos"
 import CardProjectItem from "../components/CardProjectItem"
-import BannerBlogDetails from '../components/Banner/BannerBlogDetails'
-import BannerOurWorkPage from '../components/Banner/BannerOurWorkPage'
+import BannerBlogDetails from "../components/Banner/BannerBlogDetails"
+import BannerOurWorkPage from "../components/Banner/BannerOurWorkPage"
+import BannerPartners from "../components/Banner/BannerPartners"
+import BannerCaseStudy2 from "../components/Banner/BannerCaseStudy2"
+import BannerWhatWeDo2 from "../components/Banner/BannerWhatWeDo2"
+import BannerAboutUs from "../components/Banner/BannerAboutUs"
+import BannerWorkWithConvert from "../components/Banner/BannerWorkWithConvert"
+import BannerLogo from "../components/Banner/BannerLogo"
 
 const HappyClinetssss = loadable(() =>
   import("../components/slices/Homepage/HappyClient/HappyClient")
@@ -329,10 +335,30 @@ const SliceZone = props => {
 
         case "case_study_tiles":
           return <CardProjectItem key={index} input={s} />
-        case "banner_post_details" : 
+
+        case "banner_post_details":
           return <BannerBlogDetails key={index} input={s} />
+
         case "banner_project_detail":
           return <BannerOurWorkPage key={index} input={s} />
+
+        case "banner_partner_page":
+          return <BannerPartners key={index} input={s} />
+
+        case "banner_what_we_do":
+          return <BannerWhatWeDo2 key={index} input={s} />
+
+        case "banner_casestudy":
+          return <BannerCaseStudy2 key={index} input={s} />
+
+        case "banner_about":
+          return <BannerAboutUs key={index} input={s} />
+
+        case "banner_work_with_convert":
+          return <BannerWorkWithConvert key={index} input={s} />
+
+        case "banner_icon":
+          return <BannerLogo key={index} input={s} />
 
         default:
           return <></>

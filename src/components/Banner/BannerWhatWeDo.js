@@ -1,13 +1,70 @@
 import React from "react"
 import styled from "styled-components"
-
 import { graphql, useStaticQuery } from "gatsby"
 import P from "../../components/bits/Typography"
 import { theme } from "../../utils/theme"
 
+const BannerWhatWeDo = () => {
+  const data = useStaticQuery(graphql`
+    query queryBannerWhatWeDo {
+      prismic {
+        allWhatwedo_pages {
+          edges {
+            node {
+              banner_text
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <WraperBannerWhatWeDo className="contrainer-fluid">
+      <Container className="container">
+        <Row className="row">
+          <Col className="col-md">
+            <BoxTag>
+              <SpanBorder></SpanBorder>
+              <SpanText>What We Do</SpanText>
+            </BoxTag>
+          </Col>
+          {data ? (
+            <Col className="col-md-10 offset-1">
+              {data?.prismic?.allWhatwedo_pages?.edges[0] ? (
+                <P
+                  coLor="#111111"
+                  fontFamily="Calibre Semibold"
+                  mt="24"
+                  fontSise="32"
+                  pdb="96"
+                  lineh="36"
+                  lett="-0.5"
+                  fontWeight="600"
+                >
+                  {data.prismic?.allWhatwedo_pages?.edges[0]?.node
+                    ?.banner_text[0]?.text
+                    ? data.prismic?.allWhatwedo_pages?.edges[0]?.node
+                        ?.banner_text[0]?.text
+                    : ""}
+                </P>
+              ) : (
+                <></>
+              )}
+            </Col>
+          ) : (
+            <></>
+          )}
+        </Row>
+      </Container>
+    </WraperBannerWhatWeDo>
+  )
+}
+export default BannerWhatWeDo
+
 const WraperBannerWhatWeDo = styled.div`
   width: 100%;
-  background-color: ${theme.colors.lightGray};  
+  background-color: ${theme.colors.lightGray};
   span {
     color: #999999;
     display: block;
@@ -16,7 +73,6 @@ const WraperBannerWhatWeDo = styled.div`
     text-transform: uppercase;
   }
   @media only screen and (max-width: 600px) {
-    
     span {
       font-size: 12px !important;
     }
@@ -30,7 +86,7 @@ const WraperBannerWhatWeDo = styled.div`
     .offset-1 {
       margin-left: 0 !important;
     }
-    
+
     .col-md-10 {
       padding-right: 16px;
       padding-left: 16px;
@@ -113,7 +169,7 @@ const WraperBannerWhatWeDo = styled.div`
 const Container = styled.div`
   max-width: 1240px !important;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
-  env(safe-area-inset-bottom) env(safe-area-inset-left);
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   @media only screen and (max-width: 600px) {
     margin-bottom: 16px;
     padding-right: 16px !important;
@@ -133,7 +189,6 @@ const Container = styled.div`
   @media only screen and (min-width: 1200px) {
     margin-bottom: 96px;
   }
-
 `
 const Row = styled.div``
 const Col = styled.div``
@@ -193,58 +248,3 @@ const SpanText = styled.span`
   line-height: 16px;
   font-family: "Calibre Semibold";
 `
-
-const BannerWhatWeDo = () => {
-  const data = useStaticQuery(graphql`
-    query queryBannerWhatWeDo {
-      prismic {
-        allWhatwedo_pages {
-          edges {
-            node {
-              banner_text
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return (
-    <WraperBannerWhatWeDo
-      className="contrainer-fluid"
-    >
-      <Container className="container">
-        <Row className="row">
-          <Col className="col-md">
-            <BoxTag>
-              <SpanBorder></SpanBorder>
-              <SpanText>What We Do</SpanText>
-            </BoxTag>
-          </Col>
-          {data ? 
-            <Col className="col-md-10 offset-1">
-            {data?.prismic?.allWhatwedo_pages?.edges[0] ? 
-              <P
-                coLor="#111111"
-                fontFamily="Calibre Semibold"
-                mt="24"
-                fontSise="32"
-                pdb="96"
-                lineh="36"
-                lett="-0.5"
-                fontWeight="600"
-              >
-                {data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text ? data.prismic?.allWhatwedo_pages?.edges[0]?.node?.banner_text[0]?.text : ""}
-              </P>
-            : <></>
-            }
-            
-          </Col>
-          : <></>
-          }
-        </Row>
-      </Container>
-    </WraperBannerWhatWeDo>
-  )
-}
-export default BannerWhatWeDo

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import BannerBlogDetails from "../components/Banner/BannerBlogDetails"
 import Layout from "../components/Layout"
 import { RichText } from "prismic-reactjs"
 import {
@@ -13,7 +12,7 @@ import SliceZone from "../utils/SliceZone"
 const BlogDetails = props => {
   // get location
   const { location } = props
-  console.log({props})
+  // console.log({props})
 
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>
@@ -28,14 +27,14 @@ const BlogDetails = props => {
         item?.type ? item?.type === "tag_for_post" : ""
       )
     : []
-  const dataBanner = props 
-  ? props.data.prismic.post.body?.filter(item => 
-      item?.type ? item?.type === "banner_post_details" : ""
-    )
-  : []
+  const dataBanner = props
+    ? props.data.prismic.post.body?.filter(item =>
+        item?.type ? item?.type === "banner_post_details" : ""
+      )
+    : []
   return (
-    <Layout location="/blog-details" > 
-      <SliceZone allSlices={dataBanner}></SliceZone> 
+    <Layout location="/blog-details">
+      <SliceZone allSlices={dataBanner}></SliceZone>
       <Img
         src={
           props.data?.prismic?.post?.post_image?.url

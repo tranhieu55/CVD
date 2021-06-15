@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { useContext, memo } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
@@ -9,8 +9,118 @@ import {
   OurWorkStateContext,
 } from "../../context/ourwork/OurWorkContextProvider"
 
-const WraperBannerProjects = styled.div`
+const BannerPartners = ({ input }) => {
+  const dataInput = input ? input : []
+  const data = dataInput?.primary
+
+  const cateAll = {
+    category_partner_banner: {
+      category_name: [
+        {
+          spans: [],
+          text: "All",
+          type: "heading1",
+        },
+      ],
+      __typename: "PRISMIC_Partner_category",
+      _meta: {
+        uid: "all",
+      },
+    },
+  }
+
+  const listCategories = input ? input?.fields : []
+
+  const newArr = [cateAll, ...listCategories]
+
+  const dispatch = useContext(OurWorkDispatchContext)
+  const state = useContext(OurWorkStateContext)
+
+  return (
+    <WraperBannerPartners>
+      <BannerPartnersContent className="container">
+        {data ? (
+          <P
+            uppercase={true}
+            fontWeight={theme.fonts.bold}
+            coLor={theme.colors.gray1}
+            mrb="29"
+          >
+            {data.title_banner
+              ? data?.title_banner.map(element =>
+                  element.text ? element.text : ""
+                )
+              : ""}
+          </P>
+        ) : (
+          <></>
+        )}
+        {data ? (
+          <H2
+            fz="32"
+            mrb_rem="1.5"
+            fontFamily="Calibre Semibold"
+            lineh="36"
+            lett="-0.5"
+            col="#111111"
+          >
+            {data.description_banner && data.description_banner.length > 0
+              ? data.description_banner.map(element =>
+                  element.text ? element.text : ""
+                )
+              : ""}
+          </H2>
+        ) : (
+          <></>
+        )}
+        {newArr ? (
+          <div className="row ">
+            <ListCategory className="col-md-10">
+              {newArr?.map((item, index) => (
+                <CategoryItem
+                  key={index}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_FILTER_ITEM",
+                      value: item?.category_partner_banner?._meta?.uid
+                        ? item?.category_partner_banner?._meta?.uid
+                        : "",
+                    })
+                  }}
+                >
+                  <Link
+                    className={
+                      [...state.listSelected].includes(
+                        item?.category_partner_banner?._meta?.uid
+                          ? item?.category_partner_banner?._meta?.uid
+                          : ""
+                      ) && "active"
+                    }
+                  >
+                    {item &&
+                    item.category_partner_banner.category_name &&
+                    item.category_partner_banner.category_name.length > 0
+                      ? item.category_partner_banner?.category_name?.map(
+                          element => (element.text ? element.text : "")
+                        )
+                      : ""}
+                  </Link>
+                </CategoryItem>
+              ))}
+            </ListCategory>
+          </div>
+        ) : (
+          <></>
+        )}
+      </BannerPartnersContent>
+    </WraperBannerPartners>
+  )
+}
+export default memo(BannerPartners)
+
+const WraperBannerPartners = styled.div`
   background-color: #f8f8f8;
+  margin-bottom: 40px;
   h2 {
     letter-spacing: -0.5px;
   }
@@ -115,7 +225,7 @@ const WraperBannerProjects = styled.div`
   }
 `
 
-const BannerProjectsContent = styled.div`
+const BannerPartnersContent = styled.div`
   padding-top: 10rem;
   padding-bottom: 45px;
   height: 100%;
