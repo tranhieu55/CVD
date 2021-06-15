@@ -312,6 +312,11 @@ const Images = styled.img`
   animation-name: fade;
   animation-iteration-count: infinite;
   animation-duration: 6s;
+  @media (max-width: 992px) {
+    right: 0;
+    margin: auto;
+  }
+
   @-webkit-keyframes fade {
     0% {
       opacity: 0;
