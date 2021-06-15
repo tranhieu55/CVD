@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
-export default function BannerWhatWeDo2(props) {
-  const data = props ? props?.input?.primary : []
+export default function BannerWhatWeDo2({ input, location }) {
+  const data = input ? input?.primary : []
 
   return (
-    <Container>
+    <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       <SubTitle>
         <Sub>
@@ -36,8 +36,8 @@ export default function BannerWhatWeDo2(props) {
 const Container = styled.div`
   width: 100%;
   background-color: #f8f8f8;
-  margin-bottom: 40px;
   height: 440px;
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
 
   @media (max-width: 1366px) {
     height: 380px;
@@ -45,6 +45,7 @@ const Container = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     height: 338px;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
   }
   @media (max-width: 340px) {
     width: 100%;

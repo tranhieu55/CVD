@@ -3,11 +3,11 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
-export default function BannerBlogDetails(props) {
-  const data = props ? props?.input?.primary : []
+export default function BannerBlogDetails({ input, location }) {
+  const data = input ? input?.primary : []
 
   return (
-    <Container>
+    <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       {data ? (
         <SubTitle>
@@ -25,11 +25,13 @@ const Container = styled.div`
   width: 100%;
   height: 365px;
   background-color: #f8f8f8;
-  margin-bottom: 40px;
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
+
   @media (max-width: 600px) {
     width: 100%;
     height: 282px;
     background-color: #f8f8f8;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
   }
   @media (min-width: 600px) {
     width: 100%;
@@ -49,13 +51,18 @@ const SubTitle = styled.div`
   position: absolute;
   @media (max-width: 600px) {
     padding-top: 90px;
+    width: 100%;
+    margin: 0px;
+    margin-left: 16px;
+    padding-right: 20px;
+  }
+  @media (max-width: 375px) {
     width: 343px;
-    margin: 0 auto;
   }
   @media (max-width: 360px) {
     padding-top: 90px;
+    padding-right: 0;
     width: 292px;
-    margin: 0 auto;
   }
   @media (min-width: 600px) {
     padding-top: 86px;

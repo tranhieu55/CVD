@@ -267,5 +267,6 @@ const BoxLayout = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow: ${({ checkMenu }) => (checkMenu === false ? "hidden" : "show")};
+  overflow-y: hidden;
 `
 export default Layout

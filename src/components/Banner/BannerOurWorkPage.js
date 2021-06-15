@@ -3,12 +3,15 @@ import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import IMG from "../Image"
 
-export default function BannerOurWorkPage(props) {
-  const data = props ? props?.input?.primary : []
+export default function BannerOurWorkPage({ input, location }) {
+  const data = input ? input?.primary : []
 
   return (
-    <BannerStyle className="container-study">
-      {props ? (
+    <BannerStyle
+      className="container-study"
+      bottom={location && location === "/banner" ? true : false}
+    >
+      {input ? (
         <IamgeBanner>
           <Image
             className="img-fluid"
@@ -55,6 +58,9 @@ const BannerStyle = styled.div`
   color: white;
   display: flex;
   align-items: center;
+
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
+
   .title-banner {
     h4 {
       text-transform: uppercase;
@@ -88,6 +94,7 @@ const BannerStyle = styled.div`
   @media only screen and (max-width: 600px) {
     height: 400px;
     margin-bottom: 24px;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
     .col-md-4 {
       padding-top: 20px;
     }
