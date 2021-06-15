@@ -5,6 +5,7 @@ import BannerWhatWeDo from "./BannerWhatWeDo"
 import BannerStyleguide from "./BannerStyleguide"
 import BannerPartners from "./BannerPartners"
 import BannerBlog from "./BannerBlog"
+import BannerBlogDetails from "./BannerBlogDetails"
 
 function Banner({
   location,
@@ -37,8 +38,8 @@ function Banner({
       return <BannerWhatWeDo />
     case "/styleguide":
       return <BannerStyleguide />
-    case "/partners":
-      return <BannerPartners />
+    // case "/partners":
+    //   return <BannerPartners />
     case "/pageblog":
       return <BannerBlog />
     default:

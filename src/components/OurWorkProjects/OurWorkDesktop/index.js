@@ -212,8 +212,8 @@ const TitleImageBlog = styled.div`
     left: 1rem;
   }
   @media only screen and (min-width: 1366px) {
-    top: 223px;
-    left: 27px;
+    bottom: 8px;
+    left: 24px;
   }
 `
 const H3 = styled.h3`

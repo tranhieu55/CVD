@@ -12,9 +12,22 @@ module.exports.createPages = async ({ graphql, actions }) => {
         allProjectss {
           edges {
             node {
-              project_name
+              body {
+                ... on PRISMIC_ProjectsBodyBanner_project_detail {
+                  type
+                  label
+                  primary {
+                    name_category_of_project1
+                    project_description1
+                    project_header_image1
+                    project_logo1
+                    project_name_banner
+                  }
+                }
+              }
               name_category_of_project
               project_header_image
+              project_name
               relationship_to_project_category {
                 ... on PRISMIC_Category_ourwork {
                   _meta {
@@ -33,6 +46,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               _meta {
                 uid
+              }
+              body{
+                ... on PRISMIC_PostBodyBanner_post_details {
+                  type
+                  label
+                  primary {
+                    date_created1
+                    title_banner
+                    image_banner
+                  }
+                }
               }
             }
           }

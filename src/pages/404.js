@@ -26,17 +26,19 @@ const NotFoundPage = ({ input }) => {
                     url_button
                   }
                 }
-                ... on PRISMIC_Page_404BodyCase_study_tiles {
+                ... on PRISMIC_Page_404BodyCase_studi_tiles_404 {
                   type
                   label
                   fields {
-                    case_study {
+                    link_case_study {
                       ... on PRISMIC_Projects {
                         name_category_of_project
                         project_name
                         project_header_image
                         relationship_to_project_category {
                           ... on PRISMIC_Category_ourwork {
+                            category_name
+                            oder_in_menu
                             _meta {
                               uid
                             }
@@ -58,9 +60,10 @@ const NotFoundPage = ({ input }) => {
   `)
 
   const dataSEO = data?.prismic?.allPage_404s?.edges[0]?.node
-  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(item => item.type? item.type === 'title' : [])
-  console.log({dataTitle})
-  
+  const dataTitle = data?.prismic?.allPage_404s?.edges[0]?.node?.body?.filter(
+    item => (item.type ? item.type === "title" : [])
+  )
+
   const dataCaseStudies = data.prismic.allPage_404s.edges[0].node.body
 
   return (
@@ -68,10 +71,26 @@ const NotFoundPage = ({ input }) => {
       <SEO props={dataSEO} />
       <Box>
         <Wrapper>
-          <Heading>{dataTitle?.map(item => item.primary.heading_text?.map(el => el.text ? el.text : ''))}</Heading>
-          <HeadingText>{dataTitle?.map(item => item.primary.paragraph_text?.map(el => el.text ? el.text : ''))}</HeadingText>
-          <Button href="/">{dataTitle?.map(item => item.primary.url_button?.map(el => el.text ? el.text : ''))}</Button>
-          <CaseStudiHeading>{dataTitle?.map(item => item.primary.text_featured?.map(el => el.text ? el.text : ''))}</CaseStudiHeading>
+          <Heading>
+            {dataTitle?.map(item =>
+              item.primary.heading_text?.map(el => (el.text ? el.text : ""))
+            )}
+          </Heading>
+          <HeadingText>
+            {dataTitle?.map(item =>
+              item.primary.paragraph_text?.map(el => (el.text ? el.text : ""))
+            )}
+          </HeadingText>
+          <Button href="/">
+            {dataTitle?.map(item =>
+              item.primary.url_button?.map(el => (el.text ? el.text : ""))
+            )}
+          </Button>
+          <CaseStudiHeading>
+            {dataTitle?.map(item =>
+              item.primary.text_featured?.map(el => (el.text ? el.text : ""))
+            )}
+          </CaseStudiHeading>
         </Wrapper>
         <SliceZone allSlices={dataCaseStudies} />
       </Box>

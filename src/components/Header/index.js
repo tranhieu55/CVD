@@ -219,8 +219,11 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location, show }) =>
-             dataGlobalMessage === true || location !== "/" || show > 0
+           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+             dataGlobalMessage === true ||
+             checkIsMessage !== true ||
+             location !== "/" ||
+             show > 0
                ? "72px"
                : "120px"};
         }
@@ -238,8 +241,11 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location, show }) =>
-             dataGlobalMessage === true || location !== "/" || show > 0
+           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+             dataGlobalMessage === true ||
+             checkIsMessage !== true ||
+             location !== "/" ||
+             show > 0
                ? "72px"
                : "120px"};
           }
@@ -313,11 +319,9 @@ const WrapperHeader = styled.div`
             @media(max-width: 600px) {
               margin-right: 0px !important;
             }
-            @media(max-width: 992px) {
-              /* margin-right: 50px; */
-            }
+
             @media(min-width: 992px) {
-              margin-right: 50px;
+              margin-right: 20px;
             }
             @media(min-width: 1200px) {
               margin-right: 55px;
@@ -355,15 +359,23 @@ const WrapperHeader = styled.div`
   .dropdown_services {
     .menu-area_services {
       max-height: 100% !important;
-      top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+      top: ${({ dataGlobalMessage, location, checkIsMessage }) =>
+        dataGlobalMessage === true ||
+        checkIsMessage !== true ||
+        location !== "/"
+          ? "72px"
+          : "120px"};
     }
   }
   .dropdown_ourwork {
     .menu-area_ourwork {
       max-height: 100% !important;
-      top: ${({ dataGlobalMessage, location }) =>
-        dataGlobalMessage === true || location !== "/" ? "72px" : "120px"};
+      top: ${({ dataGlobalMessage, location, checkIsMessage }) =>
+        dataGlobalMessage === true ||
+        checkIsMessage !== true ||
+        location !== "/"
+          ? "72px"
+          : "120px"};
     }
   }
 .hover-ed:hover{
@@ -806,10 +818,7 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      /* transition: all 0.5s ease-in; */
-      background-image: url(${({ backgroundMobile }) => backgroundMobile});
-      
-      /* background-image: url("../../images/Background.png" ); */
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});      
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -817,7 +826,8 @@ const WrapperHeader = styled.div`
       position: absolute;
       width: 100vw;
       padding: 48px;
-      
+      overflow: auto;
+      height: 100vh
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -840,9 +850,6 @@ const WrapperHeader = styled.div`
   @media only screen and (min-width: 1024px) {
     .button-header {
       h2 {
-        // font-family: {({ show }) =>
-        //   show > 0 ? "Calibre Medium" : "Calibre Semibold"};
-        // font-weight: {({ show }) => (show > 0 ? "500" : "600")};
         font-family: Calibre Medium;
         font-weight: 500;
       }
@@ -1264,7 +1271,8 @@ const Header = ({
       }
     }
   }, [])
-
+  const checkIsMessage =
+    dataMenuHeader.edges[0]?.node?.body[0]?.primary?.check_show
   const handleScroll = () => {
     const _show = window.scrollY
     if (_show > 0) {
@@ -1291,7 +1299,8 @@ const Header = ({
       location === "/partners" ||
       location === "/pageblog" ||
       location === "/blog-details" ||
-      location === "/testimonial"
+      location === "/testimonial" ||
+      location === "/banner"
     ) {
       return "menu-list_item_text-black"
     }
@@ -1321,6 +1330,7 @@ const Header = ({
       location === "/pageblog" ||
       location === "/blog-details" ||
       location === "/testimonial" ||
+      location === "/banner" ||
       show > 101 ||
       !!isDisPlayModalService ||
       !!isDisPlayModalOurwork
@@ -1340,7 +1350,8 @@ const Header = ({
       location === "/partners" ||
       location === "/pageblog" ||
       location === "/blog-details" ||
-      location === "/testimonial"
+      location === "/testimonial" ||
+      location === "/banner"
     ) {
       return <img className="image-buger" src={logoBugerBlack} alt="logo" />
     }
@@ -1388,6 +1399,7 @@ const Header = ({
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}
+      checkIsMessage={checkIsMessage}
       backgroundMobile={linkBackground}
       location={location}
       scroll={scroll}
@@ -1419,7 +1431,8 @@ const Header = ({
                   location === "/partners" ||
                   location === "/pageblog" ||
                   location === "/blog-details" ||
-                  location === "/testimonial"
+                  location === "/testimonial" ||
+                  location === "/banner"
                     ? logoBlack
                     : logoLight
                 }
@@ -1441,7 +1454,8 @@ const Header = ({
                   location === "/partners" ||
                   location === "/pageblog" ||
                   location === "/blog-details" ||
-                  location === "/testimonial"
+                  location === "/testimonial" ||
+                  location === "/banner"
                     ? logoBlack
                     : logoLight
                 }
@@ -1481,7 +1495,8 @@ const Header = ({
                       location === "/partners" ||
                       location === "/pageblog" ||
                       location === "/blog-details" ||
-                      location === "/testimonial"
+                      location === "/testimonial" ||
+                      location === "/banner"
                         ? "menu-list_item_white"
                         : "menu-list_item_gold"
                     } ${

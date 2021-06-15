@@ -52,6 +52,26 @@ const Partners = () => {
                     }
                   }
                 }
+                ... on PRISMIC_Partners_pageBodyBanner_partner_page {
+                  type
+                  label
+                  primary {
+                    title_banner
+                    description_banner
+                  }
+                  fields {
+                    category_partner_banner {
+                      ... on PRISMIC_Partner_category {
+                        category_name
+                        _meta {
+                          uid
+                        }
+                        _linkType
+                      }
+                      _linkType
+                    }
+                  }
+                }
               }
             }
           }

@@ -1,45 +1,36 @@
-import moment from "moment"
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
-export default function BannerBlogDetails({ input, location }) {
+export default function BannerCaseStudy2({ input, location }) {
   const data = input ? input?.primary : []
 
   return (
     <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
-      {data ? (
-        <SubTitle>
-          <Sub>{moment(data?.date_created1)?.format("LL")}</Sub>
-          <Title>{data?.title_banner?.map(item => item.text)}</Title>
-        </SubTitle>
-      ) : (
-        <></>
-      )}
+      <SubTitle>
+        <Sub>
+          {data?.title_banner?.map(item => (item?.text ? item?.text : ""))}
+        </Sub>
+        <Title>
+          {data?.description_banner?.map(item =>
+            item?.text ? item?.text : ""
+          )}
+        </Title>
+      </SubTitle>
     </Container>
   )
 }
 
 const Container = styled.div`
   width: 100%;
-  height: 365px;
+  height: 293px;
   background-color: #f8f8f8;
   margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
 
   @media (max-width: 600px) {
-    width: 100%;
-    height: 282px;
-    background-color: #f8f8f8;
+    height: 202px;
     margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
-  }
-  @media (min-width: 600px) {
-    width: 100%;
-    height: 365px;
-    background-color: #f8f8f8;
-  }
-  @media (min-width: 1040px) and (max-width: 1366px) {
-    height: 337px;
   }
 `
 const Image = styled.img`
@@ -50,48 +41,31 @@ const Image = styled.img`
 const SubTitle = styled.div`
   position: absolute;
   @media (max-width: 600px) {
-    padding-top: 90px;
-    width: 100%;
-    margin: 0px;
+    margin-top: 85px;
     margin-left: 16px;
-    padding-right: 20px;
-  }
-  @media (max-width: 375px) {
-    width: 343px;
-  }
-  @media (max-width: 360px) {
-    padding-top: 90px;
-    padding-right: 0;
-    width: 292px;
   }
   @media (min-width: 600px) {
-    padding-top: 86px;
-    padding-left: 68px;
-    padding-right: 10px;
+    margin-top: 86px;
+    margin-left: 68px;
   }
   @media (min-width: 768px) {
-    padding-top: 107px;
-    padding-left: 77px;
-    padding-right: 20px;
+    margin-top: 107px;
+    margin-left: 77px;
   }
   @media (min-width: 1024px) {
-    padding-top: 117px;
-    padding-left: 77px;
-    padding-right: 40px;
+    margin-top: 117px;
+    margin-left: 77px;
   }
   @media (min-width: 1200px) {
-    padding-top: 137px;
-    padding-left: 160px;
-    padding-right: 95px;
+    margin-top: 137px;
+    margin-left: 160px;
   }
   @media (min-width: 1372px) {
-    padding-top: 159px;
-    padding-left: 220px;
-    padding-right: 192px;
+    margin-top: 159px;
+    margin-left: 220px;
   }
   @media (min-width: 1600px) {
-    padding: 176px 264px 44px 260px;
-    height: 100%;
+    margin: 159px 0 0 260px;
   }
 `
 const Sub = styled.p`
@@ -102,7 +76,7 @@ const Sub = styled.p`
   letter-spacing: 1px;
   line-height: 16px;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   text-transform: uppercase;
   &::before {
     position: absolute;
@@ -116,7 +90,8 @@ const Sub = styled.p`
   }
   @media (max-width: 600px) {
     font-size: 12px;
-    margin-bottom: 15px;
+    line-height: 14px;
+    margin-bottom: 8px;
     margin-left: 51px;
     &::before {
       position: absolute;

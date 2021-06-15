@@ -211,6 +211,12 @@ const Layout = ({
                     social_icon_item
                   }
                 }
+                ... on PRISMIC_HeaderBodyGlobal_messing_bar {
+                  type
+                  primary {
+                    check_show
+                  }
+                }
               }
             }
           }
@@ -261,5 +267,6 @@ const BoxLayout = styled.div`
   overflow-x: hidden;
   position: relative;
   overflow: ${({ checkMenu }) => (checkMenu === false ? "hidden" : "show")};
+  overflow-y: hidden;
 `
 export default Layout

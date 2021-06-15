@@ -3,36 +3,35 @@ import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import IMG from "../Image"
 
-function BannerCaseStudy({
-  nameProject,
-  logoProject,
-  nameCategoryOfWorkItem,
-  backgroundWorkItemSrc,
-  backgroundWorkItemAlt,
-}) {
+export default function BannerOurWorkPage({ input, location }) {
+  const data = input ? input?.primary : []
+
   return (
-    <BannerStyle className="container-study">
-      {backgroundWorkItemAlt && backgroundWorkItemSrc ? (
+    <BannerStyle
+      className="container-study"
+      bottom={location && location === "/banner" ? true : false}
+    >
+      {input ? (
         <IamgeBanner>
           <Image
             className="img-fluid"
-            src={backgroundWorkItemSrc}
-            alt={backgroundWorkItemAlt}
+            src={data?.project_header_image1?.url}
+            alt=""
           ></Image>
         </IamgeBanner>
       ) : (
         <></>
       )}
       <Shadow></Shadow>
-      {nameProject && logoProject && nameCategoryOfWorkItem ? (
+      {data.project_header_image1 ? (
         <TitleBanner>
           <Shopify>
-            <P>{nameCategoryOfWorkItem}</P>
+            <P>{data.name_category_of_project1}</P>
           </Shopify>
           <IMG
-            src={logoProject.url}
-            w={logoProject.dimensions.width}
-            h={logoProject.dimensions.height}
+            src={data.project_logo1?.url}
+            w={data.project_logo1?.dimensions?.width}
+            h={data.project_logo1?.dimensions?.height}
           />
           <TextBanner>
             <H1
@@ -41,7 +40,7 @@ function BannerCaseStudy({
               data-sal-easing="ease"
               data-sal-duration="1000"
             >
-              {nameProject}
+              {data.project_description1?.map(item => item.text)}
             </H1>
           </TextBanner>
         </TitleBanner>
@@ -52,8 +51,6 @@ function BannerCaseStudy({
   )
 }
 
-export default BannerCaseStudy
-
 const BannerStyle = styled.div`
   width: 100%;
   background-color: ${theme.colors.secondaryColor};
@@ -61,6 +58,9 @@ const BannerStyle = styled.div`
   color: white;
   display: flex;
   align-items: center;
+
+  margin-bottom: ${({ bottom }) => (bottom ? "108px" : 0)};
+
   .title-banner {
     h4 {
       text-transform: uppercase;
@@ -94,6 +94,7 @@ const BannerStyle = styled.div`
   @media only screen and (max-width: 600px) {
     height: 400px;
     margin-bottom: 24px;
+    margin-bottom: ${({ bottom }) => (bottom ? "81px" : 0)};
     .col-md-4 {
       padding-top: 20px;
     }
@@ -162,12 +163,12 @@ const IamgeBanner = styled.div`
 `
 const Image = styled.img``
 const Shadow = styled.div`
-  height: 100%;
+  // height: 100%;
   width: 100%;
   opacity: 0.4;
   position: absolute;
   @media (max-width: 600px) {
-    height: 100%;
+    // height: 100%;
     width: 100%;
     opacity: 0.4;
     position: absolute;
@@ -255,6 +256,9 @@ const TextBanner = styled.div`
 const H1 = styled.h1`
   font-weight: bold;
   font-size: 150px;
+  color: #ffffff;
+  font-family: Calibre Bold;
+
   @media (max-width: 600px) {
     font-size: 32px;
     font-family: "Calibre Bold";
