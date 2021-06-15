@@ -123,7 +123,7 @@ const Sub = styled.p`
   @media (max-width: 600px) {
     font-size: 12px;
     line-height: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     margin-left: 51px;
     &::before {
       position: absolute;

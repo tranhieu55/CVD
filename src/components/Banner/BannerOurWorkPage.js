@@ -163,12 +163,12 @@ const IamgeBanner = styled.div`
 `
 const Image = styled.img``
 const Shadow = styled.div`
-  height: 100%;
+  // height: 100%;
   width: 100%;
   opacity: 0.4;
   position: absolute;
   @media (max-width: 600px) {
-    height: 100%;
+    // height: 100%;
     width: 100%;
     opacity: 0.4;
     position: absolute;
@@ -256,6 +256,9 @@ const TextBanner = styled.div`
 const H1 = styled.h1`
   font-weight: bold;
   font-size: 150px;
+  color: #ffffff;
+  font-family: Calibre Bold;
+
   @media (max-width: 600px) {
     font-size: 32px;
     font-family: "Calibre Bold";

@@ -336,6 +336,7 @@ const ListCategory = styled.ul`
   }
   @media (min-width: 600px) {
     padding: 0px;
+    padding-left: 15px;
   }
   @media (min-width: 768px) {
     padding: 0px 15px;
@@ -403,12 +404,12 @@ const CategoryItem = styled.li`
 
     &::after {
       position: absolute;
-      bottom: -1px;
+      bottom: 1px;
       left: 0;
       width: 100%;
       content: " ";
       background-color: #222222;
-      opacity: 0.3;
+
       transition: all 0s ease-in;
       height: 2px;
     }

@@ -169,6 +169,7 @@ const Title = styled.h2`
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 56px;
+  margin-bottom: 8px;
 
   @media (max-width: 600px) {
     color: #101010;
@@ -182,13 +183,13 @@ const Title = styled.h2`
 const Description = styled.p`
   color: #222222;
   font-family: Calibre Regular;
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 0;
-  line-height: 28px;
+  line-height: 30px;
 
   @media (min-width: 600px) {
     width: 100%;
-    max-width: 770px;
+    max-width: 774px;
   }
   @media (max-width: 375px) {
     width: 343px;

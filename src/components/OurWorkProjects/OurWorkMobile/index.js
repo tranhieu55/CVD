@@ -316,4 +316,7 @@ const Span = styled.span`
   color: #fecf09 !important;
   font-size: 18px !important;
   line-height: 16px !important;
+  @media (max-width: 992px) {
+    margin-bottom: 5px !important;
+  }
 `
