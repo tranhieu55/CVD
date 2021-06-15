@@ -299,6 +299,10 @@ const TitleImageBlog = styled.div`
     bottom: 1rem;
     left: 3rem;
   }
+  @media (max-width: 600px) {
+    bottom: 13px;
+    left: 24px;
+  }
 `
 const H3 = styled.h3`
   color: white;
