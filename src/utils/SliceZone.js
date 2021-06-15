@@ -339,8 +339,8 @@ const SliceZone = props => {
         case "banner_post_details":
           return <BannerBlogDetails key={index} input={s} />
 
-        case "banner_project_detail":
-          return <BannerOurWorkPage key={index} input={s} />
+        // case "banner_project_detail":
+        //   return <BannerOurWorkPage key={index} input={s} />
 
         case "banner_partner_page":
           return <BannerPartners key={index} input={s} />
