@@ -44,6 +44,9 @@ const NotFoundPage = ({ input }) => {
                             }
                           }
                         }
+                        _meta {
+                          uid
+                        }
                       }
                     }
                   }

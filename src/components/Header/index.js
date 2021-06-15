@@ -818,10 +818,7 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      /* transition: all 0.5s ease-in; */
-      background-image: url(${({ backgroundMobile }) => backgroundMobile});
-      
-      /* background-image: url("../../images/Background.png" ); */
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});      
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -829,7 +826,8 @@ const WrapperHeader = styled.div`
       position: absolute;
       width: 100vw;
       padding: 48px;
-      
+      overflow: auto;
+      height: 100vh
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -852,9 +850,6 @@ const WrapperHeader = styled.div`
   @media only screen and (min-width: 1024px) {
     .button-header {
       h2 {
-        // font-family: {({ show }) =>
-        //   show > 0 ? "Calibre Medium" : "Calibre Semibold"};
-        // font-weight: {({ show }) => (show > 0 ? "500" : "600")};
         font-family: Calibre Medium;
         font-weight: 500;
       }

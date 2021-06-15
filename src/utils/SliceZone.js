@@ -52,6 +52,7 @@ import BannerWhatWeDo2 from "../components/Banner/BannerWhatWeDo2"
 import BannerAboutUs from "../components/Banner/BannerAboutUs"
 import BannerWorkWithConvert from "../components/Banner/BannerWorkWithConvert"
 import BannerLogo from "../components/Banner/BannerLogo"
+import CardProjectItem404 from "../components/CardProjectItem404"
 
 const HappyClinetssss = loadable(() =>
   import("../components/slices/Homepage/HappyClient/HappyClient")
@@ -139,6 +140,12 @@ const SliceZone = props => {
                 input={s}
                 context={props.context ? props.context : null}
               />
+            </>
+          )
+        case "case_studi_tiles_404":
+          return (
+            <>
+              <CardProjectItem404 key={index} input={s} />
             </>
           )
         case "project_tilesq":
