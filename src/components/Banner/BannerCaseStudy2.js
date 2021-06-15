@@ -1,11 +1,10 @@
-import moment from "moment"
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 
 export default function BannerCaseStudy2(props) {
   const data = props ? props?.input?.primary : []
-  console.log({ input: props.input })
+
   return (
     <Container>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
@@ -28,18 +27,9 @@ const Container = styled.div`
   height: 293px;
   background-color: #f8f8f8;
   margin-bottom: 40px;
+
   @media (max-width: 600px) {
-    width: 100%;
-    height: 282px;
-    background-color: #f8f8f8;
-  }
-  @media (min-width: 600px) {
-    width: 100%;
-    height: 293px;
-    background-color: #f8f8f8;
-  }
-  @media (min-width: 1040px) and (max-width: 1366px) {
-    height: 293px;
+    height: 202px;
   }
 `
 const Image = styled.img`
@@ -50,33 +40,31 @@ const Image = styled.img`
 const SubTitle = styled.div`
   position: absolute;
   @media (max-width: 600px) {
-    padding-top: 85px;
-    padding-left: 16px;
-    padding-bottom: 21px;
+    margin-top: 85px;
+    margin-left: 16px;
   }
   @media (min-width: 600px) {
-    padding-top: 86px;
-    padding-left: 68px;
-    padding-right: 20px;
+    margin-top: 86px;
+    margin-left: 68px;
   }
   @media (min-width: 768px) {
-    padding-top: 107px;
-    padding-left: 77px;
+    margin-top: 107px;
+    margin-left: 77px;
   }
   @media (min-width: 1024px) {
-    padding-top: 117px;
-    padding-left: 77px;
+    margin-top: 117px;
+    margin-left: 77px;
   }
   @media (min-width: 1200px) {
-    padding-top: 137px;
-    padding-left: 160px;
+    margin-top: 137px;
+    margin-left: 160px;
   }
   @media (min-width: 1372px) {
-    padding-top: 159px;
-    padding-left: 220px;
+    margin-top: 159px;
+    margin-left: 220px;
   }
   @media (min-width: 1600px) {
-    padding: 159px 20px 38px 260px;
+    margin: 159px 0 0 260px;
   }
 `
 const Sub = styled.p`

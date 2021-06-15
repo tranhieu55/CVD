@@ -25,6 +25,7 @@ const Container = styled.div`
   width: 100%;
   height: 365px;
   background-color: #f8f8f8;
+  margin-bottom: 40px;
   @media (max-width: 600px) {
     width: 100%;
     height: 282px;

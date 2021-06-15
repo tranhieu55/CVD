@@ -37,8 +37,8 @@ const BannerPartners = ({ input }) => {
   const state = useContext(OurWorkStateContext)
 
   return (
-    <WraperBannerProjects>
-      <BannerProjectsContent className="container">
+    <WraperBannerPartners>
+      <BannerPartnersContent className="container">
         {data ? (
           <P
             uppercase={true}
@@ -112,14 +112,15 @@ const BannerPartners = ({ input }) => {
         ) : (
           <></>
         )}
-      </BannerProjectsContent>
-    </WraperBannerProjects>
+      </BannerPartnersContent>
+    </WraperBannerPartners>
   )
 }
 export default memo(BannerPartners)
 
-const WraperBannerProjects = styled.div`
+const WraperBannerPartners = styled.div`
   background-color: #f8f8f8;
+  margin-bottom: 40px;
   h2 {
     letter-spacing: -0.5px;
   }
@@ -224,7 +225,7 @@ const WraperBannerProjects = styled.div`
   }
 `
 
-const BannerProjectsContent = styled.div`
+const BannerPartnersContent = styled.div`
   padding-top: 10rem;
   padding-bottom: 45px;
   height: 100%;

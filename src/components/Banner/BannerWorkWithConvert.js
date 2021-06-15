@@ -1,240 +1,167 @@
 import React from "react"
 import styled from "styled-components"
-import P from "../bits/Typography"
 import { theme } from "../../utils/theme"
 
-const BannerWorkWithConvert = ({ input }) => {
-  const dataInput = input ? input?.primary : []
-
-  console.log({ dataInput })
+export default function BannerWorkWithConvert(props) {
+  const data = props ? props?.input?.primary : []
 
   return (
-    <WrapperWorkWithConvert className="contrainer-fluid">
-      <Container className="container">
-        <Row className="row">
-          <Col className="col-md">
-            <SubTitle>
-              <SpanBorder></SpanBorder>
-              <SpanText>
-                {dataInput.sub_title_banner &&
-                dataInput.sub_title_banner.length > 0
-                  ? dataInput.sub_title_banner[0].text
-                  : ""}
-              </SpanText>
-            </SubTitle>
-            <Title>
-              {dataInput.title_banner && dataInput.title_banner.length > 0
-                ? dataInput.title_banner[0].text
-                : ""}
-            </Title>
-          </Col>
-          {dataInput ? (
-            <Col className="col-md-10 offset-1">
-              <P
-                coLor="#222222"
-                fontFamily="Calibre Regular"
-                fontSise="20"
-                pdb="96"
-                lineh="28"
-                lett="0"
-              >
-                {dataInput.description_banner &&
-                dataInput.description_banner.length > 0
-                  ? dataInput.description_banner[0].text
-                  : ""}
-              </P>
-            </Col>
-          ) : (
-            <></>
+    <Container>
+      {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
+      <SubTitle>
+        <Sub>
+          {data.sub_title_banner && data.sub_title_banner.length > 0
+            ? data.sub_title_banner.map(element =>
+                element.text ? element.text : ""
+              )
+            : ""}
+        </Sub>
+        <Title>
+          {data.title_banner && data.title_banner.length > 0
+            ? data.title_banner.map(element =>
+                element.text ? element.text : ""
+              )
+            : ""}
+        </Title>
+        <Description>
+          {data?.description_banner?.map(item =>
+            item?.text ? item?.text : ""
           )}
-        </Row>
-      </Container>
-    </WrapperWorkWithConvert>
+        </Description>
+      </SubTitle>
+    </Container>
   )
 }
-export default BannerWorkWithConvert
 
-const WrapperWorkWithConvert = styled.div`
-  width: 100%;
-  background-color: ${theme.colors.lightGray};
-  span {
-    color: #999999;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-  @media only screen and (max-width: 600px) {
-    span {
-      font-size: 12px !important;
-    }
-    p {
-      padding-bottom: 21px;
-    }
-    .offset-1 {
-      margin-left: 0 !important;
-    }
-
-    .col-md-10 {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-  }
-  @media only screen and (min-width: 600px) {
-    .row {
-      margin: 0 !important;
-    }
-    p {
-      padding-bottom: 30px;
-    }
-    .offset-1 {
-      margin-left: 0 !important;
-    }
-  }
-  @media only screen and (min-width: 768px) {
-    p {
-      padding-bottom: 30px;
-    }
-    .offset-1 {
-      margin-left: 70px !important;
-    }
-  }
-  @media only screen and (min-width: 992px) {
-    span {
-      font-size: 14px;
-    }
-    p {
-      padding-bottom: 0px;
-      margin-bottom: 96px;
-    }
-    .offset-1 {
-      margin-left: 84px !important;
-    }
-  }
-  @media only screen and (min-width: 1200px) {
-    .offset-1 {
-      margin-left: 103px !important;
-    }
-    .container {
-      padding-right: 15px !important;
-      padding-left: 15px !important;
-    }
-    @media only screen and (max-width: 1299px) {
-      .container {
-        padding-right: 15px !important;
-        padding-left: 15px !important;
-      }
-    }
-    @media only screen and (min-width: 1300px) {
-      .container {
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-      }
-      p {
-        max-width: 770px;
-      }
-      .row {
-        margin-right: -15px !important;
-        margin-left: -15px !important;
-      }
-    }
-    span {
-      color: #999999;
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .offset-1 {
-      margin-left: 8.333333%;
-    }
-  }
-`
 const Container = styled.div`
-  max-width: 1240px !important;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-  @media only screen and (max-width: 600px) {
-    // margin-bottom: 16px;
-    padding-right: 16px !important;
-    padding-left: 16px !important;
-  }
-  // @media only screen and (min-width: 600px) {
-  //   margin-bottom: 30px;
-  // }
-  // @media only screen and (min-width: 768px) {
-  //   margin-bottom: 30px;
-  // }
+  width: 100%;
+  background-color: #f8f8f8;
+  margin-bottom: 40px;
+  height: 354px;
 
-  // /* Large devices (laptops/desktops, 992px and up) */
-  // @media only screen and (min-width: 992px) {
-  //   margin-bottom: 30px;
-  // }
-  // @media only screen and (min-width: 1200px) {
-  //   margin-bottom: 96px;
-  // }
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 250px;
+    background-color: #f8f8f8;
+  }
+
+  @media (min-width: 600px) and (max-width: 1366px) {
+    height: 324px;
+  }
 `
-const Row = styled.div``
-const Col = styled.div``
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  position: realtive;
+`
 const SubTitle = styled.div`
-  margin-top: 158px;
-  display: flex;
-  align-items: center;
-  @media only screen and (max-width: 600px) {
-    margin-top: 85px !important;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 600px) {
+    margin-top: 85px;
+    margin-left: 16px;
+    margin-right: 20px;
   }
-  @media only screen and (min-width: 600px) {
-    margin-top: 100px;
+  @media (min-width: 600px) {
+    margin-top: 86px;
+    margin-left: 68px;
+    padding-right: 20px;
   }
-  @media only screen and (min-width: 768px) {
-    margin-top: 100px;
+  @media (min-width: 768px) {
+    margin-top: 107px;
+    margin-left: 77px;
   }
-  @media only screen and (min-width: 992px) {
-    margin-top: 158px;
+  @media (min-width: 1024px) {
+    margin-top: 117px;
+    margin-left: 77px;
   }
-  @media only screen and (min-width: 1200px) {
-    margin-top: 165px;
-    display: flex;
-    align-items: center;
+  @media (min-width: 1200px) {
+    margin-top: 137px;
+    margin-left: 160px;
   }
-`
-const SpanBorder = styled.span`
-  width: 80px;
-  height: 2px;
-  background-color: #fecf09;
-  margin-right: 24px;
-  margin-bottom: 4px;
-  @media only screen and (max-width: 600px) {
-    width: 32px !important;
-    margin-right: 16px !important;
+  @media (min-width: 1372px) {
+    margin-top: 159px;
+    margin-left: 220px;
   }
-  @media only screen and (min-width: 600px) {
-    width: 32px;
-  }
-  @media only screen and (min-width: 768px) {
-    width: 45px;
-  }
-  @media only screen and (min-width: 992px) {
-    width: 60px;
-    height: 2px;
-    background-color: gold;
-    margin-right: 24px;
-  }
-  @media only screen and (min-width: 1200px) {
-    width: 80px;
-    height: 2px;
-    background-color: gold;
-    margin-right: 24px;
+  @media (min-width: 1600px) {
+    max-width: 844px;
+    padding-right: 0;
+    margin: 158px 0 0 260px;
   }
 `
-const SpanText = styled.span`
+const Sub = styled.p`
+  color: #999999;
+  font-family: Calibre Semibold;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 1px;
   line-height: 16px;
-  font-family: "Calibre Semibold";
+  position: relative;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+
+  &::before {
+    position: absolute;
+    right: calc(100% + 16px);
+    top: 36%;
+    display: block;
+    content: "";
+    width: 64px;
+    height: 2px;
+    background: ${theme.colors.primaryColor};
+  }
+  @media (max-width: 600px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 6px;
+    margin-left: 51px;
+    &::before {
+      position: absolute;
+      right: calc(100% + 17px);
+      top: 36%;
+      display: block;
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: ${theme.colors.primaryColor};
+    }
+  }
+  @media (min-width: 600px) {
+    &::before {
+      position: absolute;
+      right: calc(100% + 10px);
+      top: 36%;
+      display: block;
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: ${theme.colors.primaryColor};
+    }
+  }
+  @media (min-width: 1200px) {
+    &::before {
+      position: absolute;
+      right: calc(100% + 17px);
+      top: 36%;
+      display: block;
+      content: "";
+      width: 64px;
+      height: 2px;
+      background: ${theme.colors.primaryColor};
+    }
+  }
+
+  @media (min-width: 1600px) {
+    &::before {
+      right: calc(100% + 24px);
+      width: 80;
+    }
+  }
 `
 const Title = styled.h2`
   margin: 0;
-  margin-top: 24px;
-  margin-left: 103px;
   color: #101010;
   font-family: Calibre Bold;
   font-size: 64px;
@@ -249,19 +176,23 @@ const Title = styled.h2`
     font-weight: 700;
     letter-spacing: -1px;
     line-height: 38px;
-    margin-left: 0;
-    margin-top: 6px;
   }
+`
+const Description = styled.p`
+  color: #222222;
+  font-family: Calibre Regular;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28px;
+
   @media (min-width: 600px) {
-    margin-left: 0;
+    width: 100%;
+    max-width: 770px;
   }
-  @media (min-width: 768px) {
-    margin-left: 70px;
+  @media (max-width: 375px) {
+    width: 343px;
   }
-  @media (min-width: 992px) {
-    margin-left: 84px;
-  }
-  @media (min-width: 1200px) {
-    margin-left: 103px;
+  @media (max-width: 360px) {
+    width: 100%;
   }
 `
