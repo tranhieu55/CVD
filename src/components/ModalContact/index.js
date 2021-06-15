@@ -63,8 +63,13 @@ const Modals = ({ showModal, setShowModal }) => {
                   if (item.type === "text") {
                     return (
                       <Inputs>
-                        <Input size="lg" type="text" placeholder=" " />
-                        <label>
+                        <Input
+                          size="lg"
+                          type="text"
+                          id={index}
+                          placeholder=" "
+                        />
+                        <label for={index}>
                           {item?.placeholder?.map(item =>
                             item?.text ? item?.text : item
                           )}
@@ -75,8 +80,13 @@ const Modals = ({ showModal, setShowModal }) => {
                   if (item.type === "textarea") {
                     return (
                       <Inputs>
-                        <Textarea size="lg" type="text" placeholder=" " />
-                        <label>
+                        <Textarea
+                          id={index}
+                          size="lg"
+                          type="text"
+                          placeholder=" "
+                        />
+                        <label for={index}>
                           {item?.placeholder?.map(item =>
                             item?.text ? item?.text : item
                           )}
@@ -218,6 +228,9 @@ const Input = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  :hover ~ label {
+    cursor: pointer;
+  }
   :active ~ label,
   :focus ~ label,
   :not(:placeholder-shown) ~ label {
@@ -227,7 +240,6 @@ const Input = styled.input`
     letter-spacing: 1px;
     line-height: 14px;
     position: absolute;
-    transform: translate(24px, 12px) scale(1);
     top: 0;
     left: 0;
     text-transform: uppercase;
@@ -238,7 +250,7 @@ const Input = styled.input`
     border: 2px solid #222222;
   }
   :not(:placeholder-shown) {
-    border: 1px solid #6e6e6e;
+    border: 2px solid #222222;
   }
   @media (max-width: 320px) {
     margin-bottom: 20px;
@@ -341,10 +353,9 @@ const Textarea = styled.textarea`
   box-sizing: border-box;
   border: 2px solid #cccccc;
   border-radius: 3px;
-  padding-top: 24px;
   padding-left: 24px;
   box-shadow: none;
-  padding-top: 32px;
+  padding-top: 40px;
   padding-right: 24px;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -360,7 +371,9 @@ const Textarea = styled.textarea`
   font-size: 20px;
   letter-spacing: 0;
   line-height: 24px;
-
+  :hover ~ label {
+    cursor: pointer;
+  }
   :active ~ label,
   :focus ~ label,
   :not(:placeholder-shown) ~ label {
@@ -370,7 +383,6 @@ const Textarea = styled.textarea`
     letter-spacing: 1px;
     line-height: 14px;
     position: absolute;
-    transform: translate(26px, 17px) scale(1);
     font-weight: 600;
     top: 0;
     left: 0;
@@ -428,7 +440,6 @@ const Textarea = styled.textarea`
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(15px, -9px) scale(1);
       top: 0;
       left: 0px;
       background: #ffffff;
@@ -442,7 +453,6 @@ const Textarea = styled.textarea`
       letter-spacing: 1px;
       line-height: 24px;
       position: absolute;
-      transform: translate(12px, -9px) scale(1);
       top: 0px;
       left: 0px;
       background: #ffffff;
@@ -485,7 +495,7 @@ const Submit = styled.button`
     padding: 25px 0px;
   }
 `
-const Content = styled.div`
+const Content = styled.form`
   margin: 59px 48px 48px 48px;
 
   @media (max-width: 768px) {
