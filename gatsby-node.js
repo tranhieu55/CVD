@@ -47,7 +47,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
               _meta {
                 uid
               }
-              body{
+              body {
                 ... on PRISMIC_PostBodyBanner_post_details {
                   type
                   label
@@ -179,32 +179,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   fields {
                     display_button
                     text_in_button
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_project_detail {
-                  type
-                  label
-                  primary {
-                    name_category_of_project1
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_our_work_page {
-                  type
-                  label
-                  fields {
-                    category_project_item {
-                      ... on PRISMIC_Category_ourwork {
-                        category_name
-                        oder_in_menu
-                        _meta {
-                          uid
-                        }
-                      }
-                    }
-                  }
-                  primary {
-                    title
-                    sub_title
                   }
                 }
                 ... on PRISMIC_PageBodyBig_text {
@@ -443,7 +417,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     title
                   }
                 }
-               
+
                 ... on PRISMIC_PageBodyList_image {
                   type
                   label
@@ -781,7 +755,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     image
                   }
                 }
-                
               }
             }
           }
