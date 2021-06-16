@@ -11,7 +11,6 @@ function CardProjectItem(props) {
       <ListCaseStudy>
         <Row>
           {input?.fields?.map((item, key) => {
-
             return (
               <Colum className="col-md-6" key={key}>
                 {item ? (
@@ -119,8 +118,8 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: gold;
-    height: 5px;
+    background-color: #fecf09;
+    height: 6px;
     transition: all 0.4s ease-in;
   }
   :hover {
@@ -132,6 +131,9 @@ const DivIMG = styled.div`
   @media only screen and (max-width: 600px) {
     img {
       height: 245px;
+    }
+    :after {
+      height: 4px;
     }
   }
 `
@@ -162,8 +164,12 @@ const TitleImageBlog = styled.div`
   }
 
   @media only screen and (min-width: 600px) {
+    bottom: 24px;
+    left: 34px;
+  }
+  @media only screen and (min-width: 630px) {
     bottom: 40px;
-    left: 60px;
+    left: 40px;
   }
   @media only screen and (min-width: 768px) {
     bottom: 40px;
@@ -186,7 +192,8 @@ const Span = styled.span`
   display: block;
   padding: 0;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+
   @media only screen and (max-width: 600px) {
     font-size: 14px;
     line-height: ${({ resize }) => (resize ? "14px" : "6px")};

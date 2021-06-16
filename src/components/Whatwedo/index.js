@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import H2 from "../bits/H2"
@@ -9,20 +10,26 @@ export default function Cardwhatwedo(props) {
     <Study>
       <Container className="container">
         <IphoneX>
-          { props ? 
+          {props ? (
             <BoxStudy
               className={` ${
-                props.input?.primary?.location_image ? props.input?.primary?.location_image === "Left" ? "" : "cl-order" : ""
+                props.input?.primary?.location_image
+                  ? props.input?.primary?.location_image === "Left"
+                    ? ""
+                    : "cl-order"
+                  : ""
               } ${
-                props.input?.primary?.location_image ? props.input?.primary?.location_image === "Right"
-                  ? "box-study-5"
-                  : "box-study"
+                props.input?.primary?.location_image
+                  ? props.input?.primary?.location_image === "Right"
+                    ? "box-study-5"
+                    : "box-study"
                   : ""
               }
                 ${
-                  props.input?.primary?.location_content? props.input?.primary?.location_content === "Right"
-                    ? "box-study-5"
-                    : "box-study"
+                  props.input?.primary?.location_content
+                    ? props.input?.primary?.location_content === "Right"
+                      ? "box-study-5"
+                      : "box-study"
                     : ""
                 }
                 `}
@@ -34,8 +41,16 @@ export default function Cardwhatwedo(props) {
               <BoxImage className="box-img img-fluid">
                 <IMG
                   objectFit="cover"
-                  src={props.input?.primary?.what_we_do_image?.url ? props.input?.primary?.what_we_do_image?.url : ""}
-                  alt={props.input?.primary?.what_we_do_image?.alt ? props.input?.primary?.what_we_do_image?.alt : ""}
+                  src={
+                    props.input?.primary?.what_we_do_image?.url
+                      ? props.input?.primary?.what_we_do_image?.url
+                      : ""
+                  }
+                  alt={
+                    props.input?.primary?.what_we_do_image?.alt
+                      ? props.input?.primary?.what_we_do_image?.alt
+                      : ""
+                  }
                 />
               </BoxImage>
               <BoxDivStudy className="cl174"></BoxDivStudy>
@@ -44,7 +59,8 @@ export default function Cardwhatwedo(props) {
                   <SpanBorderStudy className="my-border-study"></SpanBorderStudy>
                   <SpanTextStudy className="txt-study">
                     {" "}
-                    {props?.index ? props?.index : 0 + 1}/{props.input?.total ? props.input?.total : 0}
+                    {props?.index ? props?.index : 0 + 1}/
+                    {props.input?.total ? props.input?.total : 0}
                   </SpanTextStudy>
                 </BoxTagStudy>
                 <H2
@@ -55,7 +71,9 @@ export default function Cardwhatwedo(props) {
                   fz="32"
                   fontFamily="Calibre Semibold"
                 >
-                  {props.input?.primary?.what_we_do_title[0]?.text ? props.input?.primary?.what_we_do_title[0]?.text : ""}
+                  {props.input?.primary?.what_we_do_title[0]?.text
+                    ? props.input?.primary?.what_we_do_title[0]?.text
+                    : ""}
                 </H2>
                 <P
                   lineh="28"
@@ -63,16 +81,21 @@ export default function Cardwhatwedo(props) {
                   fontFamily="Calibre Regular"
                   fontSise="20"
                 >
-                  {props.input?.primary?.what_we_do_description[0]?.text ? props.input?.primary?.what_we_do_description[0]?.text : ""}
+                  {props.input?.primary?.what_we_do_description[0]?.text
+                    ? props.input?.primary?.what_we_do_description[0]?.text
+                    : ""}
                 </P>
                 <BoxIconStudy className="icon-leadmore">
-                  <SpanStudy className="learn-more-title">Learn more</SpanStudy>
+                  <SpanStudy className="learn-more-title">
+                    <ViewMore href="#">Learn more</ViewMore>
+                  </SpanStudy>
                 </BoxIconStudy>
               </BoxContentStudy>
               <BoxDivStudy className="cl80"></BoxDivStudy>
             </BoxStudy>
-            : <></>
-          }
+          ) : (
+            <></>
+          )}
         </IphoneX>
       </Container>
     </Study>
@@ -101,8 +124,7 @@ const IphoneX = styled.div`
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 `
-const BoxStudy = styled.div`
-`
+const BoxStudy = styled.div``
 const BoxImage = styled.div``
 const BoxContentStudy = styled.div`
   width: 446px;
@@ -171,9 +193,19 @@ const BoxIconStudy = styled.div`
   }
 `
 const SpanStudy = styled.span``
-const BoxDivStudy = styled.div`
-  
+const ViewMore = styled.a`
+  text-decoration: none !important;
+  color: #101010 !important;
+
+  &:hover,
+  &:actived,
+  &:visited,
+  &:focus {
+    text-decoration: none !important;
+    color: #101010 !important;
+  }
 `
+const BoxDivStudy = styled.div``
 const Study = styled.div`
   .box-study-5 {
     display: flex;
@@ -190,10 +222,10 @@ const Study = styled.div`
   }
   .cl-order {
     flex-direction: row-reverse;
-    .cl174{
-      width : 162px !important;
+    .cl174 {
+      width: 162px !important;
     }
-    .cl80{
+    .cl80 {
       width: 0px !important;
     }
   }
@@ -222,7 +254,7 @@ const Study = styled.div`
     padding-right: 0 !important;
   }
   .cl174 {
-    width: 127px
+    width: 127px;
   }
   .cl80 {
     width: 80px;
@@ -301,7 +333,8 @@ const Study = styled.div`
       height: 100%;
     }
     .cl174 {
-      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
+      width: ${props =>
+        props.input?.primary?.location_image === "Left" ? "159px" : "127px"};
     }
     .cl80 {
       display: none;
@@ -332,7 +365,8 @@ const Study = styled.div`
       font-size: 20px;
     }
     .cl174 {
-      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
+      width: ${props =>
+        props.input?.primary?.location_image === "Left" ? "159px" : "127px"};
     }
     .cl80 {
       width: 20px;
@@ -343,11 +377,11 @@ const Study = styled.div`
   }
   @media only screen and (min-width: 1200px) {
     .cl174 {
-      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
+      width: ${props =>
+        props.input?.primary?.location_image === "Left" ? "159px" : "127px"};
     }
     .box-study-5 {
       margin-bottom: 96px;
-      
     }
   }
   @media only screen and (min-width: 1366px) {
@@ -356,7 +390,8 @@ const Study = styled.div`
       padding-right: 0 !important;
     }
     .cl174 {
-      width: ${props => props.input?.primary?.location_image === "Left" ? '159px' : '127px'}
+      width: ${props =>
+        props.input?.primary?.location_image === "Left" ? "159px" : "127px"};
     }
     .cl80 {
       display: block;
