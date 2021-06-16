@@ -211,21 +211,25 @@ const TitleImageBlog = styled.div`
     bottom: 25px;
     left: 24px;
   }
+  @media (max-width: 347px) {
+    bottom: 15px;
+    left: 35px;
+  }
   @media only screen and (min-width: 600px) {
-    bottom: 35px;
-    left: 60px;
+    bottom: 33px;
+    left: 50px;
   }
   @media only screen and (min-width: 768px) {
     bottom: 30px;
     left: 40px;
   }
   @media only screen and (min-width: 992px) {
-    bottom: 50px;
-    left: 80px;
+    bottom: 33px;
+    left: 48px;
   }
   @media only screen and (min-width: 1200px) {
-    bottom: 3rem;
-    left: 40px;
+    bottom: 45px;
+    left: 63px;
   }
 `
 const Span = styled.span`
@@ -245,7 +249,7 @@ const Span = styled.span`
 `
 const H3 = styled.h3`
   color: white;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -266,13 +270,7 @@ const H3 = styled.h3`
     font-size: 30px;
   }
   @media only screen and (min-width: 992px) {
-    font-size: 36px;
-  }
-  @media only screen and (min-width: 1200px) {
-    font-size: 36px;
-  }
-  @media (min-width: 1366px) {
-    font-size: 48px;
+    font-size: 32px;
   }
 `
 const MyBtn = styled.div`

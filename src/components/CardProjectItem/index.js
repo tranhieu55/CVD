@@ -128,6 +128,10 @@ const TitleImageBlog = styled.div`
     bottom: 25px;
     left: 24px;
   }
+  @media (max-width: 347px) {
+    bottom: 15px;
+    left: 35px;
+  }
   @media only screen and (min-width: 600px) {
     bottom: 35px;
     left: 60px;
