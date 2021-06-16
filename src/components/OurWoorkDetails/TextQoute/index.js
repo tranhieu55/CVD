@@ -13,22 +13,14 @@ export default function TextQoute(props) {
         >
           <TypeAliquam>
             “
-            {props?.input?.primary?.title_quote?.map(item =>
-              item ? item?.text : ""
-            )
-              ? props?.input?.primary?.title_quote?.map(item =>
-                  item ? item?.text : ""
-                )
+            {props?.input?.primary?.title_quote?.map(item => item.text)
+              ? props?.input?.primary?.title_quote?.map(item => item.text)
               : ""}
             ”
           </TypeAliquam>
           <TypeAliquams>
-            {props?.input?.primary?.author_of_quote?.map(item =>
-              item ? item?.text : ""
-            )
-              ? props?.input?.primary?.author_of_quote?.map(item =>
-                  item ? item?.text : ""
-                )
+            {props?.input?.primary?.author_of_quote?.map(item => item.text)
+              ? props?.input?.primary?.author_of_quote?.map(item => item.text)
               : ""}
           </TypeAliquams>
         </Qoute>
@@ -62,24 +54,28 @@ const Qoute = styled.div`
   }
 `
 const TypeAliquam = styled.h1`
-  font-weight: 600;
+  font-weight: "bold";
   font-family: "Calibre Semibold";
-  text-align: center;
-  color: #222222;
-  letter-spacing: 0px;
-  font-size: 32px;
-  line-height: 37px;
-
   @media only screen and (max-width: 600px) {
     max-width: 570px;
-    font-size: 28px;
-    line-height: 34px;
+    color: #222222;
+    font-family: "Calibre Semibold";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: center;
     margin-bottom: 5px;
   }
   @media (min-width: 1600px) {
+    font-family: "Calibre Semibold";
     font-size: 32px;
+    color: rgb(34, 34, 34);
+    letter-spacing: 0px;
     line-height: 37px;
+    text-align: center;
     margin-bottom: 8px;
+    font-weight: 600 !important;
     padding-top: 5px;
     padding-left: 6px;
   }
