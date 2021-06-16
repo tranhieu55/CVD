@@ -902,10 +902,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
   res?.data?.prismic?.allPages?.edges?.forEach(page => {
     createPage({
       component: PageTemplate,
-      path: `/${page.node._meta.uid}`,
+      path: `/${edge.node._meta.uid}`,
       context: {
-        slug: page.node._meta.uid,
-        dataLayout: page.node,
+        slug: edge.node._meta.uid,
+        dataLayout: edge.node,
       },
     })
   })

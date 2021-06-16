@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import ButtonCustom from "../ButtonCustom"
 import P from "../../components/bits/Typography"
+import { RichText } from "prismic-reactjs"
 
 const InterestedStyle = styled.div`
   clip-path: polygon(0px 16%, 101% 0px, 100% 100%, 0% 100%);
@@ -28,7 +29,7 @@ const InterestedStyle = styled.div`
     margin-bottom: 0px;
     max-width: 500px;
     margin: auto;
-    font-family: 'Calibre Bold';
+    font-family: "Calibre Bold";
   }
   p {
     /* font-size: 24px; */
@@ -66,7 +67,7 @@ const InterestedStyle = styled.div`
       max-width: 260px;
       margin: auto;
       line-height: 33px;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Bold";
       letter-spacing: -0.5px;
     }
     p {
@@ -160,7 +161,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 320px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Bold";
     }
     p {
       font-size: 20px;
@@ -173,7 +174,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 325px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Bold";
     }
     p {
       margin-top: 20px;
@@ -187,7 +188,7 @@ const InterestedStyle = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Bold";
     }
     p {
       font-size: 24px;
@@ -204,7 +205,7 @@ const InterestedStyle = styled.div`
       color: #ffffff;
       font-weight: bold;
       line-height: 54px;
-      font-family: 'Calibre Bold';
+      font-family: "Calibre Bold";
       letter-spacing: -1px;
     }
     p {
@@ -229,7 +230,7 @@ const BoxInterested = styled.div`
     padding-top: 187px;
     padding-bottom: 108px;
   }
-  @media (min-width: 1600px){
+  @media (min-width: 1600px) {
     padding-top: 175px;
     padding-bottom: 108px;
   }
@@ -237,15 +238,16 @@ const BoxInterested = styled.div`
 const Span = styled.span``
 const BoxBtn = styled.div``
 const H2 = styled.h2``
-export default function Interested(props) {
+export default function CTA({ input }) {
+  const { title, subtitle } = input.primary
   return (
     <InterestedStyle>
       <BoxInterested>
         <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
-          Interested in working with us?
+          {RichText.asText(title)}
         </H2>
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">
-          Send us a message and we'll get back to you as soon as possible
+          {RichText.asText(subtitle)}
         </P>
         <BoxBtn>
           <ButtonCustom
