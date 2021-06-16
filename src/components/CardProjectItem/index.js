@@ -5,7 +5,6 @@ import { Link } from "gatsby"
 
 function CardProjectItem(props) {
   const { input, resize } = props
-  console.log("ok", input)
   return (
     <ListBlogStyle>
       <Rows className="row">
@@ -16,17 +15,17 @@ function CardProjectItem(props) {
           >
             <DivIMG
               as={Link}
-              to={`/projects/${edge.case_study.relationship_to_project_category._meta.uid}/${edge.case_study._meta.uid}`}
+              to={`/projects/${edge?.case_study?.relationship_to_project_category?._meta?.uid}/${edge?.case_study?._meta?.uid}`}
             >
               <Img
-                alt={edge.case_study.project_header_image.alt}
-                src={edge.case_study.project_header_image.url}
+                alt={edge?.case_study?.project_header_image?.alt}
+                src={edge?.case_study?.project_header_image?.url}
               />
               <Phur></Phur>
             </DivIMG>
             <TitleImageBlog>
-              <Span>{edge.case_study.name_category_of_project}</Span>
-              <H3>{edge.case_study.project_name.map(item => item.text)}</H3>
+              <Span>{edge?.case_study?.name_category_of_project}</Span>
+              <H3>{edge?.case_study?.project_name?.map(item => item.text)}</H3>
             </TitleImageBlog>
           </Colum>
         ))}
