@@ -89,7 +89,7 @@ const ListCaseStudy = styled.div`
   }
   @media (max-width: 600px) {
     margin: 0 16px;
-    padding-bottom: 105px;
+    padding-bottom: 98px;
     height: auto;
     margin-bottom: -50px;
   }
@@ -109,7 +109,7 @@ const Row = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    margin-toop: 16px;
+    margin-top: 16px;
   }
   @media (min-width: 600px) {
     display: flex;
@@ -119,6 +119,8 @@ const Row = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 32px;
+    margin-top: 0;
+
     .col-md-6 {
       width: 604px;
       max-width: 100%;
@@ -180,7 +182,7 @@ const Colum = styled.div`
   @media only screen and (max-width: 600px) {
     padding: 0px;
     margin-top: 0px !important;
-    margin-bottom: 2px;
+    margin-bottom: -3px;
   }
 `
 
@@ -218,8 +220,8 @@ const TitleImageBlog = styled.div`
   }
   }
   @media only screen and (min-width: 1366px) {
-    bottom: 40px;
-    left: 53px;
+    bottom: 31px;
+    left: 38px;
   }
 `
 const Span = styled.span`
