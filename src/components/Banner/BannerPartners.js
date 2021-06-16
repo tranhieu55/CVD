@@ -10,8 +10,7 @@ import {
 } from "../../context/ourwork/OurWorkContextProvider"
 
 const BannerPartners = ({ input, location }) => {
-  const dataInput = input ? input : []
-  const data = dataInput?.primary
+  const data = input ? input?.primary : []
 
   const cateAll = {
     category_partner_banner: {
@@ -45,7 +44,7 @@ const BannerPartners = ({ input, location }) => {
           <P
             uppercase={true}
             fontWeight={theme.fonts.bold}
-            coLor={theme.colors.gray1}
+            coLor={data?.color_sub_title ? data?.color_sub_title : "#999999"}
             mrb="29"
           >
             {data.title_banner
@@ -64,7 +63,7 @@ const BannerPartners = ({ input, location }) => {
             fontFamily="Calibre Semibold"
             lineh="36"
             lett="-0.5"
-            col="#111111"
+            col={data?.color_text ? data?.color_text : "#222222"}
           >
             {data.description_banner && data.description_banner.length > 0
               ? data.description_banner.map(element =>

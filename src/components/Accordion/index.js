@@ -204,6 +204,9 @@ const TextTitle = styled.div`
     letter-spacing: 0;
     line-height: 24px;
   }
+  p:last-child {
+    padding-top: 7px;
+  }
 
   @media (max-width: 600px) {
     p {
@@ -225,7 +228,7 @@ const TextCT = styled.p`
     padding-left: 20px;
 
     li {
-      margin-bottom: 4px;
+      margin-bottom: 10px;
       color: #222222;
       font-family: Calibre Regular;
       font-size: 18px;
@@ -240,6 +243,7 @@ const TextCT = styled.p`
       font-size: 16px;
       li {
         font-size: 16px;
+        margin-bottom: 4px;
       }
     }
   }
@@ -263,13 +267,21 @@ const TextCTA = styled.div`
     margin-left: 10px;
     padding-left: 20px;
     li {
-      margin-bottom: 4px;
+      margin-bottom: 10px;
       color: #222222;
       font-family: Calibre Regular;
       font-size: 18px;
       letter-spacing: 0;
       line-height: 24px;
       padding-left: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      li {
+        margin-bottom: 4px;
+      }
     }
   }
 `

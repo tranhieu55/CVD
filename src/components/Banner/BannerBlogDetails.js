@@ -11,8 +11,12 @@ export default function BannerBlogDetails({ input, location }) {
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       {data ? (
         <SubTitle>
-          <Sub>{moment(data?.date_created1)?.format("LL")}</Sub>
-          <Title>{data?.title_banner?.map(item => item.text)}</Title>
+          <Sub color={data?.color_subTitle ? data?.color_subTitle : "#999999"}>
+            {moment(data?.date_created1)?.format("LL")}
+          </Sub>
+          <Title color={data?.color_title ? data?.color_title : "#101010"}>
+            {data?.title_banner?.map(item => item.text)}
+          </Title>
         </SubTitle>
       ) : (
         <></>
@@ -95,7 +99,7 @@ const SubTitle = styled.div`
   }
 `
 const Sub = styled.p`
-  color: #999999;
+  color: ${({ color }) => (color ? color : "#999999")};
   font-family: Calibre Semibold;
   font-size: 14px;
   font-weight: 600;
@@ -155,7 +159,7 @@ const Sub = styled.p`
   }
 `
 const Title = styled.h1`
-  color: #101010;
+  color: ${({ color }) => (color ? color : "#101010")};
   font-family: Calibre Bold;
   font-size: 64px;
   font-weight: bold;

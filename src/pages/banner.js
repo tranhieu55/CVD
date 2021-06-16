@@ -31,7 +31,7 @@ export const pageQuery = graphql`
                   title_banner
                   color_sub_title
                   color_text
-                  color_ttitle
+                  color_title
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_about {
@@ -53,20 +53,8 @@ export const pageQuery = graphql`
                   description_banner
                   sub_title_banner
                   title_banner
-                  iamge_banner
-                  color_title
-                  color_text
                   color_sub_title
-                }
-              }
-              ... on PRISMIC_Page_headersBodyBanner_icon {
-                type
-                label
-                fields {
-                  image_banner
-                  sub_title
-                  title
-                  image_banner
+                  color_text
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_partner_page {
@@ -147,10 +135,18 @@ export const pageQuery = graphql`
                   description_banner
                   sub_title_banner
                   title_banner
-                  image_banner
-                  color_sub_title
                   color_text
-                  color_title
+                  color_sub_title
+                }
+              }
+              ... on PRISMIC_Page_headersBodyBanner_icon {
+                type
+                label
+                fields {
+                  image_banner
+                  sub_title
+                  title
+                  image_banner
                 }
               }
             }

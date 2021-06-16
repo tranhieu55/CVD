@@ -9,10 +9,10 @@ export default function BannerAboutUs({ input, location }) {
     <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       <SubTitle>
-        <Sub>
+        <Sub color={data?.color_sub_title ? data?.color_sub_title : "#999999"}>
           {data?.title_banner?.map(item => (item?.text ? item?.text : ""))}
         </Sub>
-        <Title>
+        <Title color={data?.color_text ? data?.color_text : "#111111"}>
           {data?.description_banner?.map(item =>
             item?.text ? item?.text : ""
           )}
@@ -84,7 +84,7 @@ const SubTitle = styled.div`
   }
 `
 const Sub = styled.p`
-  color: #999999;
+  color: ${({ color }) => (color ? color : "#999999")};
   font-family: Calibre Semibold;
   font-size: 14px;
   font-weight: 600;
@@ -145,7 +145,7 @@ const Sub = styled.p`
   }
 `
 const Title = styled.h1`
-  color: #111111;
+  color: ${({ color }) => (color ? color : "#111111")};
   font-family: Calibre Semibold;
   font-size: 32px;
   font-weight: 600;
