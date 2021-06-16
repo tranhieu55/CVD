@@ -107,7 +107,7 @@ const Sub = styled.p`
   letter-spacing: 1px;
   line-height: 16px;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   text-transform: uppercase;
 
   &::before {
@@ -123,7 +123,7 @@ const Sub = styled.p`
   @media (max-width: 600px) {
     font-size: 12px;
     line-height: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     margin-left: 51px;
     &::before {
       position: absolute;

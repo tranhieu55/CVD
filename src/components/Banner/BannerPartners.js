@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useContext, memo } from "react"
+import React, { useContext, memo, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"
@@ -34,7 +34,10 @@ const BannerPartners = ({ input, location }) => {
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
-
+  const [filter, setFilter] = useState()
+  function setFilters(index) {
+    setFilter(index)
+  }
   return (
     <WraperBannerPartners
       bottom={location && location === "/banner" ? true : false}
@@ -87,6 +90,7 @@ const BannerPartners = ({ input, location }) => {
                         ? item?.category_partner_banner?._meta?.uid
                         : "",
                     })
+                    setFilters(index)
                   }}
                 >
                   <Link
@@ -108,6 +112,17 @@ const BannerPartners = ({ input, location }) => {
                   </Link>
                 </CategoryItem>
               ))}
+              <CategoryItem
+                className={`${
+                  filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+                }`}
+                onClick={() => {
+                  dispatch({ type: "RESET_FILTER" })
+                  setFilters(0)
+                }}
+              >
+                <Link className="active_modify">Reset Filters</Link>
+              </CategoryItem>
             </ListCategory>
           </div>
         ) : (
@@ -275,11 +290,14 @@ const BannerPartnersContent = styled.div`
       max-width: 890px;
     }
   }
+  @media (min-width: 992px) and (max-width: 1100px) {
+    margin-left: 62px;
+  }
   @media (min-width: 1024px) {
     p {
       &::before {
         right: calc(100% + 10px);
-        width: 35 px;
+        width: 35px;
       }
     }
   }
@@ -308,6 +326,12 @@ const ListCategory = styled.ul`
 
   li.reset_filters {
     display: flex;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    }
   }
   li.not_reset_filters {
     display: none;
@@ -326,6 +350,11 @@ const ListCategory = styled.ul`
     padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
+
+    &.col-md-10 {
+      padding-right: 0 !important;
+    }
+
     li.reset_filters_moblie {
       display: block;
     }
@@ -389,8 +418,8 @@ const CategoryItem = styled.li`
     color: #222222 !important;
     opacity: 1;
     margin-right: 8px;
-    border-bottom: 2px solid #222222;
-    opacity: 0.3;
+    // border-bottom: 2px solid #222222;
+    // opacity: 0.3;
     :after {
       content: unset;
     }
@@ -408,7 +437,7 @@ const CategoryItem = styled.li`
       width: 100%;
       content: " ";
       background-color: #222222;
-
+      opacity: 1;
       transition: all 0s ease-in;
       height: 2px;
     }

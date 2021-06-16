@@ -100,7 +100,7 @@ const Sub = styled.p`
   letter-spacing: 1px;
   line-height: 16px;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   text-transform: uppercase;
 
   &::before {
@@ -116,7 +116,7 @@ const Sub = styled.p`
   @media (max-width: 600px) {
     font-size: 12px;
     line-height: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 14px;
     margin-left: 51px;
     &::before {
       position: absolute;
@@ -169,7 +169,7 @@ const Title = styled.h2`
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 56px;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 
   @media (max-width: 600px) {
     color: #101010;
@@ -178,6 +178,7 @@ const Title = styled.h2`
     font-weight: 700;
     letter-spacing: -1px;
     line-height: 38px;
+    margin-bottom: 8px;
   }
 `
 const Description = styled.p`
