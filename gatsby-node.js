@@ -899,7 +899,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  res.data?.prismic.allPages.edges.forEach(page => {
+  res.data.prismic.allPages.edges.forEach(page => {
     createPage({
       component: PageTemplate,
       path: `/${edge.node._meta.uid}`,
