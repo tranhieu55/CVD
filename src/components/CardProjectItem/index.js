@@ -125,7 +125,7 @@ const TitleImageBlog = styled.div`
   left: 6rem;
   cursor: pointer;
   @media only screen and (max-width: 600px) {
-    bottom: 13px;
+    bottom: 18px;
     left: 40px;
   }
   @media (max-width: 347px) {
