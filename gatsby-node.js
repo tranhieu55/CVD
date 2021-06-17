@@ -95,118 +95,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     title_banner
                   }
                 }
-                ... on PRISMIC_PageBodyBanner_partner_page {
-                  type
-                  label
-                  primary {
-                    color_sub_title
-                    color_text
-                    color_title
-                    description_banner
-                    image_banner
-                    title_banner
-                  }
-                  fields {
-                    category_partner_banner {
-                      ... on PRISMIC_Post {
-                        title
-                        post_image
-                        _meta {
-                          uid
-                        }
-                      }
-                    }
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_post_details {
-                  type
-                  label
-                  primary {
-                    color_subTitle
-                    color_text
-                    color_title
-                    date_created1
-                    image_banner
-                    title_banner
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_project_detail {
-                  type
-                  label
-                  primary {
-                    color_sub_title
-                    color_text
-                    color_title
-                    name_category_of_project1
-                    project_description1
-                    project_header_image1
-                    project_logo1
-                    project_name_banner
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_what_we_do {
-                  type
-                  label
-                  primary {
-                    color_sub_title
-                    color_text
-                    color_title
-                    description_banner
-                    image_banner
-                    title_banner
-                    sub_title_banner
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_work_with_convert {
-                  type
-                  label
-                  primary {
-                    color_sub_title
-                    color_text
-                    color_title
-                    description_banner
-                    iamge_banner
-                    sub_title_banner
-                    title_banner
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_our_work_page {
-                  type
-                  label
-                  fields {
-                    category_project_item {
-                      ... on PRISMIC_Post {
-                        title
-                        post_image
-                        _meta {
-                          uid
-                        }
-                      }
-                    }
-                  }
-                  primary {
-                    color_sub_title
-                    color_text
-                    color_title
-                    image_banner
-                    sub_title
-                    title
-                  }
-                }
-                ... on PRISMIC_PageBodyBanner_icon {
-                  type
-                  label
-                  fields {
-                    image_banner
-                    sub_title
-                    title
-                  }
-                  primary {
-                    color_subTitle
-                    color_text
-                    color_title
-                  }
-                }
                 ... on PRISMIC_PageBodyBig_image {
                   type
                   label
@@ -898,18 +786,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  res?.data?.prismic?.allPages?.edges?.forEach((edge) => {
+  console.log("res", res)
+  res?.data?.prismic?.allPages?.edges.forEach(edge => {
     createPage({
       component: PageTemplate,
       path: `/${edge.node._meta.uid}`,
       context: {
         slug: edge.node._meta.uid,
-        dataLayout: edge.node,
+        dataLayout: edge,
       },
     })
   })
 
-  res?.data?.prismic?.allProjectss?.edges?.forEach((edge) => {
+  res?.data?.prismic?.allProjectss?.edges?.forEach(edge => {
     createPage({
       component: OurWorkDetail,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
@@ -920,7 +809,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  res?.data?.prismic?.allProjectss?.edges?.forEach((edge) => {
+  res?.data?.prismic?.allProjectss?.edges?.forEach(edge => {
     createPage({
       component: OurWorkItems,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,
@@ -931,7 +820,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  res?.data?.prismic?.allPosts?.edges?.forEach((edge) => {
+  res?.data?.prismic?.allPosts?.edges?.forEach(edge => {
     createPage({
       component: BlogDetails,
       path: `/blog/${edge.node._meta.uid}`,
