@@ -910,7 +910,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  res.data?.prismic.allProjectss.edges.forEach(edge => {
+  res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkDetail,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}/${edge.node._meta.uid}`,
@@ -921,7 +921,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  res.data?.prismic.allProjectss.edges.forEach(edge => {
+  res.data.prismic.allProjectss.edges.forEach(edge => {
     createPage({
       component: OurWorkItems,
       path: `/projects/${edge.node.relationship_to_project_category._meta.uid}`,
@@ -932,7 +932,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  res.data?.prismic.allPosts.edges.forEach(edge => {
+  res.data.prismic.allPosts.edges.forEach(edge => {
     createPage({
       component: BlogDetails,
       path: `/blog/${edge.node._meta.uid}`,
