@@ -644,19 +644,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   color_title
                 }
               }
-              ... on PRISMIC_PageBodyBanner_demo {
-                type
-                label
-                fields {
-                  color_sub_title
-                  color_text
-                  color_title
-                  description_banner
-                  image_banner
-                  sub_tittle_banner
-                  title_banner
-                }
-              }
               ... on PRISMIC_PageBodyBig_image {
                 type
                 label
