@@ -240,6 +240,11 @@ const WraperBannerPartners = styled.div`
       font-size: 20px !important;
     }
   }
+  @media (min-width: 1200px) and (max-width: 1340px) {
+    h2 {
+      padding-right: 100px;
+    }
+  }
 `
 
 const BannerPartnersContent = styled.div`
@@ -270,6 +275,7 @@ const BannerPartnersContent = styled.div`
     padding-top: 86px;
   }
   @media (min-width: 600px) {
+    margin-left: 53px;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -278,6 +284,7 @@ const BannerPartnersContent = styled.div`
     }
   }
   @media (min-width: 768px) {
+    margin-left: 62px;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -302,7 +309,7 @@ const BannerPartnersContent = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    padding-left: 89px;
+    margin-left: 145px;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -310,9 +317,18 @@ const BannerPartnersContent = styled.div`
       }
     }
   }
+
+  @media (min-width: 1372px) {
+    margin-left: 205px;
+  }
+
   @media (min-width: 1440px) {
+    margin-left: 190px;
     padding-left: 30px;
     padding-right: 283px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 230px;
   }
 `
 
