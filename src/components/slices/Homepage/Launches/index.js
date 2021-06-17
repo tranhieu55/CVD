@@ -4,7 +4,6 @@ import styled from "styled-components"
 
 function Launches({ input }) {
   // get data heading
-  console.log({input})
   const dataHeading = input?.title[0].text
 
   // get data for list images

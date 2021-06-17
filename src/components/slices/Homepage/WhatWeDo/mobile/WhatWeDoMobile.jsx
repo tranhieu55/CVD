@@ -18,7 +18,6 @@ export default function WhatWeDoMobile(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      // console.log(`You clicked imes`)
     }, 3000)
   })
 

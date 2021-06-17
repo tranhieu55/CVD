@@ -238,7 +238,6 @@ const OurWorkDetail = props => {
   //     item?.type ? item?.type === "banner_post_details" : ""
   //   )
   // : []
-  console.log({props})
   return (
     <Layout
       location="/case-study"

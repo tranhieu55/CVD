@@ -12,7 +12,6 @@ const BigText = ({ input }) => {
   const Limit = clients.length / 2
   const left = clients?.slice(0, Limit)
   const right = clients?.slice(clients.length / 2, clients.length)
-  console.log({ clients })
   return (
     <Container>
       <Heading>{heading}</Heading>

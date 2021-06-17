@@ -12,7 +12,6 @@ import SliceZone from "../utils/SliceZone"
 const BlogDetails = props => {
   // get location
   const { location } = props
-  // console.log({props})
 
   const dataIcon = props
     ? props.data?.prismic?.post?.body?.filter(item =>

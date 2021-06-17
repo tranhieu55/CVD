@@ -7,8 +7,8 @@ function PageTemplate(props){
     const data = props;
   return (
     <Layout>
-      <SEO props={data.pageContext.dataLayout}></SEO>
-      <SliceZone allSlices={data.pageContext.dataLayout.body}></SliceZone>
+      <SEO props={data.pageContext.dataLayout.node}></SEO>
+      <SliceZone allSlices={data.pageContext.dataLayout.node.body}></SliceZone>
     </Layout>
   )
 }
