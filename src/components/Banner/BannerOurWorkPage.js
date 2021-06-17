@@ -26,7 +26,11 @@ export default function BannerOurWorkPage({ input, location }) {
       {data.project_header_image1 ? (
         <TitleBanner>
           <Shopify>
-            <P>{data.name_category_of_project1}</P>
+            <P
+              color={data?.color_sub_title ? data?.color_sub_title : "#fecf09"}
+            >
+              {data.name_category_of_project1}
+            </P>
           </Shopify>
           <IMG
             src={data.project_logo1?.url}
@@ -39,6 +43,7 @@ export default function BannerOurWorkPage({ input, location }) {
               data-sal-delay="4000"
               data-sal-easing="ease"
               data-sal-duration="1000"
+              color={data?.color_text ? data?.color_text : "#ffffff"}
             >
               {data.project_description1?.map(item => item.text)}
             </H1>
@@ -224,7 +229,7 @@ const Shopify = styled.div`
   height: 19px;
 `
 const P = styled.p`
-  color: #fecf09;
+  color: ${({ color }) => (color ? color : "#fecf09")};
   @media (max-width: 600px) {
     font-size: 18px;
     font-family: "Calibre Semibold";
@@ -256,7 +261,7 @@ const TextBanner = styled.div`
 const H1 = styled.h1`
   font-weight: bold;
   font-size: 150px;
-  color: #ffffff;
+  color: ${({ color }) => (color ? color : "#ffffff")};
   font-family: Calibre Bold;
 
   @media (max-width: 600px) {

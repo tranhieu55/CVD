@@ -5,113 +5,69 @@ import { Link } from "gatsby"
 
 function CardProjectItem(props) {
   const { input, resize } = props
-
   return (
-    <Wrapper>
-      <ListCaseStudy>
-        <Row>
-          {input?.fields?.map((item, key) => {
-
-            return (
-              <Colum className="col-md-6" key={key}>
-                {item ? (
-                  <DivIMG
-                    as={Link}
-                    to={`/projects/${item?.case_study?.relationship_to_project_category?._meta?.uid}/${item?.case_study?._meta?.uid}`}
-                  >
-                    <IMG
-                      alt={
-                        item?.case_study?.project_header_image?.alt
-                          ? item?.case_study?.project_header_image?.alt
-                          : ""
-                      }
-                      src={
-                        item?.case_study?.project_header_image?.url
-                          ? item?.case_study?.project_header_image?.url
-                          : ""
-                      }
-                      objectFit="cover"
-                      h={resize ? "433" : "500"}
-                    />
-                  </DivIMG>
-                ) : (
-                  <></>
-                )}
-                {item ? (
-                  <TitleImageBlog>
-                    <Span>
-                      {item?.case_study?.name_category_of_project
-                        ? item?.case_study?.name_category_of_project
-                        : ""}
-                    </Span>
-                    <H3>
-                      {item?.case_study?.project_name[0]?.text
-                        ? item?.case_study?.project_name[0]?.text
-                        : ""}
-                    </H3>
-                  </TitleImageBlog>
-                ) : (
-                  <></>
-                )}
-              </Colum>
-            )
-          })}
-        </Row>
-      </ListCaseStudy>
-    </Wrapper>
+    <ListBlogStyle>
+      <Rows className="row">
+        {input.fields?.map((edge, index) => (
+          <Colum
+            className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
+            key={index}
+          >
+            <DivIMG
+              as={Link}
+              to={`/projects/${edge?.case_study?.relationship_to_project_category?._meta?.uid}/${edge?.case_study?._meta?.uid}`}
+            >
+              <Img
+                alt={edge?.case_study?.project_header_image?.alt}
+                src={edge?.case_study?.project_header_image?.url}
+              />
+              <Phur></Phur>
+            </DivIMG>
+            <TitleImageBlog>
+              <Span>{edge?.case_study?.name_category_of_project}</Span>
+              <H3>{edge?.case_study?.project_name?.map(item => item.text)}</H3>
+            </TitleImageBlog>
+          </Colum>
+        ))}
+      </Rows>
+    </ListBlogStyle>
   )
 }
 
 export default CardProjectItem
 
-const Wrapper = styled.div``
-const ListCaseStudy = styled.div`
-  height: auto;
-  margin: 0 180px;
-  padding-bottom: 96px;
-
-  @media (max-width: 1366px) {
-    margin: 0 100px;
-    padding-bottom: 96px;
+const ListBlogStyle = styled.div`
+  margin-top: 48px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 96px;
+  .col-md-6 {
+    margin-bottom: 22px;
+    padding: 0 16px;
   }
-  @media (max-width: 1200px) {
-    margin: 0 40px;
-    padding-bottom: 80px;
-  }
-  @media (max-width: 768px) {
-    margin: 0 20px;
-    padding-bottom: 60px;
-  }
-  @media (max-width: 600px) {
-    margin: 0 16px;
-    padding-bottom: 55px;
-    height: auto;
-  }
-`
-const Row = styled.div`
-  display: flex;
-  height: 100%;
-
-  img {
+  .img {
     width: 100%;
     object-fit: cover;
     position: relative;
   }
-  @media (max-width: 600px) {
-    display: block;
-    margin-toop: 16px;
+  .btn-studies {
+    background-color: transparent;
+    color: #101010;
   }
-  @media (min-width: 600px) {
-    display: flex;
-    margin-top: 16px;
+  .btn-studies:hover {
+    background-color: #fecf09;
+    color: #101010;
+  }
+  @media (max-width: 600px) {
+    height: auto;
+    margin: 48px 16px 0px;
   }
 `
 const DivIMG = styled.div`
   overflow: hidden;
-  transition: all 200ms ease-in;
+  transition: all 0.4s ease-in;
   position: relative;
   display: inline-block;
-  width: 100%;
   :after {
     position: absolute;
     bottom: 0;
@@ -119,106 +75,135 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: gold;
-    height: 5px;
+    background-color: #fecf09;
+    height: 6px;
     transition: all 0.4s ease-in;
   }
+
   :hover {
+    img {
+      transition: all 0.4s ease-in;
+      transform: scale(1.05);
+    }
     ::after {
       width: 100%;
     }
   }
-
-  @media only screen and (max-width: 600px) {
-    img {
-      height: 245px;
-    }
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+`
+const Phur = styled.div`
+  position: absolute;
+  opacity: 0.3;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  height: 50%;
+  width: 100%;
+  bottom: 0;
+`
+const Rows = styled.div`
+  @media (max-width: 600px) {
+    margin-top: 11px;
   }
 `
 const Colum = styled.div`
-  @media (min-width: 600px) {
-    height: ${({ resize }) => (resize ? " 433px" : "")};
+  a {
+    width: 100%;
   }
-  @media (min-width: 600px) and (max-width: 768px) {
-    margin-bottom: 8px;
-  }
-  @media only screen and (max-width: 600px) {
-    padding: 0px;
-    margin-top: 0px !important;
-    margin-bottom: 2px;
+  @media (max-width: 600px) {
+    height: 245px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 8px !important;
   }
 `
-
 const TitleImageBlog = styled.div`
   position: absolute;
-  left: 63px;
-  bottom: 30px;
   z-index: 2;
+  bottom: 5rem;
+  left: 6rem;
   cursor: pointer;
-
   @media only screen and (max-width: 600px) {
-    left: 24px;
-    bottom: 21px;
+    bottom: 13px;
+    left: 40px;
   }
-
+  @media (max-width: 347px) {
+    bottom: 15px;
+    left: 35px;
+  }
   @media only screen and (min-width: 600px) {
-    bottom: 40px;
+    bottom: 35px;
     left: 60px;
   }
   @media only screen and (min-width: 768px) {
-    bottom: 40px;
+    bottom: 30px;
     left: 40px;
   }
   @media only screen and (min-width: 992px) {
     bottom: 50px;
-    left: 40px;
+    left: 80px;
   }
   @media only screen and (min-width: 1200px) {
-    bottom: 3rem;
-    left: 40px;
+    bottom: 45px;
+    left: 63px;
   }
 `
 const Span = styled.span`
+  font-weight: bold;
   color: #fecf09;
-  font-size: ${({ resize }) => (resize ? "16px" : "18px")};
-  line-height: 16px;
   font-family: "Calibre Semibold";
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 8px;
-  @media only screen and (max-width: 600px) {
+  font-weight: 600;
+  font-size: 18px;
+  @media (max-width: 600px) {
+    color: #fecf09;
+    font-family: "Calibre Semibold";
     font-size: 14px;
-    line-height: ${({ resize }) => (resize ? "14px" : "6px")};
-    margin-bottom: 0px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 16px;
   }
 `
 const H3 = styled.h3`
-  color: #ffffff;
-  font-size: ${({ resize }) => (resize ? "40px" : "48px")};
-  font-family: "Calibre Bold";
+  color: white;
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
   padding: 0;
-  line-height: 32px;
-  margin-top: 10px;
-
+  line-height: 0.9;
+  font-family: Calibre Bold;
   @media only screen and (max-width: 600px) {
+    color: #ffffff;
+    font-family: Calibre Bold;
     font-size: 24px;
-    margin-top: 0px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 20px;
   }
-  /* @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     font-size: 30px;
-    height: 32px;
-    margin-top: 10px; 
   }
   @media only screen and (min-width: 768px) {
     font-size: 30px;
   }
   @media only screen and (min-width: 992px) {
-    font-size: 36px;
+    font-size: 32px;
   }
-  @media only screen and (min-width: 1600px) {
-    font-size: 48px;
-  } */
+`
+const Img = styled.img`
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease-in;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+  @media (min-width: 768px) {
+    height: 300px;
+  }
+  @media (min-width: 1366px) {
+    height: 538px;
+  }
 `

@@ -183,11 +183,11 @@ const CaseStudiHeading = styled.h4`
   line-height: 32px;
   text-align: center;
   margin-top: 141px;
-  margin-bottom: 37px;
+  margin-bottom: 27px;
 
   @media (max-width: 600px) {
     margin-top: 43px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
 `
 

@@ -23,6 +23,17 @@ export const pageQuery = graphql`
         edges {
           node {
             body {
+              ... on PRISMIC_Page_headersBodyBanner_casestudy {
+                type
+                label
+                primary {
+                  description_banner
+                  title_banner
+                  color_sub_title
+                  color_text
+                  color_title
+                }
+              }
               ... on PRISMIC_Page_headersBodyBanner_about {
                 type
                 label
@@ -30,15 +41,20 @@ export const pageQuery = graphql`
                   description_banner
                   title_banner
                   image_banner
+                  color_sub_title
+                  color_text
+                  color_title
                 }
               }
-              ... on PRISMIC_Page_headersBodyBanner_casestudy {
+              ... on PRISMIC_Page_headersBodyBanner_work_with_convert {
                 type
                 label
                 primary {
                   description_banner
+                  sub_title_banner
                   title_banner
-                  image_banner
+                  color_sub_title
+                  color_text
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_partner_page {
@@ -58,6 +74,9 @@ export const pageQuery = graphql`
                   description_banner
                   title_banner
                   image_banner
+                  color_sub_title
+                  color_text
+                  color_title
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_post_details {
@@ -67,26 +86,23 @@ export const pageQuery = graphql`
                   date_created1
                   title_banner
                   image_banner
+                  color_subTitle
+                  color_text
+                  color_title
                 }
               }
-              ... on PRISMIC_Page_headersBodyBanner_what_we_do {
+              ... on PRISMIC_Page_headersBodyBanner_project_detail {
                 type
                 label
                 primary {
-                  description_banner
-                  sub_title_banner
-                  title_banner
-                  image_banner
-                }
-              }
-              ... on PRISMIC_Page_headersBodyBanner_work_with_convert {
-                type
-                label
-                primary {
-                  description_banner
-                  sub_title_banner
-                  title_banner
-                  iamge_banner
+                  name_category_of_project1
+                  project_description1
+                  project_header_image1
+                  project_name_banner
+                  project_logo1
+                  color_sub_title
+                  color_text
+                  color_title
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_our_work_page {
@@ -107,17 +123,20 @@ export const pageQuery = graphql`
                   image_banner
                   sub_title
                   title
+                  color_sub_title
+                  color_text
+                  color_title
                 }
               }
-              ... on PRISMIC_Page_headersBodyBanner_project_detail {
+              ... on PRISMIC_Page_headersBodyBanner_what_we_do {
                 type
                 label
                 primary {
-                  name_category_of_project1
-                  project_description1
-                  project_header_image1
-                  project_name_banner
-                  project_logo1
+                  description_banner
+                  sub_title_banner
+                  title_banner
+                  color_text
+                  color_sub_title
                 }
               }
               ... on PRISMIC_Page_headersBodyBanner_icon {

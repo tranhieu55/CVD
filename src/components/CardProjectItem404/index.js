@@ -68,22 +68,34 @@ const ListCaseStudy = styled.div`
   margin: 0 180px;
   padding-bottom: 130px;
 
+  @media (min-width: 1367px) {
+    padding-bottom: 250px;
+    margin-bottom: -120px;
+  }
   @media (max-width: 1366px) {
     margin: 0 100px;
-    padding-bottom: 130px;
+    padding-bottom: 250px;
+    margin-bottom: -120px;
   }
   @media (max-width: 1200px) {
     margin: 0 40px;
-    padding-bottom: 80px;
+    padding-bottom: 200px;
+    margin-bottom: -120px;
   }
   @media (max-width: 768px) {
     margin: 0 20px;
-    padding-bottom: 60px;
+    padding-bottom: 160px;
+    margin-bottom: -100px;
   }
   @media (max-width: 600px) {
     margin: 0 16px;
-    padding-bottom: 55px;
+    padding-bottom: 98px;
     height: auto;
+    margin-bottom: -50px;
+  }
+  @media (min-width: 1600px) {
+    display: flex;
+    justify-content: center;
   }
 `
 const Row = styled.div`
@@ -97,11 +109,25 @@ const Row = styled.div`
   }
   @media (max-width: 600px) {
     display: block;
-    margin-toop: 16px;
+    margin-top: 16px;
   }
   @media (min-width: 600px) {
     display: flex;
     margin-top: 16px;
+  }
+  @media (min-width: 1600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    margin-top: 0;
+
+    .col-md-6 {
+      width: 604px;
+      max-width: 100%;
+      height: 433px;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 `
 const DivIMG = styled.div`
@@ -110,6 +136,7 @@ const DivIMG = styled.div`
   position: relative;
   display: inline-block;
   width: 100%;
+
   :after {
     position: absolute;
     bottom: 0;
@@ -117,8 +144,8 @@ const DivIMG = styled.div`
     right: 0;
     width: 0%;
     content: ".";
-    background-color: gold;
-    height: 5px;
+    background-color: #fecf09;
+    height: 6px;
     transition: all 0.4s ease-in;
   }
   :hover {
@@ -130,6 +157,18 @@ const DivIMG = styled.div`
   @media only screen and (max-width: 600px) {
     img {
       height: 245px;
+    }
+    ::after {
+      height: 4px;
+    }
+  }
+  @media (min-width: 1600px) {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `
@@ -143,7 +182,7 @@ const Colum = styled.div`
   @media only screen and (max-width: 600px) {
     padding: 0px;
     margin-top: 0px !important;
-    margin-bottom: 2px;
+    margin-bottom: -3px;
   }
 `
 
@@ -160,6 +199,10 @@ const TitleImageBlog = styled.div`
   }
 
   @media only screen and (min-width: 600px) {
+    bottom: 24px;
+    left: 34px;
+  }
+  @media only screen and (min-width: 690px) {
     bottom: 40px;
     left: 60px;
   }
@@ -175,19 +218,25 @@ const TitleImageBlog = styled.div`
     bottom: 3rem;
     left: 40px;
   }
+  }
+  @media only screen and (min-width: 1366px) {
+    bottom: 31px;
+    left: 38px;
+  }
 `
 const Span = styled.span`
   color: #fecf09;
-  font-size: ${({ resize }) => (resize ? "16px" : "18px")};
+  font-size: 16px;
   line-height: 16px;
   font-family: "Calibre Semibold";
   display: block;
   padding: 0;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+
   @media only screen and (max-width: 600px) {
     font-size: 14px;
-    line-height: ${({ resize }) => (resize ? "14px" : "6px")};
+    line-height: 14px;
     margin-bottom: 0px;
   }
 `

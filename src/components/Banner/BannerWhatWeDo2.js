@@ -9,21 +9,21 @@ export default function BannerWhatWeDo2({ input, location }) {
     <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       <SubTitle>
-        <Sub>
+        <Sub color={data?.color_sub_title ? data?.color_sub_title : "#999999"}>
           {data.sub_title_banner && data.sub_title_banner.length > 0
             ? data.sub_title_banner.map(element =>
                 element.text ? element.text : ""
               )
             : ""}
         </Sub>
-        <Title>
+        <Title color={data?.color_title ? data?.color_title : "#101010"}>
           {data.title_banner && data.title_banner.length > 0
             ? data.title_banner.map(element =>
                 element.text ? element.text : ""
               )
             : ""}
         </Title>
-        <Description>
+        <Description color={data?.color_text ? data?.color_text : "#222222"}>
           {data?.description_banner?.map(item =>
             item?.text ? item?.text : ""
           )}
@@ -100,14 +100,14 @@ const SubTitle = styled.div`
   }
 `
 const Sub = styled.p`
-  color: #999999;
+  color: ${({ color }) => (color ? color : "#999999")};
   font-family: Calibre Semibold;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 16px;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   text-transform: uppercase;
 
   &::before {
@@ -123,7 +123,7 @@ const Sub = styled.p`
   @media (max-width: 600px) {
     font-size: 12px;
     line-height: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     margin-left: 51px;
     &::before {
       position: absolute;
@@ -170,7 +170,7 @@ const Sub = styled.p`
 `
 const Title = styled.h2`
   margin: 0;
-  color: #101010;
+  color: ${({ color }) => (color ? color : "#101010")};
   font-family: Calibre Bold;
   font-size: 64px;
   font-weight: bold;
@@ -187,7 +187,7 @@ const Title = styled.h2`
   }
 `
 const Description = styled.p`
-  color: #222222;
+  color: ${({ color }) => (color ? color : "#222222")};
   font-family: Calibre Regular;
   font-size: 20px;
   letter-spacing: 0;

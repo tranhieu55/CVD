@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useContext, memo } from "react"
+import React, { useContext, memo, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../utils/theme"
 import H2 from "../../components/bits/H2"
@@ -10,8 +10,7 @@ import {
 } from "../../context/ourwork/OurWorkContextProvider"
 
 const BannerPartners = ({ input, location }) => {
-  const dataInput = input ? input : []
-  const data = dataInput?.primary
+  const data = input ? input?.primary : []
 
   const cateAll = {
     category_partner_banner: {
@@ -35,7 +34,10 @@ const BannerPartners = ({ input, location }) => {
 
   const dispatch = useContext(OurWorkDispatchContext)
   const state = useContext(OurWorkStateContext)
-
+  const [filter, setFilter] = useState()
+  function setFilters(index) {
+    setFilter(index)
+  }
   return (
     <WraperBannerPartners
       bottom={location && location === "/banner" ? true : false}
@@ -45,7 +47,7 @@ const BannerPartners = ({ input, location }) => {
           <P
             uppercase={true}
             fontWeight={theme.fonts.bold}
-            coLor={theme.colors.gray1}
+            coLor={data?.color_sub_title ? data?.color_sub_title : "#999999"}
             mrb="29"
           >
             {data.title_banner
@@ -64,7 +66,7 @@ const BannerPartners = ({ input, location }) => {
             fontFamily="Calibre Semibold"
             lineh="36"
             lett="-0.5"
-            col="#111111"
+            col={data?.color_text ? data?.color_text : "#222222"}
           >
             {data.description_banner && data.description_banner.length > 0
               ? data.description_banner.map(element =>
@@ -88,6 +90,7 @@ const BannerPartners = ({ input, location }) => {
                         ? item?.category_partner_banner?._meta?.uid
                         : "",
                     })
+                    setFilters(index)
                   }}
                 >
                   <Link
@@ -109,6 +112,17 @@ const BannerPartners = ({ input, location }) => {
                   </Link>
                 </CategoryItem>
               ))}
+              <CategoryItem
+                className={`${
+                  filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+                }`}
+                onClick={() => {
+                  dispatch({ type: "RESET_FILTER" })
+                  setFilters(0)
+                }}
+              >
+                <Link className="active_modify">Reset Filters</Link>
+              </CategoryItem>
             </ListCategory>
           </div>
         ) : (
@@ -226,6 +240,11 @@ const WraperBannerPartners = styled.div`
       font-size: 20px !important;
     }
   }
+  @media (min-width: 1200px) and (max-width: 1340px) {
+    h2 {
+      padding-right: 100px;
+    }
+  }
 `
 
 const BannerPartnersContent = styled.div`
@@ -256,6 +275,7 @@ const BannerPartnersContent = styled.div`
     padding-top: 86px;
   }
   @media (min-width: 600px) {
+    margin-left: 53px;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -264,6 +284,7 @@ const BannerPartnersContent = styled.div`
     }
   }
   @media (min-width: 768px) {
+    margin-left: 62px;
     p {
       &::before {
         right: calc(100% + 10px);
@@ -276,16 +297,19 @@ const BannerPartnersContent = styled.div`
       max-width: 890px;
     }
   }
+  @media (min-width: 992px) and (max-width: 1100px) {
+    margin-left: 62px;
+  }
   @media (min-width: 1024px) {
     p {
       &::before {
         right: calc(100% + 10px);
-        width: 35 px;
+        width: 35px;
       }
     }
   }
   @media (min-width: 1200px) {
-    padding-left: 89px;
+    margin-left: 145px;
     p {
       &::before {
         right: calc(100% + 1rem);
@@ -293,9 +317,18 @@ const BannerPartnersContent = styled.div`
       }
     }
   }
+
+  @media (min-width: 1372px) {
+    margin-left: 205px;
+  }
+
   @media (min-width: 1440px) {
+    margin-left: 190px;
     padding-left: 30px;
     padding-right: 283px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 230px;
   }
 `
 
@@ -309,6 +342,12 @@ const ListCategory = styled.ul`
 
   li.reset_filters {
     display: flex;
+    &::after {
+      content: "\f01e";
+      font-family: "Font Awesome 5 Pro Regular";
+      font-size: 13px;
+      color: #101010;
+    }
   }
   li.not_reset_filters {
     display: none;
@@ -327,6 +366,11 @@ const ListCategory = styled.ul`
     padding-bottom: 24px;
     overflow-x: auto;
     overflow-y: hidden;
+
+    &.col-md-10 {
+      padding-right: 0 !important;
+    }
+
     li.reset_filters_moblie {
       display: block;
     }
@@ -390,8 +434,8 @@ const CategoryItem = styled.li`
     color: #222222 !important;
     opacity: 1;
     margin-right: 8px;
-    border-bottom: 2px solid #222222;
-    opacity: 0.3;
+    // border-bottom: 2px solid #222222;
+    // opacity: 0.3;
     :after {
       content: unset;
     }
@@ -409,7 +453,7 @@ const CategoryItem = styled.li`
       width: 100%;
       content: " ";
       background-color: #222222;
-
+      opacity: 1;
       transition: all 0s ease-in;
       height: 2px;
     }

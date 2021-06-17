@@ -9,10 +9,10 @@ export default function BannerCaseStudy2({ input, location }) {
     <Container bottom={location && location === "/banner" ? true : false}>
       {data?.image_banner ? <Image>{data?.image_banner?.url}</Image> : <></>}
       <SubTitle>
-        <Sub>
+        <Sub color={data?.color_sub_title ? data?.color_sub_title : "#999999"}>
           {data?.title_banner?.map(item => (item?.text ? item?.text : ""))}
         </Sub>
-        <Title>
+        <Title color={data?.color_text ? data?.color_text : "#101010"}>
           {data?.description_banner?.map(item =>
             item?.text ? item?.text : ""
           )}
@@ -69,7 +69,7 @@ const SubTitle = styled.div`
   }
 `
 const Sub = styled.p`
-  color: #999999;
+  color: ${({ color }) => (color ? color : "#999999")};
   font-family: Calibre Semibold;
   font-size: 14px;
   font-weight: 600;
@@ -91,7 +91,7 @@ const Sub = styled.p`
   @media (max-width: 600px) {
     font-size: 12px;
     line-height: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     margin-left: 51px;
     &::before {
       position: absolute;
@@ -130,7 +130,7 @@ const Sub = styled.p`
   }
 `
 const Title = styled.h1`
-  color: #101010;
+  color:  color={data?.color_text ? data?.color_text : "#101010"} ;
   font-family: Calibre Bold;
   font-size: 64px;
   font-weight: bold;
@@ -144,6 +144,6 @@ const Title = styled.h1`
     line-height: 38px;
   }
   @media (max-width: 360px) {
-    font-size: 38px;
+    font-size: 36px;
   }
 `
