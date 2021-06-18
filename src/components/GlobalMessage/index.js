@@ -201,6 +201,7 @@ const Content = styled.div`
   }
 `
 const Close = styled.div`
+  cursor: pointer;
   @media (max-width: 600px) {
     &::after {
       content: "\f00d";
@@ -211,6 +212,7 @@ const Close = styled.div`
       position: absolute;
       top: 17px;
       right: 16.5px;
+      cursor: pointer;
     }
   }
   @media (min-width: 600px) {
