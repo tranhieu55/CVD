@@ -78,24 +78,22 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   const dataPage = await graphql(`
-  query Page{
-    prismic{
-      allPages {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            meta_title
-            meta_description
-            keywords
-            body {
+    query Page {
+      prismic {
+        allPages {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+              meta_title
+              meta_description
+              keywords
             }
           }
         }
       }
     }
-  }
   `)
 
   const data1 = dataPage.data.prismic.allPages.edges
