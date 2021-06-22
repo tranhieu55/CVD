@@ -69,10 +69,16 @@ const WrapperHeader = styled.div`
   .fixedTop {
     background-color: ${({ show }) =>
       show > 101 ? "white !important" : "transparent"};
-     @media (max-width:992px) {
-       background-color: ${({ show }) =>
-         show > 30 ? "white !important" : "transparent"};
-     }
+      
+    border-bottom: ${({ show }) =>
+      show > 101 ? "1px solid #D3DBDD " : "none"};
+
+    @media (max-width:992px) {
+      background-color: ${({ show }) =>
+        show > 30 ? "white !important" : "transparent"};
+        border-bottom: ${({ show }) =>
+          show > 30 ? "1px solid #D3DBDD " : "none"};
+    }
   }
     
   a:hover {
@@ -818,7 +824,8 @@ const WrapperHeader = styled.div`
     }
 
     #basic-navbar-nav {
-      background-image: url(${({ backgroundMobile }) => backgroundMobile});      
+      background-image: url(${({ backgroundMobile }) =>
+        backgroundMobile});      
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
