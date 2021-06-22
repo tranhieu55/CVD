@@ -117,7 +117,7 @@ const Head = styled.div`
 `
 const ArrowLeft = styled.span`
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 25px;
   cursor: pointer;
   img {
@@ -130,7 +130,7 @@ const ArrowLeft = styled.span`
 `
 const Close = styled.span`
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 25px;
   cursor: pointer;
   img {
@@ -154,6 +154,8 @@ const TitleHead = styled.h5`
   line-height: 34px;
   text-align: center;
   margin-bottom: 5px;
+  margin-top: -3px;
+  padding-bottom: 4px;
 `
 const Body = styled.div``
 const ListOurWork = styled.ul`
