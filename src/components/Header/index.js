@@ -240,6 +240,7 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
+            transition: all 1s ease;
            top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
              dataGlobalMessage === true ||
              checkIsMessage !== true ||
@@ -247,7 +248,7 @@ const WrapperHeader = styled.div`
              show > 0
                ? "72px"
                : "120px"};
-        }
+          }
       }
       ul.menu-area_services {
           position: fixed;
@@ -849,7 +850,8 @@ const WrapperHeader = styled.div`
       width: 100vw;
       padding: 48px;
       overflow: auto;
-      height: 100vh
+      height: 100vh;
+      padding-bottom: 100px;
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -877,6 +879,7 @@ const WrapperHeader = styled.div`
       }
     }
     .wraper-header {
+      box-shadow: ${({ show }) => (show < 100 ? ""  : "1px 1px 5px 0px rgba(211,219,221,1)")}; 
       width: 100vw;
     }
     .nav-bar_1024px_down {

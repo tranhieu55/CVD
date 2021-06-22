@@ -24,11 +24,11 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
             <DivIMG
               as={Link}
               className="imagefull mask"
-              // to={
-              //   "projects/" +
-              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
-              // }
+            // to={
+            //   "projects/" +
+            //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
+            //   `${dataServices[2]?.primary.launches_project._meta.uid}`
+            // }
             >
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
