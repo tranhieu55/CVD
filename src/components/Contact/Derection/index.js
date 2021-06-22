@@ -192,10 +192,7 @@ export default function Derection({ input }) {
               <DivLink>
                 <Link
                   href={`tel: ${
-                    item?.office_phone_number?.map(item =>
-                      item?.text ? item?.text : item
-                    )
-                      ? item?.office_phone_number?.map(item =>
+                    item?.office_phone_number ? item?.office_phone_number?.map(item =>
                         item?.text ? item?.text : item
                       )
                       : ""
