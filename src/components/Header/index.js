@@ -51,6 +51,7 @@ const WrapperHeader = styled.div`
   }
   .backgroundServiecs {
     background-color: white !important;
+    border-bottom: 1px solid #D3DBDD !important;
   }
   .menu-area_services {
     padding-left: 0;
@@ -73,11 +74,25 @@ const WrapperHeader = styled.div`
     border-bottom: ${({ show }) =>
       show > 101 ? "1px solid #D3DBDD " : "none"};
 
+    box-shadow: ${({ show }) =>
+      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+    -webkit-box-shadow: ${({ show }) =>
+      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+    -moz-box-shadow: ${({ show }) =>
+      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+
     @media (max-width:992px) {
       background-color: ${({ show }) =>
         show > 30 ? "white !important" : "transparent"};
         border-bottom: ${({ show }) =>
           show > 30 ? "1px solid #D3DBDD " : "none"};
+
+        box-shadow: ${({ show }) =>
+          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+        -webkit-box-shadow: ${({ show }) =>
+          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+        -moz-box-shadow: ${({ show }) =>
+          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
     }
   }
     
@@ -1577,7 +1592,7 @@ const Header = ({
                           ref={isDisPlayModalOurwork === true ? ref : null}
                           className="menu-area_ourwork"
                         >
-                          <hr />
+                          {/* <hr /> */}
                           <OurWorkMobile
                             dataHeaderOurwork={dataHeaderOurwork}
                             checkValue={() => checkValueOurwork()}
@@ -1596,7 +1611,7 @@ const Header = ({
                         ref={isDisPlayModalService === true ? ref : null}
                         className="menu-area_services"
                       >
-                        <hr />
+                        {/* <hr /> */}
                         <MenuItemServices>
                           {" "}
                           {/* SERVICES */}
@@ -1721,11 +1736,17 @@ const Header = ({
                                         fontWeight={theme.fonts.regular}
                                         className="mobile1"
                                       >
-                                        {item.short_description[0]?.text}
+                                        {item?.short_description[0]?.text}
                                       </P>
-                                      <span className="learn-more" href="#">
+                                      <a
+                                        className="learn-more"
+                                        href={
+                                          "/projects/" +
+                                          item?.link_learn_more?._meta?.uid
+                                        }
+                                      >
                                         Learn more{" "}
-                                      </span>
+                                      </a>
                                     </CardDescription>
                                   </div>
                                 ))}

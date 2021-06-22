@@ -88,6 +88,13 @@ const Layout = ({
                     image_platform_item
                     name_service
                     short_description
+                    link_learn_more {
+                      ... on PRISMIC_Projects {
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
                   }
                   primary {
                     title
@@ -233,6 +240,8 @@ const Layout = ({
       ? data.prismic?.allService_headers
       : []
   const dataHeaderOurwork = data.prismic?.allOurwork_headers
+
+  console.log({ dataServicesMenu })
 
   return (
     <BoxLayout>
