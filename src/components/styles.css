@@ -77,7 +77,7 @@ src: local('Calibre Semibold Italic'), url("../assets/fonts/CalibreSemiboldItali
 @font-face {
 font-family: 'Calibre Bold';
 font-style: normal;
-font-weight: bold;
+font-weight: bold !important;
 src: local('Calibre Bold'), url("../assets/fonts/CalibreBold.woff") format('woff');
 }
 

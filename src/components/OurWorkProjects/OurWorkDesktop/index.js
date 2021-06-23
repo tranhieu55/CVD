@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import IMG from "../../Image"
 
-const OurWorkDesktop = ({ dataHeaderOurwork }) => {
+const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
       <Body>
-        <ListOurWork>
+        <ListOurWork animation={isDisPlayModalOurwork}>
           <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
@@ -19,16 +19,16 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
           })}
         </ListOurWork>
         <Grid>
-          <ListCaseStudy>
+          <ListCaseStudy animation={isDisPlayModalOurwork}>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
             <DivIMG
               as={Link}
               className="imagefull mask"
-            // to={
-            //   "projects/" +
-            //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-            //   `${dataServices[2]?.primary.launches_project._meta.uid}`
-            // }
+              // to={
+              //   "projects/" +
+              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
+              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
+              // }
             >
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
@@ -42,7 +42,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
               </TitleImageBlog>
             </DivIMG>
           </ListCaseStudy>
-          <ListImage>
+          <ListImage animation={isDisPlayModalOurwork}>
             <SubTitle>{data[2]?.primary?.title[0]?.text}</SubTitle>
             <BlockImage>
               {data[2]?.fields?.map((item, index) => {
@@ -93,12 +93,38 @@ const Body = styled.div`
 `
 const ListOurWork = styled.div`
   min-width: 300px;
-`
-const OurWorks = styled.div`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 8px;
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "left-right" : "right-left"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
+  animation-fill-mode: forwards;
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
+  opacity: 0;
+
+  @keyframes left-right {
+    from {
+      transform: translateX(-100%) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes right-left {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+  }
 `
 
 const OurWork = styled.p`
@@ -132,6 +158,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 48px;
+  overflow: hidden;
 
   @media (max-width: 1366px) {
     grid-gap: 24px;
@@ -140,6 +167,7 @@ const Grid = styled.div`
 
 const ListCaseStudy = styled.div`
   max-width: 470px;
+
   .imagefull {
     height: 300px !important;
     width: 100%;
@@ -154,17 +182,76 @@ const ListCaseStudy = styled.div`
     left: 0;
     opacity: 30%;
   }
-`
-const CaseStudy = styled.div`
-  width: 100%;
-  margin-top: 8px;
-  img {
-    width: 100%;
-    height: 100%;
+
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "bottom-top-1" : "top-bottom-1"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
+  animation-fill-mode: forwards;
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
+  opacity: 0;
+
+  @keyframes bottom-top-1 {
+    from {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes top-bottom-1 {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
   }
 `
+
 const ListImage = styled.div`
   min-width: 409px;
+
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "bottom-top-2" : "top-bottom-2"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
+  animation-fill-mode: forwards;
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
+  opacity: 0;
+
+  @keyframes bottom-top-2 {
+    from {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes top-bottom-2 {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+  }
 `
 const BlockImage = styled.div`
   display: grid;

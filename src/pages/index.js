@@ -7,6 +7,7 @@ import GlobalMessage from "../components/GlobalMessage"
 
 import { useState } from "react"
 import BannerHomepage from "../components/Banner/BannerHomePage"
+import "../components/styles.css"
 
 const Index = ({ data: { prismic } }, e) => {
   const data =

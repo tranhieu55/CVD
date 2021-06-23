@@ -12,6 +12,7 @@ import CheckBox from "../components/Styleguide/components/Form/checkbox"
 import ButtonStyled from "../components/Styleguide/components/Button"
 import Title from "../components/Styleguide/components/Header"
 import Mobile from "../components/Styleguide/components/Mobile"
+import "../components/styles.css"
 
 const WrapperStyledGuide = styled.div`
   display: flex;

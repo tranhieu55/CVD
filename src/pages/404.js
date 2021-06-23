@@ -51,6 +51,104 @@ const NotFoundPage = ({ input }) => {
                     }
                   }
                 }
+                ... on PRISMIC_Page_404Body_accordion {
+                  type
+                  label
+                  fields {
+                    application
+                    content_footer
+                    content_footer2
+                    content_text
+                    content_text_after
+                    content_title
+                    content_title_center
+                    email
+                    sub_title
+                    title
+                  }
+                }
+                ... on PRISMIC_Page_404Body_partner_feature_tile {
+                  type
+                  label
+                  fields {
+                    link_page
+                    logo
+                    subtitle
+                    text
+                  }
+                }
+                ... on PRISMIC_Page_404Body3_column_profiles {
+                  type
+                  label
+                  fields {
+                    avatar
+                    description
+                    name
+                    position
+                  }
+                }
+                ... on PRISMIC_Page_404BodyBanner_casestudy {
+                  type
+                  label
+                  primary {
+                    description_banner
+                    title_banner
+                  }
+                }
+                ... on PRISMIC_Page_404BodyBanner_partner_page {
+                  type
+                  label
+                  fields {
+                    category_partner_banner {
+                      ... on PRISMIC_Category_ourwork {
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
+                  }
+                  primary {
+                    description_banner
+                    title_banner
+                  }
+                }
+                ... on PRISMIC_Page_404BodyBanner_post_details {
+                  type
+                  label
+                  primary {
+                    date_created1
+                    title_banner
+                  }
+                }
+                ... on PRISMIC_Page_404BodyBanner_what_we_do {
+                  type
+                  label
+                  primary {
+                    description_banner
+                    sub_title_banner
+                    title_banner
+                  }
+                }
+                ... on PRISMIC_Page_404BodyBanner_work_with_convert {
+                  type
+                  label
+                  primary {
+                    description_banner
+                    sub_title_banner
+                    title_banner
+                  }
+                }
+                ... on PRISMIC_Page_404BodySection_solution {
+                  type
+                  label
+                  fields {
+                    title_the_solution
+                  }
+                  primary {
+                    text_description
+                    title
+                  }
+                }
               }
             }
           }

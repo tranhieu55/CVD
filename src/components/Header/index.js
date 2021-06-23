@@ -51,7 +51,7 @@ const WrapperHeader = styled.div`
   }
   .backgroundServiecs {
     background-color: white !important;
-    border-bottom: 1px solid #D3DBDD !important;
+    border-bottom: 1px solid #d3dbdd !important;
   }
   .menu-area_services {
     padding-left: 0;
@@ -70,7 +70,7 @@ const WrapperHeader = styled.div`
   .fixedTop {
     background-color: ${({ show }) =>
       show > 101 ? "white !important" : "transparent"};
-      
+
     border-bottom: ${({ show }) =>
       show > 101 ? "1px solid #D3DBDD " : "none"};
 
@@ -81,21 +81,21 @@ const WrapperHeader = styled.div`
     -moz-box-shadow: ${({ show }) =>
       show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
 
-    @media (max-width:992px) {
+    @media (max-width: 992px) {
       background-color: ${({ show }) =>
         show > 30 ? "white !important" : "transparent"};
-        border-bottom: ${({ show }) =>
-          show > 30 ? "1px solid #D3DBDD " : "none"};
+      border-bottom: ${({ show }) =>
+        show > 30 ? "1px solid #D3DBDD " : "none"};
 
-        box-shadow: ${({ show }) =>
-          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-        -webkit-box-shadow: ${({ show }) =>
-          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-        -moz-box-shadow: ${({ show }) =>
-          show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+      box-shadow: ${({ show }) =>
+        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+      -webkit-box-shadow: ${({ show }) =>
+        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
+      -moz-box-shadow: ${({ show }) =>
+        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
     }
   }
-    
+
   a:hover {
     text-decoration: none;
   }
@@ -171,7 +171,7 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    position: ${({ show }) => (show > 0 ? "fixed" : "")};
+    position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -186,70 +186,47 @@ const WrapperHeader = styled.div`
     padding-top: 0px;
     padding-bottom: 0px;
 
-    animation-name: ${({ scroll }) =>
-      scroll === true ? "animation-open" : "animation-close"};
-    animation-duration: 300ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    
-    @keyframes animation-open {
-      from {
-        top: -72px;
-      }
-      to {
-        top: 0;
-      }
-    }
-    @keyframes animation-close {
-      from {
-        top: 0;
-      }
-      to {
-        top: -100px;
-      }
-    }
-  }
-  .menu-list {
-    list-style: none;
-    display: flex;
-    width: 457px;
-    li.menu-list_item {
-      @media (max-width: 992px) {
-      .mobileService {
-        display: block;
-      }
-      .desktopService {
-        display: none;
-      }
-    }
-    @media (min-width: 992px) {
-      .mobileService {
-        display: none;
-      }
-      .desktopService {
-        display: block;
-      }
-    }
-      padding: 10px 16px;
-      .edit-item-a {
-        font-family: "Calibre Semibold";
-        display: block;
-        font-weight: 600;
-        color: #ffffff;
-        text-decoration: none;
-        height: 16px;
-        font-size: 16px;
-        letter-spacing: 0;
-        line-height: 22px;
-        text-align: center;
-        &.menu-list_item_text-white {
+    .menu-list {
+      list-style: none;
+      display: flex;
+      width: 457px;
+      li.menu-list_item {
+        @media (max-width: 992px) {
+          .mobileService {
+            display: block;
+          }
+          .desktopService {
+            display: none;
+          }
+        }
+        @media (min-width: 992px) {
+          .mobileService {
+            display: none;
+          }
+          .desktopService {
+            display: block;
+          }
+        }
+        padding: 10px 16px;
+        .edit-item-a {
+          font-family: "Calibre Semibold";
+          display: block;
+          font-weight: 600;
           color: #ffffff;
+          text-decoration: none;
+          height: 16px;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+          text-align: left;
+          &.menu-list_item_text-white {
+            color: #ffffff;
+          }
+          &.menu-list_item_text-black {
+            color: #0e0e0e;
+          }
         }
-        &.menu-list_item_text-black {
-          color: #0e0e0e;
-        }
-      }
-      ul.menu-area_ourwork {
+        ul.menu-area_ourwork {
           position: fixed;
           width: 100%;
           left: 0;
@@ -263,16 +240,16 @@ const WrapperHeader = styled.div`
           }
           @media (min-width: 992px) {
             transition: all 1s ease;
-           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
-             dataGlobalMessage === true ||
-             checkIsMessage !== true ||
-             location !== "/" ||
-             show > 0
-               ? "72px"
-               : "120px"};
+            top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+              dataGlobalMessage === true ||
+              checkIsMessage !== true ||
+              location !== "/" ||
+              show > 0
+                ? "72px"
+                : "120px"};
           }
-      }
-      ul.menu-area_services {
+        }
+        ul.menu-area_services {
           position: fixed;
           width: 100%;
           left: 0;
@@ -285,13 +262,13 @@ const WrapperHeader = styled.div`
             top: 0;
           }
           @media (min-width: 992px) {
-           top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
-             dataGlobalMessage === true ||
-             checkIsMessage !== true ||
-             location !== "/" ||
-             show > 0
-               ? "72px"
-               : "120px"};
+            top: ${({ dataGlobalMessage, location, show, checkIsMessage }) =>
+              dataGlobalMessage === true ||
+              checkIsMessage !== true ||
+              location !== "/" ||
+              show > 0
+                ? "72px"
+                : "120px"};
           }
         }
         & > ul {
@@ -305,8 +282,43 @@ const WrapperHeader = styled.div`
           @media (min-width: 992px) {
             padding-left: 25px;
             padding-right: 0px;
+
+            animation-name: ${({ animation }) =>
+              animation && animation === true
+                ? "left-right-service"
+                : "right-left-service"};
+
+            animation-delay: 300ms;
+
+            animation-duration: 800ms;
+            animation-fill-mode: forwards;
+            transform: ${({ animation }) =>
+              animation && animation === true
+                ? "translateX(-100%) translateY(0) translateZ(0)"
+                : "translateX(0) translateY(0) translateZ(0)"};
+
+            @keyframes left-right-service {
+              from {
+                transform: translateX(-100%) translateY(0) translateZ(0);
+                opacity: 0;
+              }
+              to {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+            }
+            @keyframes right-left-service {
+              from {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+              to {
+                transform: translateX(-100%) translateY(0) translateZ(0);
+                opacity: 0;
+              }
+            }
           }
-          @media (min-width:1200px) {
+          @media (min-width: 1200px) {
             padding-left: 25px;
             padding-right: 25px;
           }
@@ -333,44 +345,78 @@ const WrapperHeader = styled.div`
           }
         }
 
-        
         ul.list-platforms {
           flex-basis: 75%;
           @media (min-width: 992px) {
             padding-left: 25px;
             padding-right: 25px;
+
+            animation-name: ${({ animation }) =>
+              animation && animation === true
+                ? "bottom-top-service"
+                : "top-bottom-service"};
+            animation-delay: 300ms;
+
+            animation-duration: 800ms;
+            animation-fill-mode: forwards;
+            transform: ${({ animation }) =>
+              animation && animation === true
+                ? "translateX(0) translateY(-100%) translateZ(0)"
+                : "translateX(0) translateY(0) translateZ(0)"};
+
+            @keyframes bottom-top-service {
+              from {
+                transform: translateX(0) translateY(100%) translateZ(0);
+                opacity: 0;
+              }
+              to {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+            }
+
+            @keyframes top-bottom-service {
+              from {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+              to {
+                transform: translateX(0) translateY(100%) translateZ(0);
+                opacity: 0;
+              }
+            }
           }
           @media (min-width: 1440px) {
             padding-left: 48px;
             padding-right: 48px;
           }
           .list-platforms_Card:nth-child(2) {
-            @media(min-width: 992px) {
+            @media (min-width: 992px) {
               margin-right: 0px;
-              max-width:330px;
+              max-width: 330px;
             }
-            @media(min-width: 1200px) {
-              max-width:421px;
+            @media (min-width: 1200px) {
+              max-width: 421px;
             }
           }
           .list-platforms_Card:nth-child(4) {
-            @media(min-width: 992px) {
+            @media (min-width: 992px) {
               margin-right: 0px;
             }
           }
           div.list-platforms_Card {
             display: flex;
-            @media(max-width: 600px) {
+            @media (max-width: 600px) {
               margin-right: 0px !important;
             }
 
-            @media(min-width: 992px) {
+            @media (min-width: 992px) {
               margin-right: 20px;
             }
-            @media(min-width: 1200px) {
+            @media (min-width: 1200px) {
               margin-right: 55px;
             }
-            @media(min-width: 1600px) {
+            @media (min-width: 1600px) {
               margin-right: 110px;
             }
             &:last-child {
@@ -422,9 +468,9 @@ const WrapperHeader = styled.div`
           : "120px"};
     }
   }
-.hover-ed:hover{
-  display:block;
-}
+  .hover-ed:hover {
+    display: block;
+  }
   .show {
     position: fixed;
     top: 0 !important;
@@ -445,7 +491,7 @@ const WrapperHeader = styled.div`
     width: 20px;
     height: 20px;
   }
-  
+
   .list-title-services {
     font-family: "Calibre Regular" !important;
     font-size: 18px !important;
@@ -625,7 +671,7 @@ const WrapperHeader = styled.div`
     .mt0 {
       margin-top: 0px !important;
     }
-    
+
     .list-platforms_Card {
       padding-right: 0px !important;
       padding-bottom: 0px !important;
@@ -652,7 +698,7 @@ const WrapperHeader = styled.div`
     top: 0px;
   }
 
-  @media (max-width: 991px)  {
+  @media (max-width: 991px) {
     .icon-mobile-right {
       display: inline-block;
       margin-left: 5px;
@@ -671,7 +717,7 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-    
+
     .menu-mobile {
       display: flex;
       justify-content: space-between;
@@ -713,7 +759,7 @@ const WrapperHeader = styled.div`
       }
     }
   }
-  
+
   @media (min-width: 767.1px) and (max-width: 768.5px) {
     .icon-mobile-right {
       display: inline-block;
@@ -733,7 +779,6 @@ const WrapperHeader = styled.div`
       height: 0.5px;
       background-color: #eeeeee;
     }
-    
 
     .menu-mobile {
       display: flex;
@@ -861,8 +906,7 @@ const WrapperHeader = styled.div`
       margin-bottom: 9px;
     }
     #basic-navbar-nav {
-      background-image: url(${({ backgroundMobile }) =>
-        backgroundMobile});      
+      background-image: url(${({ backgroundMobile }) => backgroundMobile});
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -877,6 +921,7 @@ const WrapperHeader = styled.div`
     @supports (-webkit-touch-callout: none) {
       #basic-navbar-nav {
         padding-bottom: 120px;
+        height: calc(100vh + 60px);
       }
     }
     #basic-navbar-nav .header-scroll {
@@ -906,7 +951,7 @@ const WrapperHeader = styled.div`
     }
     .wraper-header {
       box-shadow: ${({ show }) =>
-        show < 100 ? "" : "1px 1px 5px 0px rgba(211,219,221,1)"}; 
+        show < 100 ? "" : "1px 1px 5px 0px rgba(211,219,221,1)"};
       width: 100vw;
     }
     .nav-bar_1024px_down {
@@ -1041,6 +1086,7 @@ const MenuItemServices = styled.div`
   margin-right: 120px;
   margin-top: 32px;
   display: flex;
+
   .service {
     display: flex;
     margin-left: 25px;
@@ -1132,6 +1178,8 @@ const MenuItemServices = styled.div`
   @media (min-width: 992px) {
     margin-left: 0px;
     margin-right: 0px;
+    overflow: hidden;
+
     .list-services_Item {
       padding-left: 0px !important;
     }
@@ -1300,6 +1348,7 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
+
   const linkBackground = backgroundMobile
   let lastScrollTop = 0
   useEffect(() => {
@@ -1457,6 +1506,7 @@ const Header = ({
       show={show}
       isDisPlayModalService={isDisPlayModalService}
       isDisPlayModalOurwork={isDisPlayModalOurwork}
+      animation={isDisPlayModalService}
     >
       <Navbar
         expand="lg"
@@ -1616,7 +1666,7 @@ const Header = ({
                     )}
                     {item &&
                       item.slug_menu_item[0]?.text === "projects" &&
-                      isDisPlayModalOurwork === true && (
+                      (scroll === false && show > 0 ? false : true) && (
                         <ul
                           ref={isDisPlayModalOurwork === true ? ref : null}
                           className="menu-area_ourwork"
@@ -1629,13 +1679,14 @@ const Header = ({
                           />
                           <OurWorkDesktop
                             dataHeaderOurwork={dataHeaderOurwork}
+                            isDisPlayModalOurwork={isDisPlayModalOurwork}
                           />
                         </ul>
                       )}
 
                     {item &&
                     item.slug_menu_item[0]?.text === "services" &&
-                    isDisPlayModalService === true ? (
+                    (scroll === false && show > 0 ? false : true) ? (
                       <ul
                         ref={isDisPlayModalService === true ? ref : null}
                         className="menu-area_services"
@@ -1717,7 +1768,10 @@ const Header = ({
                           )}
                           {/* PLATFORMS */}
                           {dataServices[1] ? (
-                            <Ul className="list-platforms">
+                            <Ul
+                              animation={isDisPlayModalService}
+                              className="list-platforms"
+                            >
                               <P
                                 uppercase={true}
                                 fontSise="14"
