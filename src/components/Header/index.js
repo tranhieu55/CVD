@@ -171,7 +171,8 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    position: ${({ show }) => (show > 0 ? "fixed" : "")};
+    height: 60px;
+    position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -185,29 +186,6 @@ const WrapperHeader = styled.div`
     padding-right: 40px;
     padding-top: 0px;
     padding-bottom: 0px;
-
-    animation-name: ${({ scroll }) =>
-      scroll === true ? "animation-open" : "animation-close"};
-    animation-duration: 300ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    
-    @keyframes animation-open {
-      from {
-        top: -72px;
-      }
-      to {
-        top: 0;
-      }
-    }
-    @keyframes animation-close {
-      from {
-        top: 0;
-      }
-      to {
-        top: -100px;
-      }
-    }
   }
   .menu-list {
     list-style: none;
@@ -873,9 +851,7 @@ const WrapperHeader = styled.div`
       padding: 48px;
       overflow: auto;
       height: 100vh;
-      @supports (-webkit-touch-callout: none) {
-        padding-bottom: 120px;
-      }
+      padding-bottom: 100px;
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -1293,6 +1269,7 @@ const Header = ({
   const [isDisPlayModalOurwork, setIsDisPlayModalOurwork] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
+
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
