@@ -838,7 +838,6 @@ const WrapperHeader = styled.div`
       height: 16px;
       margin-bottom: 9px;
     }
-
     #basic-navbar-nav {
       background-image: url(${({ backgroundMobile }) =>
         backgroundMobile});      
@@ -852,7 +851,9 @@ const WrapperHeader = styled.div`
       overflow: auto;
       height: 100vh;
       padding-bottom: 120px;
-      @supports (-webkit-touch-callout: none) {
+    }
+    @supports (-webkit-touch-callout: none) {
+      #basic-navbar-nav {
         padding-bottom: 120px;
       }
     }
