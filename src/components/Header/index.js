@@ -218,7 +218,7 @@ const WrapperHeader = styled.div`
           font-size: 16px;
           letter-spacing: 0;
           line-height: 22px;
-          text-align: center;
+          text-align: left;
           &.menu-list_item_text-white {
             color: #ffffff;
           }
