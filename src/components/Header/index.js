@@ -305,6 +305,24 @@ const WrapperHeader = styled.div`
           @media (min-width: 992px) {
             padding-left: 25px;
             padding-right: 0px;
+
+            animation-name: left-right;
+            animation-duration: 600ms;
+            animation-fill-mode: forwards;
+            transform: translateX(-100%) translateY(0) translateZ(0);
+            opacity: 0;
+          
+            @keyframes left-right {
+              from {
+                transform: translateX(-100%) translateY(0) translateZ(0);
+                opacity: 0;
+              }
+              to {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+            }
+
           }
           @media (min-width:1200px) {
             padding-left: 25px;
@@ -339,6 +357,23 @@ const WrapperHeader = styled.div`
           @media (min-width: 992px) {
             padding-left: 25px;
             padding-right: 25px;
+
+            animation-name: bottom-top-1;
+            animation-duration: 600ms;
+            animation-fill-mode: forwards;
+            transform: translateX(0) translateY(100%) translateZ(0);
+            opacity: 0;
+
+            @keyframes bottom-top-1 {
+              from {
+                transform: translateX(0) translateY(100%) translateZ(0);
+                opacity: 0;
+              }
+              to {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+  }
           }
           @media (min-width: 1440px) {
             padding-left: 48px;
@@ -420,6 +455,8 @@ const WrapperHeader = styled.div`
         location !== "/"
           ? "72px"
           : "120px"};
+         
+
     }
   }
 .hover-ed:hover{
@@ -1041,6 +1078,7 @@ const MenuItemServices = styled.div`
   margin-right: 120px;
   margin-top: 32px;
   display: flex;
+
   .service {
     display: flex;
     margin-left: 25px;
@@ -1132,6 +1170,8 @@ const MenuItemServices = styled.div`
   @media (min-width: 992px) {
     margin-left: 0px;
     margin-right: 0px;
+    overflow: hidden;
+
     .list-services_Item {
       padding-left: 0px !important;
     }

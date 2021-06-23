@@ -24,11 +24,11 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
             <DivIMG
               as={Link}
               className="imagefull mask"
-            // to={
-            //   "projects/" +
-            //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-            //   `${dataServices[2]?.primary.launches_project._meta.uid}`
-            // }
+              // to={
+              //   "projects/" +
+              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
+              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
+              // }
             >
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
@@ -93,12 +93,22 @@ const Body = styled.div`
 `
 const ListOurWork = styled.div`
   min-width: 300px;
-`
-const OurWorks = styled.div`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 8px;
+  animation-name: left-right;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  transform: translateX(-100%) translateY(0) translateZ(0);
+  opacity: 0;
+
+  @keyframes left-right {
+    from {
+      transform: translateX(-100%) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+  }
 `
 
 const OurWork = styled.p`
@@ -132,7 +142,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 48px;
-
+  overflow: hidden;
   @media (max-width: 1366px) {
     grid-gap: 24px;
   }
@@ -140,6 +150,7 @@ const Grid = styled.div`
 
 const ListCaseStudy = styled.div`
   max-width: 470px;
+
   .imagefull {
     height: 300px !important;
     width: 100%;
@@ -154,17 +165,44 @@ const ListCaseStudy = styled.div`
     left: 0;
     opacity: 30%;
   }
-`
-const CaseStudy = styled.div`
-  width: 100%;
-  margin-top: 8px;
-  img {
-    width: 100%;
-    height: 100%;
+
+  animation-name: bottom-top-1;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  transform: translateX(0) translateY(100%) translateZ(0);
+  opacity: 0;
+
+  @keyframes bottom-top-1 {
+    from {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
   }
 `
+
 const ListImage = styled.div`
   min-width: 409px;
+
+  animation-name: bottom-top-2;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  transform: translateX(0) translateY(100%) translateZ(0);
+  opacity: 0;
+
+  @keyframes bottom-top-2 {
+    from {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+  }
 `
 const BlockImage = styled.div`
   display: grid;
