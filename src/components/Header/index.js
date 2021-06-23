@@ -1714,14 +1714,22 @@ const Header = ({
                                       index === 1 && "offset1"
                                     } list-platforms_Card`}
                                   >
-                                    <IMG
-                                      alt={item.image_platform_item.alt}
-                                      src={item.image_platform_item.url}
-                                      w="44"
-                                      h="52"
-                                      objectFit="contain"
-                                      mr="25"
-                                    ></IMG>
+                                    <a
+                                      className="learn-more"
+                                      href={
+                                        "/projects/" +
+                                        item?.link_learn_more?._meta?.uid
+                                      }
+                                    >
+                                      <IMG
+                                        alt={item.image_platform_item.alt}
+                                        src={item.image_platform_item.url}
+                                        w="44"
+                                        h="52"
+                                        objectFit="contain"
+                                        mr="25"
+                                      ></IMG>
+                                    </a>
                                     <CardDescription>
                                       <P
                                         fontSise="22"
