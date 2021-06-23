@@ -134,6 +134,10 @@ const ImageBannerDK = styled.img`
   @media (max-width: 600px) {
     display: none;
   }
+  @media (min-width: 992px) {
+    clip-path: polygon(0 0,100% 0,100% 92%,0% 100%);
+  }
+
 `
 const ImageBannerMB = styled.img`
   @media (max-width: 600px) {

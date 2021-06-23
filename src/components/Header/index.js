@@ -171,8 +171,7 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    height: 60px;
-    position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
+    position: ${({ show }) => (show > 0 ? "fixed" : "")};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -186,6 +185,29 @@ const WrapperHeader = styled.div`
     padding-right: 40px;
     padding-top: 0px;
     padding-bottom: 0px;
+
+    animation-name: ${({ scroll }) =>
+      scroll === true ? "animation-open" : "animation-close"};
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
+    @keyframes animation-open {
+      from {
+        top: -72px;
+      }
+      to {
+        top: 0;
+      }
+    }
+    @keyframes animation-close {
+      from {
+        top: 0;
+      }
+      to {
+        top: -100px;
+      }
+    }
   }
   .menu-list {
     list-style: none;
@@ -838,7 +860,6 @@ const WrapperHeader = styled.div`
       height: 16px;
       margin-bottom: 9px;
     }
-
     #basic-navbar-nav {
       background-image: url(${({ backgroundMobile }) =>
         backgroundMobile});      
@@ -851,7 +872,12 @@ const WrapperHeader = styled.div`
       padding: 48px;
       overflow: auto;
       height: 100vh;
-      padding-bottom: 100px;
+      padding-bottom: 120px;
+    }
+    @supports (-webkit-touch-callout: none) {
+      #basic-navbar-nav {
+        padding-bottom: 120px;
+      }
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
@@ -879,7 +905,8 @@ const WrapperHeader = styled.div`
       }
     }
     .wraper-header {
-      box-shadow: ${({ show }) => (show < 100 ? ""  : "1px 1px 5px 0px rgba(211,219,221,1)")}; 
+      box-shadow: ${({ show }) =>
+        show < 100 ? "" : "1px 1px 5px 0px rgba(211,219,221,1)"}; 
       width: 100vw;
     }
     .nav-bar_1024px_down {
@@ -1268,7 +1295,6 @@ const Header = ({
   const [isDisPlayModalOurwork, setIsDisPlayModalOurwork] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
-
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
@@ -1714,14 +1740,22 @@ const Header = ({
                                       index === 1 && "offset1"
                                     } list-platforms_Card`}
                                   >
-                                    <IMG
-                                      alt={item.image_platform_item.alt}
-                                      src={item.image_platform_item.url}
-                                      w="44"
-                                      h="52"
-                                      objectFit="contain"
-                                      mr="25"
-                                    ></IMG>
+                                    <a
+                                      className="learn-more"
+                                      href={
+                                        "/projects/" +
+                                        item?.link_learn_more?._meta?.uid
+                                      }
+                                    >
+                                      <IMG
+                                        alt={item.image_platform_item.alt}
+                                        src={item.image_platform_item.url}
+                                        w="44"
+                                        h="52"
+                                        objectFit="contain"
+                                        mr="25"
+                                      ></IMG>
+                                    </a>
                                     <CardDescription>
                                       <P
                                         fontSise="22"
