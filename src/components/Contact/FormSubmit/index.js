@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function FormSumit({ input }) {
   const data = input
-  const FormSumits = styled.div`
+  const FormSumits = styled.form`
     height: 802px;
     border-radius: 3px;
     background-color: #ffffff;
@@ -166,7 +166,7 @@ export default function FormSumit({ input }) {
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
-    height: 62px;
+    // height: 62px;
   `
   const Inputs = styled.div`
     position: relative;
@@ -312,7 +312,7 @@ export default function FormSumit({ input }) {
     height: 178px;
     border-radius: 5px;
     box-shadow: 8px 8px 30px 0 rgba(0, 0, 0, 0.07);
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     box-sizing: border-box;
     animation-name: mui-auto-fill-cancel;
     border-radius: 3px;
@@ -429,7 +429,14 @@ export default function FormSumit({ input }) {
     }
   `
   return (
-    <FormSumits>
+    <FormSumits
+      name="lpsurveyform"
+      ng-controller="landingpage.surveysFormCtrl as formCtrl"
+      ng-submit="onSubmit($event)"
+      method="post"
+      novalidate=""
+      action="/Response/SurveyLP/54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb?pUrl=https%3A%2F%2Fr1.dotmailer-surveys.com%2F54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb"
+    >
       <Forms>
         {data ? (
           data.fields?.map((item, index) => {
