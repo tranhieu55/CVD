@@ -1348,7 +1348,6 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
-  console.log({ scroll: scroll, show: show })
 
   const linkBackground = backgroundMobile
   let lastScrollTop = 0
