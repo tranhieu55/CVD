@@ -283,11 +283,19 @@ const WrapperHeader = styled.div`
             padding-left: 25px;
             padding-right: 0px;
 
-            animation-name: left-right-service;
-            animation-duration: 600ms;
+            animation-name: ${({ animation }) =>
+              animation && animation === true
+                ? "left-right-service"
+                : "right-left-service"};
+
+            animation-delay: 300ms;
+
+            animation-duration: 800ms;
             animation-fill-mode: forwards;
-            transform: translateX(-100%) translateY(0) translateZ(0);
-            opacity: 0;
+            transform: ${({ animation }) =>
+              animation && animation === true
+                ? "translateX(-100%) translateY(0) translateZ(0)"
+                : "translateX(0) translateY(0) translateZ(0)"};
 
             @keyframes left-right-service {
               from {
@@ -297,6 +305,16 @@ const WrapperHeader = styled.div`
               to {
                 transform: translateX(0) translateY(0) translateZ(0);
                 opacity: 1;
+              }
+            }
+            @keyframes right-left-service {
+              from {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+              to {
+                transform: translateX(-100%) translateY(0) translateZ(0);
+                opacity: 0;
               }
             }
           }
@@ -333,11 +351,18 @@ const WrapperHeader = styled.div`
             padding-left: 25px;
             padding-right: 25px;
 
-            animation-name: bottom-top-service;
-            animation-duration: 600ms;
+            animation-name: ${({ animation }) =>
+              animation && animation === true
+                ? "bottom-top-service"
+                : "top-bottom-service"};
+            animation-delay: 300ms;
+
+            animation-duration: 800ms;
             animation-fill-mode: forwards;
-            transform: translateX(0) translateY(100%) translateZ(0);
-            opacity: 0;
+            transform: ${({ animation }) =>
+              animation && animation === true
+                ? "translateX(0) translateY(-100%) translateZ(0)"
+                : "translateX(0) translateY(0) translateZ(0)"};
 
             @keyframes bottom-top-service {
               from {
@@ -347,6 +372,17 @@ const WrapperHeader = styled.div`
               to {
                 transform: translateX(0) translateY(0) translateZ(0);
                 opacity: 1;
+              }
+            }
+
+            @keyframes top-bottom-service {
+              from {
+                transform: translateX(0) translateY(0) translateZ(0);
+                opacity: 1;
+              }
+              to {
+                transform: translateX(0) translateY(100%) translateZ(0);
+                opacity: 0;
               }
             }
           }
@@ -1312,6 +1348,8 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
+  console.log({ scroll })
+
   const linkBackground = backgroundMobile
   let lastScrollTop = 0
   useEffect(() => {
@@ -1469,6 +1507,7 @@ const Header = ({
       show={show}
       isDisPlayModalService={isDisPlayModalService}
       isDisPlayModalOurwork={isDisPlayModalOurwork}
+      animation={isDisPlayModalService}
     >
       <Navbar
         expand="lg"
@@ -1626,28 +1665,25 @@ const Header = ({
                           : item.title_menu_item[0]?.text}
                       </Link>
                     )}
-                    {item &&
-                      item.slug_menu_item[0]?.text === "projects" &&
-                      isDisPlayModalOurwork === true && (
-                        <ul
-                          ref={isDisPlayModalOurwork === true ? ref : null}
-                          className="menu-area_ourwork"
-                        >
-                          {/* <hr /> */}
-                          <OurWorkMobile
-                            dataHeaderOurwork={dataHeaderOurwork}
-                            checkValue={() => checkValueOurwork()}
-                            checkClose={() => checkValueClose()}
-                          />
-                          <OurWorkDesktop
-                            dataHeaderOurwork={dataHeaderOurwork}
-                          />
-                        </ul>
-                      )}
+                    {item && item.slug_menu_item[0]?.text === "projects" && (
+                      <ul
+                        ref={isDisPlayModalOurwork === true ? ref : null}
+                        className="menu-area_ourwork"
+                      >
+                        {/* <hr /> */}
+                        <OurWorkMobile
+                          dataHeaderOurwork={dataHeaderOurwork}
+                          checkValue={() => checkValueOurwork()}
+                          checkClose={() => checkValueClose()}
+                        />
+                        <OurWorkDesktop
+                          dataHeaderOurwork={dataHeaderOurwork}
+                          isDisPlayModalOurwork={isDisPlayModalOurwork}
+                        />
+                      </ul>
+                    )}
 
-                    {item &&
-                    item.slug_menu_item[0]?.text === "services" &&
-                    isDisPlayModalService === true ? (
+                    {item && item.slug_menu_item[0]?.text === "services" ? (
                       <ul
                         ref={isDisPlayModalService === true ? ref : null}
                         className="menu-area_services"
@@ -1729,7 +1765,10 @@ const Header = ({
                           )}
                           {/* PLATFORMS */}
                           {dataServices[1] ? (
-                            <Ul className="list-platforms">
+                            <Ul
+                              animation={isDisPlayModalService}
+                              className="list-platforms"
+                            >
                               <P
                                 uppercase={true}
                                 fontSise="14"

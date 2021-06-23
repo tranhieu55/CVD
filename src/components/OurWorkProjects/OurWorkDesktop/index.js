@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import IMG from "../../Image"
 
-const OurWorkDesktop = ({ dataHeaderOurwork }) => {
+const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
   const data = dataHeaderOurwork.edges[0]?.node?.body
   return (
     <Container>
       <Body>
-        <ListOurWork>
+        <ListOurWork animation={isDisPlayModalOurwork}>
           <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
@@ -19,7 +19,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
           })}
         </ListOurWork>
         <Grid>
-          <ListCaseStudy>
+          <ListCaseStudy animation={isDisPlayModalOurwork}>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
             <DivIMG
               as={Link}
@@ -42,7 +42,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork }) => {
               </TitleImageBlog>
             </DivIMG>
           </ListCaseStudy>
-          <ListImage>
+          <ListImage animation={isDisPlayModalOurwork}>
             <SubTitle>{data[2]?.primary?.title[0]?.text}</SubTitle>
             <BlockImage>
               {data[2]?.fields?.map((item, index) => {
@@ -93,10 +93,15 @@ const Body = styled.div`
 `
 const ListOurWork = styled.div`
   min-width: 300px;
-  animation-name: left-right;
-  animation-duration: 600ms;
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "left-right" : "right-left"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
   animation-fill-mode: forwards;
-  transform: translateX(-100%) translateY(0) translateZ(0);
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
   opacity: 0;
 
   @keyframes left-right {
@@ -107,6 +112,17 @@ const ListOurWork = styled.div`
     to {
       transform: translateX(0) translateY(0) translateZ(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes right-left {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%) translateY(0) translateZ(0);
+      opacity: 0;
     }
   }
 `
@@ -143,6 +159,7 @@ const Grid = styled.div`
   grid-template-columns: auto auto;
   grid-gap: 48px;
   overflow: hidden;
+
   @media (max-width: 1366px) {
     grid-gap: 24px;
   }
@@ -166,10 +183,15 @@ const ListCaseStudy = styled.div`
     opacity: 30%;
   }
 
-  animation-name: bottom-top-1;
-  animation-duration: 600ms;
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "bottom-top-1" : "top-bottom-1"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
   animation-fill-mode: forwards;
-  transform: translateX(0) translateY(100%) translateZ(0);
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
   opacity: 0;
 
   @keyframes bottom-top-1 {
@@ -182,15 +204,31 @@ const ListCaseStudy = styled.div`
       opacity: 1;
     }
   }
+
+  @keyframes top-bottom-1 {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
+    }
+  }
 `
 
 const ListImage = styled.div`
   min-width: 409px;
 
-  animation-name: bottom-top-2;
-  animation-duration: 600ms;
+  animation-name: ${({ animation }) =>
+    animation && animation === true ? "bottom-top-2" : "top-bottom-2"};
+  animation-delay: 300ms;
+  animation-duration: 800ms;
   animation-fill-mode: forwards;
-  transform: translateX(0) translateY(100%) translateZ(0);
+  transform: ${({ animation }) =>
+    animation && animation === true
+      ? "translateX(-100%) translateY(0) translateZ(0)"
+      : "translateX(0) translateY(0) translateZ(0)"};
   opacity: 0;
 
   @keyframes bottom-top-2 {
@@ -201,6 +239,17 @@ const ListImage = styled.div`
     to {
       transform: translateX(0) translateY(0) translateZ(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes top-bottom-2 {
+    from {
+      transform: translateX(0) translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0) translateY(100%) translateZ(0);
+      opacity: 0;
     }
   }
 `
