@@ -851,7 +851,9 @@ const WrapperHeader = styled.div`
       padding: 48px;
       overflow: auto;
       height: 100vh;
-      padding-bottom: 120px;
+      @supports (-webkit-touch-callout: none) {
+        padding-bottom: 120px;
+      }
     }
     #basic-navbar-nav .header-scroll {
       background: #101010;
