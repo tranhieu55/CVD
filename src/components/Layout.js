@@ -241,8 +241,6 @@ const Layout = ({
       : []
   const dataHeaderOurwork = data.prismic?.allOurwork_headers
 
-  console.log({ dataServicesMenu })
-
   return (
     <BoxLayout>
       <ThemeProvider theme={theme}>
