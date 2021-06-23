@@ -429,50 +429,409 @@ export default function FormSumit({ input }) {
     }
   `
   return (
-    <FormSumits
-      name="lpsurveyform"
-      ng-controller="landingpage.surveysFormCtrl as formCtrl"
-      ng-submit="onSubmit($event)"
-      method="post"
-      novalidate=""
-      action="/Response/SurveyLP/54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb?pUrl=https%3A%2F%2Fr1.dotmailer-surveys.com%2F54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb"
-    >
-      <Forms>
-        {data ? (
-          data.fields?.map((item, index) => {
-            if (item?.type === "text") {
-              return (
-                <Inputs>
-                  <Input size="lg" type="text" placeholder=" " />
-                  <label>
-                    {item?.placeholder?.map(item =>
-                      item?.text ? item?.text : item
-                    )}
-                  </label>
-                </Inputs>
-              )
-            }
-            if (item?.type === "textarea") {
-              return (
-                <Inputs>
-                  <Textarea size="lg" type="text" placeholder=" " />
-                  <label>
-                    {item?.placeholder?.map(item =>
-                      item?.text ? item?.text : item
-                    )}
-                  </label>
-                </Inputs>
-              )
-            }
-            return null
-          })
-        ) : (
-          <></>
-        )}
-        <a href="#">
-          <ButtonForm>Submit</ButtonForm>
-        </a>
-      </Forms>
-    </FormSumits>
+    <body
+            ng-app="landingPageApp"
+            class="lpv2"
+        >
+            {/* <script type="text/javascript" id="defaultFormData">
+                window.lpFormDefaults = {
+                    textbox3: "",
+                    textbox4: "@EMAIL@" || "",
+                    textbox5: "",
+                    textbox6: "",
+                    textbox7: "",
+                    textbox8: "",
+                }
+            </script> */}
+            <FormSumits
+                name="lpsurveyform"
+                ng-controller="landingpage.surveysFormCtrl as formCtrl"
+                ng-submit="onSubmit($event)"
+                class="surveys-forms"
+                method="post"
+                novalidate=""
+                action="/Response/SurveyLP/54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb?pUrl=https%3A%2F%2Fr1.dotmailer-surveys.com%2F54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb"
+            >
+                <input name="defaultSubmitAction" type="hidden" value="Complete" /><input
+                    name="respondent"
+                    type="hidden"
+                    value="$RESPONDERGUID$"
+                />
+                <Forms id="lp-container" ee-show-font-styles="" ee-template-version="1.0">
+                    <div id="lp-container-fixed">
+                        <div class="ee_dropzone">
+                            <div
+                                class="ee_element ee_textelement"
+                                ee-type="element"
+                                data-title="Text"
+                            >
+                                <div class="ee_editable"><h2>Contact form</h2></div>
+                            </div>
+                            <div
+                                class="ee_element lp-row ee_spacer"
+                                ee-type="element"
+                                data-title="Spacer"
+                            ></div>
+                            <div
+                                class="ee_element ee_editable ee_textelement"
+                                ee-type="element"
+                                data-title="Text"
+                            >
+                                <p >
+                                    <font
+                                        >Complete this form, we will be in touch shortly.</font>
+                                    <br />
+                                </p>
+                            </div>
+                            <div
+                                class="ee_customedit ee_sections animate-none ee_element"
+                                ee-type="container"
+                                data-title="Sections"
+                            >
+                                <div class="ee_sections_inner" ee-page-container="">
+                                    <div
+                                        class="ee_container ved-expandcontract"
+                                        ee-type="container"
+                                        ee-page=""
+                                        page-id="1"
+                                        page-uuid="5ce18454-004d-45fe-9628-b53b313daafb"
+                                        section-logic='{"allow":false,"showByDefault":true,"rules":[],"pageId":1,"pageTitle":"","pageUuid":"5ce18454-004d-45fe-9628-b53b313daafb"}'
+                                    >
+                                        <div class="ee_dropzone">
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element survey-required-answer"
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[3].$error"
+                                                    aria-live="assertive"
+                                                >
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="required"
+                                                    >
+                                                        Please answer the question below
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-3"
+                                                        >Name</label>
+                                                    <Inputs
+                                                        type="text"
+                                                        required="required"
+                                                        name="3"
+                                                        id="textbox-3"
+                                                        ng-model="lpForm.textbox3"
+                                                        created="2019-12-10T13:53:56.401Z"
+                                                    />
+                                                </div>
+                                            </Input>
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element survey-required-answer"
+                                                ee-type="element"
+                                                landingpage-survey-textbox=""
+                                                data-title="Text box (@EMAIL@)"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"labelPosition":"top","id":4,"created":"2019-12-10T13:54:04.742Z","dataFieldAction":"update","questionType":"email","errorMessage":"Please answer the question below","validationMessage":"The format is incorrect","requiredAnswer":true,"dataField":"EMAIL","outOfRangeValidationMesssage":"Number is out of accepted range"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[4].$error"
+                                                    aria-live="assertive"
+                                                >
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="email"
+                                                    >
+                                                        The format is incorrect
+                                                    </div>
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="required"
+                                                    >
+                                                        Please answer the question below
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-4"
+                                                        >Email</label>
+                                                    <Inputs
+                                                        type="email"
+                                                        required="required"
+                                                        name="4"
+                                                        id="textbox-4"
+                                                        ng-model="lpForm.textbox4"
+                                                        created="2019-12-10T13:54:04.742Z"
+                                                    />
+                                                </div>
+                                            </Input>
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element"
+                                                ee-type="element"
+                                                landingpage-survey-textbox=""
+                                                data-title="Text box"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"labelPosition":"top","id":5,"created":"2019-12-10T13:54:23.255Z","dataFieldAction":"update","questionType":"tel","requiredAnswer":false,"errorMessage":"Please answer the question below","validationMessage":"The format is incorrect"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[5].$error"
+                                                    aria-live="assertive"
+                                                >
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="intlTelInput"
+                                                    >
+                                                        The format is incorrect
+                                                    </div>
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="email"
+                                                    >
+                                                        The format is incorrect
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-5"
+                                                        >Phone</label>
+                                                    <Inputs
+                                                        type="text"
+                                                        allow-dropdown="true"
+                                                        lp-survey-phone-number=""
+                                                        placeholder="07700 900514"
+                                                        name="5"
+                                                        id="textbox-5"
+                                                        ng-model="lpForm.textbox5"
+                                                        created="2019-12-10T13:54:23.255Z"
+                                                    />
+                                                </div>
+                                            </Input>
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element"
+                                                ee-type="element"
+                                                landingpage-survey-textbox=""
+                                                data-title="Text box"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"labelPosition":"top","id":6,"created":"2019-12-10T13:54:40.060Z"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[6].$error"
+                                                    aria-live="assertive"
+                                                ></div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-6"
+                                                        >Company / Organisation</label>
+                                                    <Inputs
+                                                        type="text"
+                                                        name="6"
+                                                        id="textbox-6"
+                                                        ng-model="lpForm.textbox6"
+                                                        created="2019-12-10T13:54:40.060Z"
+                                                    />
+                                                </div>
+                                            </Input>
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element"
+                                                ee-type="element"
+                                                landingpage-survey-textbox=""
+                                                data-title="Text box"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"labelPosition":"top","id":7,"created":"2019-12-10T13:54:46.447Z"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[7].$error"
+                                                    aria-live="assertive"
+                                                ></div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-7"
+                                                        >Website</label>
+                                                    <Inputs
+                                                        type="text"
+                                                        name="7"
+                                                        id="textbox-7"
+                                                        ng-model="lpForm.textbox7"
+                                                        created="2019-12-10T13:54:46.447Z"
+                                                    />
+                                                </div>
+                                            </Input>
+                                            <Input
+                                                class="ee_customedit ee_textbox ee_element survey-required-answer"
+                                                ee-type="element"
+                                                landingpage-survey-textbox=""
+                                                data-title="Text box"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"labelPosition":"top","id":8,"created":"2019-12-10T13:54:55.876Z","dataFieldAction":"update","questionType":"text","requiredAnswer":true,"errorMessage":"Please answer the question below","validationMessage":"The format is incorrect"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[8].$error"
+                                                    aria-live="assertive"
+                                                >
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="required"
+                                                    >
+                                                        Please answer the question below
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="ee_textboxcontent"
+                                                >
+                                                    <label
+                                                        class="ee_editable ee_questiontext"
+                                                        for="textbox-8"
+                                                        >Message</label>
+                                                    <Textarea
+                                                        required="required"
+                                                        name="8"
+                                                        id="textbox-8"
+                                                        ng-model="lpForm.textbox8"
+                                                        created="2019-12-10T13:54:55.876Z"
+                                                    ></Textarea>
+                                                </div>
+                                            </Input>
+                                            <div
+                                                class="ee_customedit ee_consent ee_element survey-required-answer"
+                                                ee-type="element"
+                                                landingpage-survey-consent=""
+                                                data-title="Consent"
+                                                data-required="jquery|angular|directive|localisation"
+                                                data-element-settings='{"id":9,"created":"2019-12-10T13:55:35.125Z","requiredAnswer":true,"errorMessage":"Please provide your consent by ticking the box"}'
+                                            >
+                                                <div
+                                                    ng-messages="lpsurveyform[9].$error"
+                                                    aria-live="assertive"
+                                                >
+                                                    <div
+                                                        class="survey-input-validation-message"
+                                                        ng-message="required"
+                                                    >
+                                                        Please provide your consent by ticking the box
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="ee_consentcontent"
+                                                >
+                                                    <div class="option-wrapper">
+                                                        <div class="ee_list_item_label">
+                                                            <span class="input"
+                                                                ><input
+                                                                    type="checkbox"
+                                                                    required="required"
+                                                                    name="9"
+                                                                    id="consent-9"
+                                                                    ng-model="lpForm.consent9"
+                                                                    created="2019-12-10T13:55:35.125Z"
+                                                            /></span>
+                                                            <label
+                                                                class="ee_editable ee_answertext"
+                                                                for="consent-9"
+                                                                >Subscribe to Convert Digital updates</label
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="ee_customedit ee_confirmation animate-none ee_element"
+                                ee-type="container"
+                                data-title="Confirmation"
+                            >
+                                <div class="ee_confirmation_inner">
+                                    <div
+                                        class="ee_container ved-expandcontract"
+                                        ee-type="container"
+                                        ee-confirmation=""
+                                        confirmation-options='{"redirectType":1,"multiple":"multipleTimes","addressBook":{"id":0,"name":null}}'
+                                    >
+                                        <div class="ee_dropzone">
+                                            <div
+                                                class="ee_element ee_textelement"
+                                                ee-type="element"
+                                                data-title="Text"
+                                            >
+                                                <div class="ee_editable">
+                                                    <h1>Thank you<br /></h1>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="ee_element ee_textelement"
+                                                ee-type="element"
+                                                data-title="Text"
+                                            >
+                                                <p >
+                                                    This will be displayed when the user submits the form
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ButtonForm
+                                class="ee_customedit ee_actionbuttons ee_element"
+                                ee-type="element"
+                                landingpage-survey-paging=""
+                                data-title="Action buttons"
+                            >
+                                <div
+                                    class="ee_actionbuttonscontent"
+                                >
+                                    <div
+                                        class="directive-container"
+                                        ee-page-buttons=""
+                                        back-text="Back"
+                                        next-text="Next"
+                                        save-text="Save"
+                                        submit-text="Submit"
+                                        button-position="default"
+                                        button-layout="split"
+                                    >
+                                        <fieldset class="ng-cloak">
+                                            <div class="action-button-container">
+                                                <input
+                                                    class="paging-button-submit"
+                                                    type="submit"
+                                                    value="Submit"
+                                                />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </ButtonForm>
+                        </div>
+                    </div>
+                </Forms>
+            </FormSumits>
+            <script
+                src="/assets/scripts/LandingPagesEmbedded1_2"
+                name="bundle"
+                data-embedded="true"
+            ></script>
+            <script
+                src="/Resources/LandingPagesEmbedded/localised/strings.js"
+                name="localisation"
+                data-embedded="true"
+            ></script>
+        </body>
   )
 }
