@@ -306,13 +306,13 @@ const WrapperHeader = styled.div`
             padding-left: 25px;
             padding-right: 0px;
 
-            animation-name: left-right;
+            animation-name: left-right-service;
             animation-duration: 600ms;
             animation-fill-mode: forwards;
             transform: translateX(-100%) translateY(0) translateZ(0);
             opacity: 0;
           
-            @keyframes left-right {
+            @keyframes left-right-service {
               from {
                 transform: translateX(-100%) translateY(0) translateZ(0);
                 opacity: 0;
@@ -358,13 +358,13 @@ const WrapperHeader = styled.div`
             padding-left: 25px;
             padding-right: 25px;
 
-            animation-name: bottom-top-1;
+            animation-name: bottom-top-service;
             animation-duration: 600ms;
             animation-fill-mode: forwards;
             transform: translateX(0) translateY(100%) translateZ(0);
             opacity: 0;
 
-            @keyframes bottom-top-1 {
+            @keyframes bottom-top-service {
               from {
                 transform: translateX(0) translateY(100%) translateZ(0);
                 opacity: 0;
