@@ -189,7 +189,10 @@ const WrapperHeader = styled.div`
     .menu-list {
       list-style: none;
       display: flex;
-      width: 100%;
+      width: 475px;
+      @media (max-width: 992px) {
+        width: 100%;
+      }
       li.menu-list_item {
         @media (max-width: 992px) {
           .mobileService {
