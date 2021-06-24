@@ -57,7 +57,7 @@ const ProjectTiles = ({ input }) => {
           id="loadMore"
           onClick={handelClickLoadMore}
         >
-          {toggle === false ? "Load more project" : "Load less project"}
+          {toggle === false ? "View Case Studies" : "View Case Studies"}
         </ButtonCustom>
       </MyBtn>
     </ListBlogStyle>
