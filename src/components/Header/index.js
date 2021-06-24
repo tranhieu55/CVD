@@ -171,7 +171,7 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
+    position: ${({ show }) => (show > 101 ? "fixed" : "")};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -185,6 +185,31 @@ const WrapperHeader = styled.div`
     padding-right: 40px;
     padding-top: 0px;
     padding-bottom: 0px;
+
+    @media (min-width: 993px) {
+      animation-name: ${({ scroll, show }) =>
+        scroll === false && show > 101 ? "close-sticky" : "open-sticky"};
+
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+
+      @keyframes close-sticky {
+        from {
+          top: 0;
+        }
+        to {
+          top: -77px;
+        }
+      }
+      @keyframes open-sticky {
+        from {
+          top: -77px;
+        }
+        to {
+          top: 0;
+        }
+      }
+    }
 
     .menu-list {
       list-style: none;
@@ -1351,6 +1376,7 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
+  console.log({ show: show, scroll: scroll })
 
   const linkBackground = backgroundMobile
   let lastScrollTop = 0
