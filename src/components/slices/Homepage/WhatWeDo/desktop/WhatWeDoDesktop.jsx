@@ -152,6 +152,7 @@ const Left = styled.div`
   }
   @media (min-width: 1600px) {
     left: 15%;
+    top: 248px;
   }
   @media (min-width: 1800px) {
     left: 16%;

@@ -81,6 +81,9 @@ const OurLasters = styled.div`
   @media (min-width: 1200px) {
     margin: 50px 57px 37px;
   }
+  @media (min-width: 1240px) {
+    margin: 96px 87px 37px;
+  }
   @media (min-width: 1366px) {
     margin: 50px 87px 37px;
   }
