@@ -1399,6 +1399,7 @@ const Header = ({
   }, [])
   const checkIsMessage =
     dataMenuHeader.edges[0]?.node?.body[0]?.primary?.check_show
+    console.log({checkIsMessage})
   const handleScroll = () => {
     const _show = window.scrollY
     if (_show > 0) {
