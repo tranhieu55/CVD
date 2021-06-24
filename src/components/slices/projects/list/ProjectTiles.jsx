@@ -3,19 +3,19 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  const [limit, setLimit] = useState(4)
-  const [orinal, setOrinal] = useState(0)
+  // const [limit, setLimit] = useState(4)
+  // const [orinal, setOrinal] = useState(0)
   const [toggle, setToggle] = useState(false)
 
-  function setMap() {
-    if (input && limit > input.fields?.length ? input.fields?.length : 0) {
-      setLimit(4)
-      setOrinal(0)
-    } else {
-      setOrinal(orinal + 4)
-      setLimit(limit + 4)
-    }
-  }
+  // function setMap() {
+  //   if (input && limit > input.fields?.length ? input.fields?.length : 0) {
+  //     setLimit(4)
+  //     setOrinal(0)
+  //   } else {
+  //     setOrinal(orinal + 4)
+  //     setLimit(limit + 4)
+  //   }
+  // }
   const handelClickLoadMore = () => {
     setToggle(!toggle)
   }

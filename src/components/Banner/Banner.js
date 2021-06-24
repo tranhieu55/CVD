@@ -3,9 +3,7 @@ import BannerCaseStudy from "./BannerCaseStudy"
 import BannerProjects from "./BannerProjects"
 import BannerWhatWeDo from "./BannerWhatWeDo"
 import BannerStyleguide from "./BannerStyleguide"
-import BannerPartners from "./BannerPartners"
 import BannerBlog from "./BannerBlog"
-import BannerBlogDetails from "./BannerBlogDetails"
 
 function Banner({
   location,

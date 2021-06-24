@@ -458,7 +458,7 @@ export default function Footer({ dataFooter }) {
                 {dataLinkPages[0] ? (
                   dataLinkPages[0]?.fields?.map((item, index) => {
                     return (
-                      <>
+                      <React.Fragment key={index}>
                         {item &&
                         item?.slug_sub_title[0]?.text === "get-in-touch" ? (
                           <span
@@ -481,7 +481,7 @@ export default function Footer({ dataFooter }) {
                               : ""}
                           </Link>
                         )}
-                      </>
+                      </React.Fragment>
                     )
                   })
                 ) : (

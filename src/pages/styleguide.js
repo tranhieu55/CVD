@@ -491,7 +491,7 @@ export default function Styledguid() {
           </div>
         </BoxHeader>
         <SpanContent>
-          This is an example of a <a>text link</a> in a body of text.
+          This is an example of a <a href="#">text link</a> in a body of text.
         </SpanContent>
         <BoxWrapperBold>
           <BoxBold>Bold Intro</BoxBold>

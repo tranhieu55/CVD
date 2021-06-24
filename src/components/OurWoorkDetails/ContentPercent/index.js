@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import CountUp from "react-countup"
 
@@ -9,7 +9,7 @@ export default function ContentPercent(props) {
         {props &&
           props?.input?.fields?.map((item, index) => (
             <Content key={index}>
-              {index != 0 ? (
+              {index !== 0 ? (
                 <TiTle>
                   <CountUp
                     end={

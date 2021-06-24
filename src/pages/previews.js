@@ -1,6 +1,6 @@
 import React from "react"
 import SliceZone from "../utils/SliceZone"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import { createGlobalStyle } from "styled-components"
 import CalibreRegular from "../assets/fonts/CalibreRegular.woff"

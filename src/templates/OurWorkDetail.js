@@ -166,14 +166,6 @@ export const query = graphql`
             }
             type
           }
-          ... on PRISMIC_ProjectsBodyStatistical_ourwork_item_ {
-            type
-            label
-            fields {
-              description_of_statistical
-              number_of_statistical
-            }
-          }
           ... on PRISMIC_ProjectsBodyOne_image {
             primary {
               image
@@ -181,6 +173,56 @@ export const query = graphql`
             }
             label
             type
+          }
+          ... on PRISMIC_ProjectsBodyFull_banner_b {
+            type
+            label
+            primary {
+              background_color_full_banner_b
+              image_full_banner_b
+              title
+            }
+          }
+          ... on PRISMIC_ProjectsBodyBanner_project_detail {
+            type
+            label
+            primary {
+              color_sub_title
+              color_text
+              color_title
+              name_category_of_project1
+              project_description1
+              project_header_image1
+              project_logo1
+              project_name_banner
+            }
+          }
+          ... on PRISMIC_ProjectsBodyText_with_bullet_list {
+            type
+            label
+            fields {
+              bullet_list_left
+              bullet_list_middle
+              bullet_list_right
+              content
+              title
+            }
+          }
+          ... on PRISMIC_ProjectsBody2_column_text {
+            type
+            label
+            primary {
+              text_side_left
+              text_side_right
+            }
+          }
+          ... on PRISMIC_ProjectsBodyStatistical_project {
+            type
+            label
+            fields {
+              description_of_statistical
+              number_of_statistical
+            }
           }
         }
         relationship_to_project_category {

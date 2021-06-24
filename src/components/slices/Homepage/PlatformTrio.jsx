@@ -44,7 +44,6 @@ const PlatformTrio = ({ input }) => {
       {width >= 992 ? (
         <Platforms className="md:overflow-scroll">
           {platforms?.map((platform, i) => {
-            const name = platform.platform[0]?.text
             const desc = platform.description
             const logo = platform.logo.url
             return (
@@ -78,7 +77,6 @@ const PlatformTrio = ({ input }) => {
           className="owl-theme"
         >
           {platforms?.map((platform, i) => {
-            const name = platform.platform[0]?.text
             const desc = platform.description
             const logo = platform.logo.url
             return (

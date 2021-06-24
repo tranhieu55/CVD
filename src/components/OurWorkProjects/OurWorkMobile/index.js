@@ -59,6 +59,7 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
             <DivIMG
               as={Link}
               className="imagefull mask"
+              to="/"
               // to={
               //   "projects/" +
               //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +

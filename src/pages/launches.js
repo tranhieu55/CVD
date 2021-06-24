@@ -1,10 +1,8 @@
 import React from "react"
 import Layout from "../components/Layout"
-import styled from "styled-components"
 import LaunchesContents from "../components/slices/Homepage/Launches"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from "../components/utilities/SEO"
-import CardProject from "../components/CardProject"
 
 const Launches = ({ input }) => {
   const data = useStaticQuery(graphql`

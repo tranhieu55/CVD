@@ -133,7 +133,7 @@ const TitleImageBlog = styled.div`
     left: 35px;
   }
   @media only screen and (min-width: 600px) {
-    bottom: 48px;
+    bottom: 35px;
     left: 63px;
   }
 `
@@ -154,7 +154,7 @@ const Span = styled.span`
 `
 const H3 = styled.h3`
   color: white;
-  font-size: 32px;
+  font-size: 48px;
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -175,7 +175,7 @@ const H3 = styled.h3`
     font-size: 30px;
   }
   @media only screen and (min-width: 992px) {
-    font-size: 32px;
+    font-size: 48px;
   }
 `
 const Img = styled.img`

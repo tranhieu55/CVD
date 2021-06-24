@@ -2,10 +2,6 @@ import React from "react"
 import styled from "styled-components"
 
 const LogosBlock = ({ input }) => {
-  // get data title
-  const dataTitle = input?.primary?.title[0]?.text
-
-  // get data list
   const dataListBlog = input?.fields
 
   return (
@@ -13,9 +9,9 @@ const LogosBlock = ({ input }) => {
       <Title>Trusted by the best.</Title>
       <Body>
         <ListLogo>
-          {dataListBlog.map(element => {
+          {dataListBlog.map((element ,index) => {
             return (
-              <BlockLogo>
+              <BlockLogo key={index}>
                 <IMG src={element?.logo?.url} alt={element?.logo?.alt} />
               </BlockLogo>
             )

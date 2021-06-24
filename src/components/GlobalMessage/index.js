@@ -4,30 +4,6 @@ import { useState } from "react"
 import styled from "styled-components"
 
 export default function GlobalMessage({ parentCallback }) {
-  const data = useStaticQuery(graphql`
-    query GlobalQuery {
-      prismic {
-        allHeaders {
-          edges {
-            node {
-              body {
-                ... on PRISMIC_HeaderBodyGlobal_messing_bar {
-                  type
-                  label
-                  primary {
-                    check_show
-                    link_title
-                    message
-                    mobile_message
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
 
   const dataGlobal = data.prismic?.allHeaders?.edges[0]
     ? data.prismic?.allHeaders?.edges[0]?.node?.body?.filter(x =>
@@ -228,3 +204,27 @@ const Close = styled.div`
     }
   }
 `
+export const data = graphql`
+    query GlobalQuery {
+      prismic {
+        allHeaders {
+          edges {
+            node {
+              body {
+                ... on PRISMIC_HeaderBodyGlobal_messing_bar {
+                  type
+                  label
+                  primary {
+                    check_show
+                    link_title
+                    message
+                    mobile_message
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `

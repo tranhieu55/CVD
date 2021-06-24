@@ -13,7 +13,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
               <OurWork key={key}>
-                <Link href="#">{item?.text}</Link>
+                <Link to="/">{item?.text}</Link>
               </OurWork>
             )
           })}

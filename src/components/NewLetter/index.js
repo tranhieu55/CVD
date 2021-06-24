@@ -33,12 +33,12 @@ export default function NewLetter({ dataFooter }) {
     }
 
     if (
-      at != -1 &&
-      at != 0 &&
-      dot != -1 &&
+      at !== -1 &&
+      at !== 0 &&
+      dot !== -1 &&
       dot > at + 1 &&
       dot < vali.length - 1 &&
-      space == -1
+      space === -1
     ) {
       setError("")
     } else {

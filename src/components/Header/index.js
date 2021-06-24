@@ -171,7 +171,7 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    position: ${({ show }) => (show > 101 ? "fixed" : "")};
+    position: ${({ show }) => (show > 101 ? "fixed" : "inherit" )};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -179,7 +179,7 @@ const WrapperHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    transition: all 0.7s ease;
+    transition: .5s;
     height: 72px;
     padding-left: 40px;
     padding-right: 40px;
@@ -1012,14 +1012,13 @@ const WrapperHeader = styled.div`
   @media only screen and (min-width: 1600px) {
     .wraper-header {
       width: 100%;
-      position: ${({ scroll }) => (scroll === true ? "fixed" : "")};
       box-sizing: border-box;
       z-index: 999 !important;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: transparent;
-      transition: all 0.7s ease;
+      transition: 0.7s;
       height: 72px;
       padding-left: 40px;
       padding-right: 40px;
@@ -1376,8 +1375,6 @@ const Header = ({
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
 
-  console.log({ show: show, scroll: scroll })
-
   const linkBackground = backgroundMobile
   let lastScrollTop = 0
   useEffect(() => {
@@ -1683,10 +1680,13 @@ const Header = ({
                       <Link
                         to={`/${item.slug_menu_item[0]?.text}`}
                         className={`${checkColorText()} colorWhite edit-item-a`}
-                        onClick={() =>
-                          (document.body.style.overflow = "scroll")
+                        onClick={() => { 
+                          console.log(`${item.slug_menu_item[0]?.text}`)
+                          return document.body.style.overflow = "scroll" 
+                        }
                         }
                         onMouseEnter={() => handelHover()}
+                    
                       >
                         {item.title_menu_item[0]?.text === "projects"
                           ? ""
@@ -1772,7 +1772,7 @@ const Header = ({
                                       />
                                       <Link
                                         className="list-title-services"
-                                        to=""
+                                        to="/"
                                       >
                                         {item.title_service_item[0]?.text}
                                       </Link>
