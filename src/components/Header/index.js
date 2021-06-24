@@ -189,7 +189,7 @@ const WrapperHeader = styled.div`
     .menu-list {
       list-style: none;
       display: flex;
-      width: 457px;
+      width: 100%;
       li.menu-list_item {
         @media (max-width: 992px) {
           .mobileService {
@@ -921,6 +921,7 @@ const WrapperHeader = styled.div`
     @supports (-webkit-touch-callout: none) {
       #basic-navbar-nav {
         padding-bottom: 120px;
+        height: calc(100vh + 60px);
       }
     }
     #basic-navbar-nav .header-scroll {
