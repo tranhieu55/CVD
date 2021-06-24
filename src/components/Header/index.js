@@ -852,6 +852,7 @@ const WrapperHeader = styled.div`
     }
     .my-form {
       margin-top: 50px;
+      margin-bottom: 50px;
     }
     .menu-list li.menu-list_item {
       height: 36px;
