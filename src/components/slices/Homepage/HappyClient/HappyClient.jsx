@@ -113,7 +113,7 @@ const HappyClients = styled.div`
     clip-path: polygon(0px 0%, 100% 2px, 100% 96%, 0% 100%);
   }
   @media (min-width: 600px) {
-    clip-path: polygon(0px 0%, 100% 2px, 100% 95%, 0% 100%);
+    clip-path: polygon(0 0,100% 0,100% 92%,0% 100%);
   }
   @media (min-width: 601px) and (max-width: 768px) {
     height: 675px;
@@ -271,6 +271,9 @@ const HappyClients = styled.div`
     }
     @media (min-width: 1216px){
       width: 87px;
+    }
+    @media (min-width: 1601px){
+      width: 57px;
     }
   }
   .owl-theme .owl-dots .owl-dot.active{

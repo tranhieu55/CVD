@@ -155,9 +155,6 @@ const WrapperHeader = styled.div`
   .menu-list_item_text-black:hover {
     color: black;
   }
-  .menu-list_item_text-white:hover {
-    color: #fecf09 !important;
-  }
   .menu-list_item_gold {
     border-bottom: 3px solid transparent !important;
   }

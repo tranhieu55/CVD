@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 
 export default function FormSumit({ input }) {
@@ -428,50 +428,20 @@ export default function FormSumit({ input }) {
       outline: none;
     }
   `
+  const formSubmit = useRef()
+  useEffect(() => {
+    const script = document.createElement('script');
+    
+      script.src = "//r1.dotdigital-pages.com/resources/sharing/embed.js?sharing=lp-embed&domain=r1.dotdigital-pages.com&id=44CQ-FY0%2Fthank-you%22";
+      script.async = true;
+      formSubmit.current.appendChild(script);
+    })
+
   return (
     <FormSumits
-      name="lpsurveyform"
-      ng-controller="landingpage.surveysFormCtrl as formCtrl"
-      ng-submit="onSubmit($event)"
-      method="post"
-      novalidate=""
-      action="/Response/SurveyLP/54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb?pUrl=https%3A%2F%2Fr1.dotmailer-surveys.com%2F54207a5fb757803e44cq6b18858f311efc67-06f09d865ec6800f5gu4527fba754b0312fb"
     >
-      <Forms>
-        {data ? (
-          data.fields?.map((item, index) => {
-            if (item?.type === "text") {
-              return (
-                <Inputs>
-                  <Input size="lg" type="text" placeholder=" " />
-                  <label>
-                    {item?.placeholder?.map(item =>
-                      item?.text ? item?.text : item
-                    )}
-                  </label>
-                </Inputs>
-              )
-            }
-            if (item?.type === "textarea") {
-              return (
-                <Inputs>
-                  <Textarea size="lg" type="text" placeholder=" " />
-                  <label>
-                    {item?.placeholder?.map(item =>
-                      item?.text ? item?.text : item
-                    )}
-                  </label>
-                </Inputs>
-              )
-            }
-            return null
-          })
-        ) : (
-          <></>
-        )}
-        <a href="#">
-          <ButtonForm>Submit</ButtonForm>
-        </a>
+      <Forms  ref={formSubmit} id="form-submit">
+       
       </Forms>
     </FormSumits>
   )

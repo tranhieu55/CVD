@@ -138,7 +138,7 @@ const Messagings = styled.h4`
     margin: 16px 210px 48px;
   }
   @media (min-width: 1600px) {
-    margin: 16px 210px 48px;
+    margin: 0px 210px 48px;
   }
 `
 

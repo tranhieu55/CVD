@@ -80,7 +80,7 @@ const Container = styled.div`
   }
   @media (min-width: 1600px) {
     height: 515px;
-    margin: 96px 0px 88px;
+    margin: 96px 0px 60px;
   }
 `
 
@@ -122,7 +122,7 @@ const Title = styled.h1`
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 56px;
-    margin: 88px 180px 0px 180px;
+    margin: 90px 180px 0px 180px;
   }
 `
 const Cards = styled.div`
