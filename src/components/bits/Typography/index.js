@@ -17,5 +17,6 @@ const P = styled.p`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   line-height: ${({ lineh }) => `${lineh}px`};
   letter-spacing: ${({ lett }) => `${lett}px`};
+  padding-bottom: ${({ pdb }) => `${pdb}px`};
 `
 export default P

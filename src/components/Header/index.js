@@ -1791,7 +1791,12 @@ const Header = ({
                                       </Link>
                                     </Li>
                                     <Hr>
-                                      <hr />
+                                      {dataServices[0]?.fields?.length - 1 ===
+                                      index ? (
+                                        ""
+                                      ) : (
+                                        <hr />
+                                      )}
                                     </Hr>
                                   </React.Fragment>
                                 )
@@ -1851,6 +1856,7 @@ const Header = ({
                                         fontWeight="600"
                                         fontFamily="Calibre Semibold"
                                         className="mobile"
+                                        pdb={5}
                                       >
                                         {item.name_service[0]?.text}
                                       </P>
