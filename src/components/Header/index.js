@@ -1408,11 +1408,16 @@ const Header = ({
 
   // handle change opacity when hover
   const handleChageOpacity = index => {
-    console.log({ isDisPlayModalService })
-    console.log({ isDisPlayModalOurwork })
     if (isDisPlayModalOurwork || isDisPlayModalService || show > 101)
       setActiveHover(index)
   }
+
+  useEffect(() => {
+    if (!isDisPlayModalService) setActiveHover(-1)
+    if (!isDisPlayModalOurwork) setActiveHover(-1)
+
+    //eslint-disable-next-line
+  }, [isDisPlayModalOurwork, isDisPlayModalService])
 
   useEffect(() => {
     if (scroll === true || show === 0) setActiveHover(-1)
