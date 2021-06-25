@@ -135,9 +135,8 @@ const ImageBannerDK = styled.img`
     display: none;
   }
   @media (min-width: 992px) {
-    clip-path: polygon(0 0,100% 0,100% 92%,0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
   }
-
 `
 const ImageBannerMB = styled.img`
   @media (max-width: 600px) {
@@ -172,6 +171,9 @@ const ButtonBanner = styled.button`
     background: #fecf09;
     border: 2px solid #fecf09;
   }
+  -webkit-transition: 600ms ease-in;
+  -moz-transition: 600ms ease-in;
+  -o-transition: 600ms ease-in;
   background-color: ${props => (props.vitri === 0 ? "#fecf09" : "transparent")};
   color: ${props => (props.vitri === 0 ? "#222222" : "#ffffff")};
   @media (max-width: 600px) {
