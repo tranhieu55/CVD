@@ -1510,6 +1510,7 @@ const Header = ({
   const handelHover = () => {
     setIsDisPlayModalService(false)
     setIsDisPlayModalOurwork(false)
+    setActiveHover(-1)
   }
   const handelHoverService = () => {
     setIsDisPlayModalService(true)
@@ -1640,16 +1641,12 @@ const Header = ({
                         : "item-disable"
                     }`}
                     key={index}
-                    onMouseOver={() => handleChageOpacity(index)}
                   >
                     {item && item.slug_menu_item[0]?.text === "services" ? (
                       <>
                         <span
                           onMouseEnter={() => handelHoverService()}
-                          onMouseLeave={() => {
-                            setIsDisPlayModalService(false)
-                            setActiveHover(-1)
-                          }}
+                          onMouseOver={() => handleChageOpacity(index)}
                           className={`${checkColorText()} colorWhite ${
                             isDisPlayModalService === true ? "test" : ""
                           }  hover-ed desktopService`}
@@ -1680,6 +1677,7 @@ const Header = ({
                           }}
                           className={`${checkColorText()} colorWhite `}
                           onMouseEnter={() => handelHoverOurwork()}
+                          onMouseOver={() => handleChageOpacity(index)}
                         >
                           {item.title_menu_item[0]?.text}{" "}
                           <img
