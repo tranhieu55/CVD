@@ -171,7 +171,7 @@ const WrapperHeader = styled.div`
   }
   .wraper-header {
     width: 100%;
-    position: ${({ show }) => (show > 101 ? "fixed" : "inherit" )};
+    position: ${({ show }) => (show > 101 ? "fixed" : "inherit")};
     top: ${({ show }) => (show > 0 ? "0" : "")};
     box-sizing: border-box;
     z-index: 999 !important;
@@ -179,7 +179,7 @@ const WrapperHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    transition: .5s;
+    transition: 0.5s;
     height: 72px;
     padding-left: 40px;
     padding-right: 40px;
@@ -1399,7 +1399,6 @@ const Header = ({
   }, [])
   const checkIsMessage =
     dataMenuHeader.edges[0]?.node?.body[0]?.primary?.check_show
-    console.log({checkIsMessage})
   const handleScroll = () => {
     const _show = window.scrollY
     if (_show > 0) {
@@ -1681,13 +1680,11 @@ const Header = ({
                       <Link
                         to={`/${item.slug_menu_item[0]?.text}`}
                         className={`${checkColorText()} colorWhite edit-item-a`}
-                        onClick={() => { 
+                        onClick={() => {
                           console.log(`${item.slug_menu_item[0]?.text}`)
-                          return document.body.style.overflow = "scroll" 
-                        }
-                        }
+                          return (document.body.style.overflow = "scroll")
+                        }}
                         onMouseEnter={() => handelHover()}
-                    
                       >
                         {item.title_menu_item[0]?.text === "projects"
                           ? ""

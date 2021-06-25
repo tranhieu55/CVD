@@ -62,7 +62,7 @@ const PlatformTrio = ({ input }) => {
                     {RichText.render(desc)}
                   </PlatformDesc>
                   <Buttons>
-                    <ButtonText href="#"> Learn more</ButtonText>
+                    <ButtonText to="#"> Learn more</ButtonText>
                   </Buttons>
                 </Inner>
               </Platform>
@@ -95,7 +95,7 @@ const PlatformTrio = ({ input }) => {
                     {RichText.render(desc)}
                   </PlatformDesc>
                   <Buttons>
-                    <ButtonText href="#"> Learn more</ButtonText>
+                    <ButtonText to="#"> Learn more</ButtonText>
                   </Buttons>
                 </Inner>
               </Platform>

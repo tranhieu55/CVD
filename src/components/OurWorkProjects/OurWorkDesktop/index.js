@@ -21,15 +21,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
         <Grid>
           <ListCaseStudy animation={isDisPlayModalOurwork}>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
-            <DivIMG
-              as={Link}
-              className="imagefull mask"
-              // to={
-              //   "projects/" +
-              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
-              // }
-            >
+            <DivIMG as={Link} className="imagefull mask" to="#">
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
                 objectFit="cover"
