@@ -30,6 +30,7 @@ export default function WhatWeDoDesktop(props) {
     setContent(fields[i]?.content)
     setindicator(i)
   }
+  // update code
 
   return (
     <>
