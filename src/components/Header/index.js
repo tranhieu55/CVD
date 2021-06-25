@@ -1413,8 +1413,7 @@ const Header = ({
   }
 
   useEffect(() => {
-    if (!isDisPlayModalService) setActiveHover(-1)
-    if (!isDisPlayModalOurwork) setActiveHover(-1)
+    if (!isDisPlayModalService && !isDisPlayModalOurwork) setActiveHover(-1)
 
     //eslint-disable-next-line
   }, [isDisPlayModalOurwork, isDisPlayModalService])
