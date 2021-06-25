@@ -1419,6 +1419,7 @@ const Header = ({
     if (scroll === true || show === 0) setActiveHover(-1)
     //eslint-disable-next-line
   }, [scroll, show])
+  // build
 
   const checkColorText = () => {
     if (
