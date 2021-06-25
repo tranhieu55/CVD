@@ -1413,7 +1413,12 @@ const Header = ({
     if (isDisPlayModalOurwork || isDisPlayModalService || show > 101)
       setActiveHover(index)
   }
-  console.log(activeHover)
+
+  useEffect(() => {
+    if (scroll === true || show === 0) setActiveHover(-1)
+    //eslint-disable-next-line
+  }, [scroll, show])
+
   const checkColorText = () => {
     if (
       location === "/styleguide" ||
@@ -1641,6 +1646,10 @@ const Header = ({
                       <>
                         <span
                           onMouseEnter={() => handelHoverService()}
+                          onMouseLeave={() => {
+                            setIsDisPlayModalService(false)
+                            setActiveHover(-1)
+                          }}
                           className={`${checkColorText()} colorWhite ${
                             isDisPlayModalService === true ? "test" : ""
                           }  hover-ed desktopService`}
