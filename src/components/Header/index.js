@@ -32,6 +32,9 @@ const WrapperHeader = styled.div`
     padding: 3px 16px !important;
     border-bottom: 0px solid !important;
   }
+  .item-disable {
+    opacity: 0.3;
+  }
   .menu-list li.menu-list_item span {
     cursor: pointer;
     font-family: "Calibre Semibold";
@@ -1356,6 +1359,8 @@ const Header = ({
   const [isDisPlayModalOurwork, setIsDisPlayModalOurwork] = useState(false)
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
+  const [activeHover, setActiveHover] = useState(-1)
+
   // const [translateHeader, setTranslateHeader] = useState(false)
   const ref = useRef()
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
@@ -1401,6 +1406,14 @@ const Header = ({
     }
   }, [])
 
+  // handle change opacity when hover
+  const handleChageOpacity = index => {
+    console.log({ isDisPlayModalService })
+    console.log({ isDisPlayModalOurwork })
+    if (isDisPlayModalOurwork || isDisPlayModalService || show > 101)
+      setActiveHover(index)
+  }
+  console.log(activeHover)
   const checkColorText = () => {
     if (
       location === "/styleguide" ||
@@ -1616,8 +1629,13 @@ const Header = ({
                       isDisPlayModalService === true ? "dropdown_services" : ""
                     } ${
                       isDisPlayModalOurwork === true ? "dropdown_ourwork" : ""
+                    } ${
+                      activeHover === index || activeHover === -1
+                        ? ""
+                        : "item-disable"
                     }`}
                     key={index}
+                    onMouseOver={() => handleChageOpacity(index)}
                   >
                     {item && item.slug_menu_item[0]?.text === "services" ? (
                       <>
