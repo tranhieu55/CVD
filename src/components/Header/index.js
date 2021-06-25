@@ -1320,22 +1320,8 @@ const TextBtn = styled.span`
     color: #fff;
   }
 `
-const HrMobile = styled.div`
-  @media (max-width: 992px) {
-    display: block;
-  }
-  @media (min-width: 992px) {
-    display: none;
-  }
-`
-const HrDesktop = styled.div`
-  @media (min-width: 992px) {
-    display: block;
-  }
-  @media (max-width: 992px) {
-    display: none;
-  }
-`
+const Hr = styled.div``
+
 const Header = ({
   location,
   dataMenuHeader,
@@ -1775,17 +1761,9 @@ const Header = ({
                                         {item.title_service_item[0]?.text}
                                       </Link>
                                     </Li>
-                                    <HrMobile>
+                                    <Hr>
                                       <hr />
-                                    </HrMobile>
-                                    <HrDesktop>
-                                      {dataServices[0]?.fields?.length - 1 ===
-                                        index || index === 0 ? (
-                                        ""
-                                      ) : (
-                                        <hr />
-                                      )}
-                                    </HrDesktop>
+                                    </Hr>
                                   </React.Fragment>
                                 )
                               })}
