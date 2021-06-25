@@ -1514,7 +1514,7 @@ const Header = ({
   const handelHover = () => {
     setIsDisPlayModalService(false)
     setIsDisPlayModalOurwork(false)
-    setActiveHover(-1)
+    if (show < 101) setActiveHover(-1)
   }
   const handelHoverService = () => {
     setIsDisPlayModalService(true)
@@ -1645,6 +1645,9 @@ const Header = ({
                         : "item-disable"
                     }`}
                     key={index}
+                    onMouseOver={() => {
+                      return show > 101 ? handleChageOpacity(index) : ""
+                    }}
                   >
                     {item && item.slug_menu_item[0]?.text === "services" ? (
                       <>
