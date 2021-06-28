@@ -167,6 +167,8 @@ export const pageQuery = graphql`
                 label
                 primary {
                   title_happy_client
+                  icon_next
+                  icon_prev
                 }
                 fields {
                   logo_client

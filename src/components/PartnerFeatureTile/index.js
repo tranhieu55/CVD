@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 function PartnerFeatureTile({ input }) {
+  console.log({ input })
   return (
     <Container>
       <Body>
@@ -15,13 +16,21 @@ function PartnerFeatureTile({ input }) {
             </IMG>
             <BlockText>
               <Title>
-                {element?.subtitle[0]?.text ? element?.subtitle[0]?.text : ""}
+                {element?.subtitle?.map(item => (item?.text ? item?.text : ""))}
               </Title>
               <Description>
-                {element?.text[0]?.text ? element?.text[0]?.text : ""}
+                {element?.text?.map(item => (item?.text ? item?.text : ""))}
               </Description>
 
-              <ReadMore href="#">View Shopify Portfolio</ReadMore>
+              <ReadMore
+                href={`/${
+                  element?.link_page?._meta?.uid
+                    ? element?.link_page?._meta?.uid
+                    : "#"
+                }`}
+              >
+                {element?.name_link?.map(item => item.text)}
+              </ReadMore>
             </BlockText>
           </Grid>
         ))}
