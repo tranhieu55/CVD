@@ -15,6 +15,8 @@ function CardPartnerDetails({ setShowDetails, data }) {
   const dataLogoAlt = data && data !== null ? data?.partner_logo?.alt : ""
   const dataTitle = data && data !== null ? data?.partner_name[0]?.text : ""
 
+  // cd
+
   return (
     <>
       {data && data !== null ? (
