@@ -1,7 +1,6 @@
 import React from "react"
 import SliceZone from "../utils/SliceZone"
 import { graphql } from "gatsby"
-
 import { createGlobalStyle } from "styled-components"
 import CalibreRegular from "../assets/fonts/CalibreRegular.woff"
 import CalibreRegularItalic from "../assets/fonts/CalibreRegularItalic.woff"
@@ -121,14 +120,12 @@ font-weight: normal;
 src: local('Calibre Black'), url(${CalibreBlack}) format('woff');
 }
 
-
 @font-face {
 font-family: 'Helvetica Neue Regular';
 font-style: normal;
 font-weight: normal;
 src: local('Helvetica Neue Regular'), url(${HelveticaNeue_Regular}) format('ttf');
 }
-
 
 @font-face {
 font-family: 'Calibre Black Italic';
@@ -154,6 +151,7 @@ src: local('Font Awesome 5 Brands Regular'), url(${FontAwesome5BrandsRegular}) f
 `
 
 function Preview({ data: { prismic } }) {
+  // build
   const data =
     prismic && prismic?.allNotfound_pages?.edges[0]?.node
       ? prismic?.allNotfound_pages?.edges[0]?.node
