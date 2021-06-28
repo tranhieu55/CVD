@@ -99,7 +99,7 @@ const Title = styled.h1`
   height: 72px;
   width: 100%;
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 80px;
   font-weight: bold;
   letter-spacing: -2px;

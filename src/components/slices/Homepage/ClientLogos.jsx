@@ -162,7 +162,7 @@ const Heading = styled.h2`
   text-transform: uppercase;
   height: 14px;
   width: 156px;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   margin: 0 auto;
   @media (max-width: 600px) {
     font-size: 14px;

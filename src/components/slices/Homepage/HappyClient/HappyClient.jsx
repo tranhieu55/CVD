@@ -322,7 +322,7 @@ const HappyClients = styled.div`
 const Title = styled.h1`
   height: 72px;
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 80px;
   font-weight: bold;
   letter-spacing: -2px;
@@ -359,10 +359,12 @@ const Slider = styled.div`
 
 const Img = styled.img`
   height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
-  width: ${props => props.dieukien === "logo client" ? "162px" : "156px"} !important;
+  width: ${props =>
+    props.dieukien === "logo client" ? "162px" : "156px"} !important;
   @media (max-width: 600px) {
     height: ${props => (props.dieukien === "logo client" ? "24px" : "33px")};
-    width: ${props => props.dieukien === "logo client" ? "162px" : "156px"} !important;
+    width: ${props =>
+      props.dieukien === "logo client" ? "162px" : "156px"} !important;
   }
 `
 const Text = styled.div`

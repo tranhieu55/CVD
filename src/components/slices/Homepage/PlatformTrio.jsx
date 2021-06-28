@@ -251,7 +251,7 @@ const Title = styled.h2`
   line-height: 72px;
   text-align: center;
   margin: auto;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   position: relative;
   top: -79px;
   padding-top: 9px;

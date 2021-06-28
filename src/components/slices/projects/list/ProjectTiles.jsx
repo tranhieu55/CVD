@@ -126,7 +126,7 @@ const SubTitle = styled.span`
 `
 const Title = styled.p`
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;
@@ -237,7 +237,7 @@ const Span = styled.span`
 `
 const H3 = styled.h3`
   color: #ffffff;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: 0;

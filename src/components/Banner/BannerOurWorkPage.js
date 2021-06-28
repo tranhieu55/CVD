@@ -262,11 +262,11 @@ const H1 = styled.h1`
   font-weight: bold;
   font-size: 150px;
   color: ${({ color }) => (color ? color : "#ffffff")};
-  font-family: Calibre Bold;
+  font-family: Calibre;
 
   @media (max-width: 600px) {
     font-size: 32px;
-    font-family: "Calibre Bold";
+    font-family: "Calibre";
     letter-spacing: -0.5px;
     padding-top: 54px;
     margin-bottom: 0px;
@@ -287,7 +287,7 @@ const H1 = styled.h1`
   }
   @media (min-width: 1200px) {
     font-size: 64px;
-    font-family: "Calibre Bold";
+    font-family: "Calibre";
     font-weight: bold;
     line-height: 60px;
     margin-bottom: 0px;

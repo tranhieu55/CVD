@@ -163,10 +163,10 @@ const H3 = styled.h3`
   margin: 0;
   padding: 0;
   line-height: 0.9;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   @media only screen and (max-width: 600px) {
     color: #ffffff;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 0;

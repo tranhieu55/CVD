@@ -20,7 +20,7 @@ const WraperBannerProjects = styled.div`
     h2 {
       font-size: 40px;
       color: #101010;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
       font-weight: bold;
       margin-bottom: 20px !important;
       line-height: 26px;
@@ -481,7 +481,7 @@ const BannerBlog = () => {
           <H2
             fz="64"
             mrb_rem="1.5"
-            fontFamily="Calibre Bold"
+            fontFamily="Calibre"
             lineh="56"
             lett="-1"
             col="#101010"

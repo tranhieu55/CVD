@@ -15,7 +15,7 @@ function Launches({ input }) {
       </Container>
       <ListPost>
         {dataListPost?.map((element, index) => (
-          <a href={`/${element?.link_details?._meta?.uid}`} >
+          <a href={`/${element?.link_details?._meta?.uid}`}>
             <Img
               key={index}
               src={element?.image_item.url}
@@ -93,7 +93,7 @@ const SubTitle = styled.h4`
 const Title = styled.h1`
   box-sizing: border-box;
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;

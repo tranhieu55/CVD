@@ -213,7 +213,7 @@ const Wrapper = styled.div`
 const Heading = styled.h2`
   margin: 0 auto;
   color: #101010;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;

@@ -26,7 +26,7 @@ export default function BannerContacts({ title, content, button, Phones }) {
 const Test = styled.div`
   color: red;
   font-size: 30px;
-  font-family: Calibre Bold;
+  font-family: "Calibre";
 `
 
 const Banner = styled.div`
@@ -89,7 +89,7 @@ const ContentBanner = styled.div`
 `
 const Title = styled.h1`
   color: #ffffff;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: 0;

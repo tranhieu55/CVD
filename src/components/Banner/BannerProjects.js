@@ -21,7 +21,7 @@ const WraperBannerProjects = styled.div`
     h2 {
       font-size: 40px;
       color: #101010;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
       letter-spacing: -1px;
       margin-bottom: 10px !important;
     }
@@ -449,14 +449,20 @@ const BannerProjects = () => {
       }
     }
   `)
-  const listCT = getListCateProject ? getListCateProject?.prismic?.allOurwork_pages?.edges[0]?.node?.body?.filter(item => item.type ? item.type === "banner_our_work_page" : "") : [];
-  const listCategories = listCT ? listCT[0]?.fields?.filter(
-    x => x.category_project_item ? x.category_project_item : ""
-  ) : [];
+  const listCT = getListCateProject
+    ? getListCateProject?.prismic?.allOurwork_pages?.edges[0]?.node?.body?.filter(
+        item => (item.type ? item.type === "banner_our_work_page" : "")
+      )
+    : []
+  const listCategories = listCT
+    ? listCT[0]?.fields?.filter(x =>
+        x.category_project_item ? x.category_project_item : ""
+      )
+    : []
 
-  const dispatch = useContext(OurWorkDispatchContext);
-  const state = useContext(OurWorkStateContext);
-  const [filter, setFilter] = useState();
+  const dispatch = useContext(OurWorkDispatchContext)
+  const state = useContext(OurWorkStateContext)
+  const [filter, setFilter] = useState()
   function setFilters(index) {
     setFilter(index)
   }
@@ -472,58 +478,66 @@ const BannerProjects = () => {
         >
           experience
         </P>
-        <H2 fz="64" mrb_rem="1" fontFamily="Calibre Bold">
+        <H2 fz="64" mrb_rem="1" fontFamily="Calibre">
           Our Work
         </H2>
-        {listCategories ? 
+        {listCategories ? (
           <div className="row">
-          <ListCategory className="col-md-10" show={filter}>
-            <CategoryItems
-              className="reset_filters_moblie"
-              onClick={() => dispatch({ type: "RESET_FILTER" })}
-            >
-              <Link className="active_modify">Filters</Link>
-            </CategoryItems>
-            {listCategories.map((item, index) => (
+            <ListCategory className="col-md-10" show={filter}>
+              <CategoryItems
+                className="reset_filters_moblie"
+                onClick={() => dispatch({ type: "RESET_FILTER" })}
+              >
+                <Link className="active_modify">Filters</Link>
+              </CategoryItems>
+              {listCategories.map((item, index) => (
+                <CategoryItem
+                  key={index}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_FILTER_ITEM",
+                      value: item.category_project_item?._meta?.uid
+                        ? item.category_project_item?._meta?.uid
+                        : "",
+                    })
+                    setFilters(index)
+                  }}
+                >
+                  {item.category_project_item?.category_name[0] ? (
+                    <Link
+                      className={
+                        [...state.listSelected].includes(
+                          item.category_project_item?._meta?.uid
+                            ? item.category_project_item?._meta?.uid
+                            : ""
+                        ) && "active"
+                      }
+                    >
+                      {item.category_project_item?.category_name[0]?.text
+                        ? item.category_project_item?.category_name[0]?.text
+                        : ""}
+                    </Link>
+                  ) : (
+                    <></>
+                  )}
+                </CategoryItem>
+              ))}
               <CategoryItem
-                key={index}
+                className={`${
+                  filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
+                }`}
                 onClick={() => {
-                  dispatch({
-                    type: "ADD_FILTER_ITEM",
-                    value: item.category_project_item?._meta?.uid ? item.category_project_item?._meta?.uid : "",
-                  })
-                  setFilters(index)
+                  dispatch({ type: "RESET_FILTER" })
+                  setFilters(0)
                 }}
               >
-                {item.category_project_item?.category_name[0] ? 
-                <Link
-                  className={
-                    [...state.listSelected].includes(
-                      item.category_project_item?._meta?.uid ? item.category_project_item?._meta?.uid : ""
-                    ) && "active"
-                  }
-                >
-                  {item.category_project_item?.category_name[0]?.text ? item.category_project_item?.category_name[0]?.text : ""}
-                </Link>
-                : <></>
-                }
+                <Link className="active_modify">Reset Filters</Link>
               </CategoryItem>
-            ))}
-            <CategoryItem
-              className={`${
-                filter && filter !== 0 ? "reset_filters" : "not_reset_filters"
-              }`}
-              onClick={() => {
-                dispatch({ type: "RESET_FILTER" })
-                setFilters(0)
-              }}
-            >
-              <Link className="active_modify">Reset Filters</Link>
-            </CategoryItem>
-          </ListCategory>
-        </div>
-        : <></>
-        }
+            </ListCategory>
+          </div>
+        ) : (
+          <></>
+        )}
       </BannerProjectsContent>
     </WraperBannerProjects>
   )

@@ -1,129 +1,137 @@
 @font-face {
-    font-family: 'Calibre Regular';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Calibre Regular'), url("../assets/fonts/CalibreRegular.woff") format('woff');
+  font-family: "Calibre Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Calibre Regular"),
+    url("../assets/fonts/CalibreRegular.woff") format("woff");
 }
 @font-face {
-font-family: 'Calibre Regular Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Regular Italic'), url("../assets/fonts/CalibreRegularItalic.woff") format('woff');
-}
-
-@font-face {
-font-family: 'Calibre Thin';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Thin'), url("../assets/fonts/CalibreThin.woff") format('woff');
+  font-family: "Calibre Regular Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Regular Italic"),
+    url("../assets/fonts/CalibreRegularItalic.woff") format("woff");
 }
 
 @font-face {
-font-family: 'Calibre Thin Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Thin Italic'), url("../assets/fonts/CalibreThinItalic.woff") format('woff');
+  font-family: "Calibre Thin";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Thin"),
+    url("../assets/fonts/CalibreThin.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Light';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Light'), url("../assets/fonts/CalibreLight.woff") format('woff');
+  font-family: "Calibre Thin Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Thin Italic"),
+    url("../assets/fonts/CalibreThinItalic.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Light Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Light Italic'), url("../assets/fonts/CalibreLightItalic.woff") format('woff');
+  font-family: "Calibre Light";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Light"),
+    url("../assets/fonts/CalibreLight.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Medium';
-font-style: normal;
-font-weight: 500;
-src: local('Calibre Medium'), url("../assets/fonts/CalibreMedium.woff") format('woff');
+  font-family: "Calibre Light Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Light Italic"),
+    url("../assets/fonts/CalibreLightItalic.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Medium Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Medium Italic'), url("../assets/fonts/CalibreMediumItalic.woff") format('woff');
+  font-family: "Calibre Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Calibre Medium"),
+    url("../assets/fonts/CalibreMedium.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Semibold';
-font-style: normal;
-font-weight: 600;
-src: local('Calibre Semibold'), url("../assets/fonts/CalibreSemibold.woff") format('woff');
+  font-family: "Calibre Medium Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Medium Italic"),
+    url("../assets/fonts/CalibreMediumItalic.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Semibold Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Semibold Italic'), url("../assets/fonts/CalibreSemiboldItalic.woff") format('woff');
+  font-family: "Calibre Semibold";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Calibre Semibold"),
+    url("../assets/fonts/CalibreSemibold.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Bold';
-font-style: normal;
-font-weight: bold !important;
-src: local('Calibre Bold'), url("../assets/fonts/CalibreBold.woff") format('woff');
+  font-family: "Calibre Semibold Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Semibold Italic"),
+    url("../assets/fonts/CalibreSemiboldItalic.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Bold Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Bold Italic'), url("../assets/fonts/CalibreBoldItalic.woff") format('woff');
+  font-family: "Calibre";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Calibre Bold"),
+    url("../assets/fonts/CalibreBold.woff") format("woff");
 }
-
 
 @font-face {
-font-family: 'Calibre Black';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Black'), url("../assets/fonts/CalibreBlack.woff") format('woff');
+  font-family: "Calibre Bold Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Bold Italic"),
+    url("../assets/fonts/CalibreBoldItalic.woff") format("woff");
 }
 
-
 @font-face {
-font-family: 'Helvetica Neue Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Helvetica Neue Regular'), url("../assets/fonts/HelveticaNeue-Regular.ttf") format('ttf');
+  font-family: "Calibre Black";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Black"),
+    url("../assets/fonts/CalibreBlack.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Helvetica Neue Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Helvetica Neue Regular"),
+    url("../assets/fonts/HelveticaNeue-Regular.ttf") format("ttf");
+}
 
 @font-face {
-font-family: 'Calibre Black Italic';
-font-style: normal;
-font-weight: normal;
-src: local('Calibre Black Italic'), url("../assets/fonts/CalibreBlackItalic.woff") format('woff');
+  font-family: "Calibre Black Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Calibre Black Italic"),
+    url("../assets/fonts/CalibreBlackItalic.woff") format("woff");
 }
 @font-face {
-font-family: 'Font Awesome 5 Pro Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Font Awesome 5 Pro Regular'), url("../assets/fonts/FontAwesome5Pro-Regular.woff") format('woff');
+  font-family: "Font Awesome 5 Pro Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Font Awesome 5 Pro Regular"),
+    url("../assets/fonts/FontAwesome5Pro-Regular.woff") format("woff");
 }
 @font-face {
-font-family: 'Font Awesome 5 Brands Regular';
-font-style: normal;
-font-weight: normal;
-src: local('Font Awesome 5 Brands Regular'), url("../assets/fonts/FontAwesome5Brands-Regular.woff") format('woff');
+  font-family: "Font Awesome 5 Brands Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Font Awesome 5 Brands Regular"),
+    url("../assets/fonts/FontAwesome5Brands-Regular.woff") format("woff");
 }
-*,*::after, *::before { 
-  box-sizing : border-box;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }

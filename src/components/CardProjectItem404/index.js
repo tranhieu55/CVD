@@ -243,7 +243,7 @@ const Span = styled.span`
 const H3 = styled.h3`
   color: #ffffff;
   font-size: ${({ resize }) => (resize ? "40px" : "48px")};
-  font-family: "Calibre Bold";
+  font-family: "Calibre";
   font-weight: bold;
   margin: 0;
   padding: 0;

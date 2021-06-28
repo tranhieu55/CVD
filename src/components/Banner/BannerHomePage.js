@@ -60,7 +60,7 @@ const Title = styled.h1`
   height: 275px;
   width: 659px;
   color: #ffffff;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 104px;
   font-weight: bold;
   letter-spacing: -0.5px;
@@ -69,7 +69,7 @@ const Title = styled.h1`
     height: auto;
     width: 100%;
     color: #ffffff;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 48px;
     font-weight: bold;
     letter-spacing: -0.5px;
@@ -83,7 +83,7 @@ const Title = styled.h1`
     height: auto;
     width: 301px;
     color: #ffffff;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 49px;
     font-weight: bold;
     letter-spacing: -0.5px;
@@ -104,7 +104,7 @@ const Title = styled.h1`
     height: 275px;
     width: 659px;
     color: #ffffff;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 104px;
     font-weight: bold;
     letter-spacing: -0.5px;

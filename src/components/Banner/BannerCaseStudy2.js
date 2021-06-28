@@ -131,7 +131,7 @@ const Sub = styled.p`
 `
 const Title = styled.h1`
   color:  color={data?.color_text ? data?.color_text : "#101010"} ;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;

@@ -344,7 +344,7 @@ export default function Styledguid() {
                 textAlign="left"
                 letSpace="-1.5"
                 fontSize="80px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -352,7 +352,7 @@ export default function Styledguid() {
                 textAlign="left"
                 letSpace="-1"
                 fontSize="64px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -394,7 +394,7 @@ export default function Styledguid() {
                 textAlign="center"
                 letSpace="-1.5"
                 fontSize="80px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -402,7 +402,7 @@ export default function Styledguid() {
                 textAlign="center"
                 letSpace="-1"
                 fontSize="64px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -444,7 +444,7 @@ export default function Styledguid() {
                 textAlign="right"
                 letSpace="-1.5"
                 fontSize="80px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -452,7 +452,7 @@ export default function Styledguid() {
                 textAlign="right"
                 letSpace="-1"
                 fontSize="64px"
-                fontFamily="Calibre Bold"
+                fontFamily="Calibre"
                 color="#101010"
               />
               <Title
@@ -505,14 +505,14 @@ export default function Styledguid() {
             <Mobile
               name="Mob Heading 1"
               letSpace="-1"
-              fontFamily="Calibre Bold"
+              fontFamily="Calibre"
               fontSize="40px"
               color="#101010"
             />
             <Mobile
               name="Mob Heading 2"
               letSpace="-0.5"
-              fontFamily="Calibre Bold"
+              fontFamily="Calibre"
               fontSize="32px"
               color="#101010"
             />

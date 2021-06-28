@@ -124,7 +124,7 @@ const Title = styled.h2`
   height: 62px;
   width: 295px;
   color: #ffffff;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;
@@ -142,7 +142,7 @@ const Left = styled.div`
   top: 19%;
   left: 17%;
   .editFont {
-    font-family: "Calibre Bold";
+    font-family: "Calibre";
     font-weight: bold;
   }
   @media (min-width: 992px) {

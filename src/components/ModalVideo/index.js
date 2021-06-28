@@ -107,7 +107,7 @@ const Modal = styled.div`
     content: "CLOSE VIDEO";
     color: white;
     margin-right: 16px;
-    font-family: "Calibre Bold";
+    font-family: "Calibre";
     font-size: 16px;
     z-index: 1123;
     @media (max-width: 600px) {

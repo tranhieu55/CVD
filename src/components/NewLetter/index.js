@@ -107,7 +107,7 @@ const Container = styled.div`
 `
 const Title = styled.h1`
   color: #ffffff;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 32px;
   font-weight: bold;
   letter-spacing: -0.5px;
@@ -133,7 +133,7 @@ const Title = styled.h1`
   }
   @media (min-width: 1280px) {
     color: #ffffff;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 32px;
     font-weight: bold;
     letter-spacing: -0.5px;

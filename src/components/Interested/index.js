@@ -178,7 +178,7 @@ export default function Interested({ dataFooter }) {
     <>
       <InterestedStyle dataBGR={dataBGR ? dataBGR : ""}>
         <BoxInterested>
-          <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
+          <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre">
             {dataInterestedTitle ? dataInterestedTitle : ""}
           </H2>
           <P lineh="30" fontFamily="Calibre Regular" mrb="30">

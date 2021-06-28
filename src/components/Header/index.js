@@ -563,10 +563,10 @@ const WrapperHeader = styled.div`
     position: absolute;
     top: 0px;
     .menu-list_item_text-white {
-      font-family: "Calibre Bold" !important;
+      font-family: "Calibre" !important;
     }
     .menu-list_item_text-black {
-      font-family: "Calibre Bold" !important;
+      font-family: "Calibre" !important;
     }
     .icon-mobile-right {
       display: inline-block;
@@ -666,7 +666,7 @@ const WrapperHeader = styled.div`
       p {
         color: #101010;
         font-size: 32px;
-        font-family: "Calibre Bold";
+        font-family: "Calibre";
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;
@@ -758,7 +758,7 @@ const WrapperHeader = styled.div`
       p {
         color: #101010;
         font-size: 28px;
-        font-family: "Calibre Bold";
+        font-family: "Calibre";
         margin-bottom: 0px;
         text-transform: none;
         height: 28px;
@@ -816,7 +816,7 @@ const WrapperHeader = styled.div`
       p {
         color: #101010;
         font-size: 32px;
-        font-family: "Calibre Bold";
+        font-family: "Calibre";
         margin-bottom: 0px;
         text-transform: none;
         height: 32px;

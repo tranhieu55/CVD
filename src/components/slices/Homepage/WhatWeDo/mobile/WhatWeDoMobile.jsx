@@ -17,8 +17,7 @@ export default function WhatWeDoMobile(props) {
     : ""
 
   useEffect(() => {
-    setTimeout(() => {
-    }, 3000)
+    setTimeout(() => {}, 3000)
   })
 
   // Declare a new state variable, which we'll call "count"
@@ -97,7 +96,7 @@ const Container = styled.div`
   position: relative;
   display: block;
   .editFont {
-    font-family: "Calibre Bold" !important;
+    font-family: "Calibre" !important;
   }
   @media (min-width: 993px) {
     display: none;
@@ -124,7 +123,7 @@ const Title = styled.h2`
   line-height: 30px;
   height: 30px;
   width: 100%;
-  font-family: Calibre Bold;
+  font-family: Calibre;
   margin-bottom: 20px;
 `
 

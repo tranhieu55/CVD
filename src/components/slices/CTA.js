@@ -29,7 +29,7 @@ const InterestedStyle = styled.div`
     margin-bottom: 0px;
     max-width: 500px;
     margin: auto;
-    font-family: "Calibre Bold";
+    font-family: "Calibre";
   }
   p {
     /* font-size: 24px; */
@@ -67,7 +67,7 @@ const InterestedStyle = styled.div`
       max-width: 260px;
       margin: auto;
       line-height: 33px;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
       letter-spacing: -0.5px;
     }
     p {
@@ -161,7 +161,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 320px;
       margin: auto;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
     }
     p {
       font-size: 20px;
@@ -174,7 +174,7 @@ const InterestedStyle = styled.div`
       font-size: 40px;
       max-width: 325px;
       margin: auto;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
     }
     p {
       margin-top: 20px;
@@ -188,7 +188,7 @@ const InterestedStyle = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
     }
     p {
       font-size: 24px;
@@ -201,11 +201,11 @@ const InterestedStyle = styled.div`
       font-size: 64px;
       max-width: 500px;
       margin: auto;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
       color: #ffffff;
       font-weight: bold;
       line-height: 54px;
-      font-family: "Calibre Bold";
+      font-family: "Calibre";
       letter-spacing: -1px;
     }
     p {
@@ -243,7 +243,7 @@ export default function CTA({ input }) {
   return (
     <InterestedStyle>
       <BoxInterested>
-        <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre Bold">
+        <H2 lett="-1" fz="64" lineh="54" fontFamily="Calibre">
           {RichText.asText(title)}
         </H2>
         <P lineh="30" fontFamily="Calibre Regular" mrb="30">

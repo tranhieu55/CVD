@@ -164,7 +164,7 @@ const Sub = styled.p`
 const Title = styled.h2`
   margin: 0;
   color: ${({ color }) => (color ? color : "#101010")};
-  font-family: Calibre Bold;
+  font-family: Calibre;
   font-size: 64px;
   font-weight: bold;
   letter-spacing: -1px;
@@ -173,7 +173,7 @@ const Title = styled.h2`
 
   @media (max-width: 600px) {
     color: #101010;
-    font-family: Calibre Bold;
+    font-family: Calibre;
     font-size: 40px;
     font-weight: 700;
     letter-spacing: -1px;

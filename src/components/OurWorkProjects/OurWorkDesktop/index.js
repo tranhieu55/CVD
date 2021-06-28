@@ -298,7 +298,7 @@ const TitleImageBlog = styled.div`
 const H3 = styled.h3`
   color: white;
   font-size: 48px;
-  font-family: "Calibre Bold";
+  font-family: "Calibre";
   margin: 0;
   padding: 0;
   @media (max-width: 1200px) {

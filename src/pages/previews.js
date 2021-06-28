@@ -99,9 +99,9 @@ src: local('Calibre Semibold Italic'), url(${CalibreSemiboldItalic}) format('wof
 
 
 @font-face {
-font-family: 'Calibre Bold';
+font-family: 'Calibre';
 font-style: normal;
-font-weight: bold;
+font-weight: 900;
 src: local('Calibre Bold'), url(${CalibreBold}) format('woff');
 }
 
