@@ -940,7 +940,7 @@ const WrapperHeader = styled.div`
       background-repeat: no-repeat;
       background-size: cover;
       top: 0px;
-      position: absolute;
+      position: fixed;
       width: 100vw;
       padding: 48px;
       overflow: auto;

@@ -133,6 +133,10 @@ const TitleImageBlog = styled.div`
     left: 35px;
   }
   @media only screen and (min-width: 600px) {
+    bottom: 35px;
+    left: 63px;
+  }
+  @media only screen and (min-width: 768px) {
     bottom: 43px;
     left: 63px;
   }
