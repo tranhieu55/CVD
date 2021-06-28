@@ -3,88 +3,88 @@ import styled from "styled-components"
 import { RichText } from "prismic-reactjs"
 
 export default function WhatWeDoDesktop(props) {
-  const { fields } = props.props.input
-  const { input } = props.props
+    const { fields } = props.props.input
+    const { input } = props.props
 
-  const defaultService = JSON.stringify(fields[0]?.service[0]?.text)
-  const defaultContent = fields[0]?.content
-  const defaultIndicator = 0
+    const defaultService = JSON.stringify(fields[0]?.service[0]?.text)
+    const defaultContent = fields[0]?.content
+    const defaultIndicator = 0
 
-  const heading = input
-    ? input.primary?.title[0]?.text
-      ? input.primary?.title[0]?.text
-      : ""
-    : []
-
-  useEffect(() => {
-    setTimeout(() => {}, 3000)
-  })
-
-  // Declare a new state variable, which we'll call "count"
-  const [service, setService] = useState(defaultService)
-  const [content, setContent] = useState(defaultContent)
-  const [indicator, setindicator] = useState(defaultIndicator)
-
-  function updateSelected(i) {
-    setService(fields[i]?.service[0]?.text)
-    setContent(fields[i]?.content)
-    setindicator(i)
-  }
-  // update code
-
-  return (
-    <>
-      <Image
-        src={
-          input
-            ? input?.primary?.background_image_what_we_do?.url
-              ? input?.primary?.background_image_what_we_do?.url
-              : ""
+    const heading = input
+        ? input.primary?.title[0]?.text
+            ? input.primary?.title[0]?.text
             : ""
-        }
-      ></Image>
-      <ContainerDesktop>
-        <Contentleft>
-          <Left>
-            <Title>{heading}</Title>
-            {fields ? (
-              fields?.map((service, i) => {
-                const title = service?.service[0]?.text
-                  ? service?.service[0]?.text
-                  : ""
-                return (
-                  <React.Fragment key={i}>
-                    <Service
-                      onClick={() => updateSelected(i)}
-                      indicator={i === indicator}
-                      className={indicator === i ? "editFont" : ""}
-                    >
-                      {title ? title : ""}
-                    </Service>
-                  </React.Fragment>
-                )
-              })
-            ) : (
-              <></>
-            )}
-          </Left>
-        </Contentleft>
-        <ConTentRight>
-          <Right>
-            <UpperContent>
-              <Content>{RichText?.render(content)}</Content>
+        : []
 
-              <a href="#">
-                <LearnMore>
-                  <span>Learn more</span>
-                </LearnMore>
-              </a>
-            </UpperContent>
-          </Right>
-        </ConTentRight>
-      </ContainerDesktop>
-    </>
-  )
+    useEffect(() => {
+        setTimeout(() => { }, 3000)
+    })
+
+    // Declare a new state variable, which we'll call "count"
+    const [service, setService] = useState(defaultService)
+    const [content, setContent] = useState(defaultContent)
+    const [indicator, setindicator] = useState(defaultIndicator)
+
+    function updateSelected(i) {
+        setService(fields[i]?.service[0]?.text)
+        setContent(fields[i]?.content)
+        setindicator(i)
+    }
+    // update code
+
+    return (
+        <>
+            <Image
+                src={
+                    input
+                        ? input?.primary?.background_image_what_we_do?.url
+                            ? input?.primary?.background_image_what_we_do?.url
+                            : ""
+                        : ""
+                }
+            ></Image>
+            <ContainerDesktop>
+                <Contentleft>
+                    <Left>
+                        <Title>{heading}</Title>
+                        {fields ? (
+                            fields?.map((service, i) => {
+                                const title = service?.service[0]?.text
+                                    ? service?.service[0]?.text
+                                    : ""
+                                return (
+                                    <React.Fragment key={i}>
+                                        <Service
+                                            onClick={() => updateSelected(i)}
+                                            indicator={i === indicator}
+                                            className={indicator === i ? "editFont" : ""}
+                                        >
+                                            {title ? title : ""}
+                                        </Service>
+                                    </React.Fragment>
+                                )
+                            })
+                        ) : (
+                            <></>
+                        )}
+                    </Left>
+                </Contentleft>
+                <ConTentRight>
+                    <Right>
+                        <UpperContent>
+                            <Content>{RichText?.render(content)}</Content>
+
+                            <a href="#">
+                                <LearnMore>
+                                    <span>Learn more</span>
+                                </LearnMore>
+                            </a>
+                        </UpperContent>
+                    </Right>
+                </ConTentRight>
+            </ContainerDesktop>
+        </>
+    )
 }
 
 const UpperContent = styled.div`
@@ -153,7 +153,7 @@ const Left = styled.div`
   }
   @media (min-width: 1600px) {
     left: 15%;
-    top: 248px;
+    top: 210px;
   }
   @media (min-width: 1800px) {
     left: 16%;

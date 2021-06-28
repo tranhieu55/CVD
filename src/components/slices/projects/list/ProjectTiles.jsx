@@ -3,65 +3,65 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const ProjectTiles = ({ input }) => {
-  // const [limit, setLimit] = useState(4)
-  // const [orinal, setOrinal] = useState(0)
-  const [toggle, setToggle] = useState(false)
+    // const [limit, setLimit] = useState(4)
+    // const [orinal, setOrinal] = useState(0)
+    const [toggle, setToggle] = useState(false)
 
-  // function setMap() {
-  //   if (input && limit > input.fields?.length ? input.fields?.length : 0) {
-  //     setLimit(4)
-  //     setOrinal(0)
-  //   } else {
-  //     setOrinal(orinal + 4)
-  //     setLimit(limit + 4)
-  //   }
-  // }
-  const handelClickLoadMore = () => {
-    setToggle(!toggle)
-  }
-  return (
-    <ListBlogStyle>
-      <SubTitle>OUR WORK</SubTitle>
-      <Title>Case Studies</Title>
-      <Rows className="row">
-        {input.fields
-          ?.slice(0, toggle ? input?.length : 4)
-          ?.map((edge, index) => (
-            <Colum
-              className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
-              key={index}
-            >
-              <DivIMG
-                as={Link}
-                to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
-              >
-                <Img
-                  alt={edge.project_item.project_header_image.alt}
-                  src={edge.project_item.project_header_image.url}
-                />
-                <Phur></Phur>
-              </DivIMG>
-              <TitleImageBlog>
-                <Span>{edge.project_item.name_category_of_project}</Span>
-                <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
-              </TitleImageBlog>
-            </Colum>
-          ))}
-      </Rows>
-      <MyBtn>
-        <ButtonCustom
-          wt="212"
-          ht="48"
-          lineh="48"
-          className="btn-studies"
-          id="loadMore"
-          onClick={handelClickLoadMore}
-        >
-          {toggle === false ? "View Case Studies" : "View Case Studies"}
-        </ButtonCustom>
-      </MyBtn>
-    </ListBlogStyle>
-  )
+    // function setMap() {
+    //   if (input && limit > input.fields?.length ? input.fields?.length : 0) {
+    //     setLimit(4)
+    //     setOrinal(0)
+    //   } else {
+    //     setOrinal(orinal + 4)
+    //     setLimit(limit + 4)
+    //   }
+    // }
+    const handelClickLoadMore = () => {
+        setToggle(!toggle)
+    }
+    return (
+        <ListBlogStyle>
+            <SubTitle>OUR WORK</SubTitle>
+            <Title>Case Studies</Title>
+            <Rows className="row">
+                {input.fields
+                    ?.slice(0, toggle ? input?.length : 4)
+                    ?.map((edge, index) => (
+                        <Colum
+                            className={`${input.length === 3 ? "col-md-4" : "col-md-6"}`}
+                            key={index}
+                        >
+                            <DivIMG
+                                as={Link}
+                                to={`/projects/${edge.project_item.relationship_to_project_category._meta.uid}/${edge.project_item._meta.uid}`}
+                            >
+                                <Img
+                                    alt={edge.project_item.project_header_image.alt}
+                                    src={edge.project_item.project_header_image.url}
+                                />
+                                <Phur></Phur>
+                            </DivIMG>
+                            <TitleImageBlog>
+                                <Span>{edge.project_item.name_category_of_project}</Span>
+                                <H3>{edge.project_item.project_name.map(item => item.text)}</H3>
+                            </TitleImageBlog>
+                        </Colum>
+                    ))}
+            </Rows>
+            <MyBtn>
+                <ButtonCustom
+                    wt="212"
+                    ht="48"
+                    lineh="48"
+                    className="btn-studies"
+                    id="loadMore"
+                    onClick={handelClickLoadMore}
+                >
+                    {toggle === false ? "View Case Studies" : "View Case Studies"}
+                </ButtonCustom>
+            </MyBtn>
+        </ListBlogStyle>
+    )
 }
 
 export default ProjectTiles
@@ -71,7 +71,7 @@ const ListBlogStyle = styled.div`
   margin-left: 32px;
   margin-right: 32px;
   .col-md-6 {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     padding: 0 16px;
   }
   .img {
@@ -266,7 +266,7 @@ const ButtonCustom = styled.button`
   border: 2px solid #fecf09;
   border-radius: 3px;
   background-color: ${({ bgColor }) =>
-    bgColor === null ? "transparent" : bgColor};
+        bgColor === null ? "transparent" : bgColor};
   color: ${({ textColor }) => textColor};
   outline: none;
   padding-left: 0px;
