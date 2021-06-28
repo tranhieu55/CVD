@@ -77,25 +77,11 @@ const WrapperHeader = styled.div`
     border-bottom: ${({ show }) =>
       show > 101 ? "1px solid #D3DBDD " : "none"};
 
-    box-shadow: ${({ show }) =>
-      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-    -webkit-box-shadow: ${({ show }) =>
-      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-    -moz-box-shadow: ${({ show }) =>
-      show > 101 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-
     @media (max-width: 992px) {
       background-color: ${({ show }) =>
         show > 30 ? "white !important" : "transparent"};
       border-bottom: ${({ show }) =>
         show > 30 ? "1px solid #D3DBDD " : "none"};
-
-      box-shadow: ${({ show }) =>
-        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-      -webkit-box-shadow: ${({ show }) =>
-        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
-      -moz-box-shadow: ${({ show }) =>
-        show > 30 ? "1px 1px 5px 0px rgba(211,219,221,1) " : "none"};
     }
   }
 
@@ -978,8 +964,6 @@ const WrapperHeader = styled.div`
       }
     }
     .wraper-header {
-      box-shadow: ${({ show }) =>
-        show < 100 ? "" : "1px 1px 5px 0px rgba(211,219,221,1)"};
       width: 100vw;
     }
     .nav-bar_1024px_down {
