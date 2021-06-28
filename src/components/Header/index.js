@@ -173,8 +173,12 @@ const WrapperHeader = styled.div`
     padding-bottom: 0px;
 
     @media (min-width: 993px) {
-      animation-name: ${({ scroll, show }) =>
-        scroll === false && show > 101 ? "close-sticky" : "open-sticky"};
+      animation-name: ${({ scroll, show, activeAnimationClose }) =>
+        scroll === false && show > 101
+          ? activeAnimationClose
+            ? "close-sticky-2"
+            : "close-sticky"
+          : "open-sticky"};
 
       animation-duration: 800ms;
       animation-fill-mode: forwards;
@@ -182,6 +186,15 @@ const WrapperHeader = styled.div`
       @keyframes close-sticky {
         from {
           top: 0;
+        }
+        to {
+          top: -77px;
+        }
+      }
+
+      @keyframes close-sticky-2 {
+        from {
+          top: -77px;
         }
         to {
           top: -77px;
@@ -1341,8 +1354,15 @@ const Header = ({
   const [show, setShow] = useState(0)
   const [stateMenu, setStateMenu] = useState(false)
   const [activeHover, setActiveHover] = useState(-1)
+  const [activeAnimationClose, setActiveAnimationClose] = useState(true)
 
-  // const [translateHeader, setTranslateHeader] = useState(false)
+  // handle change animatoiin close
+  useEffect(() => {
+    if (show > 101 && scroll === true) setActiveAnimationClose(false)
+    if (show <= 101) setActiveAnimationClose(true)
+    // eslint-disable-next-line
+  }, [show, scroll])
+
   const ref = useRef()
   useOnClickOutside(ref, () => setIsDisPlayModalOurwork(false))
   useOnClickOutside(ref, () => setIsDisPlayModalService(false))
@@ -1525,6 +1545,7 @@ const Header = ({
       isDisPlayModalService={isDisPlayModalService}
       isDisPlayModalOurwork={isDisPlayModalOurwork}
       animation={isDisPlayModalService}
+      activeAnimationClose={activeAnimationClose}
     >
       <Navbar
         expand="lg"
