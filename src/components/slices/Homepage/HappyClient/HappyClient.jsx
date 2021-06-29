@@ -132,19 +132,23 @@ const HappyClients = styled.div`
     :focus{
       outline: none;
     }
+    &::before {
+      content: "\f060";
+      height: 21px;
+      width: 18px;
+      font-family: "Font Awesome 5 Pro Regular";
+      color: #8A8A8A;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 21px;
+      text-align: right;
+      opacity: 0.5;
+    }
     :hover {
       color: #aaabab;
-    }
-    &::before {
-      content: "\f177";
-      height: 24px;
-      width: 28px;
-      font-family: "Font Awesome 5 Pro Regular";
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: 0;
-      line-height: 24px;
-      text-align: center;
+      &::before {
+        opacity: 1;
+      }
     }
   }
   .owl-next{
@@ -158,19 +162,22 @@ const HappyClients = styled.div`
     :focus{
       outline: none;
     }
-    :hover {
-      color: #aaabab;
-    }
     &::before {
-      content: "\f178";
-      height: 24px;
-      width: 28px;
+      content: "\f061";
+      height: 21px;
+      width: 18px;
       font-family: "Font Awesome 5 Pro Regular";
-      font-size: 32px;
-      font-weight: 300;
+      color: #8A8A8A;
+      font-size: 20px;
       letter-spacing: 0;
-      line-height: 24px;
-      text-align: center;
+      line-height: 21px;
+      text-align: right;
+      opacity: 0.5;
+    }
+    :hover {
+      &::before {
+        opacity: 1;
+      }
     }
   }
   .owl-carousel{

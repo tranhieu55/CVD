@@ -1703,7 +1703,6 @@ const Header = ({
                         to={`/${item.slug_menu_item[0]?.text}`}
                         className={`${checkColorText()} colorWhite edit-item-a`}
                         onClick={() => {
-                          console.log(`${item.slug_menu_item[0]?.text}`)
                           return (document.body.style.overflow = "scroll")
                         }}
                         onMouseEnter={() => handelHover()}

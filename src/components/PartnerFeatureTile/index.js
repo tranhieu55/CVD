@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 
 function PartnerFeatureTile({ input }) {
-  console.log({ input })
   return (
     <Container>
       <Body>
