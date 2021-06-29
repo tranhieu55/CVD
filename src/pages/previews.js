@@ -158,6 +158,9 @@ function Preview({ data: { prismic } }) {
     prismic && prismic?.allNotfound_pages?.edges[0]?.node
       ? prismic?.allNotfound_pages?.edges[0]?.node
       : []
+
+  console.log({ prismic })
+
   return (
     <>
       <GlobalStyle />
@@ -198,13 +201,16 @@ export const pageQuery = graphql`
               }
               ... on PRISMIC_Notfound_pageBody_partner_feature_tile {
                 type
+                label
                 fields {
                   text
-                  logo
                   subtitle
                   name_link
+                  logo
                   link_page {
                     ... on PRISMIC_Partners_page {
+                      title
+                      description
                       _meta {
                         uid
                       }
