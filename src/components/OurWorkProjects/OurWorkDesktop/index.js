@@ -5,6 +5,8 @@ import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
   const data = dataHeaderOurwork.edges[0]?.node?.body
+
+  console.log({ data })
   return (
     <Container>
       <Body>
@@ -133,6 +135,9 @@ const OurWork = styled.p`
   a:hover {
     color: #222222;
     text-decoration: none;
+  }
+  a:hover {
+    color: #fecf09;
   }
   border-bottom: 1px solid #eeeeee;
 `

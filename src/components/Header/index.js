@@ -1330,6 +1330,8 @@ const Header = ({
     dataServicesMenu && dataServicesMenu?.edges[0]?.node?.body
       ? dataServicesMenu?.edges[0]?.node?.body
       : []
+
+      console.log({dataServices})
   const dataMN = dataMenuHeader
     ? dataMenuHeader.edges[0]?.node?.body?.filter(el =>
         el.type ? el.type === "menu_items" : ""
