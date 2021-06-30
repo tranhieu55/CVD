@@ -59,9 +59,9 @@ const HappyClinetssss = loadable(() =>
 const PlatformTrio = loadable(() =>
   import("../components/slices/Homepage/PlatformTrio")
 )
-const ThreeColum = loadable(() =>{
+const ThreeColum = loadable(() =>
   import("../components/ColumCaseStudy/ThreeColum")
-})
+)
 
 const SliceZone = props => {
   if (props.allSlices) {
