@@ -1331,7 +1331,6 @@ const Header = ({
       ? dataServicesMenu?.edges[0]?.node?.body
       : []
 
-      console.log({dataServices})
   const dataMN = dataMenuHeader
     ? dataMenuHeader.edges[0]?.node?.body?.filter(el =>
         el.type ? el.type === "menu_items" : ""
@@ -1793,7 +1792,7 @@ const Header = ({
                                       />
                                       <Link
                                         className="list-title-services"
-                                        to="/"
+                                        to={`${item?.link_services?._meta?.uid}`}
                                       >
                                         {item.title_service_item[0]?.text}
                                       </Link>
@@ -1880,7 +1879,7 @@ const Header = ({
                                       <a
                                         className="learn-more"
                                         href={
-                                          "/projects/" +
+                                          "/projects/" + `${item?.link_learn_more?.relationship_to_project_category?._meta.uid}/` +
                                           item?.link_learn_more?._meta?.uid
                                         }
                                       >

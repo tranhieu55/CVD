@@ -34,6 +34,22 @@ const Layout = ({
                   type
                   label
                   fields {
+                    link_content {
+                      ... on PRISMIC_Projects {
+                        _meta {
+                          uid
+                        }
+                        relationship_to_project_category {
+                          ... on PRISMIC_Category_ourwork {
+                            _meta {
+                              uid
+                            }
+                          }
+                        }
+                        name_category_of_project
+                        project_name
+                      }
+                    }
                     content
                   }
                   primary {
@@ -50,6 +66,22 @@ const Layout = ({
                     title_image
                     image_feautured
                     sub_image
+                    link_project{
+                      ... on PRISMIC_Projects {
+                        _meta {
+                          uid
+                        }
+                        relationship_to_project_category {
+                          ... on PRISMIC_Category_ourwork {
+                            _meta {
+                              uid
+                            }
+                          }
+                        }
+                        name_category_of_project
+                        project_name
+                      }
+                    }
                   }
                 }
                 ... on PRISMIC_Ourwork_headerBodyJust_launched {
@@ -57,6 +89,14 @@ const Layout = ({
                   label
                   fields {
                     image_launched
+                    link_page {
+                      ... on PRISMIC_Launches_page {
+                        title
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
                   }
                   primary {
                     title
@@ -76,6 +116,13 @@ const Layout = ({
                   fields {
                     image_service_item
                     title_service_item
+                    link_services {
+                      ... on PRISMIC_Page_404 {
+                        _meta {
+                          uid
+                        }
+                      }
+                    }
                   }
                   primary {
                     title
@@ -92,6 +139,13 @@ const Layout = ({
                       ... on PRISMIC_Projects {
                         _meta {
                           uid
+                        }
+                        relationship_to_project_category {
+                          ... on PRISMIC_Category_ourwork {
+                            _meta {
+                              uid
+                            }
+                          }
                         }
                       }
                     }

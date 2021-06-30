@@ -24,7 +24,6 @@ import OurLaster from "../components/slices/Homepage/OurLaster/index"
 import TwoColumA from "../components/ColumCaseStudy/TwoColumA"
 import TwoColumB from "../components/ColumCaseStudy/TwoColumB"
 import TwoColumC from "../components/ColumCaseStudy/TwoColumC"
-import ThreeColum from "../components/ColumCaseStudy/ThreeColum"
 import FullColum from "../components/ColumCaseStudy/ColumFullA"
 import ColumSilder from "../components/ColumCaseStudy/ColumSilder"
 import FormSumits from "../components/Contact/FormSubmit/index"
@@ -60,6 +59,9 @@ const HappyClinetssss = loadable(() =>
 const PlatformTrio = loadable(() =>
   import("../components/slices/Homepage/PlatformTrio")
 )
+const ThreeColum = loadable(() =>{
+  import("../components/ColumCaseStudy/ThreeColum")
+})
 
 const SliceZone = props => {
   if (props.allSlices) {

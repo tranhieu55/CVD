@@ -5,17 +5,15 @@ import IMG from "../../Image"
 
 const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
   const data = dataHeaderOurwork.edges[0]?.node?.body
-
-  console.log({ data })
   return (
     <Container>
       <Body>
         <ListOurWork animation={isDisPlayModalOurwork}>
-          <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle>
+          <SubTitle>{data[0]?.primary?.title[0]?.text}</SubTitle> 
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
               <OurWork key={key}>
-                <Link to="/">{item?.text}</Link>
+                <Link to={`/projects/${data[0]?.fields[0]?.link_content.relationship_to_project_category._meta.uid}/${data[0]?.fields[0].link_content._meta.uid}`}>{item?.text}</Link>
               </OurWork>
             )
           })}
@@ -23,7 +21,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
         <Grid>
           <ListCaseStudy animation={isDisPlayModalOurwork}>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
-            <DivIMG as={Link} className="imagefull mask" to="#">
+            <DivIMG as={Link} className="imagefull mask" to={`/projects/${data[1]?.fields[0]?.link_project.relationship_to_project_category._meta.uid}/${data[1]?.fields[0].link_project._meta.uid}`}>
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
                 objectFit="cover"
@@ -38,7 +36,7 @@ const OurWorkDesktop = ({ dataHeaderOurwork, isDisPlayModalOurwork }) => {
           </ListCaseStudy>
           <ListImage animation={isDisPlayModalOurwork}>
             <SubTitle>{data[2]?.primary?.title[0]?.text}</SubTitle>
-            <BlockImage>
+            <BlockImage as={Link} to={`/${data[2]?.fields[0].link_page._meta.uid}`}>
               {data[2]?.fields?.map((item, index) => {
                 return (
                   <Img

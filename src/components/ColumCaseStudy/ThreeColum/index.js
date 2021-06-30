@@ -1,10 +1,26 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
+import OwlCarousels from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
+
+const isBrowser = typeof window !== "undefined"
 
 export default function ThreeColum(props) {
+  const [width, setWindowSize] = useState(window.innerWidth)
+  useEffect(() => {
+    if (isBrowser) {
+      function handleResize() {
+        setWindowSize(window.innerWidth)
+      }
+      window.addEventListener("resize", handleResize)
+      handleResize()
+      return () => window.removeEventListener("resize", handleResize)
+    }
+  }, [])
   return (
     <Box>
-      {props ? (
+      {props && width >= 600 ? (
         <Container>
           <DivImg
             show={
@@ -68,7 +84,73 @@ export default function ThreeColum(props) {
           </DivImg>
         </Container>
       ) : (
-        <></>
+        <OwlCarousels
+        margin={26}
+        autoWidth={true}
+        items={2}
+        className="owl-theme"
+      >
+        <DivImg
+            show={
+              props?.input?.primary?.image_side_left?.alt
+                ? props?.input?.primary?.image_side_left?.alt
+                : ""
+            }
+          >
+            <Img
+              alt={
+                props?.input?.primary?.image_side_left?.alt
+                  ? props?.input?.primary?.image_side_left?.alt
+                  : ""
+              }
+              src={
+                props?.input?.primary?.image_side_left?.url
+                  ? props?.input?.primary?.image_side_left?.url
+                  : ""
+              }
+            ></Img>
+          </DivImg>
+          <DivImg
+            show={
+              props?.input?.primary?.image_side_left?.alt
+                ? props?.input?.primary?.image_side_left?.alt
+                : ""
+            }
+          >
+            <Img
+              alt={
+                props?.input?.primary?.image_center?.alt
+                  ? props?.input?.primary?.image_center?.alt
+                  : ""
+              }
+              src={
+                props?.input?.primary?.image_center?.url
+                  ? props?.input?.primary?.image_center?.url
+                  : ""
+              }
+            ></Img>
+          </DivImg>
+          <DivImg
+            show={
+              props?.input?.primary?.image_side_left?.alt
+                ? props?.input?.primary?.image_side_left?.alt
+                : ""
+            }
+          >
+            <Img
+              alt={
+                props?.input?.primary?.image_side_right?.alt
+                  ? props?.input?.primary?.image_side_right?.alt
+                  : ""
+              }
+              src={
+                props?.input?.primary?.image_side_right?.url
+                  ? props?.input?.primary?.image_side_right?.url
+                  : ""
+              }
+            ></Img>
+          </DivImg>
+      </OwlCarousels>
       )}
     </Box>
   )
@@ -76,11 +158,49 @@ export default function ThreeColum(props) {
 
 const Box = styled.div`
   @media (max-width: 600px) {
-    margin: 0px 16px 28px;
+    margin: 0px 0px 28px;
+    height: 432px
   }
   @media (min-width: 600px) {
     margin: 0px;
   }
+  .owl-carousel.owl-loaded {
+    height: 100%;
+  }
+  .owl-carousel.owl-drag .owl-item {
+    @media (max-width: 600px) {
+      width: 258px !important;
+      margin-right: 22px !important;
+      height: 100%;
+    }
+  }
+  .owl-carousel .owl-stage{
+    height: 100%;
+  }
+  .owl-carousel .owl-stage-outer {
+    height: 100%;
+    width: 100%;
+  }
+  .owl-theme .owl-nav.disabled + .owl-dots {
+    width: 400px;
+    margin: 46px auto 0px;
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+    @media (max-width: 600px) {
+      width: 200px;
+      margin: 59px auto 0px;
+    }
+  }
+  .owl-carousel .owl-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .owl-theme .owl-dots .owl-dot {
+    display: none;
+  }
+  
 `
 
 const Container = styled.div`
@@ -152,12 +272,9 @@ const Img = styled.img`
     height: ${props =>
       props.alt !== "image item 1" && props.alt !== "item image"
         ? "100%"
-        : "378px"};
+        : "432px"};
     object-fit: cover;
-    margin: ${props =>
-      props.alt !== "image item 1" && props.alt !== "item image"
-        ? "0px"
-        : "33px 37px"};
+    margin: 0px;
   }
   @media (min-width: 600px) {
     width: ${props =>
@@ -207,16 +324,10 @@ const Img = styled.img`
 const DivImg = styled.div`
   width: 31.6%;
   height: 100%;
-  object-fit: contain;
-
   background-color: ${props =>
     props.alt === "image item 1" && props.alt === "item image" ? "" : ""};
   @media (max-width: 600px) {
     width: 258px;
-    height: 100%;
-    display: table;
-    margin-right: 22px;
-    background-color: ${props =>
-      props.alt === "image item 1" && props.alt === "item image" ? "" : ""};
+    height: 432px;
   }
 `

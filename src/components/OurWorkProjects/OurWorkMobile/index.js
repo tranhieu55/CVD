@@ -48,7 +48,7 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
           {data[0]?.fields[0]?.content?.map((item, key) => {
             return (
               <OurWork key={key}>
-                <Link to="#">{item?.text}</Link>
+                <Link to={`/projects/${data[0]?.fields[0]?.link_content.relationship_to_project_category._meta.uid}/${data[0]?.fields[0].link_content._meta.uid}`}>{item?.text}</Link>
               </OurWork>
             )
           })}
@@ -59,12 +59,7 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
             <DivIMG
               as={Link}
               className="imagefull mask"
-              to="/"
-              // to={
-              //   "projects/" +
-              //   `${dataServices[2]?.primary.launches_project.relationship_to_project_category._meta.uid}/` +
-              //   `${dataServices[2]?.primary.launches_project._meta.uid}`
-              // }
+              to={`/projects/${data[1]?.fields[0]?.link_project.relationship_to_project_category._meta.uid}/${data[1]?.fields[0].link_project._meta.uid}`}
             >
               <IMG
                 src={data[1]?.fields[0]?.image_feautured?.url}
@@ -80,7 +75,7 @@ const OurWorkMobile = ({ dataHeaderOurwork, checkValue, checkClose }) => {
           </ListCaseStudy>
           <ListImage>
             <SubTitle>{data[1]?.primary?.title[0]?.text}</SubTitle>
-            <BlockImage>
+            <BlockImage as={Link} to={`/${data[2]?.fields[0].link_page._meta.uid}`}>
               {data[2]?.fields?.map((item, index) => {
                 return (
                   <Img
