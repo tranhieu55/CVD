@@ -898,6 +898,41 @@ const WrapperHeader = styled.div`
         padding-left: 16px;
         padding-bottom: 16px;
       }
+      animation-name: ${({ scroll, show, activeAnimationClose }) =>
+        scroll === false && show > 101
+          ? activeAnimationClose
+            ? "close-sticky-2"
+            : "close-sticky"
+          : "open-sticky"};
+
+      animation-duration: 800ms;
+      animation-fill-mode: forwards;
+
+      @keyframes close-sticky {
+        from {
+          top: 0;
+        }
+        to {
+          top: -77px;
+        }
+      }
+
+      @keyframes close-sticky-2 {
+        from {
+          top: -77px;
+        }
+        to {
+          top: -77px;
+        }
+      }
+      @keyframes open-sticky {
+        from {
+          top: -77px;
+        }
+        to {
+          top: 0;
+        }
+      }
     }
     .form-inline {
       padding-bottom: 16px;
@@ -1535,6 +1570,7 @@ const Header = ({
     setIsDisPlayModalOurwork(data)
     document.body.style.overflow = "scroll"
   }
+  console.log({scroll})
   return (
     <WrapperHeader
       dataGlobalMessage={dataGlobalMessage}

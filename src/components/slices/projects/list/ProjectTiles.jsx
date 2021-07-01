@@ -52,7 +52,7 @@ const ProjectTiles = ({ input }) => {
                 <ButtonCustom
                     wt="212"
                     ht="48"
-                    lineh="48"
+                    lineh="50"
                     className="btn-studies"
                     id="loadMore"
                     onClick={handelClickLoadMore}
@@ -133,7 +133,7 @@ const Title = styled.p`
   line-height: 56px;
   margin-bottom: -15px;
   margin-top: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 13px;
   @media (max-width: 1024px) {
     margin-bottom: 10px;
   }
