@@ -296,5 +296,4 @@ const OurWorkDetail = props => {
     </Layout>
   )
 }
-// build
 export default OurWorkDetail
